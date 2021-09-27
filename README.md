@@ -12,7 +12,7 @@ Here are some examples on how to use Fitkit:
 * [Reading a FIT file](#reading-a-fit-file)
 * [Writing a FIT file](#writing-a-fit-file)
 
-More examples can be found in the [example](./example) directory.
+More examples can be found in the [example](https://bitbucket.org/stagescycling/fit_tool/src/main/example/) directory.
 
 > &#x26a0;&#xfe0f; Note that in the following examples, we often refer to files in the `test/data` directory. To 
 > actually run these examples successfully you may need to modify the file paths.
