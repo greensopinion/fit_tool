@@ -14,7 +14,6 @@ import 'developer_field.dart';
 import 'fit_file.dart';
 import 'fit_file_header.dart';
 
-
 class MessageConversionSink extends ByteConversionSink {
   MessageConversionSink(this._outSink, {this.checkCrc = true});
 
@@ -178,12 +177,10 @@ class MessageConversionSink extends ByteConversionSink {
   }
 
   @override
-  void addSlice(List<int> chunk, int start, int end, bool isLast) {
-  }
+  void addSlice(List<int> chunk, int start, int end, bool isLast) {}
 }
 
 class FitDecoder extends Converter<List<int>, Message> {
-
   FitDecoder({this.checkCrc = true});
 
   final bool checkCrc;

@@ -21,12 +21,10 @@ Future<void> main() async {
     var includeRecord = true;
 
     if (message.globalId == RecordMessage.ID) {
-
       // Remove the heart rate field from all record definition and data messages
       message.removeField(RecordHeartRateField.ID);
 
       if (message is RecordMessage) {
-
         // Remove records where the power is too high
         final powerField = message.getField(RecordPowerField.ID);
         if (powerField != null && powerField.isValid()) {
@@ -35,7 +33,6 @@ Future<void> main() async {
             includeRecord = false;
           }
         }
-
       }
     }
 
@@ -45,7 +42,8 @@ Future<void> main() async {
   }
 
   final modifiedFitFile = builder.build();
-  final outFile = await File('./test/out/modified_activity.csv').create(recursive: true);
+  final outFile =
+      await File('./test/out/modified_activity.csv').create(recursive: true);
   final csv = const ListToCsvConverter().convert(modifiedFitFile.toRows());
   await outFile.writeAsString(csv);
 }

@@ -6,14 +6,13 @@ import 'package:fit_tool/src/profile/messages/file_id_message.dart';
 import 'package:fit_tool/src/profile/messages/workout_message.dart';
 import 'package:fit_tool/src/profile/messages/workout_step_message.dart';
 import 'package:fit_tool/src/profile/profile_type.dart';
-import 'package:fit_tool/src/utils/conversions.dart';
 
 Future<void> main() async {
   final fileIdMessage = FileIdMessage()
     ..type = FileType.workout
     ..manufacturer = Manufacturer.development.value
     ..product = 0
-    ..timeCreated =DateTime.now().millisecondsSinceEpoch
+    ..timeCreated = DateTime.now().millisecondsSinceEpoch
     ..serialNumber = 0x12345678;
 
   final workoutSteps = [
