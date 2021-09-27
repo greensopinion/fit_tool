@@ -1,6 +1,6 @@
 /// A library for reading and writing Garmin FIT files.
 ///
-library fitkit;
+library fit_tool;
 
 export 'src/base_type.dart';
 export 'src/constants.dart';
