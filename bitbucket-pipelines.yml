@@ -12,7 +12,7 @@ definitions:
     - step: &format
         name: Format Test
         script:
-          - (cd lib/src && dart format --set-exit-if-changed .)
+          - (cd lib && dart format --set-exit-if-changed .)
 
 
 pipelines:
@@ -20,7 +20,7 @@ pipelines:
     - step: *format
 
   branches:
-    '{master,develop,release/*}':
+    '{main,develop,release/*}':
     - step: *format
 
   pull-requests:
