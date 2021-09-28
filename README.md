@@ -45,7 +45,7 @@ Future<void> main() async {
 
 In this next example we read a file by using Dart [streams](https://dart.dev/tutorials/language/streams) which can be a 
 very powerful way to process FIT data. In the following example we open a FIT file as a byte stream and then transform
-this stream to a message stream using the provided `FITDecoder`.
+this stream to a message stream using the provided `FitDecoder`.
 
 ```dart
 import 'dart:io';
