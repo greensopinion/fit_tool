@@ -1,0 +1,28 @@
+# Configuration file for Bitbucket pipeline builds.
+# 
+# Only use spaces to indent your .yml configuration.
+# -----
+
+image:
+  name: dart:stable
+
+definitions:
+
+  steps:
+    - step: &format
+        name: Format Test
+        script:
+          - (cd lib/src && dart format --set-exit-if-changed .)
+
+
+pipelines:
+  default:
+    - step: *format
+
+  branches:
+    '{master,develop,release/*}':
+    - step: *format
+
+  pull-requests:
+    '**':
+    - step: *format

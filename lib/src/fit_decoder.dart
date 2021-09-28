@@ -14,6 +14,25 @@ import 'developer_field.dart';
 import 'fit_file.dart';
 import 'fit_file_header.dart';
 
+class FitDecoder extends Converter<List<int>, Message> {
+  FitDecoder({this.checkCrc = true});
+
+  final bool checkCrc;
+
+  @override
+  Message convert(List<int> input) {
+    return WorkoutStepMessage();
+  }
+
+  @override
+  Sink<List<int>> startChunkedConversion(Sink<Message> sink) {
+    return MessageConversionSink(sink, checkCrc: checkCrc);
+  }
+
+  @override
+  Stream<Message> bind(Stream<List<int>> stream) => super.bind(stream);
+}
+
 class MessageConversionSink extends ByteConversionSink {
   MessageConversionSink(this._outSink, {this.checkCrc = true});
 
@@ -178,23 +197,4 @@ class MessageConversionSink extends ByteConversionSink {
 
   @override
   void addSlice(List<int> chunk, int start, int end, bool isLast) {}
-}
-
-class FitDecoder extends Converter<List<int>, Message> {
-  FitDecoder({this.checkCrc = true});
-
-  final bool checkCrc;
-
-  @override
-  Message convert(List<int> input) {
-    return WorkoutStepMessage();
-  }
-
-  @override
-  Sink<List<int>> startChunkedConversion(Sink<Message> sink) {
-    return MessageConversionSink(sink, checkCrc: checkCrc);
-  }
-
-  @override
-  Stream<Message> bind(Stream<List<int>> stream) => super.bind(stream);
 }
