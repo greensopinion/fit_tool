@@ -33,7 +33,10 @@ class FieldDefinition {
   }
 
   Uint8List toBytes() {
-    final bb = BytesBuilder()..addByte(id)..addByte(size)..addByte(type.value);
+    final bb = BytesBuilder()
+      ..addByte(id)
+      ..addByte(size)
+      ..addByte(type.value);
     return bb.toBytes();
   }
 }
