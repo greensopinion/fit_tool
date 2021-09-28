@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class SegmentIdMessage extends DataMessage {
-
-   SegmentIdMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  SegmentIdMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: SegmentIdMessage.NAME,
@@ -25,31 +27,60 @@ class SegmentIdMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               SegmentIdNameField(
-                  size: definitionMessage?.getFieldDefinition(SegmentIdNameField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentIdNameField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentIdUuidField(
-                  size: definitionMessage?.getFieldDefinition(SegmentIdUuidField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentIdUuidField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentIdSportField(
-                  size: definitionMessage?.getFieldDefinition(SegmentIdSportField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentIdSportField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentIdEnabledField(
-                  size: definitionMessage?.getFieldDefinition(SegmentIdEnabledField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentIdEnabledField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentIdUserProfilePrimaryKeyField(
-                  size: definitionMessage?.getFieldDefinition(SegmentIdUserProfilePrimaryKeyField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentIdUserProfilePrimaryKeyField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentIdDeviceIdField(
-                  size: definitionMessage?.getFieldDefinition(SegmentIdDeviceIdField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentIdDeviceIdField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentIdDefaultRaceLeaderField(
-                  size: definitionMessage?.getFieldDefinition(SegmentIdDefaultRaceLeaderField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentIdDefaultRaceLeaderField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentIdDeleteStatusField(
-                  size: definitionMessage?.getFieldDefinition(SegmentIdDeleteStatusField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentIdDeleteStatusField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentIdSelectionTypeField(
-                  size: definitionMessage?.getFieldDefinition(SegmentIdSelectionTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentIdSelectionTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -65,9 +96,8 @@ class SegmentIdMessage extends DataMessage {
     return message;
   }
 
-
   String? get segmentIdName {
-     final field = getField(SegmentIdNameField.ID);
+    final field = getField(SegmentIdNameField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -75,7 +105,8 @@ class SegmentIdMessage extends DataMessage {
       return null;
     }
   }
-   set segmentIdName(String? value) {
+
+  set segmentIdName(String? value) {
     final field = getField(SegmentIdNameField.ID);
 
     if (field != null) {
@@ -87,8 +118,9 @@ class SegmentIdMessage extends DataMessage {
       }
     }
   }
+
   String? get uuid {
-     final field = getField(SegmentIdUuidField.ID);
+    final field = getField(SegmentIdUuidField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -96,7 +128,8 @@ class SegmentIdMessage extends DataMessage {
       return null;
     }
   }
-   set uuid(String? value) {
+
+  set uuid(String? value) {
     final field = getField(SegmentIdUuidField.ID);
 
     if (field != null) {
@@ -108,9 +141,10 @@ class SegmentIdMessage extends DataMessage {
       }
     }
   }
+
   Sport? get sport {
-     final field = getField(SegmentIdSportField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(SegmentIdSportField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -121,7 +155,8 @@ class SegmentIdMessage extends DataMessage {
       return null;
     }
   }
-   set sport(Sport? value) {
+
+  set sport(Sport? value) {
     final field = getField(SegmentIdSportField.ID);
 
     if (field != null) {
@@ -133,8 +168,9 @@ class SegmentIdMessage extends DataMessage {
       }
     }
   }
+
   bool? get enabled {
-     final field = getField(SegmentIdEnabledField.ID);
+    final field = getField(SegmentIdEnabledField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -142,7 +178,8 @@ class SegmentIdMessage extends DataMessage {
       return null;
     }
   }
-   set enabled(bool? value) {
+
+  set enabled(bool? value) {
     final field = getField(SegmentIdEnabledField.ID);
 
     if (field != null) {
@@ -154,8 +191,9 @@ class SegmentIdMessage extends DataMessage {
       }
     }
   }
+
   int? get userProfilePrimaryKey {
-     final field = getField(SegmentIdUserProfilePrimaryKeyField.ID);
+    final field = getField(SegmentIdUserProfilePrimaryKeyField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -163,7 +201,8 @@ class SegmentIdMessage extends DataMessage {
       return null;
     }
   }
-   set userProfilePrimaryKey(int? value) {
+
+  set userProfilePrimaryKey(int? value) {
     final field = getField(SegmentIdUserProfilePrimaryKeyField.ID);
 
     if (field != null) {
@@ -175,8 +214,9 @@ class SegmentIdMessage extends DataMessage {
       }
     }
   }
+
   int? get deviceId {
-     final field = getField(SegmentIdDeviceIdField.ID);
+    final field = getField(SegmentIdDeviceIdField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -184,7 +224,8 @@ class SegmentIdMessage extends DataMessage {
       return null;
     }
   }
-   set deviceId(int? value) {
+
+  set deviceId(int? value) {
     final field = getField(SegmentIdDeviceIdField.ID);
 
     if (field != null) {
@@ -196,8 +237,9 @@ class SegmentIdMessage extends DataMessage {
       }
     }
   }
+
   int? get defaultRaceLeader {
-     final field = getField(SegmentIdDefaultRaceLeaderField.ID);
+    final field = getField(SegmentIdDefaultRaceLeaderField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -205,7 +247,8 @@ class SegmentIdMessage extends DataMessage {
       return null;
     }
   }
-   set defaultRaceLeader(int? value) {
+
+  set defaultRaceLeader(int? value) {
     final field = getField(SegmentIdDefaultRaceLeaderField.ID);
 
     if (field != null) {
@@ -217,9 +260,10 @@ class SegmentIdMessage extends DataMessage {
       }
     }
   }
+
   SegmentDeleteStatus? get deleteStatus {
-     final field = getField(SegmentIdDeleteStatusField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(SegmentIdDeleteStatusField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -230,7 +274,8 @@ class SegmentIdMessage extends DataMessage {
       return null;
     }
   }
-   set deleteStatus(SegmentDeleteStatus? value) {
+
+  set deleteStatus(SegmentDeleteStatus? value) {
     final field = getField(SegmentIdDeleteStatusField.ID);
 
     if (field != null) {
@@ -242,9 +287,10 @@ class SegmentIdMessage extends DataMessage {
       }
     }
   }
+
   SegmentSelectionType? get selectionType {
-     final field = getField(SegmentIdSelectionTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(SegmentIdSelectionTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -255,7 +301,8 @@ class SegmentIdMessage extends DataMessage {
       return null;
     }
   }
-   set selectionType(SegmentSelectionType? value) {
+
+  set selectionType(SegmentSelectionType? value) {
     final field = getField(SegmentIdSelectionTypeField.ID);
 
     if (field != null) {
@@ -267,15 +314,10 @@ class SegmentIdMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class SegmentIdNameField extends Field {
- SegmentIdNameField({int size = 0, bool growable = true})
+  SegmentIdNameField({int size = 0, bool growable = true})
       : super(
             name: 'name',
             id: ID,
@@ -284,14 +326,13 @@ class SegmentIdNameField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class SegmentIdUuidField extends Field {
- SegmentIdUuidField({int size = 0, bool growable = true})
+  SegmentIdUuidField({int size = 0, bool growable = true})
       : super(
             name: 'uuid',
             id: ID,
@@ -300,14 +341,13 @@ class SegmentIdUuidField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class SegmentIdSportField extends Field {
- SegmentIdSportField({int size = 0, bool growable = true})
+  SegmentIdSportField({int size = 0, bool growable = true})
       : super(
             name: 'sport',
             id: ID,
@@ -316,14 +356,13 @@ class SegmentIdSportField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class SegmentIdEnabledField extends Field {
- SegmentIdEnabledField({int size = 0, bool growable = true})
+  SegmentIdEnabledField({int size = 0, bool growable = true})
       : super(
             name: 'enabled',
             id: ID,
@@ -332,14 +371,13 @@ class SegmentIdEnabledField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class SegmentIdUserProfilePrimaryKeyField extends Field {
- SegmentIdUserProfilePrimaryKeyField({int size = 0, bool growable = true})
+  SegmentIdUserProfilePrimaryKeyField({int size = 0, bool growable = true})
       : super(
             name: 'user_profile_primary_key',
             id: ID,
@@ -348,14 +386,13 @@ class SegmentIdUserProfilePrimaryKeyField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class SegmentIdDeviceIdField extends Field {
- SegmentIdDeviceIdField({int size = 0, bool growable = true})
+  SegmentIdDeviceIdField({int size = 0, bool growable = true})
       : super(
             name: 'device_id',
             id: ID,
@@ -364,14 +401,13 @@ class SegmentIdDeviceIdField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }
+
 class SegmentIdDefaultRaceLeaderField extends Field {
- SegmentIdDefaultRaceLeaderField({int size = 0, bool growable = true})
+  SegmentIdDefaultRaceLeaderField({int size = 0, bool growable = true})
       : super(
             name: 'default_race_leader',
             id: ID,
@@ -380,14 +416,13 @@ class SegmentIdDefaultRaceLeaderField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 6;
 }
+
 class SegmentIdDeleteStatusField extends Field {
- SegmentIdDeleteStatusField({int size = 0, bool growable = true})
+  SegmentIdDeleteStatusField({int size = 0, bool growable = true})
       : super(
             name: 'delete_status',
             id: ID,
@@ -396,14 +431,13 @@ class SegmentIdDeleteStatusField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 7;
 }
+
 class SegmentIdSelectionTypeField extends Field {
- SegmentIdSelectionTypeField({int size = 0, bool growable = true})
+  SegmentIdSelectionTypeField({int size = 0, bool growable = true})
       : super(
             name: 'selection_type',
             id: ID,
@@ -412,9 +446,7 @@ class SegmentIdSelectionTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 8;
 }

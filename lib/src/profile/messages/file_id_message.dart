@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class FileIdMessage extends DataMessage {
-
-   FileIdMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  FileIdMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: FileIdMessage.NAME,
@@ -25,25 +27,46 @@ class FileIdMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               FileIdTypeField(
-                  size: definitionMessage?.getFieldDefinition(FileIdTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(FileIdTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               FileIdManufacturerField(
-                  size: definitionMessage?.getFieldDefinition(FileIdManufacturerField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(FileIdManufacturerField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               FileIdProductField(
-                  size: definitionMessage?.getFieldDefinition(FileIdProductField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(FileIdProductField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               FileIdSerialNumberField(
-                  size: definitionMessage?.getFieldDefinition(FileIdSerialNumberField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(FileIdSerialNumberField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               FileIdTimeCreatedField(
-                  size: definitionMessage?.getFieldDefinition(FileIdTimeCreatedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(FileIdTimeCreatedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               FileIdNumberField(
-                  size: definitionMessage?.getFieldDefinition(FileIdNumberField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(FileIdNumberField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               FileIdProductNameField(
-                  size: definitionMessage?.getFieldDefinition(FileIdProductNameField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(FileIdProductNameField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -59,10 +82,9 @@ class FileIdMessage extends DataMessage {
     return message;
   }
 
-
   FileType? get type {
-     final field = getField(FileIdTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(FileIdTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -73,7 +95,8 @@ class FileIdMessage extends DataMessage {
       return null;
     }
   }
-   set type(FileType? value) {
+
+  set type(FileType? value) {
     final field = getField(FileIdTypeField.ID);
 
     if (field != null) {
@@ -85,8 +108,9 @@ class FileIdMessage extends DataMessage {
       }
     }
   }
+
   int? get manufacturer {
-     final field = getField(FileIdManufacturerField.ID);
+    final field = getField(FileIdManufacturerField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -94,7 +118,8 @@ class FileIdMessage extends DataMessage {
       return null;
     }
   }
-   set manufacturer(int? value) {
+
+  set manufacturer(int? value) {
     final field = getField(FileIdManufacturerField.ID);
 
     if (field != null) {
@@ -106,8 +131,9 @@ class FileIdMessage extends DataMessage {
       }
     }
   }
+
   int? get product {
-     final field = getField(FileIdProductField.ID);
+    final field = getField(FileIdProductField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -115,7 +141,8 @@ class FileIdMessage extends DataMessage {
       return null;
     }
   }
-   set product(int? value) {
+
+  set product(int? value) {
     final field = getField(FileIdProductField.ID);
 
     if (field != null) {
@@ -129,13 +156,14 @@ class FileIdMessage extends DataMessage {
   }
 
   int? get faveroProduct {
-     final field = getField(FileIdProductField.ID);
-     final typeField = getField(FileIdManufacturerField.ID);
+    final field = getField(FileIdProductField.ID);
+    final typeField = getField(FileIdManufacturerField.ID);
 
-     final isSubFieldValid = typeField != null && [263].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [263].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -143,7 +171,7 @@ class FileIdMessage extends DataMessage {
 
   set faveroProduct(int? value) {
     final field = getField(FileIdProductField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -154,13 +182,14 @@ class FileIdMessage extends DataMessage {
   }
 
   int? get garminProduct {
-     final field = getField(FileIdProductField.ID);
-     final typeField = getField(FileIdManufacturerField.ID);
+    final field = getField(FileIdProductField.ID);
+    final typeField = getField(FileIdManufacturerField.ID);
 
-     final isSubFieldValid = typeField != null && [1, 15, 13, 89].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [1, 15, 13, 89].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -168,7 +197,7 @@ class FileIdMessage extends DataMessage {
 
   set garminProduct(int? value) {
     final field = getField(FileIdProductField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -177,8 +206,9 @@ class FileIdMessage extends DataMessage {
       }
     }
   }
+
   int? get serialNumber {
-     final field = getField(FileIdSerialNumberField.ID);
+    final field = getField(FileIdSerialNumberField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -186,7 +216,8 @@ class FileIdMessage extends DataMessage {
       return null;
     }
   }
-   set serialNumber(int? value) {
+
+  set serialNumber(int? value) {
     final field = getField(FileIdSerialNumberField.ID);
 
     if (field != null) {
@@ -198,9 +229,10 @@ class FileIdMessage extends DataMessage {
       }
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timeCreated {
-     final field = getField(FileIdTimeCreatedField.ID);
+    final field = getField(FileIdTimeCreatedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -208,8 +240,9 @@ class FileIdMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timeCreated(int? value) {
+  set timeCreated(int? value) {
     final field = getField(FileIdTimeCreatedField.ID);
 
     if (field != null) {
@@ -221,8 +254,9 @@ class FileIdMessage extends DataMessage {
       }
     }
   }
+
   int? get number {
-     final field = getField(FileIdNumberField.ID);
+    final field = getField(FileIdNumberField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -230,7 +264,8 @@ class FileIdMessage extends DataMessage {
       return null;
     }
   }
-   set number(int? value) {
+
+  set number(int? value) {
     final field = getField(FileIdNumberField.ID);
 
     if (field != null) {
@@ -242,8 +277,9 @@ class FileIdMessage extends DataMessage {
       }
     }
   }
+
   String? get productName {
-     final field = getField(FileIdProductNameField.ID);
+    final field = getField(FileIdProductNameField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -251,7 +287,8 @@ class FileIdMessage extends DataMessage {
       return null;
     }
   }
-   set productName(String? value) {
+
+  set productName(String? value) {
     final field = getField(FileIdProductNameField.ID);
 
     if (field != null) {
@@ -263,15 +300,10 @@ class FileIdMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class FileIdTypeField extends Field {
- FileIdTypeField({int size = 0, bool growable = true})
+  FileIdTypeField({int size = 0, bool growable = true})
       : super(
             name: 'type',
             id: ID,
@@ -280,14 +312,13 @@ class FileIdTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class FileIdManufacturerField extends Field {
- FileIdManufacturerField({int size = 0, bool growable = true})
+  FileIdManufacturerField({int size = 0, bool growable = true})
       : super(
             name: 'manufacturer',
             id: ID,
@@ -296,14 +327,13 @@ class FileIdManufacturerField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class FileIdProductField extends Field {
- FileIdProductField({int size = 0, bool growable = true})
+  FileIdProductField({int size = 0, bool growable = true})
       : super(
             name: 'product',
             id: ID,
@@ -313,29 +343,29 @@ class FileIdProductField extends Field {
             size: size,
             growable: growable,
             subFields: [
-       SubField(
+              SubField(
                   name: 'favero_product',
                   type: BaseType.UINT16,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  FileIdManufacturerField.ID: [263]
+                    FileIdManufacturerField.ID: [263]
                   }),
-       SubField(
+              SubField(
                   name: 'garmin_product',
                   type: BaseType.UINT16,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  FileIdManufacturerField.ID: [1, 15, 13, 89]
+                    FileIdManufacturerField.ID: [1, 15, 13, 89]
                   })
-            ]
- );
+            ]);
 
   static const ID = 2;
 }
+
 class FileIdSerialNumberField extends Field {
- FileIdSerialNumberField({int size = 0, bool growable = true})
+  FileIdSerialNumberField({int size = 0, bool growable = true})
       : super(
             name: 'serial_number',
             id: ID,
@@ -344,14 +374,13 @@ class FileIdSerialNumberField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class FileIdTimeCreatedField extends Field {
- FileIdTimeCreatedField({int size = 0, bool growable = true})
+  FileIdTimeCreatedField({int size = 0, bool growable = true})
       : super(
             name: 'time_created',
             id: ID,
@@ -362,14 +391,13 @@ class FileIdTimeCreatedField extends Field {
             units: 'ms',
             mainTypeName: 'date_time',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class FileIdNumberField extends Field {
- FileIdNumberField({int size = 0, bool growable = true})
+  FileIdNumberField({int size = 0, bool growable = true})
       : super(
             name: 'number',
             id: ID,
@@ -378,14 +406,13 @@ class FileIdNumberField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }
+
 class FileIdProductNameField extends Field {
- FileIdProductNameField({int size = 0, bool growable = true})
+  FileIdProductNameField({int size = 0, bool growable = true})
       : super(
             name: 'product_name',
             id: ID,
@@ -394,9 +421,7 @@ class FileIdProductNameField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 8;
 }

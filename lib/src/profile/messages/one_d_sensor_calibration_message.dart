@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class OneDSensorCalibrationMessage extends DataMessage {
-
-   OneDSensorCalibrationMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  OneDSensorCalibrationMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: OneDSensorCalibrationMessage.NAME,
@@ -25,22 +27,45 @@ class OneDSensorCalibrationMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               OneDSensorCalibrationSensorTypeField(
-                  size: definitionMessage?.getFieldDefinition(OneDSensorCalibrationSensorTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              OneDSensorCalibrationSensorTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               OneDSensorCalibrationCalibrationFactorField(
-                  size: definitionMessage?.getFieldDefinition(OneDSensorCalibrationCalibrationFactorField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              OneDSensorCalibrationCalibrationFactorField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               OneDSensorCalibrationCalibrationDivisorField(
-                  size: definitionMessage?.getFieldDefinition(OneDSensorCalibrationCalibrationDivisorField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              OneDSensorCalibrationCalibrationDivisorField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               OneDSensorCalibrationLevelShiftField(
-                  size: definitionMessage?.getFieldDefinition(OneDSensorCalibrationLevelShiftField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              OneDSensorCalibrationLevelShiftField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               OneDSensorCalibrationOffsetCalField(
-                  size: definitionMessage?.getFieldDefinition(OneDSensorCalibrationOffsetCalField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              OneDSensorCalibrationOffsetCalField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -51,15 +76,15 @@ class OneDSensorCalibrationMessage extends DataMessage {
 
   static OneDSensorCalibrationMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
-    final message = OneDSensorCalibrationMessage(definitionMessage: definitionMessage);
+    final message =
+        OneDSensorCalibrationMessage(definitionMessage: definitionMessage);
     message.readFromBytes(bytes);
     return message;
   }
 
-
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -67,8 +92,9 @@ class OneDSensorCalibrationMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -80,9 +106,10 @@ class OneDSensorCalibrationMessage extends DataMessage {
       }
     }
   }
+
   SensorType? get sensorType {
-     final field = getField(OneDSensorCalibrationSensorTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(OneDSensorCalibrationSensorTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -93,7 +120,8 @@ class OneDSensorCalibrationMessage extends DataMessage {
       return null;
     }
   }
-   set sensorType(SensorType? value) {
+
+  set sensorType(SensorType? value) {
     final field = getField(OneDSensorCalibrationSensorTypeField.ID);
 
     if (field != null) {
@@ -105,8 +133,9 @@ class OneDSensorCalibrationMessage extends DataMessage {
       }
     }
   }
+
   int? get calibrationFactor {
-     final field = getField(OneDSensorCalibrationCalibrationFactorField.ID);
+    final field = getField(OneDSensorCalibrationCalibrationFactorField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -114,7 +143,8 @@ class OneDSensorCalibrationMessage extends DataMessage {
       return null;
     }
   }
-   set calibrationFactor(int? value) {
+
+  set calibrationFactor(int? value) {
     final field = getField(OneDSensorCalibrationCalibrationFactorField.ID);
 
     if (field != null) {
@@ -128,13 +158,14 @@ class OneDSensorCalibrationMessage extends DataMessage {
   }
 
   int? get baroCalFactor {
-     final field = getField(OneDSensorCalibrationCalibrationFactorField.ID);
-     final typeField = getField(OneDSensorCalibrationSensorTypeField.ID);
+    final field = getField(OneDSensorCalibrationCalibrationFactorField.ID);
+    final typeField = getField(OneDSensorCalibrationSensorTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [3].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [3].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -142,7 +173,7 @@ class OneDSensorCalibrationMessage extends DataMessage {
 
   set baroCalFactor(int? value) {
     final field = getField(OneDSensorCalibrationCalibrationFactorField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -151,8 +182,9 @@ class OneDSensorCalibrationMessage extends DataMessage {
       }
     }
   }
+
   int? get calibrationDivisor {
-     final field = getField(OneDSensorCalibrationCalibrationDivisorField.ID);
+    final field = getField(OneDSensorCalibrationCalibrationDivisorField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -160,7 +192,8 @@ class OneDSensorCalibrationMessage extends DataMessage {
       return null;
     }
   }
-   set calibrationDivisor(int? value) {
+
+  set calibrationDivisor(int? value) {
     final field = getField(OneDSensorCalibrationCalibrationDivisorField.ID);
 
     if (field != null) {
@@ -172,8 +205,9 @@ class OneDSensorCalibrationMessage extends DataMessage {
       }
     }
   }
+
   int? get levelShift {
-     final field = getField(OneDSensorCalibrationLevelShiftField.ID);
+    final field = getField(OneDSensorCalibrationLevelShiftField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -181,7 +215,8 @@ class OneDSensorCalibrationMessage extends DataMessage {
       return null;
     }
   }
-   set levelShift(int? value) {
+
+  set levelShift(int? value) {
     final field = getField(OneDSensorCalibrationLevelShiftField.ID);
 
     if (field != null) {
@@ -193,8 +228,9 @@ class OneDSensorCalibrationMessage extends DataMessage {
       }
     }
   }
+
   int? get offsetCal {
-     final field = getField(OneDSensorCalibrationOffsetCalField.ID);
+    final field = getField(OneDSensorCalibrationOffsetCalField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -202,7 +238,8 @@ class OneDSensorCalibrationMessage extends DataMessage {
       return null;
     }
   }
-   set offsetCal(int? value) {
+
+  set offsetCal(int? value) {
     final field = getField(OneDSensorCalibrationOffsetCalField.ID);
 
     if (field != null) {
@@ -214,15 +251,10 @@ class OneDSensorCalibrationMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class OneDSensorCalibrationSensorTypeField extends Field {
- OneDSensorCalibrationSensorTypeField({int size = 0, bool growable = true})
+  OneDSensorCalibrationSensorTypeField({int size = 0, bool growable = true})
       : super(
             name: 'sensor_type',
             id: ID,
@@ -231,14 +263,14 @@ class OneDSensorCalibrationSensorTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class OneDSensorCalibrationCalibrationFactorField extends Field {
- OneDSensorCalibrationCalibrationFactorField({int size = 0, bool growable = true})
+  OneDSensorCalibrationCalibrationFactorField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'calibration_factor',
             id: ID,
@@ -248,22 +280,23 @@ class OneDSensorCalibrationCalibrationFactorField extends Field {
             size: size,
             growable: growable,
             subFields: [
-       SubField(
+              SubField(
                   name: 'baro_cal_factor',
                   type: BaseType.UINT32,
                   scale: 1,
                   offset: 0,
                   units: 'Pa',
                   referenceMap: {
-                  OneDSensorCalibrationSensorTypeField.ID: [3]
+                    OneDSensorCalibrationSensorTypeField.ID: [3]
                   })
-            ]
- );
+            ]);
 
   static const ID = 1;
 }
+
 class OneDSensorCalibrationCalibrationDivisorField extends Field {
- OneDSensorCalibrationCalibrationDivisorField({int size = 0, bool growable = true})
+  OneDSensorCalibrationCalibrationDivisorField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'calibration_divisor',
             id: ID,
@@ -274,14 +307,13 @@ class OneDSensorCalibrationCalibrationDivisorField extends Field {
             units: 'counts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class OneDSensorCalibrationLevelShiftField extends Field {
- OneDSensorCalibrationLevelShiftField({int size = 0, bool growable = true})
+  OneDSensorCalibrationLevelShiftField({int size = 0, bool growable = true})
       : super(
             name: 'level_shift',
             id: ID,
@@ -290,14 +322,13 @@ class OneDSensorCalibrationLevelShiftField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class OneDSensorCalibrationOffsetCalField extends Field {
- OneDSensorCalibrationOffsetCalField({int size = 0, bool growable = true})
+  OneDSensorCalibrationOffsetCalField({int size = 0, bool growable = true})
       : super(
             name: 'offset_cal',
             id: ID,
@@ -306,9 +337,7 @@ class OneDSensorCalibrationOffsetCalField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }

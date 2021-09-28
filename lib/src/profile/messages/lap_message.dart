@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class LapMessage extends DataMessage {
-
-   LapMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  LapMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: LapMessage.NAME,
@@ -25,352 +27,714 @@ class LapMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               MessageIndexField(
-                  size: definitionMessage?.getFieldDefinition(MessageIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapEventField(
-                  size: definitionMessage?.getFieldDefinition(LapEventField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapEventField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapEventTypeField(
-                  size: definitionMessage?.getFieldDefinition(LapEventTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapEventTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapStartTimeField(
-                  size: definitionMessage?.getFieldDefinition(LapStartTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapStartTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapStartPositionLatField(
-                  size: definitionMessage?.getFieldDefinition(LapStartPositionLatField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapStartPositionLatField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapStartPositionLongField(
-                  size: definitionMessage?.getFieldDefinition(LapStartPositionLongField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapStartPositionLongField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapEndPositionLatField(
-                  size: definitionMessage?.getFieldDefinition(LapEndPositionLatField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapEndPositionLatField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapEndPositionLongField(
-                  size: definitionMessage?.getFieldDefinition(LapEndPositionLongField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapEndPositionLongField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapTotalElapsedTimeField(
-                  size: definitionMessage?.getFieldDefinition(LapTotalElapsedTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapTotalElapsedTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapTotalTimerTimeField(
-                  size: definitionMessage?.getFieldDefinition(LapTotalTimerTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapTotalTimerTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapTotalDistanceField(
-                  size: definitionMessage?.getFieldDefinition(LapTotalDistanceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapTotalDistanceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapTotalCyclesField(
-                  size: definitionMessage?.getFieldDefinition(LapTotalCyclesField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapTotalCyclesField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapTotalCaloriesField(
-                  size: definitionMessage?.getFieldDefinition(LapTotalCaloriesField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapTotalCaloriesField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapTotalFatCaloriesField(
-                  size: definitionMessage?.getFieldDefinition(LapTotalFatCaloriesField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapTotalFatCaloriesField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgSpeedField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgSpeedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapAvgSpeedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapMaxSpeedField(
-                  size: definitionMessage?.getFieldDefinition(LapMaxSpeedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapMaxSpeedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgHeartRateField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgHeartRateField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapAvgHeartRateField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapMaxHeartRateField(
-                  size: definitionMessage?.getFieldDefinition(LapMaxHeartRateField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapMaxHeartRateField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgCadenceField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgCadenceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapAvgCadenceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapMaxCadenceField(
-                  size: definitionMessage?.getFieldDefinition(LapMaxCadenceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapMaxCadenceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgPowerField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgPowerField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapAvgPowerField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapMaxPowerField(
-                  size: definitionMessage?.getFieldDefinition(LapMaxPowerField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapMaxPowerField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapTotalAscentField(
-                  size: definitionMessage?.getFieldDefinition(LapTotalAscentField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapTotalAscentField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapTotalDescentField(
-                  size: definitionMessage?.getFieldDefinition(LapTotalDescentField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapTotalDescentField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapIntensityField(
-                  size: definitionMessage?.getFieldDefinition(LapIntensityField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapIntensityField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapLapTriggerField(
-                  size: definitionMessage?.getFieldDefinition(LapLapTriggerField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapLapTriggerField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapSportField(
-                  size: definitionMessage?.getFieldDefinition(LapSportField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapSportField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapEventGroupField(
-                  size: definitionMessage?.getFieldDefinition(LapEventGroupField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapEventGroupField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapNumLengthsField(
-                  size: definitionMessage?.getFieldDefinition(LapNumLengthsField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapNumLengthsField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapNormalizedPowerField(
-                  size: definitionMessage?.getFieldDefinition(LapNormalizedPowerField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapNormalizedPowerField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapLeftRightBalanceField(
-                  size: definitionMessage?.getFieldDefinition(LapLeftRightBalanceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapLeftRightBalanceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapFirstLengthIndexField(
-                  size: definitionMessage?.getFieldDefinition(LapFirstLengthIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapFirstLengthIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgStrokeDistanceField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgStrokeDistanceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapAvgStrokeDistanceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapSwimStrokeField(
-                  size: definitionMessage?.getFieldDefinition(LapSwimStrokeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapSwimStrokeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapSubSportField(
-                  size: definitionMessage?.getFieldDefinition(LapSubSportField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapSubSportField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapNumActiveLengthsField(
-                  size: definitionMessage?.getFieldDefinition(LapNumActiveLengthsField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapNumActiveLengthsField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapTotalWorkField(
-                  size: definitionMessage?.getFieldDefinition(LapTotalWorkField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapTotalWorkField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgAltitudeField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgAltitudeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapAvgAltitudeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapMaxAltitudeField(
-                  size: definitionMessage?.getFieldDefinition(LapMaxAltitudeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapMaxAltitudeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapGpsAccuracyField(
-                  size: definitionMessage?.getFieldDefinition(LapGpsAccuracyField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapGpsAccuracyField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgGradeField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgGradeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapAvgGradeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgPosGradeField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgPosGradeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapAvgPosGradeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgNegGradeField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgNegGradeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapAvgNegGradeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapMaxPosGradeField(
-                  size: definitionMessage?.getFieldDefinition(LapMaxPosGradeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapMaxPosGradeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapMaxNegGradeField(
-                  size: definitionMessage?.getFieldDefinition(LapMaxNegGradeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapMaxNegGradeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgTemperatureField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgTemperatureField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapAvgTemperatureField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapMaxTemperatureField(
-                  size: definitionMessage?.getFieldDefinition(LapMaxTemperatureField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapMaxTemperatureField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapTotalMovingTimeField(
-                  size: definitionMessage?.getFieldDefinition(LapTotalMovingTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapTotalMovingTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgPosVerticalSpeedField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgPosVerticalSpeedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapAvgPosVerticalSpeedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgNegVerticalSpeedField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgNegVerticalSpeedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapAvgNegVerticalSpeedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapMaxPosVerticalSpeedField(
-                  size: definitionMessage?.getFieldDefinition(LapMaxPosVerticalSpeedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapMaxPosVerticalSpeedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapMaxNegVerticalSpeedField(
-                  size: definitionMessage?.getFieldDefinition(LapMaxNegVerticalSpeedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapMaxNegVerticalSpeedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapTimeInHrZoneField(
-                  size: definitionMessage?.getFieldDefinition(LapTimeInHrZoneField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapTimeInHrZoneField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapTimeInSpeedZoneField(
-                  size: definitionMessage?.getFieldDefinition(LapTimeInSpeedZoneField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapTimeInSpeedZoneField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapTimeInCadenceZoneField(
-                  size: definitionMessage?.getFieldDefinition(LapTimeInCadenceZoneField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapTimeInCadenceZoneField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapTimeInPowerZoneField(
-                  size: definitionMessage?.getFieldDefinition(LapTimeInPowerZoneField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapTimeInPowerZoneField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapRepetitionNumField(
-                  size: definitionMessage?.getFieldDefinition(LapRepetitionNumField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapRepetitionNumField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapMinAltitudeField(
-                  size: definitionMessage?.getFieldDefinition(LapMinAltitudeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapMinAltitudeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapMinHeartRateField(
-                  size: definitionMessage?.getFieldDefinition(LapMinHeartRateField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapMinHeartRateField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapWorkoutStepIndexField(
-                  size: definitionMessage?.getFieldDefinition(LapWorkoutStepIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapWorkoutStepIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapOpponentScoreField(
-                  size: definitionMessage?.getFieldDefinition(LapOpponentScoreField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapOpponentScoreField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapStrokeCountField(
-                  size: definitionMessage?.getFieldDefinition(LapStrokeCountField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapStrokeCountField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapZoneCountField(
-                  size: definitionMessage?.getFieldDefinition(LapZoneCountField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapZoneCountField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgVerticalOscillationField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgVerticalOscillationField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              LapAvgVerticalOscillationField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgStanceTimePercentField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgStanceTimePercentField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapAvgStanceTimePercentField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgStanceTimeField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgStanceTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapAvgStanceTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgFractionalCadenceField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgFractionalCadenceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapAvgFractionalCadenceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapMaxFractionalCadenceField(
-                  size: definitionMessage?.getFieldDefinition(LapMaxFractionalCadenceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapMaxFractionalCadenceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapTotalFractionalCyclesField(
-                  size: definitionMessage?.getFieldDefinition(LapTotalFractionalCyclesField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapTotalFractionalCyclesField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapPlayerScoreField(
-                  size: definitionMessage?.getFieldDefinition(LapPlayerScoreField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapPlayerScoreField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgTotalHemoglobinConcField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgTotalHemoglobinConcField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              LapAvgTotalHemoglobinConcField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapMinTotalHemoglobinConcField(
-                  size: definitionMessage?.getFieldDefinition(LapMinTotalHemoglobinConcField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              LapMinTotalHemoglobinConcField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapMaxTotalHemoglobinConcField(
-                  size: definitionMessage?.getFieldDefinition(LapMaxTotalHemoglobinConcField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              LapMaxTotalHemoglobinConcField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgSaturatedHemoglobinPercentField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgSaturatedHemoglobinPercentField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              LapAvgSaturatedHemoglobinPercentField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapMinSaturatedHemoglobinPercentField(
-                  size: definitionMessage?.getFieldDefinition(LapMinSaturatedHemoglobinPercentField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              LapMinSaturatedHemoglobinPercentField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapMaxSaturatedHemoglobinPercentField(
-                  size: definitionMessage?.getFieldDefinition(LapMaxSaturatedHemoglobinPercentField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              LapMaxSaturatedHemoglobinPercentField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgLeftTorqueEffectivenessField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgLeftTorqueEffectivenessField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              LapAvgLeftTorqueEffectivenessField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgRightTorqueEffectivenessField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgRightTorqueEffectivenessField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              LapAvgRightTorqueEffectivenessField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgLeftPedalSmoothnessField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgLeftPedalSmoothnessField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              LapAvgLeftPedalSmoothnessField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgRightPedalSmoothnessField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgRightPedalSmoothnessField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              LapAvgRightPedalSmoothnessField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgCombinedPedalSmoothnessField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgCombinedPedalSmoothnessField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              LapAvgCombinedPedalSmoothnessField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapTimeStandingField(
-                  size: definitionMessage?.getFieldDefinition(LapTimeStandingField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapTimeStandingField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapStandCountField(
-                  size: definitionMessage?.getFieldDefinition(LapStandCountField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapStandCountField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgLeftPcoField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgLeftPcoField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapAvgLeftPcoField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgRightPcoField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgRightPcoField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapAvgRightPcoField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgLeftPowerPhaseField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgLeftPowerPhaseField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapAvgLeftPowerPhaseField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgLeftPowerPhasePeakField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgLeftPowerPhasePeakField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapAvgLeftPowerPhasePeakField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgRightPowerPhaseField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgRightPowerPhaseField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapAvgRightPowerPhaseField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgRightPowerPhasePeakField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgRightPowerPhasePeakField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              LapAvgRightPowerPhasePeakField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgPowerPositionField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgPowerPositionField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapAvgPowerPositionField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapMaxPowerPositionField(
-                  size: definitionMessage?.getFieldDefinition(LapMaxPowerPositionField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapMaxPowerPositionField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgCadencePositionField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgCadencePositionField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapAvgCadencePositionField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapMaxCadencePositionField(
-                  size: definitionMessage?.getFieldDefinition(LapMaxCadencePositionField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapMaxCadencePositionField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapEnhancedAvgSpeedField(
-                  size: definitionMessage?.getFieldDefinition(LapEnhancedAvgSpeedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapEnhancedAvgSpeedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapEnhancedMaxSpeedField(
-                  size: definitionMessage?.getFieldDefinition(LapEnhancedMaxSpeedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapEnhancedMaxSpeedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapEnhancedAvgAltitudeField(
-                  size: definitionMessage?.getFieldDefinition(LapEnhancedAvgAltitudeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapEnhancedAvgAltitudeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapEnhancedMinAltitudeField(
-                  size: definitionMessage?.getFieldDefinition(LapEnhancedMinAltitudeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapEnhancedMinAltitudeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapEnhancedMaxAltitudeField(
-                  size: definitionMessage?.getFieldDefinition(LapEnhancedMaxAltitudeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapEnhancedMaxAltitudeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgLevMotorPowerField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgLevMotorPowerField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapAvgLevMotorPowerField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapMaxLevMotorPowerField(
-                  size: definitionMessage?.getFieldDefinition(LapMaxLevMotorPowerField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapMaxLevMotorPowerField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapLevBatteryConsumptionField(
-                  size: definitionMessage?.getFieldDefinition(LapLevBatteryConsumptionField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapLevBatteryConsumptionField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgVerticalRatioField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgVerticalRatioField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapAvgVerticalRatioField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgStanceTimeBalanceField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgStanceTimeBalanceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapAvgStanceTimeBalanceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgStepLengthField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgStepLengthField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapAvgStepLengthField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgVamField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgVamField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapAvgVamField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapTotalGritField(
-                  size: definitionMessage?.getFieldDefinition(LapTotalGritField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapTotalGritField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapTotalFlowField(
-                  size: definitionMessage?.getFieldDefinition(LapTotalFlowField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapTotalFlowField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapJumpCountField(
-                  size: definitionMessage?.getFieldDefinition(LapJumpCountField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapJumpCountField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgGritField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgGritField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapAvgGritField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgFlowField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgFlowField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapAvgFlowField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapTotalFractionalAscentField(
-                  size: definitionMessage?.getFieldDefinition(LapTotalFractionalAscentField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapTotalFractionalAscentField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapTotalFractionalDescentField(
-                  size: definitionMessage?.getFieldDefinition(LapTotalFractionalDescentField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              LapTotalFractionalDescentField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapAvgCoreTemperatureField(
-                  size: definitionMessage?.getFieldDefinition(LapAvgCoreTemperatureField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapAvgCoreTemperatureField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapMinCoreTemperatureField(
-                  size: definitionMessage?.getFieldDefinition(LapMinCoreTemperatureField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapMinCoreTemperatureField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LapMaxCoreTemperatureField(
-                  size: definitionMessage?.getFieldDefinition(LapMaxCoreTemperatureField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LapMaxCoreTemperatureField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -386,9 +750,8 @@ class LapMessage extends DataMessage {
     return message;
   }
 
-
   int? get messageIndex {
-     final field = getField(MessageIndexField.ID);
+    final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -396,7 +759,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set messageIndex(int? value) {
+
+  set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
     if (field != null) {
@@ -408,9 +772,10 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -418,8 +783,9 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -431,9 +797,10 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   Event? get event {
-     final field = getField(LapEventField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(LapEventField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -444,7 +811,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set event(Event? value) {
+
+  set event(Event? value) {
     final field = getField(LapEventField.ID);
 
     if (field != null) {
@@ -456,9 +824,10 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   EventType? get eventType {
-     final field = getField(LapEventTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(LapEventTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -469,7 +838,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set eventType(EventType? value) {
+
+  set eventType(EventType? value) {
     final field = getField(LapEventTypeField.ID);
 
     if (field != null) {
@@ -481,9 +851,10 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get startTime {
-     final field = getField(LapStartTimeField.ID);
+    final field = getField(LapStartTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -491,8 +862,9 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set startTime(int? value) {
+  set startTime(int? value) {
     final field = getField(LapStartTimeField.ID);
 
     if (field != null) {
@@ -504,8 +876,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get startPositionLat {
-     final field = getField(LapStartPositionLatField.ID);
+    final field = getField(LapStartPositionLatField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -513,7 +886,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set startPositionLat(double? value) {
+
+  set startPositionLat(double? value) {
     final field = getField(LapStartPositionLatField.ID);
 
     if (field != null) {
@@ -525,8 +899,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get startPositionLong {
-     final field = getField(LapStartPositionLongField.ID);
+    final field = getField(LapStartPositionLongField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -534,7 +909,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set startPositionLong(double? value) {
+
+  set startPositionLong(double? value) {
     final field = getField(LapStartPositionLongField.ID);
 
     if (field != null) {
@@ -546,8 +922,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get endPositionLat {
-     final field = getField(LapEndPositionLatField.ID);
+    final field = getField(LapEndPositionLatField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -555,7 +932,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set endPositionLat(double? value) {
+
+  set endPositionLat(double? value) {
     final field = getField(LapEndPositionLatField.ID);
 
     if (field != null) {
@@ -567,8 +945,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get endPositionLong {
-     final field = getField(LapEndPositionLongField.ID);
+    final field = getField(LapEndPositionLongField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -576,7 +955,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set endPositionLong(double? value) {
+
+  set endPositionLong(double? value) {
     final field = getField(LapEndPositionLongField.ID);
 
     if (field != null) {
@@ -588,8 +968,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get totalElapsedTime {
-     final field = getField(LapTotalElapsedTimeField.ID);
+    final field = getField(LapTotalElapsedTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -597,7 +978,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set totalElapsedTime(double? value) {
+
+  set totalElapsedTime(double? value) {
     final field = getField(LapTotalElapsedTimeField.ID);
 
     if (field != null) {
@@ -609,8 +991,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get totalTimerTime {
-     final field = getField(LapTotalTimerTimeField.ID);
+    final field = getField(LapTotalTimerTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -618,7 +1001,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set totalTimerTime(double? value) {
+
+  set totalTimerTime(double? value) {
     final field = getField(LapTotalTimerTimeField.ID);
 
     if (field != null) {
@@ -630,8 +1014,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get totalDistance {
-     final field = getField(LapTotalDistanceField.ID);
+    final field = getField(LapTotalDistanceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -639,7 +1024,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set totalDistance(double? value) {
+
+  set totalDistance(double? value) {
     final field = getField(LapTotalDistanceField.ID);
 
     if (field != null) {
@@ -651,8 +1037,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get totalCycles {
-     final field = getField(LapTotalCyclesField.ID);
+    final field = getField(LapTotalCyclesField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -660,7 +1047,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set totalCycles(int? value) {
+
+  set totalCycles(int? value) {
     final field = getField(LapTotalCyclesField.ID);
 
     if (field != null) {
@@ -674,13 +1062,14 @@ class LapMessage extends DataMessage {
   }
 
   int? get totalStrides {
-     final field = getField(LapTotalCyclesField.ID);
-     final typeField = getField(LapSportField.ID);
+    final field = getField(LapTotalCyclesField.ID);
+    final typeField = getField(LapSportField.ID);
 
-     final isSubFieldValid = typeField != null && [1, 11].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [1, 11].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -688,7 +1077,7 @@ class LapMessage extends DataMessage {
 
   set totalStrides(int? value) {
     final field = getField(LapTotalCyclesField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -699,13 +1088,14 @@ class LapMessage extends DataMessage {
   }
 
   int? get totalStrokes {
-     final field = getField(LapTotalCyclesField.ID);
-     final typeField = getField(LapSportField.ID);
+    final field = getField(LapTotalCyclesField.ID);
+    final typeField = getField(LapSportField.ID);
 
-     final isSubFieldValid = typeField != null && [2, 5, 15, 37].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [2, 5, 15, 37].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -713,7 +1103,7 @@ class LapMessage extends DataMessage {
 
   set totalStrokes(int? value) {
     final field = getField(LapTotalCyclesField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -722,8 +1112,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get totalCalories {
-     final field = getField(LapTotalCaloriesField.ID);
+    final field = getField(LapTotalCaloriesField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -731,7 +1122,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set totalCalories(int? value) {
+
+  set totalCalories(int? value) {
     final field = getField(LapTotalCaloriesField.ID);
 
     if (field != null) {
@@ -743,8 +1135,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get totalFatCalories {
-     final field = getField(LapTotalFatCaloriesField.ID);
+    final field = getField(LapTotalFatCaloriesField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -752,7 +1145,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set totalFatCalories(int? value) {
+
+  set totalFatCalories(int? value) {
     final field = getField(LapTotalFatCaloriesField.ID);
 
     if (field != null) {
@@ -764,8 +1158,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgSpeed {
-     final field = getField(LapAvgSpeedField.ID);
+    final field = getField(LapAvgSpeedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -773,7 +1168,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgSpeed(double? value) {
+
+  set avgSpeed(double? value) {
     final field = getField(LapAvgSpeedField.ID);
 
     if (field != null) {
@@ -785,8 +1181,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get maxSpeed {
-     final field = getField(LapMaxSpeedField.ID);
+    final field = getField(LapMaxSpeedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -794,7 +1191,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set maxSpeed(double? value) {
+
+  set maxSpeed(double? value) {
     final field = getField(LapMaxSpeedField.ID);
 
     if (field != null) {
@@ -806,8 +1204,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get avgHeartRate {
-     final field = getField(LapAvgHeartRateField.ID);
+    final field = getField(LapAvgHeartRateField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -815,7 +1214,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgHeartRate(int? value) {
+
+  set avgHeartRate(int? value) {
     final field = getField(LapAvgHeartRateField.ID);
 
     if (field != null) {
@@ -827,8 +1227,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get maxHeartRate {
-     final field = getField(LapMaxHeartRateField.ID);
+    final field = getField(LapMaxHeartRateField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -836,7 +1237,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set maxHeartRate(int? value) {
+
+  set maxHeartRate(int? value) {
     final field = getField(LapMaxHeartRateField.ID);
 
     if (field != null) {
@@ -848,8 +1250,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get avgCadence {
-     final field = getField(LapAvgCadenceField.ID);
+    final field = getField(LapAvgCadenceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -857,7 +1260,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgCadence(int? value) {
+
+  set avgCadence(int? value) {
     final field = getField(LapAvgCadenceField.ID);
 
     if (field != null) {
@@ -871,13 +1275,14 @@ class LapMessage extends DataMessage {
   }
 
   int? get avgRunningCadence {
-     final field = getField(LapAvgCadenceField.ID);
-     final typeField = getField(LapSportField.ID);
+    final field = getField(LapAvgCadenceField.ID);
+    final typeField = getField(LapSportField.ID);
 
-     final isSubFieldValid = typeField != null && [1].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [1].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -885,7 +1290,7 @@ class LapMessage extends DataMessage {
 
   set avgRunningCadence(int? value) {
     final field = getField(LapAvgCadenceField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -894,8 +1299,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get maxCadence {
-     final field = getField(LapMaxCadenceField.ID);
+    final field = getField(LapMaxCadenceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -903,7 +1309,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set maxCadence(int? value) {
+
+  set maxCadence(int? value) {
     final field = getField(LapMaxCadenceField.ID);
 
     if (field != null) {
@@ -917,13 +1324,14 @@ class LapMessage extends DataMessage {
   }
 
   int? get maxRunningCadence {
-     final field = getField(LapMaxCadenceField.ID);
-     final typeField = getField(LapSportField.ID);
+    final field = getField(LapMaxCadenceField.ID);
+    final typeField = getField(LapSportField.ID);
 
-     final isSubFieldValid = typeField != null && [1].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [1].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -931,7 +1339,7 @@ class LapMessage extends DataMessage {
 
   set maxRunningCadence(int? value) {
     final field = getField(LapMaxCadenceField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -940,8 +1348,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get avgPower {
-     final field = getField(LapAvgPowerField.ID);
+    final field = getField(LapAvgPowerField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -949,7 +1358,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgPower(int? value) {
+
+  set avgPower(int? value) {
     final field = getField(LapAvgPowerField.ID);
 
     if (field != null) {
@@ -961,8 +1371,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get maxPower {
-     final field = getField(LapMaxPowerField.ID);
+    final field = getField(LapMaxPowerField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -970,7 +1381,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set maxPower(int? value) {
+
+  set maxPower(int? value) {
     final field = getField(LapMaxPowerField.ID);
 
     if (field != null) {
@@ -982,8 +1394,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get totalAscent {
-     final field = getField(LapTotalAscentField.ID);
+    final field = getField(LapTotalAscentField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -991,7 +1404,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set totalAscent(int? value) {
+
+  set totalAscent(int? value) {
     final field = getField(LapTotalAscentField.ID);
 
     if (field != null) {
@@ -1003,8 +1417,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get totalDescent {
-     final field = getField(LapTotalDescentField.ID);
+    final field = getField(LapTotalDescentField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1012,7 +1427,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set totalDescent(int? value) {
+
+  set totalDescent(int? value) {
     final field = getField(LapTotalDescentField.ID);
 
     if (field != null) {
@@ -1024,9 +1440,10 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   Intensity? get intensity {
-     final field = getField(LapIntensityField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(LapIntensityField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -1037,7 +1454,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set intensity(Intensity? value) {
+
+  set intensity(Intensity? value) {
     final field = getField(LapIntensityField.ID);
 
     if (field != null) {
@@ -1049,9 +1467,10 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   LapTrigger? get lapTrigger {
-     final field = getField(LapLapTriggerField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(LapLapTriggerField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -1062,7 +1481,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set lapTrigger(LapTrigger? value) {
+
+  set lapTrigger(LapTrigger? value) {
     final field = getField(LapLapTriggerField.ID);
 
     if (field != null) {
@@ -1074,9 +1494,10 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   Sport? get sport {
-     final field = getField(LapSportField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(LapSportField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -1087,7 +1508,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set sport(Sport? value) {
+
+  set sport(Sport? value) {
     final field = getField(LapSportField.ID);
 
     if (field != null) {
@@ -1099,8 +1521,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get eventGroup {
-     final field = getField(LapEventGroupField.ID);
+    final field = getField(LapEventGroupField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1108,7 +1531,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set eventGroup(int? value) {
+
+  set eventGroup(int? value) {
     final field = getField(LapEventGroupField.ID);
 
     if (field != null) {
@@ -1120,8 +1544,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get numLengths {
-     final field = getField(LapNumLengthsField.ID);
+    final field = getField(LapNumLengthsField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1129,7 +1554,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set numLengths(int? value) {
+
+  set numLengths(int? value) {
     final field = getField(LapNumLengthsField.ID);
 
     if (field != null) {
@@ -1141,8 +1567,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get normalizedPower {
-     final field = getField(LapNormalizedPowerField.ID);
+    final field = getField(LapNormalizedPowerField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1150,7 +1577,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set normalizedPower(int? value) {
+
+  set normalizedPower(int? value) {
     final field = getField(LapNormalizedPowerField.ID);
 
     if (field != null) {
@@ -1162,8 +1590,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get leftRightBalance {
-     final field = getField(LapLeftRightBalanceField.ID);
+    final field = getField(LapLeftRightBalanceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1171,7 +1600,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set leftRightBalance(int? value) {
+
+  set leftRightBalance(int? value) {
     final field = getField(LapLeftRightBalanceField.ID);
 
     if (field != null) {
@@ -1183,8 +1613,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get firstLengthIndex {
-     final field = getField(LapFirstLengthIndexField.ID);
+    final field = getField(LapFirstLengthIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1192,7 +1623,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set firstLengthIndex(int? value) {
+
+  set firstLengthIndex(int? value) {
     final field = getField(LapFirstLengthIndexField.ID);
 
     if (field != null) {
@@ -1204,8 +1636,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgStrokeDistance {
-     final field = getField(LapAvgStrokeDistanceField.ID);
+    final field = getField(LapAvgStrokeDistanceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1213,7 +1646,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgStrokeDistance(double? value) {
+
+  set avgStrokeDistance(double? value) {
     final field = getField(LapAvgStrokeDistanceField.ID);
 
     if (field != null) {
@@ -1225,9 +1659,10 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   SwimStroke? get swimStroke {
-     final field = getField(LapSwimStrokeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(LapSwimStrokeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -1238,7 +1673,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set swimStroke(SwimStroke? value) {
+
+  set swimStroke(SwimStroke? value) {
     final field = getField(LapSwimStrokeField.ID);
 
     if (field != null) {
@@ -1250,9 +1686,10 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   SubSport? get subSport {
-     final field = getField(LapSubSportField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(LapSubSportField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -1263,7 +1700,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set subSport(SubSport? value) {
+
+  set subSport(SubSport? value) {
     final field = getField(LapSubSportField.ID);
 
     if (field != null) {
@@ -1275,8 +1713,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get numActiveLengths {
-     final field = getField(LapNumActiveLengthsField.ID);
+    final field = getField(LapNumActiveLengthsField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1284,7 +1723,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set numActiveLengths(int? value) {
+
+  set numActiveLengths(int? value) {
     final field = getField(LapNumActiveLengthsField.ID);
 
     if (field != null) {
@@ -1296,8 +1736,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get totalWork {
-     final field = getField(LapTotalWorkField.ID);
+    final field = getField(LapTotalWorkField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1305,7 +1746,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set totalWork(int? value) {
+
+  set totalWork(int? value) {
     final field = getField(LapTotalWorkField.ID);
 
     if (field != null) {
@@ -1317,8 +1759,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgAltitude {
-     final field = getField(LapAvgAltitudeField.ID);
+    final field = getField(LapAvgAltitudeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1326,7 +1769,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgAltitude(double? value) {
+
+  set avgAltitude(double? value) {
     final field = getField(LapAvgAltitudeField.ID);
 
     if (field != null) {
@@ -1338,8 +1782,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get maxAltitude {
-     final field = getField(LapMaxAltitudeField.ID);
+    final field = getField(LapMaxAltitudeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1347,7 +1792,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set maxAltitude(double? value) {
+
+  set maxAltitude(double? value) {
     final field = getField(LapMaxAltitudeField.ID);
 
     if (field != null) {
@@ -1359,8 +1805,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get gpsAccuracy {
-     final field = getField(LapGpsAccuracyField.ID);
+    final field = getField(LapGpsAccuracyField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1368,7 +1815,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set gpsAccuracy(int? value) {
+
+  set gpsAccuracy(int? value) {
     final field = getField(LapGpsAccuracyField.ID);
 
     if (field != null) {
@@ -1380,8 +1828,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgGrade {
-     final field = getField(LapAvgGradeField.ID);
+    final field = getField(LapAvgGradeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1389,7 +1838,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgGrade(double? value) {
+
+  set avgGrade(double? value) {
     final field = getField(LapAvgGradeField.ID);
 
     if (field != null) {
@@ -1401,8 +1851,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgPosGrade {
-     final field = getField(LapAvgPosGradeField.ID);
+    final field = getField(LapAvgPosGradeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1410,7 +1861,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgPosGrade(double? value) {
+
+  set avgPosGrade(double? value) {
     final field = getField(LapAvgPosGradeField.ID);
 
     if (field != null) {
@@ -1422,8 +1874,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgNegGrade {
-     final field = getField(LapAvgNegGradeField.ID);
+    final field = getField(LapAvgNegGradeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1431,7 +1884,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgNegGrade(double? value) {
+
+  set avgNegGrade(double? value) {
     final field = getField(LapAvgNegGradeField.ID);
 
     if (field != null) {
@@ -1443,8 +1897,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get maxPosGrade {
-     final field = getField(LapMaxPosGradeField.ID);
+    final field = getField(LapMaxPosGradeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1452,7 +1907,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set maxPosGrade(double? value) {
+
+  set maxPosGrade(double? value) {
     final field = getField(LapMaxPosGradeField.ID);
 
     if (field != null) {
@@ -1464,8 +1920,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get maxNegGrade {
-     final field = getField(LapMaxNegGradeField.ID);
+    final field = getField(LapMaxNegGradeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1473,7 +1930,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set maxNegGrade(double? value) {
+
+  set maxNegGrade(double? value) {
     final field = getField(LapMaxNegGradeField.ID);
 
     if (field != null) {
@@ -1485,8 +1943,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get avgTemperature {
-     final field = getField(LapAvgTemperatureField.ID);
+    final field = getField(LapAvgTemperatureField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1494,7 +1953,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgTemperature(int? value) {
+
+  set avgTemperature(int? value) {
     final field = getField(LapAvgTemperatureField.ID);
 
     if (field != null) {
@@ -1506,8 +1966,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get maxTemperature {
-     final field = getField(LapMaxTemperatureField.ID);
+    final field = getField(LapMaxTemperatureField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1515,7 +1976,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set maxTemperature(int? value) {
+
+  set maxTemperature(int? value) {
     final field = getField(LapMaxTemperatureField.ID);
 
     if (field != null) {
@@ -1527,8 +1989,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get totalMovingTime {
-     final field = getField(LapTotalMovingTimeField.ID);
+    final field = getField(LapTotalMovingTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1536,7 +1999,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set totalMovingTime(double? value) {
+
+  set totalMovingTime(double? value) {
     final field = getField(LapTotalMovingTimeField.ID);
 
     if (field != null) {
@@ -1548,8 +2012,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgPosVerticalSpeed {
-     final field = getField(LapAvgPosVerticalSpeedField.ID);
+    final field = getField(LapAvgPosVerticalSpeedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1557,7 +2022,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgPosVerticalSpeed(double? value) {
+
+  set avgPosVerticalSpeed(double? value) {
     final field = getField(LapAvgPosVerticalSpeedField.ID);
 
     if (field != null) {
@@ -1569,8 +2035,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgNegVerticalSpeed {
-     final field = getField(LapAvgNegVerticalSpeedField.ID);
+    final field = getField(LapAvgNegVerticalSpeedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1578,7 +2045,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgNegVerticalSpeed(double? value) {
+
+  set avgNegVerticalSpeed(double? value) {
     final field = getField(LapAvgNegVerticalSpeedField.ID);
 
     if (field != null) {
@@ -1590,8 +2058,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get maxPosVerticalSpeed {
-     final field = getField(LapMaxPosVerticalSpeedField.ID);
+    final field = getField(LapMaxPosVerticalSpeedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1599,7 +2068,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set maxPosVerticalSpeed(double? value) {
+
+  set maxPosVerticalSpeed(double? value) {
     final field = getField(LapMaxPosVerticalSpeedField.ID);
 
     if (field != null) {
@@ -1611,8 +2081,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get maxNegVerticalSpeed {
-     final field = getField(LapMaxNegVerticalSpeedField.ID);
+    final field = getField(LapMaxNegVerticalSpeedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1620,7 +2091,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set maxNegVerticalSpeed(double? value) {
+
+  set maxNegVerticalSpeed(double? value) {
     final field = getField(LapMaxNegVerticalSpeedField.ID);
 
     if (field != null) {
@@ -1632,8 +2104,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get timeInHrZone {
-     final field = getField(LapTimeInHrZoneField.ID);
+    final field = getField(LapTimeInHrZoneField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1641,7 +2114,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set timeInHrZone(double? value) {
+
+  set timeInHrZone(double? value) {
     final field = getField(LapTimeInHrZoneField.ID);
 
     if (field != null) {
@@ -1653,8 +2127,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get timeInSpeedZone {
-     final field = getField(LapTimeInSpeedZoneField.ID);
+    final field = getField(LapTimeInSpeedZoneField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1662,7 +2137,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set timeInSpeedZone(double? value) {
+
+  set timeInSpeedZone(double? value) {
     final field = getField(LapTimeInSpeedZoneField.ID);
 
     if (field != null) {
@@ -1674,8 +2150,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get timeInCadenceZone {
-     final field = getField(LapTimeInCadenceZoneField.ID);
+    final field = getField(LapTimeInCadenceZoneField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1683,7 +2160,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set timeInCadenceZone(double? value) {
+
+  set timeInCadenceZone(double? value) {
     final field = getField(LapTimeInCadenceZoneField.ID);
 
     if (field != null) {
@@ -1695,8 +2173,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get timeInPowerZone {
-     final field = getField(LapTimeInPowerZoneField.ID);
+    final field = getField(LapTimeInPowerZoneField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1704,7 +2183,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set timeInPowerZone(double? value) {
+
+  set timeInPowerZone(double? value) {
     final field = getField(LapTimeInPowerZoneField.ID);
 
     if (field != null) {
@@ -1716,8 +2196,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get repetitionNum {
-     final field = getField(LapRepetitionNumField.ID);
+    final field = getField(LapRepetitionNumField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1725,7 +2206,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set repetitionNum(int? value) {
+
+  set repetitionNum(int? value) {
     final field = getField(LapRepetitionNumField.ID);
 
     if (field != null) {
@@ -1737,8 +2219,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get minAltitude {
-     final field = getField(LapMinAltitudeField.ID);
+    final field = getField(LapMinAltitudeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1746,7 +2229,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set minAltitude(double? value) {
+
+  set minAltitude(double? value) {
     final field = getField(LapMinAltitudeField.ID);
 
     if (field != null) {
@@ -1758,8 +2242,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get minHeartRate {
-     final field = getField(LapMinHeartRateField.ID);
+    final field = getField(LapMinHeartRateField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1767,7 +2252,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set minHeartRate(int? value) {
+
+  set minHeartRate(int? value) {
     final field = getField(LapMinHeartRateField.ID);
 
     if (field != null) {
@@ -1779,8 +2265,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get workoutStepIndex {
-     final field = getField(LapWorkoutStepIndexField.ID);
+    final field = getField(LapWorkoutStepIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1788,7 +2275,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set workoutStepIndex(int? value) {
+
+  set workoutStepIndex(int? value) {
     final field = getField(LapWorkoutStepIndexField.ID);
 
     if (field != null) {
@@ -1800,8 +2288,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get opponentScore {
-     final field = getField(LapOpponentScoreField.ID);
+    final field = getField(LapOpponentScoreField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1809,7 +2298,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set opponentScore(int? value) {
+
+  set opponentScore(int? value) {
     final field = getField(LapOpponentScoreField.ID);
 
     if (field != null) {
@@ -1821,8 +2311,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get strokeCount {
-     final field = getField(LapStrokeCountField.ID);
+    final field = getField(LapStrokeCountField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1830,7 +2321,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set strokeCount(int? value) {
+
+  set strokeCount(int? value) {
     final field = getField(LapStrokeCountField.ID);
 
     if (field != null) {
@@ -1842,8 +2334,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get zoneCount {
-     final field = getField(LapZoneCountField.ID);
+    final field = getField(LapZoneCountField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1851,7 +2344,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set zoneCount(int? value) {
+
+  set zoneCount(int? value) {
     final field = getField(LapZoneCountField.ID);
 
     if (field != null) {
@@ -1863,8 +2357,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgVerticalOscillation {
-     final field = getField(LapAvgVerticalOscillationField.ID);
+    final field = getField(LapAvgVerticalOscillationField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1872,7 +2367,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgVerticalOscillation(double? value) {
+
+  set avgVerticalOscillation(double? value) {
     final field = getField(LapAvgVerticalOscillationField.ID);
 
     if (field != null) {
@@ -1884,8 +2380,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgStanceTimePercent {
-     final field = getField(LapAvgStanceTimePercentField.ID);
+    final field = getField(LapAvgStanceTimePercentField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1893,7 +2390,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgStanceTimePercent(double? value) {
+
+  set avgStanceTimePercent(double? value) {
     final field = getField(LapAvgStanceTimePercentField.ID);
 
     if (field != null) {
@@ -1905,8 +2403,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgStanceTime {
-     final field = getField(LapAvgStanceTimeField.ID);
+    final field = getField(LapAvgStanceTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1914,7 +2413,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgStanceTime(double? value) {
+
+  set avgStanceTime(double? value) {
     final field = getField(LapAvgStanceTimeField.ID);
 
     if (field != null) {
@@ -1926,8 +2426,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgFractionalCadence {
-     final field = getField(LapAvgFractionalCadenceField.ID);
+    final field = getField(LapAvgFractionalCadenceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1935,7 +2436,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgFractionalCadence(double? value) {
+
+  set avgFractionalCadence(double? value) {
     final field = getField(LapAvgFractionalCadenceField.ID);
 
     if (field != null) {
@@ -1947,8 +2449,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get maxFractionalCadence {
-     final field = getField(LapMaxFractionalCadenceField.ID);
+    final field = getField(LapMaxFractionalCadenceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1956,7 +2459,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set maxFractionalCadence(double? value) {
+
+  set maxFractionalCadence(double? value) {
     final field = getField(LapMaxFractionalCadenceField.ID);
 
     if (field != null) {
@@ -1968,8 +2472,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get totalFractionalCycles {
-     final field = getField(LapTotalFractionalCyclesField.ID);
+    final field = getField(LapTotalFractionalCyclesField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1977,7 +2482,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set totalFractionalCycles(double? value) {
+
+  set totalFractionalCycles(double? value) {
     final field = getField(LapTotalFractionalCyclesField.ID);
 
     if (field != null) {
@@ -1989,8 +2495,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get playerScore {
-     final field = getField(LapPlayerScoreField.ID);
+    final field = getField(LapPlayerScoreField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1998,7 +2505,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set playerScore(int? value) {
+
+  set playerScore(int? value) {
     final field = getField(LapPlayerScoreField.ID);
 
     if (field != null) {
@@ -2010,8 +2518,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgTotalHemoglobinConc {
-     final field = getField(LapAvgTotalHemoglobinConcField.ID);
+    final field = getField(LapAvgTotalHemoglobinConcField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2019,7 +2528,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgTotalHemoglobinConc(double? value) {
+
+  set avgTotalHemoglobinConc(double? value) {
     final field = getField(LapAvgTotalHemoglobinConcField.ID);
 
     if (field != null) {
@@ -2031,8 +2541,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get minTotalHemoglobinConc {
-     final field = getField(LapMinTotalHemoglobinConcField.ID);
+    final field = getField(LapMinTotalHemoglobinConcField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2040,7 +2551,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set minTotalHemoglobinConc(double? value) {
+
+  set minTotalHemoglobinConc(double? value) {
     final field = getField(LapMinTotalHemoglobinConcField.ID);
 
     if (field != null) {
@@ -2052,8 +2564,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get maxTotalHemoglobinConc {
-     final field = getField(LapMaxTotalHemoglobinConcField.ID);
+    final field = getField(LapMaxTotalHemoglobinConcField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2061,7 +2574,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set maxTotalHemoglobinConc(double? value) {
+
+  set maxTotalHemoglobinConc(double? value) {
     final field = getField(LapMaxTotalHemoglobinConcField.ID);
 
     if (field != null) {
@@ -2073,8 +2587,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgSaturatedHemoglobinPercent {
-     final field = getField(LapAvgSaturatedHemoglobinPercentField.ID);
+    final field = getField(LapAvgSaturatedHemoglobinPercentField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2082,7 +2597,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgSaturatedHemoglobinPercent(double? value) {
+
+  set avgSaturatedHemoglobinPercent(double? value) {
     final field = getField(LapAvgSaturatedHemoglobinPercentField.ID);
 
     if (field != null) {
@@ -2094,8 +2610,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get minSaturatedHemoglobinPercent {
-     final field = getField(LapMinSaturatedHemoglobinPercentField.ID);
+    final field = getField(LapMinSaturatedHemoglobinPercentField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2103,7 +2620,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set minSaturatedHemoglobinPercent(double? value) {
+
+  set minSaturatedHemoglobinPercent(double? value) {
     final field = getField(LapMinSaturatedHemoglobinPercentField.ID);
 
     if (field != null) {
@@ -2115,8 +2633,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get maxSaturatedHemoglobinPercent {
-     final field = getField(LapMaxSaturatedHemoglobinPercentField.ID);
+    final field = getField(LapMaxSaturatedHemoglobinPercentField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2124,7 +2643,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set maxSaturatedHemoglobinPercent(double? value) {
+
+  set maxSaturatedHemoglobinPercent(double? value) {
     final field = getField(LapMaxSaturatedHemoglobinPercentField.ID);
 
     if (field != null) {
@@ -2136,8 +2656,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgLeftTorqueEffectiveness {
-     final field = getField(LapAvgLeftTorqueEffectivenessField.ID);
+    final field = getField(LapAvgLeftTorqueEffectivenessField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2145,7 +2666,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgLeftTorqueEffectiveness(double? value) {
+
+  set avgLeftTorqueEffectiveness(double? value) {
     final field = getField(LapAvgLeftTorqueEffectivenessField.ID);
 
     if (field != null) {
@@ -2157,8 +2679,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgRightTorqueEffectiveness {
-     final field = getField(LapAvgRightTorqueEffectivenessField.ID);
+    final field = getField(LapAvgRightTorqueEffectivenessField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2166,7 +2689,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgRightTorqueEffectiveness(double? value) {
+
+  set avgRightTorqueEffectiveness(double? value) {
     final field = getField(LapAvgRightTorqueEffectivenessField.ID);
 
     if (field != null) {
@@ -2178,8 +2702,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgLeftPedalSmoothness {
-     final field = getField(LapAvgLeftPedalSmoothnessField.ID);
+    final field = getField(LapAvgLeftPedalSmoothnessField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2187,7 +2712,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgLeftPedalSmoothness(double? value) {
+
+  set avgLeftPedalSmoothness(double? value) {
     final field = getField(LapAvgLeftPedalSmoothnessField.ID);
 
     if (field != null) {
@@ -2199,8 +2725,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgRightPedalSmoothness {
-     final field = getField(LapAvgRightPedalSmoothnessField.ID);
+    final field = getField(LapAvgRightPedalSmoothnessField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2208,7 +2735,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgRightPedalSmoothness(double? value) {
+
+  set avgRightPedalSmoothness(double? value) {
     final field = getField(LapAvgRightPedalSmoothnessField.ID);
 
     if (field != null) {
@@ -2220,8 +2748,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgCombinedPedalSmoothness {
-     final field = getField(LapAvgCombinedPedalSmoothnessField.ID);
+    final field = getField(LapAvgCombinedPedalSmoothnessField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2229,7 +2758,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgCombinedPedalSmoothness(double? value) {
+
+  set avgCombinedPedalSmoothness(double? value) {
     final field = getField(LapAvgCombinedPedalSmoothnessField.ID);
 
     if (field != null) {
@@ -2241,8 +2771,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get timeStanding {
-     final field = getField(LapTimeStandingField.ID);
+    final field = getField(LapTimeStandingField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2250,7 +2781,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set timeStanding(double? value) {
+
+  set timeStanding(double? value) {
     final field = getField(LapTimeStandingField.ID);
 
     if (field != null) {
@@ -2262,8 +2794,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get standCount {
-     final field = getField(LapStandCountField.ID);
+    final field = getField(LapStandCountField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2271,7 +2804,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set standCount(int? value) {
+
+  set standCount(int? value) {
     final field = getField(LapStandCountField.ID);
 
     if (field != null) {
@@ -2283,8 +2817,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get avgLeftPco {
-     final field = getField(LapAvgLeftPcoField.ID);
+    final field = getField(LapAvgLeftPcoField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2292,7 +2827,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgLeftPco(int? value) {
+
+  set avgLeftPco(int? value) {
     final field = getField(LapAvgLeftPcoField.ID);
 
     if (field != null) {
@@ -2304,8 +2840,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get avgRightPco {
-     final field = getField(LapAvgRightPcoField.ID);
+    final field = getField(LapAvgRightPcoField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2313,7 +2850,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgRightPco(int? value) {
+
+  set avgRightPco(int? value) {
     final field = getField(LapAvgRightPcoField.ID);
 
     if (field != null) {
@@ -2325,8 +2863,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgLeftPowerPhase {
-     final field = getField(LapAvgLeftPowerPhaseField.ID);
+    final field = getField(LapAvgLeftPowerPhaseField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2334,7 +2873,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgLeftPowerPhase(double? value) {
+
+  set avgLeftPowerPhase(double? value) {
     final field = getField(LapAvgLeftPowerPhaseField.ID);
 
     if (field != null) {
@@ -2346,8 +2886,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgLeftPowerPhasePeak {
-     final field = getField(LapAvgLeftPowerPhasePeakField.ID);
+    final field = getField(LapAvgLeftPowerPhasePeakField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2355,7 +2896,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgLeftPowerPhasePeak(double? value) {
+
+  set avgLeftPowerPhasePeak(double? value) {
     final field = getField(LapAvgLeftPowerPhasePeakField.ID);
 
     if (field != null) {
@@ -2367,8 +2909,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgRightPowerPhase {
-     final field = getField(LapAvgRightPowerPhaseField.ID);
+    final field = getField(LapAvgRightPowerPhaseField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2376,7 +2919,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgRightPowerPhase(double? value) {
+
+  set avgRightPowerPhase(double? value) {
     final field = getField(LapAvgRightPowerPhaseField.ID);
 
     if (field != null) {
@@ -2388,8 +2932,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgRightPowerPhasePeak {
-     final field = getField(LapAvgRightPowerPhasePeakField.ID);
+    final field = getField(LapAvgRightPowerPhasePeakField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2397,7 +2942,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgRightPowerPhasePeak(double? value) {
+
+  set avgRightPowerPhasePeak(double? value) {
     final field = getField(LapAvgRightPowerPhasePeakField.ID);
 
     if (field != null) {
@@ -2409,8 +2955,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get avgPowerPosition {
-     final field = getField(LapAvgPowerPositionField.ID);
+    final field = getField(LapAvgPowerPositionField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2418,7 +2965,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgPowerPosition(int? value) {
+
+  set avgPowerPosition(int? value) {
     final field = getField(LapAvgPowerPositionField.ID);
 
     if (field != null) {
@@ -2430,8 +2978,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get maxPowerPosition {
-     final field = getField(LapMaxPowerPositionField.ID);
+    final field = getField(LapMaxPowerPositionField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2439,7 +2988,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set maxPowerPosition(int? value) {
+
+  set maxPowerPosition(int? value) {
     final field = getField(LapMaxPowerPositionField.ID);
 
     if (field != null) {
@@ -2451,8 +3001,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get avgCadencePosition {
-     final field = getField(LapAvgCadencePositionField.ID);
+    final field = getField(LapAvgCadencePositionField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2460,7 +3011,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgCadencePosition(int? value) {
+
+  set avgCadencePosition(int? value) {
     final field = getField(LapAvgCadencePositionField.ID);
 
     if (field != null) {
@@ -2472,8 +3024,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get maxCadencePosition {
-     final field = getField(LapMaxCadencePositionField.ID);
+    final field = getField(LapMaxCadencePositionField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2481,7 +3034,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set maxCadencePosition(int? value) {
+
+  set maxCadencePosition(int? value) {
     final field = getField(LapMaxCadencePositionField.ID);
 
     if (field != null) {
@@ -2493,8 +3047,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get enhancedAvgSpeed {
-     final field = getField(LapEnhancedAvgSpeedField.ID);
+    final field = getField(LapEnhancedAvgSpeedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2502,7 +3057,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set enhancedAvgSpeed(double? value) {
+
+  set enhancedAvgSpeed(double? value) {
     final field = getField(LapEnhancedAvgSpeedField.ID);
 
     if (field != null) {
@@ -2514,8 +3070,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get enhancedMaxSpeed {
-     final field = getField(LapEnhancedMaxSpeedField.ID);
+    final field = getField(LapEnhancedMaxSpeedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2523,7 +3080,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set enhancedMaxSpeed(double? value) {
+
+  set enhancedMaxSpeed(double? value) {
     final field = getField(LapEnhancedMaxSpeedField.ID);
 
     if (field != null) {
@@ -2535,8 +3093,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get enhancedAvgAltitude {
-     final field = getField(LapEnhancedAvgAltitudeField.ID);
+    final field = getField(LapEnhancedAvgAltitudeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2544,7 +3103,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set enhancedAvgAltitude(double? value) {
+
+  set enhancedAvgAltitude(double? value) {
     final field = getField(LapEnhancedAvgAltitudeField.ID);
 
     if (field != null) {
@@ -2556,8 +3116,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get enhancedMinAltitude {
-     final field = getField(LapEnhancedMinAltitudeField.ID);
+    final field = getField(LapEnhancedMinAltitudeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2565,7 +3126,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set enhancedMinAltitude(double? value) {
+
+  set enhancedMinAltitude(double? value) {
     final field = getField(LapEnhancedMinAltitudeField.ID);
 
     if (field != null) {
@@ -2577,8 +3139,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get enhancedMaxAltitude {
-     final field = getField(LapEnhancedMaxAltitudeField.ID);
+    final field = getField(LapEnhancedMaxAltitudeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2586,7 +3149,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set enhancedMaxAltitude(double? value) {
+
+  set enhancedMaxAltitude(double? value) {
     final field = getField(LapEnhancedMaxAltitudeField.ID);
 
     if (field != null) {
@@ -2598,8 +3162,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get avgLevMotorPower {
-     final field = getField(LapAvgLevMotorPowerField.ID);
+    final field = getField(LapAvgLevMotorPowerField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2607,7 +3172,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgLevMotorPower(int? value) {
+
+  set avgLevMotorPower(int? value) {
     final field = getField(LapAvgLevMotorPowerField.ID);
 
     if (field != null) {
@@ -2619,8 +3185,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get maxLevMotorPower {
-     final field = getField(LapMaxLevMotorPowerField.ID);
+    final field = getField(LapMaxLevMotorPowerField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2628,7 +3195,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set maxLevMotorPower(int? value) {
+
+  set maxLevMotorPower(int? value) {
     final field = getField(LapMaxLevMotorPowerField.ID);
 
     if (field != null) {
@@ -2640,8 +3208,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get levBatteryConsumption {
-     final field = getField(LapLevBatteryConsumptionField.ID);
+    final field = getField(LapLevBatteryConsumptionField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2649,7 +3218,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set levBatteryConsumption(double? value) {
+
+  set levBatteryConsumption(double? value) {
     final field = getField(LapLevBatteryConsumptionField.ID);
 
     if (field != null) {
@@ -2661,8 +3231,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgVerticalRatio {
-     final field = getField(LapAvgVerticalRatioField.ID);
+    final field = getField(LapAvgVerticalRatioField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2670,7 +3241,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgVerticalRatio(double? value) {
+
+  set avgVerticalRatio(double? value) {
     final field = getField(LapAvgVerticalRatioField.ID);
 
     if (field != null) {
@@ -2682,8 +3254,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgStanceTimeBalance {
-     final field = getField(LapAvgStanceTimeBalanceField.ID);
+    final field = getField(LapAvgStanceTimeBalanceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2691,7 +3264,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgStanceTimeBalance(double? value) {
+
+  set avgStanceTimeBalance(double? value) {
     final field = getField(LapAvgStanceTimeBalanceField.ID);
 
     if (field != null) {
@@ -2703,8 +3277,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgStepLength {
-     final field = getField(LapAvgStepLengthField.ID);
+    final field = getField(LapAvgStepLengthField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2712,7 +3287,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgStepLength(double? value) {
+
+  set avgStepLength(double? value) {
     final field = getField(LapAvgStepLengthField.ID);
 
     if (field != null) {
@@ -2724,8 +3300,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgVam {
-     final field = getField(LapAvgVamField.ID);
+    final field = getField(LapAvgVamField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2733,7 +3310,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgVam(double? value) {
+
+  set avgVam(double? value) {
     final field = getField(LapAvgVamField.ID);
 
     if (field != null) {
@@ -2745,8 +3323,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get totalGrit {
-     final field = getField(LapTotalGritField.ID);
+    final field = getField(LapTotalGritField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2754,7 +3333,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set totalGrit(double? value) {
+
+  set totalGrit(double? value) {
     final field = getField(LapTotalGritField.ID);
 
     if (field != null) {
@@ -2766,8 +3346,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get totalFlow {
-     final field = getField(LapTotalFlowField.ID);
+    final field = getField(LapTotalFlowField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2775,7 +3356,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set totalFlow(double? value) {
+
+  set totalFlow(double? value) {
     final field = getField(LapTotalFlowField.ID);
 
     if (field != null) {
@@ -2787,8 +3369,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   int? get jumpCount {
-     final field = getField(LapJumpCountField.ID);
+    final field = getField(LapJumpCountField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2796,7 +3379,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set jumpCount(int? value) {
+
+  set jumpCount(int? value) {
     final field = getField(LapJumpCountField.ID);
 
     if (field != null) {
@@ -2808,8 +3392,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgGrit {
-     final field = getField(LapAvgGritField.ID);
+    final field = getField(LapAvgGritField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2817,7 +3402,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgGrit(double? value) {
+
+  set avgGrit(double? value) {
     final field = getField(LapAvgGritField.ID);
 
     if (field != null) {
@@ -2829,8 +3415,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgFlow {
-     final field = getField(LapAvgFlowField.ID);
+    final field = getField(LapAvgFlowField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2838,7 +3425,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgFlow(double? value) {
+
+  set avgFlow(double? value) {
     final field = getField(LapAvgFlowField.ID);
 
     if (field != null) {
@@ -2850,8 +3438,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get totalFractionalAscent {
-     final field = getField(LapTotalFractionalAscentField.ID);
+    final field = getField(LapTotalFractionalAscentField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2859,7 +3448,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set totalFractionalAscent(double? value) {
+
+  set totalFractionalAscent(double? value) {
     final field = getField(LapTotalFractionalAscentField.ID);
 
     if (field != null) {
@@ -2871,8 +3461,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get totalFractionalDescent {
-     final field = getField(LapTotalFractionalDescentField.ID);
+    final field = getField(LapTotalFractionalDescentField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2880,7 +3471,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set totalFractionalDescent(double? value) {
+
+  set totalFractionalDescent(double? value) {
     final field = getField(LapTotalFractionalDescentField.ID);
 
     if (field != null) {
@@ -2892,8 +3484,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgCoreTemperature {
-     final field = getField(LapAvgCoreTemperatureField.ID);
+    final field = getField(LapAvgCoreTemperatureField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2901,7 +3494,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set avgCoreTemperature(double? value) {
+
+  set avgCoreTemperature(double? value) {
     final field = getField(LapAvgCoreTemperatureField.ID);
 
     if (field != null) {
@@ -2913,8 +3507,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get minCoreTemperature {
-     final field = getField(LapMinCoreTemperatureField.ID);
+    final field = getField(LapMinCoreTemperatureField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2922,7 +3517,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set minCoreTemperature(double? value) {
+
+  set minCoreTemperature(double? value) {
     final field = getField(LapMinCoreTemperatureField.ID);
 
     if (field != null) {
@@ -2934,8 +3530,9 @@ class LapMessage extends DataMessage {
       }
     }
   }
+
   double? get maxCoreTemperature {
-     final field = getField(LapMaxCoreTemperatureField.ID);
+    final field = getField(LapMaxCoreTemperatureField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2943,7 +3540,8 @@ class LapMessage extends DataMessage {
       return null;
     }
   }
-   set maxCoreTemperature(double? value) {
+
+  set maxCoreTemperature(double? value) {
     final field = getField(LapMaxCoreTemperatureField.ID);
 
     if (field != null) {
@@ -2955,15 +3553,10 @@ class LapMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class LapEventField extends Field {
- LapEventField({int size = 0, bool growable = true})
+  LapEventField({int size = 0, bool growable = true})
       : super(
             name: 'event',
             id: ID,
@@ -2972,14 +3565,13 @@ class LapEventField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class LapEventTypeField extends Field {
- LapEventTypeField({int size = 0, bool growable = true})
+  LapEventTypeField({int size = 0, bool growable = true})
       : super(
             name: 'event_type',
             id: ID,
@@ -2988,14 +3580,13 @@ class LapEventTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class LapStartTimeField extends Field {
- LapStartTimeField({int size = 0, bool growable = true})
+  LapStartTimeField({int size = 0, bool growable = true})
       : super(
             name: 'start_time',
             id: ID,
@@ -3006,14 +3597,13 @@ class LapStartTimeField extends Field {
             units: 'ms',
             mainTypeName: 'date_time',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class LapStartPositionLatField extends Field {
- LapStartPositionLatField({int size = 0, bool growable = true})
+  LapStartPositionLatField({int size = 0, bool growable = true})
       : super(
             name: 'start_position_lat',
             id: ID,
@@ -3024,14 +3614,13 @@ class LapStartPositionLatField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class LapStartPositionLongField extends Field {
- LapStartPositionLongField({int size = 0, bool growable = true})
+  LapStartPositionLongField({int size = 0, bool growable = true})
       : super(
             name: 'start_position_long',
             id: ID,
@@ -3042,14 +3631,13 @@ class LapStartPositionLongField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class LapEndPositionLatField extends Field {
- LapEndPositionLatField({int size = 0, bool growable = true})
+  LapEndPositionLatField({int size = 0, bool growable = true})
       : super(
             name: 'end_position_lat',
             id: ID,
@@ -3060,14 +3648,13 @@ class LapEndPositionLatField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }
+
 class LapEndPositionLongField extends Field {
- LapEndPositionLongField({int size = 0, bool growable = true})
+  LapEndPositionLongField({int size = 0, bool growable = true})
       : super(
             name: 'end_position_long',
             id: ID,
@@ -3078,14 +3665,13 @@ class LapEndPositionLongField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 6;
 }
+
 class LapTotalElapsedTimeField extends Field {
- LapTotalElapsedTimeField({int size = 0, bool growable = true})
+  LapTotalElapsedTimeField({int size = 0, bool growable = true})
       : super(
             name: 'total_elapsed_time',
             id: ID,
@@ -3096,14 +3682,13 @@ class LapTotalElapsedTimeField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 7;
 }
+
 class LapTotalTimerTimeField extends Field {
- LapTotalTimerTimeField({int size = 0, bool growable = true})
+  LapTotalTimerTimeField({int size = 0, bool growable = true})
       : super(
             name: 'total_timer_time',
             id: ID,
@@ -3114,14 +3699,13 @@ class LapTotalTimerTimeField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 8;
 }
+
 class LapTotalDistanceField extends Field {
- LapTotalDistanceField({int size = 0, bool growable = true})
+  LapTotalDistanceField({int size = 0, bool growable = true})
       : super(
             name: 'total_distance',
             id: ID,
@@ -3132,14 +3716,13 @@ class LapTotalDistanceField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 9;
 }
+
 class LapTotalCyclesField extends Field {
- LapTotalCyclesField({int size = 0, bool growable = true})
+  LapTotalCyclesField({int size = 0, bool growable = true})
       : super(
             name: 'total_cycles',
             id: ID,
@@ -3151,31 +3734,31 @@ class LapTotalCyclesField extends Field {
             mainTypeName: '',
             growable: growable,
             subFields: [
-       SubField(
+              SubField(
                   name: 'total_strides',
                   type: BaseType.UINT32,
                   scale: 1,
                   offset: 0,
                   units: 'strides',
                   referenceMap: {
-                  LapSportField.ID: [1, 11]
+                    LapSportField.ID: [1, 11]
                   }),
-       SubField(
+              SubField(
                   name: 'total_strokes',
                   type: BaseType.UINT32,
                   scale: 1,
                   offset: 0,
                   units: 'strokes',
                   referenceMap: {
-                  LapSportField.ID: [2, 5, 15, 37]
+                    LapSportField.ID: [2, 5, 15, 37]
                   })
-            ]
- );
+            ]);
 
   static const ID = 10;
 }
+
 class LapTotalCaloriesField extends Field {
- LapTotalCaloriesField({int size = 0, bool growable = true})
+  LapTotalCaloriesField({int size = 0, bool growable = true})
       : super(
             name: 'total_calories',
             id: ID,
@@ -3186,14 +3769,13 @@ class LapTotalCaloriesField extends Field {
             units: 'kcal',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 11;
 }
+
 class LapTotalFatCaloriesField extends Field {
- LapTotalFatCaloriesField({int size = 0, bool growable = true})
+  LapTotalFatCaloriesField({int size = 0, bool growable = true})
       : super(
             name: 'total_fat_calories',
             id: ID,
@@ -3204,14 +3786,13 @@ class LapTotalFatCaloriesField extends Field {
             units: 'kcal',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 12;
 }
+
 class LapAvgSpeedField extends Field {
- LapAvgSpeedField({int size = 0, bool growable = true})
+  LapAvgSpeedField({int size = 0, bool growable = true})
       : super(
             name: 'avg_speed',
             id: ID,
@@ -3222,14 +3803,13 @@ class LapAvgSpeedField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 13;
 }
+
 class LapMaxSpeedField extends Field {
- LapMaxSpeedField({int size = 0, bool growable = true})
+  LapMaxSpeedField({int size = 0, bool growable = true})
       : super(
             name: 'max_speed',
             id: ID,
@@ -3240,14 +3820,13 @@ class LapMaxSpeedField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 14;
 }
+
 class LapAvgHeartRateField extends Field {
- LapAvgHeartRateField({int size = 0, bool growable = true})
+  LapAvgHeartRateField({int size = 0, bool growable = true})
       : super(
             name: 'avg_heart_rate',
             id: ID,
@@ -3258,14 +3837,13 @@ class LapAvgHeartRateField extends Field {
             units: 'bpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 15;
 }
+
 class LapMaxHeartRateField extends Field {
- LapMaxHeartRateField({int size = 0, bool growable = true})
+  LapMaxHeartRateField({int size = 0, bool growable = true})
       : super(
             name: 'max_heart_rate',
             id: ID,
@@ -3276,14 +3854,13 @@ class LapMaxHeartRateField extends Field {
             units: 'bpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 16;
 }
+
 class LapAvgCadenceField extends Field {
- LapAvgCadenceField({int size = 0, bool growable = true})
+  LapAvgCadenceField({int size = 0, bool growable = true})
       : super(
             name: 'avg_cadence',
             id: ID,
@@ -3295,22 +3872,22 @@ class LapAvgCadenceField extends Field {
             mainTypeName: '',
             growable: growable,
             subFields: [
-       SubField(
+              SubField(
                   name: 'avg_running_cadence',
                   type: BaseType.UINT8,
                   scale: 1,
                   offset: 0,
                   units: 'strides/min',
                   referenceMap: {
-                  LapSportField.ID: [1]
+                    LapSportField.ID: [1]
                   })
-            ]
- );
+            ]);
 
   static const ID = 17;
 }
+
 class LapMaxCadenceField extends Field {
- LapMaxCadenceField({int size = 0, bool growable = true})
+  LapMaxCadenceField({int size = 0, bool growable = true})
       : super(
             name: 'max_cadence',
             id: ID,
@@ -3322,22 +3899,22 @@ class LapMaxCadenceField extends Field {
             mainTypeName: '',
             growable: growable,
             subFields: [
-       SubField(
+              SubField(
                   name: 'max_running_cadence',
                   type: BaseType.UINT8,
                   scale: 1,
                   offset: 0,
                   units: 'strides/min',
                   referenceMap: {
-                  LapSportField.ID: [1]
+                    LapSportField.ID: [1]
                   })
-            ]
- );
+            ]);
 
   static const ID = 18;
 }
+
 class LapAvgPowerField extends Field {
- LapAvgPowerField({int size = 0, bool growable = true})
+  LapAvgPowerField({int size = 0, bool growable = true})
       : super(
             name: 'avg_power',
             id: ID,
@@ -3348,14 +3925,13 @@ class LapAvgPowerField extends Field {
             units: 'watts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 19;
 }
+
 class LapMaxPowerField extends Field {
- LapMaxPowerField({int size = 0, bool growable = true})
+  LapMaxPowerField({int size = 0, bool growable = true})
       : super(
             name: 'max_power',
             id: ID,
@@ -3366,14 +3942,13 @@ class LapMaxPowerField extends Field {
             units: 'watts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 20;
 }
+
 class LapTotalAscentField extends Field {
- LapTotalAscentField({int size = 0, bool growable = true})
+  LapTotalAscentField({int size = 0, bool growable = true})
       : super(
             name: 'total_ascent',
             id: ID,
@@ -3384,14 +3959,13 @@ class LapTotalAscentField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 21;
 }
+
 class LapTotalDescentField extends Field {
- LapTotalDescentField({int size = 0, bool growable = true})
+  LapTotalDescentField({int size = 0, bool growable = true})
       : super(
             name: 'total_descent',
             id: ID,
@@ -3402,14 +3976,13 @@ class LapTotalDescentField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 22;
 }
+
 class LapIntensityField extends Field {
- LapIntensityField({int size = 0, bool growable = true})
+  LapIntensityField({int size = 0, bool growable = true})
       : super(
             name: 'intensity',
             id: ID,
@@ -3418,14 +3991,13 @@ class LapIntensityField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 23;
 }
+
 class LapLapTriggerField extends Field {
- LapLapTriggerField({int size = 0, bool growable = true})
+  LapLapTriggerField({int size = 0, bool growable = true})
       : super(
             name: 'lap_trigger',
             id: ID,
@@ -3434,14 +4006,13 @@ class LapLapTriggerField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 24;
 }
+
 class LapSportField extends Field {
- LapSportField({int size = 0, bool growable = true})
+  LapSportField({int size = 0, bool growable = true})
       : super(
             name: 'sport',
             id: ID,
@@ -3450,14 +4021,13 @@ class LapSportField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 25;
 }
+
 class LapEventGroupField extends Field {
- LapEventGroupField({int size = 0, bool growable = true})
+  LapEventGroupField({int size = 0, bool growable = true})
       : super(
             name: 'event_group',
             id: ID,
@@ -3466,14 +4036,13 @@ class LapEventGroupField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 26;
 }
+
 class LapNumLengthsField extends Field {
- LapNumLengthsField({int size = 0, bool growable = true})
+  LapNumLengthsField({int size = 0, bool growable = true})
       : super(
             name: 'num_lengths',
             id: ID,
@@ -3484,14 +4053,13 @@ class LapNumLengthsField extends Field {
             units: 'lengths',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 32;
 }
+
 class LapNormalizedPowerField extends Field {
- LapNormalizedPowerField({int size = 0, bool growable = true})
+  LapNormalizedPowerField({int size = 0, bool growable = true})
       : super(
             name: 'normalized_power',
             id: ID,
@@ -3502,14 +4070,13 @@ class LapNormalizedPowerField extends Field {
             units: 'watts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 33;
 }
+
 class LapLeftRightBalanceField extends Field {
- LapLeftRightBalanceField({int size = 0, bool growable = true})
+  LapLeftRightBalanceField({int size = 0, bool growable = true})
       : super(
             name: 'left_right_balance',
             id: ID,
@@ -3518,14 +4085,13 @@ class LapLeftRightBalanceField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 34;
 }
+
 class LapFirstLengthIndexField extends Field {
- LapFirstLengthIndexField({int size = 0, bool growable = true})
+  LapFirstLengthIndexField({int size = 0, bool growable = true})
       : super(
             name: 'first_length_index',
             id: ID,
@@ -3534,14 +4100,13 @@ class LapFirstLengthIndexField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 35;
 }
+
 class LapAvgStrokeDistanceField extends Field {
- LapAvgStrokeDistanceField({int size = 0, bool growable = true})
+  LapAvgStrokeDistanceField({int size = 0, bool growable = true})
       : super(
             name: 'avg_stroke_distance',
             id: ID,
@@ -3552,14 +4117,13 @@ class LapAvgStrokeDistanceField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 37;
 }
+
 class LapSwimStrokeField extends Field {
- LapSwimStrokeField({int size = 0, bool growable = true})
+  LapSwimStrokeField({int size = 0, bool growable = true})
       : super(
             name: 'swim_stroke',
             id: ID,
@@ -3568,14 +4132,13 @@ class LapSwimStrokeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 38;
 }
+
 class LapSubSportField extends Field {
- LapSubSportField({int size = 0, bool growable = true})
+  LapSubSportField({int size = 0, bool growable = true})
       : super(
             name: 'sub_sport',
             id: ID,
@@ -3584,14 +4147,13 @@ class LapSubSportField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 39;
 }
+
 class LapNumActiveLengthsField extends Field {
- LapNumActiveLengthsField({int size = 0, bool growable = true})
+  LapNumActiveLengthsField({int size = 0, bool growable = true})
       : super(
             name: 'num_active_lengths',
             id: ID,
@@ -3602,14 +4164,13 @@ class LapNumActiveLengthsField extends Field {
             units: 'lengths',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 40;
 }
+
 class LapTotalWorkField extends Field {
- LapTotalWorkField({int size = 0, bool growable = true})
+  LapTotalWorkField({int size = 0, bool growable = true})
       : super(
             name: 'total_work',
             id: ID,
@@ -3620,14 +4181,13 @@ class LapTotalWorkField extends Field {
             units: 'J',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 41;
 }
+
 class LapAvgAltitudeField extends Field {
- LapAvgAltitudeField({int size = 0, bool growable = true})
+  LapAvgAltitudeField({int size = 0, bool growable = true})
       : super(
             name: 'avg_altitude',
             id: ID,
@@ -3638,14 +4198,13 @@ class LapAvgAltitudeField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 42;
 }
+
 class LapMaxAltitudeField extends Field {
- LapMaxAltitudeField({int size = 0, bool growable = true})
+  LapMaxAltitudeField({int size = 0, bool growable = true})
       : super(
             name: 'max_altitude',
             id: ID,
@@ -3656,14 +4215,13 @@ class LapMaxAltitudeField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 43;
 }
+
 class LapGpsAccuracyField extends Field {
- LapGpsAccuracyField({int size = 0, bool growable = true})
+  LapGpsAccuracyField({int size = 0, bool growable = true})
       : super(
             name: 'gps_accuracy',
             id: ID,
@@ -3674,14 +4232,13 @@ class LapGpsAccuracyField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 44;
 }
+
 class LapAvgGradeField extends Field {
- LapAvgGradeField({int size = 0, bool growable = true})
+  LapAvgGradeField({int size = 0, bool growable = true})
       : super(
             name: 'avg_grade',
             id: ID,
@@ -3692,14 +4249,13 @@ class LapAvgGradeField extends Field {
             units: '%',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 45;
 }
+
 class LapAvgPosGradeField extends Field {
- LapAvgPosGradeField({int size = 0, bool growable = true})
+  LapAvgPosGradeField({int size = 0, bool growable = true})
       : super(
             name: 'avg_pos_grade',
             id: ID,
@@ -3710,14 +4266,13 @@ class LapAvgPosGradeField extends Field {
             units: '%',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 46;
 }
+
 class LapAvgNegGradeField extends Field {
- LapAvgNegGradeField({int size = 0, bool growable = true})
+  LapAvgNegGradeField({int size = 0, bool growable = true})
       : super(
             name: 'avg_neg_grade',
             id: ID,
@@ -3728,14 +4283,13 @@ class LapAvgNegGradeField extends Field {
             units: '%',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 47;
 }
+
 class LapMaxPosGradeField extends Field {
- LapMaxPosGradeField({int size = 0, bool growable = true})
+  LapMaxPosGradeField({int size = 0, bool growable = true})
       : super(
             name: 'max_pos_grade',
             id: ID,
@@ -3746,14 +4300,13 @@ class LapMaxPosGradeField extends Field {
             units: '%',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 48;
 }
+
 class LapMaxNegGradeField extends Field {
- LapMaxNegGradeField({int size = 0, bool growable = true})
+  LapMaxNegGradeField({int size = 0, bool growable = true})
       : super(
             name: 'max_neg_grade',
             id: ID,
@@ -3764,14 +4317,13 @@ class LapMaxNegGradeField extends Field {
             units: '%',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 49;
 }
+
 class LapAvgTemperatureField extends Field {
- LapAvgTemperatureField({int size = 0, bool growable = true})
+  LapAvgTemperatureField({int size = 0, bool growable = true})
       : super(
             name: 'avg_temperature',
             id: ID,
@@ -3782,14 +4334,13 @@ class LapAvgTemperatureField extends Field {
             units: 'C',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 50;
 }
+
 class LapMaxTemperatureField extends Field {
- LapMaxTemperatureField({int size = 0, bool growable = true})
+  LapMaxTemperatureField({int size = 0, bool growable = true})
       : super(
             name: 'max_temperature',
             id: ID,
@@ -3800,14 +4351,13 @@ class LapMaxTemperatureField extends Field {
             units: 'C',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 51;
 }
+
 class LapTotalMovingTimeField extends Field {
- LapTotalMovingTimeField({int size = 0, bool growable = true})
+  LapTotalMovingTimeField({int size = 0, bool growable = true})
       : super(
             name: 'total_moving_time',
             id: ID,
@@ -3818,14 +4368,13 @@ class LapTotalMovingTimeField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 52;
 }
+
 class LapAvgPosVerticalSpeedField extends Field {
- LapAvgPosVerticalSpeedField({int size = 0, bool growable = true})
+  LapAvgPosVerticalSpeedField({int size = 0, bool growable = true})
       : super(
             name: 'avg_pos_vertical_speed',
             id: ID,
@@ -3836,14 +4385,13 @@ class LapAvgPosVerticalSpeedField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 53;
 }
+
 class LapAvgNegVerticalSpeedField extends Field {
- LapAvgNegVerticalSpeedField({int size = 0, bool growable = true})
+  LapAvgNegVerticalSpeedField({int size = 0, bool growable = true})
       : super(
             name: 'avg_neg_vertical_speed',
             id: ID,
@@ -3854,14 +4402,13 @@ class LapAvgNegVerticalSpeedField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 54;
 }
+
 class LapMaxPosVerticalSpeedField extends Field {
- LapMaxPosVerticalSpeedField({int size = 0, bool growable = true})
+  LapMaxPosVerticalSpeedField({int size = 0, bool growable = true})
       : super(
             name: 'max_pos_vertical_speed',
             id: ID,
@@ -3872,14 +4419,13 @@ class LapMaxPosVerticalSpeedField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 55;
 }
+
 class LapMaxNegVerticalSpeedField extends Field {
- LapMaxNegVerticalSpeedField({int size = 0, bool growable = true})
+  LapMaxNegVerticalSpeedField({int size = 0, bool growable = true})
       : super(
             name: 'max_neg_vertical_speed',
             id: ID,
@@ -3890,14 +4436,13 @@ class LapMaxNegVerticalSpeedField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 56;
 }
+
 class LapTimeInHrZoneField extends Field {
- LapTimeInHrZoneField({int size = 0, bool growable = true})
+  LapTimeInHrZoneField({int size = 0, bool growable = true})
       : super(
             name: 'time_in_hr_zone',
             id: ID,
@@ -3908,14 +4453,13 @@ class LapTimeInHrZoneField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 57;
 }
+
 class LapTimeInSpeedZoneField extends Field {
- LapTimeInSpeedZoneField({int size = 0, bool growable = true})
+  LapTimeInSpeedZoneField({int size = 0, bool growable = true})
       : super(
             name: 'time_in_speed_zone',
             id: ID,
@@ -3926,14 +4470,13 @@ class LapTimeInSpeedZoneField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 58;
 }
+
 class LapTimeInCadenceZoneField extends Field {
- LapTimeInCadenceZoneField({int size = 0, bool growable = true})
+  LapTimeInCadenceZoneField({int size = 0, bool growable = true})
       : super(
             name: 'time_in_cadence_zone',
             id: ID,
@@ -3944,14 +4487,13 @@ class LapTimeInCadenceZoneField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 59;
 }
+
 class LapTimeInPowerZoneField extends Field {
- LapTimeInPowerZoneField({int size = 0, bool growable = true})
+  LapTimeInPowerZoneField({int size = 0, bool growable = true})
       : super(
             name: 'time_in_power_zone',
             id: ID,
@@ -3962,14 +4504,13 @@ class LapTimeInPowerZoneField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 60;
 }
+
 class LapRepetitionNumField extends Field {
- LapRepetitionNumField({int size = 0, bool growable = true})
+  LapRepetitionNumField({int size = 0, bool growable = true})
       : super(
             name: 'repetition_num',
             id: ID,
@@ -3978,14 +4519,13 @@ class LapRepetitionNumField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 61;
 }
+
 class LapMinAltitudeField extends Field {
- LapMinAltitudeField({int size = 0, bool growable = true})
+  LapMinAltitudeField({int size = 0, bool growable = true})
       : super(
             name: 'min_altitude',
             id: ID,
@@ -3996,14 +4536,13 @@ class LapMinAltitudeField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 62;
 }
+
 class LapMinHeartRateField extends Field {
- LapMinHeartRateField({int size = 0, bool growable = true})
+  LapMinHeartRateField({int size = 0, bool growable = true})
       : super(
             name: 'min_heart_rate',
             id: ID,
@@ -4014,14 +4553,13 @@ class LapMinHeartRateField extends Field {
             units: 'bpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 63;
 }
+
 class LapWorkoutStepIndexField extends Field {
- LapWorkoutStepIndexField({int size = 0, bool growable = true})
+  LapWorkoutStepIndexField({int size = 0, bool growable = true})
       : super(
             name: 'wkt_step_index',
             id: ID,
@@ -4030,14 +4568,13 @@ class LapWorkoutStepIndexField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 71;
 }
+
 class LapOpponentScoreField extends Field {
- LapOpponentScoreField({int size = 0, bool growable = true})
+  LapOpponentScoreField({int size = 0, bool growable = true})
       : super(
             name: 'opponent_score',
             id: ID,
@@ -4046,14 +4583,13 @@ class LapOpponentScoreField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 74;
 }
+
 class LapStrokeCountField extends Field {
- LapStrokeCountField({int size = 0, bool growable = true})
+  LapStrokeCountField({int size = 0, bool growable = true})
       : super(
             name: 'stroke_count',
             id: ID,
@@ -4064,14 +4600,13 @@ class LapStrokeCountField extends Field {
             units: 'counts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 75;
 }
+
 class LapZoneCountField extends Field {
- LapZoneCountField({int size = 0, bool growable = true})
+  LapZoneCountField({int size = 0, bool growable = true})
       : super(
             name: 'zone_count',
             id: ID,
@@ -4082,14 +4617,13 @@ class LapZoneCountField extends Field {
             units: 'counts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 76;
 }
+
 class LapAvgVerticalOscillationField extends Field {
- LapAvgVerticalOscillationField({int size = 0, bool growable = true})
+  LapAvgVerticalOscillationField({int size = 0, bool growable = true})
       : super(
             name: 'avg_vertical_oscillation',
             id: ID,
@@ -4100,14 +4634,13 @@ class LapAvgVerticalOscillationField extends Field {
             units: 'mm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 77;
 }
+
 class LapAvgStanceTimePercentField extends Field {
- LapAvgStanceTimePercentField({int size = 0, bool growable = true})
+  LapAvgStanceTimePercentField({int size = 0, bool growable = true})
       : super(
             name: 'avg_stance_time_percent',
             id: ID,
@@ -4118,14 +4651,13 @@ class LapAvgStanceTimePercentField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 78;
 }
+
 class LapAvgStanceTimeField extends Field {
- LapAvgStanceTimeField({int size = 0, bool growable = true})
+  LapAvgStanceTimeField({int size = 0, bool growable = true})
       : super(
             name: 'avg_stance_time',
             id: ID,
@@ -4136,14 +4668,13 @@ class LapAvgStanceTimeField extends Field {
             units: 'ms',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 79;
 }
+
 class LapAvgFractionalCadenceField extends Field {
- LapAvgFractionalCadenceField({int size = 0, bool growable = true})
+  LapAvgFractionalCadenceField({int size = 0, bool growable = true})
       : super(
             name: 'avg_fractional_cadence',
             id: ID,
@@ -4154,14 +4685,13 @@ class LapAvgFractionalCadenceField extends Field {
             units: 'rpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 80;
 }
+
 class LapMaxFractionalCadenceField extends Field {
- LapMaxFractionalCadenceField({int size = 0, bool growable = true})
+  LapMaxFractionalCadenceField({int size = 0, bool growable = true})
       : super(
             name: 'max_fractional_cadence',
             id: ID,
@@ -4172,14 +4702,13 @@ class LapMaxFractionalCadenceField extends Field {
             units: 'rpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 81;
 }
+
 class LapTotalFractionalCyclesField extends Field {
- LapTotalFractionalCyclesField({int size = 0, bool growable = true})
+  LapTotalFractionalCyclesField({int size = 0, bool growable = true})
       : super(
             name: 'total_fractional_cycles',
             id: ID,
@@ -4190,14 +4719,13 @@ class LapTotalFractionalCyclesField extends Field {
             units: 'cycles',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 82;
 }
+
 class LapPlayerScoreField extends Field {
- LapPlayerScoreField({int size = 0, bool growable = true})
+  LapPlayerScoreField({int size = 0, bool growable = true})
       : super(
             name: 'player_score',
             id: ID,
@@ -4206,14 +4734,13 @@ class LapPlayerScoreField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 83;
 }
+
 class LapAvgTotalHemoglobinConcField extends Field {
- LapAvgTotalHemoglobinConcField({int size = 0, bool growable = true})
+  LapAvgTotalHemoglobinConcField({int size = 0, bool growable = true})
       : super(
             name: 'avg_total_hemoglobin_conc',
             id: ID,
@@ -4224,14 +4751,13 @@ class LapAvgTotalHemoglobinConcField extends Field {
             units: 'g/dL',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 84;
 }
+
 class LapMinTotalHemoglobinConcField extends Field {
- LapMinTotalHemoglobinConcField({int size = 0, bool growable = true})
+  LapMinTotalHemoglobinConcField({int size = 0, bool growable = true})
       : super(
             name: 'min_total_hemoglobin_conc',
             id: ID,
@@ -4242,14 +4768,13 @@ class LapMinTotalHemoglobinConcField extends Field {
             units: 'g/dL',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 85;
 }
+
 class LapMaxTotalHemoglobinConcField extends Field {
- LapMaxTotalHemoglobinConcField({int size = 0, bool growable = true})
+  LapMaxTotalHemoglobinConcField({int size = 0, bool growable = true})
       : super(
             name: 'max_total_hemoglobin_conc',
             id: ID,
@@ -4260,14 +4785,13 @@ class LapMaxTotalHemoglobinConcField extends Field {
             units: 'g/dL',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 86;
 }
+
 class LapAvgSaturatedHemoglobinPercentField extends Field {
- LapAvgSaturatedHemoglobinPercentField({int size = 0, bool growable = true})
+  LapAvgSaturatedHemoglobinPercentField({int size = 0, bool growable = true})
       : super(
             name: 'avg_saturated_hemoglobin_percent',
             id: ID,
@@ -4278,14 +4802,13 @@ class LapAvgSaturatedHemoglobinPercentField extends Field {
             units: '%',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 87;
 }
+
 class LapMinSaturatedHemoglobinPercentField extends Field {
- LapMinSaturatedHemoglobinPercentField({int size = 0, bool growable = true})
+  LapMinSaturatedHemoglobinPercentField({int size = 0, bool growable = true})
       : super(
             name: 'min_saturated_hemoglobin_percent',
             id: ID,
@@ -4296,14 +4819,13 @@ class LapMinSaturatedHemoglobinPercentField extends Field {
             units: '%',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 88;
 }
+
 class LapMaxSaturatedHemoglobinPercentField extends Field {
- LapMaxSaturatedHemoglobinPercentField({int size = 0, bool growable = true})
+  LapMaxSaturatedHemoglobinPercentField({int size = 0, bool growable = true})
       : super(
             name: 'max_saturated_hemoglobin_percent',
             id: ID,
@@ -4314,14 +4836,13 @@ class LapMaxSaturatedHemoglobinPercentField extends Field {
             units: '%',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 89;
 }
+
 class LapAvgLeftTorqueEffectivenessField extends Field {
- LapAvgLeftTorqueEffectivenessField({int size = 0, bool growable = true})
+  LapAvgLeftTorqueEffectivenessField({int size = 0, bool growable = true})
       : super(
             name: 'avg_left_torque_effectiveness',
             id: ID,
@@ -4332,14 +4853,13 @@ class LapAvgLeftTorqueEffectivenessField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 91;
 }
+
 class LapAvgRightTorqueEffectivenessField extends Field {
- LapAvgRightTorqueEffectivenessField({int size = 0, bool growable = true})
+  LapAvgRightTorqueEffectivenessField({int size = 0, bool growable = true})
       : super(
             name: 'avg_right_torque_effectiveness',
             id: ID,
@@ -4350,14 +4870,13 @@ class LapAvgRightTorqueEffectivenessField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 92;
 }
+
 class LapAvgLeftPedalSmoothnessField extends Field {
- LapAvgLeftPedalSmoothnessField({int size = 0, bool growable = true})
+  LapAvgLeftPedalSmoothnessField({int size = 0, bool growable = true})
       : super(
             name: 'avg_left_pedal_smoothness',
             id: ID,
@@ -4368,14 +4887,13 @@ class LapAvgLeftPedalSmoothnessField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 93;
 }
+
 class LapAvgRightPedalSmoothnessField extends Field {
- LapAvgRightPedalSmoothnessField({int size = 0, bool growable = true})
+  LapAvgRightPedalSmoothnessField({int size = 0, bool growable = true})
       : super(
             name: 'avg_right_pedal_smoothness',
             id: ID,
@@ -4386,14 +4904,13 @@ class LapAvgRightPedalSmoothnessField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 94;
 }
+
 class LapAvgCombinedPedalSmoothnessField extends Field {
- LapAvgCombinedPedalSmoothnessField({int size = 0, bool growable = true})
+  LapAvgCombinedPedalSmoothnessField({int size = 0, bool growable = true})
       : super(
             name: 'avg_combined_pedal_smoothness',
             id: ID,
@@ -4404,14 +4921,13 @@ class LapAvgCombinedPedalSmoothnessField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 95;
 }
+
 class LapTimeStandingField extends Field {
- LapTimeStandingField({int size = 0, bool growable = true})
+  LapTimeStandingField({int size = 0, bool growable = true})
       : super(
             name: 'time_standing',
             id: ID,
@@ -4422,14 +4938,13 @@ class LapTimeStandingField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 98;
 }
+
 class LapStandCountField extends Field {
- LapStandCountField({int size = 0, bool growable = true})
+  LapStandCountField({int size = 0, bool growable = true})
       : super(
             name: 'stand_count',
             id: ID,
@@ -4438,14 +4953,13 @@ class LapStandCountField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 99;
 }
+
 class LapAvgLeftPcoField extends Field {
- LapAvgLeftPcoField({int size = 0, bool growable = true})
+  LapAvgLeftPcoField({int size = 0, bool growable = true})
       : super(
             name: 'avg_left_pco',
             id: ID,
@@ -4456,14 +4970,13 @@ class LapAvgLeftPcoField extends Field {
             units: 'mm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 100;
 }
+
 class LapAvgRightPcoField extends Field {
- LapAvgRightPcoField({int size = 0, bool growable = true})
+  LapAvgRightPcoField({int size = 0, bool growable = true})
       : super(
             name: 'avg_right_pco',
             id: ID,
@@ -4474,14 +4987,13 @@ class LapAvgRightPcoField extends Field {
             units: 'mm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 101;
 }
+
 class LapAvgLeftPowerPhaseField extends Field {
- LapAvgLeftPowerPhaseField({int size = 0, bool growable = true})
+  LapAvgLeftPowerPhaseField({int size = 0, bool growable = true})
       : super(
             name: 'avg_left_power_phase',
             id: ID,
@@ -4492,14 +5004,13 @@ class LapAvgLeftPowerPhaseField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 102;
 }
+
 class LapAvgLeftPowerPhasePeakField extends Field {
- LapAvgLeftPowerPhasePeakField({int size = 0, bool growable = true})
+  LapAvgLeftPowerPhasePeakField({int size = 0, bool growable = true})
       : super(
             name: 'avg_left_power_phase_peak',
             id: ID,
@@ -4510,14 +5021,13 @@ class LapAvgLeftPowerPhasePeakField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 103;
 }
+
 class LapAvgRightPowerPhaseField extends Field {
- LapAvgRightPowerPhaseField({int size = 0, bool growable = true})
+  LapAvgRightPowerPhaseField({int size = 0, bool growable = true})
       : super(
             name: 'avg_right_power_phase',
             id: ID,
@@ -4528,14 +5038,13 @@ class LapAvgRightPowerPhaseField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 104;
 }
+
 class LapAvgRightPowerPhasePeakField extends Field {
- LapAvgRightPowerPhasePeakField({int size = 0, bool growable = true})
+  LapAvgRightPowerPhasePeakField({int size = 0, bool growable = true})
       : super(
             name: 'avg_right_power_phase_peak',
             id: ID,
@@ -4546,14 +5055,13 @@ class LapAvgRightPowerPhasePeakField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 105;
 }
+
 class LapAvgPowerPositionField extends Field {
- LapAvgPowerPositionField({int size = 0, bool growable = true})
+  LapAvgPowerPositionField({int size = 0, bool growable = true})
       : super(
             name: 'avg_power_position',
             id: ID,
@@ -4564,14 +5072,13 @@ class LapAvgPowerPositionField extends Field {
             units: 'watts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 106;
 }
+
 class LapMaxPowerPositionField extends Field {
- LapMaxPowerPositionField({int size = 0, bool growable = true})
+  LapMaxPowerPositionField({int size = 0, bool growable = true})
       : super(
             name: 'max_power_position',
             id: ID,
@@ -4582,14 +5089,13 @@ class LapMaxPowerPositionField extends Field {
             units: 'watts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 107;
 }
+
 class LapAvgCadencePositionField extends Field {
- LapAvgCadencePositionField({int size = 0, bool growable = true})
+  LapAvgCadencePositionField({int size = 0, bool growable = true})
       : super(
             name: 'avg_cadence_position',
             id: ID,
@@ -4600,14 +5106,13 @@ class LapAvgCadencePositionField extends Field {
             units: 'rpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 108;
 }
+
 class LapMaxCadencePositionField extends Field {
- LapMaxCadencePositionField({int size = 0, bool growable = true})
+  LapMaxCadencePositionField({int size = 0, bool growable = true})
       : super(
             name: 'max_cadence_position',
             id: ID,
@@ -4618,14 +5123,13 @@ class LapMaxCadencePositionField extends Field {
             units: 'rpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 109;
 }
+
 class LapEnhancedAvgSpeedField extends Field {
- LapEnhancedAvgSpeedField({int size = 0, bool growable = true})
+  LapEnhancedAvgSpeedField({int size = 0, bool growable = true})
       : super(
             name: 'enhanced_avg_speed',
             id: ID,
@@ -4636,14 +5140,13 @@ class LapEnhancedAvgSpeedField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 110;
 }
+
 class LapEnhancedMaxSpeedField extends Field {
- LapEnhancedMaxSpeedField({int size = 0, bool growable = true})
+  LapEnhancedMaxSpeedField({int size = 0, bool growable = true})
       : super(
             name: 'enhanced_max_speed',
             id: ID,
@@ -4654,14 +5157,13 @@ class LapEnhancedMaxSpeedField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 111;
 }
+
 class LapEnhancedAvgAltitudeField extends Field {
- LapEnhancedAvgAltitudeField({int size = 0, bool growable = true})
+  LapEnhancedAvgAltitudeField({int size = 0, bool growable = true})
       : super(
             name: 'enhanced_avg_altitude',
             id: ID,
@@ -4672,14 +5174,13 @@ class LapEnhancedAvgAltitudeField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 112;
 }
+
 class LapEnhancedMinAltitudeField extends Field {
- LapEnhancedMinAltitudeField({int size = 0, bool growable = true})
+  LapEnhancedMinAltitudeField({int size = 0, bool growable = true})
       : super(
             name: 'enhanced_min_altitude',
             id: ID,
@@ -4690,14 +5191,13 @@ class LapEnhancedMinAltitudeField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 113;
 }
+
 class LapEnhancedMaxAltitudeField extends Field {
- LapEnhancedMaxAltitudeField({int size = 0, bool growable = true})
+  LapEnhancedMaxAltitudeField({int size = 0, bool growable = true})
       : super(
             name: 'enhanced_max_altitude',
             id: ID,
@@ -4708,14 +5208,13 @@ class LapEnhancedMaxAltitudeField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 114;
 }
+
 class LapAvgLevMotorPowerField extends Field {
- LapAvgLevMotorPowerField({int size = 0, bool growable = true})
+  LapAvgLevMotorPowerField({int size = 0, bool growable = true})
       : super(
             name: 'avg_lev_motor_power',
             id: ID,
@@ -4726,14 +5225,13 @@ class LapAvgLevMotorPowerField extends Field {
             units: 'watts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 115;
 }
+
 class LapMaxLevMotorPowerField extends Field {
- LapMaxLevMotorPowerField({int size = 0, bool growable = true})
+  LapMaxLevMotorPowerField({int size = 0, bool growable = true})
       : super(
             name: 'max_lev_motor_power',
             id: ID,
@@ -4744,14 +5242,13 @@ class LapMaxLevMotorPowerField extends Field {
             units: 'watts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 116;
 }
+
 class LapLevBatteryConsumptionField extends Field {
- LapLevBatteryConsumptionField({int size = 0, bool growable = true})
+  LapLevBatteryConsumptionField({int size = 0, bool growable = true})
       : super(
             name: 'lev_battery_consumption',
             id: ID,
@@ -4762,14 +5259,13 @@ class LapLevBatteryConsumptionField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 117;
 }
+
 class LapAvgVerticalRatioField extends Field {
- LapAvgVerticalRatioField({int size = 0, bool growable = true})
+  LapAvgVerticalRatioField({int size = 0, bool growable = true})
       : super(
             name: 'avg_vertical_ratio',
             id: ID,
@@ -4780,14 +5276,13 @@ class LapAvgVerticalRatioField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 118;
 }
+
 class LapAvgStanceTimeBalanceField extends Field {
- LapAvgStanceTimeBalanceField({int size = 0, bool growable = true})
+  LapAvgStanceTimeBalanceField({int size = 0, bool growable = true})
       : super(
             name: 'avg_stance_time_balance',
             id: ID,
@@ -4798,14 +5293,13 @@ class LapAvgStanceTimeBalanceField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 119;
 }
+
 class LapAvgStepLengthField extends Field {
- LapAvgStepLengthField({int size = 0, bool growable = true})
+  LapAvgStepLengthField({int size = 0, bool growable = true})
       : super(
             name: 'avg_step_length',
             id: ID,
@@ -4816,14 +5310,13 @@ class LapAvgStepLengthField extends Field {
             units: 'mm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 120;
 }
+
 class LapAvgVamField extends Field {
- LapAvgVamField({int size = 0, bool growable = true})
+  LapAvgVamField({int size = 0, bool growable = true})
       : super(
             name: 'avg_vam',
             id: ID,
@@ -4834,14 +5327,13 @@ class LapAvgVamField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 121;
 }
+
 class LapTotalGritField extends Field {
- LapTotalGritField({int size = 0, bool growable = true})
+  LapTotalGritField({int size = 0, bool growable = true})
       : super(
             name: 'total_grit',
             id: ID,
@@ -4852,14 +5344,13 @@ class LapTotalGritField extends Field {
             units: 'kGrit',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 149;
 }
+
 class LapTotalFlowField extends Field {
- LapTotalFlowField({int size = 0, bool growable = true})
+  LapTotalFlowField({int size = 0, bool growable = true})
       : super(
             name: 'total_flow',
             id: ID,
@@ -4870,14 +5361,13 @@ class LapTotalFlowField extends Field {
             units: 'Flow',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 150;
 }
+
 class LapJumpCountField extends Field {
- LapJumpCountField({int size = 0, bool growable = true})
+  LapJumpCountField({int size = 0, bool growable = true})
       : super(
             name: 'jump_count',
             id: ID,
@@ -4886,14 +5376,13 @@ class LapJumpCountField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 151;
 }
+
 class LapAvgGritField extends Field {
- LapAvgGritField({int size = 0, bool growable = true})
+  LapAvgGritField({int size = 0, bool growable = true})
       : super(
             name: 'avg_grit',
             id: ID,
@@ -4904,14 +5393,13 @@ class LapAvgGritField extends Field {
             units: 'kGrit',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 153;
 }
+
 class LapAvgFlowField extends Field {
- LapAvgFlowField({int size = 0, bool growable = true})
+  LapAvgFlowField({int size = 0, bool growable = true})
       : super(
             name: 'avg_flow',
             id: ID,
@@ -4922,14 +5410,13 @@ class LapAvgFlowField extends Field {
             units: 'Flow',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 154;
 }
+
 class LapTotalFractionalAscentField extends Field {
- LapTotalFractionalAscentField({int size = 0, bool growable = true})
+  LapTotalFractionalAscentField({int size = 0, bool growable = true})
       : super(
             name: 'total_fractional_ascent',
             id: ID,
@@ -4940,14 +5427,13 @@ class LapTotalFractionalAscentField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 156;
 }
+
 class LapTotalFractionalDescentField extends Field {
- LapTotalFractionalDescentField({int size = 0, bool growable = true})
+  LapTotalFractionalDescentField({int size = 0, bool growable = true})
       : super(
             name: 'total_fractional_descent',
             id: ID,
@@ -4958,14 +5444,13 @@ class LapTotalFractionalDescentField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 157;
 }
+
 class LapAvgCoreTemperatureField extends Field {
- LapAvgCoreTemperatureField({int size = 0, bool growable = true})
+  LapAvgCoreTemperatureField({int size = 0, bool growable = true})
       : super(
             name: 'avg_core_temperature',
             id: ID,
@@ -4976,14 +5461,13 @@ class LapAvgCoreTemperatureField extends Field {
             units: 'C',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 158;
 }
+
 class LapMinCoreTemperatureField extends Field {
- LapMinCoreTemperatureField({int size = 0, bool growable = true})
+  LapMinCoreTemperatureField({int size = 0, bool growable = true})
       : super(
             name: 'min_core_temperature',
             id: ID,
@@ -4994,14 +5478,13 @@ class LapMinCoreTemperatureField extends Field {
             units: 'C',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 159;
 }
+
 class LapMaxCoreTemperatureField extends Field {
- LapMaxCoreTemperatureField({int size = 0, bool growable = true})
+  LapMaxCoreTemperatureField({int size = 0, bool growable = true})
       : super(
             name: 'max_core_temperature',
             id: ID,
@@ -5012,9 +5495,7 @@ class LapMaxCoreTemperatureField extends Field {
             units: 'C',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 160;
 }

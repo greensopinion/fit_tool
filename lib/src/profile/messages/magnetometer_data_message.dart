@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class MagnetometerDataMessage extends DataMessage {
-
-   MagnetometerDataMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  MagnetometerDataMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: MagnetometerDataMessage.NAME,
@@ -25,31 +27,63 @@ class MagnetometerDataMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MagnetometerDataTimestampMsField(
-                  size: definitionMessage?.getFieldDefinition(MagnetometerDataTimestampMsField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              MagnetometerDataTimestampMsField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MagnetometerDataSampleTimeOffsetField(
-                  size: definitionMessage?.getFieldDefinition(MagnetometerDataSampleTimeOffsetField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              MagnetometerDataSampleTimeOffsetField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MagnetometerDataMagXField(
-                  size: definitionMessage?.getFieldDefinition(MagnetometerDataMagXField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MagnetometerDataMagXField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MagnetometerDataMagYField(
-                  size: definitionMessage?.getFieldDefinition(MagnetometerDataMagYField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MagnetometerDataMagYField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MagnetometerDataMagZField(
-                  size: definitionMessage?.getFieldDefinition(MagnetometerDataMagZField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MagnetometerDataMagZField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MagnetometerDataCalibratedMagXField(
-                  size: definitionMessage?.getFieldDefinition(MagnetometerDataCalibratedMagXField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              MagnetometerDataCalibratedMagXField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MagnetometerDataCalibratedMagYField(
-                  size: definitionMessage?.getFieldDefinition(MagnetometerDataCalibratedMagYField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              MagnetometerDataCalibratedMagYField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MagnetometerDataCalibratedMagZField(
-                  size: definitionMessage?.getFieldDefinition(MagnetometerDataCalibratedMagZField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              MagnetometerDataCalibratedMagZField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -60,15 +94,15 @@ class MagnetometerDataMessage extends DataMessage {
 
   static MagnetometerDataMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
-    final message = MagnetometerDataMessage(definitionMessage: definitionMessage);
+    final message =
+        MagnetometerDataMessage(definitionMessage: definitionMessage);
     message.readFromBytes(bytes);
     return message;
   }
 
-
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -76,8 +110,9 @@ class MagnetometerDataMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -89,8 +124,9 @@ class MagnetometerDataMessage extends DataMessage {
       }
     }
   }
+
   int? get timestampMs {
-     final field = getField(MagnetometerDataTimestampMsField.ID);
+    final field = getField(MagnetometerDataTimestampMsField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -98,7 +134,8 @@ class MagnetometerDataMessage extends DataMessage {
       return null;
     }
   }
-   set timestampMs(int? value) {
+
+  set timestampMs(int? value) {
     final field = getField(MagnetometerDataTimestampMsField.ID);
 
     if (field != null) {
@@ -110,8 +147,9 @@ class MagnetometerDataMessage extends DataMessage {
       }
     }
   }
+
   int? get sampleTimeOffset {
-     final field = getField(MagnetometerDataSampleTimeOffsetField.ID);
+    final field = getField(MagnetometerDataSampleTimeOffsetField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -119,7 +157,8 @@ class MagnetometerDataMessage extends DataMessage {
       return null;
     }
   }
-   set sampleTimeOffset(int? value) {
+
+  set sampleTimeOffset(int? value) {
     final field = getField(MagnetometerDataSampleTimeOffsetField.ID);
 
     if (field != null) {
@@ -131,8 +170,9 @@ class MagnetometerDataMessage extends DataMessage {
       }
     }
   }
+
   int? get magX {
-     final field = getField(MagnetometerDataMagXField.ID);
+    final field = getField(MagnetometerDataMagXField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -140,7 +180,8 @@ class MagnetometerDataMessage extends DataMessage {
       return null;
     }
   }
-   set magX(int? value) {
+
+  set magX(int? value) {
     final field = getField(MagnetometerDataMagXField.ID);
 
     if (field != null) {
@@ -152,8 +193,9 @@ class MagnetometerDataMessage extends DataMessage {
       }
     }
   }
+
   int? get magY {
-     final field = getField(MagnetometerDataMagYField.ID);
+    final field = getField(MagnetometerDataMagYField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -161,7 +203,8 @@ class MagnetometerDataMessage extends DataMessage {
       return null;
     }
   }
-   set magY(int? value) {
+
+  set magY(int? value) {
     final field = getField(MagnetometerDataMagYField.ID);
 
     if (field != null) {
@@ -173,8 +216,9 @@ class MagnetometerDataMessage extends DataMessage {
       }
     }
   }
+
   int? get magZ {
-     final field = getField(MagnetometerDataMagZField.ID);
+    final field = getField(MagnetometerDataMagZField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -182,7 +226,8 @@ class MagnetometerDataMessage extends DataMessage {
       return null;
     }
   }
-   set magZ(int? value) {
+
+  set magZ(int? value) {
     final field = getField(MagnetometerDataMagZField.ID);
 
     if (field != null) {
@@ -194,8 +239,9 @@ class MagnetometerDataMessage extends DataMessage {
       }
     }
   }
+
   double? get calibratedMagX {
-     final field = getField(MagnetometerDataCalibratedMagXField.ID);
+    final field = getField(MagnetometerDataCalibratedMagXField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -203,7 +249,8 @@ class MagnetometerDataMessage extends DataMessage {
       return null;
     }
   }
-   set calibratedMagX(double? value) {
+
+  set calibratedMagX(double? value) {
     final field = getField(MagnetometerDataCalibratedMagXField.ID);
 
     if (field != null) {
@@ -215,8 +262,9 @@ class MagnetometerDataMessage extends DataMessage {
       }
     }
   }
+
   double? get calibratedMagY {
-     final field = getField(MagnetometerDataCalibratedMagYField.ID);
+    final field = getField(MagnetometerDataCalibratedMagYField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -224,7 +272,8 @@ class MagnetometerDataMessage extends DataMessage {
       return null;
     }
   }
-   set calibratedMagY(double? value) {
+
+  set calibratedMagY(double? value) {
     final field = getField(MagnetometerDataCalibratedMagYField.ID);
 
     if (field != null) {
@@ -236,8 +285,9 @@ class MagnetometerDataMessage extends DataMessage {
       }
     }
   }
+
   double? get calibratedMagZ {
-     final field = getField(MagnetometerDataCalibratedMagZField.ID);
+    final field = getField(MagnetometerDataCalibratedMagZField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -245,7 +295,8 @@ class MagnetometerDataMessage extends DataMessage {
       return null;
     }
   }
-   set calibratedMagZ(double? value) {
+
+  set calibratedMagZ(double? value) {
     final field = getField(MagnetometerDataCalibratedMagZField.ID);
 
     if (field != null) {
@@ -257,15 +308,10 @@ class MagnetometerDataMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class MagnetometerDataTimestampMsField extends Field {
- MagnetometerDataTimestampMsField({int size = 0, bool growable = true})
+  MagnetometerDataTimestampMsField({int size = 0, bool growable = true})
       : super(
             name: 'timestamp_ms',
             id: ID,
@@ -276,14 +322,13 @@ class MagnetometerDataTimestampMsField extends Field {
             units: 'ms',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class MagnetometerDataSampleTimeOffsetField extends Field {
- MagnetometerDataSampleTimeOffsetField({int size = 0, bool growable = true})
+  MagnetometerDataSampleTimeOffsetField({int size = 0, bool growable = true})
       : super(
             name: 'sample_time_offset',
             id: ID,
@@ -294,14 +339,13 @@ class MagnetometerDataSampleTimeOffsetField extends Field {
             units: 'ms',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class MagnetometerDataMagXField extends Field {
- MagnetometerDataMagXField({int size = 0, bool growable = true})
+  MagnetometerDataMagXField({int size = 0, bool growable = true})
       : super(
             name: 'mag_x',
             id: ID,
@@ -312,14 +356,13 @@ class MagnetometerDataMagXField extends Field {
             units: 'counts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class MagnetometerDataMagYField extends Field {
- MagnetometerDataMagYField({int size = 0, bool growable = true})
+  MagnetometerDataMagYField({int size = 0, bool growable = true})
       : super(
             name: 'mag_y',
             id: ID,
@@ -330,14 +373,13 @@ class MagnetometerDataMagYField extends Field {
             units: 'counts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class MagnetometerDataMagZField extends Field {
- MagnetometerDataMagZField({int size = 0, bool growable = true})
+  MagnetometerDataMagZField({int size = 0, bool growable = true})
       : super(
             name: 'mag_z',
             id: ID,
@@ -348,14 +390,13 @@ class MagnetometerDataMagZField extends Field {
             units: 'counts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class MagnetometerDataCalibratedMagXField extends Field {
- MagnetometerDataCalibratedMagXField({int size = 0, bool growable = true})
+  MagnetometerDataCalibratedMagXField({int size = 0, bool growable = true})
       : super(
             name: 'calibrated_mag_x',
             id: ID,
@@ -366,14 +407,13 @@ class MagnetometerDataCalibratedMagXField extends Field {
             units: 'G',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }
+
 class MagnetometerDataCalibratedMagYField extends Field {
- MagnetometerDataCalibratedMagYField({int size = 0, bool growable = true})
+  MagnetometerDataCalibratedMagYField({int size = 0, bool growable = true})
       : super(
             name: 'calibrated_mag_y',
             id: ID,
@@ -384,14 +424,13 @@ class MagnetometerDataCalibratedMagYField extends Field {
             units: 'G',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 6;
 }
+
 class MagnetometerDataCalibratedMagZField extends Field {
- MagnetometerDataCalibratedMagZField({int size = 0, bool growable = true})
+  MagnetometerDataCalibratedMagZField({int size = 0, bool growable = true})
       : super(
             name: 'calibrated_mag_z',
             id: ID,
@@ -402,9 +441,7 @@ class MagnetometerDataCalibratedMagZField extends Field {
             units: 'G',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 7;
 }

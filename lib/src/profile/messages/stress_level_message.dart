@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class StressLevelMessage extends DataMessage {
-
-   StressLevelMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  StressLevelMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: StressLevelMessage.NAME,
@@ -25,10 +27,18 @@ class StressLevelMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               StressLevelStressLevelValueField(
-                  size: definitionMessage?.getFieldDefinition(StressLevelStressLevelValueField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              StressLevelStressLevelValueField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               StressLevelStressLevelTimeField(
-                  size: definitionMessage?.getFieldDefinition(StressLevelStressLevelTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              StressLevelStressLevelTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -44,9 +54,8 @@ class StressLevelMessage extends DataMessage {
     return message;
   }
 
-
   int? get stressLevelValue {
-     final field = getField(StressLevelStressLevelValueField.ID);
+    final field = getField(StressLevelStressLevelValueField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -54,7 +63,8 @@ class StressLevelMessage extends DataMessage {
       return null;
     }
   }
-   set stressLevelValue(int? value) {
+
+  set stressLevelValue(int? value) {
     final field = getField(StressLevelStressLevelValueField.ID);
 
     if (field != null) {
@@ -66,9 +76,10 @@ class StressLevelMessage extends DataMessage {
       }
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get stressLevelTime {
-     final field = getField(StressLevelStressLevelTimeField.ID);
+    final field = getField(StressLevelStressLevelTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -76,8 +87,9 @@ class StressLevelMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set stressLevelTime(int? value) {
+  set stressLevelTime(int? value) {
     final field = getField(StressLevelStressLevelTimeField.ID);
 
     if (field != null) {
@@ -89,15 +101,10 @@ class StressLevelMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class StressLevelStressLevelValueField extends Field {
- StressLevelStressLevelValueField({int size = 0, bool growable = true})
+  StressLevelStressLevelValueField({int size = 0, bool growable = true})
       : super(
             name: 'stress_level_value',
             id: ID,
@@ -106,14 +113,13 @@ class StressLevelStressLevelValueField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class StressLevelStressLevelTimeField extends Field {
- StressLevelStressLevelTimeField({int size = 0, bool growable = true})
+  StressLevelStressLevelTimeField({int size = 0, bool growable = true})
       : super(
             name: 'stress_level_time',
             id: ID,
@@ -124,9 +130,7 @@ class StressLevelStressLevelTimeField extends Field {
             units: 'ms',
             mainTypeName: 'date_time',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }

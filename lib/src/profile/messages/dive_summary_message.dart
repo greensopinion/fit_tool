@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class DiveSummaryMessage extends DataMessage {
-
-   DiveSummaryMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  DiveSummaryMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: DiveSummaryMessage.NAME,
@@ -25,43 +27,84 @@ class DiveSummaryMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveSummaryReferenceMesgField(
-                  size: definitionMessage?.getFieldDefinition(DiveSummaryReferenceMesgField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DiveSummaryReferenceMesgField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveSummaryReferenceIndexField(
-                  size: definitionMessage?.getFieldDefinition(DiveSummaryReferenceIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DiveSummaryReferenceIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveSummaryAvgDepthField(
-                  size: definitionMessage?.getFieldDefinition(DiveSummaryAvgDepthField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DiveSummaryAvgDepthField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveSummaryMaxDepthField(
-                  size: definitionMessage?.getFieldDefinition(DiveSummaryMaxDepthField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DiveSummaryMaxDepthField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveSummarySurfaceIntervalField(
-                  size: definitionMessage?.getFieldDefinition(DiveSummarySurfaceIntervalField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DiveSummarySurfaceIntervalField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveSummaryStartCnsField(
-                  size: definitionMessage?.getFieldDefinition(DiveSummaryStartCnsField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DiveSummaryStartCnsField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveSummaryEndCnsField(
-                  size: definitionMessage?.getFieldDefinition(DiveSummaryEndCnsField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DiveSummaryEndCnsField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveSummaryStartN2Field(
-                  size: definitionMessage?.getFieldDefinition(DiveSummaryStartN2Field.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DiveSummaryStartN2Field.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveSummaryEndN2Field(
-                  size: definitionMessage?.getFieldDefinition(DiveSummaryEndN2Field.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DiveSummaryEndN2Field.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveSummaryO2ToxicityField(
-                  size: definitionMessage?.getFieldDefinition(DiveSummaryO2ToxicityField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DiveSummaryO2ToxicityField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveSummaryDiveNumberField(
-                  size: definitionMessage?.getFieldDefinition(DiveSummaryDiveNumberField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DiveSummaryDiveNumberField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveSummaryBottomTimeField(
-                  size: definitionMessage?.getFieldDefinition(DiveSummaryBottomTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DiveSummaryBottomTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -77,10 +120,9 @@ class DiveSummaryMessage extends DataMessage {
     return message;
   }
 
-
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -88,8 +130,9 @@ class DiveSummaryMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -101,8 +144,9 @@ class DiveSummaryMessage extends DataMessage {
       }
     }
   }
+
   int? get referenceMesg {
-     final field = getField(DiveSummaryReferenceMesgField.ID);
+    final field = getField(DiveSummaryReferenceMesgField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -110,7 +154,8 @@ class DiveSummaryMessage extends DataMessage {
       return null;
     }
   }
-   set referenceMesg(int? value) {
+
+  set referenceMesg(int? value) {
     final field = getField(DiveSummaryReferenceMesgField.ID);
 
     if (field != null) {
@@ -122,8 +167,9 @@ class DiveSummaryMessage extends DataMessage {
       }
     }
   }
+
   int? get referenceIndex {
-     final field = getField(DiveSummaryReferenceIndexField.ID);
+    final field = getField(DiveSummaryReferenceIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -131,7 +177,8 @@ class DiveSummaryMessage extends DataMessage {
       return null;
     }
   }
-   set referenceIndex(int? value) {
+
+  set referenceIndex(int? value) {
     final field = getField(DiveSummaryReferenceIndexField.ID);
 
     if (field != null) {
@@ -143,8 +190,9 @@ class DiveSummaryMessage extends DataMessage {
       }
     }
   }
+
   double? get avgDepth {
-     final field = getField(DiveSummaryAvgDepthField.ID);
+    final field = getField(DiveSummaryAvgDepthField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -152,7 +200,8 @@ class DiveSummaryMessage extends DataMessage {
       return null;
     }
   }
-   set avgDepth(double? value) {
+
+  set avgDepth(double? value) {
     final field = getField(DiveSummaryAvgDepthField.ID);
 
     if (field != null) {
@@ -164,8 +213,9 @@ class DiveSummaryMessage extends DataMessage {
       }
     }
   }
+
   double? get maxDepth {
-     final field = getField(DiveSummaryMaxDepthField.ID);
+    final field = getField(DiveSummaryMaxDepthField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -173,7 +223,8 @@ class DiveSummaryMessage extends DataMessage {
       return null;
     }
   }
-   set maxDepth(double? value) {
+
+  set maxDepth(double? value) {
     final field = getField(DiveSummaryMaxDepthField.ID);
 
     if (field != null) {
@@ -185,8 +236,9 @@ class DiveSummaryMessage extends DataMessage {
       }
     }
   }
+
   int? get surfaceInterval {
-     final field = getField(DiveSummarySurfaceIntervalField.ID);
+    final field = getField(DiveSummarySurfaceIntervalField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -194,7 +246,8 @@ class DiveSummaryMessage extends DataMessage {
       return null;
     }
   }
-   set surfaceInterval(int? value) {
+
+  set surfaceInterval(int? value) {
     final field = getField(DiveSummarySurfaceIntervalField.ID);
 
     if (field != null) {
@@ -206,8 +259,9 @@ class DiveSummaryMessage extends DataMessage {
       }
     }
   }
+
   int? get startCns {
-     final field = getField(DiveSummaryStartCnsField.ID);
+    final field = getField(DiveSummaryStartCnsField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -215,7 +269,8 @@ class DiveSummaryMessage extends DataMessage {
       return null;
     }
   }
-   set startCns(int? value) {
+
+  set startCns(int? value) {
     final field = getField(DiveSummaryStartCnsField.ID);
 
     if (field != null) {
@@ -227,8 +282,9 @@ class DiveSummaryMessage extends DataMessage {
       }
     }
   }
+
   int? get endCns {
-     final field = getField(DiveSummaryEndCnsField.ID);
+    final field = getField(DiveSummaryEndCnsField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -236,7 +292,8 @@ class DiveSummaryMessage extends DataMessage {
       return null;
     }
   }
-   set endCns(int? value) {
+
+  set endCns(int? value) {
     final field = getField(DiveSummaryEndCnsField.ID);
 
     if (field != null) {
@@ -248,8 +305,9 @@ class DiveSummaryMessage extends DataMessage {
       }
     }
   }
+
   int? get startN2 {
-     final field = getField(DiveSummaryStartN2Field.ID);
+    final field = getField(DiveSummaryStartN2Field.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -257,7 +315,8 @@ class DiveSummaryMessage extends DataMessage {
       return null;
     }
   }
-   set startN2(int? value) {
+
+  set startN2(int? value) {
     final field = getField(DiveSummaryStartN2Field.ID);
 
     if (field != null) {
@@ -269,8 +328,9 @@ class DiveSummaryMessage extends DataMessage {
       }
     }
   }
+
   int? get endN2 {
-     final field = getField(DiveSummaryEndN2Field.ID);
+    final field = getField(DiveSummaryEndN2Field.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -278,7 +338,8 @@ class DiveSummaryMessage extends DataMessage {
       return null;
     }
   }
-   set endN2(int? value) {
+
+  set endN2(int? value) {
     final field = getField(DiveSummaryEndN2Field.ID);
 
     if (field != null) {
@@ -290,8 +351,9 @@ class DiveSummaryMessage extends DataMessage {
       }
     }
   }
+
   int? get o2Toxicity {
-     final field = getField(DiveSummaryO2ToxicityField.ID);
+    final field = getField(DiveSummaryO2ToxicityField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -299,7 +361,8 @@ class DiveSummaryMessage extends DataMessage {
       return null;
     }
   }
-   set o2Toxicity(int? value) {
+
+  set o2Toxicity(int? value) {
     final field = getField(DiveSummaryO2ToxicityField.ID);
 
     if (field != null) {
@@ -311,8 +374,9 @@ class DiveSummaryMessage extends DataMessage {
       }
     }
   }
+
   int? get diveNumber {
-     final field = getField(DiveSummaryDiveNumberField.ID);
+    final field = getField(DiveSummaryDiveNumberField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -320,7 +384,8 @@ class DiveSummaryMessage extends DataMessage {
       return null;
     }
   }
-   set diveNumber(int? value) {
+
+  set diveNumber(int? value) {
     final field = getField(DiveSummaryDiveNumberField.ID);
 
     if (field != null) {
@@ -332,8 +397,9 @@ class DiveSummaryMessage extends DataMessage {
       }
     }
   }
+
   double? get bottomTime {
-     final field = getField(DiveSummaryBottomTimeField.ID);
+    final field = getField(DiveSummaryBottomTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -341,7 +407,8 @@ class DiveSummaryMessage extends DataMessage {
       return null;
     }
   }
-   set bottomTime(double? value) {
+
+  set bottomTime(double? value) {
     final field = getField(DiveSummaryBottomTimeField.ID);
 
     if (field != null) {
@@ -353,15 +420,10 @@ class DiveSummaryMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class DiveSummaryReferenceMesgField extends Field {
- DiveSummaryReferenceMesgField({int size = 0, bool growable = true})
+  DiveSummaryReferenceMesgField({int size = 0, bool growable = true})
       : super(
             name: 'reference_mesg',
             id: ID,
@@ -370,14 +432,13 @@ class DiveSummaryReferenceMesgField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class DiveSummaryReferenceIndexField extends Field {
- DiveSummaryReferenceIndexField({int size = 0, bool growable = true})
+  DiveSummaryReferenceIndexField({int size = 0, bool growable = true})
       : super(
             name: 'reference_index',
             id: ID,
@@ -386,14 +447,13 @@ class DiveSummaryReferenceIndexField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class DiveSummaryAvgDepthField extends Field {
- DiveSummaryAvgDepthField({int size = 0, bool growable = true})
+  DiveSummaryAvgDepthField({int size = 0, bool growable = true})
       : super(
             name: 'avg_depth',
             id: ID,
@@ -404,14 +464,13 @@ class DiveSummaryAvgDepthField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class DiveSummaryMaxDepthField extends Field {
- DiveSummaryMaxDepthField({int size = 0, bool growable = true})
+  DiveSummaryMaxDepthField({int size = 0, bool growable = true})
       : super(
             name: 'max_depth',
             id: ID,
@@ -422,14 +481,13 @@ class DiveSummaryMaxDepthField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class DiveSummarySurfaceIntervalField extends Field {
- DiveSummarySurfaceIntervalField({int size = 0, bool growable = true})
+  DiveSummarySurfaceIntervalField({int size = 0, bool growable = true})
       : super(
             name: 'surface_interval',
             id: ID,
@@ -440,14 +498,13 @@ class DiveSummarySurfaceIntervalField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class DiveSummaryStartCnsField extends Field {
- DiveSummaryStartCnsField({int size = 0, bool growable = true})
+  DiveSummaryStartCnsField({int size = 0, bool growable = true})
       : super(
             name: 'start_cns',
             id: ID,
@@ -458,14 +515,13 @@ class DiveSummaryStartCnsField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }
+
 class DiveSummaryEndCnsField extends Field {
- DiveSummaryEndCnsField({int size = 0, bool growable = true})
+  DiveSummaryEndCnsField({int size = 0, bool growable = true})
       : super(
             name: 'end_cns',
             id: ID,
@@ -476,14 +532,13 @@ class DiveSummaryEndCnsField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 6;
 }
+
 class DiveSummaryStartN2Field extends Field {
- DiveSummaryStartN2Field({int size = 0, bool growable = true})
+  DiveSummaryStartN2Field({int size = 0, bool growable = true})
       : super(
             name: 'start_n2',
             id: ID,
@@ -494,14 +549,13 @@ class DiveSummaryStartN2Field extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 7;
 }
+
 class DiveSummaryEndN2Field extends Field {
- DiveSummaryEndN2Field({int size = 0, bool growable = true})
+  DiveSummaryEndN2Field({int size = 0, bool growable = true})
       : super(
             name: 'end_n2',
             id: ID,
@@ -512,14 +566,13 @@ class DiveSummaryEndN2Field extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 8;
 }
+
 class DiveSummaryO2ToxicityField extends Field {
- DiveSummaryO2ToxicityField({int size = 0, bool growable = true})
+  DiveSummaryO2ToxicityField({int size = 0, bool growable = true})
       : super(
             name: 'o2_toxicity',
             id: ID,
@@ -530,14 +583,13 @@ class DiveSummaryO2ToxicityField extends Field {
             units: 'OTUs',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 9;
 }
+
 class DiveSummaryDiveNumberField extends Field {
- DiveSummaryDiveNumberField({int size = 0, bool growable = true})
+  DiveSummaryDiveNumberField({int size = 0, bool growable = true})
       : super(
             name: 'dive_number',
             id: ID,
@@ -546,14 +598,13 @@ class DiveSummaryDiveNumberField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 10;
 }
+
 class DiveSummaryBottomTimeField extends Field {
- DiveSummaryBottomTimeField({int size = 0, bool growable = true})
+  DiveSummaryBottomTimeField({int size = 0, bool growable = true})
       : super(
             name: 'bottom_time',
             id: ID,
@@ -564,9 +615,7 @@ class DiveSummaryBottomTimeField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 11;
 }

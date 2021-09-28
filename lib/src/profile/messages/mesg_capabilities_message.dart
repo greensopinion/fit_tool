@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class MesgCapabilitiesMessage extends DataMessage {
-
-   MesgCapabilitiesMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  MesgCapabilitiesMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: MesgCapabilitiesMessage.NAME,
@@ -25,19 +27,35 @@ class MesgCapabilitiesMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               MessageIndexField(
-                  size: definitionMessage?.getFieldDefinition(MessageIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MesgCapabilitiesFileField(
-                  size: definitionMessage?.getFieldDefinition(MesgCapabilitiesFileField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MesgCapabilitiesFileField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MesgCapabilitiesMesgNumField(
-                  size: definitionMessage?.getFieldDefinition(MesgCapabilitiesMesgNumField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MesgCapabilitiesMesgNumField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MesgCapabilitiesCountTypeField(
-                  size: definitionMessage?.getFieldDefinition(MesgCapabilitiesCountTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              MesgCapabilitiesCountTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MesgCapabilitiesCountField(
-                  size: definitionMessage?.getFieldDefinition(MesgCapabilitiesCountField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MesgCapabilitiesCountField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -48,14 +66,14 @@ class MesgCapabilitiesMessage extends DataMessage {
 
   static MesgCapabilitiesMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
-    final message = MesgCapabilitiesMessage(definitionMessage: definitionMessage);
+    final message =
+        MesgCapabilitiesMessage(definitionMessage: definitionMessage);
     message.readFromBytes(bytes);
     return message;
   }
 
-
   int? get messageIndex {
-     final field = getField(MessageIndexField.ID);
+    final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -63,7 +81,8 @@ class MesgCapabilitiesMessage extends DataMessage {
       return null;
     }
   }
-   set messageIndex(int? value) {
+
+  set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
     if (field != null) {
@@ -75,9 +94,10 @@ class MesgCapabilitiesMessage extends DataMessage {
       }
     }
   }
+
   FileType? get file {
-     final field = getField(MesgCapabilitiesFileField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(MesgCapabilitiesFileField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -88,7 +108,8 @@ class MesgCapabilitiesMessage extends DataMessage {
       return null;
     }
   }
-   set file(FileType? value) {
+
+  set file(FileType? value) {
     final field = getField(MesgCapabilitiesFileField.ID);
 
     if (field != null) {
@@ -100,8 +121,9 @@ class MesgCapabilitiesMessage extends DataMessage {
       }
     }
   }
+
   int? get mesgNum {
-     final field = getField(MesgCapabilitiesMesgNumField.ID);
+    final field = getField(MesgCapabilitiesMesgNumField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -109,7 +131,8 @@ class MesgCapabilitiesMessage extends DataMessage {
       return null;
     }
   }
-   set mesgNum(int? value) {
+
+  set mesgNum(int? value) {
     final field = getField(MesgCapabilitiesMesgNumField.ID);
 
     if (field != null) {
@@ -121,9 +144,10 @@ class MesgCapabilitiesMessage extends DataMessage {
       }
     }
   }
+
   MesgCount? get countType {
-     final field = getField(MesgCapabilitiesCountTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(MesgCapabilitiesCountTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -134,7 +158,8 @@ class MesgCapabilitiesMessage extends DataMessage {
       return null;
     }
   }
-   set countType(MesgCount? value) {
+
+  set countType(MesgCount? value) {
     final field = getField(MesgCapabilitiesCountTypeField.ID);
 
     if (field != null) {
@@ -146,8 +171,9 @@ class MesgCapabilitiesMessage extends DataMessage {
       }
     }
   }
+
   int? get count {
-     final field = getField(MesgCapabilitiesCountField.ID);
+    final field = getField(MesgCapabilitiesCountField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -155,7 +181,8 @@ class MesgCapabilitiesMessage extends DataMessage {
       return null;
     }
   }
-   set count(int? value) {
+
+  set count(int? value) {
     final field = getField(MesgCapabilitiesCountField.ID);
 
     if (field != null) {
@@ -169,13 +196,14 @@ class MesgCapabilitiesMessage extends DataMessage {
   }
 
   int? get numPerFile {
-     final field = getField(MesgCapabilitiesCountField.ID);
-     final typeField = getField(MesgCapabilitiesCountTypeField.ID);
+    final field = getField(MesgCapabilitiesCountField.ID);
+    final typeField = getField(MesgCapabilitiesCountTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [0].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [0].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -183,7 +211,7 @@ class MesgCapabilitiesMessage extends DataMessage {
 
   set numPerFile(int? value) {
     final field = getField(MesgCapabilitiesCountField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -194,13 +222,14 @@ class MesgCapabilitiesMessage extends DataMessage {
   }
 
   int? get maxPerFile {
-     final field = getField(MesgCapabilitiesCountField.ID);
-     final typeField = getField(MesgCapabilitiesCountTypeField.ID);
+    final field = getField(MesgCapabilitiesCountField.ID);
+    final typeField = getField(MesgCapabilitiesCountTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [1].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [1].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -208,7 +237,7 @@ class MesgCapabilitiesMessage extends DataMessage {
 
   set maxPerFile(int? value) {
     final field = getField(MesgCapabilitiesCountField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -219,13 +248,14 @@ class MesgCapabilitiesMessage extends DataMessage {
   }
 
   int? get maxPerFileType {
-     final field = getField(MesgCapabilitiesCountField.ID);
-     final typeField = getField(MesgCapabilitiesCountTypeField.ID);
+    final field = getField(MesgCapabilitiesCountField.ID);
+    final typeField = getField(MesgCapabilitiesCountTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [2].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [2].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -233,7 +263,7 @@ class MesgCapabilitiesMessage extends DataMessage {
 
   set maxPerFileType(int? value) {
     final field = getField(MesgCapabilitiesCountField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -242,15 +272,10 @@ class MesgCapabilitiesMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class MesgCapabilitiesFileField extends Field {
- MesgCapabilitiesFileField({int size = 0, bool growable = true})
+  MesgCapabilitiesFileField({int size = 0, bool growable = true})
       : super(
             name: 'file',
             id: ID,
@@ -259,14 +284,13 @@ class MesgCapabilitiesFileField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class MesgCapabilitiesMesgNumField extends Field {
- MesgCapabilitiesMesgNumField({int size = 0, bool growable = true})
+  MesgCapabilitiesMesgNumField({int size = 0, bool growable = true})
       : super(
             name: 'mesg_num',
             id: ID,
@@ -275,14 +299,13 @@ class MesgCapabilitiesMesgNumField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class MesgCapabilitiesCountTypeField extends Field {
- MesgCapabilitiesCountTypeField({int size = 0, bool growable = true})
+  MesgCapabilitiesCountTypeField({int size = 0, bool growable = true})
       : super(
             name: 'count_type',
             id: ID,
@@ -291,14 +314,13 @@ class MesgCapabilitiesCountTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class MesgCapabilitiesCountField extends Field {
- MesgCapabilitiesCountField({int size = 0, bool growable = true})
+  MesgCapabilitiesCountField({int size = 0, bool growable = true})
       : super(
             name: 'count',
             id: ID,
@@ -308,32 +330,31 @@ class MesgCapabilitiesCountField extends Field {
             size: size,
             growable: growable,
             subFields: [
-       SubField(
+              SubField(
                   name: 'num_per_file',
                   type: BaseType.UINT16,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  MesgCapabilitiesCountTypeField.ID: [0]
+                    MesgCapabilitiesCountTypeField.ID: [0]
                   }),
-       SubField(
+              SubField(
                   name: 'max_per_file',
                   type: BaseType.UINT16,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  MesgCapabilitiesCountTypeField.ID: [1]
+                    MesgCapabilitiesCountTypeField.ID: [1]
                   }),
-       SubField(
+              SubField(
                   name: 'max_per_file_type',
                   type: BaseType.UINT16,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  MesgCapabilitiesCountTypeField.ID: [2]
+                    MesgCapabilitiesCountTypeField.ID: [2]
                   })
-            ]
- );
+            ]);
 
   static const ID = 3;
 }

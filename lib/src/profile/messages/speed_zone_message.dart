@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class SpeedZoneMessage extends DataMessage {
-
-   SpeedZoneMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  SpeedZoneMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: SpeedZoneMessage.NAME,
@@ -25,13 +27,22 @@ class SpeedZoneMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               MessageIndexField(
-                  size: definitionMessage?.getFieldDefinition(MessageIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SpeedZoneHighValueField(
-                  size: definitionMessage?.getFieldDefinition(SpeedZoneHighValueField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SpeedZoneHighValueField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SpeedZoneNameField(
-                  size: definitionMessage?.getFieldDefinition(SpeedZoneNameField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SpeedZoneNameField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -47,9 +58,8 @@ class SpeedZoneMessage extends DataMessage {
     return message;
   }
 
-
   int? get messageIndex {
-     final field = getField(MessageIndexField.ID);
+    final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -57,7 +67,8 @@ class SpeedZoneMessage extends DataMessage {
       return null;
     }
   }
-   set messageIndex(int? value) {
+
+  set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
     if (field != null) {
@@ -69,8 +80,9 @@ class SpeedZoneMessage extends DataMessage {
       }
     }
   }
+
   double? get highValue {
-     final field = getField(SpeedZoneHighValueField.ID);
+    final field = getField(SpeedZoneHighValueField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -78,7 +90,8 @@ class SpeedZoneMessage extends DataMessage {
       return null;
     }
   }
-   set highValue(double? value) {
+
+  set highValue(double? value) {
     final field = getField(SpeedZoneHighValueField.ID);
 
     if (field != null) {
@@ -90,8 +103,9 @@ class SpeedZoneMessage extends DataMessage {
       }
     }
   }
+
   String? get speedZoneName {
-     final field = getField(SpeedZoneNameField.ID);
+    final field = getField(SpeedZoneNameField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -99,7 +113,8 @@ class SpeedZoneMessage extends DataMessage {
       return null;
     }
   }
-   set speedZoneName(String? value) {
+
+  set speedZoneName(String? value) {
     final field = getField(SpeedZoneNameField.ID);
 
     if (field != null) {
@@ -111,15 +126,10 @@ class SpeedZoneMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class SpeedZoneHighValueField extends Field {
- SpeedZoneHighValueField({int size = 0, bool growable = true})
+  SpeedZoneHighValueField({int size = 0, bool growable = true})
       : super(
             name: 'high_value',
             id: ID,
@@ -130,14 +140,13 @@ class SpeedZoneHighValueField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class SpeedZoneNameField extends Field {
- SpeedZoneNameField({int size = 0, bool growable = true})
+  SpeedZoneNameField({int size = 0, bool growable = true})
       : super(
             name: 'name',
             id: ID,
@@ -146,9 +155,7 @@ class SpeedZoneNameField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }

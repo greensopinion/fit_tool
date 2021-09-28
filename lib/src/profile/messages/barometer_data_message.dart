@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class BarometerDataMessage extends DataMessage {
-
-   BarometerDataMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  BarometerDataMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: BarometerDataMessage.NAME,
@@ -25,16 +27,29 @@ class BarometerDataMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               BarometerDataTimestampMsField(
-                  size: definitionMessage?.getFieldDefinition(BarometerDataTimestampMsField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(BarometerDataTimestampMsField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               BarometerDataSampleTimeOffsetField(
-                  size: definitionMessage?.getFieldDefinition(BarometerDataSampleTimeOffsetField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              BarometerDataSampleTimeOffsetField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               BarometerDataBaroPresField(
-                  size: definitionMessage?.getFieldDefinition(BarometerDataBaroPresField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(BarometerDataBaroPresField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -50,10 +65,9 @@ class BarometerDataMessage extends DataMessage {
     return message;
   }
 
-
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -61,8 +75,9 @@ class BarometerDataMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -74,8 +89,9 @@ class BarometerDataMessage extends DataMessage {
       }
     }
   }
+
   int? get timestampMs {
-     final field = getField(BarometerDataTimestampMsField.ID);
+    final field = getField(BarometerDataTimestampMsField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -83,7 +99,8 @@ class BarometerDataMessage extends DataMessage {
       return null;
     }
   }
-   set timestampMs(int? value) {
+
+  set timestampMs(int? value) {
     final field = getField(BarometerDataTimestampMsField.ID);
 
     if (field != null) {
@@ -95,8 +112,9 @@ class BarometerDataMessage extends DataMessage {
       }
     }
   }
+
   int? get sampleTimeOffset {
-     final field = getField(BarometerDataSampleTimeOffsetField.ID);
+    final field = getField(BarometerDataSampleTimeOffsetField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -104,7 +122,8 @@ class BarometerDataMessage extends DataMessage {
       return null;
     }
   }
-   set sampleTimeOffset(int? value) {
+
+  set sampleTimeOffset(int? value) {
     final field = getField(BarometerDataSampleTimeOffsetField.ID);
 
     if (field != null) {
@@ -116,8 +135,9 @@ class BarometerDataMessage extends DataMessage {
       }
     }
   }
+
   int? get baroPres {
-     final field = getField(BarometerDataBaroPresField.ID);
+    final field = getField(BarometerDataBaroPresField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -125,7 +145,8 @@ class BarometerDataMessage extends DataMessage {
       return null;
     }
   }
-   set baroPres(int? value) {
+
+  set baroPres(int? value) {
     final field = getField(BarometerDataBaroPresField.ID);
 
     if (field != null) {
@@ -137,15 +158,10 @@ class BarometerDataMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class BarometerDataTimestampMsField extends Field {
- BarometerDataTimestampMsField({int size = 0, bool growable = true})
+  BarometerDataTimestampMsField({int size = 0, bool growable = true})
       : super(
             name: 'timestamp_ms',
             id: ID,
@@ -156,14 +172,13 @@ class BarometerDataTimestampMsField extends Field {
             units: 'ms',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class BarometerDataSampleTimeOffsetField extends Field {
- BarometerDataSampleTimeOffsetField({int size = 0, bool growable = true})
+  BarometerDataSampleTimeOffsetField({int size = 0, bool growable = true})
       : super(
             name: 'sample_time_offset',
             id: ID,
@@ -174,14 +189,13 @@ class BarometerDataSampleTimeOffsetField extends Field {
             units: 'ms',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class BarometerDataBaroPresField extends Field {
- BarometerDataBaroPresField({int size = 0, bool growable = true})
+  BarometerDataBaroPresField({int size = 0, bool growable = true})
       : super(
             name: 'baro_pres',
             id: ID,
@@ -192,9 +206,7 @@ class BarometerDataBaroPresField extends Field {
             units: 'Pa',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }

@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class CameraEventMessage extends DataMessage {
-
-   CameraEventMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  CameraEventMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: CameraEventMessage.NAME,
@@ -25,19 +27,37 @@ class CameraEventMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               CameraEventTimestampMsField(
-                  size: definitionMessage?.getFieldDefinition(CameraEventTimestampMsField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(CameraEventTimestampMsField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               CameraEventCameraEventTypeField(
-                  size: definitionMessage?.getFieldDefinition(CameraEventCameraEventTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              CameraEventCameraEventTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               CameraEventCameraFileUuidField(
-                  size: definitionMessage?.getFieldDefinition(CameraEventCameraFileUuidField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              CameraEventCameraFileUuidField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               CameraEventCameraOrientationField(
-                  size: definitionMessage?.getFieldDefinition(CameraEventCameraOrientationField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              CameraEventCameraOrientationField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -53,10 +73,9 @@ class CameraEventMessage extends DataMessage {
     return message;
   }
 
-
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -64,8 +83,9 @@ class CameraEventMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -77,8 +97,9 @@ class CameraEventMessage extends DataMessage {
       }
     }
   }
+
   int? get timestampMs {
-     final field = getField(CameraEventTimestampMsField.ID);
+    final field = getField(CameraEventTimestampMsField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -86,7 +107,8 @@ class CameraEventMessage extends DataMessage {
       return null;
     }
   }
-   set timestampMs(int? value) {
+
+  set timestampMs(int? value) {
     final field = getField(CameraEventTimestampMsField.ID);
 
     if (field != null) {
@@ -98,9 +120,10 @@ class CameraEventMessage extends DataMessage {
       }
     }
   }
+
   CameraEventType? get cameraEventType {
-     final field = getField(CameraEventCameraEventTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(CameraEventCameraEventTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -111,7 +134,8 @@ class CameraEventMessage extends DataMessage {
       return null;
     }
   }
-   set cameraEventType(CameraEventType? value) {
+
+  set cameraEventType(CameraEventType? value) {
     final field = getField(CameraEventCameraEventTypeField.ID);
 
     if (field != null) {
@@ -123,8 +147,9 @@ class CameraEventMessage extends DataMessage {
       }
     }
   }
+
   String? get cameraFileUuid {
-     final field = getField(CameraEventCameraFileUuidField.ID);
+    final field = getField(CameraEventCameraFileUuidField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -132,7 +157,8 @@ class CameraEventMessage extends DataMessage {
       return null;
     }
   }
-   set cameraFileUuid(String? value) {
+
+  set cameraFileUuid(String? value) {
     final field = getField(CameraEventCameraFileUuidField.ID);
 
     if (field != null) {
@@ -144,9 +170,10 @@ class CameraEventMessage extends DataMessage {
       }
     }
   }
+
   CameraOrientationType? get cameraOrientation {
-     final field = getField(CameraEventCameraOrientationField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(CameraEventCameraOrientationField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -157,7 +184,8 @@ class CameraEventMessage extends DataMessage {
       return null;
     }
   }
-   set cameraOrientation(CameraOrientationType? value) {
+
+  set cameraOrientation(CameraOrientationType? value) {
     final field = getField(CameraEventCameraOrientationField.ID);
 
     if (field != null) {
@@ -169,15 +197,10 @@ class CameraEventMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class CameraEventTimestampMsField extends Field {
- CameraEventTimestampMsField({int size = 0, bool growable = true})
+  CameraEventTimestampMsField({int size = 0, bool growable = true})
       : super(
             name: 'timestamp_ms',
             id: ID,
@@ -188,14 +211,13 @@ class CameraEventTimestampMsField extends Field {
             units: 'ms',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class CameraEventCameraEventTypeField extends Field {
- CameraEventCameraEventTypeField({int size = 0, bool growable = true})
+  CameraEventCameraEventTypeField({int size = 0, bool growable = true})
       : super(
             name: 'camera_event_type',
             id: ID,
@@ -204,14 +226,13 @@ class CameraEventCameraEventTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class CameraEventCameraFileUuidField extends Field {
- CameraEventCameraFileUuidField({int size = 0, bool growable = true})
+  CameraEventCameraFileUuidField({int size = 0, bool growable = true})
       : super(
             name: 'camera_file_uuid',
             id: ID,
@@ -220,14 +241,13 @@ class CameraEventCameraFileUuidField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class CameraEventCameraOrientationField extends Field {
- CameraEventCameraOrientationField({int size = 0, bool growable = true})
+  CameraEventCameraOrientationField({int size = 0, bool growable = true})
       : super(
             name: 'camera_orientation',
             id: ID,
@@ -236,9 +256,7 @@ class CameraEventCameraOrientationField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }

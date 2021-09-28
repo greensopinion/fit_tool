@@ -31,7 +31,8 @@ class FitFileBuilder {
               'Message has not been defined: ${message.name} localId: ${message.localId}');
         }
       } else {
-        final newDefinition = DefinitionMessage.fromDataMessage(message, minStringSize: minStringSize);
+        final newDefinition = DefinitionMessage.fromDataMessage(message,
+            minStringSize: minStringSize);
         if (!storedDefinition.supports(newDefinition)) {
           if (autoDefine) {
             definitionMap[newDefinition.localId] = newDefinition;

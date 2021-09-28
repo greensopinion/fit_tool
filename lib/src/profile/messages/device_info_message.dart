@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class DeviceInfoMessage extends DataMessage {
-
-   DeviceInfoMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  DeviceInfoMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: DeviceInfoMessage.NAME,
@@ -25,58 +27,117 @@ class DeviceInfoMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceInfoDeviceIndexField(
-                  size: definitionMessage?.getFieldDefinition(DeviceInfoDeviceIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DeviceInfoDeviceIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceInfoDeviceTypeField(
-                  size: definitionMessage?.getFieldDefinition(DeviceInfoDeviceTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DeviceInfoDeviceTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceInfoManufacturerField(
-                  size: definitionMessage?.getFieldDefinition(DeviceInfoManufacturerField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DeviceInfoManufacturerField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceInfoSerialNumberField(
-                  size: definitionMessage?.getFieldDefinition(DeviceInfoSerialNumberField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DeviceInfoSerialNumberField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceInfoProductField(
-                  size: definitionMessage?.getFieldDefinition(DeviceInfoProductField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DeviceInfoProductField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceInfoSoftwareVersionField(
-                  size: definitionMessage?.getFieldDefinition(DeviceInfoSoftwareVersionField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DeviceInfoSoftwareVersionField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceInfoHardwareVersionField(
-                  size: definitionMessage?.getFieldDefinition(DeviceInfoHardwareVersionField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DeviceInfoHardwareVersionField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceInfoCumOperatingTimeField(
-                  size: definitionMessage?.getFieldDefinition(DeviceInfoCumOperatingTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DeviceInfoCumOperatingTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceInfoBatteryVoltageField(
-                  size: definitionMessage?.getFieldDefinition(DeviceInfoBatteryVoltageField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DeviceInfoBatteryVoltageField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceInfoBatteryStatusField(
-                  size: definitionMessage?.getFieldDefinition(DeviceInfoBatteryStatusField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DeviceInfoBatteryStatusField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceInfoSensorPositionField(
-                  size: definitionMessage?.getFieldDefinition(DeviceInfoSensorPositionField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DeviceInfoSensorPositionField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceInfoDescriptorField(
-                  size: definitionMessage?.getFieldDefinition(DeviceInfoDescriptorField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DeviceInfoDescriptorField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceInfoAntTransmissionTypeField(
-                  size: definitionMessage?.getFieldDefinition(DeviceInfoAntTransmissionTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DeviceInfoAntTransmissionTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceInfoAntDeviceNumberField(
-                  size: definitionMessage?.getFieldDefinition(DeviceInfoAntDeviceNumberField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DeviceInfoAntDeviceNumberField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceInfoAntNetworkField(
-                  size: definitionMessage?.getFieldDefinition(DeviceInfoAntNetworkField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DeviceInfoAntNetworkField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceInfoSourceTypeField(
-                  size: definitionMessage?.getFieldDefinition(DeviceInfoSourceTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DeviceInfoSourceTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceInfoProductNameField(
-                  size: definitionMessage?.getFieldDefinition(DeviceInfoProductNameField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DeviceInfoProductNameField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -92,10 +153,9 @@ class DeviceInfoMessage extends DataMessage {
     return message;
   }
 
-
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -103,8 +163,9 @@ class DeviceInfoMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -116,8 +177,9 @@ class DeviceInfoMessage extends DataMessage {
       }
     }
   }
+
   int? get deviceIndex {
-     final field = getField(DeviceInfoDeviceIndexField.ID);
+    final field = getField(DeviceInfoDeviceIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -125,7 +187,8 @@ class DeviceInfoMessage extends DataMessage {
       return null;
     }
   }
-   set deviceIndex(int? value) {
+
+  set deviceIndex(int? value) {
     final field = getField(DeviceInfoDeviceIndexField.ID);
 
     if (field != null) {
@@ -137,8 +200,9 @@ class DeviceInfoMessage extends DataMessage {
       }
     }
   }
+
   int? get deviceType {
-     final field = getField(DeviceInfoDeviceTypeField.ID);
+    final field = getField(DeviceInfoDeviceTypeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -146,7 +210,8 @@ class DeviceInfoMessage extends DataMessage {
       return null;
     }
   }
-   set deviceType(int? value) {
+
+  set deviceType(int? value) {
     final field = getField(DeviceInfoDeviceTypeField.ID);
 
     if (field != null) {
@@ -160,13 +225,14 @@ class DeviceInfoMessage extends DataMessage {
   }
 
   int? get antplusDeviceType {
-     final field = getField(DeviceInfoDeviceTypeField.ID);
-     final typeField = getField(DeviceInfoSourceTypeField.ID);
+    final field = getField(DeviceInfoDeviceTypeField.ID);
+    final typeField = getField(DeviceInfoSourceTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [1].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [1].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -174,7 +240,7 @@ class DeviceInfoMessage extends DataMessage {
 
   set antplusDeviceType(int? value) {
     final field = getField(DeviceInfoDeviceTypeField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -185,13 +251,14 @@ class DeviceInfoMessage extends DataMessage {
   }
 
   int? get antDeviceType {
-     final field = getField(DeviceInfoDeviceTypeField.ID);
-     final typeField = getField(DeviceInfoSourceTypeField.ID);
+    final field = getField(DeviceInfoDeviceTypeField.ID);
+    final typeField = getField(DeviceInfoSourceTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [0].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [0].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -199,7 +266,7 @@ class DeviceInfoMessage extends DataMessage {
 
   set antDeviceType(int? value) {
     final field = getField(DeviceInfoDeviceTypeField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -208,8 +275,9 @@ class DeviceInfoMessage extends DataMessage {
       }
     }
   }
+
   int? get manufacturer {
-     final field = getField(DeviceInfoManufacturerField.ID);
+    final field = getField(DeviceInfoManufacturerField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -217,7 +285,8 @@ class DeviceInfoMessage extends DataMessage {
       return null;
     }
   }
-   set manufacturer(int? value) {
+
+  set manufacturer(int? value) {
     final field = getField(DeviceInfoManufacturerField.ID);
 
     if (field != null) {
@@ -229,8 +298,9 @@ class DeviceInfoMessage extends DataMessage {
       }
     }
   }
+
   int? get serialNumber {
-     final field = getField(DeviceInfoSerialNumberField.ID);
+    final field = getField(DeviceInfoSerialNumberField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -238,7 +308,8 @@ class DeviceInfoMessage extends DataMessage {
       return null;
     }
   }
-   set serialNumber(int? value) {
+
+  set serialNumber(int? value) {
     final field = getField(DeviceInfoSerialNumberField.ID);
 
     if (field != null) {
@@ -250,8 +321,9 @@ class DeviceInfoMessage extends DataMessage {
       }
     }
   }
+
   int? get product {
-     final field = getField(DeviceInfoProductField.ID);
+    final field = getField(DeviceInfoProductField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -259,7 +331,8 @@ class DeviceInfoMessage extends DataMessage {
       return null;
     }
   }
-   set product(int? value) {
+
+  set product(int? value) {
     final field = getField(DeviceInfoProductField.ID);
 
     if (field != null) {
@@ -273,13 +346,14 @@ class DeviceInfoMessage extends DataMessage {
   }
 
   int? get faveroProduct {
-     final field = getField(DeviceInfoProductField.ID);
-     final typeField = getField(DeviceInfoManufacturerField.ID);
+    final field = getField(DeviceInfoProductField.ID);
+    final typeField = getField(DeviceInfoManufacturerField.ID);
 
-     final isSubFieldValid = typeField != null && [263].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [263].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -287,7 +361,7 @@ class DeviceInfoMessage extends DataMessage {
 
   set faveroProduct(int? value) {
     final field = getField(DeviceInfoProductField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -298,13 +372,14 @@ class DeviceInfoMessage extends DataMessage {
   }
 
   int? get garminProduct {
-     final field = getField(DeviceInfoProductField.ID);
-     final typeField = getField(DeviceInfoManufacturerField.ID);
+    final field = getField(DeviceInfoProductField.ID);
+    final typeField = getField(DeviceInfoManufacturerField.ID);
 
-     final isSubFieldValid = typeField != null && [1, 15, 13, 89].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [1, 15, 13, 89].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -312,7 +387,7 @@ class DeviceInfoMessage extends DataMessage {
 
   set garminProduct(int? value) {
     final field = getField(DeviceInfoProductField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -321,8 +396,9 @@ class DeviceInfoMessage extends DataMessage {
       }
     }
   }
+
   double? get softwareVersion {
-     final field = getField(DeviceInfoSoftwareVersionField.ID);
+    final field = getField(DeviceInfoSoftwareVersionField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -330,7 +406,8 @@ class DeviceInfoMessage extends DataMessage {
       return null;
     }
   }
-   set softwareVersion(double? value) {
+
+  set softwareVersion(double? value) {
     final field = getField(DeviceInfoSoftwareVersionField.ID);
 
     if (field != null) {
@@ -342,8 +419,9 @@ class DeviceInfoMessage extends DataMessage {
       }
     }
   }
+
   int? get hardwareVersion {
-     final field = getField(DeviceInfoHardwareVersionField.ID);
+    final field = getField(DeviceInfoHardwareVersionField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -351,7 +429,8 @@ class DeviceInfoMessage extends DataMessage {
       return null;
     }
   }
-   set hardwareVersion(int? value) {
+
+  set hardwareVersion(int? value) {
     final field = getField(DeviceInfoHardwareVersionField.ID);
 
     if (field != null) {
@@ -363,8 +442,9 @@ class DeviceInfoMessage extends DataMessage {
       }
     }
   }
+
   int? get cumOperatingTime {
-     final field = getField(DeviceInfoCumOperatingTimeField.ID);
+    final field = getField(DeviceInfoCumOperatingTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -372,7 +452,8 @@ class DeviceInfoMessage extends DataMessage {
       return null;
     }
   }
-   set cumOperatingTime(int? value) {
+
+  set cumOperatingTime(int? value) {
     final field = getField(DeviceInfoCumOperatingTimeField.ID);
 
     if (field != null) {
@@ -384,8 +465,9 @@ class DeviceInfoMessage extends DataMessage {
       }
     }
   }
+
   double? get batteryVoltage {
-     final field = getField(DeviceInfoBatteryVoltageField.ID);
+    final field = getField(DeviceInfoBatteryVoltageField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -393,7 +475,8 @@ class DeviceInfoMessage extends DataMessage {
       return null;
     }
   }
-   set batteryVoltage(double? value) {
+
+  set batteryVoltage(double? value) {
     final field = getField(DeviceInfoBatteryVoltageField.ID);
 
     if (field != null) {
@@ -405,8 +488,9 @@ class DeviceInfoMessage extends DataMessage {
       }
     }
   }
+
   int? get batteryStatus {
-     final field = getField(DeviceInfoBatteryStatusField.ID);
+    final field = getField(DeviceInfoBatteryStatusField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -414,7 +498,8 @@ class DeviceInfoMessage extends DataMessage {
       return null;
     }
   }
-   set batteryStatus(int? value) {
+
+  set batteryStatus(int? value) {
     final field = getField(DeviceInfoBatteryStatusField.ID);
 
     if (field != null) {
@@ -426,9 +511,10 @@ class DeviceInfoMessage extends DataMessage {
       }
     }
   }
+
   BodyLocation? get sensorPosition {
-     final field = getField(DeviceInfoSensorPositionField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(DeviceInfoSensorPositionField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -439,7 +525,8 @@ class DeviceInfoMessage extends DataMessage {
       return null;
     }
   }
-   set sensorPosition(BodyLocation? value) {
+
+  set sensorPosition(BodyLocation? value) {
     final field = getField(DeviceInfoSensorPositionField.ID);
 
     if (field != null) {
@@ -451,8 +538,9 @@ class DeviceInfoMessage extends DataMessage {
       }
     }
   }
+
   String? get descriptor {
-     final field = getField(DeviceInfoDescriptorField.ID);
+    final field = getField(DeviceInfoDescriptorField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -460,7 +548,8 @@ class DeviceInfoMessage extends DataMessage {
       return null;
     }
   }
-   set descriptor(String? value) {
+
+  set descriptor(String? value) {
     final field = getField(DeviceInfoDescriptorField.ID);
 
     if (field != null) {
@@ -472,8 +561,9 @@ class DeviceInfoMessage extends DataMessage {
       }
     }
   }
+
   int? get antTransmissionType {
-     final field = getField(DeviceInfoAntTransmissionTypeField.ID);
+    final field = getField(DeviceInfoAntTransmissionTypeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -481,7 +571,8 @@ class DeviceInfoMessage extends DataMessage {
       return null;
     }
   }
-   set antTransmissionType(int? value) {
+
+  set antTransmissionType(int? value) {
     final field = getField(DeviceInfoAntTransmissionTypeField.ID);
 
     if (field != null) {
@@ -493,8 +584,9 @@ class DeviceInfoMessage extends DataMessage {
       }
     }
   }
+
   int? get antDeviceNumber {
-     final field = getField(DeviceInfoAntDeviceNumberField.ID);
+    final field = getField(DeviceInfoAntDeviceNumberField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -502,7 +594,8 @@ class DeviceInfoMessage extends DataMessage {
       return null;
     }
   }
-   set antDeviceNumber(int? value) {
+
+  set antDeviceNumber(int? value) {
     final field = getField(DeviceInfoAntDeviceNumberField.ID);
 
     if (field != null) {
@@ -514,9 +607,10 @@ class DeviceInfoMessage extends DataMessage {
       }
     }
   }
+
   AntNetwork? get antNetwork {
-     final field = getField(DeviceInfoAntNetworkField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(DeviceInfoAntNetworkField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -527,7 +621,8 @@ class DeviceInfoMessage extends DataMessage {
       return null;
     }
   }
-   set antNetwork(AntNetwork? value) {
+
+  set antNetwork(AntNetwork? value) {
     final field = getField(DeviceInfoAntNetworkField.ID);
 
     if (field != null) {
@@ -539,9 +634,10 @@ class DeviceInfoMessage extends DataMessage {
       }
     }
   }
+
   SourceType? get sourceType {
-     final field = getField(DeviceInfoSourceTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(DeviceInfoSourceTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -552,7 +648,8 @@ class DeviceInfoMessage extends DataMessage {
       return null;
     }
   }
-   set sourceType(SourceType? value) {
+
+  set sourceType(SourceType? value) {
     final field = getField(DeviceInfoSourceTypeField.ID);
 
     if (field != null) {
@@ -564,8 +661,9 @@ class DeviceInfoMessage extends DataMessage {
       }
     }
   }
+
   String? get productName {
-     final field = getField(DeviceInfoProductNameField.ID);
+    final field = getField(DeviceInfoProductNameField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -573,7 +671,8 @@ class DeviceInfoMessage extends DataMessage {
       return null;
     }
   }
-   set productName(String? value) {
+
+  set productName(String? value) {
     final field = getField(DeviceInfoProductNameField.ID);
 
     if (field != null) {
@@ -585,15 +684,10 @@ class DeviceInfoMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class DeviceInfoDeviceIndexField extends Field {
- DeviceInfoDeviceIndexField({int size = 0, bool growable = true})
+  DeviceInfoDeviceIndexField({int size = 0, bool growable = true})
       : super(
             name: 'device_index',
             id: ID,
@@ -602,14 +696,13 @@ class DeviceInfoDeviceIndexField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class DeviceInfoDeviceTypeField extends Field {
- DeviceInfoDeviceTypeField({int size = 0, bool growable = true})
+  DeviceInfoDeviceTypeField({int size = 0, bool growable = true})
       : super(
             name: 'device_type',
             id: ID,
@@ -619,29 +712,29 @@ class DeviceInfoDeviceTypeField extends Field {
             size: size,
             growable: growable,
             subFields: [
-       SubField(
+              SubField(
                   name: 'antplus_device_type',
                   type: BaseType.UINT8,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  DeviceInfoSourceTypeField.ID: [1]
+                    DeviceInfoSourceTypeField.ID: [1]
                   }),
-       SubField(
+              SubField(
                   name: 'ant_device_type',
                   type: BaseType.UINT8,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  DeviceInfoSourceTypeField.ID: [0]
+                    DeviceInfoSourceTypeField.ID: [0]
                   })
-            ]
- );
+            ]);
 
   static const ID = 1;
 }
+
 class DeviceInfoManufacturerField extends Field {
- DeviceInfoManufacturerField({int size = 0, bool growable = true})
+  DeviceInfoManufacturerField({int size = 0, bool growable = true})
       : super(
             name: 'manufacturer',
             id: ID,
@@ -650,14 +743,13 @@ class DeviceInfoManufacturerField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class DeviceInfoSerialNumberField extends Field {
- DeviceInfoSerialNumberField({int size = 0, bool growable = true})
+  DeviceInfoSerialNumberField({int size = 0, bool growable = true})
       : super(
             name: 'serial_number',
             id: ID,
@@ -666,14 +758,13 @@ class DeviceInfoSerialNumberField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class DeviceInfoProductField extends Field {
- DeviceInfoProductField({int size = 0, bool growable = true})
+  DeviceInfoProductField({int size = 0, bool growable = true})
       : super(
             name: 'product',
             id: ID,
@@ -683,29 +774,29 @@ class DeviceInfoProductField extends Field {
             size: size,
             growable: growable,
             subFields: [
-       SubField(
+              SubField(
                   name: 'favero_product',
                   type: BaseType.UINT16,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  DeviceInfoManufacturerField.ID: [263]
+                    DeviceInfoManufacturerField.ID: [263]
                   }),
-       SubField(
+              SubField(
                   name: 'garmin_product',
                   type: BaseType.UINT16,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  DeviceInfoManufacturerField.ID: [1, 15, 13, 89]
+                    DeviceInfoManufacturerField.ID: [1, 15, 13, 89]
                   })
-            ]
- );
+            ]);
 
   static const ID = 4;
 }
+
 class DeviceInfoSoftwareVersionField extends Field {
- DeviceInfoSoftwareVersionField({int size = 0, bool growable = true})
+  DeviceInfoSoftwareVersionField({int size = 0, bool growable = true})
       : super(
             name: 'software_version',
             id: ID,
@@ -714,14 +805,13 @@ class DeviceInfoSoftwareVersionField extends Field {
             scale: 100,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }
+
 class DeviceInfoHardwareVersionField extends Field {
- DeviceInfoHardwareVersionField({int size = 0, bool growable = true})
+  DeviceInfoHardwareVersionField({int size = 0, bool growable = true})
       : super(
             name: 'hardware_version',
             id: ID,
@@ -730,14 +820,13 @@ class DeviceInfoHardwareVersionField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 6;
 }
+
 class DeviceInfoCumOperatingTimeField extends Field {
- DeviceInfoCumOperatingTimeField({int size = 0, bool growable = true})
+  DeviceInfoCumOperatingTimeField({int size = 0, bool growable = true})
       : super(
             name: 'cum_operating_time',
             id: ID,
@@ -748,14 +837,13 @@ class DeviceInfoCumOperatingTimeField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 7;
 }
+
 class DeviceInfoBatteryVoltageField extends Field {
- DeviceInfoBatteryVoltageField({int size = 0, bool growable = true})
+  DeviceInfoBatteryVoltageField({int size = 0, bool growable = true})
       : super(
             name: 'battery_voltage',
             id: ID,
@@ -766,14 +854,13 @@ class DeviceInfoBatteryVoltageField extends Field {
             units: 'V',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 10;
 }
+
 class DeviceInfoBatteryStatusField extends Field {
- DeviceInfoBatteryStatusField({int size = 0, bool growable = true})
+  DeviceInfoBatteryStatusField({int size = 0, bool growable = true})
       : super(
             name: 'battery_status',
             id: ID,
@@ -782,14 +869,13 @@ class DeviceInfoBatteryStatusField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 11;
 }
+
 class DeviceInfoSensorPositionField extends Field {
- DeviceInfoSensorPositionField({int size = 0, bool growable = true})
+  DeviceInfoSensorPositionField({int size = 0, bool growable = true})
       : super(
             name: 'sensor_position',
             id: ID,
@@ -798,14 +884,13 @@ class DeviceInfoSensorPositionField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 18;
 }
+
 class DeviceInfoDescriptorField extends Field {
- DeviceInfoDescriptorField({int size = 0, bool growable = true})
+  DeviceInfoDescriptorField({int size = 0, bool growable = true})
       : super(
             name: 'descriptor',
             id: ID,
@@ -814,14 +899,13 @@ class DeviceInfoDescriptorField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 19;
 }
+
 class DeviceInfoAntTransmissionTypeField extends Field {
- DeviceInfoAntTransmissionTypeField({int size = 0, bool growable = true})
+  DeviceInfoAntTransmissionTypeField({int size = 0, bool growable = true})
       : super(
             name: 'ant_transmission_type',
             id: ID,
@@ -830,14 +914,13 @@ class DeviceInfoAntTransmissionTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 20;
 }
+
 class DeviceInfoAntDeviceNumberField extends Field {
- DeviceInfoAntDeviceNumberField({int size = 0, bool growable = true})
+  DeviceInfoAntDeviceNumberField({int size = 0, bool growable = true})
       : super(
             name: 'ant_device_number',
             id: ID,
@@ -846,14 +929,13 @@ class DeviceInfoAntDeviceNumberField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 21;
 }
+
 class DeviceInfoAntNetworkField extends Field {
- DeviceInfoAntNetworkField({int size = 0, bool growable = true})
+  DeviceInfoAntNetworkField({int size = 0, bool growable = true})
       : super(
             name: 'ant_network',
             id: ID,
@@ -862,14 +944,13 @@ class DeviceInfoAntNetworkField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 22;
 }
+
 class DeviceInfoSourceTypeField extends Field {
- DeviceInfoSourceTypeField({int size = 0, bool growable = true})
+  DeviceInfoSourceTypeField({int size = 0, bool growable = true})
       : super(
             name: 'source_type',
             id: ID,
@@ -878,14 +959,13 @@ class DeviceInfoSourceTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 25;
 }
+
 class DeviceInfoProductNameField extends Field {
- DeviceInfoProductNameField({int size = 0, bool growable = true})
+  DeviceInfoProductNameField({int size = 0, bool growable = true})
       : super(
             name: 'product_name',
             id: ID,
@@ -894,9 +974,7 @@ class DeviceInfoProductNameField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 27;
 }

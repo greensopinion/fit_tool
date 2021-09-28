@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class WeightScaleMessage extends DataMessage {
-
-   WeightScaleMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  WeightScaleMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: WeightScaleMessage.NAME,
@@ -25,43 +27,87 @@ class WeightScaleMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WeightScaleWeightField(
-                  size: definitionMessage?.getFieldDefinition(WeightScaleWeightField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(WeightScaleWeightField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WeightScalePercentFatField(
-                  size: definitionMessage?.getFieldDefinition(WeightScalePercentFatField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(WeightScalePercentFatField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WeightScalePercentHydrationField(
-                  size: definitionMessage?.getFieldDefinition(WeightScalePercentHydrationField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              WeightScalePercentHydrationField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WeightScaleVisceralFatMassField(
-                  size: definitionMessage?.getFieldDefinition(WeightScaleVisceralFatMassField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              WeightScaleVisceralFatMassField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WeightScaleBoneMassField(
-                  size: definitionMessage?.getFieldDefinition(WeightScaleBoneMassField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(WeightScaleBoneMassField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WeightScaleMuscleMassField(
-                  size: definitionMessage?.getFieldDefinition(WeightScaleMuscleMassField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(WeightScaleMuscleMassField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WeightScaleBasalMetField(
-                  size: definitionMessage?.getFieldDefinition(WeightScaleBasalMetField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(WeightScaleBasalMetField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WeightScalePhysiqueRatingField(
-                  size: definitionMessage?.getFieldDefinition(WeightScalePhysiqueRatingField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              WeightScalePhysiqueRatingField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WeightScaleActiveMetField(
-                  size: definitionMessage?.getFieldDefinition(WeightScaleActiveMetField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(WeightScaleActiveMetField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WeightScaleMetabolicAgeField(
-                  size: definitionMessage?.getFieldDefinition(WeightScaleMetabolicAgeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(WeightScaleMetabolicAgeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WeightScaleVisceralFatRatingField(
-                  size: definitionMessage?.getFieldDefinition(WeightScaleVisceralFatRatingField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              WeightScaleVisceralFatRatingField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WeightScaleUserProfileIndexField(
-                  size: definitionMessage?.getFieldDefinition(WeightScaleUserProfileIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              WeightScaleUserProfileIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -77,10 +123,9 @@ class WeightScaleMessage extends DataMessage {
     return message;
   }
 
-
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -88,8 +133,9 @@ class WeightScaleMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -101,8 +147,9 @@ class WeightScaleMessage extends DataMessage {
       }
     }
   }
+
   double? get weight {
-     final field = getField(WeightScaleWeightField.ID);
+    final field = getField(WeightScaleWeightField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -110,7 +157,8 @@ class WeightScaleMessage extends DataMessage {
       return null;
     }
   }
-   set weight(double? value) {
+
+  set weight(double? value) {
     final field = getField(WeightScaleWeightField.ID);
 
     if (field != null) {
@@ -122,8 +170,9 @@ class WeightScaleMessage extends DataMessage {
       }
     }
   }
+
   double? get percentFat {
-     final field = getField(WeightScalePercentFatField.ID);
+    final field = getField(WeightScalePercentFatField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -131,7 +180,8 @@ class WeightScaleMessage extends DataMessage {
       return null;
     }
   }
-   set percentFat(double? value) {
+
+  set percentFat(double? value) {
     final field = getField(WeightScalePercentFatField.ID);
 
     if (field != null) {
@@ -143,8 +193,9 @@ class WeightScaleMessage extends DataMessage {
       }
     }
   }
+
   double? get percentHydration {
-     final field = getField(WeightScalePercentHydrationField.ID);
+    final field = getField(WeightScalePercentHydrationField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -152,7 +203,8 @@ class WeightScaleMessage extends DataMessage {
       return null;
     }
   }
-   set percentHydration(double? value) {
+
+  set percentHydration(double? value) {
     final field = getField(WeightScalePercentHydrationField.ID);
 
     if (field != null) {
@@ -164,8 +216,9 @@ class WeightScaleMessage extends DataMessage {
       }
     }
   }
+
   double? get visceralFatMass {
-     final field = getField(WeightScaleVisceralFatMassField.ID);
+    final field = getField(WeightScaleVisceralFatMassField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -173,7 +226,8 @@ class WeightScaleMessage extends DataMessage {
       return null;
     }
   }
-   set visceralFatMass(double? value) {
+
+  set visceralFatMass(double? value) {
     final field = getField(WeightScaleVisceralFatMassField.ID);
 
     if (field != null) {
@@ -185,8 +239,9 @@ class WeightScaleMessage extends DataMessage {
       }
     }
   }
+
   double? get boneMass {
-     final field = getField(WeightScaleBoneMassField.ID);
+    final field = getField(WeightScaleBoneMassField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -194,7 +249,8 @@ class WeightScaleMessage extends DataMessage {
       return null;
     }
   }
-   set boneMass(double? value) {
+
+  set boneMass(double? value) {
     final field = getField(WeightScaleBoneMassField.ID);
 
     if (field != null) {
@@ -206,8 +262,9 @@ class WeightScaleMessage extends DataMessage {
       }
     }
   }
+
   double? get muscleMass {
-     final field = getField(WeightScaleMuscleMassField.ID);
+    final field = getField(WeightScaleMuscleMassField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -215,7 +272,8 @@ class WeightScaleMessage extends DataMessage {
       return null;
     }
   }
-   set muscleMass(double? value) {
+
+  set muscleMass(double? value) {
     final field = getField(WeightScaleMuscleMassField.ID);
 
     if (field != null) {
@@ -227,8 +285,9 @@ class WeightScaleMessage extends DataMessage {
       }
     }
   }
+
   double? get basalMet {
-     final field = getField(WeightScaleBasalMetField.ID);
+    final field = getField(WeightScaleBasalMetField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -236,7 +295,8 @@ class WeightScaleMessage extends DataMessage {
       return null;
     }
   }
-   set basalMet(double? value) {
+
+  set basalMet(double? value) {
     final field = getField(WeightScaleBasalMetField.ID);
 
     if (field != null) {
@@ -248,8 +308,9 @@ class WeightScaleMessage extends DataMessage {
       }
     }
   }
+
   int? get physiqueRating {
-     final field = getField(WeightScalePhysiqueRatingField.ID);
+    final field = getField(WeightScalePhysiqueRatingField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -257,7 +318,8 @@ class WeightScaleMessage extends DataMessage {
       return null;
     }
   }
-   set physiqueRating(int? value) {
+
+  set physiqueRating(int? value) {
     final field = getField(WeightScalePhysiqueRatingField.ID);
 
     if (field != null) {
@@ -269,8 +331,9 @@ class WeightScaleMessage extends DataMessage {
       }
     }
   }
+
   double? get activeMet {
-     final field = getField(WeightScaleActiveMetField.ID);
+    final field = getField(WeightScaleActiveMetField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -278,7 +341,8 @@ class WeightScaleMessage extends DataMessage {
       return null;
     }
   }
-   set activeMet(double? value) {
+
+  set activeMet(double? value) {
     final field = getField(WeightScaleActiveMetField.ID);
 
     if (field != null) {
@@ -290,8 +354,9 @@ class WeightScaleMessage extends DataMessage {
       }
     }
   }
+
   int? get metabolicAge {
-     final field = getField(WeightScaleMetabolicAgeField.ID);
+    final field = getField(WeightScaleMetabolicAgeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -299,7 +364,8 @@ class WeightScaleMessage extends DataMessage {
       return null;
     }
   }
-   set metabolicAge(int? value) {
+
+  set metabolicAge(int? value) {
     final field = getField(WeightScaleMetabolicAgeField.ID);
 
     if (field != null) {
@@ -311,8 +377,9 @@ class WeightScaleMessage extends DataMessage {
       }
     }
   }
+
   int? get visceralFatRating {
-     final field = getField(WeightScaleVisceralFatRatingField.ID);
+    final field = getField(WeightScaleVisceralFatRatingField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -320,7 +387,8 @@ class WeightScaleMessage extends DataMessage {
       return null;
     }
   }
-   set visceralFatRating(int? value) {
+
+  set visceralFatRating(int? value) {
     final field = getField(WeightScaleVisceralFatRatingField.ID);
 
     if (field != null) {
@@ -332,8 +400,9 @@ class WeightScaleMessage extends DataMessage {
       }
     }
   }
+
   int? get userProfileIndex {
-     final field = getField(WeightScaleUserProfileIndexField.ID);
+    final field = getField(WeightScaleUserProfileIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -341,7 +410,8 @@ class WeightScaleMessage extends DataMessage {
       return null;
     }
   }
-   set userProfileIndex(int? value) {
+
+  set userProfileIndex(int? value) {
     final field = getField(WeightScaleUserProfileIndexField.ID);
 
     if (field != null) {
@@ -353,15 +423,10 @@ class WeightScaleMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class WeightScaleWeightField extends Field {
- WeightScaleWeightField({int size = 0, bool growable = true})
+  WeightScaleWeightField({int size = 0, bool growable = true})
       : super(
             name: 'weight',
             id: ID,
@@ -372,14 +437,13 @@ class WeightScaleWeightField extends Field {
             units: 'kg',
             mainTypeName: 'weight',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class WeightScalePercentFatField extends Field {
- WeightScalePercentFatField({int size = 0, bool growable = true})
+  WeightScalePercentFatField({int size = 0, bool growable = true})
       : super(
             name: 'percent_fat',
             id: ID,
@@ -390,14 +454,13 @@ class WeightScalePercentFatField extends Field {
             units: '%',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class WeightScalePercentHydrationField extends Field {
- WeightScalePercentHydrationField({int size = 0, bool growable = true})
+  WeightScalePercentHydrationField({int size = 0, bool growable = true})
       : super(
             name: 'percent_hydration',
             id: ID,
@@ -408,14 +471,13 @@ class WeightScalePercentHydrationField extends Field {
             units: '%',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class WeightScaleVisceralFatMassField extends Field {
- WeightScaleVisceralFatMassField({int size = 0, bool growable = true})
+  WeightScaleVisceralFatMassField({int size = 0, bool growable = true})
       : super(
             name: 'visceral_fat_mass',
             id: ID,
@@ -426,14 +488,13 @@ class WeightScaleVisceralFatMassField extends Field {
             units: 'kg',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class WeightScaleBoneMassField extends Field {
- WeightScaleBoneMassField({int size = 0, bool growable = true})
+  WeightScaleBoneMassField({int size = 0, bool growable = true})
       : super(
             name: 'bone_mass',
             id: ID,
@@ -444,14 +505,13 @@ class WeightScaleBoneMassField extends Field {
             units: 'kg',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class WeightScaleMuscleMassField extends Field {
- WeightScaleMuscleMassField({int size = 0, bool growable = true})
+  WeightScaleMuscleMassField({int size = 0, bool growable = true})
       : super(
             name: 'muscle_mass',
             id: ID,
@@ -462,14 +522,13 @@ class WeightScaleMuscleMassField extends Field {
             units: 'kg',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }
+
 class WeightScaleBasalMetField extends Field {
- WeightScaleBasalMetField({int size = 0, bool growable = true})
+  WeightScaleBasalMetField({int size = 0, bool growable = true})
       : super(
             name: 'basal_met',
             id: ID,
@@ -480,14 +539,13 @@ class WeightScaleBasalMetField extends Field {
             units: 'kcal/day',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 7;
 }
+
 class WeightScalePhysiqueRatingField extends Field {
- WeightScalePhysiqueRatingField({int size = 0, bool growable = true})
+  WeightScalePhysiqueRatingField({int size = 0, bool growable = true})
       : super(
             name: 'physique_rating',
             id: ID,
@@ -496,14 +554,13 @@ class WeightScalePhysiqueRatingField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 8;
 }
+
 class WeightScaleActiveMetField extends Field {
- WeightScaleActiveMetField({int size = 0, bool growable = true})
+  WeightScaleActiveMetField({int size = 0, bool growable = true})
       : super(
             name: 'active_met',
             id: ID,
@@ -514,14 +571,13 @@ class WeightScaleActiveMetField extends Field {
             units: 'kcal/day',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 9;
 }
+
 class WeightScaleMetabolicAgeField extends Field {
- WeightScaleMetabolicAgeField({int size = 0, bool growable = true})
+  WeightScaleMetabolicAgeField({int size = 0, bool growable = true})
       : super(
             name: 'metabolic_age',
             id: ID,
@@ -532,14 +588,13 @@ class WeightScaleMetabolicAgeField extends Field {
             units: 'years',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 10;
 }
+
 class WeightScaleVisceralFatRatingField extends Field {
- WeightScaleVisceralFatRatingField({int size = 0, bool growable = true})
+  WeightScaleVisceralFatRatingField({int size = 0, bool growable = true})
       : super(
             name: 'visceral_fat_rating',
             id: ID,
@@ -548,14 +603,13 @@ class WeightScaleVisceralFatRatingField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 11;
 }
+
 class WeightScaleUserProfileIndexField extends Field {
- WeightScaleUserProfileIndexField({int size = 0, bool growable = true})
+  WeightScaleUserProfileIndexField({int size = 0, bool growable = true})
       : super(
             name: 'user_profile_index',
             id: ID,
@@ -564,9 +618,7 @@ class WeightScaleUserProfileIndexField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 12;
 }

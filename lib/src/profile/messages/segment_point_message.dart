@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class SegmentPointMessage extends DataMessage {
-
-   SegmentPointMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  SegmentPointMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: SegmentPointMessage.NAME,
@@ -25,22 +27,40 @@ class SegmentPointMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               MessageIndexField(
-                  size: definitionMessage?.getFieldDefinition(MessageIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentPointPositionLatField(
-                  size: definitionMessage?.getFieldDefinition(SegmentPointPositionLatField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentPointPositionLatField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentPointPositionLongField(
-                  size: definitionMessage?.getFieldDefinition(SegmentPointPositionLongField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentPointPositionLongField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentPointDistanceField(
-                  size: definitionMessage?.getFieldDefinition(SegmentPointDistanceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentPointDistanceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentPointAltitudeField(
-                  size: definitionMessage?.getFieldDefinition(SegmentPointAltitudeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentPointAltitudeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentPointLeaderTimeField(
-                  size: definitionMessage?.getFieldDefinition(SegmentPointLeaderTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentPointLeaderTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -56,9 +76,8 @@ class SegmentPointMessage extends DataMessage {
     return message;
   }
 
-
   int? get messageIndex {
-     final field = getField(MessageIndexField.ID);
+    final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -66,7 +85,8 @@ class SegmentPointMessage extends DataMessage {
       return null;
     }
   }
-   set messageIndex(int? value) {
+
+  set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
     if (field != null) {
@@ -78,8 +98,9 @@ class SegmentPointMessage extends DataMessage {
       }
     }
   }
+
   double? get positionLat {
-     final field = getField(SegmentPointPositionLatField.ID);
+    final field = getField(SegmentPointPositionLatField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -87,7 +108,8 @@ class SegmentPointMessage extends DataMessage {
       return null;
     }
   }
-   set positionLat(double? value) {
+
+  set positionLat(double? value) {
     final field = getField(SegmentPointPositionLatField.ID);
 
     if (field != null) {
@@ -99,8 +121,9 @@ class SegmentPointMessage extends DataMessage {
       }
     }
   }
+
   double? get positionLong {
-     final field = getField(SegmentPointPositionLongField.ID);
+    final field = getField(SegmentPointPositionLongField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -108,7 +131,8 @@ class SegmentPointMessage extends DataMessage {
       return null;
     }
   }
-   set positionLong(double? value) {
+
+  set positionLong(double? value) {
     final field = getField(SegmentPointPositionLongField.ID);
 
     if (field != null) {
@@ -120,8 +144,9 @@ class SegmentPointMessage extends DataMessage {
       }
     }
   }
+
   double? get distance {
-     final field = getField(SegmentPointDistanceField.ID);
+    final field = getField(SegmentPointDistanceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -129,7 +154,8 @@ class SegmentPointMessage extends DataMessage {
       return null;
     }
   }
-   set distance(double? value) {
+
+  set distance(double? value) {
     final field = getField(SegmentPointDistanceField.ID);
 
     if (field != null) {
@@ -141,8 +167,9 @@ class SegmentPointMessage extends DataMessage {
       }
     }
   }
+
   double? get altitude {
-     final field = getField(SegmentPointAltitudeField.ID);
+    final field = getField(SegmentPointAltitudeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -150,7 +177,8 @@ class SegmentPointMessage extends DataMessage {
       return null;
     }
   }
-   set altitude(double? value) {
+
+  set altitude(double? value) {
     final field = getField(SegmentPointAltitudeField.ID);
 
     if (field != null) {
@@ -162,8 +190,9 @@ class SegmentPointMessage extends DataMessage {
       }
     }
   }
+
   double? get leaderTime {
-     final field = getField(SegmentPointLeaderTimeField.ID);
+    final field = getField(SegmentPointLeaderTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -171,7 +200,8 @@ class SegmentPointMessage extends DataMessage {
       return null;
     }
   }
-   set leaderTime(double? value) {
+
+  set leaderTime(double? value) {
     final field = getField(SegmentPointLeaderTimeField.ID);
 
     if (field != null) {
@@ -183,15 +213,10 @@ class SegmentPointMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class SegmentPointPositionLatField extends Field {
- SegmentPointPositionLatField({int size = 0, bool growable = true})
+  SegmentPointPositionLatField({int size = 0, bool growable = true})
       : super(
             name: 'position_lat',
             id: ID,
@@ -202,14 +227,13 @@ class SegmentPointPositionLatField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class SegmentPointPositionLongField extends Field {
- SegmentPointPositionLongField({int size = 0, bool growable = true})
+  SegmentPointPositionLongField({int size = 0, bool growable = true})
       : super(
             name: 'position_long',
             id: ID,
@@ -220,14 +244,13 @@ class SegmentPointPositionLongField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class SegmentPointDistanceField extends Field {
- SegmentPointDistanceField({int size = 0, bool growable = true})
+  SegmentPointDistanceField({int size = 0, bool growable = true})
       : super(
             name: 'distance',
             id: ID,
@@ -238,14 +261,13 @@ class SegmentPointDistanceField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class SegmentPointAltitudeField extends Field {
- SegmentPointAltitudeField({int size = 0, bool growable = true})
+  SegmentPointAltitudeField({int size = 0, bool growable = true})
       : super(
             name: 'altitude',
             id: ID,
@@ -256,14 +278,13 @@ class SegmentPointAltitudeField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class SegmentPointLeaderTimeField extends Field {
- SegmentPointLeaderTimeField({int size = 0, bool growable = true})
+  SegmentPointLeaderTimeField({int size = 0, bool growable = true})
       : super(
             name: 'leader_time',
             id: ID,
@@ -274,9 +295,7 @@ class SegmentPointLeaderTimeField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }

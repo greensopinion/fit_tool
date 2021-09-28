@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class BloodPressureMessage extends DataMessage {
-
-   BloodPressureMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  BloodPressureMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: BloodPressureMessage.NAME,
@@ -25,37 +27,78 @@ class BloodPressureMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               BloodPressureSystolicPressureField(
-                  size: definitionMessage?.getFieldDefinition(BloodPressureSystolicPressureField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              BloodPressureSystolicPressureField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               BloodPressureDiastolicPressureField(
-                  size: definitionMessage?.getFieldDefinition(BloodPressureDiastolicPressureField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              BloodPressureDiastolicPressureField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               BloodPressureMeanArterialPressureField(
-                  size: definitionMessage?.getFieldDefinition(BloodPressureMeanArterialPressureField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              BloodPressureMeanArterialPressureField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               BloodPressureMap3SampleMeanField(
-                  size: definitionMessage?.getFieldDefinition(BloodPressureMap3SampleMeanField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              BloodPressureMap3SampleMeanField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               BloodPressureMapMorningValuesField(
-                  size: definitionMessage?.getFieldDefinition(BloodPressureMapMorningValuesField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              BloodPressureMapMorningValuesField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               BloodPressureMapEveningValuesField(
-                  size: definitionMessage?.getFieldDefinition(BloodPressureMapEveningValuesField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              BloodPressureMapEveningValuesField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               BloodPressureHeartRateField(
-                  size: definitionMessage?.getFieldDefinition(BloodPressureHeartRateField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(BloodPressureHeartRateField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               BloodPressureHeartRateTypeField(
-                  size: definitionMessage?.getFieldDefinition(BloodPressureHeartRateTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              BloodPressureHeartRateTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               BloodPressureStatusField(
-                  size: definitionMessage?.getFieldDefinition(BloodPressureStatusField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(BloodPressureStatusField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               BloodPressureUserProfileIndexField(
-                  size: definitionMessage?.getFieldDefinition(BloodPressureUserProfileIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              BloodPressureUserProfileIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -71,10 +114,9 @@ class BloodPressureMessage extends DataMessage {
     return message;
   }
 
-
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -82,8 +124,9 @@ class BloodPressureMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -95,8 +138,9 @@ class BloodPressureMessage extends DataMessage {
       }
     }
   }
+
   int? get systolicPressure {
-     final field = getField(BloodPressureSystolicPressureField.ID);
+    final field = getField(BloodPressureSystolicPressureField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -104,7 +148,8 @@ class BloodPressureMessage extends DataMessage {
       return null;
     }
   }
-   set systolicPressure(int? value) {
+
+  set systolicPressure(int? value) {
     final field = getField(BloodPressureSystolicPressureField.ID);
 
     if (field != null) {
@@ -116,8 +161,9 @@ class BloodPressureMessage extends DataMessage {
       }
     }
   }
+
   int? get diastolicPressure {
-     final field = getField(BloodPressureDiastolicPressureField.ID);
+    final field = getField(BloodPressureDiastolicPressureField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -125,7 +171,8 @@ class BloodPressureMessage extends DataMessage {
       return null;
     }
   }
-   set diastolicPressure(int? value) {
+
+  set diastolicPressure(int? value) {
     final field = getField(BloodPressureDiastolicPressureField.ID);
 
     if (field != null) {
@@ -137,8 +184,9 @@ class BloodPressureMessage extends DataMessage {
       }
     }
   }
+
   int? get meanArterialPressure {
-     final field = getField(BloodPressureMeanArterialPressureField.ID);
+    final field = getField(BloodPressureMeanArterialPressureField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -146,7 +194,8 @@ class BloodPressureMessage extends DataMessage {
       return null;
     }
   }
-   set meanArterialPressure(int? value) {
+
+  set meanArterialPressure(int? value) {
     final field = getField(BloodPressureMeanArterialPressureField.ID);
 
     if (field != null) {
@@ -158,8 +207,9 @@ class BloodPressureMessage extends DataMessage {
       }
     }
   }
+
   int? get map3SampleMean {
-     final field = getField(BloodPressureMap3SampleMeanField.ID);
+    final field = getField(BloodPressureMap3SampleMeanField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -167,7 +217,8 @@ class BloodPressureMessage extends DataMessage {
       return null;
     }
   }
-   set map3SampleMean(int? value) {
+
+  set map3SampleMean(int? value) {
     final field = getField(BloodPressureMap3SampleMeanField.ID);
 
     if (field != null) {
@@ -179,8 +230,9 @@ class BloodPressureMessage extends DataMessage {
       }
     }
   }
+
   int? get mapMorningValues {
-     final field = getField(BloodPressureMapMorningValuesField.ID);
+    final field = getField(BloodPressureMapMorningValuesField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -188,7 +240,8 @@ class BloodPressureMessage extends DataMessage {
       return null;
     }
   }
-   set mapMorningValues(int? value) {
+
+  set mapMorningValues(int? value) {
     final field = getField(BloodPressureMapMorningValuesField.ID);
 
     if (field != null) {
@@ -200,8 +253,9 @@ class BloodPressureMessage extends DataMessage {
       }
     }
   }
+
   int? get mapEveningValues {
-     final field = getField(BloodPressureMapEveningValuesField.ID);
+    final field = getField(BloodPressureMapEveningValuesField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -209,7 +263,8 @@ class BloodPressureMessage extends DataMessage {
       return null;
     }
   }
-   set mapEveningValues(int? value) {
+
+  set mapEveningValues(int? value) {
     final field = getField(BloodPressureMapEveningValuesField.ID);
 
     if (field != null) {
@@ -221,8 +276,9 @@ class BloodPressureMessage extends DataMessage {
       }
     }
   }
+
   int? get heartRate {
-     final field = getField(BloodPressureHeartRateField.ID);
+    final field = getField(BloodPressureHeartRateField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -230,7 +286,8 @@ class BloodPressureMessage extends DataMessage {
       return null;
     }
   }
-   set heartRate(int? value) {
+
+  set heartRate(int? value) {
     final field = getField(BloodPressureHeartRateField.ID);
 
     if (field != null) {
@@ -242,9 +299,10 @@ class BloodPressureMessage extends DataMessage {
       }
     }
   }
+
   HrType? get heartRateType {
-     final field = getField(BloodPressureHeartRateTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(BloodPressureHeartRateTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -255,7 +313,8 @@ class BloodPressureMessage extends DataMessage {
       return null;
     }
   }
-   set heartRateType(HrType? value) {
+
+  set heartRateType(HrType? value) {
     final field = getField(BloodPressureHeartRateTypeField.ID);
 
     if (field != null) {
@@ -267,9 +326,10 @@ class BloodPressureMessage extends DataMessage {
       }
     }
   }
+
   BpStatus? get status {
-     final field = getField(BloodPressureStatusField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(BloodPressureStatusField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -280,7 +340,8 @@ class BloodPressureMessage extends DataMessage {
       return null;
     }
   }
-   set status(BpStatus? value) {
+
+  set status(BpStatus? value) {
     final field = getField(BloodPressureStatusField.ID);
 
     if (field != null) {
@@ -292,8 +353,9 @@ class BloodPressureMessage extends DataMessage {
       }
     }
   }
+
   int? get userProfileIndex {
-     final field = getField(BloodPressureUserProfileIndexField.ID);
+    final field = getField(BloodPressureUserProfileIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -301,7 +363,8 @@ class BloodPressureMessage extends DataMessage {
       return null;
     }
   }
-   set userProfileIndex(int? value) {
+
+  set userProfileIndex(int? value) {
     final field = getField(BloodPressureUserProfileIndexField.ID);
 
     if (field != null) {
@@ -313,15 +376,10 @@ class BloodPressureMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class BloodPressureSystolicPressureField extends Field {
- BloodPressureSystolicPressureField({int size = 0, bool growable = true})
+  BloodPressureSystolicPressureField({int size = 0, bool growable = true})
       : super(
             name: 'systolic_pressure',
             id: ID,
@@ -332,14 +390,13 @@ class BloodPressureSystolicPressureField extends Field {
             units: 'mmHg',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class BloodPressureDiastolicPressureField extends Field {
- BloodPressureDiastolicPressureField({int size = 0, bool growable = true})
+  BloodPressureDiastolicPressureField({int size = 0, bool growable = true})
       : super(
             name: 'diastolic_pressure',
             id: ID,
@@ -350,14 +407,13 @@ class BloodPressureDiastolicPressureField extends Field {
             units: 'mmHg',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class BloodPressureMeanArterialPressureField extends Field {
- BloodPressureMeanArterialPressureField({int size = 0, bool growable = true})
+  BloodPressureMeanArterialPressureField({int size = 0, bool growable = true})
       : super(
             name: 'mean_arterial_pressure',
             id: ID,
@@ -368,14 +424,13 @@ class BloodPressureMeanArterialPressureField extends Field {
             units: 'mmHg',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class BloodPressureMap3SampleMeanField extends Field {
- BloodPressureMap3SampleMeanField({int size = 0, bool growable = true})
+  BloodPressureMap3SampleMeanField({int size = 0, bool growable = true})
       : super(
             name: 'map_3_sample_mean',
             id: ID,
@@ -386,14 +441,13 @@ class BloodPressureMap3SampleMeanField extends Field {
             units: 'mmHg',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class BloodPressureMapMorningValuesField extends Field {
- BloodPressureMapMorningValuesField({int size = 0, bool growable = true})
+  BloodPressureMapMorningValuesField({int size = 0, bool growable = true})
       : super(
             name: 'map_morning_values',
             id: ID,
@@ -404,14 +458,13 @@ class BloodPressureMapMorningValuesField extends Field {
             units: 'mmHg',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class BloodPressureMapEveningValuesField extends Field {
- BloodPressureMapEveningValuesField({int size = 0, bool growable = true})
+  BloodPressureMapEveningValuesField({int size = 0, bool growable = true})
       : super(
             name: 'map_evening_values',
             id: ID,
@@ -422,14 +475,13 @@ class BloodPressureMapEveningValuesField extends Field {
             units: 'mmHg',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }
+
 class BloodPressureHeartRateField extends Field {
- BloodPressureHeartRateField({int size = 0, bool growable = true})
+  BloodPressureHeartRateField({int size = 0, bool growable = true})
       : super(
             name: 'heart_rate',
             id: ID,
@@ -440,14 +492,13 @@ class BloodPressureHeartRateField extends Field {
             units: 'bpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 6;
 }
+
 class BloodPressureHeartRateTypeField extends Field {
- BloodPressureHeartRateTypeField({int size = 0, bool growable = true})
+  BloodPressureHeartRateTypeField({int size = 0, bool growable = true})
       : super(
             name: 'heart_rate_type',
             id: ID,
@@ -456,14 +507,13 @@ class BloodPressureHeartRateTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 7;
 }
+
 class BloodPressureStatusField extends Field {
- BloodPressureStatusField({int size = 0, bool growable = true})
+  BloodPressureStatusField({int size = 0, bool growable = true})
       : super(
             name: 'status',
             id: ID,
@@ -472,14 +522,13 @@ class BloodPressureStatusField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 8;
 }
+
 class BloodPressureUserProfileIndexField extends Field {
- BloodPressureUserProfileIndexField({int size = 0, bool growable = true})
+  BloodPressureUserProfileIndexField({int size = 0, bool growable = true})
       : super(
             name: 'user_profile_index',
             id: ID,
@@ -488,9 +537,7 @@ class BloodPressureUserProfileIndexField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 9;
 }

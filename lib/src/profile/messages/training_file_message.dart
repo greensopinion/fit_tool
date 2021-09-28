@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class TrainingFileMessage extends DataMessage {
-
-   TrainingFileMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  TrainingFileMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: TrainingFileMessage.NAME,
@@ -25,22 +27,40 @@ class TrainingFileMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               TrainingFileTypeField(
-                  size: definitionMessage?.getFieldDefinition(TrainingFileTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TrainingFileTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               TrainingFileManufacturerField(
-                  size: definitionMessage?.getFieldDefinition(TrainingFileManufacturerField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TrainingFileManufacturerField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               TrainingFileProductField(
-                  size: definitionMessage?.getFieldDefinition(TrainingFileProductField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TrainingFileProductField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               TrainingFileSerialNumberField(
-                  size: definitionMessage?.getFieldDefinition(TrainingFileSerialNumberField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TrainingFileSerialNumberField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               TrainingFileTimeCreatedField(
-                  size: definitionMessage?.getFieldDefinition(TrainingFileTimeCreatedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TrainingFileTimeCreatedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -56,10 +76,9 @@ class TrainingFileMessage extends DataMessage {
     return message;
   }
 
-
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -67,8 +86,9 @@ class TrainingFileMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -80,9 +100,10 @@ class TrainingFileMessage extends DataMessage {
       }
     }
   }
+
   FileType? get type {
-     final field = getField(TrainingFileTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(TrainingFileTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -93,7 +114,8 @@ class TrainingFileMessage extends DataMessage {
       return null;
     }
   }
-   set type(FileType? value) {
+
+  set type(FileType? value) {
     final field = getField(TrainingFileTypeField.ID);
 
     if (field != null) {
@@ -105,8 +127,9 @@ class TrainingFileMessage extends DataMessage {
       }
     }
   }
+
   int? get manufacturer {
-     final field = getField(TrainingFileManufacturerField.ID);
+    final field = getField(TrainingFileManufacturerField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -114,7 +137,8 @@ class TrainingFileMessage extends DataMessage {
       return null;
     }
   }
-   set manufacturer(int? value) {
+
+  set manufacturer(int? value) {
     final field = getField(TrainingFileManufacturerField.ID);
 
     if (field != null) {
@@ -126,8 +150,9 @@ class TrainingFileMessage extends DataMessage {
       }
     }
   }
+
   int? get product {
-     final field = getField(TrainingFileProductField.ID);
+    final field = getField(TrainingFileProductField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -135,7 +160,8 @@ class TrainingFileMessage extends DataMessage {
       return null;
     }
   }
-   set product(int? value) {
+
+  set product(int? value) {
     final field = getField(TrainingFileProductField.ID);
 
     if (field != null) {
@@ -149,13 +175,14 @@ class TrainingFileMessage extends DataMessage {
   }
 
   int? get faveroProduct {
-     final field = getField(TrainingFileProductField.ID);
-     final typeField = getField(TrainingFileManufacturerField.ID);
+    final field = getField(TrainingFileProductField.ID);
+    final typeField = getField(TrainingFileManufacturerField.ID);
 
-     final isSubFieldValid = typeField != null && [263].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [263].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -163,7 +190,7 @@ class TrainingFileMessage extends DataMessage {
 
   set faveroProduct(int? value) {
     final field = getField(TrainingFileProductField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -174,13 +201,14 @@ class TrainingFileMessage extends DataMessage {
   }
 
   int? get garminProduct {
-     final field = getField(TrainingFileProductField.ID);
-     final typeField = getField(TrainingFileManufacturerField.ID);
+    final field = getField(TrainingFileProductField.ID);
+    final typeField = getField(TrainingFileManufacturerField.ID);
 
-     final isSubFieldValid = typeField != null && [1, 15, 13, 89].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [1, 15, 13, 89].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -188,7 +216,7 @@ class TrainingFileMessage extends DataMessage {
 
   set garminProduct(int? value) {
     final field = getField(TrainingFileProductField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -197,8 +225,9 @@ class TrainingFileMessage extends DataMessage {
       }
     }
   }
+
   int? get serialNumber {
-     final field = getField(TrainingFileSerialNumberField.ID);
+    final field = getField(TrainingFileSerialNumberField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -206,7 +235,8 @@ class TrainingFileMessage extends DataMessage {
       return null;
     }
   }
-   set serialNumber(int? value) {
+
+  set serialNumber(int? value) {
     final field = getField(TrainingFileSerialNumberField.ID);
 
     if (field != null) {
@@ -218,9 +248,10 @@ class TrainingFileMessage extends DataMessage {
       }
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timeCreated {
-     final field = getField(TrainingFileTimeCreatedField.ID);
+    final field = getField(TrainingFileTimeCreatedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -228,8 +259,9 @@ class TrainingFileMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timeCreated(int? value) {
+  set timeCreated(int? value) {
     final field = getField(TrainingFileTimeCreatedField.ID);
 
     if (field != null) {
@@ -241,15 +273,10 @@ class TrainingFileMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class TrainingFileTypeField extends Field {
- TrainingFileTypeField({int size = 0, bool growable = true})
+  TrainingFileTypeField({int size = 0, bool growable = true})
       : super(
             name: 'type',
             id: ID,
@@ -258,14 +285,13 @@ class TrainingFileTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class TrainingFileManufacturerField extends Field {
- TrainingFileManufacturerField({int size = 0, bool growable = true})
+  TrainingFileManufacturerField({int size = 0, bool growable = true})
       : super(
             name: 'manufacturer',
             id: ID,
@@ -274,14 +300,13 @@ class TrainingFileManufacturerField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class TrainingFileProductField extends Field {
- TrainingFileProductField({int size = 0, bool growable = true})
+  TrainingFileProductField({int size = 0, bool growable = true})
       : super(
             name: 'product',
             id: ID,
@@ -291,29 +316,29 @@ class TrainingFileProductField extends Field {
             size: size,
             growable: growable,
             subFields: [
-       SubField(
+              SubField(
                   name: 'favero_product',
                   type: BaseType.UINT16,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  TrainingFileManufacturerField.ID: [263]
+                    TrainingFileManufacturerField.ID: [263]
                   }),
-       SubField(
+              SubField(
                   name: 'garmin_product',
                   type: BaseType.UINT16,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  TrainingFileManufacturerField.ID: [1, 15, 13, 89]
+                    TrainingFileManufacturerField.ID: [1, 15, 13, 89]
                   })
-            ]
- );
+            ]);
 
   static const ID = 2;
 }
+
 class TrainingFileSerialNumberField extends Field {
- TrainingFileSerialNumberField({int size = 0, bool growable = true})
+  TrainingFileSerialNumberField({int size = 0, bool growable = true})
       : super(
             name: 'serial_number',
             id: ID,
@@ -322,14 +347,13 @@ class TrainingFileSerialNumberField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class TrainingFileTimeCreatedField extends Field {
- TrainingFileTimeCreatedField({int size = 0, bool growable = true})
+  TrainingFileTimeCreatedField({int size = 0, bool growable = true})
       : super(
             name: 'time_created',
             id: ID,
@@ -340,9 +364,7 @@ class TrainingFileTimeCreatedField extends Field {
             units: 'ms',
             mainTypeName: 'date_time',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }

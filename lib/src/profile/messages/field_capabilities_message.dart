@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class FieldCapabilitiesMessage extends DataMessage {
-
-   FieldCapabilitiesMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  FieldCapabilitiesMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: FieldCapabilitiesMessage.NAME,
@@ -25,19 +27,35 @@ class FieldCapabilitiesMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               MessageIndexField(
-                  size: definitionMessage?.getFieldDefinition(MessageIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               FieldCapabilitiesFileField(
-                  size: definitionMessage?.getFieldDefinition(FieldCapabilitiesFileField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(FieldCapabilitiesFileField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               FieldCapabilitiesMesgNumField(
-                  size: definitionMessage?.getFieldDefinition(FieldCapabilitiesMesgNumField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(FieldCapabilitiesMesgNumField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               FieldCapabilitiesFieldNumField(
-                  size: definitionMessage?.getFieldDefinition(FieldCapabilitiesFieldNumField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              FieldCapabilitiesFieldNumField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               FieldCapabilitiesCountField(
-                  size: definitionMessage?.getFieldDefinition(FieldCapabilitiesCountField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(FieldCapabilitiesCountField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -48,14 +66,14 @@ class FieldCapabilitiesMessage extends DataMessage {
 
   static FieldCapabilitiesMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
-    final message = FieldCapabilitiesMessage(definitionMessage: definitionMessage);
+    final message =
+        FieldCapabilitiesMessage(definitionMessage: definitionMessage);
     message.readFromBytes(bytes);
     return message;
   }
 
-
   int? get messageIndex {
-     final field = getField(MessageIndexField.ID);
+    final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -63,7 +81,8 @@ class FieldCapabilitiesMessage extends DataMessage {
       return null;
     }
   }
-   set messageIndex(int? value) {
+
+  set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
     if (field != null) {
@@ -75,9 +94,10 @@ class FieldCapabilitiesMessage extends DataMessage {
       }
     }
   }
+
   FileType? get file {
-     final field = getField(FieldCapabilitiesFileField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(FieldCapabilitiesFileField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -88,7 +108,8 @@ class FieldCapabilitiesMessage extends DataMessage {
       return null;
     }
   }
-   set file(FileType? value) {
+
+  set file(FileType? value) {
     final field = getField(FieldCapabilitiesFileField.ID);
 
     if (field != null) {
@@ -100,8 +121,9 @@ class FieldCapabilitiesMessage extends DataMessage {
       }
     }
   }
+
   int? get mesgNum {
-     final field = getField(FieldCapabilitiesMesgNumField.ID);
+    final field = getField(FieldCapabilitiesMesgNumField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -109,7 +131,8 @@ class FieldCapabilitiesMessage extends DataMessage {
       return null;
     }
   }
-   set mesgNum(int? value) {
+
+  set mesgNum(int? value) {
     final field = getField(FieldCapabilitiesMesgNumField.ID);
 
     if (field != null) {
@@ -121,8 +144,9 @@ class FieldCapabilitiesMessage extends DataMessage {
       }
     }
   }
+
   int? get fieldNum {
-     final field = getField(FieldCapabilitiesFieldNumField.ID);
+    final field = getField(FieldCapabilitiesFieldNumField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -130,7 +154,8 @@ class FieldCapabilitiesMessage extends DataMessage {
       return null;
     }
   }
-   set fieldNum(int? value) {
+
+  set fieldNum(int? value) {
     final field = getField(FieldCapabilitiesFieldNumField.ID);
 
     if (field != null) {
@@ -142,8 +167,9 @@ class FieldCapabilitiesMessage extends DataMessage {
       }
     }
   }
+
   int? get count {
-     final field = getField(FieldCapabilitiesCountField.ID);
+    final field = getField(FieldCapabilitiesCountField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -151,7 +177,8 @@ class FieldCapabilitiesMessage extends DataMessage {
       return null;
     }
   }
-   set count(int? value) {
+
+  set count(int? value) {
     final field = getField(FieldCapabilitiesCountField.ID);
 
     if (field != null) {
@@ -163,15 +190,10 @@ class FieldCapabilitiesMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class FieldCapabilitiesFileField extends Field {
- FieldCapabilitiesFileField({int size = 0, bool growable = true})
+  FieldCapabilitiesFileField({int size = 0, bool growable = true})
       : super(
             name: 'file',
             id: ID,
@@ -180,14 +202,13 @@ class FieldCapabilitiesFileField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class FieldCapabilitiesMesgNumField extends Field {
- FieldCapabilitiesMesgNumField({int size = 0, bool growable = true})
+  FieldCapabilitiesMesgNumField({int size = 0, bool growable = true})
       : super(
             name: 'mesg_num',
             id: ID,
@@ -196,14 +217,13 @@ class FieldCapabilitiesMesgNumField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class FieldCapabilitiesFieldNumField extends Field {
- FieldCapabilitiesFieldNumField({int size = 0, bool growable = true})
+  FieldCapabilitiesFieldNumField({int size = 0, bool growable = true})
       : super(
             name: 'field_num',
             id: ID,
@@ -212,14 +232,13 @@ class FieldCapabilitiesFieldNumField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class FieldCapabilitiesCountField extends Field {
- FieldCapabilitiesCountField({int size = 0, bool growable = true})
+  FieldCapabilitiesCountField({int size = 0, bool growable = true})
       : super(
             name: 'count',
             id: ID,
@@ -228,9 +247,7 @@ class FieldCapabilitiesCountField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }

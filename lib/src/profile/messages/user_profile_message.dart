@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class UserProfileMessage extends DataMessage {
-
-   UserProfileMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  UserProfileMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: UserProfileMessage.NAME,
@@ -25,91 +27,186 @@ class UserProfileMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               MessageIndexField(
-                  size: definitionMessage?.getFieldDefinition(MessageIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               UserProfileFriendlyNameField(
-                  size: definitionMessage?.getFieldDefinition(UserProfileFriendlyNameField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(UserProfileFriendlyNameField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               UserProfileGenderField(
-                  size: definitionMessage?.getFieldDefinition(UserProfileGenderField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(UserProfileGenderField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               UserProfileAgeField(
-                  size: definitionMessage?.getFieldDefinition(UserProfileAgeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(UserProfileAgeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               UserProfileHeightField(
-                  size: definitionMessage?.getFieldDefinition(UserProfileHeightField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(UserProfileHeightField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               UserProfileWeightField(
-                  size: definitionMessage?.getFieldDefinition(UserProfileWeightField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(UserProfileWeightField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               UserProfileLanguageField(
-                  size: definitionMessage?.getFieldDefinition(UserProfileLanguageField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(UserProfileLanguageField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               UserProfileElevSettingField(
-                  size: definitionMessage?.getFieldDefinition(UserProfileElevSettingField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(UserProfileElevSettingField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               UserProfileWeightSettingField(
-                  size: definitionMessage?.getFieldDefinition(UserProfileWeightSettingField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(UserProfileWeightSettingField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               UserProfileRestingHeartRateField(
-                  size: definitionMessage?.getFieldDefinition(UserProfileRestingHeartRateField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              UserProfileRestingHeartRateField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               UserProfileDefaultMaxRunningHeartRateField(
-                  size: definitionMessage?.getFieldDefinition(UserProfileDefaultMaxRunningHeartRateField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              UserProfileDefaultMaxRunningHeartRateField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               UserProfileDefaultMaxBikingHeartRateField(
-                  size: definitionMessage?.getFieldDefinition(UserProfileDefaultMaxBikingHeartRateField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              UserProfileDefaultMaxBikingHeartRateField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               UserProfileDefaultMaxHeartRateField(
-                  size: definitionMessage?.getFieldDefinition(UserProfileDefaultMaxHeartRateField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              UserProfileDefaultMaxHeartRateField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               UserProfileHrSettingField(
-                  size: definitionMessage?.getFieldDefinition(UserProfileHrSettingField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(UserProfileHrSettingField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               UserProfileSpeedSettingField(
-                  size: definitionMessage?.getFieldDefinition(UserProfileSpeedSettingField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(UserProfileSpeedSettingField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               UserProfileDistSettingField(
-                  size: definitionMessage?.getFieldDefinition(UserProfileDistSettingField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(UserProfileDistSettingField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               UserProfilePowerSettingField(
-                  size: definitionMessage?.getFieldDefinition(UserProfilePowerSettingField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(UserProfilePowerSettingField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               UserProfileActivityClassField(
-                  size: definitionMessage?.getFieldDefinition(UserProfileActivityClassField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(UserProfileActivityClassField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               UserProfilePositionSettingField(
-                  size: definitionMessage?.getFieldDefinition(UserProfilePositionSettingField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              UserProfilePositionSettingField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               UserProfileTemperatureSettingField(
-                  size: definitionMessage?.getFieldDefinition(UserProfileTemperatureSettingField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              UserProfileTemperatureSettingField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               UserProfileLocalIdField(
-                  size: definitionMessage?.getFieldDefinition(UserProfileLocalIdField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(UserProfileLocalIdField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               UserProfileGlobalIdField(
-                  size: definitionMessage?.getFieldDefinition(UserProfileGlobalIdField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(UserProfileGlobalIdField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               UserProfileWakeTimeField(
-                  size: definitionMessage?.getFieldDefinition(UserProfileWakeTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(UserProfileWakeTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               UserProfileSleepTimeField(
-                  size: definitionMessage?.getFieldDefinition(UserProfileSleepTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(UserProfileSleepTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               UserProfileHeightSettingField(
-                  size: definitionMessage?.getFieldDefinition(UserProfileHeightSettingField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(UserProfileHeightSettingField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               UserProfileUserRunningStepLengthField(
-                  size: definitionMessage?.getFieldDefinition(UserProfileUserRunningStepLengthField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              UserProfileUserRunningStepLengthField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               UserProfileUserWalkingStepLengthField(
-                  size: definitionMessage?.getFieldDefinition(UserProfileUserWalkingStepLengthField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              UserProfileUserWalkingStepLengthField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               UserProfileDepthSettingField(
-                  size: definitionMessage?.getFieldDefinition(UserProfileDepthSettingField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(UserProfileDepthSettingField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               UserProfileDiveCountField(
-                  size: definitionMessage?.getFieldDefinition(UserProfileDiveCountField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(UserProfileDiveCountField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -125,9 +222,8 @@ class UserProfileMessage extends DataMessage {
     return message;
   }
 
-
   int? get messageIndex {
-     final field = getField(MessageIndexField.ID);
+    final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -135,7 +231,8 @@ class UserProfileMessage extends DataMessage {
       return null;
     }
   }
-   set messageIndex(int? value) {
+
+  set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
     if (field != null) {
@@ -147,8 +244,9 @@ class UserProfileMessage extends DataMessage {
       }
     }
   }
+
   String? get friendlyName {
-     final field = getField(UserProfileFriendlyNameField.ID);
+    final field = getField(UserProfileFriendlyNameField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -156,7 +254,8 @@ class UserProfileMessage extends DataMessage {
       return null;
     }
   }
-   set friendlyName(String? value) {
+
+  set friendlyName(String? value) {
     final field = getField(UserProfileFriendlyNameField.ID);
 
     if (field != null) {
@@ -168,9 +267,10 @@ class UserProfileMessage extends DataMessage {
       }
     }
   }
+
   Gender? get gender {
-     final field = getField(UserProfileGenderField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(UserProfileGenderField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -181,7 +281,8 @@ class UserProfileMessage extends DataMessage {
       return null;
     }
   }
-   set gender(Gender? value) {
+
+  set gender(Gender? value) {
     final field = getField(UserProfileGenderField.ID);
 
     if (field != null) {
@@ -193,8 +294,9 @@ class UserProfileMessage extends DataMessage {
       }
     }
   }
+
   int? get age {
-     final field = getField(UserProfileAgeField.ID);
+    final field = getField(UserProfileAgeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -202,7 +304,8 @@ class UserProfileMessage extends DataMessage {
       return null;
     }
   }
-   set age(int? value) {
+
+  set age(int? value) {
     final field = getField(UserProfileAgeField.ID);
 
     if (field != null) {
@@ -214,8 +317,9 @@ class UserProfileMessage extends DataMessage {
       }
     }
   }
+
   double? get height {
-     final field = getField(UserProfileHeightField.ID);
+    final field = getField(UserProfileHeightField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -223,7 +327,8 @@ class UserProfileMessage extends DataMessage {
       return null;
     }
   }
-   set height(double? value) {
+
+  set height(double? value) {
     final field = getField(UserProfileHeightField.ID);
 
     if (field != null) {
@@ -235,8 +340,9 @@ class UserProfileMessage extends DataMessage {
       }
     }
   }
+
   double? get weight {
-     final field = getField(UserProfileWeightField.ID);
+    final field = getField(UserProfileWeightField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -244,7 +350,8 @@ class UserProfileMessage extends DataMessage {
       return null;
     }
   }
-   set weight(double? value) {
+
+  set weight(double? value) {
     final field = getField(UserProfileWeightField.ID);
 
     if (field != null) {
@@ -256,9 +363,10 @@ class UserProfileMessage extends DataMessage {
       }
     }
   }
+
   Language? get language {
-     final field = getField(UserProfileLanguageField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(UserProfileLanguageField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -269,7 +377,8 @@ class UserProfileMessage extends DataMessage {
       return null;
     }
   }
-   set language(Language? value) {
+
+  set language(Language? value) {
     final field = getField(UserProfileLanguageField.ID);
 
     if (field != null) {
@@ -281,9 +390,10 @@ class UserProfileMessage extends DataMessage {
       }
     }
   }
+
   DisplayMeasure? get elevSetting {
-     final field = getField(UserProfileElevSettingField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(UserProfileElevSettingField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -294,7 +404,8 @@ class UserProfileMessage extends DataMessage {
       return null;
     }
   }
-   set elevSetting(DisplayMeasure? value) {
+
+  set elevSetting(DisplayMeasure? value) {
     final field = getField(UserProfileElevSettingField.ID);
 
     if (field != null) {
@@ -306,9 +417,10 @@ class UserProfileMessage extends DataMessage {
       }
     }
   }
+
   DisplayMeasure? get weightSetting {
-     final field = getField(UserProfileWeightSettingField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(UserProfileWeightSettingField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -319,7 +431,8 @@ class UserProfileMessage extends DataMessage {
       return null;
     }
   }
-   set weightSetting(DisplayMeasure? value) {
+
+  set weightSetting(DisplayMeasure? value) {
     final field = getField(UserProfileWeightSettingField.ID);
 
     if (field != null) {
@@ -331,8 +444,9 @@ class UserProfileMessage extends DataMessage {
       }
     }
   }
+
   int? get restingHeartRate {
-     final field = getField(UserProfileRestingHeartRateField.ID);
+    final field = getField(UserProfileRestingHeartRateField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -340,7 +454,8 @@ class UserProfileMessage extends DataMessage {
       return null;
     }
   }
-   set restingHeartRate(int? value) {
+
+  set restingHeartRate(int? value) {
     final field = getField(UserProfileRestingHeartRateField.ID);
 
     if (field != null) {
@@ -352,8 +467,9 @@ class UserProfileMessage extends DataMessage {
       }
     }
   }
+
   int? get defaultMaxRunningHeartRate {
-     final field = getField(UserProfileDefaultMaxRunningHeartRateField.ID);
+    final field = getField(UserProfileDefaultMaxRunningHeartRateField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -361,7 +477,8 @@ class UserProfileMessage extends DataMessage {
       return null;
     }
   }
-   set defaultMaxRunningHeartRate(int? value) {
+
+  set defaultMaxRunningHeartRate(int? value) {
     final field = getField(UserProfileDefaultMaxRunningHeartRateField.ID);
 
     if (field != null) {
@@ -373,8 +490,9 @@ class UserProfileMessage extends DataMessage {
       }
     }
   }
+
   int? get defaultMaxBikingHeartRate {
-     final field = getField(UserProfileDefaultMaxBikingHeartRateField.ID);
+    final field = getField(UserProfileDefaultMaxBikingHeartRateField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -382,7 +500,8 @@ class UserProfileMessage extends DataMessage {
       return null;
     }
   }
-   set defaultMaxBikingHeartRate(int? value) {
+
+  set defaultMaxBikingHeartRate(int? value) {
     final field = getField(UserProfileDefaultMaxBikingHeartRateField.ID);
 
     if (field != null) {
@@ -394,8 +513,9 @@ class UserProfileMessage extends DataMessage {
       }
     }
   }
+
   int? get defaultMaxHeartRate {
-     final field = getField(UserProfileDefaultMaxHeartRateField.ID);
+    final field = getField(UserProfileDefaultMaxHeartRateField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -403,7 +523,8 @@ class UserProfileMessage extends DataMessage {
       return null;
     }
   }
-   set defaultMaxHeartRate(int? value) {
+
+  set defaultMaxHeartRate(int? value) {
     final field = getField(UserProfileDefaultMaxHeartRateField.ID);
 
     if (field != null) {
@@ -415,9 +536,10 @@ class UserProfileMessage extends DataMessage {
       }
     }
   }
+
   DisplayHeart? get hrSetting {
-     final field = getField(UserProfileHrSettingField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(UserProfileHrSettingField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -428,7 +550,8 @@ class UserProfileMessage extends DataMessage {
       return null;
     }
   }
-   set hrSetting(DisplayHeart? value) {
+
+  set hrSetting(DisplayHeart? value) {
     final field = getField(UserProfileHrSettingField.ID);
 
     if (field != null) {
@@ -440,9 +563,10 @@ class UserProfileMessage extends DataMessage {
       }
     }
   }
+
   DisplayMeasure? get speedSetting {
-     final field = getField(UserProfileSpeedSettingField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(UserProfileSpeedSettingField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -453,7 +577,8 @@ class UserProfileMessage extends DataMessage {
       return null;
     }
   }
-   set speedSetting(DisplayMeasure? value) {
+
+  set speedSetting(DisplayMeasure? value) {
     final field = getField(UserProfileSpeedSettingField.ID);
 
     if (field != null) {
@@ -465,9 +590,10 @@ class UserProfileMessage extends DataMessage {
       }
     }
   }
+
   DisplayMeasure? get distSetting {
-     final field = getField(UserProfileDistSettingField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(UserProfileDistSettingField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -478,7 +604,8 @@ class UserProfileMessage extends DataMessage {
       return null;
     }
   }
-   set distSetting(DisplayMeasure? value) {
+
+  set distSetting(DisplayMeasure? value) {
     final field = getField(UserProfileDistSettingField.ID);
 
     if (field != null) {
@@ -490,9 +617,10 @@ class UserProfileMessage extends DataMessage {
       }
     }
   }
+
   DisplayPower? get powerSetting {
-     final field = getField(UserProfilePowerSettingField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(UserProfilePowerSettingField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -503,7 +631,8 @@ class UserProfileMessage extends DataMessage {
       return null;
     }
   }
-   set powerSetting(DisplayPower? value) {
+
+  set powerSetting(DisplayPower? value) {
     final field = getField(UserProfilePowerSettingField.ID);
 
     if (field != null) {
@@ -515,9 +644,10 @@ class UserProfileMessage extends DataMessage {
       }
     }
   }
+
   ActivityClass? get activityClass {
-     final field = getField(UserProfileActivityClassField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(UserProfileActivityClassField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -528,7 +658,8 @@ class UserProfileMessage extends DataMessage {
       return null;
     }
   }
-   set activityClass(ActivityClass? value) {
+
+  set activityClass(ActivityClass? value) {
     final field = getField(UserProfileActivityClassField.ID);
 
     if (field != null) {
@@ -540,9 +671,10 @@ class UserProfileMessage extends DataMessage {
       }
     }
   }
+
   DisplayPosition? get positionSetting {
-     final field = getField(UserProfilePositionSettingField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(UserProfilePositionSettingField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -553,7 +685,8 @@ class UserProfileMessage extends DataMessage {
       return null;
     }
   }
-   set positionSetting(DisplayPosition? value) {
+
+  set positionSetting(DisplayPosition? value) {
     final field = getField(UserProfilePositionSettingField.ID);
 
     if (field != null) {
@@ -565,9 +698,10 @@ class UserProfileMessage extends DataMessage {
       }
     }
   }
+
   DisplayMeasure? get temperatureSetting {
-     final field = getField(UserProfileTemperatureSettingField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(UserProfileTemperatureSettingField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -578,7 +712,8 @@ class UserProfileMessage extends DataMessage {
       return null;
     }
   }
-   set temperatureSetting(DisplayMeasure? value) {
+
+  set temperatureSetting(DisplayMeasure? value) {
     final field = getField(UserProfileTemperatureSettingField.ID);
 
     if (field != null) {
@@ -590,8 +725,9 @@ class UserProfileMessage extends DataMessage {
       }
     }
   }
+
   int? get userProfileLocalId {
-     final field = getField(UserProfileLocalIdField.ID);
+    final field = getField(UserProfileLocalIdField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -599,7 +735,8 @@ class UserProfileMessage extends DataMessage {
       return null;
     }
   }
-   set userProfileLocalId(int? value) {
+
+  set userProfileLocalId(int? value) {
     final field = getField(UserProfileLocalIdField.ID);
 
     if (field != null) {
@@ -611,8 +748,9 @@ class UserProfileMessage extends DataMessage {
       }
     }
   }
+
   int? get userProfileGlobalId {
-     final field = getField(UserProfileGlobalIdField.ID);
+    final field = getField(UserProfileGlobalIdField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -620,7 +758,8 @@ class UserProfileMessage extends DataMessage {
       return null;
     }
   }
-   set userProfileGlobalId(int? value) {
+
+  set userProfileGlobalId(int? value) {
     final field = getField(UserProfileGlobalIdField.ID);
 
     if (field != null) {
@@ -632,8 +771,9 @@ class UserProfileMessage extends DataMessage {
       }
     }
   }
+
   int? get wakeTime {
-     final field = getField(UserProfileWakeTimeField.ID);
+    final field = getField(UserProfileWakeTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -641,7 +781,8 @@ class UserProfileMessage extends DataMessage {
       return null;
     }
   }
-   set wakeTime(int? value) {
+
+  set wakeTime(int? value) {
     final field = getField(UserProfileWakeTimeField.ID);
 
     if (field != null) {
@@ -653,8 +794,9 @@ class UserProfileMessage extends DataMessage {
       }
     }
   }
+
   int? get sleepTime {
-     final field = getField(UserProfileSleepTimeField.ID);
+    final field = getField(UserProfileSleepTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -662,7 +804,8 @@ class UserProfileMessage extends DataMessage {
       return null;
     }
   }
-   set sleepTime(int? value) {
+
+  set sleepTime(int? value) {
     final field = getField(UserProfileSleepTimeField.ID);
 
     if (field != null) {
@@ -674,9 +817,10 @@ class UserProfileMessage extends DataMessage {
       }
     }
   }
+
   DisplayMeasure? get heightSetting {
-     final field = getField(UserProfileHeightSettingField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(UserProfileHeightSettingField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -687,7 +831,8 @@ class UserProfileMessage extends DataMessage {
       return null;
     }
   }
-   set heightSetting(DisplayMeasure? value) {
+
+  set heightSetting(DisplayMeasure? value) {
     final field = getField(UserProfileHeightSettingField.ID);
 
     if (field != null) {
@@ -699,8 +844,9 @@ class UserProfileMessage extends DataMessage {
       }
     }
   }
+
   double? get userRunningStepLength {
-     final field = getField(UserProfileUserRunningStepLengthField.ID);
+    final field = getField(UserProfileUserRunningStepLengthField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -708,7 +854,8 @@ class UserProfileMessage extends DataMessage {
       return null;
     }
   }
-   set userRunningStepLength(double? value) {
+
+  set userRunningStepLength(double? value) {
     final field = getField(UserProfileUserRunningStepLengthField.ID);
 
     if (field != null) {
@@ -720,8 +867,9 @@ class UserProfileMessage extends DataMessage {
       }
     }
   }
+
   double? get userWalkingStepLength {
-     final field = getField(UserProfileUserWalkingStepLengthField.ID);
+    final field = getField(UserProfileUserWalkingStepLengthField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -729,7 +877,8 @@ class UserProfileMessage extends DataMessage {
       return null;
     }
   }
-   set userWalkingStepLength(double? value) {
+
+  set userWalkingStepLength(double? value) {
     final field = getField(UserProfileUserWalkingStepLengthField.ID);
 
     if (field != null) {
@@ -741,9 +890,10 @@ class UserProfileMessage extends DataMessage {
       }
     }
   }
+
   DisplayMeasure? get depthSetting {
-     final field = getField(UserProfileDepthSettingField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(UserProfileDepthSettingField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -754,7 +904,8 @@ class UserProfileMessage extends DataMessage {
       return null;
     }
   }
-   set depthSetting(DisplayMeasure? value) {
+
+  set depthSetting(DisplayMeasure? value) {
     final field = getField(UserProfileDepthSettingField.ID);
 
     if (field != null) {
@@ -766,8 +917,9 @@ class UserProfileMessage extends DataMessage {
       }
     }
   }
+
   int? get diveCount {
-     final field = getField(UserProfileDiveCountField.ID);
+    final field = getField(UserProfileDiveCountField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -775,7 +927,8 @@ class UserProfileMessage extends DataMessage {
       return null;
     }
   }
-   set diveCount(int? value) {
+
+  set diveCount(int? value) {
     final field = getField(UserProfileDiveCountField.ID);
 
     if (field != null) {
@@ -787,15 +940,10 @@ class UserProfileMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class UserProfileFriendlyNameField extends Field {
- UserProfileFriendlyNameField({int size = 0, bool growable = true})
+  UserProfileFriendlyNameField({int size = 0, bool growable = true})
       : super(
             name: 'friendly_name',
             id: ID,
@@ -804,14 +952,13 @@ class UserProfileFriendlyNameField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class UserProfileGenderField extends Field {
- UserProfileGenderField({int size = 0, bool growable = true})
+  UserProfileGenderField({int size = 0, bool growable = true})
       : super(
             name: 'gender',
             id: ID,
@@ -820,14 +967,13 @@ class UserProfileGenderField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class UserProfileAgeField extends Field {
- UserProfileAgeField({int size = 0, bool growable = true})
+  UserProfileAgeField({int size = 0, bool growable = true})
       : super(
             name: 'age',
             id: ID,
@@ -838,14 +984,13 @@ class UserProfileAgeField extends Field {
             units: 'years',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class UserProfileHeightField extends Field {
- UserProfileHeightField({int size = 0, bool growable = true})
+  UserProfileHeightField({int size = 0, bool growable = true})
       : super(
             name: 'height',
             id: ID,
@@ -856,14 +1001,13 @@ class UserProfileHeightField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class UserProfileWeightField extends Field {
- UserProfileWeightField({int size = 0, bool growable = true})
+  UserProfileWeightField({int size = 0, bool growable = true})
       : super(
             name: 'weight',
             id: ID,
@@ -874,14 +1018,13 @@ class UserProfileWeightField extends Field {
             units: 'kg',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class UserProfileLanguageField extends Field {
- UserProfileLanguageField({int size = 0, bool growable = true})
+  UserProfileLanguageField({int size = 0, bool growable = true})
       : super(
             name: 'language',
             id: ID,
@@ -890,14 +1033,13 @@ class UserProfileLanguageField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }
+
 class UserProfileElevSettingField extends Field {
- UserProfileElevSettingField({int size = 0, bool growable = true})
+  UserProfileElevSettingField({int size = 0, bool growable = true})
       : super(
             name: 'elev_setting',
             id: ID,
@@ -906,14 +1048,13 @@ class UserProfileElevSettingField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 6;
 }
+
 class UserProfileWeightSettingField extends Field {
- UserProfileWeightSettingField({int size = 0, bool growable = true})
+  UserProfileWeightSettingField({int size = 0, bool growable = true})
       : super(
             name: 'weight_setting',
             id: ID,
@@ -922,14 +1063,13 @@ class UserProfileWeightSettingField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 7;
 }
+
 class UserProfileRestingHeartRateField extends Field {
- UserProfileRestingHeartRateField({int size = 0, bool growable = true})
+  UserProfileRestingHeartRateField({int size = 0, bool growable = true})
       : super(
             name: 'resting_heart_rate',
             id: ID,
@@ -940,14 +1080,14 @@ class UserProfileRestingHeartRateField extends Field {
             units: 'bpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 8;
 }
+
 class UserProfileDefaultMaxRunningHeartRateField extends Field {
- UserProfileDefaultMaxRunningHeartRateField({int size = 0, bool growable = true})
+  UserProfileDefaultMaxRunningHeartRateField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'default_max_running_heart_rate',
             id: ID,
@@ -958,14 +1098,14 @@ class UserProfileDefaultMaxRunningHeartRateField extends Field {
             units: 'bpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 9;
 }
+
 class UserProfileDefaultMaxBikingHeartRateField extends Field {
- UserProfileDefaultMaxBikingHeartRateField({int size = 0, bool growable = true})
+  UserProfileDefaultMaxBikingHeartRateField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'default_max_biking_heart_rate',
             id: ID,
@@ -976,14 +1116,13 @@ class UserProfileDefaultMaxBikingHeartRateField extends Field {
             units: 'bpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 10;
 }
+
 class UserProfileDefaultMaxHeartRateField extends Field {
- UserProfileDefaultMaxHeartRateField({int size = 0, bool growable = true})
+  UserProfileDefaultMaxHeartRateField({int size = 0, bool growable = true})
       : super(
             name: 'default_max_heart_rate',
             id: ID,
@@ -994,14 +1133,13 @@ class UserProfileDefaultMaxHeartRateField extends Field {
             units: 'bpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 11;
 }
+
 class UserProfileHrSettingField extends Field {
- UserProfileHrSettingField({int size = 0, bool growable = true})
+  UserProfileHrSettingField({int size = 0, bool growable = true})
       : super(
             name: 'hr_setting',
             id: ID,
@@ -1010,14 +1148,13 @@ class UserProfileHrSettingField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 12;
 }
+
 class UserProfileSpeedSettingField extends Field {
- UserProfileSpeedSettingField({int size = 0, bool growable = true})
+  UserProfileSpeedSettingField({int size = 0, bool growable = true})
       : super(
             name: 'speed_setting',
             id: ID,
@@ -1026,14 +1163,13 @@ class UserProfileSpeedSettingField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 13;
 }
+
 class UserProfileDistSettingField extends Field {
- UserProfileDistSettingField({int size = 0, bool growable = true})
+  UserProfileDistSettingField({int size = 0, bool growable = true})
       : super(
             name: 'dist_setting',
             id: ID,
@@ -1042,14 +1178,13 @@ class UserProfileDistSettingField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 14;
 }
+
 class UserProfilePowerSettingField extends Field {
- UserProfilePowerSettingField({int size = 0, bool growable = true})
+  UserProfilePowerSettingField({int size = 0, bool growable = true})
       : super(
             name: 'power_setting',
             id: ID,
@@ -1058,14 +1193,13 @@ class UserProfilePowerSettingField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 16;
 }
+
 class UserProfileActivityClassField extends Field {
- UserProfileActivityClassField({int size = 0, bool growable = true})
+  UserProfileActivityClassField({int size = 0, bool growable = true})
       : super(
             name: 'activity_class',
             id: ID,
@@ -1074,14 +1208,13 @@ class UserProfileActivityClassField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 17;
 }
+
 class UserProfilePositionSettingField extends Field {
- UserProfilePositionSettingField({int size = 0, bool growable = true})
+  UserProfilePositionSettingField({int size = 0, bool growable = true})
       : super(
             name: 'position_setting',
             id: ID,
@@ -1090,14 +1223,13 @@ class UserProfilePositionSettingField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 18;
 }
+
 class UserProfileTemperatureSettingField extends Field {
- UserProfileTemperatureSettingField({int size = 0, bool growable = true})
+  UserProfileTemperatureSettingField({int size = 0, bool growable = true})
       : super(
             name: 'temperature_setting',
             id: ID,
@@ -1106,14 +1238,13 @@ class UserProfileTemperatureSettingField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 21;
 }
+
 class UserProfileLocalIdField extends Field {
- UserProfileLocalIdField({int size = 0, bool growable = true})
+  UserProfileLocalIdField({int size = 0, bool growable = true})
       : super(
             name: 'local_id',
             id: ID,
@@ -1122,14 +1253,13 @@ class UserProfileLocalIdField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 22;
 }
+
 class UserProfileGlobalIdField extends Field {
- UserProfileGlobalIdField({int size = 0, bool growable = true})
+  UserProfileGlobalIdField({int size = 0, bool growable = true})
       : super(
             name: 'global_id',
             id: ID,
@@ -1138,14 +1268,13 @@ class UserProfileGlobalIdField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 23;
 }
+
 class UserProfileWakeTimeField extends Field {
- UserProfileWakeTimeField({int size = 0, bool growable = true})
+  UserProfileWakeTimeField({int size = 0, bool growable = true})
       : super(
             name: 'wake_time',
             id: ID,
@@ -1154,14 +1283,13 @@ class UserProfileWakeTimeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 28;
 }
+
 class UserProfileSleepTimeField extends Field {
- UserProfileSleepTimeField({int size = 0, bool growable = true})
+  UserProfileSleepTimeField({int size = 0, bool growable = true})
       : super(
             name: 'sleep_time',
             id: ID,
@@ -1170,14 +1298,13 @@ class UserProfileSleepTimeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 29;
 }
+
 class UserProfileHeightSettingField extends Field {
- UserProfileHeightSettingField({int size = 0, bool growable = true})
+  UserProfileHeightSettingField({int size = 0, bool growable = true})
       : super(
             name: 'height_setting',
             id: ID,
@@ -1186,14 +1313,13 @@ class UserProfileHeightSettingField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 30;
 }
+
 class UserProfileUserRunningStepLengthField extends Field {
- UserProfileUserRunningStepLengthField({int size = 0, bool growable = true})
+  UserProfileUserRunningStepLengthField({int size = 0, bool growable = true})
       : super(
             name: 'user_running_step_length',
             id: ID,
@@ -1204,14 +1330,13 @@ class UserProfileUserRunningStepLengthField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 31;
 }
+
 class UserProfileUserWalkingStepLengthField extends Field {
- UserProfileUserWalkingStepLengthField({int size = 0, bool growable = true})
+  UserProfileUserWalkingStepLengthField({int size = 0, bool growable = true})
       : super(
             name: 'user_walking_step_length',
             id: ID,
@@ -1222,14 +1347,13 @@ class UserProfileUserWalkingStepLengthField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 32;
 }
+
 class UserProfileDepthSettingField extends Field {
- UserProfileDepthSettingField({int size = 0, bool growable = true})
+  UserProfileDepthSettingField({int size = 0, bool growable = true})
       : super(
             name: 'depth_setting',
             id: ID,
@@ -1238,14 +1362,13 @@ class UserProfileDepthSettingField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 47;
 }
+
 class UserProfileDiveCountField extends Field {
- UserProfileDiveCountField({int size = 0, bool growable = true})
+  UserProfileDiveCountField({int size = 0, bool growable = true})
       : super(
             name: 'dive_count',
             id: ID,
@@ -1254,9 +1377,7 @@ class UserProfileDiveCountField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 49;
 }

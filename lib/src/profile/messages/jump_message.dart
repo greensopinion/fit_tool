@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class JumpMessage extends DataMessage {
-
-   JumpMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  JumpMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: JumpMessage.NAME,
@@ -25,34 +27,64 @@ class JumpMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               JumpDistanceField(
-                  size: definitionMessage?.getFieldDefinition(JumpDistanceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(JumpDistanceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               JumpHeightField(
-                  size: definitionMessage?.getFieldDefinition(JumpHeightField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(JumpHeightField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               JumpRotationsField(
-                  size: definitionMessage?.getFieldDefinition(JumpRotationsField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(JumpRotationsField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               JumpHangTimeField(
-                  size: definitionMessage?.getFieldDefinition(JumpHangTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(JumpHangTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               JumpScoreField(
-                  size: definitionMessage?.getFieldDefinition(JumpScoreField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(JumpScoreField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               JumpPositionLatField(
-                  size: definitionMessage?.getFieldDefinition(JumpPositionLatField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(JumpPositionLatField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               JumpPositionLongField(
-                  size: definitionMessage?.getFieldDefinition(JumpPositionLongField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(JumpPositionLongField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               JumpSpeedField(
-                  size: definitionMessage?.getFieldDefinition(JumpSpeedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(JumpSpeedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               JumpEnhancedSpeedField(
-                  size: definitionMessage?.getFieldDefinition(JumpEnhancedSpeedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(JumpEnhancedSpeedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -68,10 +100,9 @@ class JumpMessage extends DataMessage {
     return message;
   }
 
-
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -79,8 +110,9 @@ class JumpMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -92,8 +124,9 @@ class JumpMessage extends DataMessage {
       }
     }
   }
+
   double? get distance {
-     final field = getField(JumpDistanceField.ID);
+    final field = getField(JumpDistanceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -101,7 +134,8 @@ class JumpMessage extends DataMessage {
       return null;
     }
   }
-   set distance(double? value) {
+
+  set distance(double? value) {
     final field = getField(JumpDistanceField.ID);
 
     if (field != null) {
@@ -113,8 +147,9 @@ class JumpMessage extends DataMessage {
       }
     }
   }
+
   double? get height {
-     final field = getField(JumpHeightField.ID);
+    final field = getField(JumpHeightField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -122,7 +157,8 @@ class JumpMessage extends DataMessage {
       return null;
     }
   }
-   set height(double? value) {
+
+  set height(double? value) {
     final field = getField(JumpHeightField.ID);
 
     if (field != null) {
@@ -134,8 +170,9 @@ class JumpMessage extends DataMessage {
       }
     }
   }
+
   int? get rotations {
-     final field = getField(JumpRotationsField.ID);
+    final field = getField(JumpRotationsField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -143,7 +180,8 @@ class JumpMessage extends DataMessage {
       return null;
     }
   }
-   set rotations(int? value) {
+
+  set rotations(int? value) {
     final field = getField(JumpRotationsField.ID);
 
     if (field != null) {
@@ -155,8 +193,9 @@ class JumpMessage extends DataMessage {
       }
     }
   }
+
   double? get hangTime {
-     final field = getField(JumpHangTimeField.ID);
+    final field = getField(JumpHangTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -164,7 +203,8 @@ class JumpMessage extends DataMessage {
       return null;
     }
   }
-   set hangTime(double? value) {
+
+  set hangTime(double? value) {
     final field = getField(JumpHangTimeField.ID);
 
     if (field != null) {
@@ -176,8 +216,9 @@ class JumpMessage extends DataMessage {
       }
     }
   }
+
   double? get score {
-     final field = getField(JumpScoreField.ID);
+    final field = getField(JumpScoreField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -185,7 +226,8 @@ class JumpMessage extends DataMessage {
       return null;
     }
   }
-   set score(double? value) {
+
+  set score(double? value) {
     final field = getField(JumpScoreField.ID);
 
     if (field != null) {
@@ -197,8 +239,9 @@ class JumpMessage extends DataMessage {
       }
     }
   }
+
   double? get positionLat {
-     final field = getField(JumpPositionLatField.ID);
+    final field = getField(JumpPositionLatField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -206,7 +249,8 @@ class JumpMessage extends DataMessage {
       return null;
     }
   }
-   set positionLat(double? value) {
+
+  set positionLat(double? value) {
     final field = getField(JumpPositionLatField.ID);
 
     if (field != null) {
@@ -218,8 +262,9 @@ class JumpMessage extends DataMessage {
       }
     }
   }
+
   double? get positionLong {
-     final field = getField(JumpPositionLongField.ID);
+    final field = getField(JumpPositionLongField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -227,7 +272,8 @@ class JumpMessage extends DataMessage {
       return null;
     }
   }
-   set positionLong(double? value) {
+
+  set positionLong(double? value) {
     final field = getField(JumpPositionLongField.ID);
 
     if (field != null) {
@@ -239,8 +285,9 @@ class JumpMessage extends DataMessage {
       }
     }
   }
+
   double? get speed {
-     final field = getField(JumpSpeedField.ID);
+    final field = getField(JumpSpeedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -248,7 +295,8 @@ class JumpMessage extends DataMessage {
       return null;
     }
   }
-   set speed(double? value) {
+
+  set speed(double? value) {
     final field = getField(JumpSpeedField.ID);
 
     if (field != null) {
@@ -260,8 +308,9 @@ class JumpMessage extends DataMessage {
       }
     }
   }
+
   double? get enhancedSpeed {
-     final field = getField(JumpEnhancedSpeedField.ID);
+    final field = getField(JumpEnhancedSpeedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -269,7 +318,8 @@ class JumpMessage extends DataMessage {
       return null;
     }
   }
-   set enhancedSpeed(double? value) {
+
+  set enhancedSpeed(double? value) {
     final field = getField(JumpEnhancedSpeedField.ID);
 
     if (field != null) {
@@ -281,15 +331,10 @@ class JumpMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class JumpDistanceField extends Field {
- JumpDistanceField({int size = 0, bool growable = true})
+  JumpDistanceField({int size = 0, bool growable = true})
       : super(
             name: 'distance',
             id: ID,
@@ -300,14 +345,13 @@ class JumpDistanceField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class JumpHeightField extends Field {
- JumpHeightField({int size = 0, bool growable = true})
+  JumpHeightField({int size = 0, bool growable = true})
       : super(
             name: 'height',
             id: ID,
@@ -318,14 +362,13 @@ class JumpHeightField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class JumpRotationsField extends Field {
- JumpRotationsField({int size = 0, bool growable = true})
+  JumpRotationsField({int size = 0, bool growable = true})
       : super(
             name: 'rotations',
             id: ID,
@@ -334,14 +377,13 @@ class JumpRotationsField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class JumpHangTimeField extends Field {
- JumpHangTimeField({int size = 0, bool growable = true})
+  JumpHangTimeField({int size = 0, bool growable = true})
       : super(
             name: 'hang_time',
             id: ID,
@@ -352,14 +394,13 @@ class JumpHangTimeField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class JumpScoreField extends Field {
- JumpScoreField({int size = 0, bool growable = true})
+  JumpScoreField({int size = 0, bool growable = true})
       : super(
             name: 'score',
             id: ID,
@@ -368,14 +409,13 @@ class JumpScoreField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class JumpPositionLatField extends Field {
- JumpPositionLatField({int size = 0, bool growable = true})
+  JumpPositionLatField({int size = 0, bool growable = true})
       : super(
             name: 'position_lat',
             id: ID,
@@ -386,14 +426,13 @@ class JumpPositionLatField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }
+
 class JumpPositionLongField extends Field {
- JumpPositionLongField({int size = 0, bool growable = true})
+  JumpPositionLongField({int size = 0, bool growable = true})
       : super(
             name: 'position_long',
             id: ID,
@@ -404,14 +443,13 @@ class JumpPositionLongField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 6;
 }
+
 class JumpSpeedField extends Field {
- JumpSpeedField({int size = 0, bool growable = true})
+  JumpSpeedField({int size = 0, bool growable = true})
       : super(
             name: 'speed',
             id: ID,
@@ -422,14 +460,13 @@ class JumpSpeedField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 7;
 }
+
 class JumpEnhancedSpeedField extends Field {
- JumpEnhancedSpeedField({int size = 0, bool growable = true})
+  JumpEnhancedSpeedField({int size = 0, bool growable = true})
       : super(
             name: 'enhanced_speed',
             id: ID,
@@ -440,9 +477,7 @@ class JumpEnhancedSpeedField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 8;
 }

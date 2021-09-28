@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class FileCapabilitiesMessage extends DataMessage {
-
-   FileCapabilitiesMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  FileCapabilitiesMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: FileCapabilitiesMessage.NAME,
@@ -25,22 +27,41 @@ class FileCapabilitiesMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               MessageIndexField(
-                  size: definitionMessage?.getFieldDefinition(MessageIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               FileCapabilitiesTypeField(
-                  size: definitionMessage?.getFieldDefinition(FileCapabilitiesTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(FileCapabilitiesTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               FileCapabilitiesFlagsField(
-                  size: definitionMessage?.getFieldDefinition(FileCapabilitiesFlagsField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(FileCapabilitiesFlagsField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               FileCapabilitiesDirectoryField(
-                  size: definitionMessage?.getFieldDefinition(FileCapabilitiesDirectoryField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              FileCapabilitiesDirectoryField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               FileCapabilitiesMaxCountField(
-                  size: definitionMessage?.getFieldDefinition(FileCapabilitiesMaxCountField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(FileCapabilitiesMaxCountField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               FileCapabilitiesMaxSizeField(
-                  size: definitionMessage?.getFieldDefinition(FileCapabilitiesMaxSizeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(FileCapabilitiesMaxSizeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -51,14 +72,14 @@ class FileCapabilitiesMessage extends DataMessage {
 
   static FileCapabilitiesMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
-    final message = FileCapabilitiesMessage(definitionMessage: definitionMessage);
+    final message =
+        FileCapabilitiesMessage(definitionMessage: definitionMessage);
     message.readFromBytes(bytes);
     return message;
   }
 
-
   int? get messageIndex {
-     final field = getField(MessageIndexField.ID);
+    final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -66,7 +87,8 @@ class FileCapabilitiesMessage extends DataMessage {
       return null;
     }
   }
-   set messageIndex(int? value) {
+
+  set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
     if (field != null) {
@@ -78,9 +100,10 @@ class FileCapabilitiesMessage extends DataMessage {
       }
     }
   }
+
   FileType? get type {
-     final field = getField(FileCapabilitiesTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(FileCapabilitiesTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -91,7 +114,8 @@ class FileCapabilitiesMessage extends DataMessage {
       return null;
     }
   }
-   set type(FileType? value) {
+
+  set type(FileType? value) {
     final field = getField(FileCapabilitiesTypeField.ID);
 
     if (field != null) {
@@ -103,8 +127,9 @@ class FileCapabilitiesMessage extends DataMessage {
       }
     }
   }
+
   int? get flags {
-     final field = getField(FileCapabilitiesFlagsField.ID);
+    final field = getField(FileCapabilitiesFlagsField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -112,7 +137,8 @@ class FileCapabilitiesMessage extends DataMessage {
       return null;
     }
   }
-   set flags(int? value) {
+
+  set flags(int? value) {
     final field = getField(FileCapabilitiesFlagsField.ID);
 
     if (field != null) {
@@ -124,8 +150,9 @@ class FileCapabilitiesMessage extends DataMessage {
       }
     }
   }
+
   String? get directory {
-     final field = getField(FileCapabilitiesDirectoryField.ID);
+    final field = getField(FileCapabilitiesDirectoryField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -133,7 +160,8 @@ class FileCapabilitiesMessage extends DataMessage {
       return null;
     }
   }
-   set directory(String? value) {
+
+  set directory(String? value) {
     final field = getField(FileCapabilitiesDirectoryField.ID);
 
     if (field != null) {
@@ -145,8 +173,9 @@ class FileCapabilitiesMessage extends DataMessage {
       }
     }
   }
+
   int? get maxCount {
-     final field = getField(FileCapabilitiesMaxCountField.ID);
+    final field = getField(FileCapabilitiesMaxCountField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -154,7 +183,8 @@ class FileCapabilitiesMessage extends DataMessage {
       return null;
     }
   }
-   set maxCount(int? value) {
+
+  set maxCount(int? value) {
     final field = getField(FileCapabilitiesMaxCountField.ID);
 
     if (field != null) {
@@ -166,8 +196,9 @@ class FileCapabilitiesMessage extends DataMessage {
       }
     }
   }
+
   int? get maxSize {
-     final field = getField(FileCapabilitiesMaxSizeField.ID);
+    final field = getField(FileCapabilitiesMaxSizeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -175,7 +206,8 @@ class FileCapabilitiesMessage extends DataMessage {
       return null;
     }
   }
-   set maxSize(int? value) {
+
+  set maxSize(int? value) {
     final field = getField(FileCapabilitiesMaxSizeField.ID);
 
     if (field != null) {
@@ -187,15 +219,10 @@ class FileCapabilitiesMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class FileCapabilitiesTypeField extends Field {
- FileCapabilitiesTypeField({int size = 0, bool growable = true})
+  FileCapabilitiesTypeField({int size = 0, bool growable = true})
       : super(
             name: 'type',
             id: ID,
@@ -204,14 +231,13 @@ class FileCapabilitiesTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class FileCapabilitiesFlagsField extends Field {
- FileCapabilitiesFlagsField({int size = 0, bool growable = true})
+  FileCapabilitiesFlagsField({int size = 0, bool growable = true})
       : super(
             name: 'flags',
             id: ID,
@@ -220,14 +246,13 @@ class FileCapabilitiesFlagsField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class FileCapabilitiesDirectoryField extends Field {
- FileCapabilitiesDirectoryField({int size = 0, bool growable = true})
+  FileCapabilitiesDirectoryField({int size = 0, bool growable = true})
       : super(
             name: 'directory',
             id: ID,
@@ -236,14 +261,13 @@ class FileCapabilitiesDirectoryField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class FileCapabilitiesMaxCountField extends Field {
- FileCapabilitiesMaxCountField({int size = 0, bool growable = true})
+  FileCapabilitiesMaxCountField({int size = 0, bool growable = true})
       : super(
             name: 'max_count',
             id: ID,
@@ -252,14 +276,13 @@ class FileCapabilitiesMaxCountField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class FileCapabilitiesMaxSizeField extends Field {
- FileCapabilitiesMaxSizeField({int size = 0, bool growable = true})
+  FileCapabilitiesMaxSizeField({int size = 0, bool growable = true})
       : super(
             name: 'max_size',
             id: ID,
@@ -270,9 +293,7 @@ class FileCapabilitiesMaxSizeField extends Field {
             units: 'bytes',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }

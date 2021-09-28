@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class SoftwareMessage extends DataMessage {
-
-   SoftwareMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  SoftwareMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: SoftwareMessage.NAME,
@@ -25,13 +27,22 @@ class SoftwareMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               MessageIndexField(
-                  size: definitionMessage?.getFieldDefinition(MessageIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SoftwareVersionField(
-                  size: definitionMessage?.getFieldDefinition(SoftwareVersionField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SoftwareVersionField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SoftwarePartNumberField(
-                  size: definitionMessage?.getFieldDefinition(SoftwarePartNumberField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SoftwarePartNumberField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -47,9 +58,8 @@ class SoftwareMessage extends DataMessage {
     return message;
   }
 
-
   int? get messageIndex {
-     final field = getField(MessageIndexField.ID);
+    final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -57,7 +67,8 @@ class SoftwareMessage extends DataMessage {
       return null;
     }
   }
-   set messageIndex(int? value) {
+
+  set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
     if (field != null) {
@@ -69,8 +80,9 @@ class SoftwareMessage extends DataMessage {
       }
     }
   }
+
   double? get version {
-     final field = getField(SoftwareVersionField.ID);
+    final field = getField(SoftwareVersionField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -78,7 +90,8 @@ class SoftwareMessage extends DataMessage {
       return null;
     }
   }
-   set version(double? value) {
+
+  set version(double? value) {
     final field = getField(SoftwareVersionField.ID);
 
     if (field != null) {
@@ -90,8 +103,9 @@ class SoftwareMessage extends DataMessage {
       }
     }
   }
+
   String? get partNumber {
-     final field = getField(SoftwarePartNumberField.ID);
+    final field = getField(SoftwarePartNumberField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -99,7 +113,8 @@ class SoftwareMessage extends DataMessage {
       return null;
     }
   }
-   set partNumber(String? value) {
+
+  set partNumber(String? value) {
     final field = getField(SoftwarePartNumberField.ID);
 
     if (field != null) {
@@ -111,15 +126,10 @@ class SoftwareMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class SoftwareVersionField extends Field {
- SoftwareVersionField({int size = 0, bool growable = true})
+  SoftwareVersionField({int size = 0, bool growable = true})
       : super(
             name: 'version',
             id: ID,
@@ -128,14 +138,13 @@ class SoftwareVersionField extends Field {
             scale: 100,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class SoftwarePartNumberField extends Field {
- SoftwarePartNumberField({int size = 0, bool growable = true})
+  SoftwarePartNumberField({int size = 0, bool growable = true})
       : super(
             name: 'part_number',
             id: ID,
@@ -144,9 +153,7 @@ class SoftwarePartNumberField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }

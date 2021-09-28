@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class ScheduleMessage extends DataMessage {
-
-   ScheduleMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  ScheduleMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: ScheduleMessage.NAME,
@@ -25,25 +27,46 @@ class ScheduleMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               ScheduleManufacturerField(
-                  size: definitionMessage?.getFieldDefinition(ScheduleManufacturerField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(ScheduleManufacturerField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ScheduleProductField(
-                  size: definitionMessage?.getFieldDefinition(ScheduleProductField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(ScheduleProductField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ScheduleSerialNumberField(
-                  size: definitionMessage?.getFieldDefinition(ScheduleSerialNumberField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(ScheduleSerialNumberField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ScheduleTimeCreatedField(
-                  size: definitionMessage?.getFieldDefinition(ScheduleTimeCreatedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(ScheduleTimeCreatedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ScheduleCompletedField(
-                  size: definitionMessage?.getFieldDefinition(ScheduleCompletedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(ScheduleCompletedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ScheduleTypeField(
-                  size: definitionMessage?.getFieldDefinition(ScheduleTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(ScheduleTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ScheduleScheduledTimeField(
-                  size: definitionMessage?.getFieldDefinition(ScheduleScheduledTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(ScheduleScheduledTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -59,9 +82,8 @@ class ScheduleMessage extends DataMessage {
     return message;
   }
 
-
   int? get manufacturer {
-     final field = getField(ScheduleManufacturerField.ID);
+    final field = getField(ScheduleManufacturerField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -69,7 +91,8 @@ class ScheduleMessage extends DataMessage {
       return null;
     }
   }
-   set manufacturer(int? value) {
+
+  set manufacturer(int? value) {
     final field = getField(ScheduleManufacturerField.ID);
 
     if (field != null) {
@@ -81,8 +104,9 @@ class ScheduleMessage extends DataMessage {
       }
     }
   }
+
   int? get product {
-     final field = getField(ScheduleProductField.ID);
+    final field = getField(ScheduleProductField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -90,7 +114,8 @@ class ScheduleMessage extends DataMessage {
       return null;
     }
   }
-   set product(int? value) {
+
+  set product(int? value) {
     final field = getField(ScheduleProductField.ID);
 
     if (field != null) {
@@ -104,13 +129,14 @@ class ScheduleMessage extends DataMessage {
   }
 
   int? get faveroProduct {
-     final field = getField(ScheduleProductField.ID);
-     final typeField = getField(ScheduleManufacturerField.ID);
+    final field = getField(ScheduleProductField.ID);
+    final typeField = getField(ScheduleManufacturerField.ID);
 
-     final isSubFieldValid = typeField != null && [263].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [263].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -118,7 +144,7 @@ class ScheduleMessage extends DataMessage {
 
   set faveroProduct(int? value) {
     final field = getField(ScheduleProductField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -129,13 +155,14 @@ class ScheduleMessage extends DataMessage {
   }
 
   int? get garminProduct {
-     final field = getField(ScheduleProductField.ID);
-     final typeField = getField(ScheduleManufacturerField.ID);
+    final field = getField(ScheduleProductField.ID);
+    final typeField = getField(ScheduleManufacturerField.ID);
 
-     final isSubFieldValid = typeField != null && [1, 15, 13, 89].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [1, 15, 13, 89].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -143,7 +170,7 @@ class ScheduleMessage extends DataMessage {
 
   set garminProduct(int? value) {
     final field = getField(ScheduleProductField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -152,8 +179,9 @@ class ScheduleMessage extends DataMessage {
       }
     }
   }
+
   int? get serialNumber {
-     final field = getField(ScheduleSerialNumberField.ID);
+    final field = getField(ScheduleSerialNumberField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -161,7 +189,8 @@ class ScheduleMessage extends DataMessage {
       return null;
     }
   }
-   set serialNumber(int? value) {
+
+  set serialNumber(int? value) {
     final field = getField(ScheduleSerialNumberField.ID);
 
     if (field != null) {
@@ -173,9 +202,10 @@ class ScheduleMessage extends DataMessage {
       }
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timeCreated {
-     final field = getField(ScheduleTimeCreatedField.ID);
+    final field = getField(ScheduleTimeCreatedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -183,8 +213,9 @@ class ScheduleMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timeCreated(int? value) {
+  set timeCreated(int? value) {
     final field = getField(ScheduleTimeCreatedField.ID);
 
     if (field != null) {
@@ -196,8 +227,9 @@ class ScheduleMessage extends DataMessage {
       }
     }
   }
+
   bool? get completed {
-     final field = getField(ScheduleCompletedField.ID);
+    final field = getField(ScheduleCompletedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -205,7 +237,8 @@ class ScheduleMessage extends DataMessage {
       return null;
     }
   }
-   set completed(bool? value) {
+
+  set completed(bool? value) {
     final field = getField(ScheduleCompletedField.ID);
 
     if (field != null) {
@@ -217,9 +250,10 @@ class ScheduleMessage extends DataMessage {
       }
     }
   }
+
   Schedule? get type {
-     final field = getField(ScheduleTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(ScheduleTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -230,7 +264,8 @@ class ScheduleMessage extends DataMessage {
       return null;
     }
   }
-   set type(Schedule? value) {
+
+  set type(Schedule? value) {
     final field = getField(ScheduleTypeField.ID);
 
     if (field != null) {
@@ -242,8 +277,9 @@ class ScheduleMessage extends DataMessage {
       }
     }
   }
+
   int? get scheduledTime {
-     final field = getField(ScheduleScheduledTimeField.ID);
+    final field = getField(ScheduleScheduledTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -251,7 +287,8 @@ class ScheduleMessage extends DataMessage {
       return null;
     }
   }
-   set scheduledTime(int? value) {
+
+  set scheduledTime(int? value) {
     final field = getField(ScheduleScheduledTimeField.ID);
 
     if (field != null) {
@@ -263,15 +300,10 @@ class ScheduleMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class ScheduleManufacturerField extends Field {
- ScheduleManufacturerField({int size = 0, bool growable = true})
+  ScheduleManufacturerField({int size = 0, bool growable = true})
       : super(
             name: 'manufacturer',
             id: ID,
@@ -280,14 +312,13 @@ class ScheduleManufacturerField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class ScheduleProductField extends Field {
- ScheduleProductField({int size = 0, bool growable = true})
+  ScheduleProductField({int size = 0, bool growable = true})
       : super(
             name: 'product',
             id: ID,
@@ -297,29 +328,29 @@ class ScheduleProductField extends Field {
             size: size,
             growable: growable,
             subFields: [
-       SubField(
+              SubField(
                   name: 'favero_product',
                   type: BaseType.UINT16,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  ScheduleManufacturerField.ID: [263]
+                    ScheduleManufacturerField.ID: [263]
                   }),
-       SubField(
+              SubField(
                   name: 'garmin_product',
                   type: BaseType.UINT16,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  ScheduleManufacturerField.ID: [1, 15, 13, 89]
+                    ScheduleManufacturerField.ID: [1, 15, 13, 89]
                   })
-            ]
- );
+            ]);
 
   static const ID = 1;
 }
+
 class ScheduleSerialNumberField extends Field {
- ScheduleSerialNumberField({int size = 0, bool growable = true})
+  ScheduleSerialNumberField({int size = 0, bool growable = true})
       : super(
             name: 'serial_number',
             id: ID,
@@ -328,14 +359,13 @@ class ScheduleSerialNumberField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class ScheduleTimeCreatedField extends Field {
- ScheduleTimeCreatedField({int size = 0, bool growable = true})
+  ScheduleTimeCreatedField({int size = 0, bool growable = true})
       : super(
             name: 'time_created',
             id: ID,
@@ -346,14 +376,13 @@ class ScheduleTimeCreatedField extends Field {
             units: 'ms',
             mainTypeName: 'date_time',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class ScheduleCompletedField extends Field {
- ScheduleCompletedField({int size = 0, bool growable = true})
+  ScheduleCompletedField({int size = 0, bool growable = true})
       : super(
             name: 'completed',
             id: ID,
@@ -362,14 +391,13 @@ class ScheduleCompletedField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class ScheduleTypeField extends Field {
- ScheduleTypeField({int size = 0, bool growable = true})
+  ScheduleTypeField({int size = 0, bool growable = true})
       : super(
             name: 'type',
             id: ID,
@@ -378,14 +406,13 @@ class ScheduleTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }
+
 class ScheduleScheduledTimeField extends Field {
- ScheduleScheduledTimeField({int size = 0, bool growable = true})
+  ScheduleScheduledTimeField({int size = 0, bool growable = true})
       : super(
             name: 'scheduled_time',
             id: ID,
@@ -394,9 +421,7 @@ class ScheduleScheduledTimeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 6;
 }

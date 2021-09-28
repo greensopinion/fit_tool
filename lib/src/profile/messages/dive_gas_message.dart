@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class DiveGasMessage extends DataMessage {
-
-   DiveGasMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  DiveGasMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: DiveGasMessage.NAME,
@@ -25,16 +27,28 @@ class DiveGasMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               MessageIndexField(
-                  size: definitionMessage?.getFieldDefinition(MessageIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveGasHeliumContentField(
-                  size: definitionMessage?.getFieldDefinition(DiveGasHeliumContentField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DiveGasHeliumContentField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveGasOxygenContentField(
-                  size: definitionMessage?.getFieldDefinition(DiveGasOxygenContentField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DiveGasOxygenContentField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveGasStatusField(
-                  size: definitionMessage?.getFieldDefinition(DiveGasStatusField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DiveGasStatusField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -50,9 +64,8 @@ class DiveGasMessage extends DataMessage {
     return message;
   }
 
-
   int? get messageIndex {
-     final field = getField(MessageIndexField.ID);
+    final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -60,7 +73,8 @@ class DiveGasMessage extends DataMessage {
       return null;
     }
   }
-   set messageIndex(int? value) {
+
+  set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
     if (field != null) {
@@ -72,8 +86,9 @@ class DiveGasMessage extends DataMessage {
       }
     }
   }
+
   int? get heliumContent {
-     final field = getField(DiveGasHeliumContentField.ID);
+    final field = getField(DiveGasHeliumContentField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -81,7 +96,8 @@ class DiveGasMessage extends DataMessage {
       return null;
     }
   }
-   set heliumContent(int? value) {
+
+  set heliumContent(int? value) {
     final field = getField(DiveGasHeliumContentField.ID);
 
     if (field != null) {
@@ -93,8 +109,9 @@ class DiveGasMessage extends DataMessage {
       }
     }
   }
+
   int? get oxygenContent {
-     final field = getField(DiveGasOxygenContentField.ID);
+    final field = getField(DiveGasOxygenContentField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -102,7 +119,8 @@ class DiveGasMessage extends DataMessage {
       return null;
     }
   }
-   set oxygenContent(int? value) {
+
+  set oxygenContent(int? value) {
     final field = getField(DiveGasOxygenContentField.ID);
 
     if (field != null) {
@@ -114,9 +132,10 @@ class DiveGasMessage extends DataMessage {
       }
     }
   }
+
   DiveGasStatus? get status {
-     final field = getField(DiveGasStatusField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(DiveGasStatusField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -127,7 +146,8 @@ class DiveGasMessage extends DataMessage {
       return null;
     }
   }
-   set status(DiveGasStatus? value) {
+
+  set status(DiveGasStatus? value) {
     final field = getField(DiveGasStatusField.ID);
 
     if (field != null) {
@@ -139,15 +159,10 @@ class DiveGasMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class DiveGasHeliumContentField extends Field {
- DiveGasHeliumContentField({int size = 0, bool growable = true})
+  DiveGasHeliumContentField({int size = 0, bool growable = true})
       : super(
             name: 'helium_content',
             id: ID,
@@ -158,14 +173,13 @@ class DiveGasHeliumContentField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class DiveGasOxygenContentField extends Field {
- DiveGasOxygenContentField({int size = 0, bool growable = true})
+  DiveGasOxygenContentField({int size = 0, bool growable = true})
       : super(
             name: 'oxygen_content',
             id: ID,
@@ -176,14 +190,13 @@ class DiveGasOxygenContentField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class DiveGasStatusField extends Field {
- DiveGasStatusField({int size = 0, bool growable = true})
+  DiveGasStatusField({int size = 0, bool growable = true})
       : super(
             name: 'status',
             id: ID,
@@ -192,9 +205,7 @@ class DiveGasStatusField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }

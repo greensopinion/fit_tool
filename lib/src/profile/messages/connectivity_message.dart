@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class ConnectivityMessage extends DataMessage {
-
-   ConnectivityMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  ConnectivityMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: ConnectivityMessage.NAME,
@@ -25,43 +27,93 @@ class ConnectivityMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               ConnectivityBluetoothEnabledField(
-                  size: definitionMessage?.getFieldDefinition(ConnectivityBluetoothEnabledField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ConnectivityBluetoothEnabledField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ConnectivityBluetoothLeEnabledField(
-                  size: definitionMessage?.getFieldDefinition(ConnectivityBluetoothLeEnabledField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ConnectivityBluetoothLeEnabledField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ConnectivityAntEnabledField(
-                  size: definitionMessage?.getFieldDefinition(ConnectivityAntEnabledField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(ConnectivityAntEnabledField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ConnectivityNameField(
-                  size: definitionMessage?.getFieldDefinition(ConnectivityNameField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(ConnectivityNameField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ConnectivityLiveTrackingEnabledField(
-                  size: definitionMessage?.getFieldDefinition(ConnectivityLiveTrackingEnabledField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ConnectivityLiveTrackingEnabledField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ConnectivityWeatherConditionsEnabledField(
-                  size: definitionMessage?.getFieldDefinition(ConnectivityWeatherConditionsEnabledField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ConnectivityWeatherConditionsEnabledField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ConnectivityWeatherAlertsEnabledField(
-                  size: definitionMessage?.getFieldDefinition(ConnectivityWeatherAlertsEnabledField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ConnectivityWeatherAlertsEnabledField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ConnectivityAutoActivityUploadEnabledField(
-                  size: definitionMessage?.getFieldDefinition(ConnectivityAutoActivityUploadEnabledField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ConnectivityAutoActivityUploadEnabledField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ConnectivityCourseDownloadEnabledField(
-                  size: definitionMessage?.getFieldDefinition(ConnectivityCourseDownloadEnabledField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ConnectivityCourseDownloadEnabledField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ConnectivityWorkoutDownloadEnabledField(
-                  size: definitionMessage?.getFieldDefinition(ConnectivityWorkoutDownloadEnabledField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ConnectivityWorkoutDownloadEnabledField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ConnectivityGpsEphemerisDownloadEnabledField(
-                  size: definitionMessage?.getFieldDefinition(ConnectivityGpsEphemerisDownloadEnabledField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ConnectivityGpsEphemerisDownloadEnabledField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ConnectivityIncidentDetectionEnabledField(
-                  size: definitionMessage?.getFieldDefinition(ConnectivityIncidentDetectionEnabledField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ConnectivityIncidentDetectionEnabledField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ConnectivityGrouptrackEnabledField(
-                  size: definitionMessage?.getFieldDefinition(ConnectivityGrouptrackEnabledField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ConnectivityGrouptrackEnabledField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -77,9 +129,8 @@ class ConnectivityMessage extends DataMessage {
     return message;
   }
 
-
   bool? get bluetoothEnabled {
-     final field = getField(ConnectivityBluetoothEnabledField.ID);
+    final field = getField(ConnectivityBluetoothEnabledField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -87,7 +138,8 @@ class ConnectivityMessage extends DataMessage {
       return null;
     }
   }
-   set bluetoothEnabled(bool? value) {
+
+  set bluetoothEnabled(bool? value) {
     final field = getField(ConnectivityBluetoothEnabledField.ID);
 
     if (field != null) {
@@ -99,8 +151,9 @@ class ConnectivityMessage extends DataMessage {
       }
     }
   }
+
   bool? get bluetoothLeEnabled {
-     final field = getField(ConnectivityBluetoothLeEnabledField.ID);
+    final field = getField(ConnectivityBluetoothLeEnabledField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -108,7 +161,8 @@ class ConnectivityMessage extends DataMessage {
       return null;
     }
   }
-   set bluetoothLeEnabled(bool? value) {
+
+  set bluetoothLeEnabled(bool? value) {
     final field = getField(ConnectivityBluetoothLeEnabledField.ID);
 
     if (field != null) {
@@ -120,8 +174,9 @@ class ConnectivityMessage extends DataMessage {
       }
     }
   }
+
   bool? get antEnabled {
-     final field = getField(ConnectivityAntEnabledField.ID);
+    final field = getField(ConnectivityAntEnabledField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -129,7 +184,8 @@ class ConnectivityMessage extends DataMessage {
       return null;
     }
   }
-   set antEnabled(bool? value) {
+
+  set antEnabled(bool? value) {
     final field = getField(ConnectivityAntEnabledField.ID);
 
     if (field != null) {
@@ -141,8 +197,9 @@ class ConnectivityMessage extends DataMessage {
       }
     }
   }
+
   String? get connectivityName {
-     final field = getField(ConnectivityNameField.ID);
+    final field = getField(ConnectivityNameField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -150,7 +207,8 @@ class ConnectivityMessage extends DataMessage {
       return null;
     }
   }
-   set connectivityName(String? value) {
+
+  set connectivityName(String? value) {
     final field = getField(ConnectivityNameField.ID);
 
     if (field != null) {
@@ -162,8 +220,9 @@ class ConnectivityMessage extends DataMessage {
       }
     }
   }
+
   bool? get liveTrackingEnabled {
-     final field = getField(ConnectivityLiveTrackingEnabledField.ID);
+    final field = getField(ConnectivityLiveTrackingEnabledField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -171,7 +230,8 @@ class ConnectivityMessage extends DataMessage {
       return null;
     }
   }
-   set liveTrackingEnabled(bool? value) {
+
+  set liveTrackingEnabled(bool? value) {
     final field = getField(ConnectivityLiveTrackingEnabledField.ID);
 
     if (field != null) {
@@ -183,8 +243,9 @@ class ConnectivityMessage extends DataMessage {
       }
     }
   }
+
   bool? get weatherConditionsEnabled {
-     final field = getField(ConnectivityWeatherConditionsEnabledField.ID);
+    final field = getField(ConnectivityWeatherConditionsEnabledField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -192,7 +253,8 @@ class ConnectivityMessage extends DataMessage {
       return null;
     }
   }
-   set weatherConditionsEnabled(bool? value) {
+
+  set weatherConditionsEnabled(bool? value) {
     final field = getField(ConnectivityWeatherConditionsEnabledField.ID);
 
     if (field != null) {
@@ -204,8 +266,9 @@ class ConnectivityMessage extends DataMessage {
       }
     }
   }
+
   bool? get weatherAlertsEnabled {
-     final field = getField(ConnectivityWeatherAlertsEnabledField.ID);
+    final field = getField(ConnectivityWeatherAlertsEnabledField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -213,7 +276,8 @@ class ConnectivityMessage extends DataMessage {
       return null;
     }
   }
-   set weatherAlertsEnabled(bool? value) {
+
+  set weatherAlertsEnabled(bool? value) {
     final field = getField(ConnectivityWeatherAlertsEnabledField.ID);
 
     if (field != null) {
@@ -225,8 +289,9 @@ class ConnectivityMessage extends DataMessage {
       }
     }
   }
+
   bool? get autoActivityUploadEnabled {
-     final field = getField(ConnectivityAutoActivityUploadEnabledField.ID);
+    final field = getField(ConnectivityAutoActivityUploadEnabledField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -234,7 +299,8 @@ class ConnectivityMessage extends DataMessage {
       return null;
     }
   }
-   set autoActivityUploadEnabled(bool? value) {
+
+  set autoActivityUploadEnabled(bool? value) {
     final field = getField(ConnectivityAutoActivityUploadEnabledField.ID);
 
     if (field != null) {
@@ -246,8 +312,9 @@ class ConnectivityMessage extends DataMessage {
       }
     }
   }
+
   bool? get courseDownloadEnabled {
-     final field = getField(ConnectivityCourseDownloadEnabledField.ID);
+    final field = getField(ConnectivityCourseDownloadEnabledField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -255,7 +322,8 @@ class ConnectivityMessage extends DataMessage {
       return null;
     }
   }
-   set courseDownloadEnabled(bool? value) {
+
+  set courseDownloadEnabled(bool? value) {
     final field = getField(ConnectivityCourseDownloadEnabledField.ID);
 
     if (field != null) {
@@ -267,8 +335,9 @@ class ConnectivityMessage extends DataMessage {
       }
     }
   }
+
   bool? get workoutDownloadEnabled {
-     final field = getField(ConnectivityWorkoutDownloadEnabledField.ID);
+    final field = getField(ConnectivityWorkoutDownloadEnabledField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -276,7 +345,8 @@ class ConnectivityMessage extends DataMessage {
       return null;
     }
   }
-   set workoutDownloadEnabled(bool? value) {
+
+  set workoutDownloadEnabled(bool? value) {
     final field = getField(ConnectivityWorkoutDownloadEnabledField.ID);
 
     if (field != null) {
@@ -288,8 +358,9 @@ class ConnectivityMessage extends DataMessage {
       }
     }
   }
+
   bool? get gpsEphemerisDownloadEnabled {
-     final field = getField(ConnectivityGpsEphemerisDownloadEnabledField.ID);
+    final field = getField(ConnectivityGpsEphemerisDownloadEnabledField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -297,7 +368,8 @@ class ConnectivityMessage extends DataMessage {
       return null;
     }
   }
-   set gpsEphemerisDownloadEnabled(bool? value) {
+
+  set gpsEphemerisDownloadEnabled(bool? value) {
     final field = getField(ConnectivityGpsEphemerisDownloadEnabledField.ID);
 
     if (field != null) {
@@ -309,8 +381,9 @@ class ConnectivityMessage extends DataMessage {
       }
     }
   }
+
   bool? get incidentDetectionEnabled {
-     final field = getField(ConnectivityIncidentDetectionEnabledField.ID);
+    final field = getField(ConnectivityIncidentDetectionEnabledField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -318,7 +391,8 @@ class ConnectivityMessage extends DataMessage {
       return null;
     }
   }
-   set incidentDetectionEnabled(bool? value) {
+
+  set incidentDetectionEnabled(bool? value) {
     final field = getField(ConnectivityIncidentDetectionEnabledField.ID);
 
     if (field != null) {
@@ -330,8 +404,9 @@ class ConnectivityMessage extends DataMessage {
       }
     }
   }
+
   bool? get grouptrackEnabled {
-     final field = getField(ConnectivityGrouptrackEnabledField.ID);
+    final field = getField(ConnectivityGrouptrackEnabledField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -339,7 +414,8 @@ class ConnectivityMessage extends DataMessage {
       return null;
     }
   }
-   set grouptrackEnabled(bool? value) {
+
+  set grouptrackEnabled(bool? value) {
     final field = getField(ConnectivityGrouptrackEnabledField.ID);
 
     if (field != null) {
@@ -351,15 +427,10 @@ class ConnectivityMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class ConnectivityBluetoothEnabledField extends Field {
- ConnectivityBluetoothEnabledField({int size = 0, bool growable = true})
+  ConnectivityBluetoothEnabledField({int size = 0, bool growable = true})
       : super(
             name: 'bluetooth_enabled',
             id: ID,
@@ -368,14 +439,13 @@ class ConnectivityBluetoothEnabledField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class ConnectivityBluetoothLeEnabledField extends Field {
- ConnectivityBluetoothLeEnabledField({int size = 0, bool growable = true})
+  ConnectivityBluetoothLeEnabledField({int size = 0, bool growable = true})
       : super(
             name: 'bluetooth_le_enabled',
             id: ID,
@@ -384,14 +454,13 @@ class ConnectivityBluetoothLeEnabledField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class ConnectivityAntEnabledField extends Field {
- ConnectivityAntEnabledField({int size = 0, bool growable = true})
+  ConnectivityAntEnabledField({int size = 0, bool growable = true})
       : super(
             name: 'ant_enabled',
             id: ID,
@@ -400,14 +469,13 @@ class ConnectivityAntEnabledField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class ConnectivityNameField extends Field {
- ConnectivityNameField({int size = 0, bool growable = true})
+  ConnectivityNameField({int size = 0, bool growable = true})
       : super(
             name: 'name',
             id: ID,
@@ -416,14 +484,13 @@ class ConnectivityNameField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class ConnectivityLiveTrackingEnabledField extends Field {
- ConnectivityLiveTrackingEnabledField({int size = 0, bool growable = true})
+  ConnectivityLiveTrackingEnabledField({int size = 0, bool growable = true})
       : super(
             name: 'live_tracking_enabled',
             id: ID,
@@ -432,14 +499,14 @@ class ConnectivityLiveTrackingEnabledField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class ConnectivityWeatherConditionsEnabledField extends Field {
- ConnectivityWeatherConditionsEnabledField({int size = 0, bool growable = true})
+  ConnectivityWeatherConditionsEnabledField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'weather_conditions_enabled',
             id: ID,
@@ -448,14 +515,13 @@ class ConnectivityWeatherConditionsEnabledField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }
+
 class ConnectivityWeatherAlertsEnabledField extends Field {
- ConnectivityWeatherAlertsEnabledField({int size = 0, bool growable = true})
+  ConnectivityWeatherAlertsEnabledField({int size = 0, bool growable = true})
       : super(
             name: 'weather_alerts_enabled',
             id: ID,
@@ -464,14 +530,14 @@ class ConnectivityWeatherAlertsEnabledField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 6;
 }
+
 class ConnectivityAutoActivityUploadEnabledField extends Field {
- ConnectivityAutoActivityUploadEnabledField({int size = 0, bool growable = true})
+  ConnectivityAutoActivityUploadEnabledField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'auto_activity_upload_enabled',
             id: ID,
@@ -480,14 +546,13 @@ class ConnectivityAutoActivityUploadEnabledField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 7;
 }
+
 class ConnectivityCourseDownloadEnabledField extends Field {
- ConnectivityCourseDownloadEnabledField({int size = 0, bool growable = true})
+  ConnectivityCourseDownloadEnabledField({int size = 0, bool growable = true})
       : super(
             name: 'course_download_enabled',
             id: ID,
@@ -496,14 +561,13 @@ class ConnectivityCourseDownloadEnabledField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 8;
 }
+
 class ConnectivityWorkoutDownloadEnabledField extends Field {
- ConnectivityWorkoutDownloadEnabledField({int size = 0, bool growable = true})
+  ConnectivityWorkoutDownloadEnabledField({int size = 0, bool growable = true})
       : super(
             name: 'workout_download_enabled',
             id: ID,
@@ -512,14 +576,14 @@ class ConnectivityWorkoutDownloadEnabledField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 9;
 }
+
 class ConnectivityGpsEphemerisDownloadEnabledField extends Field {
- ConnectivityGpsEphemerisDownloadEnabledField({int size = 0, bool growable = true})
+  ConnectivityGpsEphemerisDownloadEnabledField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'gps_ephemeris_download_enabled',
             id: ID,
@@ -528,14 +592,14 @@ class ConnectivityGpsEphemerisDownloadEnabledField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 10;
 }
+
 class ConnectivityIncidentDetectionEnabledField extends Field {
- ConnectivityIncidentDetectionEnabledField({int size = 0, bool growable = true})
+  ConnectivityIncidentDetectionEnabledField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'incident_detection_enabled',
             id: ID,
@@ -544,14 +608,13 @@ class ConnectivityIncidentDetectionEnabledField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 11;
 }
+
 class ConnectivityGrouptrackEnabledField extends Field {
- ConnectivityGrouptrackEnabledField({int size = 0, bool growable = true})
+  ConnectivityGrouptrackEnabledField({int size = 0, bool growable = true})
       : super(
             name: 'grouptrack_enabled',
             id: ID,
@@ -560,9 +623,7 @@ class ConnectivityGrouptrackEnabledField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 12;
 }

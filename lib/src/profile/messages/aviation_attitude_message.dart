@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class AviationAttitudeMessage extends DataMessage {
-
-   AviationAttitudeMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  AviationAttitudeMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: AviationAttitudeMessage.NAME,
@@ -25,40 +27,81 @@ class AviationAttitudeMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               AviationAttitudeTimestampMsField(
-                  size: definitionMessage?.getFieldDefinition(AviationAttitudeTimestampMsField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              AviationAttitudeTimestampMsField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               AviationAttitudeSystemTimeField(
-                  size: definitionMessage?.getFieldDefinition(AviationAttitudeSystemTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              AviationAttitudeSystemTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               AviationAttitudePitchField(
-                  size: definitionMessage?.getFieldDefinition(AviationAttitudePitchField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(AviationAttitudePitchField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               AviationAttitudeRollField(
-                  size: definitionMessage?.getFieldDefinition(AviationAttitudeRollField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(AviationAttitudeRollField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               AviationAttitudeAccelLateralField(
-                  size: definitionMessage?.getFieldDefinition(AviationAttitudeAccelLateralField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              AviationAttitudeAccelLateralField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               AviationAttitudeAccelNormalField(
-                  size: definitionMessage?.getFieldDefinition(AviationAttitudeAccelNormalField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              AviationAttitudeAccelNormalField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               AviationAttitudeTurnRateField(
-                  size: definitionMessage?.getFieldDefinition(AviationAttitudeTurnRateField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(AviationAttitudeTurnRateField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               AviationAttitudeStageField(
-                  size: definitionMessage?.getFieldDefinition(AviationAttitudeStageField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(AviationAttitudeStageField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               AviationAttitudeAttitudeStageCompleteField(
-                  size: definitionMessage?.getFieldDefinition(AviationAttitudeAttitudeStageCompleteField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              AviationAttitudeAttitudeStageCompleteField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               AviationAttitudeTrackField(
-                  size: definitionMessage?.getFieldDefinition(AviationAttitudeTrackField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(AviationAttitudeTrackField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               AviationAttitudeValidityField(
-                  size: definitionMessage?.getFieldDefinition(AviationAttitudeValidityField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(AviationAttitudeValidityField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -69,15 +112,15 @@ class AviationAttitudeMessage extends DataMessage {
 
   static AviationAttitudeMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
-    final message = AviationAttitudeMessage(definitionMessage: definitionMessage);
+    final message =
+        AviationAttitudeMessage(definitionMessage: definitionMessage);
     message.readFromBytes(bytes);
     return message;
   }
 
-
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -85,8 +128,9 @@ class AviationAttitudeMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -98,8 +142,9 @@ class AviationAttitudeMessage extends DataMessage {
       }
     }
   }
+
   int? get timestampMs {
-     final field = getField(AviationAttitudeTimestampMsField.ID);
+    final field = getField(AviationAttitudeTimestampMsField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -107,7 +152,8 @@ class AviationAttitudeMessage extends DataMessage {
       return null;
     }
   }
-   set timestampMs(int? value) {
+
+  set timestampMs(int? value) {
     final field = getField(AviationAttitudeTimestampMsField.ID);
 
     if (field != null) {
@@ -119,8 +165,9 @@ class AviationAttitudeMessage extends DataMessage {
       }
     }
   }
+
   int? get systemTime {
-     final field = getField(AviationAttitudeSystemTimeField.ID);
+    final field = getField(AviationAttitudeSystemTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -128,7 +175,8 @@ class AviationAttitudeMessage extends DataMessage {
       return null;
     }
   }
-   set systemTime(int? value) {
+
+  set systemTime(int? value) {
     final field = getField(AviationAttitudeSystemTimeField.ID);
 
     if (field != null) {
@@ -140,8 +188,9 @@ class AviationAttitudeMessage extends DataMessage {
       }
     }
   }
+
   double? get pitch {
-     final field = getField(AviationAttitudePitchField.ID);
+    final field = getField(AviationAttitudePitchField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -149,7 +198,8 @@ class AviationAttitudeMessage extends DataMessage {
       return null;
     }
   }
-   set pitch(double? value) {
+
+  set pitch(double? value) {
     final field = getField(AviationAttitudePitchField.ID);
 
     if (field != null) {
@@ -161,8 +211,9 @@ class AviationAttitudeMessage extends DataMessage {
       }
     }
   }
+
   double? get roll {
-     final field = getField(AviationAttitudeRollField.ID);
+    final field = getField(AviationAttitudeRollField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -170,7 +221,8 @@ class AviationAttitudeMessage extends DataMessage {
       return null;
     }
   }
-   set roll(double? value) {
+
+  set roll(double? value) {
     final field = getField(AviationAttitudeRollField.ID);
 
     if (field != null) {
@@ -182,8 +234,9 @@ class AviationAttitudeMessage extends DataMessage {
       }
     }
   }
+
   double? get accelLateral {
-     final field = getField(AviationAttitudeAccelLateralField.ID);
+    final field = getField(AviationAttitudeAccelLateralField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -191,7 +244,8 @@ class AviationAttitudeMessage extends DataMessage {
       return null;
     }
   }
-   set accelLateral(double? value) {
+
+  set accelLateral(double? value) {
     final field = getField(AviationAttitudeAccelLateralField.ID);
 
     if (field != null) {
@@ -203,8 +257,9 @@ class AviationAttitudeMessage extends DataMessage {
       }
     }
   }
+
   double? get accelNormal {
-     final field = getField(AviationAttitudeAccelNormalField.ID);
+    final field = getField(AviationAttitudeAccelNormalField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -212,7 +267,8 @@ class AviationAttitudeMessage extends DataMessage {
       return null;
     }
   }
-   set accelNormal(double? value) {
+
+  set accelNormal(double? value) {
     final field = getField(AviationAttitudeAccelNormalField.ID);
 
     if (field != null) {
@@ -224,8 +280,9 @@ class AviationAttitudeMessage extends DataMessage {
       }
     }
   }
+
   double? get turnRate {
-     final field = getField(AviationAttitudeTurnRateField.ID);
+    final field = getField(AviationAttitudeTurnRateField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -233,7 +290,8 @@ class AviationAttitudeMessage extends DataMessage {
       return null;
     }
   }
-   set turnRate(double? value) {
+
+  set turnRate(double? value) {
     final field = getField(AviationAttitudeTurnRateField.ID);
 
     if (field != null) {
@@ -245,9 +303,10 @@ class AviationAttitudeMessage extends DataMessage {
       }
     }
   }
+
   AttitudeStage? get stage {
-     final field = getField(AviationAttitudeStageField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(AviationAttitudeStageField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -258,7 +317,8 @@ class AviationAttitudeMessage extends DataMessage {
       return null;
     }
   }
-   set stage(AttitudeStage? value) {
+
+  set stage(AttitudeStage? value) {
     final field = getField(AviationAttitudeStageField.ID);
 
     if (field != null) {
@@ -270,8 +330,9 @@ class AviationAttitudeMessage extends DataMessage {
       }
     }
   }
+
   int? get attitudeStageComplete {
-     final field = getField(AviationAttitudeAttitudeStageCompleteField.ID);
+    final field = getField(AviationAttitudeAttitudeStageCompleteField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -279,7 +340,8 @@ class AviationAttitudeMessage extends DataMessage {
       return null;
     }
   }
-   set attitudeStageComplete(int? value) {
+
+  set attitudeStageComplete(int? value) {
     final field = getField(AviationAttitudeAttitudeStageCompleteField.ID);
 
     if (field != null) {
@@ -291,8 +353,9 @@ class AviationAttitudeMessage extends DataMessage {
       }
     }
   }
+
   double? get track {
-     final field = getField(AviationAttitudeTrackField.ID);
+    final field = getField(AviationAttitudeTrackField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -300,7 +363,8 @@ class AviationAttitudeMessage extends DataMessage {
       return null;
     }
   }
-   set track(double? value) {
+
+  set track(double? value) {
     final field = getField(AviationAttitudeTrackField.ID);
 
     if (field != null) {
@@ -312,8 +376,9 @@ class AviationAttitudeMessage extends DataMessage {
       }
     }
   }
+
   int? get validity {
-     final field = getField(AviationAttitudeValidityField.ID);
+    final field = getField(AviationAttitudeValidityField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -321,7 +386,8 @@ class AviationAttitudeMessage extends DataMessage {
       return null;
     }
   }
-   set validity(int? value) {
+
+  set validity(int? value) {
     final field = getField(AviationAttitudeValidityField.ID);
 
     if (field != null) {
@@ -333,15 +399,10 @@ class AviationAttitudeMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class AviationAttitudeTimestampMsField extends Field {
- AviationAttitudeTimestampMsField({int size = 0, bool growable = true})
+  AviationAttitudeTimestampMsField({int size = 0, bool growable = true})
       : super(
             name: 'timestamp_ms',
             id: ID,
@@ -352,14 +413,13 @@ class AviationAttitudeTimestampMsField extends Field {
             units: 'ms',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class AviationAttitudeSystemTimeField extends Field {
- AviationAttitudeSystemTimeField({int size = 0, bool growable = true})
+  AviationAttitudeSystemTimeField({int size = 0, bool growable = true})
       : super(
             name: 'system_time',
             id: ID,
@@ -370,14 +430,13 @@ class AviationAttitudeSystemTimeField extends Field {
             units: 'ms',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class AviationAttitudePitchField extends Field {
- AviationAttitudePitchField({int size = 0, bool growable = true})
+  AviationAttitudePitchField({int size = 0, bool growable = true})
       : super(
             name: 'pitch',
             id: ID,
@@ -388,14 +447,13 @@ class AviationAttitudePitchField extends Field {
             units: 'radians',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class AviationAttitudeRollField extends Field {
- AviationAttitudeRollField({int size = 0, bool growable = true})
+  AviationAttitudeRollField({int size = 0, bool growable = true})
       : super(
             name: 'roll',
             id: ID,
@@ -406,14 +464,13 @@ class AviationAttitudeRollField extends Field {
             units: 'radians',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class AviationAttitudeAccelLateralField extends Field {
- AviationAttitudeAccelLateralField({int size = 0, bool growable = true})
+  AviationAttitudeAccelLateralField({int size = 0, bool growable = true})
       : super(
             name: 'accel_lateral',
             id: ID,
@@ -424,14 +481,13 @@ class AviationAttitudeAccelLateralField extends Field {
             units: 'm/s^2',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class AviationAttitudeAccelNormalField extends Field {
- AviationAttitudeAccelNormalField({int size = 0, bool growable = true})
+  AviationAttitudeAccelNormalField({int size = 0, bool growable = true})
       : super(
             name: 'accel_normal',
             id: ID,
@@ -442,14 +498,13 @@ class AviationAttitudeAccelNormalField extends Field {
             units: 'm/s^2',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }
+
 class AviationAttitudeTurnRateField extends Field {
- AviationAttitudeTurnRateField({int size = 0, bool growable = true})
+  AviationAttitudeTurnRateField({int size = 0, bool growable = true})
       : super(
             name: 'turn_rate',
             id: ID,
@@ -460,14 +515,13 @@ class AviationAttitudeTurnRateField extends Field {
             units: 'radians/second',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 6;
 }
+
 class AviationAttitudeStageField extends Field {
- AviationAttitudeStageField({int size = 0, bool growable = true})
+  AviationAttitudeStageField({int size = 0, bool growable = true})
       : super(
             name: 'stage',
             id: ID,
@@ -476,14 +530,14 @@ class AviationAttitudeStageField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 7;
 }
+
 class AviationAttitudeAttitudeStageCompleteField extends Field {
- AviationAttitudeAttitudeStageCompleteField({int size = 0, bool growable = true})
+  AviationAttitudeAttitudeStageCompleteField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'attitude_stage_complete',
             id: ID,
@@ -494,14 +548,13 @@ class AviationAttitudeAttitudeStageCompleteField extends Field {
             units: '%',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 8;
 }
+
 class AviationAttitudeTrackField extends Field {
- AviationAttitudeTrackField({int size = 0, bool growable = true})
+  AviationAttitudeTrackField({int size = 0, bool growable = true})
       : super(
             name: 'track',
             id: ID,
@@ -512,14 +565,13 @@ class AviationAttitudeTrackField extends Field {
             units: 'radians',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 9;
 }
+
 class AviationAttitudeValidityField extends Field {
- AviationAttitudeValidityField({int size = 0, bool growable = true})
+  AviationAttitudeValidityField({int size = 0, bool growable = true})
       : super(
             name: 'validity',
             id: ID,
@@ -528,9 +580,7 @@ class AviationAttitudeValidityField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 10;
 }

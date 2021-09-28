@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class ExdDataConceptConfigurationMessage extends DataMessage {
-
-   ExdDataConceptConfigurationMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  ExdDataConceptConfigurationMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: ExdDataConceptConfigurationMessage.NAME,
@@ -25,37 +27,81 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               ExdDataConceptConfigurationScreenIndexField(
-                  size: definitionMessage?.getFieldDefinition(ExdDataConceptConfigurationScreenIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ExdDataConceptConfigurationScreenIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ExdDataConceptConfigurationConceptField(
-                  size: definitionMessage?.getFieldDefinition(ExdDataConceptConfigurationConceptField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ExdDataConceptConfigurationConceptField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ExdDataConceptConfigurationFieldIdField(
-                  size: definitionMessage?.getFieldDefinition(ExdDataConceptConfigurationFieldIdField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ExdDataConceptConfigurationFieldIdField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ExdDataConceptConfigurationConceptIndexField(
-                  size: definitionMessage?.getFieldDefinition(ExdDataConceptConfigurationConceptIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ExdDataConceptConfigurationConceptIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ExdDataConceptConfigurationDataPageField(
-                  size: definitionMessage?.getFieldDefinition(ExdDataConceptConfigurationDataPageField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ExdDataConceptConfigurationDataPageField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ExdDataConceptConfigurationConceptKeyField(
-                  size: definitionMessage?.getFieldDefinition(ExdDataConceptConfigurationConceptKeyField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ExdDataConceptConfigurationConceptKeyField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ExdDataConceptConfigurationScalingField(
-                  size: definitionMessage?.getFieldDefinition(ExdDataConceptConfigurationScalingField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ExdDataConceptConfigurationScalingField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ExdDataConceptConfigurationDataUnitsField(
-                  size: definitionMessage?.getFieldDefinition(ExdDataConceptConfigurationDataUnitsField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ExdDataConceptConfigurationDataUnitsField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ExdDataConceptConfigurationQualifierField(
-                  size: definitionMessage?.getFieldDefinition(ExdDataConceptConfigurationQualifierField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ExdDataConceptConfigurationQualifierField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ExdDataConceptConfigurationDescriptorField(
-                  size: definitionMessage?.getFieldDefinition(ExdDataConceptConfigurationDescriptorField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ExdDataConceptConfigurationDescriptorField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ExdDataConceptConfigurationIsSignedField(
-                  size: definitionMessage?.getFieldDefinition(ExdDataConceptConfigurationIsSignedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ExdDataConceptConfigurationIsSignedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -66,14 +112,14 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
 
   static ExdDataConceptConfigurationMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
-    final message = ExdDataConceptConfigurationMessage(definitionMessage: definitionMessage);
+    final message = ExdDataConceptConfigurationMessage(
+        definitionMessage: definitionMessage);
     message.readFromBytes(bytes);
     return message;
   }
 
-
   int? get screenIndex {
-     final field = getField(ExdDataConceptConfigurationScreenIndexField.ID);
+    final field = getField(ExdDataConceptConfigurationScreenIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -81,7 +127,8 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
       return null;
     }
   }
-   set screenIndex(int? value) {
+
+  set screenIndex(int? value) {
     final field = getField(ExdDataConceptConfigurationScreenIndexField.ID);
 
     if (field != null) {
@@ -93,8 +140,9 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
       }
     }
   }
+
   int? get conceptField {
-     final field = getField(ExdDataConceptConfigurationConceptField.ID);
+    final field = getField(ExdDataConceptConfigurationConceptField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -102,7 +150,8 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
       return null;
     }
   }
-   set conceptField(int? value) {
+
+  set conceptField(int? value) {
     final field = getField(ExdDataConceptConfigurationConceptField.ID);
 
     if (field != null) {
@@ -114,8 +163,9 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
       }
     }
   }
+
   int? get fieldId {
-     final field = getField(ExdDataConceptConfigurationFieldIdField.ID);
+    final field = getField(ExdDataConceptConfigurationFieldIdField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -123,7 +173,8 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
       return null;
     }
   }
-   set fieldId(int? value) {
+
+  set fieldId(int? value) {
     final field = getField(ExdDataConceptConfigurationFieldIdField.ID);
 
     if (field != null) {
@@ -135,8 +186,9 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
       }
     }
   }
+
   int? get conceptIndex {
-     final field = getField(ExdDataConceptConfigurationConceptIndexField.ID);
+    final field = getField(ExdDataConceptConfigurationConceptIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -144,7 +196,8 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
       return null;
     }
   }
-   set conceptIndex(int? value) {
+
+  set conceptIndex(int? value) {
     final field = getField(ExdDataConceptConfigurationConceptIndexField.ID);
 
     if (field != null) {
@@ -156,8 +209,9 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
       }
     }
   }
+
   int? get dataPage {
-     final field = getField(ExdDataConceptConfigurationDataPageField.ID);
+    final field = getField(ExdDataConceptConfigurationDataPageField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -165,7 +219,8 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
       return null;
     }
   }
-   set dataPage(int? value) {
+
+  set dataPage(int? value) {
     final field = getField(ExdDataConceptConfigurationDataPageField.ID);
 
     if (field != null) {
@@ -177,8 +232,9 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
       }
     }
   }
+
   int? get conceptKey {
-     final field = getField(ExdDataConceptConfigurationConceptKeyField.ID);
+    final field = getField(ExdDataConceptConfigurationConceptKeyField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -186,7 +242,8 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
       return null;
     }
   }
-   set conceptKey(int? value) {
+
+  set conceptKey(int? value) {
     final field = getField(ExdDataConceptConfigurationConceptKeyField.ID);
 
     if (field != null) {
@@ -198,8 +255,9 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
       }
     }
   }
+
   int? get scaling {
-     final field = getField(ExdDataConceptConfigurationScalingField.ID);
+    final field = getField(ExdDataConceptConfigurationScalingField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -207,7 +265,8 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
       return null;
     }
   }
-   set scaling(int? value) {
+
+  set scaling(int? value) {
     final field = getField(ExdDataConceptConfigurationScalingField.ID);
 
     if (field != null) {
@@ -219,9 +278,10 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
       }
     }
   }
+
   ExdDataUnits? get dataUnits {
-     final field = getField(ExdDataConceptConfigurationDataUnitsField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(ExdDataConceptConfigurationDataUnitsField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -232,7 +292,8 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
       return null;
     }
   }
-   set dataUnits(ExdDataUnits? value) {
+
+  set dataUnits(ExdDataUnits? value) {
     final field = getField(ExdDataConceptConfigurationDataUnitsField.ID);
 
     if (field != null) {
@@ -244,9 +305,10 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
       }
     }
   }
+
   ExdQualifiers? get qualifier {
-     final field = getField(ExdDataConceptConfigurationQualifierField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(ExdDataConceptConfigurationQualifierField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -257,7 +319,8 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
       return null;
     }
   }
-   set qualifier(ExdQualifiers? value) {
+
+  set qualifier(ExdQualifiers? value) {
     final field = getField(ExdDataConceptConfigurationQualifierField.ID);
 
     if (field != null) {
@@ -269,9 +332,10 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
       }
     }
   }
+
   ExdDescriptors? get descriptor {
-     final field = getField(ExdDataConceptConfigurationDescriptorField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(ExdDataConceptConfigurationDescriptorField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -282,7 +346,8 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
       return null;
     }
   }
-   set descriptor(ExdDescriptors? value) {
+
+  set descriptor(ExdDescriptors? value) {
     final field = getField(ExdDataConceptConfigurationDescriptorField.ID);
 
     if (field != null) {
@@ -294,8 +359,9 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
       }
     }
   }
+
   bool? get isSigned {
-     final field = getField(ExdDataConceptConfigurationIsSignedField.ID);
+    final field = getField(ExdDataConceptConfigurationIsSignedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -303,7 +369,8 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
       return null;
     }
   }
-   set isSigned(bool? value) {
+
+  set isSigned(bool? value) {
     final field = getField(ExdDataConceptConfigurationIsSignedField.ID);
 
     if (field != null) {
@@ -315,15 +382,11 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class ExdDataConceptConfigurationScreenIndexField extends Field {
- ExdDataConceptConfigurationScreenIndexField({int size = 0, bool growable = true})
+  ExdDataConceptConfigurationScreenIndexField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'screen_index',
             id: ID,
@@ -332,14 +395,13 @@ class ExdDataConceptConfigurationScreenIndexField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class ExdDataConceptConfigurationConceptField extends Field {
- ExdDataConceptConfigurationConceptField({int size = 0, bool growable = true})
+  ExdDataConceptConfigurationConceptField({int size = 0, bool growable = true})
       : super(
             name: 'concept_field',
             id: ID,
@@ -348,14 +410,13 @@ class ExdDataConceptConfigurationConceptField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class ExdDataConceptConfigurationFieldIdField extends Field {
- ExdDataConceptConfigurationFieldIdField({int size = 0, bool growable = true})
+  ExdDataConceptConfigurationFieldIdField({int size = 0, bool growable = true})
       : super(
             name: 'field_id',
             id: ID,
@@ -364,14 +425,14 @@ class ExdDataConceptConfigurationFieldIdField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class ExdDataConceptConfigurationConceptIndexField extends Field {
- ExdDataConceptConfigurationConceptIndexField({int size = 0, bool growable = true})
+  ExdDataConceptConfigurationConceptIndexField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'concept_index',
             id: ID,
@@ -380,14 +441,13 @@ class ExdDataConceptConfigurationConceptIndexField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class ExdDataConceptConfigurationDataPageField extends Field {
- ExdDataConceptConfigurationDataPageField({int size = 0, bool growable = true})
+  ExdDataConceptConfigurationDataPageField({int size = 0, bool growable = true})
       : super(
             name: 'data_page',
             id: ID,
@@ -396,14 +456,14 @@ class ExdDataConceptConfigurationDataPageField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class ExdDataConceptConfigurationConceptKeyField extends Field {
- ExdDataConceptConfigurationConceptKeyField({int size = 0, bool growable = true})
+  ExdDataConceptConfigurationConceptKeyField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'concept_key',
             id: ID,
@@ -412,14 +472,13 @@ class ExdDataConceptConfigurationConceptKeyField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }
+
 class ExdDataConceptConfigurationScalingField extends Field {
- ExdDataConceptConfigurationScalingField({int size = 0, bool growable = true})
+  ExdDataConceptConfigurationScalingField({int size = 0, bool growable = true})
       : super(
             name: 'scaling',
             id: ID,
@@ -428,14 +487,14 @@ class ExdDataConceptConfigurationScalingField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 6;
 }
+
 class ExdDataConceptConfigurationDataUnitsField extends Field {
- ExdDataConceptConfigurationDataUnitsField({int size = 0, bool growable = true})
+  ExdDataConceptConfigurationDataUnitsField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'data_units',
             id: ID,
@@ -444,14 +503,14 @@ class ExdDataConceptConfigurationDataUnitsField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 8;
 }
+
 class ExdDataConceptConfigurationQualifierField extends Field {
- ExdDataConceptConfigurationQualifierField({int size = 0, bool growable = true})
+  ExdDataConceptConfigurationQualifierField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'qualifier',
             id: ID,
@@ -460,14 +519,14 @@ class ExdDataConceptConfigurationQualifierField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 9;
 }
+
 class ExdDataConceptConfigurationDescriptorField extends Field {
- ExdDataConceptConfigurationDescriptorField({int size = 0, bool growable = true})
+  ExdDataConceptConfigurationDescriptorField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'descriptor',
             id: ID,
@@ -476,14 +535,13 @@ class ExdDataConceptConfigurationDescriptorField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 10;
 }
+
 class ExdDataConceptConfigurationIsSignedField extends Field {
- ExdDataConceptConfigurationIsSignedField({int size = 0, bool growable = true})
+  ExdDataConceptConfigurationIsSignedField({int size = 0, bool growable = true})
       : super(
             name: 'is_signed',
             id: ID,
@@ -492,9 +550,7 @@ class ExdDataConceptConfigurationIsSignedField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 11;
 }

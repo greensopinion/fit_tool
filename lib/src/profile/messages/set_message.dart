@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class SetMessage extends DataMessage {
-
-   SetMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  SetMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: SetMessage.NAME,
@@ -25,37 +27,70 @@ class SetMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SetDurationField(
-                  size: definitionMessage?.getFieldDefinition(SetDurationField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SetDurationField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SetRepetitionsField(
-                  size: definitionMessage?.getFieldDefinition(SetRepetitionsField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SetRepetitionsField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SetWeightField(
-                  size: definitionMessage?.getFieldDefinition(SetWeightField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SetWeightField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SetSetTypeField(
-                  size: definitionMessage?.getFieldDefinition(SetSetTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SetSetTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SetStartTimeField(
-                  size: definitionMessage?.getFieldDefinition(SetStartTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SetStartTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SetCategoryField(
-                  size: definitionMessage?.getFieldDefinition(SetCategoryField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SetCategoryField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SetCategorySubtypeField(
-                  size: definitionMessage?.getFieldDefinition(SetCategorySubtypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SetCategorySubtypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SetWeightDisplayUnitField(
-                  size: definitionMessage?.getFieldDefinition(SetWeightDisplayUnitField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SetWeightDisplayUnitField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MessageIndexField(
-                  size: definitionMessage?.getFieldDefinition(MessageIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SetWorkoutStepIndexField(
-                  size: definitionMessage?.getFieldDefinition(SetWorkoutStepIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SetWorkoutStepIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -71,10 +106,9 @@ class SetMessage extends DataMessage {
     return message;
   }
 
-
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -82,8 +116,9 @@ class SetMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -95,8 +130,9 @@ class SetMessage extends DataMessage {
       }
     }
   }
+
   double? get duration {
-     final field = getField(SetDurationField.ID);
+    final field = getField(SetDurationField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -104,7 +140,8 @@ class SetMessage extends DataMessage {
       return null;
     }
   }
-   set duration(double? value) {
+
+  set duration(double? value) {
     final field = getField(SetDurationField.ID);
 
     if (field != null) {
@@ -116,8 +153,9 @@ class SetMessage extends DataMessage {
       }
     }
   }
+
   int? get repetitions {
-     final field = getField(SetRepetitionsField.ID);
+    final field = getField(SetRepetitionsField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -125,7 +163,8 @@ class SetMessage extends DataMessage {
       return null;
     }
   }
-   set repetitions(int? value) {
+
+  set repetitions(int? value) {
     final field = getField(SetRepetitionsField.ID);
 
     if (field != null) {
@@ -137,8 +176,9 @@ class SetMessage extends DataMessage {
       }
     }
   }
+
   double? get weight {
-     final field = getField(SetWeightField.ID);
+    final field = getField(SetWeightField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -146,7 +186,8 @@ class SetMessage extends DataMessage {
       return null;
     }
   }
-   set weight(double? value) {
+
+  set weight(double? value) {
     final field = getField(SetWeightField.ID);
 
     if (field != null) {
@@ -158,8 +199,9 @@ class SetMessage extends DataMessage {
       }
     }
   }
+
   int? get setType {
-     final field = getField(SetSetTypeField.ID);
+    final field = getField(SetSetTypeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -167,7 +209,8 @@ class SetMessage extends DataMessage {
       return null;
     }
   }
-   set setType(int? value) {
+
+  set setType(int? value) {
     final field = getField(SetSetTypeField.ID);
 
     if (field != null) {
@@ -179,9 +222,10 @@ class SetMessage extends DataMessage {
       }
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get startTime {
-     final field = getField(SetStartTimeField.ID);
+    final field = getField(SetStartTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -189,8 +233,9 @@ class SetMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set startTime(int? value) {
+  set startTime(int? value) {
     final field = getField(SetStartTimeField.ID);
 
     if (field != null) {
@@ -202,8 +247,9 @@ class SetMessage extends DataMessage {
       }
     }
   }
+
   int? get category {
-     final field = getField(SetCategoryField.ID);
+    final field = getField(SetCategoryField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -211,7 +257,8 @@ class SetMessage extends DataMessage {
       return null;
     }
   }
-   set category(int? value) {
+
+  set category(int? value) {
     final field = getField(SetCategoryField.ID);
 
     if (field != null) {
@@ -223,8 +270,9 @@ class SetMessage extends DataMessage {
       }
     }
   }
+
   int? get categorySubtype {
-     final field = getField(SetCategorySubtypeField.ID);
+    final field = getField(SetCategorySubtypeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -232,7 +280,8 @@ class SetMessage extends DataMessage {
       return null;
     }
   }
-   set categorySubtype(int? value) {
+
+  set categorySubtype(int? value) {
     final field = getField(SetCategorySubtypeField.ID);
 
     if (field != null) {
@@ -244,8 +293,9 @@ class SetMessage extends DataMessage {
       }
     }
   }
+
   int? get weightDisplayUnit {
-     final field = getField(SetWeightDisplayUnitField.ID);
+    final field = getField(SetWeightDisplayUnitField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -253,7 +303,8 @@ class SetMessage extends DataMessage {
       return null;
     }
   }
-   set weightDisplayUnit(int? value) {
+
+  set weightDisplayUnit(int? value) {
     final field = getField(SetWeightDisplayUnitField.ID);
 
     if (field != null) {
@@ -265,8 +316,9 @@ class SetMessage extends DataMessage {
       }
     }
   }
+
   int? get messageIndex {
-     final field = getField(MessageIndexField.ID);
+    final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -274,7 +326,8 @@ class SetMessage extends DataMessage {
       return null;
     }
   }
-   set messageIndex(int? value) {
+
+  set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
     if (field != null) {
@@ -286,8 +339,9 @@ class SetMessage extends DataMessage {
       }
     }
   }
+
   int? get workoutStepIndex {
-     final field = getField(SetWorkoutStepIndexField.ID);
+    final field = getField(SetWorkoutStepIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -295,7 +349,8 @@ class SetMessage extends DataMessage {
       return null;
     }
   }
-   set workoutStepIndex(int? value) {
+
+  set workoutStepIndex(int? value) {
     final field = getField(SetWorkoutStepIndexField.ID);
 
     if (field != null) {
@@ -307,15 +362,10 @@ class SetMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class SetDurationField extends Field {
- SetDurationField({int size = 0, bool growable = true})
+  SetDurationField({int size = 0, bool growable = true})
       : super(
             name: 'duration',
             id: ID,
@@ -326,14 +376,13 @@ class SetDurationField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class SetRepetitionsField extends Field {
- SetRepetitionsField({int size = 0, bool growable = true})
+  SetRepetitionsField({int size = 0, bool growable = true})
       : super(
             name: 'repetitions',
             id: ID,
@@ -342,14 +391,13 @@ class SetRepetitionsField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class SetWeightField extends Field {
- SetWeightField({int size = 0, bool growable = true})
+  SetWeightField({int size = 0, bool growable = true})
       : super(
             name: 'weight',
             id: ID,
@@ -360,14 +408,13 @@ class SetWeightField extends Field {
             units: 'kg',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class SetSetTypeField extends Field {
- SetSetTypeField({int size = 0, bool growable = true})
+  SetSetTypeField({int size = 0, bool growable = true})
       : super(
             name: 'set_type',
             id: ID,
@@ -376,14 +423,13 @@ class SetSetTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }
+
 class SetStartTimeField extends Field {
- SetStartTimeField({int size = 0, bool growable = true})
+  SetStartTimeField({int size = 0, bool growable = true})
       : super(
             name: 'start_time',
             id: ID,
@@ -394,14 +440,13 @@ class SetStartTimeField extends Field {
             units: 'ms',
             mainTypeName: 'date_time',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 6;
 }
+
 class SetCategoryField extends Field {
- SetCategoryField({int size = 0, bool growable = true})
+  SetCategoryField({int size = 0, bool growable = true})
       : super(
             name: 'category',
             id: ID,
@@ -410,14 +455,13 @@ class SetCategoryField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 7;
 }
+
 class SetCategorySubtypeField extends Field {
- SetCategorySubtypeField({int size = 0, bool growable = true})
+  SetCategorySubtypeField({int size = 0, bool growable = true})
       : super(
             name: 'category_subtype',
             id: ID,
@@ -426,14 +470,13 @@ class SetCategorySubtypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 8;
 }
+
 class SetWeightDisplayUnitField extends Field {
- SetWeightDisplayUnitField({int size = 0, bool growable = true})
+  SetWeightDisplayUnitField({int size = 0, bool growable = true})
       : super(
             name: 'weight_display_unit',
             id: ID,
@@ -442,14 +485,13 @@ class SetWeightDisplayUnitField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 9;
 }
+
 class SetWorkoutStepIndexField extends Field {
- SetWorkoutStepIndexField({int size = 0, bool growable = true})
+  SetWorkoutStepIndexField({int size = 0, bool growable = true})
       : super(
             name: 'wkt_step_index',
             id: ID,
@@ -458,9 +500,7 @@ class SetWorkoutStepIndexField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 11;
 }

@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class WeatherAlertMessage extends DataMessage {
-
-   WeatherAlertMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  WeatherAlertMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: WeatherAlertMessage.NAME,
@@ -25,22 +27,40 @@ class WeatherAlertMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WeatherAlertReportIdField(
-                  size: definitionMessage?.getFieldDefinition(WeatherAlertReportIdField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(WeatherAlertReportIdField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WeatherAlertIssueTimeField(
-                  size: definitionMessage?.getFieldDefinition(WeatherAlertIssueTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(WeatherAlertIssueTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WeatherAlertExpireTimeField(
-                  size: definitionMessage?.getFieldDefinition(WeatherAlertExpireTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(WeatherAlertExpireTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WeatherAlertSeverityField(
-                  size: definitionMessage?.getFieldDefinition(WeatherAlertSeverityField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(WeatherAlertSeverityField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WeatherAlertTypeField(
-                  size: definitionMessage?.getFieldDefinition(WeatherAlertTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(WeatherAlertTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -56,10 +76,9 @@ class WeatherAlertMessage extends DataMessage {
     return message;
   }
 
-
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -67,8 +86,9 @@ class WeatherAlertMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -80,8 +100,9 @@ class WeatherAlertMessage extends DataMessage {
       }
     }
   }
+
   String? get reportId {
-     final field = getField(WeatherAlertReportIdField.ID);
+    final field = getField(WeatherAlertReportIdField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -89,7 +110,8 @@ class WeatherAlertMessage extends DataMessage {
       return null;
     }
   }
-   set reportId(String? value) {
+
+  set reportId(String? value) {
     final field = getField(WeatherAlertReportIdField.ID);
 
     if (field != null) {
@@ -101,9 +123,10 @@ class WeatherAlertMessage extends DataMessage {
       }
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get issueTime {
-     final field = getField(WeatherAlertIssueTimeField.ID);
+    final field = getField(WeatherAlertIssueTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -111,8 +134,9 @@ class WeatherAlertMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set issueTime(int? value) {
+  set issueTime(int? value) {
     final field = getField(WeatherAlertIssueTimeField.ID);
 
     if (field != null) {
@@ -124,9 +148,10 @@ class WeatherAlertMessage extends DataMessage {
       }
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get expireTime {
-     final field = getField(WeatherAlertExpireTimeField.ID);
+    final field = getField(WeatherAlertExpireTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -134,8 +159,9 @@ class WeatherAlertMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set expireTime(int? value) {
+  set expireTime(int? value) {
     final field = getField(WeatherAlertExpireTimeField.ID);
 
     if (field != null) {
@@ -147,9 +173,10 @@ class WeatherAlertMessage extends DataMessage {
       }
     }
   }
+
   WeatherSeverity? get severity {
-     final field = getField(WeatherAlertSeverityField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(WeatherAlertSeverityField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -160,7 +187,8 @@ class WeatherAlertMessage extends DataMessage {
       return null;
     }
   }
-   set severity(WeatherSeverity? value) {
+
+  set severity(WeatherSeverity? value) {
     final field = getField(WeatherAlertSeverityField.ID);
 
     if (field != null) {
@@ -172,9 +200,10 @@ class WeatherAlertMessage extends DataMessage {
       }
     }
   }
+
   WeatherSevereType? get type {
-     final field = getField(WeatherAlertTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(WeatherAlertTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -185,7 +214,8 @@ class WeatherAlertMessage extends DataMessage {
       return null;
     }
   }
-   set type(WeatherSevereType? value) {
+
+  set type(WeatherSevereType? value) {
     final field = getField(WeatherAlertTypeField.ID);
 
     if (field != null) {
@@ -197,15 +227,10 @@ class WeatherAlertMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class WeatherAlertReportIdField extends Field {
- WeatherAlertReportIdField({int size = 0, bool growable = true})
+  WeatherAlertReportIdField({int size = 0, bool growable = true})
       : super(
             name: 'report_id',
             id: ID,
@@ -214,14 +239,13 @@ class WeatherAlertReportIdField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class WeatherAlertIssueTimeField extends Field {
- WeatherAlertIssueTimeField({int size = 0, bool growable = true})
+  WeatherAlertIssueTimeField({int size = 0, bool growable = true})
       : super(
             name: 'issue_time',
             id: ID,
@@ -232,14 +256,13 @@ class WeatherAlertIssueTimeField extends Field {
             units: 'ms',
             mainTypeName: 'date_time',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class WeatherAlertExpireTimeField extends Field {
- WeatherAlertExpireTimeField({int size = 0, bool growable = true})
+  WeatherAlertExpireTimeField({int size = 0, bool growable = true})
       : super(
             name: 'expire_time',
             id: ID,
@@ -250,14 +273,13 @@ class WeatherAlertExpireTimeField extends Field {
             units: 'ms',
             mainTypeName: 'date_time',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class WeatherAlertSeverityField extends Field {
- WeatherAlertSeverityField({int size = 0, bool growable = true})
+  WeatherAlertSeverityField({int size = 0, bool growable = true})
       : super(
             name: 'severity',
             id: ID,
@@ -266,14 +288,13 @@ class WeatherAlertSeverityField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class WeatherAlertTypeField extends Field {
- WeatherAlertTypeField({int size = 0, bool growable = true})
+  WeatherAlertTypeField({int size = 0, bool growable = true})
       : super(
             name: 'type',
             id: ID,
@@ -282,9 +303,7 @@ class WeatherAlertTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }

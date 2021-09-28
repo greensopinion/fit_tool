@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class SegmentLapMessage extends DataMessage {
-
-   SegmentLapMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  SegmentLapMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: SegmentLapMessage.NAME,
@@ -25,280 +27,592 @@ class SegmentLapMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               MessageIndexField(
-                  size: definitionMessage?.getFieldDefinition(MessageIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapEventField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapEventField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapEventField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapEventTypeField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapEventTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapEventTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapStartTimeField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapStartTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapStartTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapStartPositionLatField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapStartPositionLatField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapStartPositionLatField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapStartPositionLongField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapStartPositionLongField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapStartPositionLongField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapEndPositionLatField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapEndPositionLatField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapEndPositionLatField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapEndPositionLongField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapEndPositionLongField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapEndPositionLongField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapTotalElapsedTimeField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapTotalElapsedTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapTotalElapsedTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapTotalTimerTimeField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapTotalTimerTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapTotalTimerTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapTotalDistanceField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapTotalDistanceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapTotalDistanceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapTotalCyclesField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapTotalCyclesField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapTotalCyclesField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapTotalCaloriesField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapTotalCaloriesField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapTotalCaloriesField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapTotalFatCaloriesField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapTotalFatCaloriesField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapTotalFatCaloriesField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapAvgSpeedField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapAvgSpeedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapAvgSpeedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapMaxSpeedField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapMaxSpeedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapMaxSpeedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapAvgHeartRateField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapAvgHeartRateField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapAvgHeartRateField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapMaxHeartRateField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapMaxHeartRateField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapMaxHeartRateField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapAvgCadenceField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapAvgCadenceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapAvgCadenceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapMaxCadenceField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapMaxCadenceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapMaxCadenceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapAvgPowerField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapAvgPowerField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapAvgPowerField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapMaxPowerField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapMaxPowerField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapMaxPowerField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapTotalAscentField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapTotalAscentField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapTotalAscentField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapTotalDescentField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapTotalDescentField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapTotalDescentField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapSportField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapSportField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapSportField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapEventGroupField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapEventGroupField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapEventGroupField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapNecLatField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapNecLatField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapNecLatField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapNecLongField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapNecLongField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapNecLongField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapSwcLatField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapSwcLatField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapSwcLatField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapSwcLongField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapSwcLongField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapSwcLongField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapNameField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapNameField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapNameField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapNormalizedPowerField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapNormalizedPowerField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapNormalizedPowerField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapLeftRightBalanceField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapLeftRightBalanceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapLeftRightBalanceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapSubSportField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapSubSportField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapSubSportField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapTotalWorkField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapTotalWorkField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapTotalWorkField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapAvgAltitudeField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapAvgAltitudeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapAvgAltitudeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapMaxAltitudeField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapMaxAltitudeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapMaxAltitudeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapGpsAccuracyField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapGpsAccuracyField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapGpsAccuracyField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapAvgGradeField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapAvgGradeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapAvgGradeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapAvgPosGradeField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapAvgPosGradeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapAvgPosGradeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapAvgNegGradeField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapAvgNegGradeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapAvgNegGradeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapMaxPosGradeField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapMaxPosGradeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapMaxPosGradeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapMaxNegGradeField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapMaxNegGradeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapMaxNegGradeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapAvgTemperatureField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapAvgTemperatureField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapAvgTemperatureField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapMaxTemperatureField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapMaxTemperatureField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapMaxTemperatureField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapTotalMovingTimeField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapTotalMovingTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapTotalMovingTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapAvgPosVerticalSpeedField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapAvgPosVerticalSpeedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapAvgPosVerticalSpeedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapAvgNegVerticalSpeedField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapAvgNegVerticalSpeedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapAvgNegVerticalSpeedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapMaxPosVerticalSpeedField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapMaxPosVerticalSpeedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapMaxPosVerticalSpeedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapMaxNegVerticalSpeedField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapMaxNegVerticalSpeedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapMaxNegVerticalSpeedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapTimeInHrZoneField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapTimeInHrZoneField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapTimeInHrZoneField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapTimeInSpeedZoneField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapTimeInSpeedZoneField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapTimeInSpeedZoneField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapTimeInCadenceZoneField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapTimeInCadenceZoneField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapTimeInCadenceZoneField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapTimeInPowerZoneField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapTimeInPowerZoneField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapTimeInPowerZoneField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapRepetitionNumField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapRepetitionNumField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapRepetitionNumField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapMinAltitudeField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapMinAltitudeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapMinAltitudeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapMinHeartRateField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapMinHeartRateField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapMinHeartRateField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapActiveTimeField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapActiveTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapActiveTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapWorkoutStepIndexField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapWorkoutStepIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapWorkoutStepIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapSportEventField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapSportEventField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapSportEventField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapAvgLeftTorqueEffectivenessField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapAvgLeftTorqueEffectivenessField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapAvgLeftTorqueEffectivenessField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapAvgRightTorqueEffectivenessField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapAvgRightTorqueEffectivenessField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapAvgRightTorqueEffectivenessField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapAvgLeftPedalSmoothnessField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapAvgLeftPedalSmoothnessField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapAvgLeftPedalSmoothnessField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapAvgRightPedalSmoothnessField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapAvgRightPedalSmoothnessField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapAvgRightPedalSmoothnessField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapAvgCombinedPedalSmoothnessField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapAvgCombinedPedalSmoothnessField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapAvgCombinedPedalSmoothnessField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapStatusField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapStatusField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapStatusField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapUuidField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapUuidField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapUuidField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapAvgFractionalCadenceField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapAvgFractionalCadenceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapAvgFractionalCadenceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapMaxFractionalCadenceField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapMaxFractionalCadenceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapMaxFractionalCadenceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapTotalFractionalCyclesField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapTotalFractionalCyclesField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapTotalFractionalCyclesField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapFrontGearShiftCountField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapFrontGearShiftCountField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapFrontGearShiftCountField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapRearGearShiftCountField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapRearGearShiftCountField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapRearGearShiftCountField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapTimeStandingField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapTimeStandingField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapTimeStandingField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapStandCountField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapStandCountField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapStandCountField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapAvgLeftPcoField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapAvgLeftPcoField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapAvgLeftPcoField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapAvgRightPcoField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapAvgRightPcoField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapAvgRightPcoField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapAvgLeftPowerPhaseField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapAvgLeftPowerPhaseField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapAvgLeftPowerPhaseField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapAvgLeftPowerPhasePeakField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapAvgLeftPowerPhasePeakField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapAvgLeftPowerPhasePeakField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapAvgRightPowerPhaseField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapAvgRightPowerPhaseField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapAvgRightPowerPhaseField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapAvgRightPowerPhasePeakField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapAvgRightPowerPhasePeakField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapAvgRightPowerPhasePeakField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapAvgPowerPositionField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapAvgPowerPositionField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapAvgPowerPositionField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapMaxPowerPositionField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapMaxPowerPositionField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapMaxPowerPositionField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapAvgCadencePositionField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapAvgCadencePositionField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapAvgCadencePositionField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapMaxCadencePositionField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapMaxCadencePositionField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapMaxCadencePositionField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapManufacturerField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapManufacturerField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapManufacturerField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapTotalGritField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapTotalGritField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapTotalGritField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapTotalFlowField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapTotalFlowField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapTotalFlowField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapAvgGritField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapAvgGritField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapAvgGritField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapAvgFlowField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapAvgFlowField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentLapAvgFlowField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapTotalFractionalAscentField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapTotalFractionalAscentField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapTotalFractionalAscentField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLapTotalFractionalDescentField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLapTotalFractionalDescentField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLapTotalFractionalDescentField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -314,9 +628,8 @@ class SegmentLapMessage extends DataMessage {
     return message;
   }
 
-
   int? get messageIndex {
-     final field = getField(MessageIndexField.ID);
+    final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -324,7 +637,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set messageIndex(int? value) {
+
+  set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
     if (field != null) {
@@ -336,9 +650,10 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -346,8 +661,9 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -359,9 +675,10 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   Event? get event {
-     final field = getField(SegmentLapEventField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(SegmentLapEventField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -372,7 +689,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set event(Event? value) {
+
+  set event(Event? value) {
     final field = getField(SegmentLapEventField.ID);
 
     if (field != null) {
@@ -384,9 +702,10 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   EventType? get eventType {
-     final field = getField(SegmentLapEventTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(SegmentLapEventTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -397,7 +716,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set eventType(EventType? value) {
+
+  set eventType(EventType? value) {
     final field = getField(SegmentLapEventTypeField.ID);
 
     if (field != null) {
@@ -409,9 +729,10 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get startTime {
-     final field = getField(SegmentLapStartTimeField.ID);
+    final field = getField(SegmentLapStartTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -419,8 +740,9 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set startTime(int? value) {
+  set startTime(int? value) {
     final field = getField(SegmentLapStartTimeField.ID);
 
     if (field != null) {
@@ -432,8 +754,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get startPositionLat {
-     final field = getField(SegmentLapStartPositionLatField.ID);
+    final field = getField(SegmentLapStartPositionLatField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -441,7 +764,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set startPositionLat(double? value) {
+
+  set startPositionLat(double? value) {
     final field = getField(SegmentLapStartPositionLatField.ID);
 
     if (field != null) {
@@ -453,8 +777,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get startPositionLong {
-     final field = getField(SegmentLapStartPositionLongField.ID);
+    final field = getField(SegmentLapStartPositionLongField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -462,7 +787,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set startPositionLong(double? value) {
+
+  set startPositionLong(double? value) {
     final field = getField(SegmentLapStartPositionLongField.ID);
 
     if (field != null) {
@@ -474,8 +800,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get endPositionLat {
-     final field = getField(SegmentLapEndPositionLatField.ID);
+    final field = getField(SegmentLapEndPositionLatField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -483,7 +810,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set endPositionLat(double? value) {
+
+  set endPositionLat(double? value) {
     final field = getField(SegmentLapEndPositionLatField.ID);
 
     if (field != null) {
@@ -495,8 +823,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get endPositionLong {
-     final field = getField(SegmentLapEndPositionLongField.ID);
+    final field = getField(SegmentLapEndPositionLongField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -504,7 +833,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set endPositionLong(double? value) {
+
+  set endPositionLong(double? value) {
     final field = getField(SegmentLapEndPositionLongField.ID);
 
     if (field != null) {
@@ -516,8 +846,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get totalElapsedTime {
-     final field = getField(SegmentLapTotalElapsedTimeField.ID);
+    final field = getField(SegmentLapTotalElapsedTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -525,7 +856,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set totalElapsedTime(double? value) {
+
+  set totalElapsedTime(double? value) {
     final field = getField(SegmentLapTotalElapsedTimeField.ID);
 
     if (field != null) {
@@ -537,8 +869,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get totalTimerTime {
-     final field = getField(SegmentLapTotalTimerTimeField.ID);
+    final field = getField(SegmentLapTotalTimerTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -546,7 +879,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set totalTimerTime(double? value) {
+
+  set totalTimerTime(double? value) {
     final field = getField(SegmentLapTotalTimerTimeField.ID);
 
     if (field != null) {
@@ -558,8 +892,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get totalDistance {
-     final field = getField(SegmentLapTotalDistanceField.ID);
+    final field = getField(SegmentLapTotalDistanceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -567,7 +902,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set totalDistance(double? value) {
+
+  set totalDistance(double? value) {
     final field = getField(SegmentLapTotalDistanceField.ID);
 
     if (field != null) {
@@ -579,8 +915,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   int? get totalCycles {
-     final field = getField(SegmentLapTotalCyclesField.ID);
+    final field = getField(SegmentLapTotalCyclesField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -588,7 +925,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set totalCycles(int? value) {
+
+  set totalCycles(int? value) {
     final field = getField(SegmentLapTotalCyclesField.ID);
 
     if (field != null) {
@@ -602,13 +940,14 @@ class SegmentLapMessage extends DataMessage {
   }
 
   int? get totalStrokes {
-     final field = getField(SegmentLapTotalCyclesField.ID);
-     final typeField = getField(SegmentLapSportField.ID);
+    final field = getField(SegmentLapTotalCyclesField.ID);
+    final typeField = getField(SegmentLapSportField.ID);
 
-     final isSubFieldValid = typeField != null && [2].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [2].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -616,7 +955,7 @@ class SegmentLapMessage extends DataMessage {
 
   set totalStrokes(int? value) {
     final field = getField(SegmentLapTotalCyclesField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -625,8 +964,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   int? get totalCalories {
-     final field = getField(SegmentLapTotalCaloriesField.ID);
+    final field = getField(SegmentLapTotalCaloriesField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -634,7 +974,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set totalCalories(int? value) {
+
+  set totalCalories(int? value) {
     final field = getField(SegmentLapTotalCaloriesField.ID);
 
     if (field != null) {
@@ -646,8 +987,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   int? get totalFatCalories {
-     final field = getField(SegmentLapTotalFatCaloriesField.ID);
+    final field = getField(SegmentLapTotalFatCaloriesField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -655,7 +997,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set totalFatCalories(int? value) {
+
+  set totalFatCalories(int? value) {
     final field = getField(SegmentLapTotalFatCaloriesField.ID);
 
     if (field != null) {
@@ -667,8 +1010,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgSpeed {
-     final field = getField(SegmentLapAvgSpeedField.ID);
+    final field = getField(SegmentLapAvgSpeedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -676,7 +1020,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set avgSpeed(double? value) {
+
+  set avgSpeed(double? value) {
     final field = getField(SegmentLapAvgSpeedField.ID);
 
     if (field != null) {
@@ -688,8 +1033,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get maxSpeed {
-     final field = getField(SegmentLapMaxSpeedField.ID);
+    final field = getField(SegmentLapMaxSpeedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -697,7 +1043,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set maxSpeed(double? value) {
+
+  set maxSpeed(double? value) {
     final field = getField(SegmentLapMaxSpeedField.ID);
 
     if (field != null) {
@@ -709,8 +1056,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   int? get avgHeartRate {
-     final field = getField(SegmentLapAvgHeartRateField.ID);
+    final field = getField(SegmentLapAvgHeartRateField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -718,7 +1066,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set avgHeartRate(int? value) {
+
+  set avgHeartRate(int? value) {
     final field = getField(SegmentLapAvgHeartRateField.ID);
 
     if (field != null) {
@@ -730,8 +1079,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   int? get maxHeartRate {
-     final field = getField(SegmentLapMaxHeartRateField.ID);
+    final field = getField(SegmentLapMaxHeartRateField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -739,7 +1089,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set maxHeartRate(int? value) {
+
+  set maxHeartRate(int? value) {
     final field = getField(SegmentLapMaxHeartRateField.ID);
 
     if (field != null) {
@@ -751,8 +1102,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   int? get avgCadence {
-     final field = getField(SegmentLapAvgCadenceField.ID);
+    final field = getField(SegmentLapAvgCadenceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -760,7 +1112,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set avgCadence(int? value) {
+
+  set avgCadence(int? value) {
     final field = getField(SegmentLapAvgCadenceField.ID);
 
     if (field != null) {
@@ -772,8 +1125,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   int? get maxCadence {
-     final field = getField(SegmentLapMaxCadenceField.ID);
+    final field = getField(SegmentLapMaxCadenceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -781,7 +1135,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set maxCadence(int? value) {
+
+  set maxCadence(int? value) {
     final field = getField(SegmentLapMaxCadenceField.ID);
 
     if (field != null) {
@@ -793,8 +1148,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   int? get avgPower {
-     final field = getField(SegmentLapAvgPowerField.ID);
+    final field = getField(SegmentLapAvgPowerField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -802,7 +1158,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set avgPower(int? value) {
+
+  set avgPower(int? value) {
     final field = getField(SegmentLapAvgPowerField.ID);
 
     if (field != null) {
@@ -814,8 +1171,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   int? get maxPower {
-     final field = getField(SegmentLapMaxPowerField.ID);
+    final field = getField(SegmentLapMaxPowerField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -823,7 +1181,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set maxPower(int? value) {
+
+  set maxPower(int? value) {
     final field = getField(SegmentLapMaxPowerField.ID);
 
     if (field != null) {
@@ -835,8 +1194,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   int? get totalAscent {
-     final field = getField(SegmentLapTotalAscentField.ID);
+    final field = getField(SegmentLapTotalAscentField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -844,7 +1204,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set totalAscent(int? value) {
+
+  set totalAscent(int? value) {
     final field = getField(SegmentLapTotalAscentField.ID);
 
     if (field != null) {
@@ -856,8 +1217,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   int? get totalDescent {
-     final field = getField(SegmentLapTotalDescentField.ID);
+    final field = getField(SegmentLapTotalDescentField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -865,7 +1227,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set totalDescent(int? value) {
+
+  set totalDescent(int? value) {
     final field = getField(SegmentLapTotalDescentField.ID);
 
     if (field != null) {
@@ -877,9 +1240,10 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   Sport? get sport {
-     final field = getField(SegmentLapSportField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(SegmentLapSportField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -890,7 +1254,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set sport(Sport? value) {
+
+  set sport(Sport? value) {
     final field = getField(SegmentLapSportField.ID);
 
     if (field != null) {
@@ -902,8 +1267,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   int? get eventGroup {
-     final field = getField(SegmentLapEventGroupField.ID);
+    final field = getField(SegmentLapEventGroupField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -911,7 +1277,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set eventGroup(int? value) {
+
+  set eventGroup(int? value) {
     final field = getField(SegmentLapEventGroupField.ID);
 
     if (field != null) {
@@ -923,8 +1290,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get necLat {
-     final field = getField(SegmentLapNecLatField.ID);
+    final field = getField(SegmentLapNecLatField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -932,7 +1300,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set necLat(double? value) {
+
+  set necLat(double? value) {
     final field = getField(SegmentLapNecLatField.ID);
 
     if (field != null) {
@@ -944,8 +1313,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get necLong {
-     final field = getField(SegmentLapNecLongField.ID);
+    final field = getField(SegmentLapNecLongField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -953,7 +1323,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set necLong(double? value) {
+
+  set necLong(double? value) {
     final field = getField(SegmentLapNecLongField.ID);
 
     if (field != null) {
@@ -965,8 +1336,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get swcLat {
-     final field = getField(SegmentLapSwcLatField.ID);
+    final field = getField(SegmentLapSwcLatField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -974,7 +1346,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set swcLat(double? value) {
+
+  set swcLat(double? value) {
     final field = getField(SegmentLapSwcLatField.ID);
 
     if (field != null) {
@@ -986,8 +1359,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get swcLong {
-     final field = getField(SegmentLapSwcLongField.ID);
+    final field = getField(SegmentLapSwcLongField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -995,7 +1369,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set swcLong(double? value) {
+
+  set swcLong(double? value) {
     final field = getField(SegmentLapSwcLongField.ID);
 
     if (field != null) {
@@ -1007,8 +1382,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   String? get segmentLapName {
-     final field = getField(SegmentLapNameField.ID);
+    final field = getField(SegmentLapNameField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1016,7 +1392,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set segmentLapName(String? value) {
+
+  set segmentLapName(String? value) {
     final field = getField(SegmentLapNameField.ID);
 
     if (field != null) {
@@ -1028,8 +1405,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   int? get normalizedPower {
-     final field = getField(SegmentLapNormalizedPowerField.ID);
+    final field = getField(SegmentLapNormalizedPowerField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1037,7 +1415,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set normalizedPower(int? value) {
+
+  set normalizedPower(int? value) {
     final field = getField(SegmentLapNormalizedPowerField.ID);
 
     if (field != null) {
@@ -1049,8 +1428,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   int? get leftRightBalance {
-     final field = getField(SegmentLapLeftRightBalanceField.ID);
+    final field = getField(SegmentLapLeftRightBalanceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1058,7 +1438,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set leftRightBalance(int? value) {
+
+  set leftRightBalance(int? value) {
     final field = getField(SegmentLapLeftRightBalanceField.ID);
 
     if (field != null) {
@@ -1070,9 +1451,10 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   SubSport? get subSport {
-     final field = getField(SegmentLapSubSportField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(SegmentLapSubSportField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -1083,7 +1465,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set subSport(SubSport? value) {
+
+  set subSport(SubSport? value) {
     final field = getField(SegmentLapSubSportField.ID);
 
     if (field != null) {
@@ -1095,8 +1478,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   int? get totalWork {
-     final field = getField(SegmentLapTotalWorkField.ID);
+    final field = getField(SegmentLapTotalWorkField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1104,7 +1488,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set totalWork(int? value) {
+
+  set totalWork(int? value) {
     final field = getField(SegmentLapTotalWorkField.ID);
 
     if (field != null) {
@@ -1116,8 +1501,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgAltitude {
-     final field = getField(SegmentLapAvgAltitudeField.ID);
+    final field = getField(SegmentLapAvgAltitudeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1125,7 +1511,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set avgAltitude(double? value) {
+
+  set avgAltitude(double? value) {
     final field = getField(SegmentLapAvgAltitudeField.ID);
 
     if (field != null) {
@@ -1137,8 +1524,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get maxAltitude {
-     final field = getField(SegmentLapMaxAltitudeField.ID);
+    final field = getField(SegmentLapMaxAltitudeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1146,7 +1534,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set maxAltitude(double? value) {
+
+  set maxAltitude(double? value) {
     final field = getField(SegmentLapMaxAltitudeField.ID);
 
     if (field != null) {
@@ -1158,8 +1547,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   int? get gpsAccuracy {
-     final field = getField(SegmentLapGpsAccuracyField.ID);
+    final field = getField(SegmentLapGpsAccuracyField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1167,7 +1557,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set gpsAccuracy(int? value) {
+
+  set gpsAccuracy(int? value) {
     final field = getField(SegmentLapGpsAccuracyField.ID);
 
     if (field != null) {
@@ -1179,8 +1570,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgGrade {
-     final field = getField(SegmentLapAvgGradeField.ID);
+    final field = getField(SegmentLapAvgGradeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1188,7 +1580,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set avgGrade(double? value) {
+
+  set avgGrade(double? value) {
     final field = getField(SegmentLapAvgGradeField.ID);
 
     if (field != null) {
@@ -1200,8 +1593,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgPosGrade {
-     final field = getField(SegmentLapAvgPosGradeField.ID);
+    final field = getField(SegmentLapAvgPosGradeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1209,7 +1603,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set avgPosGrade(double? value) {
+
+  set avgPosGrade(double? value) {
     final field = getField(SegmentLapAvgPosGradeField.ID);
 
     if (field != null) {
@@ -1221,8 +1616,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgNegGrade {
-     final field = getField(SegmentLapAvgNegGradeField.ID);
+    final field = getField(SegmentLapAvgNegGradeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1230,7 +1626,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set avgNegGrade(double? value) {
+
+  set avgNegGrade(double? value) {
     final field = getField(SegmentLapAvgNegGradeField.ID);
 
     if (field != null) {
@@ -1242,8 +1639,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get maxPosGrade {
-     final field = getField(SegmentLapMaxPosGradeField.ID);
+    final field = getField(SegmentLapMaxPosGradeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1251,7 +1649,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set maxPosGrade(double? value) {
+
+  set maxPosGrade(double? value) {
     final field = getField(SegmentLapMaxPosGradeField.ID);
 
     if (field != null) {
@@ -1263,8 +1662,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get maxNegGrade {
-     final field = getField(SegmentLapMaxNegGradeField.ID);
+    final field = getField(SegmentLapMaxNegGradeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1272,7 +1672,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set maxNegGrade(double? value) {
+
+  set maxNegGrade(double? value) {
     final field = getField(SegmentLapMaxNegGradeField.ID);
 
     if (field != null) {
@@ -1284,8 +1685,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   int? get avgTemperature {
-     final field = getField(SegmentLapAvgTemperatureField.ID);
+    final field = getField(SegmentLapAvgTemperatureField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1293,7 +1695,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set avgTemperature(int? value) {
+
+  set avgTemperature(int? value) {
     final field = getField(SegmentLapAvgTemperatureField.ID);
 
     if (field != null) {
@@ -1305,8 +1708,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   int? get maxTemperature {
-     final field = getField(SegmentLapMaxTemperatureField.ID);
+    final field = getField(SegmentLapMaxTemperatureField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1314,7 +1718,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set maxTemperature(int? value) {
+
+  set maxTemperature(int? value) {
     final field = getField(SegmentLapMaxTemperatureField.ID);
 
     if (field != null) {
@@ -1326,8 +1731,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get totalMovingTime {
-     final field = getField(SegmentLapTotalMovingTimeField.ID);
+    final field = getField(SegmentLapTotalMovingTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1335,7 +1741,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set totalMovingTime(double? value) {
+
+  set totalMovingTime(double? value) {
     final field = getField(SegmentLapTotalMovingTimeField.ID);
 
     if (field != null) {
@@ -1347,8 +1754,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgPosVerticalSpeed {
-     final field = getField(SegmentLapAvgPosVerticalSpeedField.ID);
+    final field = getField(SegmentLapAvgPosVerticalSpeedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1356,7 +1764,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set avgPosVerticalSpeed(double? value) {
+
+  set avgPosVerticalSpeed(double? value) {
     final field = getField(SegmentLapAvgPosVerticalSpeedField.ID);
 
     if (field != null) {
@@ -1368,8 +1777,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgNegVerticalSpeed {
-     final field = getField(SegmentLapAvgNegVerticalSpeedField.ID);
+    final field = getField(SegmentLapAvgNegVerticalSpeedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1377,7 +1787,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set avgNegVerticalSpeed(double? value) {
+
+  set avgNegVerticalSpeed(double? value) {
     final field = getField(SegmentLapAvgNegVerticalSpeedField.ID);
 
     if (field != null) {
@@ -1389,8 +1800,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get maxPosVerticalSpeed {
-     final field = getField(SegmentLapMaxPosVerticalSpeedField.ID);
+    final field = getField(SegmentLapMaxPosVerticalSpeedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1398,7 +1810,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set maxPosVerticalSpeed(double? value) {
+
+  set maxPosVerticalSpeed(double? value) {
     final field = getField(SegmentLapMaxPosVerticalSpeedField.ID);
 
     if (field != null) {
@@ -1410,8 +1823,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get maxNegVerticalSpeed {
-     final field = getField(SegmentLapMaxNegVerticalSpeedField.ID);
+    final field = getField(SegmentLapMaxNegVerticalSpeedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1419,7 +1833,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set maxNegVerticalSpeed(double? value) {
+
+  set maxNegVerticalSpeed(double? value) {
     final field = getField(SegmentLapMaxNegVerticalSpeedField.ID);
 
     if (field != null) {
@@ -1431,8 +1846,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get timeInHrZone {
-     final field = getField(SegmentLapTimeInHrZoneField.ID);
+    final field = getField(SegmentLapTimeInHrZoneField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1440,7 +1856,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set timeInHrZone(double? value) {
+
+  set timeInHrZone(double? value) {
     final field = getField(SegmentLapTimeInHrZoneField.ID);
 
     if (field != null) {
@@ -1452,8 +1869,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get timeInSpeedZone {
-     final field = getField(SegmentLapTimeInSpeedZoneField.ID);
+    final field = getField(SegmentLapTimeInSpeedZoneField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1461,7 +1879,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set timeInSpeedZone(double? value) {
+
+  set timeInSpeedZone(double? value) {
     final field = getField(SegmentLapTimeInSpeedZoneField.ID);
 
     if (field != null) {
@@ -1473,8 +1892,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get timeInCadenceZone {
-     final field = getField(SegmentLapTimeInCadenceZoneField.ID);
+    final field = getField(SegmentLapTimeInCadenceZoneField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1482,7 +1902,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set timeInCadenceZone(double? value) {
+
+  set timeInCadenceZone(double? value) {
     final field = getField(SegmentLapTimeInCadenceZoneField.ID);
 
     if (field != null) {
@@ -1494,8 +1915,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get timeInPowerZone {
-     final field = getField(SegmentLapTimeInPowerZoneField.ID);
+    final field = getField(SegmentLapTimeInPowerZoneField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1503,7 +1925,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set timeInPowerZone(double? value) {
+
+  set timeInPowerZone(double? value) {
     final field = getField(SegmentLapTimeInPowerZoneField.ID);
 
     if (field != null) {
@@ -1515,8 +1938,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   int? get repetitionNum {
-     final field = getField(SegmentLapRepetitionNumField.ID);
+    final field = getField(SegmentLapRepetitionNumField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1524,7 +1948,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set repetitionNum(int? value) {
+
+  set repetitionNum(int? value) {
     final field = getField(SegmentLapRepetitionNumField.ID);
 
     if (field != null) {
@@ -1536,8 +1961,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get minAltitude {
-     final field = getField(SegmentLapMinAltitudeField.ID);
+    final field = getField(SegmentLapMinAltitudeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1545,7 +1971,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set minAltitude(double? value) {
+
+  set minAltitude(double? value) {
     final field = getField(SegmentLapMinAltitudeField.ID);
 
     if (field != null) {
@@ -1557,8 +1984,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   int? get minHeartRate {
-     final field = getField(SegmentLapMinHeartRateField.ID);
+    final field = getField(SegmentLapMinHeartRateField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1566,7 +1994,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set minHeartRate(int? value) {
+
+  set minHeartRate(int? value) {
     final field = getField(SegmentLapMinHeartRateField.ID);
 
     if (field != null) {
@@ -1578,8 +2007,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get activeTime {
-     final field = getField(SegmentLapActiveTimeField.ID);
+    final field = getField(SegmentLapActiveTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1587,7 +2017,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set activeTime(double? value) {
+
+  set activeTime(double? value) {
     final field = getField(SegmentLapActiveTimeField.ID);
 
     if (field != null) {
@@ -1599,8 +2030,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   int? get workoutStepIndex {
-     final field = getField(SegmentLapWorkoutStepIndexField.ID);
+    final field = getField(SegmentLapWorkoutStepIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1608,7 +2040,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set workoutStepIndex(int? value) {
+
+  set workoutStepIndex(int? value) {
     final field = getField(SegmentLapWorkoutStepIndexField.ID);
 
     if (field != null) {
@@ -1620,9 +2053,10 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   SportEvent? get sportEvent {
-     final field = getField(SegmentLapSportEventField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(SegmentLapSportEventField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -1633,7 +2067,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set sportEvent(SportEvent? value) {
+
+  set sportEvent(SportEvent? value) {
     final field = getField(SegmentLapSportEventField.ID);
 
     if (field != null) {
@@ -1645,8 +2080,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgLeftTorqueEffectiveness {
-     final field = getField(SegmentLapAvgLeftTorqueEffectivenessField.ID);
+    final field = getField(SegmentLapAvgLeftTorqueEffectivenessField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1654,7 +2090,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set avgLeftTorqueEffectiveness(double? value) {
+
+  set avgLeftTorqueEffectiveness(double? value) {
     final field = getField(SegmentLapAvgLeftTorqueEffectivenessField.ID);
 
     if (field != null) {
@@ -1666,8 +2103,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgRightTorqueEffectiveness {
-     final field = getField(SegmentLapAvgRightTorqueEffectivenessField.ID);
+    final field = getField(SegmentLapAvgRightTorqueEffectivenessField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1675,7 +2113,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set avgRightTorqueEffectiveness(double? value) {
+
+  set avgRightTorqueEffectiveness(double? value) {
     final field = getField(SegmentLapAvgRightTorqueEffectivenessField.ID);
 
     if (field != null) {
@@ -1687,8 +2126,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgLeftPedalSmoothness {
-     final field = getField(SegmentLapAvgLeftPedalSmoothnessField.ID);
+    final field = getField(SegmentLapAvgLeftPedalSmoothnessField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1696,7 +2136,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set avgLeftPedalSmoothness(double? value) {
+
+  set avgLeftPedalSmoothness(double? value) {
     final field = getField(SegmentLapAvgLeftPedalSmoothnessField.ID);
 
     if (field != null) {
@@ -1708,8 +2149,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgRightPedalSmoothness {
-     final field = getField(SegmentLapAvgRightPedalSmoothnessField.ID);
+    final field = getField(SegmentLapAvgRightPedalSmoothnessField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1717,7 +2159,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set avgRightPedalSmoothness(double? value) {
+
+  set avgRightPedalSmoothness(double? value) {
     final field = getField(SegmentLapAvgRightPedalSmoothnessField.ID);
 
     if (field != null) {
@@ -1729,8 +2172,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgCombinedPedalSmoothness {
-     final field = getField(SegmentLapAvgCombinedPedalSmoothnessField.ID);
+    final field = getField(SegmentLapAvgCombinedPedalSmoothnessField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1738,7 +2182,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set avgCombinedPedalSmoothness(double? value) {
+
+  set avgCombinedPedalSmoothness(double? value) {
     final field = getField(SegmentLapAvgCombinedPedalSmoothnessField.ID);
 
     if (field != null) {
@@ -1750,9 +2195,10 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   SegmentLapStatus? get status {
-     final field = getField(SegmentLapStatusField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(SegmentLapStatusField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -1763,7 +2209,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set status(SegmentLapStatus? value) {
+
+  set status(SegmentLapStatus? value) {
     final field = getField(SegmentLapStatusField.ID);
 
     if (field != null) {
@@ -1775,8 +2222,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   String? get uuid {
-     final field = getField(SegmentLapUuidField.ID);
+    final field = getField(SegmentLapUuidField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1784,7 +2232,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set uuid(String? value) {
+
+  set uuid(String? value) {
     final field = getField(SegmentLapUuidField.ID);
 
     if (field != null) {
@@ -1796,8 +2245,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgFractionalCadence {
-     final field = getField(SegmentLapAvgFractionalCadenceField.ID);
+    final field = getField(SegmentLapAvgFractionalCadenceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1805,7 +2255,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set avgFractionalCadence(double? value) {
+
+  set avgFractionalCadence(double? value) {
     final field = getField(SegmentLapAvgFractionalCadenceField.ID);
 
     if (field != null) {
@@ -1817,8 +2268,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get maxFractionalCadence {
-     final field = getField(SegmentLapMaxFractionalCadenceField.ID);
+    final field = getField(SegmentLapMaxFractionalCadenceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1826,7 +2278,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set maxFractionalCadence(double? value) {
+
+  set maxFractionalCadence(double? value) {
     final field = getField(SegmentLapMaxFractionalCadenceField.ID);
 
     if (field != null) {
@@ -1838,8 +2291,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get totalFractionalCycles {
-     final field = getField(SegmentLapTotalFractionalCyclesField.ID);
+    final field = getField(SegmentLapTotalFractionalCyclesField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1847,7 +2301,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set totalFractionalCycles(double? value) {
+
+  set totalFractionalCycles(double? value) {
     final field = getField(SegmentLapTotalFractionalCyclesField.ID);
 
     if (field != null) {
@@ -1859,8 +2314,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   int? get frontGearShiftCount {
-     final field = getField(SegmentLapFrontGearShiftCountField.ID);
+    final field = getField(SegmentLapFrontGearShiftCountField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1868,7 +2324,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set frontGearShiftCount(int? value) {
+
+  set frontGearShiftCount(int? value) {
     final field = getField(SegmentLapFrontGearShiftCountField.ID);
 
     if (field != null) {
@@ -1880,8 +2337,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   int? get rearGearShiftCount {
-     final field = getField(SegmentLapRearGearShiftCountField.ID);
+    final field = getField(SegmentLapRearGearShiftCountField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1889,7 +2347,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set rearGearShiftCount(int? value) {
+
+  set rearGearShiftCount(int? value) {
     final field = getField(SegmentLapRearGearShiftCountField.ID);
 
     if (field != null) {
@@ -1901,8 +2360,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get timeStanding {
-     final field = getField(SegmentLapTimeStandingField.ID);
+    final field = getField(SegmentLapTimeStandingField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1910,7 +2370,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set timeStanding(double? value) {
+
+  set timeStanding(double? value) {
     final field = getField(SegmentLapTimeStandingField.ID);
 
     if (field != null) {
@@ -1922,8 +2383,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   int? get standCount {
-     final field = getField(SegmentLapStandCountField.ID);
+    final field = getField(SegmentLapStandCountField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1931,7 +2393,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set standCount(int? value) {
+
+  set standCount(int? value) {
     final field = getField(SegmentLapStandCountField.ID);
 
     if (field != null) {
@@ -1943,8 +2406,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   int? get avgLeftPco {
-     final field = getField(SegmentLapAvgLeftPcoField.ID);
+    final field = getField(SegmentLapAvgLeftPcoField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1952,7 +2416,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set avgLeftPco(int? value) {
+
+  set avgLeftPco(int? value) {
     final field = getField(SegmentLapAvgLeftPcoField.ID);
 
     if (field != null) {
@@ -1964,8 +2429,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   int? get avgRightPco {
-     final field = getField(SegmentLapAvgRightPcoField.ID);
+    final field = getField(SegmentLapAvgRightPcoField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1973,7 +2439,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set avgRightPco(int? value) {
+
+  set avgRightPco(int? value) {
     final field = getField(SegmentLapAvgRightPcoField.ID);
 
     if (field != null) {
@@ -1985,8 +2452,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgLeftPowerPhase {
-     final field = getField(SegmentLapAvgLeftPowerPhaseField.ID);
+    final field = getField(SegmentLapAvgLeftPowerPhaseField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1994,7 +2462,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set avgLeftPowerPhase(double? value) {
+
+  set avgLeftPowerPhase(double? value) {
     final field = getField(SegmentLapAvgLeftPowerPhaseField.ID);
 
     if (field != null) {
@@ -2006,8 +2475,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgLeftPowerPhasePeak {
-     final field = getField(SegmentLapAvgLeftPowerPhasePeakField.ID);
+    final field = getField(SegmentLapAvgLeftPowerPhasePeakField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2015,7 +2485,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set avgLeftPowerPhasePeak(double? value) {
+
+  set avgLeftPowerPhasePeak(double? value) {
     final field = getField(SegmentLapAvgLeftPowerPhasePeakField.ID);
 
     if (field != null) {
@@ -2027,8 +2498,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgRightPowerPhase {
-     final field = getField(SegmentLapAvgRightPowerPhaseField.ID);
+    final field = getField(SegmentLapAvgRightPowerPhaseField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2036,7 +2508,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set avgRightPowerPhase(double? value) {
+
+  set avgRightPowerPhase(double? value) {
     final field = getField(SegmentLapAvgRightPowerPhaseField.ID);
 
     if (field != null) {
@@ -2048,8 +2521,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgRightPowerPhasePeak {
-     final field = getField(SegmentLapAvgRightPowerPhasePeakField.ID);
+    final field = getField(SegmentLapAvgRightPowerPhasePeakField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2057,7 +2531,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set avgRightPowerPhasePeak(double? value) {
+
+  set avgRightPowerPhasePeak(double? value) {
     final field = getField(SegmentLapAvgRightPowerPhasePeakField.ID);
 
     if (field != null) {
@@ -2069,8 +2544,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   int? get avgPowerPosition {
-     final field = getField(SegmentLapAvgPowerPositionField.ID);
+    final field = getField(SegmentLapAvgPowerPositionField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2078,7 +2554,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set avgPowerPosition(int? value) {
+
+  set avgPowerPosition(int? value) {
     final field = getField(SegmentLapAvgPowerPositionField.ID);
 
     if (field != null) {
@@ -2090,8 +2567,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   int? get maxPowerPosition {
-     final field = getField(SegmentLapMaxPowerPositionField.ID);
+    final field = getField(SegmentLapMaxPowerPositionField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2099,7 +2577,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set maxPowerPosition(int? value) {
+
+  set maxPowerPosition(int? value) {
     final field = getField(SegmentLapMaxPowerPositionField.ID);
 
     if (field != null) {
@@ -2111,8 +2590,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   int? get avgCadencePosition {
-     final field = getField(SegmentLapAvgCadencePositionField.ID);
+    final field = getField(SegmentLapAvgCadencePositionField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2120,7 +2600,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set avgCadencePosition(int? value) {
+
+  set avgCadencePosition(int? value) {
     final field = getField(SegmentLapAvgCadencePositionField.ID);
 
     if (field != null) {
@@ -2132,8 +2613,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   int? get maxCadencePosition {
-     final field = getField(SegmentLapMaxCadencePositionField.ID);
+    final field = getField(SegmentLapMaxCadencePositionField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2141,7 +2623,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set maxCadencePosition(int? value) {
+
+  set maxCadencePosition(int? value) {
     final field = getField(SegmentLapMaxCadencePositionField.ID);
 
     if (field != null) {
@@ -2153,8 +2636,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   int? get manufacturer {
-     final field = getField(SegmentLapManufacturerField.ID);
+    final field = getField(SegmentLapManufacturerField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2162,7 +2646,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set manufacturer(int? value) {
+
+  set manufacturer(int? value) {
     final field = getField(SegmentLapManufacturerField.ID);
 
     if (field != null) {
@@ -2174,8 +2659,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get totalGrit {
-     final field = getField(SegmentLapTotalGritField.ID);
+    final field = getField(SegmentLapTotalGritField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2183,7 +2669,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set totalGrit(double? value) {
+
+  set totalGrit(double? value) {
     final field = getField(SegmentLapTotalGritField.ID);
 
     if (field != null) {
@@ -2195,8 +2682,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get totalFlow {
-     final field = getField(SegmentLapTotalFlowField.ID);
+    final field = getField(SegmentLapTotalFlowField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2204,7 +2692,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set totalFlow(double? value) {
+
+  set totalFlow(double? value) {
     final field = getField(SegmentLapTotalFlowField.ID);
 
     if (field != null) {
@@ -2216,8 +2705,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgGrit {
-     final field = getField(SegmentLapAvgGritField.ID);
+    final field = getField(SegmentLapAvgGritField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2225,7 +2715,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set avgGrit(double? value) {
+
+  set avgGrit(double? value) {
     final field = getField(SegmentLapAvgGritField.ID);
 
     if (field != null) {
@@ -2237,8 +2728,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get avgFlow {
-     final field = getField(SegmentLapAvgFlowField.ID);
+    final field = getField(SegmentLapAvgFlowField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2246,7 +2738,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set avgFlow(double? value) {
+
+  set avgFlow(double? value) {
     final field = getField(SegmentLapAvgFlowField.ID);
 
     if (field != null) {
@@ -2258,8 +2751,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get totalFractionalAscent {
-     final field = getField(SegmentLapTotalFractionalAscentField.ID);
+    final field = getField(SegmentLapTotalFractionalAscentField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2267,7 +2761,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set totalFractionalAscent(double? value) {
+
+  set totalFractionalAscent(double? value) {
     final field = getField(SegmentLapTotalFractionalAscentField.ID);
 
     if (field != null) {
@@ -2279,8 +2774,9 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
+
   double? get totalFractionalDescent {
-     final field = getField(SegmentLapTotalFractionalDescentField.ID);
+    final field = getField(SegmentLapTotalFractionalDescentField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2288,7 +2784,8 @@ class SegmentLapMessage extends DataMessage {
       return null;
     }
   }
-   set totalFractionalDescent(double? value) {
+
+  set totalFractionalDescent(double? value) {
     final field = getField(SegmentLapTotalFractionalDescentField.ID);
 
     if (field != null) {
@@ -2300,15 +2797,10 @@ class SegmentLapMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class SegmentLapEventField extends Field {
- SegmentLapEventField({int size = 0, bool growable = true})
+  SegmentLapEventField({int size = 0, bool growable = true})
       : super(
             name: 'event',
             id: ID,
@@ -2317,14 +2809,13 @@ class SegmentLapEventField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class SegmentLapEventTypeField extends Field {
- SegmentLapEventTypeField({int size = 0, bool growable = true})
+  SegmentLapEventTypeField({int size = 0, bool growable = true})
       : super(
             name: 'event_type',
             id: ID,
@@ -2333,14 +2824,13 @@ class SegmentLapEventTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class SegmentLapStartTimeField extends Field {
- SegmentLapStartTimeField({int size = 0, bool growable = true})
+  SegmentLapStartTimeField({int size = 0, bool growable = true})
       : super(
             name: 'start_time',
             id: ID,
@@ -2351,14 +2841,13 @@ class SegmentLapStartTimeField extends Field {
             units: 'ms',
             mainTypeName: 'date_time',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class SegmentLapStartPositionLatField extends Field {
- SegmentLapStartPositionLatField({int size = 0, bool growable = true})
+  SegmentLapStartPositionLatField({int size = 0, bool growable = true})
       : super(
             name: 'start_position_lat',
             id: ID,
@@ -2369,14 +2858,13 @@ class SegmentLapStartPositionLatField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class SegmentLapStartPositionLongField extends Field {
- SegmentLapStartPositionLongField({int size = 0, bool growable = true})
+  SegmentLapStartPositionLongField({int size = 0, bool growable = true})
       : super(
             name: 'start_position_long',
             id: ID,
@@ -2387,14 +2875,13 @@ class SegmentLapStartPositionLongField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class SegmentLapEndPositionLatField extends Field {
- SegmentLapEndPositionLatField({int size = 0, bool growable = true})
+  SegmentLapEndPositionLatField({int size = 0, bool growable = true})
       : super(
             name: 'end_position_lat',
             id: ID,
@@ -2405,14 +2892,13 @@ class SegmentLapEndPositionLatField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }
+
 class SegmentLapEndPositionLongField extends Field {
- SegmentLapEndPositionLongField({int size = 0, bool growable = true})
+  SegmentLapEndPositionLongField({int size = 0, bool growable = true})
       : super(
             name: 'end_position_long',
             id: ID,
@@ -2423,14 +2909,13 @@ class SegmentLapEndPositionLongField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 6;
 }
+
 class SegmentLapTotalElapsedTimeField extends Field {
- SegmentLapTotalElapsedTimeField({int size = 0, bool growable = true})
+  SegmentLapTotalElapsedTimeField({int size = 0, bool growable = true})
       : super(
             name: 'total_elapsed_time',
             id: ID,
@@ -2441,14 +2926,13 @@ class SegmentLapTotalElapsedTimeField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 7;
 }
+
 class SegmentLapTotalTimerTimeField extends Field {
- SegmentLapTotalTimerTimeField({int size = 0, bool growable = true})
+  SegmentLapTotalTimerTimeField({int size = 0, bool growable = true})
       : super(
             name: 'total_timer_time',
             id: ID,
@@ -2459,14 +2943,13 @@ class SegmentLapTotalTimerTimeField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 8;
 }
+
 class SegmentLapTotalDistanceField extends Field {
- SegmentLapTotalDistanceField({int size = 0, bool growable = true})
+  SegmentLapTotalDistanceField({int size = 0, bool growable = true})
       : super(
             name: 'total_distance',
             id: ID,
@@ -2477,14 +2960,13 @@ class SegmentLapTotalDistanceField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 9;
 }
+
 class SegmentLapTotalCyclesField extends Field {
- SegmentLapTotalCyclesField({int size = 0, bool growable = true})
+  SegmentLapTotalCyclesField({int size = 0, bool growable = true})
       : super(
             name: 'total_cycles',
             id: ID,
@@ -2496,22 +2978,22 @@ class SegmentLapTotalCyclesField extends Field {
             mainTypeName: '',
             growable: growable,
             subFields: [
-       SubField(
+              SubField(
                   name: 'total_strokes',
                   type: BaseType.UINT32,
                   scale: 1,
                   offset: 0,
                   units: 'strokes',
                   referenceMap: {
-                  SegmentLapSportField.ID: [2]
+                    SegmentLapSportField.ID: [2]
                   })
-            ]
- );
+            ]);
 
   static const ID = 10;
 }
+
 class SegmentLapTotalCaloriesField extends Field {
- SegmentLapTotalCaloriesField({int size = 0, bool growable = true})
+  SegmentLapTotalCaloriesField({int size = 0, bool growable = true})
       : super(
             name: 'total_calories',
             id: ID,
@@ -2522,14 +3004,13 @@ class SegmentLapTotalCaloriesField extends Field {
             units: 'kcal',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 11;
 }
+
 class SegmentLapTotalFatCaloriesField extends Field {
- SegmentLapTotalFatCaloriesField({int size = 0, bool growable = true})
+  SegmentLapTotalFatCaloriesField({int size = 0, bool growable = true})
       : super(
             name: 'total_fat_calories',
             id: ID,
@@ -2540,14 +3021,13 @@ class SegmentLapTotalFatCaloriesField extends Field {
             units: 'kcal',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 12;
 }
+
 class SegmentLapAvgSpeedField extends Field {
- SegmentLapAvgSpeedField({int size = 0, bool growable = true})
+  SegmentLapAvgSpeedField({int size = 0, bool growable = true})
       : super(
             name: 'avg_speed',
             id: ID,
@@ -2558,14 +3038,13 @@ class SegmentLapAvgSpeedField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 13;
 }
+
 class SegmentLapMaxSpeedField extends Field {
- SegmentLapMaxSpeedField({int size = 0, bool growable = true})
+  SegmentLapMaxSpeedField({int size = 0, bool growable = true})
       : super(
             name: 'max_speed',
             id: ID,
@@ -2576,14 +3055,13 @@ class SegmentLapMaxSpeedField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 14;
 }
+
 class SegmentLapAvgHeartRateField extends Field {
- SegmentLapAvgHeartRateField({int size = 0, bool growable = true})
+  SegmentLapAvgHeartRateField({int size = 0, bool growable = true})
       : super(
             name: 'avg_heart_rate',
             id: ID,
@@ -2594,14 +3072,13 @@ class SegmentLapAvgHeartRateField extends Field {
             units: 'bpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 15;
 }
+
 class SegmentLapMaxHeartRateField extends Field {
- SegmentLapMaxHeartRateField({int size = 0, bool growable = true})
+  SegmentLapMaxHeartRateField({int size = 0, bool growable = true})
       : super(
             name: 'max_heart_rate',
             id: ID,
@@ -2612,14 +3089,13 @@ class SegmentLapMaxHeartRateField extends Field {
             units: 'bpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 16;
 }
+
 class SegmentLapAvgCadenceField extends Field {
- SegmentLapAvgCadenceField({int size = 0, bool growable = true})
+  SegmentLapAvgCadenceField({int size = 0, bool growable = true})
       : super(
             name: 'avg_cadence',
             id: ID,
@@ -2630,14 +3106,13 @@ class SegmentLapAvgCadenceField extends Field {
             units: 'rpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 17;
 }
+
 class SegmentLapMaxCadenceField extends Field {
- SegmentLapMaxCadenceField({int size = 0, bool growable = true})
+  SegmentLapMaxCadenceField({int size = 0, bool growable = true})
       : super(
             name: 'max_cadence',
             id: ID,
@@ -2648,14 +3123,13 @@ class SegmentLapMaxCadenceField extends Field {
             units: 'rpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 18;
 }
+
 class SegmentLapAvgPowerField extends Field {
- SegmentLapAvgPowerField({int size = 0, bool growable = true})
+  SegmentLapAvgPowerField({int size = 0, bool growable = true})
       : super(
             name: 'avg_power',
             id: ID,
@@ -2666,14 +3140,13 @@ class SegmentLapAvgPowerField extends Field {
             units: 'watts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 19;
 }
+
 class SegmentLapMaxPowerField extends Field {
- SegmentLapMaxPowerField({int size = 0, bool growable = true})
+  SegmentLapMaxPowerField({int size = 0, bool growable = true})
       : super(
             name: 'max_power',
             id: ID,
@@ -2684,14 +3157,13 @@ class SegmentLapMaxPowerField extends Field {
             units: 'watts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 20;
 }
+
 class SegmentLapTotalAscentField extends Field {
- SegmentLapTotalAscentField({int size = 0, bool growable = true})
+  SegmentLapTotalAscentField({int size = 0, bool growable = true})
       : super(
             name: 'total_ascent',
             id: ID,
@@ -2702,14 +3174,13 @@ class SegmentLapTotalAscentField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 21;
 }
+
 class SegmentLapTotalDescentField extends Field {
- SegmentLapTotalDescentField({int size = 0, bool growable = true})
+  SegmentLapTotalDescentField({int size = 0, bool growable = true})
       : super(
             name: 'total_descent',
             id: ID,
@@ -2720,14 +3191,13 @@ class SegmentLapTotalDescentField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 22;
 }
+
 class SegmentLapSportField extends Field {
- SegmentLapSportField({int size = 0, bool growable = true})
+  SegmentLapSportField({int size = 0, bool growable = true})
       : super(
             name: 'sport',
             id: ID,
@@ -2736,14 +3206,13 @@ class SegmentLapSportField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 23;
 }
+
 class SegmentLapEventGroupField extends Field {
- SegmentLapEventGroupField({int size = 0, bool growable = true})
+  SegmentLapEventGroupField({int size = 0, bool growable = true})
       : super(
             name: 'event_group',
             id: ID,
@@ -2752,14 +3221,13 @@ class SegmentLapEventGroupField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 24;
 }
+
 class SegmentLapNecLatField extends Field {
- SegmentLapNecLatField({int size = 0, bool growable = true})
+  SegmentLapNecLatField({int size = 0, bool growable = true})
       : super(
             name: 'nec_lat',
             id: ID,
@@ -2770,14 +3238,13 @@ class SegmentLapNecLatField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 25;
 }
+
 class SegmentLapNecLongField extends Field {
- SegmentLapNecLongField({int size = 0, bool growable = true})
+  SegmentLapNecLongField({int size = 0, bool growable = true})
       : super(
             name: 'nec_long',
             id: ID,
@@ -2788,14 +3255,13 @@ class SegmentLapNecLongField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 26;
 }
+
 class SegmentLapSwcLatField extends Field {
- SegmentLapSwcLatField({int size = 0, bool growable = true})
+  SegmentLapSwcLatField({int size = 0, bool growable = true})
       : super(
             name: 'swc_lat',
             id: ID,
@@ -2806,14 +3272,13 @@ class SegmentLapSwcLatField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 27;
 }
+
 class SegmentLapSwcLongField extends Field {
- SegmentLapSwcLongField({int size = 0, bool growable = true})
+  SegmentLapSwcLongField({int size = 0, bool growable = true})
       : super(
             name: 'swc_long',
             id: ID,
@@ -2824,14 +3289,13 @@ class SegmentLapSwcLongField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 28;
 }
+
 class SegmentLapNameField extends Field {
- SegmentLapNameField({int size = 0, bool growable = true})
+  SegmentLapNameField({int size = 0, bool growable = true})
       : super(
             name: 'name',
             id: ID,
@@ -2840,14 +3304,13 @@ class SegmentLapNameField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 29;
 }
+
 class SegmentLapNormalizedPowerField extends Field {
- SegmentLapNormalizedPowerField({int size = 0, bool growable = true})
+  SegmentLapNormalizedPowerField({int size = 0, bool growable = true})
       : super(
             name: 'normalized_power',
             id: ID,
@@ -2858,14 +3321,13 @@ class SegmentLapNormalizedPowerField extends Field {
             units: 'watts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 30;
 }
+
 class SegmentLapLeftRightBalanceField extends Field {
- SegmentLapLeftRightBalanceField({int size = 0, bool growable = true})
+  SegmentLapLeftRightBalanceField({int size = 0, bool growable = true})
       : super(
             name: 'left_right_balance',
             id: ID,
@@ -2874,14 +3336,13 @@ class SegmentLapLeftRightBalanceField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 31;
 }
+
 class SegmentLapSubSportField extends Field {
- SegmentLapSubSportField({int size = 0, bool growable = true})
+  SegmentLapSubSportField({int size = 0, bool growable = true})
       : super(
             name: 'sub_sport',
             id: ID,
@@ -2890,14 +3351,13 @@ class SegmentLapSubSportField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 32;
 }
+
 class SegmentLapTotalWorkField extends Field {
- SegmentLapTotalWorkField({int size = 0, bool growable = true})
+  SegmentLapTotalWorkField({int size = 0, bool growable = true})
       : super(
             name: 'total_work',
             id: ID,
@@ -2908,14 +3368,13 @@ class SegmentLapTotalWorkField extends Field {
             units: 'J',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 33;
 }
+
 class SegmentLapAvgAltitudeField extends Field {
- SegmentLapAvgAltitudeField({int size = 0, bool growable = true})
+  SegmentLapAvgAltitudeField({int size = 0, bool growable = true})
       : super(
             name: 'avg_altitude',
             id: ID,
@@ -2926,14 +3385,13 @@ class SegmentLapAvgAltitudeField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 34;
 }
+
 class SegmentLapMaxAltitudeField extends Field {
- SegmentLapMaxAltitudeField({int size = 0, bool growable = true})
+  SegmentLapMaxAltitudeField({int size = 0, bool growable = true})
       : super(
             name: 'max_altitude',
             id: ID,
@@ -2944,14 +3402,13 @@ class SegmentLapMaxAltitudeField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 35;
 }
+
 class SegmentLapGpsAccuracyField extends Field {
- SegmentLapGpsAccuracyField({int size = 0, bool growable = true})
+  SegmentLapGpsAccuracyField({int size = 0, bool growable = true})
       : super(
             name: 'gps_accuracy',
             id: ID,
@@ -2962,14 +3419,13 @@ class SegmentLapGpsAccuracyField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 36;
 }
+
 class SegmentLapAvgGradeField extends Field {
- SegmentLapAvgGradeField({int size = 0, bool growable = true})
+  SegmentLapAvgGradeField({int size = 0, bool growable = true})
       : super(
             name: 'avg_grade',
             id: ID,
@@ -2980,14 +3436,13 @@ class SegmentLapAvgGradeField extends Field {
             units: '%',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 37;
 }
+
 class SegmentLapAvgPosGradeField extends Field {
- SegmentLapAvgPosGradeField({int size = 0, bool growable = true})
+  SegmentLapAvgPosGradeField({int size = 0, bool growable = true})
       : super(
             name: 'avg_pos_grade',
             id: ID,
@@ -2998,14 +3453,13 @@ class SegmentLapAvgPosGradeField extends Field {
             units: '%',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 38;
 }
+
 class SegmentLapAvgNegGradeField extends Field {
- SegmentLapAvgNegGradeField({int size = 0, bool growable = true})
+  SegmentLapAvgNegGradeField({int size = 0, bool growable = true})
       : super(
             name: 'avg_neg_grade',
             id: ID,
@@ -3016,14 +3470,13 @@ class SegmentLapAvgNegGradeField extends Field {
             units: '%',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 39;
 }
+
 class SegmentLapMaxPosGradeField extends Field {
- SegmentLapMaxPosGradeField({int size = 0, bool growable = true})
+  SegmentLapMaxPosGradeField({int size = 0, bool growable = true})
       : super(
             name: 'max_pos_grade',
             id: ID,
@@ -3034,14 +3487,13 @@ class SegmentLapMaxPosGradeField extends Field {
             units: '%',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 40;
 }
+
 class SegmentLapMaxNegGradeField extends Field {
- SegmentLapMaxNegGradeField({int size = 0, bool growable = true})
+  SegmentLapMaxNegGradeField({int size = 0, bool growable = true})
       : super(
             name: 'max_neg_grade',
             id: ID,
@@ -3052,14 +3504,13 @@ class SegmentLapMaxNegGradeField extends Field {
             units: '%',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 41;
 }
+
 class SegmentLapAvgTemperatureField extends Field {
- SegmentLapAvgTemperatureField({int size = 0, bool growable = true})
+  SegmentLapAvgTemperatureField({int size = 0, bool growable = true})
       : super(
             name: 'avg_temperature',
             id: ID,
@@ -3070,14 +3521,13 @@ class SegmentLapAvgTemperatureField extends Field {
             units: 'C',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 42;
 }
+
 class SegmentLapMaxTemperatureField extends Field {
- SegmentLapMaxTemperatureField({int size = 0, bool growable = true})
+  SegmentLapMaxTemperatureField({int size = 0, bool growable = true})
       : super(
             name: 'max_temperature',
             id: ID,
@@ -3088,14 +3538,13 @@ class SegmentLapMaxTemperatureField extends Field {
             units: 'C',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 43;
 }
+
 class SegmentLapTotalMovingTimeField extends Field {
- SegmentLapTotalMovingTimeField({int size = 0, bool growable = true})
+  SegmentLapTotalMovingTimeField({int size = 0, bool growable = true})
       : super(
             name: 'total_moving_time',
             id: ID,
@@ -3106,14 +3555,13 @@ class SegmentLapTotalMovingTimeField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 44;
 }
+
 class SegmentLapAvgPosVerticalSpeedField extends Field {
- SegmentLapAvgPosVerticalSpeedField({int size = 0, bool growable = true})
+  SegmentLapAvgPosVerticalSpeedField({int size = 0, bool growable = true})
       : super(
             name: 'avg_pos_vertical_speed',
             id: ID,
@@ -3124,14 +3572,13 @@ class SegmentLapAvgPosVerticalSpeedField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 45;
 }
+
 class SegmentLapAvgNegVerticalSpeedField extends Field {
- SegmentLapAvgNegVerticalSpeedField({int size = 0, bool growable = true})
+  SegmentLapAvgNegVerticalSpeedField({int size = 0, bool growable = true})
       : super(
             name: 'avg_neg_vertical_speed',
             id: ID,
@@ -3142,14 +3589,13 @@ class SegmentLapAvgNegVerticalSpeedField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 46;
 }
+
 class SegmentLapMaxPosVerticalSpeedField extends Field {
- SegmentLapMaxPosVerticalSpeedField({int size = 0, bool growable = true})
+  SegmentLapMaxPosVerticalSpeedField({int size = 0, bool growable = true})
       : super(
             name: 'max_pos_vertical_speed',
             id: ID,
@@ -3160,14 +3606,13 @@ class SegmentLapMaxPosVerticalSpeedField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 47;
 }
+
 class SegmentLapMaxNegVerticalSpeedField extends Field {
- SegmentLapMaxNegVerticalSpeedField({int size = 0, bool growable = true})
+  SegmentLapMaxNegVerticalSpeedField({int size = 0, bool growable = true})
       : super(
             name: 'max_neg_vertical_speed',
             id: ID,
@@ -3178,14 +3623,13 @@ class SegmentLapMaxNegVerticalSpeedField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 48;
 }
+
 class SegmentLapTimeInHrZoneField extends Field {
- SegmentLapTimeInHrZoneField({int size = 0, bool growable = true})
+  SegmentLapTimeInHrZoneField({int size = 0, bool growable = true})
       : super(
             name: 'time_in_hr_zone',
             id: ID,
@@ -3196,14 +3640,13 @@ class SegmentLapTimeInHrZoneField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 49;
 }
+
 class SegmentLapTimeInSpeedZoneField extends Field {
- SegmentLapTimeInSpeedZoneField({int size = 0, bool growable = true})
+  SegmentLapTimeInSpeedZoneField({int size = 0, bool growable = true})
       : super(
             name: 'time_in_speed_zone',
             id: ID,
@@ -3214,14 +3657,13 @@ class SegmentLapTimeInSpeedZoneField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 50;
 }
+
 class SegmentLapTimeInCadenceZoneField extends Field {
- SegmentLapTimeInCadenceZoneField({int size = 0, bool growable = true})
+  SegmentLapTimeInCadenceZoneField({int size = 0, bool growable = true})
       : super(
             name: 'time_in_cadence_zone',
             id: ID,
@@ -3232,14 +3674,13 @@ class SegmentLapTimeInCadenceZoneField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 51;
 }
+
 class SegmentLapTimeInPowerZoneField extends Field {
- SegmentLapTimeInPowerZoneField({int size = 0, bool growable = true})
+  SegmentLapTimeInPowerZoneField({int size = 0, bool growable = true})
       : super(
             name: 'time_in_power_zone',
             id: ID,
@@ -3250,14 +3691,13 @@ class SegmentLapTimeInPowerZoneField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 52;
 }
+
 class SegmentLapRepetitionNumField extends Field {
- SegmentLapRepetitionNumField({int size = 0, bool growable = true})
+  SegmentLapRepetitionNumField({int size = 0, bool growable = true})
       : super(
             name: 'repetition_num',
             id: ID,
@@ -3266,14 +3706,13 @@ class SegmentLapRepetitionNumField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 53;
 }
+
 class SegmentLapMinAltitudeField extends Field {
- SegmentLapMinAltitudeField({int size = 0, bool growable = true})
+  SegmentLapMinAltitudeField({int size = 0, bool growable = true})
       : super(
             name: 'min_altitude',
             id: ID,
@@ -3284,14 +3723,13 @@ class SegmentLapMinAltitudeField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 54;
 }
+
 class SegmentLapMinHeartRateField extends Field {
- SegmentLapMinHeartRateField({int size = 0, bool growable = true})
+  SegmentLapMinHeartRateField({int size = 0, bool growable = true})
       : super(
             name: 'min_heart_rate',
             id: ID,
@@ -3302,14 +3740,13 @@ class SegmentLapMinHeartRateField extends Field {
             units: 'bpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 55;
 }
+
 class SegmentLapActiveTimeField extends Field {
- SegmentLapActiveTimeField({int size = 0, bool growable = true})
+  SegmentLapActiveTimeField({int size = 0, bool growable = true})
       : super(
             name: 'active_time',
             id: ID,
@@ -3320,14 +3757,13 @@ class SegmentLapActiveTimeField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 56;
 }
+
 class SegmentLapWorkoutStepIndexField extends Field {
- SegmentLapWorkoutStepIndexField({int size = 0, bool growable = true})
+  SegmentLapWorkoutStepIndexField({int size = 0, bool growable = true})
       : super(
             name: 'wkt_step_index',
             id: ID,
@@ -3336,14 +3772,13 @@ class SegmentLapWorkoutStepIndexField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 57;
 }
+
 class SegmentLapSportEventField extends Field {
- SegmentLapSportEventField({int size = 0, bool growable = true})
+  SegmentLapSportEventField({int size = 0, bool growable = true})
       : super(
             name: 'sport_event',
             id: ID,
@@ -3352,14 +3787,14 @@ class SegmentLapSportEventField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 58;
 }
+
 class SegmentLapAvgLeftTorqueEffectivenessField extends Field {
- SegmentLapAvgLeftTorqueEffectivenessField({int size = 0, bool growable = true})
+  SegmentLapAvgLeftTorqueEffectivenessField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'avg_left_torque_effectiveness',
             id: ID,
@@ -3370,14 +3805,14 @@ class SegmentLapAvgLeftTorqueEffectivenessField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 59;
 }
+
 class SegmentLapAvgRightTorqueEffectivenessField extends Field {
- SegmentLapAvgRightTorqueEffectivenessField({int size = 0, bool growable = true})
+  SegmentLapAvgRightTorqueEffectivenessField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'avg_right_torque_effectiveness',
             id: ID,
@@ -3388,14 +3823,13 @@ class SegmentLapAvgRightTorqueEffectivenessField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 60;
 }
+
 class SegmentLapAvgLeftPedalSmoothnessField extends Field {
- SegmentLapAvgLeftPedalSmoothnessField({int size = 0, bool growable = true})
+  SegmentLapAvgLeftPedalSmoothnessField({int size = 0, bool growable = true})
       : super(
             name: 'avg_left_pedal_smoothness',
             id: ID,
@@ -3406,14 +3840,13 @@ class SegmentLapAvgLeftPedalSmoothnessField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 61;
 }
+
 class SegmentLapAvgRightPedalSmoothnessField extends Field {
- SegmentLapAvgRightPedalSmoothnessField({int size = 0, bool growable = true})
+  SegmentLapAvgRightPedalSmoothnessField({int size = 0, bool growable = true})
       : super(
             name: 'avg_right_pedal_smoothness',
             id: ID,
@@ -3424,14 +3857,14 @@ class SegmentLapAvgRightPedalSmoothnessField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 62;
 }
+
 class SegmentLapAvgCombinedPedalSmoothnessField extends Field {
- SegmentLapAvgCombinedPedalSmoothnessField({int size = 0, bool growable = true})
+  SegmentLapAvgCombinedPedalSmoothnessField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'avg_combined_pedal_smoothness',
             id: ID,
@@ -3442,14 +3875,13 @@ class SegmentLapAvgCombinedPedalSmoothnessField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 63;
 }
+
 class SegmentLapStatusField extends Field {
- SegmentLapStatusField({int size = 0, bool growable = true})
+  SegmentLapStatusField({int size = 0, bool growable = true})
       : super(
             name: 'status',
             id: ID,
@@ -3458,14 +3890,13 @@ class SegmentLapStatusField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 64;
 }
+
 class SegmentLapUuidField extends Field {
- SegmentLapUuidField({int size = 0, bool growable = true})
+  SegmentLapUuidField({int size = 0, bool growable = true})
       : super(
             name: 'uuid',
             id: ID,
@@ -3474,14 +3905,13 @@ class SegmentLapUuidField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 65;
 }
+
 class SegmentLapAvgFractionalCadenceField extends Field {
- SegmentLapAvgFractionalCadenceField({int size = 0, bool growable = true})
+  SegmentLapAvgFractionalCadenceField({int size = 0, bool growable = true})
       : super(
             name: 'avg_fractional_cadence',
             id: ID,
@@ -3492,14 +3922,13 @@ class SegmentLapAvgFractionalCadenceField extends Field {
             units: 'rpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 66;
 }
+
 class SegmentLapMaxFractionalCadenceField extends Field {
- SegmentLapMaxFractionalCadenceField({int size = 0, bool growable = true})
+  SegmentLapMaxFractionalCadenceField({int size = 0, bool growable = true})
       : super(
             name: 'max_fractional_cadence',
             id: ID,
@@ -3510,14 +3939,13 @@ class SegmentLapMaxFractionalCadenceField extends Field {
             units: 'rpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 67;
 }
+
 class SegmentLapTotalFractionalCyclesField extends Field {
- SegmentLapTotalFractionalCyclesField({int size = 0, bool growable = true})
+  SegmentLapTotalFractionalCyclesField({int size = 0, bool growable = true})
       : super(
             name: 'total_fractional_cycles',
             id: ID,
@@ -3528,14 +3956,13 @@ class SegmentLapTotalFractionalCyclesField extends Field {
             units: 'cycles',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 68;
 }
+
 class SegmentLapFrontGearShiftCountField extends Field {
- SegmentLapFrontGearShiftCountField({int size = 0, bool growable = true})
+  SegmentLapFrontGearShiftCountField({int size = 0, bool growable = true})
       : super(
             name: 'front_gear_shift_count',
             id: ID,
@@ -3544,14 +3971,13 @@ class SegmentLapFrontGearShiftCountField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 69;
 }
+
 class SegmentLapRearGearShiftCountField extends Field {
- SegmentLapRearGearShiftCountField({int size = 0, bool growable = true})
+  SegmentLapRearGearShiftCountField({int size = 0, bool growable = true})
       : super(
             name: 'rear_gear_shift_count',
             id: ID,
@@ -3560,14 +3986,13 @@ class SegmentLapRearGearShiftCountField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 70;
 }
+
 class SegmentLapTimeStandingField extends Field {
- SegmentLapTimeStandingField({int size = 0, bool growable = true})
+  SegmentLapTimeStandingField({int size = 0, bool growable = true})
       : super(
             name: 'time_standing',
             id: ID,
@@ -3578,14 +4003,13 @@ class SegmentLapTimeStandingField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 71;
 }
+
 class SegmentLapStandCountField extends Field {
- SegmentLapStandCountField({int size = 0, bool growable = true})
+  SegmentLapStandCountField({int size = 0, bool growable = true})
       : super(
             name: 'stand_count',
             id: ID,
@@ -3594,14 +4018,13 @@ class SegmentLapStandCountField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 72;
 }
+
 class SegmentLapAvgLeftPcoField extends Field {
- SegmentLapAvgLeftPcoField({int size = 0, bool growable = true})
+  SegmentLapAvgLeftPcoField({int size = 0, bool growable = true})
       : super(
             name: 'avg_left_pco',
             id: ID,
@@ -3612,14 +4035,13 @@ class SegmentLapAvgLeftPcoField extends Field {
             units: 'mm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 73;
 }
+
 class SegmentLapAvgRightPcoField extends Field {
- SegmentLapAvgRightPcoField({int size = 0, bool growable = true})
+  SegmentLapAvgRightPcoField({int size = 0, bool growable = true})
       : super(
             name: 'avg_right_pco',
             id: ID,
@@ -3630,14 +4052,13 @@ class SegmentLapAvgRightPcoField extends Field {
             units: 'mm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 74;
 }
+
 class SegmentLapAvgLeftPowerPhaseField extends Field {
- SegmentLapAvgLeftPowerPhaseField({int size = 0, bool growable = true})
+  SegmentLapAvgLeftPowerPhaseField({int size = 0, bool growable = true})
       : super(
             name: 'avg_left_power_phase',
             id: ID,
@@ -3648,14 +4069,13 @@ class SegmentLapAvgLeftPowerPhaseField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 75;
 }
+
 class SegmentLapAvgLeftPowerPhasePeakField extends Field {
- SegmentLapAvgLeftPowerPhasePeakField({int size = 0, bool growable = true})
+  SegmentLapAvgLeftPowerPhasePeakField({int size = 0, bool growable = true})
       : super(
             name: 'avg_left_power_phase_peak',
             id: ID,
@@ -3666,14 +4086,13 @@ class SegmentLapAvgLeftPowerPhasePeakField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 76;
 }
+
 class SegmentLapAvgRightPowerPhaseField extends Field {
- SegmentLapAvgRightPowerPhaseField({int size = 0, bool growable = true})
+  SegmentLapAvgRightPowerPhaseField({int size = 0, bool growable = true})
       : super(
             name: 'avg_right_power_phase',
             id: ID,
@@ -3684,14 +4103,13 @@ class SegmentLapAvgRightPowerPhaseField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 77;
 }
+
 class SegmentLapAvgRightPowerPhasePeakField extends Field {
- SegmentLapAvgRightPowerPhasePeakField({int size = 0, bool growable = true})
+  SegmentLapAvgRightPowerPhasePeakField({int size = 0, bool growable = true})
       : super(
             name: 'avg_right_power_phase_peak',
             id: ID,
@@ -3702,14 +4120,13 @@ class SegmentLapAvgRightPowerPhasePeakField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 78;
 }
+
 class SegmentLapAvgPowerPositionField extends Field {
- SegmentLapAvgPowerPositionField({int size = 0, bool growable = true})
+  SegmentLapAvgPowerPositionField({int size = 0, bool growable = true})
       : super(
             name: 'avg_power_position',
             id: ID,
@@ -3720,14 +4137,13 @@ class SegmentLapAvgPowerPositionField extends Field {
             units: 'watts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 79;
 }
+
 class SegmentLapMaxPowerPositionField extends Field {
- SegmentLapMaxPowerPositionField({int size = 0, bool growable = true})
+  SegmentLapMaxPowerPositionField({int size = 0, bool growable = true})
       : super(
             name: 'max_power_position',
             id: ID,
@@ -3738,14 +4154,13 @@ class SegmentLapMaxPowerPositionField extends Field {
             units: 'watts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 80;
 }
+
 class SegmentLapAvgCadencePositionField extends Field {
- SegmentLapAvgCadencePositionField({int size = 0, bool growable = true})
+  SegmentLapAvgCadencePositionField({int size = 0, bool growable = true})
       : super(
             name: 'avg_cadence_position',
             id: ID,
@@ -3756,14 +4171,13 @@ class SegmentLapAvgCadencePositionField extends Field {
             units: 'rpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 81;
 }
+
 class SegmentLapMaxCadencePositionField extends Field {
- SegmentLapMaxCadencePositionField({int size = 0, bool growable = true})
+  SegmentLapMaxCadencePositionField({int size = 0, bool growable = true})
       : super(
             name: 'max_cadence_position',
             id: ID,
@@ -3774,14 +4188,13 @@ class SegmentLapMaxCadencePositionField extends Field {
             units: 'rpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 82;
 }
+
 class SegmentLapManufacturerField extends Field {
- SegmentLapManufacturerField({int size = 0, bool growable = true})
+  SegmentLapManufacturerField({int size = 0, bool growable = true})
       : super(
             name: 'manufacturer',
             id: ID,
@@ -3790,14 +4203,13 @@ class SegmentLapManufacturerField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 83;
 }
+
 class SegmentLapTotalGritField extends Field {
- SegmentLapTotalGritField({int size = 0, bool growable = true})
+  SegmentLapTotalGritField({int size = 0, bool growable = true})
       : super(
             name: 'total_grit',
             id: ID,
@@ -3808,14 +4220,13 @@ class SegmentLapTotalGritField extends Field {
             units: 'kGrit',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 84;
 }
+
 class SegmentLapTotalFlowField extends Field {
- SegmentLapTotalFlowField({int size = 0, bool growable = true})
+  SegmentLapTotalFlowField({int size = 0, bool growable = true})
       : super(
             name: 'total_flow',
             id: ID,
@@ -3826,14 +4237,13 @@ class SegmentLapTotalFlowField extends Field {
             units: 'Flow',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 85;
 }
+
 class SegmentLapAvgGritField extends Field {
- SegmentLapAvgGritField({int size = 0, bool growable = true})
+  SegmentLapAvgGritField({int size = 0, bool growable = true})
       : super(
             name: 'avg_grit',
             id: ID,
@@ -3844,14 +4254,13 @@ class SegmentLapAvgGritField extends Field {
             units: 'kGrit',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 86;
 }
+
 class SegmentLapAvgFlowField extends Field {
- SegmentLapAvgFlowField({int size = 0, bool growable = true})
+  SegmentLapAvgFlowField({int size = 0, bool growable = true})
       : super(
             name: 'avg_flow',
             id: ID,
@@ -3862,14 +4271,13 @@ class SegmentLapAvgFlowField extends Field {
             units: 'Flow',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 87;
 }
+
 class SegmentLapTotalFractionalAscentField extends Field {
- SegmentLapTotalFractionalAscentField({int size = 0, bool growable = true})
+  SegmentLapTotalFractionalAscentField({int size = 0, bool growable = true})
       : super(
             name: 'total_fractional_ascent',
             id: ID,
@@ -3880,14 +4288,13 @@ class SegmentLapTotalFractionalAscentField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 89;
 }
+
 class SegmentLapTotalFractionalDescentField extends Field {
- SegmentLapTotalFractionalDescentField({int size = 0, bool growable = true})
+  SegmentLapTotalFractionalDescentField({int size = 0, bool growable = true})
       : super(
             name: 'total_fractional_descent',
             id: ID,
@@ -3898,9 +4305,7 @@ class SegmentLapTotalFractionalDescentField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 90;
 }

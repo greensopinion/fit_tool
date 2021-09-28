@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class AccelerometerDataMessage extends DataMessage {
-
-   AccelerometerDataMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  AccelerometerDataMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: AccelerometerDataMessage.NAME,
@@ -25,40 +27,87 @@ class AccelerometerDataMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               AccelerometerDataTimestampMsField(
-                  size: definitionMessage?.getFieldDefinition(AccelerometerDataTimestampMsField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              AccelerometerDataTimestampMsField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               AccelerometerDataSampleTimeOffsetField(
-                  size: definitionMessage?.getFieldDefinition(AccelerometerDataSampleTimeOffsetField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              AccelerometerDataSampleTimeOffsetField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               AccelerometerDataAccelXField(
-                  size: definitionMessage?.getFieldDefinition(AccelerometerDataAccelXField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(AccelerometerDataAccelXField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               AccelerometerDataAccelYField(
-                  size: definitionMessage?.getFieldDefinition(AccelerometerDataAccelYField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(AccelerometerDataAccelYField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               AccelerometerDataAccelZField(
-                  size: definitionMessage?.getFieldDefinition(AccelerometerDataAccelZField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(AccelerometerDataAccelZField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               AccelerometerDataCalibratedAccelXField(
-                  size: definitionMessage?.getFieldDefinition(AccelerometerDataCalibratedAccelXField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              AccelerometerDataCalibratedAccelXField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               AccelerometerDataCalibratedAccelYField(
-                  size: definitionMessage?.getFieldDefinition(AccelerometerDataCalibratedAccelYField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              AccelerometerDataCalibratedAccelYField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               AccelerometerDataCalibratedAccelZField(
-                  size: definitionMessage?.getFieldDefinition(AccelerometerDataCalibratedAccelZField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              AccelerometerDataCalibratedAccelZField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               AccelerometerDataCompressedCalibratedAccelXField(
-                  size: definitionMessage?.getFieldDefinition(AccelerometerDataCompressedCalibratedAccelXField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              AccelerometerDataCompressedCalibratedAccelXField
+                                  .ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               AccelerometerDataCompressedCalibratedAccelYField(
-                  size: definitionMessage?.getFieldDefinition(AccelerometerDataCompressedCalibratedAccelYField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              AccelerometerDataCompressedCalibratedAccelYField
+                                  .ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               AccelerometerDataCompressedCalibratedAccelZField(
-                  size: definitionMessage?.getFieldDefinition(AccelerometerDataCompressedCalibratedAccelZField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              AccelerometerDataCompressedCalibratedAccelZField
+                                  .ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -69,15 +118,15 @@ class AccelerometerDataMessage extends DataMessage {
 
   static AccelerometerDataMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
-    final message = AccelerometerDataMessage(definitionMessage: definitionMessage);
+    final message =
+        AccelerometerDataMessage(definitionMessage: definitionMessage);
     message.readFromBytes(bytes);
     return message;
   }
 
-
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -85,8 +134,9 @@ class AccelerometerDataMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -98,8 +148,9 @@ class AccelerometerDataMessage extends DataMessage {
       }
     }
   }
+
   int? get timestampMs {
-     final field = getField(AccelerometerDataTimestampMsField.ID);
+    final field = getField(AccelerometerDataTimestampMsField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -107,7 +158,8 @@ class AccelerometerDataMessage extends DataMessage {
       return null;
     }
   }
-   set timestampMs(int? value) {
+
+  set timestampMs(int? value) {
     final field = getField(AccelerometerDataTimestampMsField.ID);
 
     if (field != null) {
@@ -119,8 +171,9 @@ class AccelerometerDataMessage extends DataMessage {
       }
     }
   }
+
   int? get sampleTimeOffset {
-     final field = getField(AccelerometerDataSampleTimeOffsetField.ID);
+    final field = getField(AccelerometerDataSampleTimeOffsetField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -128,7 +181,8 @@ class AccelerometerDataMessage extends DataMessage {
       return null;
     }
   }
-   set sampleTimeOffset(int? value) {
+
+  set sampleTimeOffset(int? value) {
     final field = getField(AccelerometerDataSampleTimeOffsetField.ID);
 
     if (field != null) {
@@ -140,8 +194,9 @@ class AccelerometerDataMessage extends DataMessage {
       }
     }
   }
+
   int? get accelX {
-     final field = getField(AccelerometerDataAccelXField.ID);
+    final field = getField(AccelerometerDataAccelXField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -149,7 +204,8 @@ class AccelerometerDataMessage extends DataMessage {
       return null;
     }
   }
-   set accelX(int? value) {
+
+  set accelX(int? value) {
     final field = getField(AccelerometerDataAccelXField.ID);
 
     if (field != null) {
@@ -161,8 +217,9 @@ class AccelerometerDataMessage extends DataMessage {
       }
     }
   }
+
   int? get accelY {
-     final field = getField(AccelerometerDataAccelYField.ID);
+    final field = getField(AccelerometerDataAccelYField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -170,7 +227,8 @@ class AccelerometerDataMessage extends DataMessage {
       return null;
     }
   }
-   set accelY(int? value) {
+
+  set accelY(int? value) {
     final field = getField(AccelerometerDataAccelYField.ID);
 
     if (field != null) {
@@ -182,8 +240,9 @@ class AccelerometerDataMessage extends DataMessage {
       }
     }
   }
+
   int? get accelZ {
-     final field = getField(AccelerometerDataAccelZField.ID);
+    final field = getField(AccelerometerDataAccelZField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -191,7 +250,8 @@ class AccelerometerDataMessage extends DataMessage {
       return null;
     }
   }
-   set accelZ(int? value) {
+
+  set accelZ(int? value) {
     final field = getField(AccelerometerDataAccelZField.ID);
 
     if (field != null) {
@@ -203,8 +263,9 @@ class AccelerometerDataMessage extends DataMessage {
       }
     }
   }
+
   double? get calibratedAccelX {
-     final field = getField(AccelerometerDataCalibratedAccelXField.ID);
+    final field = getField(AccelerometerDataCalibratedAccelXField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -212,7 +273,8 @@ class AccelerometerDataMessage extends DataMessage {
       return null;
     }
   }
-   set calibratedAccelX(double? value) {
+
+  set calibratedAccelX(double? value) {
     final field = getField(AccelerometerDataCalibratedAccelXField.ID);
 
     if (field != null) {
@@ -224,8 +286,9 @@ class AccelerometerDataMessage extends DataMessage {
       }
     }
   }
+
   double? get calibratedAccelY {
-     final field = getField(AccelerometerDataCalibratedAccelYField.ID);
+    final field = getField(AccelerometerDataCalibratedAccelYField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -233,7 +296,8 @@ class AccelerometerDataMessage extends DataMessage {
       return null;
     }
   }
-   set calibratedAccelY(double? value) {
+
+  set calibratedAccelY(double? value) {
     final field = getField(AccelerometerDataCalibratedAccelYField.ID);
 
     if (field != null) {
@@ -245,8 +309,9 @@ class AccelerometerDataMessage extends DataMessage {
       }
     }
   }
+
   double? get calibratedAccelZ {
-     final field = getField(AccelerometerDataCalibratedAccelZField.ID);
+    final field = getField(AccelerometerDataCalibratedAccelZField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -254,7 +319,8 @@ class AccelerometerDataMessage extends DataMessage {
       return null;
     }
   }
-   set calibratedAccelZ(double? value) {
+
+  set calibratedAccelZ(double? value) {
     final field = getField(AccelerometerDataCalibratedAccelZField.ID);
 
     if (field != null) {
@@ -266,8 +332,9 @@ class AccelerometerDataMessage extends DataMessage {
       }
     }
   }
+
   int? get compressedCalibratedAccelX {
-     final field = getField(AccelerometerDataCompressedCalibratedAccelXField.ID);
+    final field = getField(AccelerometerDataCompressedCalibratedAccelXField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -275,7 +342,8 @@ class AccelerometerDataMessage extends DataMessage {
       return null;
     }
   }
-   set compressedCalibratedAccelX(int? value) {
+
+  set compressedCalibratedAccelX(int? value) {
     final field = getField(AccelerometerDataCompressedCalibratedAccelXField.ID);
 
     if (field != null) {
@@ -287,8 +355,9 @@ class AccelerometerDataMessage extends DataMessage {
       }
     }
   }
+
   int? get compressedCalibratedAccelY {
-     final field = getField(AccelerometerDataCompressedCalibratedAccelYField.ID);
+    final field = getField(AccelerometerDataCompressedCalibratedAccelYField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -296,7 +365,8 @@ class AccelerometerDataMessage extends DataMessage {
       return null;
     }
   }
-   set compressedCalibratedAccelY(int? value) {
+
+  set compressedCalibratedAccelY(int? value) {
     final field = getField(AccelerometerDataCompressedCalibratedAccelYField.ID);
 
     if (field != null) {
@@ -308,8 +378,9 @@ class AccelerometerDataMessage extends DataMessage {
       }
     }
   }
+
   int? get compressedCalibratedAccelZ {
-     final field = getField(AccelerometerDataCompressedCalibratedAccelZField.ID);
+    final field = getField(AccelerometerDataCompressedCalibratedAccelZField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -317,7 +388,8 @@ class AccelerometerDataMessage extends DataMessage {
       return null;
     }
   }
-   set compressedCalibratedAccelZ(int? value) {
+
+  set compressedCalibratedAccelZ(int? value) {
     final field = getField(AccelerometerDataCompressedCalibratedAccelZField.ID);
 
     if (field != null) {
@@ -329,15 +401,10 @@ class AccelerometerDataMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class AccelerometerDataTimestampMsField extends Field {
- AccelerometerDataTimestampMsField({int size = 0, bool growable = true})
+  AccelerometerDataTimestampMsField({int size = 0, bool growable = true})
       : super(
             name: 'timestamp_ms',
             id: ID,
@@ -348,14 +415,13 @@ class AccelerometerDataTimestampMsField extends Field {
             units: 'ms',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class AccelerometerDataSampleTimeOffsetField extends Field {
- AccelerometerDataSampleTimeOffsetField({int size = 0, bool growable = true})
+  AccelerometerDataSampleTimeOffsetField({int size = 0, bool growable = true})
       : super(
             name: 'sample_time_offset',
             id: ID,
@@ -366,14 +432,13 @@ class AccelerometerDataSampleTimeOffsetField extends Field {
             units: 'ms',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class AccelerometerDataAccelXField extends Field {
- AccelerometerDataAccelXField({int size = 0, bool growable = true})
+  AccelerometerDataAccelXField({int size = 0, bool growable = true})
       : super(
             name: 'accel_x',
             id: ID,
@@ -384,14 +449,13 @@ class AccelerometerDataAccelXField extends Field {
             units: 'counts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class AccelerometerDataAccelYField extends Field {
- AccelerometerDataAccelYField({int size = 0, bool growable = true})
+  AccelerometerDataAccelYField({int size = 0, bool growable = true})
       : super(
             name: 'accel_y',
             id: ID,
@@ -402,14 +466,13 @@ class AccelerometerDataAccelYField extends Field {
             units: 'counts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class AccelerometerDataAccelZField extends Field {
- AccelerometerDataAccelZField({int size = 0, bool growable = true})
+  AccelerometerDataAccelZField({int size = 0, bool growable = true})
       : super(
             name: 'accel_z',
             id: ID,
@@ -420,14 +483,13 @@ class AccelerometerDataAccelZField extends Field {
             units: 'counts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class AccelerometerDataCalibratedAccelXField extends Field {
- AccelerometerDataCalibratedAccelXField({int size = 0, bool growable = true})
+  AccelerometerDataCalibratedAccelXField({int size = 0, bool growable = true})
       : super(
             name: 'calibrated_accel_x',
             id: ID,
@@ -438,14 +500,13 @@ class AccelerometerDataCalibratedAccelXField extends Field {
             units: 'g',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }
+
 class AccelerometerDataCalibratedAccelYField extends Field {
- AccelerometerDataCalibratedAccelYField({int size = 0, bool growable = true})
+  AccelerometerDataCalibratedAccelYField({int size = 0, bool growable = true})
       : super(
             name: 'calibrated_accel_y',
             id: ID,
@@ -456,14 +517,13 @@ class AccelerometerDataCalibratedAccelYField extends Field {
             units: 'g',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 6;
 }
+
 class AccelerometerDataCalibratedAccelZField extends Field {
- AccelerometerDataCalibratedAccelZField({int size = 0, bool growable = true})
+  AccelerometerDataCalibratedAccelZField({int size = 0, bool growable = true})
       : super(
             name: 'calibrated_accel_z',
             id: ID,
@@ -474,14 +534,14 @@ class AccelerometerDataCalibratedAccelZField extends Field {
             units: 'g',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 7;
 }
+
 class AccelerometerDataCompressedCalibratedAccelXField extends Field {
- AccelerometerDataCompressedCalibratedAccelXField({int size = 0, bool growable = true})
+  AccelerometerDataCompressedCalibratedAccelXField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'compressed_calibrated_accel_x',
             id: ID,
@@ -492,14 +552,14 @@ class AccelerometerDataCompressedCalibratedAccelXField extends Field {
             units: 'mG',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 8;
 }
+
 class AccelerometerDataCompressedCalibratedAccelYField extends Field {
- AccelerometerDataCompressedCalibratedAccelYField({int size = 0, bool growable = true})
+  AccelerometerDataCompressedCalibratedAccelYField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'compressed_calibrated_accel_y',
             id: ID,
@@ -510,14 +570,14 @@ class AccelerometerDataCompressedCalibratedAccelYField extends Field {
             units: 'mG',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 9;
 }
+
 class AccelerometerDataCompressedCalibratedAccelZField extends Field {
- AccelerometerDataCompressedCalibratedAccelZField({int size = 0, bool growable = true})
+  AccelerometerDataCompressedCalibratedAccelZField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'compressed_calibrated_accel_z',
             id: ID,
@@ -528,9 +588,7 @@ class AccelerometerDataCompressedCalibratedAccelZField extends Field {
             units: 'mG',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 10;
 }

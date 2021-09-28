@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class AntChannelIdMessage extends DataMessage {
-
-   AntChannelIdMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  AntChannelIdMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: AntChannelIdMessage.NAME,
@@ -25,19 +27,36 @@ class AntChannelIdMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               AntChannelIdChannelNumberField(
-                  size: definitionMessage?.getFieldDefinition(AntChannelIdChannelNumberField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              AntChannelIdChannelNumberField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               AntChannelIdDeviceTypeField(
-                  size: definitionMessage?.getFieldDefinition(AntChannelIdDeviceTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(AntChannelIdDeviceTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               AntChannelIdDeviceNumberField(
-                  size: definitionMessage?.getFieldDefinition(AntChannelIdDeviceNumberField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(AntChannelIdDeviceNumberField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               AntChannelIdTransmissionTypeField(
-                  size: definitionMessage?.getFieldDefinition(AntChannelIdTransmissionTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              AntChannelIdTransmissionTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               AntChannelIdDeviceIndexField(
-                  size: definitionMessage?.getFieldDefinition(AntChannelIdDeviceIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(AntChannelIdDeviceIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -53,9 +72,8 @@ class AntChannelIdMessage extends DataMessage {
     return message;
   }
 
-
   int? get channelNumber {
-     final field = getField(AntChannelIdChannelNumberField.ID);
+    final field = getField(AntChannelIdChannelNumberField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -63,7 +81,8 @@ class AntChannelIdMessage extends DataMessage {
       return null;
     }
   }
-   set channelNumber(int? value) {
+
+  set channelNumber(int? value) {
     final field = getField(AntChannelIdChannelNumberField.ID);
 
     if (field != null) {
@@ -75,8 +94,9 @@ class AntChannelIdMessage extends DataMessage {
       }
     }
   }
+
   int? get deviceType {
-     final field = getField(AntChannelIdDeviceTypeField.ID);
+    final field = getField(AntChannelIdDeviceTypeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -84,7 +104,8 @@ class AntChannelIdMessage extends DataMessage {
       return null;
     }
   }
-   set deviceType(int? value) {
+
+  set deviceType(int? value) {
     final field = getField(AntChannelIdDeviceTypeField.ID);
 
     if (field != null) {
@@ -96,8 +117,9 @@ class AntChannelIdMessage extends DataMessage {
       }
     }
   }
+
   int? get deviceNumber {
-     final field = getField(AntChannelIdDeviceNumberField.ID);
+    final field = getField(AntChannelIdDeviceNumberField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -105,7 +127,8 @@ class AntChannelIdMessage extends DataMessage {
       return null;
     }
   }
-   set deviceNumber(int? value) {
+
+  set deviceNumber(int? value) {
     final field = getField(AntChannelIdDeviceNumberField.ID);
 
     if (field != null) {
@@ -117,8 +140,9 @@ class AntChannelIdMessage extends DataMessage {
       }
     }
   }
+
   int? get transmissionType {
-     final field = getField(AntChannelIdTransmissionTypeField.ID);
+    final field = getField(AntChannelIdTransmissionTypeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -126,7 +150,8 @@ class AntChannelIdMessage extends DataMessage {
       return null;
     }
   }
-   set transmissionType(int? value) {
+
+  set transmissionType(int? value) {
     final field = getField(AntChannelIdTransmissionTypeField.ID);
 
     if (field != null) {
@@ -138,8 +163,9 @@ class AntChannelIdMessage extends DataMessage {
       }
     }
   }
+
   int? get deviceIndex {
-     final field = getField(AntChannelIdDeviceIndexField.ID);
+    final field = getField(AntChannelIdDeviceIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -147,7 +173,8 @@ class AntChannelIdMessage extends DataMessage {
       return null;
     }
   }
-   set deviceIndex(int? value) {
+
+  set deviceIndex(int? value) {
     final field = getField(AntChannelIdDeviceIndexField.ID);
 
     if (field != null) {
@@ -159,15 +186,10 @@ class AntChannelIdMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class AntChannelIdChannelNumberField extends Field {
- AntChannelIdChannelNumberField({int size = 0, bool growable = true})
+  AntChannelIdChannelNumberField({int size = 0, bool growable = true})
       : super(
             name: 'channel_number',
             id: ID,
@@ -176,14 +198,13 @@ class AntChannelIdChannelNumberField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class AntChannelIdDeviceTypeField extends Field {
- AntChannelIdDeviceTypeField({int size = 0, bool growable = true})
+  AntChannelIdDeviceTypeField({int size = 0, bool growable = true})
       : super(
             name: 'device_type',
             id: ID,
@@ -192,14 +213,13 @@ class AntChannelIdDeviceTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class AntChannelIdDeviceNumberField extends Field {
- AntChannelIdDeviceNumberField({int size = 0, bool growable = true})
+  AntChannelIdDeviceNumberField({int size = 0, bool growable = true})
       : super(
             name: 'device_number',
             id: ID,
@@ -208,14 +228,13 @@ class AntChannelIdDeviceNumberField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class AntChannelIdTransmissionTypeField extends Field {
- AntChannelIdTransmissionTypeField({int size = 0, bool growable = true})
+  AntChannelIdTransmissionTypeField({int size = 0, bool growable = true})
       : super(
             name: 'transmission_type',
             id: ID,
@@ -224,14 +243,13 @@ class AntChannelIdTransmissionTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class AntChannelIdDeviceIndexField extends Field {
- AntChannelIdDeviceIndexField({int size = 0, bool growable = true})
+  AntChannelIdDeviceIndexField({int size = 0, bool growable = true})
       : super(
             name: 'device_index',
             id: ID,
@@ -240,9 +258,7 @@ class AntChannelIdDeviceIndexField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }

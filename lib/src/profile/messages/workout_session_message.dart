@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class WorkoutSessionMessage extends DataMessage {
-
-   WorkoutSessionMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  WorkoutSessionMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: WorkoutSessionMessage.NAME,
@@ -25,25 +27,49 @@ class WorkoutSessionMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               MessageIndexField(
-                  size: definitionMessage?.getFieldDefinition(MessageIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WorkoutSessionSportField(
-                  size: definitionMessage?.getFieldDefinition(WorkoutSessionSportField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(WorkoutSessionSportField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WorkoutSessionSubSportField(
-                  size: definitionMessage?.getFieldDefinition(WorkoutSessionSubSportField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(WorkoutSessionSubSportField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WorkoutSessionNumValidStepsField(
-                  size: definitionMessage?.getFieldDefinition(WorkoutSessionNumValidStepsField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              WorkoutSessionNumValidStepsField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WorkoutSessionFirstStepIndexField(
-                  size: definitionMessage?.getFieldDefinition(WorkoutSessionFirstStepIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              WorkoutSessionFirstStepIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WorkoutSessionPoolLengthField(
-                  size: definitionMessage?.getFieldDefinition(WorkoutSessionPoolLengthField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(WorkoutSessionPoolLengthField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WorkoutSessionPoolLengthUnitField(
-                  size: definitionMessage?.getFieldDefinition(WorkoutSessionPoolLengthUnitField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              WorkoutSessionPoolLengthUnitField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -59,9 +85,8 @@ class WorkoutSessionMessage extends DataMessage {
     return message;
   }
 
-
   int? get messageIndex {
-     final field = getField(MessageIndexField.ID);
+    final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -69,7 +94,8 @@ class WorkoutSessionMessage extends DataMessage {
       return null;
     }
   }
-   set messageIndex(int? value) {
+
+  set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
     if (field != null) {
@@ -81,9 +107,10 @@ class WorkoutSessionMessage extends DataMessage {
       }
     }
   }
+
   Sport? get sport {
-     final field = getField(WorkoutSessionSportField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(WorkoutSessionSportField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -94,7 +121,8 @@ class WorkoutSessionMessage extends DataMessage {
       return null;
     }
   }
-   set sport(Sport? value) {
+
+  set sport(Sport? value) {
     final field = getField(WorkoutSessionSportField.ID);
 
     if (field != null) {
@@ -106,9 +134,10 @@ class WorkoutSessionMessage extends DataMessage {
       }
     }
   }
+
   SubSport? get subSport {
-     final field = getField(WorkoutSessionSubSportField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(WorkoutSessionSubSportField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -119,7 +148,8 @@ class WorkoutSessionMessage extends DataMessage {
       return null;
     }
   }
-   set subSport(SubSport? value) {
+
+  set subSport(SubSport? value) {
     final field = getField(WorkoutSessionSubSportField.ID);
 
     if (field != null) {
@@ -131,8 +161,9 @@ class WorkoutSessionMessage extends DataMessage {
       }
     }
   }
+
   int? get numValidSteps {
-     final field = getField(WorkoutSessionNumValidStepsField.ID);
+    final field = getField(WorkoutSessionNumValidStepsField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -140,7 +171,8 @@ class WorkoutSessionMessage extends DataMessage {
       return null;
     }
   }
-   set numValidSteps(int? value) {
+
+  set numValidSteps(int? value) {
     final field = getField(WorkoutSessionNumValidStepsField.ID);
 
     if (field != null) {
@@ -152,8 +184,9 @@ class WorkoutSessionMessage extends DataMessage {
       }
     }
   }
+
   int? get firstStepIndex {
-     final field = getField(WorkoutSessionFirstStepIndexField.ID);
+    final field = getField(WorkoutSessionFirstStepIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -161,7 +194,8 @@ class WorkoutSessionMessage extends DataMessage {
       return null;
     }
   }
-   set firstStepIndex(int? value) {
+
+  set firstStepIndex(int? value) {
     final field = getField(WorkoutSessionFirstStepIndexField.ID);
 
     if (field != null) {
@@ -173,8 +207,9 @@ class WorkoutSessionMessage extends DataMessage {
       }
     }
   }
+
   double? get poolLength {
-     final field = getField(WorkoutSessionPoolLengthField.ID);
+    final field = getField(WorkoutSessionPoolLengthField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -182,7 +217,8 @@ class WorkoutSessionMessage extends DataMessage {
       return null;
     }
   }
-   set poolLength(double? value) {
+
+  set poolLength(double? value) {
     final field = getField(WorkoutSessionPoolLengthField.ID);
 
     if (field != null) {
@@ -194,9 +230,10 @@ class WorkoutSessionMessage extends DataMessage {
       }
     }
   }
+
   DisplayMeasure? get poolLengthUnit {
-     final field = getField(WorkoutSessionPoolLengthUnitField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(WorkoutSessionPoolLengthUnitField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -207,7 +244,8 @@ class WorkoutSessionMessage extends DataMessage {
       return null;
     }
   }
-   set poolLengthUnit(DisplayMeasure? value) {
+
+  set poolLengthUnit(DisplayMeasure? value) {
     final field = getField(WorkoutSessionPoolLengthUnitField.ID);
 
     if (field != null) {
@@ -219,15 +257,10 @@ class WorkoutSessionMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class WorkoutSessionSportField extends Field {
- WorkoutSessionSportField({int size = 0, bool growable = true})
+  WorkoutSessionSportField({int size = 0, bool growable = true})
       : super(
             name: 'sport',
             id: ID,
@@ -236,14 +269,13 @@ class WorkoutSessionSportField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class WorkoutSessionSubSportField extends Field {
- WorkoutSessionSubSportField({int size = 0, bool growable = true})
+  WorkoutSessionSubSportField({int size = 0, bool growable = true})
       : super(
             name: 'sub_sport',
             id: ID,
@@ -252,14 +284,13 @@ class WorkoutSessionSubSportField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class WorkoutSessionNumValidStepsField extends Field {
- WorkoutSessionNumValidStepsField({int size = 0, bool growable = true})
+  WorkoutSessionNumValidStepsField({int size = 0, bool growable = true})
       : super(
             name: 'num_valid_steps',
             id: ID,
@@ -268,14 +299,13 @@ class WorkoutSessionNumValidStepsField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class WorkoutSessionFirstStepIndexField extends Field {
- WorkoutSessionFirstStepIndexField({int size = 0, bool growable = true})
+  WorkoutSessionFirstStepIndexField({int size = 0, bool growable = true})
       : super(
             name: 'first_step_index',
             id: ID,
@@ -284,14 +314,13 @@ class WorkoutSessionFirstStepIndexField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class WorkoutSessionPoolLengthField extends Field {
- WorkoutSessionPoolLengthField({int size = 0, bool growable = true})
+  WorkoutSessionPoolLengthField({int size = 0, bool growable = true})
       : super(
             name: 'pool_length',
             id: ID,
@@ -302,14 +331,13 @@ class WorkoutSessionPoolLengthField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class WorkoutSessionPoolLengthUnitField extends Field {
- WorkoutSessionPoolLengthUnitField({int size = 0, bool growable = true})
+  WorkoutSessionPoolLengthUnitField({int size = 0, bool growable = true})
       : super(
             name: 'pool_length_unit',
             id: ID,
@@ -318,9 +346,7 @@ class WorkoutSessionPoolLengthUnitField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }

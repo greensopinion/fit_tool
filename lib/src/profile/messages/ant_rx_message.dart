@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class AntRxMessage extends DataMessage {
-
-   AntRxMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  AntRxMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: AntRxMessage.NAME,
@@ -25,22 +27,40 @@ class AntRxMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               AntRxFractionalTimestampField(
-                  size: definitionMessage?.getFieldDefinition(AntRxFractionalTimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(AntRxFractionalTimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               AntRxMesgIdField(
-                  size: definitionMessage?.getFieldDefinition(AntRxMesgIdField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(AntRxMesgIdField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               AntRxMesgDataField(
-                  size: definitionMessage?.getFieldDefinition(AntRxMesgDataField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(AntRxMesgDataField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               AntRxChannelNumberField(
-                  size: definitionMessage?.getFieldDefinition(AntRxChannelNumberField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(AntRxChannelNumberField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               AntRxDataField(
-                  size: definitionMessage?.getFieldDefinition(AntRxDataField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(AntRxDataField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -56,10 +76,9 @@ class AntRxMessage extends DataMessage {
     return message;
   }
 
-
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -67,8 +86,9 @@ class AntRxMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -80,8 +100,9 @@ class AntRxMessage extends DataMessage {
       }
     }
   }
+
   double? get fractionalTimestamp {
-     final field = getField(AntRxFractionalTimestampField.ID);
+    final field = getField(AntRxFractionalTimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -89,7 +110,8 @@ class AntRxMessage extends DataMessage {
       return null;
     }
   }
-   set fractionalTimestamp(double? value) {
+
+  set fractionalTimestamp(double? value) {
     final field = getField(AntRxFractionalTimestampField.ID);
 
     if (field != null) {
@@ -101,8 +123,9 @@ class AntRxMessage extends DataMessage {
       }
     }
   }
+
   int? get mesgId {
-     final field = getField(AntRxMesgIdField.ID);
+    final field = getField(AntRxMesgIdField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -110,7 +133,8 @@ class AntRxMessage extends DataMessage {
       return null;
     }
   }
-   set mesgId(int? value) {
+
+  set mesgId(int? value) {
     final field = getField(AntRxMesgIdField.ID);
 
     if (field != null) {
@@ -122,8 +146,9 @@ class AntRxMessage extends DataMessage {
       }
     }
   }
+
   int? get mesgData {
-     final field = getField(AntRxMesgDataField.ID);
+    final field = getField(AntRxMesgDataField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -131,7 +156,8 @@ class AntRxMessage extends DataMessage {
       return null;
     }
   }
-   set mesgData(int? value) {
+
+  set mesgData(int? value) {
     final field = getField(AntRxMesgDataField.ID);
 
     if (field != null) {
@@ -143,8 +169,9 @@ class AntRxMessage extends DataMessage {
       }
     }
   }
+
   int? get channelNumber {
-     final field = getField(AntRxChannelNumberField.ID);
+    final field = getField(AntRxChannelNumberField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -152,7 +179,8 @@ class AntRxMessage extends DataMessage {
       return null;
     }
   }
-   set channelNumber(int? value) {
+
+  set channelNumber(int? value) {
     final field = getField(AntRxChannelNumberField.ID);
 
     if (field != null) {
@@ -164,8 +192,9 @@ class AntRxMessage extends DataMessage {
       }
     }
   }
+
   int? get data {
-     final field = getField(AntRxDataField.ID);
+    final field = getField(AntRxDataField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -173,7 +202,8 @@ class AntRxMessage extends DataMessage {
       return null;
     }
   }
-   set data(int? value) {
+
+  set data(int? value) {
     final field = getField(AntRxDataField.ID);
 
     if (field != null) {
@@ -185,15 +215,10 @@ class AntRxMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class AntRxFractionalTimestampField extends Field {
- AntRxFractionalTimestampField({int size = 0, bool growable = true})
+  AntRxFractionalTimestampField({int size = 0, bool growable = true})
       : super(
             name: 'fractional_timestamp',
             id: ID,
@@ -204,14 +229,13 @@ class AntRxFractionalTimestampField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class AntRxMesgIdField extends Field {
- AntRxMesgIdField({int size = 0, bool growable = true})
+  AntRxMesgIdField({int size = 0, bool growable = true})
       : super(
             name: 'mesg_id',
             id: ID,
@@ -220,14 +244,13 @@ class AntRxMesgIdField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class AntRxMesgDataField extends Field {
- AntRxMesgDataField({int size = 0, bool growable = true})
+  AntRxMesgDataField({int size = 0, bool growable = true})
       : super(
             name: 'mesg_data',
             id: ID,
@@ -236,14 +259,13 @@ class AntRxMesgDataField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class AntRxChannelNumberField extends Field {
- AntRxChannelNumberField({int size = 0, bool growable = true})
+  AntRxChannelNumberField({int size = 0, bool growable = true})
       : super(
             name: 'channel_number',
             id: ID,
@@ -252,14 +274,13 @@ class AntRxChannelNumberField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class AntRxDataField extends Field {
- AntRxDataField({int size = 0, bool growable = true})
+  AntRxDataField({int size = 0, bool growable = true})
       : super(
             name: 'data',
             id: ID,
@@ -268,9 +289,7 @@ class AntRxDataField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }

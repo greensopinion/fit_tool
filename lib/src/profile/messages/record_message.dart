@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class RecordMessage extends DataMessage {
-
-   RecordMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  RecordMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: RecordMessage.NAME,
@@ -25,226 +27,464 @@ class RecordMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordPositionLatField(
-                  size: definitionMessage?.getFieldDefinition(RecordPositionLatField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordPositionLatField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordPositionLongField(
-                  size: definitionMessage?.getFieldDefinition(RecordPositionLongField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordPositionLongField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordAltitudeField(
-                  size: definitionMessage?.getFieldDefinition(RecordAltitudeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordAltitudeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordHeartRateField(
-                  size: definitionMessage?.getFieldDefinition(RecordHeartRateField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordHeartRateField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordCadenceField(
-                  size: definitionMessage?.getFieldDefinition(RecordCadenceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordCadenceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordDistanceField(
-                  size: definitionMessage?.getFieldDefinition(RecordDistanceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordDistanceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordSpeedField(
-                  size: definitionMessage?.getFieldDefinition(RecordSpeedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordSpeedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordPowerField(
-                  size: definitionMessage?.getFieldDefinition(RecordPowerField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordPowerField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordCompressedSpeedDistanceField(
-                  size: definitionMessage?.getFieldDefinition(RecordCompressedSpeedDistanceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              RecordCompressedSpeedDistanceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordGradeField(
-                  size: definitionMessage?.getFieldDefinition(RecordGradeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordGradeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordResistanceField(
-                  size: definitionMessage?.getFieldDefinition(RecordResistanceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordResistanceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordTimeFromCourseField(
-                  size: definitionMessage?.getFieldDefinition(RecordTimeFromCourseField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordTimeFromCourseField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordCycleLengthField(
-                  size: definitionMessage?.getFieldDefinition(RecordCycleLengthField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordCycleLengthField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordTemperatureField(
-                  size: definitionMessage?.getFieldDefinition(RecordTemperatureField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordTemperatureField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordSpeed1sField(
-                  size: definitionMessage?.getFieldDefinition(RecordSpeed1sField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordSpeed1sField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordCyclesField(
-                  size: definitionMessage?.getFieldDefinition(RecordCyclesField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordCyclesField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordTotalCyclesField(
-                  size: definitionMessage?.getFieldDefinition(RecordTotalCyclesField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordTotalCyclesField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordCompressedAccumulatedPowerField(
-                  size: definitionMessage?.getFieldDefinition(RecordCompressedAccumulatedPowerField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              RecordCompressedAccumulatedPowerField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordAccumulatedPowerField(
-                  size: definitionMessage?.getFieldDefinition(RecordAccumulatedPowerField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordAccumulatedPowerField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordLeftRightBalanceField(
-                  size: definitionMessage?.getFieldDefinition(RecordLeftRightBalanceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordLeftRightBalanceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordGpsAccuracyField(
-                  size: definitionMessage?.getFieldDefinition(RecordGpsAccuracyField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordGpsAccuracyField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordVerticalSpeedField(
-                  size: definitionMessage?.getFieldDefinition(RecordVerticalSpeedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordVerticalSpeedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordCaloriesField(
-                  size: definitionMessage?.getFieldDefinition(RecordCaloriesField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordCaloriesField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordVerticalOscillationField(
-                  size: definitionMessage?.getFieldDefinition(RecordVerticalOscillationField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              RecordVerticalOscillationField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordStanceTimePercentField(
-                  size: definitionMessage?.getFieldDefinition(RecordStanceTimePercentField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordStanceTimePercentField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordStanceTimeField(
-                  size: definitionMessage?.getFieldDefinition(RecordStanceTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordStanceTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordActivityTypeField(
-                  size: definitionMessage?.getFieldDefinition(RecordActivityTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordActivityTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordLeftTorqueEffectivenessField(
-                  size: definitionMessage?.getFieldDefinition(RecordLeftTorqueEffectivenessField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              RecordLeftTorqueEffectivenessField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordRightTorqueEffectivenessField(
-                  size: definitionMessage?.getFieldDefinition(RecordRightTorqueEffectivenessField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              RecordRightTorqueEffectivenessField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordLeftPedalSmoothnessField(
-                  size: definitionMessage?.getFieldDefinition(RecordLeftPedalSmoothnessField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              RecordLeftPedalSmoothnessField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordRightPedalSmoothnessField(
-                  size: definitionMessage?.getFieldDefinition(RecordRightPedalSmoothnessField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              RecordRightPedalSmoothnessField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordCombinedPedalSmoothnessField(
-                  size: definitionMessage?.getFieldDefinition(RecordCombinedPedalSmoothnessField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              RecordCombinedPedalSmoothnessField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordTime128Field(
-                  size: definitionMessage?.getFieldDefinition(RecordTime128Field.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordTime128Field.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordStrokeTypeField(
-                  size: definitionMessage?.getFieldDefinition(RecordStrokeTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordStrokeTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordZoneField(
-                  size: definitionMessage?.getFieldDefinition(RecordZoneField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordZoneField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordBallSpeedField(
-                  size: definitionMessage?.getFieldDefinition(RecordBallSpeedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordBallSpeedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordCadence256Field(
-                  size: definitionMessage?.getFieldDefinition(RecordCadence256Field.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordCadence256Field.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordFractionalCadenceField(
-                  size: definitionMessage?.getFieldDefinition(RecordFractionalCadenceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordFractionalCadenceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordTotalHemoglobinConcField(
-                  size: definitionMessage?.getFieldDefinition(RecordTotalHemoglobinConcField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              RecordTotalHemoglobinConcField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordTotalHemoglobinConcMinField(
-                  size: definitionMessage?.getFieldDefinition(RecordTotalHemoglobinConcMinField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              RecordTotalHemoglobinConcMinField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordTotalHemoglobinConcMaxField(
-                  size: definitionMessage?.getFieldDefinition(RecordTotalHemoglobinConcMaxField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              RecordTotalHemoglobinConcMaxField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordSaturatedHemoglobinPercentField(
-                  size: definitionMessage?.getFieldDefinition(RecordSaturatedHemoglobinPercentField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              RecordSaturatedHemoglobinPercentField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordSaturatedHemoglobinPercentMinField(
-                  size: definitionMessage?.getFieldDefinition(RecordSaturatedHemoglobinPercentMinField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              RecordSaturatedHemoglobinPercentMinField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordSaturatedHemoglobinPercentMaxField(
-                  size: definitionMessage?.getFieldDefinition(RecordSaturatedHemoglobinPercentMaxField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              RecordSaturatedHemoglobinPercentMaxField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordDeviceIndexField(
-                  size: definitionMessage?.getFieldDefinition(RecordDeviceIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordDeviceIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordLeftPcoField(
-                  size: definitionMessage?.getFieldDefinition(RecordLeftPcoField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordLeftPcoField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordRightPcoField(
-                  size: definitionMessage?.getFieldDefinition(RecordRightPcoField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordRightPcoField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordLeftPowerPhaseField(
-                  size: definitionMessage?.getFieldDefinition(RecordLeftPowerPhaseField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordLeftPowerPhaseField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordLeftPowerPhasePeakField(
-                  size: definitionMessage?.getFieldDefinition(RecordLeftPowerPhasePeakField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordLeftPowerPhasePeakField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordRightPowerPhaseField(
-                  size: definitionMessage?.getFieldDefinition(RecordRightPowerPhaseField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordRightPowerPhaseField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordRightPowerPhasePeakField(
-                  size: definitionMessage?.getFieldDefinition(RecordRightPowerPhasePeakField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              RecordRightPowerPhasePeakField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordEnhancedSpeedField(
-                  size: definitionMessage?.getFieldDefinition(RecordEnhancedSpeedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordEnhancedSpeedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordEnhancedAltitudeField(
-                  size: definitionMessage?.getFieldDefinition(RecordEnhancedAltitudeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordEnhancedAltitudeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordBatterySocField(
-                  size: definitionMessage?.getFieldDefinition(RecordBatterySocField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordBatterySocField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordMotorPowerField(
-                  size: definitionMessage?.getFieldDefinition(RecordMotorPowerField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordMotorPowerField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordVerticalRatioField(
-                  size: definitionMessage?.getFieldDefinition(RecordVerticalRatioField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordVerticalRatioField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordStanceTimeBalanceField(
-                  size: definitionMessage?.getFieldDefinition(RecordStanceTimeBalanceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordStanceTimeBalanceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordStepLengthField(
-                  size: definitionMessage?.getFieldDefinition(RecordStepLengthField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordStepLengthField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordAbsolutePressureField(
-                  size: definitionMessage?.getFieldDefinition(RecordAbsolutePressureField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordAbsolutePressureField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordDepthField(
-                  size: definitionMessage?.getFieldDefinition(RecordDepthField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordDepthField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordNextStopDepthField(
-                  size: definitionMessage?.getFieldDefinition(RecordNextStopDepthField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordNextStopDepthField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordNextStopTimeField(
-                  size: definitionMessage?.getFieldDefinition(RecordNextStopTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordNextStopTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordTimeToSurfaceField(
-                  size: definitionMessage?.getFieldDefinition(RecordTimeToSurfaceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordTimeToSurfaceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordNdlTimeField(
-                  size: definitionMessage?.getFieldDefinition(RecordNdlTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordNdlTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordCnsLoadField(
-                  size: definitionMessage?.getFieldDefinition(RecordCnsLoadField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordCnsLoadField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordN2LoadField(
-                  size: definitionMessage?.getFieldDefinition(RecordN2LoadField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordN2LoadField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordGritField(
-                  size: definitionMessage?.getFieldDefinition(RecordGritField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordGritField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordFlowField(
-                  size: definitionMessage?.getFieldDefinition(RecordFlowField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordFlowField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordEbikeTravelRangeField(
-                  size: definitionMessage?.getFieldDefinition(RecordEbikeTravelRangeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordEbikeTravelRangeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordEbikeBatteryLevelField(
-                  size: definitionMessage?.getFieldDefinition(RecordEbikeBatteryLevelField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordEbikeBatteryLevelField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordEbikeAssistModeField(
-                  size: definitionMessage?.getFieldDefinition(RecordEbikeAssistModeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordEbikeAssistModeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordEbikeAssistLevelPercentField(
-                  size: definitionMessage?.getFieldDefinition(RecordEbikeAssistLevelPercentField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              RecordEbikeAssistLevelPercentField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               RecordCoreTemperatureField(
-                  size: definitionMessage?.getFieldDefinition(RecordCoreTemperatureField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(RecordCoreTemperatureField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -260,10 +500,9 @@ class RecordMessage extends DataMessage {
     return message;
   }
 
-
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -271,8 +510,9 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -284,8 +524,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get positionLat {
-     final field = getField(RecordPositionLatField.ID);
+    final field = getField(RecordPositionLatField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -293,7 +534,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set positionLat(double? value) {
+
+  set positionLat(double? value) {
     final field = getField(RecordPositionLatField.ID);
 
     if (field != null) {
@@ -305,8 +547,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get positionLong {
-     final field = getField(RecordPositionLongField.ID);
+    final field = getField(RecordPositionLongField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -314,7 +557,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set positionLong(double? value) {
+
+  set positionLong(double? value) {
     final field = getField(RecordPositionLongField.ID);
 
     if (field != null) {
@@ -326,8 +570,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get altitude {
-     final field = getField(RecordAltitudeField.ID);
+    final field = getField(RecordAltitudeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -335,7 +580,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set altitude(double? value) {
+
+  set altitude(double? value) {
     final field = getField(RecordAltitudeField.ID);
 
     if (field != null) {
@@ -347,8 +593,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   int? get heartRate {
-     final field = getField(RecordHeartRateField.ID);
+    final field = getField(RecordHeartRateField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -356,7 +603,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set heartRate(int? value) {
+
+  set heartRate(int? value) {
     final field = getField(RecordHeartRateField.ID);
 
     if (field != null) {
@@ -368,8 +616,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   int? get cadence {
-     final field = getField(RecordCadenceField.ID);
+    final field = getField(RecordCadenceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -377,7 +626,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set cadence(int? value) {
+
+  set cadence(int? value) {
     final field = getField(RecordCadenceField.ID);
 
     if (field != null) {
@@ -389,8 +639,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get distance {
-     final field = getField(RecordDistanceField.ID);
+    final field = getField(RecordDistanceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -398,7 +649,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set distance(double? value) {
+
+  set distance(double? value) {
     final field = getField(RecordDistanceField.ID);
 
     if (field != null) {
@@ -410,8 +662,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get speed {
-     final field = getField(RecordSpeedField.ID);
+    final field = getField(RecordSpeedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -419,7 +672,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set speed(double? value) {
+
+  set speed(double? value) {
     final field = getField(RecordSpeedField.ID);
 
     if (field != null) {
@@ -431,8 +685,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   int? get power {
-     final field = getField(RecordPowerField.ID);
+    final field = getField(RecordPowerField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -440,7 +695,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set power(int? value) {
+
+  set power(int? value) {
     final field = getField(RecordPowerField.ID);
 
     if (field != null) {
@@ -452,8 +708,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   int? get compressedSpeedDistance {
-     final field = getField(RecordCompressedSpeedDistanceField.ID);
+    final field = getField(RecordCompressedSpeedDistanceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -461,7 +718,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set compressedSpeedDistance(int? value) {
+
+  set compressedSpeedDistance(int? value) {
     final field = getField(RecordCompressedSpeedDistanceField.ID);
 
     if (field != null) {
@@ -473,8 +731,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get grade {
-     final field = getField(RecordGradeField.ID);
+    final field = getField(RecordGradeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -482,7 +741,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set grade(double? value) {
+
+  set grade(double? value) {
     final field = getField(RecordGradeField.ID);
 
     if (field != null) {
@@ -494,8 +754,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   int? get resistance {
-     final field = getField(RecordResistanceField.ID);
+    final field = getField(RecordResistanceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -503,7 +764,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set resistance(int? value) {
+
+  set resistance(int? value) {
     final field = getField(RecordResistanceField.ID);
 
     if (field != null) {
@@ -515,8 +777,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get timeFromCourse {
-     final field = getField(RecordTimeFromCourseField.ID);
+    final field = getField(RecordTimeFromCourseField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -524,7 +787,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set timeFromCourse(double? value) {
+
+  set timeFromCourse(double? value) {
     final field = getField(RecordTimeFromCourseField.ID);
 
     if (field != null) {
@@ -536,8 +800,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get cycleLength {
-     final field = getField(RecordCycleLengthField.ID);
+    final field = getField(RecordCycleLengthField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -545,7 +810,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set cycleLength(double? value) {
+
+  set cycleLength(double? value) {
     final field = getField(RecordCycleLengthField.ID);
 
     if (field != null) {
@@ -557,8 +823,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   int? get temperature {
-     final field = getField(RecordTemperatureField.ID);
+    final field = getField(RecordTemperatureField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -566,7 +833,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set temperature(int? value) {
+
+  set temperature(int? value) {
     final field = getField(RecordTemperatureField.ID);
 
     if (field != null) {
@@ -578,8 +846,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get speed1s {
-     final field = getField(RecordSpeed1sField.ID);
+    final field = getField(RecordSpeed1sField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -587,7 +856,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set speed1s(double? value) {
+
+  set speed1s(double? value) {
     final field = getField(RecordSpeed1sField.ID);
 
     if (field != null) {
@@ -599,8 +869,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   int? get cycles {
-     final field = getField(RecordCyclesField.ID);
+    final field = getField(RecordCyclesField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -608,7 +879,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set cycles(int? value) {
+
+  set cycles(int? value) {
     final field = getField(RecordCyclesField.ID);
 
     if (field != null) {
@@ -620,8 +892,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   int? get totalCycles {
-     final field = getField(RecordTotalCyclesField.ID);
+    final field = getField(RecordTotalCyclesField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -629,7 +902,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set totalCycles(int? value) {
+
+  set totalCycles(int? value) {
     final field = getField(RecordTotalCyclesField.ID);
 
     if (field != null) {
@@ -641,8 +915,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   int? get compressedAccumulatedPower {
-     final field = getField(RecordCompressedAccumulatedPowerField.ID);
+    final field = getField(RecordCompressedAccumulatedPowerField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -650,7 +925,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set compressedAccumulatedPower(int? value) {
+
+  set compressedAccumulatedPower(int? value) {
     final field = getField(RecordCompressedAccumulatedPowerField.ID);
 
     if (field != null) {
@@ -662,8 +938,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   int? get accumulatedPower {
-     final field = getField(RecordAccumulatedPowerField.ID);
+    final field = getField(RecordAccumulatedPowerField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -671,7 +948,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set accumulatedPower(int? value) {
+
+  set accumulatedPower(int? value) {
     final field = getField(RecordAccumulatedPowerField.ID);
 
     if (field != null) {
@@ -683,8 +961,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   int? get leftRightBalance {
-     final field = getField(RecordLeftRightBalanceField.ID);
+    final field = getField(RecordLeftRightBalanceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -692,7 +971,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set leftRightBalance(int? value) {
+
+  set leftRightBalance(int? value) {
     final field = getField(RecordLeftRightBalanceField.ID);
 
     if (field != null) {
@@ -704,8 +984,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   int? get gpsAccuracy {
-     final field = getField(RecordGpsAccuracyField.ID);
+    final field = getField(RecordGpsAccuracyField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -713,7 +994,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set gpsAccuracy(int? value) {
+
+  set gpsAccuracy(int? value) {
     final field = getField(RecordGpsAccuracyField.ID);
 
     if (field != null) {
@@ -725,8 +1007,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get verticalSpeed {
-     final field = getField(RecordVerticalSpeedField.ID);
+    final field = getField(RecordVerticalSpeedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -734,7 +1017,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set verticalSpeed(double? value) {
+
+  set verticalSpeed(double? value) {
     final field = getField(RecordVerticalSpeedField.ID);
 
     if (field != null) {
@@ -746,8 +1030,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   int? get calories {
-     final field = getField(RecordCaloriesField.ID);
+    final field = getField(RecordCaloriesField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -755,7 +1040,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set calories(int? value) {
+
+  set calories(int? value) {
     final field = getField(RecordCaloriesField.ID);
 
     if (field != null) {
@@ -767,8 +1053,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get verticalOscillation {
-     final field = getField(RecordVerticalOscillationField.ID);
+    final field = getField(RecordVerticalOscillationField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -776,7 +1063,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set verticalOscillation(double? value) {
+
+  set verticalOscillation(double? value) {
     final field = getField(RecordVerticalOscillationField.ID);
 
     if (field != null) {
@@ -788,8 +1076,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get stanceTimePercent {
-     final field = getField(RecordStanceTimePercentField.ID);
+    final field = getField(RecordStanceTimePercentField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -797,7 +1086,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set stanceTimePercent(double? value) {
+
+  set stanceTimePercent(double? value) {
     final field = getField(RecordStanceTimePercentField.ID);
 
     if (field != null) {
@@ -809,8 +1099,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get stanceTime {
-     final field = getField(RecordStanceTimeField.ID);
+    final field = getField(RecordStanceTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -818,7 +1109,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set stanceTime(double? value) {
+
+  set stanceTime(double? value) {
     final field = getField(RecordStanceTimeField.ID);
 
     if (field != null) {
@@ -830,9 +1122,10 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   ActivityType? get activityType {
-     final field = getField(RecordActivityTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(RecordActivityTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -843,7 +1136,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set activityType(ActivityType? value) {
+
+  set activityType(ActivityType? value) {
     final field = getField(RecordActivityTypeField.ID);
 
     if (field != null) {
@@ -855,8 +1149,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get leftTorqueEffectiveness {
-     final field = getField(RecordLeftTorqueEffectivenessField.ID);
+    final field = getField(RecordLeftTorqueEffectivenessField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -864,7 +1159,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set leftTorqueEffectiveness(double? value) {
+
+  set leftTorqueEffectiveness(double? value) {
     final field = getField(RecordLeftTorqueEffectivenessField.ID);
 
     if (field != null) {
@@ -876,8 +1172,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get rightTorqueEffectiveness {
-     final field = getField(RecordRightTorqueEffectivenessField.ID);
+    final field = getField(RecordRightTorqueEffectivenessField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -885,7 +1182,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set rightTorqueEffectiveness(double? value) {
+
+  set rightTorqueEffectiveness(double? value) {
     final field = getField(RecordRightTorqueEffectivenessField.ID);
 
     if (field != null) {
@@ -897,8 +1195,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get leftPedalSmoothness {
-     final field = getField(RecordLeftPedalSmoothnessField.ID);
+    final field = getField(RecordLeftPedalSmoothnessField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -906,7 +1205,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set leftPedalSmoothness(double? value) {
+
+  set leftPedalSmoothness(double? value) {
     final field = getField(RecordLeftPedalSmoothnessField.ID);
 
     if (field != null) {
@@ -918,8 +1218,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get rightPedalSmoothness {
-     final field = getField(RecordRightPedalSmoothnessField.ID);
+    final field = getField(RecordRightPedalSmoothnessField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -927,7 +1228,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set rightPedalSmoothness(double? value) {
+
+  set rightPedalSmoothness(double? value) {
     final field = getField(RecordRightPedalSmoothnessField.ID);
 
     if (field != null) {
@@ -939,8 +1241,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get combinedPedalSmoothness {
-     final field = getField(RecordCombinedPedalSmoothnessField.ID);
+    final field = getField(RecordCombinedPedalSmoothnessField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -948,7 +1251,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set combinedPedalSmoothness(double? value) {
+
+  set combinedPedalSmoothness(double? value) {
     final field = getField(RecordCombinedPedalSmoothnessField.ID);
 
     if (field != null) {
@@ -960,8 +1264,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get time128 {
-     final field = getField(RecordTime128Field.ID);
+    final field = getField(RecordTime128Field.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -969,7 +1274,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set time128(double? value) {
+
+  set time128(double? value) {
     final field = getField(RecordTime128Field.ID);
 
     if (field != null) {
@@ -981,9 +1287,10 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   StrokeType? get strokeType {
-     final field = getField(RecordStrokeTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(RecordStrokeTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -994,7 +1301,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set strokeType(StrokeType? value) {
+
+  set strokeType(StrokeType? value) {
     final field = getField(RecordStrokeTypeField.ID);
 
     if (field != null) {
@@ -1006,8 +1314,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   int? get zone {
-     final field = getField(RecordZoneField.ID);
+    final field = getField(RecordZoneField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1015,7 +1324,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set zone(int? value) {
+
+  set zone(int? value) {
     final field = getField(RecordZoneField.ID);
 
     if (field != null) {
@@ -1027,8 +1337,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get ballSpeed {
-     final field = getField(RecordBallSpeedField.ID);
+    final field = getField(RecordBallSpeedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1036,7 +1347,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set ballSpeed(double? value) {
+
+  set ballSpeed(double? value) {
     final field = getField(RecordBallSpeedField.ID);
 
     if (field != null) {
@@ -1048,8 +1360,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get cadence256 {
-     final field = getField(RecordCadence256Field.ID);
+    final field = getField(RecordCadence256Field.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1057,7 +1370,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set cadence256(double? value) {
+
+  set cadence256(double? value) {
     final field = getField(RecordCadence256Field.ID);
 
     if (field != null) {
@@ -1069,8 +1383,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get fractionalCadence {
-     final field = getField(RecordFractionalCadenceField.ID);
+    final field = getField(RecordFractionalCadenceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1078,7 +1393,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set fractionalCadence(double? value) {
+
+  set fractionalCadence(double? value) {
     final field = getField(RecordFractionalCadenceField.ID);
 
     if (field != null) {
@@ -1090,8 +1406,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get totalHemoglobinConc {
-     final field = getField(RecordTotalHemoglobinConcField.ID);
+    final field = getField(RecordTotalHemoglobinConcField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1099,7 +1416,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set totalHemoglobinConc(double? value) {
+
+  set totalHemoglobinConc(double? value) {
     final field = getField(RecordTotalHemoglobinConcField.ID);
 
     if (field != null) {
@@ -1111,8 +1429,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get totalHemoglobinConcMin {
-     final field = getField(RecordTotalHemoglobinConcMinField.ID);
+    final field = getField(RecordTotalHemoglobinConcMinField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1120,7 +1439,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set totalHemoglobinConcMin(double? value) {
+
+  set totalHemoglobinConcMin(double? value) {
     final field = getField(RecordTotalHemoglobinConcMinField.ID);
 
     if (field != null) {
@@ -1132,8 +1452,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get totalHemoglobinConcMax {
-     final field = getField(RecordTotalHemoglobinConcMaxField.ID);
+    final field = getField(RecordTotalHemoglobinConcMaxField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1141,7 +1462,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set totalHemoglobinConcMax(double? value) {
+
+  set totalHemoglobinConcMax(double? value) {
     final field = getField(RecordTotalHemoglobinConcMaxField.ID);
 
     if (field != null) {
@@ -1153,8 +1475,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get saturatedHemoglobinPercent {
-     final field = getField(RecordSaturatedHemoglobinPercentField.ID);
+    final field = getField(RecordSaturatedHemoglobinPercentField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1162,7 +1485,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set saturatedHemoglobinPercent(double? value) {
+
+  set saturatedHemoglobinPercent(double? value) {
     final field = getField(RecordSaturatedHemoglobinPercentField.ID);
 
     if (field != null) {
@@ -1174,8 +1498,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get saturatedHemoglobinPercentMin {
-     final field = getField(RecordSaturatedHemoglobinPercentMinField.ID);
+    final field = getField(RecordSaturatedHemoglobinPercentMinField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1183,7 +1508,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set saturatedHemoglobinPercentMin(double? value) {
+
+  set saturatedHemoglobinPercentMin(double? value) {
     final field = getField(RecordSaturatedHemoglobinPercentMinField.ID);
 
     if (field != null) {
@@ -1195,8 +1521,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get saturatedHemoglobinPercentMax {
-     final field = getField(RecordSaturatedHemoglobinPercentMaxField.ID);
+    final field = getField(RecordSaturatedHemoglobinPercentMaxField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1204,7 +1531,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set saturatedHemoglobinPercentMax(double? value) {
+
+  set saturatedHemoglobinPercentMax(double? value) {
     final field = getField(RecordSaturatedHemoglobinPercentMaxField.ID);
 
     if (field != null) {
@@ -1216,8 +1544,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   int? get deviceIndex {
-     final field = getField(RecordDeviceIndexField.ID);
+    final field = getField(RecordDeviceIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1225,7 +1554,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set deviceIndex(int? value) {
+
+  set deviceIndex(int? value) {
     final field = getField(RecordDeviceIndexField.ID);
 
     if (field != null) {
@@ -1237,8 +1567,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   int? get leftPco {
-     final field = getField(RecordLeftPcoField.ID);
+    final field = getField(RecordLeftPcoField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1246,7 +1577,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set leftPco(int? value) {
+
+  set leftPco(int? value) {
     final field = getField(RecordLeftPcoField.ID);
 
     if (field != null) {
@@ -1258,8 +1590,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   int? get rightPco {
-     final field = getField(RecordRightPcoField.ID);
+    final field = getField(RecordRightPcoField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1267,7 +1600,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set rightPco(int? value) {
+
+  set rightPco(int? value) {
     final field = getField(RecordRightPcoField.ID);
 
     if (field != null) {
@@ -1279,8 +1613,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get leftPowerPhase {
-     final field = getField(RecordLeftPowerPhaseField.ID);
+    final field = getField(RecordLeftPowerPhaseField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1288,7 +1623,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set leftPowerPhase(double? value) {
+
+  set leftPowerPhase(double? value) {
     final field = getField(RecordLeftPowerPhaseField.ID);
 
     if (field != null) {
@@ -1300,8 +1636,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get leftPowerPhasePeak {
-     final field = getField(RecordLeftPowerPhasePeakField.ID);
+    final field = getField(RecordLeftPowerPhasePeakField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1309,7 +1646,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set leftPowerPhasePeak(double? value) {
+
+  set leftPowerPhasePeak(double? value) {
     final field = getField(RecordLeftPowerPhasePeakField.ID);
 
     if (field != null) {
@@ -1321,8 +1659,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get rightPowerPhase {
-     final field = getField(RecordRightPowerPhaseField.ID);
+    final field = getField(RecordRightPowerPhaseField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1330,7 +1669,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set rightPowerPhase(double? value) {
+
+  set rightPowerPhase(double? value) {
     final field = getField(RecordRightPowerPhaseField.ID);
 
     if (field != null) {
@@ -1342,8 +1682,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get rightPowerPhasePeak {
-     final field = getField(RecordRightPowerPhasePeakField.ID);
+    final field = getField(RecordRightPowerPhasePeakField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1351,7 +1692,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set rightPowerPhasePeak(double? value) {
+
+  set rightPowerPhasePeak(double? value) {
     final field = getField(RecordRightPowerPhasePeakField.ID);
 
     if (field != null) {
@@ -1363,8 +1705,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get enhancedSpeed {
-     final field = getField(RecordEnhancedSpeedField.ID);
+    final field = getField(RecordEnhancedSpeedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1372,7 +1715,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set enhancedSpeed(double? value) {
+
+  set enhancedSpeed(double? value) {
     final field = getField(RecordEnhancedSpeedField.ID);
 
     if (field != null) {
@@ -1384,8 +1728,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get enhancedAltitude {
-     final field = getField(RecordEnhancedAltitudeField.ID);
+    final field = getField(RecordEnhancedAltitudeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1393,7 +1738,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set enhancedAltitude(double? value) {
+
+  set enhancedAltitude(double? value) {
     final field = getField(RecordEnhancedAltitudeField.ID);
 
     if (field != null) {
@@ -1405,8 +1751,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get batterySoc {
-     final field = getField(RecordBatterySocField.ID);
+    final field = getField(RecordBatterySocField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1414,7 +1761,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set batterySoc(double? value) {
+
+  set batterySoc(double? value) {
     final field = getField(RecordBatterySocField.ID);
 
     if (field != null) {
@@ -1426,8 +1774,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   int? get motorPower {
-     final field = getField(RecordMotorPowerField.ID);
+    final field = getField(RecordMotorPowerField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1435,7 +1784,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set motorPower(int? value) {
+
+  set motorPower(int? value) {
     final field = getField(RecordMotorPowerField.ID);
 
     if (field != null) {
@@ -1447,8 +1797,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get verticalRatio {
-     final field = getField(RecordVerticalRatioField.ID);
+    final field = getField(RecordVerticalRatioField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1456,7 +1807,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set verticalRatio(double? value) {
+
+  set verticalRatio(double? value) {
     final field = getField(RecordVerticalRatioField.ID);
 
     if (field != null) {
@@ -1468,8 +1820,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get stanceTimeBalance {
-     final field = getField(RecordStanceTimeBalanceField.ID);
+    final field = getField(RecordStanceTimeBalanceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1477,7 +1830,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set stanceTimeBalance(double? value) {
+
+  set stanceTimeBalance(double? value) {
     final field = getField(RecordStanceTimeBalanceField.ID);
 
     if (field != null) {
@@ -1489,8 +1843,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get stepLength {
-     final field = getField(RecordStepLengthField.ID);
+    final field = getField(RecordStepLengthField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1498,7 +1853,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set stepLength(double? value) {
+
+  set stepLength(double? value) {
     final field = getField(RecordStepLengthField.ID);
 
     if (field != null) {
@@ -1510,8 +1866,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   int? get absolutePressure {
-     final field = getField(RecordAbsolutePressureField.ID);
+    final field = getField(RecordAbsolutePressureField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1519,7 +1876,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set absolutePressure(int? value) {
+
+  set absolutePressure(int? value) {
     final field = getField(RecordAbsolutePressureField.ID);
 
     if (field != null) {
@@ -1531,8 +1889,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get depth {
-     final field = getField(RecordDepthField.ID);
+    final field = getField(RecordDepthField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1540,7 +1899,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set depth(double? value) {
+
+  set depth(double? value) {
     final field = getField(RecordDepthField.ID);
 
     if (field != null) {
@@ -1552,8 +1912,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get nextStopDepth {
-     final field = getField(RecordNextStopDepthField.ID);
+    final field = getField(RecordNextStopDepthField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1561,7 +1922,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set nextStopDepth(double? value) {
+
+  set nextStopDepth(double? value) {
     final field = getField(RecordNextStopDepthField.ID);
 
     if (field != null) {
@@ -1573,8 +1935,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   int? get nextStopTime {
-     final field = getField(RecordNextStopTimeField.ID);
+    final field = getField(RecordNextStopTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1582,7 +1945,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set nextStopTime(int? value) {
+
+  set nextStopTime(int? value) {
     final field = getField(RecordNextStopTimeField.ID);
 
     if (field != null) {
@@ -1594,8 +1958,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   int? get timeToSurface {
-     final field = getField(RecordTimeToSurfaceField.ID);
+    final field = getField(RecordTimeToSurfaceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1603,7 +1968,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set timeToSurface(int? value) {
+
+  set timeToSurface(int? value) {
     final field = getField(RecordTimeToSurfaceField.ID);
 
     if (field != null) {
@@ -1615,8 +1981,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   int? get ndlTime {
-     final field = getField(RecordNdlTimeField.ID);
+    final field = getField(RecordNdlTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1624,7 +1991,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set ndlTime(int? value) {
+
+  set ndlTime(int? value) {
     final field = getField(RecordNdlTimeField.ID);
 
     if (field != null) {
@@ -1636,8 +2004,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   int? get cnsLoad {
-     final field = getField(RecordCnsLoadField.ID);
+    final field = getField(RecordCnsLoadField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1645,7 +2014,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set cnsLoad(int? value) {
+
+  set cnsLoad(int? value) {
     final field = getField(RecordCnsLoadField.ID);
 
     if (field != null) {
@@ -1657,8 +2027,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   int? get n2Load {
-     final field = getField(RecordN2LoadField.ID);
+    final field = getField(RecordN2LoadField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1666,7 +2037,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set n2Load(int? value) {
+
+  set n2Load(int? value) {
     final field = getField(RecordN2LoadField.ID);
 
     if (field != null) {
@@ -1678,8 +2050,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get grit {
-     final field = getField(RecordGritField.ID);
+    final field = getField(RecordGritField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1687,7 +2060,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set grit(double? value) {
+
+  set grit(double? value) {
     final field = getField(RecordGritField.ID);
 
     if (field != null) {
@@ -1699,8 +2073,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get flow {
-     final field = getField(RecordFlowField.ID);
+    final field = getField(RecordFlowField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1708,7 +2083,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set flow(double? value) {
+
+  set flow(double? value) {
     final field = getField(RecordFlowField.ID);
 
     if (field != null) {
@@ -1720,8 +2096,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   int? get ebikeTravelRange {
-     final field = getField(RecordEbikeTravelRangeField.ID);
+    final field = getField(RecordEbikeTravelRangeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1729,7 +2106,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set ebikeTravelRange(int? value) {
+
+  set ebikeTravelRange(int? value) {
     final field = getField(RecordEbikeTravelRangeField.ID);
 
     if (field != null) {
@@ -1741,8 +2119,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   int? get ebikeBatteryLevel {
-     final field = getField(RecordEbikeBatteryLevelField.ID);
+    final field = getField(RecordEbikeBatteryLevelField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1750,7 +2129,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set ebikeBatteryLevel(int? value) {
+
+  set ebikeBatteryLevel(int? value) {
     final field = getField(RecordEbikeBatteryLevelField.ID);
 
     if (field != null) {
@@ -1762,8 +2142,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   int? get ebikeAssistMode {
-     final field = getField(RecordEbikeAssistModeField.ID);
+    final field = getField(RecordEbikeAssistModeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1771,7 +2152,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set ebikeAssistMode(int? value) {
+
+  set ebikeAssistMode(int? value) {
     final field = getField(RecordEbikeAssistModeField.ID);
 
     if (field != null) {
@@ -1783,8 +2165,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   int? get ebikeAssistLevelPercent {
-     final field = getField(RecordEbikeAssistLevelPercentField.ID);
+    final field = getField(RecordEbikeAssistLevelPercentField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1792,7 +2175,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set ebikeAssistLevelPercent(int? value) {
+
+  set ebikeAssistLevelPercent(int? value) {
     final field = getField(RecordEbikeAssistLevelPercentField.ID);
 
     if (field != null) {
@@ -1804,8 +2188,9 @@ class RecordMessage extends DataMessage {
       }
     }
   }
+
   double? get coreTemperature {
-     final field = getField(RecordCoreTemperatureField.ID);
+    final field = getField(RecordCoreTemperatureField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1813,7 +2198,8 @@ class RecordMessage extends DataMessage {
       return null;
     }
   }
-   set coreTemperature(double? value) {
+
+  set coreTemperature(double? value) {
     final field = getField(RecordCoreTemperatureField.ID);
 
     if (field != null) {
@@ -1825,15 +2211,10 @@ class RecordMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class RecordPositionLatField extends Field {
- RecordPositionLatField({int size = 0, bool growable = true})
+  RecordPositionLatField({int size = 0, bool growable = true})
       : super(
             name: 'position_lat',
             id: ID,
@@ -1844,14 +2225,13 @@ class RecordPositionLatField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class RecordPositionLongField extends Field {
- RecordPositionLongField({int size = 0, bool growable = true})
+  RecordPositionLongField({int size = 0, bool growable = true})
       : super(
             name: 'position_long',
             id: ID,
@@ -1862,14 +2242,13 @@ class RecordPositionLongField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class RecordAltitudeField extends Field {
- RecordAltitudeField({int size = 0, bool growable = true})
+  RecordAltitudeField({int size = 0, bool growable = true})
       : super(
             name: 'altitude',
             id: ID,
@@ -1880,14 +2259,13 @@ class RecordAltitudeField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class RecordHeartRateField extends Field {
- RecordHeartRateField({int size = 0, bool growable = true})
+  RecordHeartRateField({int size = 0, bool growable = true})
       : super(
             name: 'heart_rate',
             id: ID,
@@ -1898,14 +2276,13 @@ class RecordHeartRateField extends Field {
             units: 'bpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class RecordCadenceField extends Field {
- RecordCadenceField({int size = 0, bool growable = true})
+  RecordCadenceField({int size = 0, bool growable = true})
       : super(
             name: 'cadence',
             id: ID,
@@ -1916,14 +2293,13 @@ class RecordCadenceField extends Field {
             units: 'rpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class RecordDistanceField extends Field {
- RecordDistanceField({int size = 0, bool growable = true})
+  RecordDistanceField({int size = 0, bool growable = true})
       : super(
             name: 'distance',
             id: ID,
@@ -1934,14 +2310,13 @@ class RecordDistanceField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }
+
 class RecordSpeedField extends Field {
- RecordSpeedField({int size = 0, bool growable = true})
+  RecordSpeedField({int size = 0, bool growable = true})
       : super(
             name: 'speed',
             id: ID,
@@ -1952,14 +2327,13 @@ class RecordSpeedField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 6;
 }
+
 class RecordPowerField extends Field {
- RecordPowerField({int size = 0, bool growable = true})
+  RecordPowerField({int size = 0, bool growable = true})
       : super(
             name: 'power',
             id: ID,
@@ -1970,14 +2344,13 @@ class RecordPowerField extends Field {
             units: 'watts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 7;
 }
+
 class RecordCompressedSpeedDistanceField extends Field {
- RecordCompressedSpeedDistanceField({int size = 0, bool growable = true})
+  RecordCompressedSpeedDistanceField({int size = 0, bool growable = true})
       : super(
             name: 'compressed_speed_distance',
             id: ID,
@@ -1988,14 +2361,13 @@ class RecordCompressedSpeedDistanceField extends Field {
             units: 'm/s,m',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 8;
 }
+
 class RecordGradeField extends Field {
- RecordGradeField({int size = 0, bool growable = true})
+  RecordGradeField({int size = 0, bool growable = true})
       : super(
             name: 'grade',
             id: ID,
@@ -2006,14 +2378,13 @@ class RecordGradeField extends Field {
             units: '%',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 9;
 }
+
 class RecordResistanceField extends Field {
- RecordResistanceField({int size = 0, bool growable = true})
+  RecordResistanceField({int size = 0, bool growable = true})
       : super(
             name: 'resistance',
             id: ID,
@@ -2022,14 +2393,13 @@ class RecordResistanceField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 10;
 }
+
 class RecordTimeFromCourseField extends Field {
- RecordTimeFromCourseField({int size = 0, bool growable = true})
+  RecordTimeFromCourseField({int size = 0, bool growable = true})
       : super(
             name: 'time_from_course',
             id: ID,
@@ -2040,14 +2410,13 @@ class RecordTimeFromCourseField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 11;
 }
+
 class RecordCycleLengthField extends Field {
- RecordCycleLengthField({int size = 0, bool growable = true})
+  RecordCycleLengthField({int size = 0, bool growable = true})
       : super(
             name: 'cycle_length',
             id: ID,
@@ -2058,14 +2427,13 @@ class RecordCycleLengthField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 12;
 }
+
 class RecordTemperatureField extends Field {
- RecordTemperatureField({int size = 0, bool growable = true})
+  RecordTemperatureField({int size = 0, bool growable = true})
       : super(
             name: 'temperature',
             id: ID,
@@ -2076,14 +2444,13 @@ class RecordTemperatureField extends Field {
             units: 'C',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 13;
 }
+
 class RecordSpeed1sField extends Field {
- RecordSpeed1sField({int size = 0, bool growable = true})
+  RecordSpeed1sField({int size = 0, bool growable = true})
       : super(
             name: 'speed_1s',
             id: ID,
@@ -2094,14 +2461,13 @@ class RecordSpeed1sField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 17;
 }
+
 class RecordCyclesField extends Field {
- RecordCyclesField({int size = 0, bool growable = true})
+  RecordCyclesField({int size = 0, bool growable = true})
       : super(
             name: 'cycles',
             id: ID,
@@ -2112,14 +2478,13 @@ class RecordCyclesField extends Field {
             units: 'cycles',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 18;
 }
+
 class RecordTotalCyclesField extends Field {
- RecordTotalCyclesField({int size = 0, bool growable = true})
+  RecordTotalCyclesField({int size = 0, bool growable = true})
       : super(
             name: 'total_cycles',
             id: ID,
@@ -2130,14 +2495,13 @@ class RecordTotalCyclesField extends Field {
             units: 'cycles',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 19;
 }
+
 class RecordCompressedAccumulatedPowerField extends Field {
- RecordCompressedAccumulatedPowerField({int size = 0, bool growable = true})
+  RecordCompressedAccumulatedPowerField({int size = 0, bool growable = true})
       : super(
             name: 'compressed_accumulated_power',
             id: ID,
@@ -2148,14 +2512,13 @@ class RecordCompressedAccumulatedPowerField extends Field {
             units: 'watts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 28;
 }
+
 class RecordAccumulatedPowerField extends Field {
- RecordAccumulatedPowerField({int size = 0, bool growable = true})
+  RecordAccumulatedPowerField({int size = 0, bool growable = true})
       : super(
             name: 'accumulated_power',
             id: ID,
@@ -2166,14 +2529,13 @@ class RecordAccumulatedPowerField extends Field {
             units: 'watts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 29;
 }
+
 class RecordLeftRightBalanceField extends Field {
- RecordLeftRightBalanceField({int size = 0, bool growable = true})
+  RecordLeftRightBalanceField({int size = 0, bool growable = true})
       : super(
             name: 'left_right_balance',
             id: ID,
@@ -2182,14 +2544,13 @@ class RecordLeftRightBalanceField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 30;
 }
+
 class RecordGpsAccuracyField extends Field {
- RecordGpsAccuracyField({int size = 0, bool growable = true})
+  RecordGpsAccuracyField({int size = 0, bool growable = true})
       : super(
             name: 'gps_accuracy',
             id: ID,
@@ -2200,14 +2561,13 @@ class RecordGpsAccuracyField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 31;
 }
+
 class RecordVerticalSpeedField extends Field {
- RecordVerticalSpeedField({int size = 0, bool growable = true})
+  RecordVerticalSpeedField({int size = 0, bool growable = true})
       : super(
             name: 'vertical_speed',
             id: ID,
@@ -2218,14 +2578,13 @@ class RecordVerticalSpeedField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 32;
 }
+
 class RecordCaloriesField extends Field {
- RecordCaloriesField({int size = 0, bool growable = true})
+  RecordCaloriesField({int size = 0, bool growable = true})
       : super(
             name: 'calories',
             id: ID,
@@ -2236,14 +2595,13 @@ class RecordCaloriesField extends Field {
             units: 'kcal',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 33;
 }
+
 class RecordVerticalOscillationField extends Field {
- RecordVerticalOscillationField({int size = 0, bool growable = true})
+  RecordVerticalOscillationField({int size = 0, bool growable = true})
       : super(
             name: 'vertical_oscillation',
             id: ID,
@@ -2254,14 +2612,13 @@ class RecordVerticalOscillationField extends Field {
             units: 'mm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 39;
 }
+
 class RecordStanceTimePercentField extends Field {
- RecordStanceTimePercentField({int size = 0, bool growable = true})
+  RecordStanceTimePercentField({int size = 0, bool growable = true})
       : super(
             name: 'stance_time_percent',
             id: ID,
@@ -2272,14 +2629,13 @@ class RecordStanceTimePercentField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 40;
 }
+
 class RecordStanceTimeField extends Field {
- RecordStanceTimeField({int size = 0, bool growable = true})
+  RecordStanceTimeField({int size = 0, bool growable = true})
       : super(
             name: 'stance_time',
             id: ID,
@@ -2290,14 +2646,13 @@ class RecordStanceTimeField extends Field {
             units: 'ms',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 41;
 }
+
 class RecordActivityTypeField extends Field {
- RecordActivityTypeField({int size = 0, bool growable = true})
+  RecordActivityTypeField({int size = 0, bool growable = true})
       : super(
             name: 'activity_type',
             id: ID,
@@ -2306,14 +2661,13 @@ class RecordActivityTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 42;
 }
+
 class RecordLeftTorqueEffectivenessField extends Field {
- RecordLeftTorqueEffectivenessField({int size = 0, bool growable = true})
+  RecordLeftTorqueEffectivenessField({int size = 0, bool growable = true})
       : super(
             name: 'left_torque_effectiveness',
             id: ID,
@@ -2324,14 +2678,13 @@ class RecordLeftTorqueEffectivenessField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 43;
 }
+
 class RecordRightTorqueEffectivenessField extends Field {
- RecordRightTorqueEffectivenessField({int size = 0, bool growable = true})
+  RecordRightTorqueEffectivenessField({int size = 0, bool growable = true})
       : super(
             name: 'right_torque_effectiveness',
             id: ID,
@@ -2342,14 +2695,13 @@ class RecordRightTorqueEffectivenessField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 44;
 }
+
 class RecordLeftPedalSmoothnessField extends Field {
- RecordLeftPedalSmoothnessField({int size = 0, bool growable = true})
+  RecordLeftPedalSmoothnessField({int size = 0, bool growable = true})
       : super(
             name: 'left_pedal_smoothness',
             id: ID,
@@ -2360,14 +2712,13 @@ class RecordLeftPedalSmoothnessField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 45;
 }
+
 class RecordRightPedalSmoothnessField extends Field {
- RecordRightPedalSmoothnessField({int size = 0, bool growable = true})
+  RecordRightPedalSmoothnessField({int size = 0, bool growable = true})
       : super(
             name: 'right_pedal_smoothness',
             id: ID,
@@ -2378,14 +2729,13 @@ class RecordRightPedalSmoothnessField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 46;
 }
+
 class RecordCombinedPedalSmoothnessField extends Field {
- RecordCombinedPedalSmoothnessField({int size = 0, bool growable = true})
+  RecordCombinedPedalSmoothnessField({int size = 0, bool growable = true})
       : super(
             name: 'combined_pedal_smoothness',
             id: ID,
@@ -2396,14 +2746,13 @@ class RecordCombinedPedalSmoothnessField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 47;
 }
+
 class RecordTime128Field extends Field {
- RecordTime128Field({int size = 0, bool growable = true})
+  RecordTime128Field({int size = 0, bool growable = true})
       : super(
             name: 'time128',
             id: ID,
@@ -2414,14 +2763,13 @@ class RecordTime128Field extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 48;
 }
+
 class RecordStrokeTypeField extends Field {
- RecordStrokeTypeField({int size = 0, bool growable = true})
+  RecordStrokeTypeField({int size = 0, bool growable = true})
       : super(
             name: 'stroke_type',
             id: ID,
@@ -2430,14 +2778,13 @@ class RecordStrokeTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 49;
 }
+
 class RecordZoneField extends Field {
- RecordZoneField({int size = 0, bool growable = true})
+  RecordZoneField({int size = 0, bool growable = true})
       : super(
             name: 'zone',
             id: ID,
@@ -2446,14 +2793,13 @@ class RecordZoneField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 50;
 }
+
 class RecordBallSpeedField extends Field {
- RecordBallSpeedField({int size = 0, bool growable = true})
+  RecordBallSpeedField({int size = 0, bool growable = true})
       : super(
             name: 'ball_speed',
             id: ID,
@@ -2464,14 +2810,13 @@ class RecordBallSpeedField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 51;
 }
+
 class RecordCadence256Field extends Field {
- RecordCadence256Field({int size = 0, bool growable = true})
+  RecordCadence256Field({int size = 0, bool growable = true})
       : super(
             name: 'cadence256',
             id: ID,
@@ -2482,14 +2827,13 @@ class RecordCadence256Field extends Field {
             units: 'rpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 52;
 }
+
 class RecordFractionalCadenceField extends Field {
- RecordFractionalCadenceField({int size = 0, bool growable = true})
+  RecordFractionalCadenceField({int size = 0, bool growable = true})
       : super(
             name: 'fractional_cadence',
             id: ID,
@@ -2500,14 +2844,13 @@ class RecordFractionalCadenceField extends Field {
             units: 'rpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 53;
 }
+
 class RecordTotalHemoglobinConcField extends Field {
- RecordTotalHemoglobinConcField({int size = 0, bool growable = true})
+  RecordTotalHemoglobinConcField({int size = 0, bool growable = true})
       : super(
             name: 'total_hemoglobin_conc',
             id: ID,
@@ -2518,14 +2861,13 @@ class RecordTotalHemoglobinConcField extends Field {
             units: 'g/dL',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 54;
 }
+
 class RecordTotalHemoglobinConcMinField extends Field {
- RecordTotalHemoglobinConcMinField({int size = 0, bool growable = true})
+  RecordTotalHemoglobinConcMinField({int size = 0, bool growable = true})
       : super(
             name: 'total_hemoglobin_conc_min',
             id: ID,
@@ -2536,14 +2878,13 @@ class RecordTotalHemoglobinConcMinField extends Field {
             units: 'g/dL',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 55;
 }
+
 class RecordTotalHemoglobinConcMaxField extends Field {
- RecordTotalHemoglobinConcMaxField({int size = 0, bool growable = true})
+  RecordTotalHemoglobinConcMaxField({int size = 0, bool growable = true})
       : super(
             name: 'total_hemoglobin_conc_max',
             id: ID,
@@ -2554,14 +2895,13 @@ class RecordTotalHemoglobinConcMaxField extends Field {
             units: 'g/dL',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 56;
 }
+
 class RecordSaturatedHemoglobinPercentField extends Field {
- RecordSaturatedHemoglobinPercentField({int size = 0, bool growable = true})
+  RecordSaturatedHemoglobinPercentField({int size = 0, bool growable = true})
       : super(
             name: 'saturated_hemoglobin_percent',
             id: ID,
@@ -2572,14 +2912,13 @@ class RecordSaturatedHemoglobinPercentField extends Field {
             units: '%',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 57;
 }
+
 class RecordSaturatedHemoglobinPercentMinField extends Field {
- RecordSaturatedHemoglobinPercentMinField({int size = 0, bool growable = true})
+  RecordSaturatedHemoglobinPercentMinField({int size = 0, bool growable = true})
       : super(
             name: 'saturated_hemoglobin_percent_min',
             id: ID,
@@ -2590,14 +2929,13 @@ class RecordSaturatedHemoglobinPercentMinField extends Field {
             units: '%',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 58;
 }
+
 class RecordSaturatedHemoglobinPercentMaxField extends Field {
- RecordSaturatedHemoglobinPercentMaxField({int size = 0, bool growable = true})
+  RecordSaturatedHemoglobinPercentMaxField({int size = 0, bool growable = true})
       : super(
             name: 'saturated_hemoglobin_percent_max',
             id: ID,
@@ -2608,14 +2946,13 @@ class RecordSaturatedHemoglobinPercentMaxField extends Field {
             units: '%',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 59;
 }
+
 class RecordDeviceIndexField extends Field {
- RecordDeviceIndexField({int size = 0, bool growable = true})
+  RecordDeviceIndexField({int size = 0, bool growable = true})
       : super(
             name: 'device_index',
             id: ID,
@@ -2624,14 +2961,13 @@ class RecordDeviceIndexField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 62;
 }
+
 class RecordLeftPcoField extends Field {
- RecordLeftPcoField({int size = 0, bool growable = true})
+  RecordLeftPcoField({int size = 0, bool growable = true})
       : super(
             name: 'left_pco',
             id: ID,
@@ -2642,14 +2978,13 @@ class RecordLeftPcoField extends Field {
             units: 'mm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 67;
 }
+
 class RecordRightPcoField extends Field {
- RecordRightPcoField({int size = 0, bool growable = true})
+  RecordRightPcoField({int size = 0, bool growable = true})
       : super(
             name: 'right_pco',
             id: ID,
@@ -2660,14 +2995,13 @@ class RecordRightPcoField extends Field {
             units: 'mm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 68;
 }
+
 class RecordLeftPowerPhaseField extends Field {
- RecordLeftPowerPhaseField({int size = 0, bool growable = true})
+  RecordLeftPowerPhaseField({int size = 0, bool growable = true})
       : super(
             name: 'left_power_phase',
             id: ID,
@@ -2678,14 +3012,13 @@ class RecordLeftPowerPhaseField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 69;
 }
+
 class RecordLeftPowerPhasePeakField extends Field {
- RecordLeftPowerPhasePeakField({int size = 0, bool growable = true})
+  RecordLeftPowerPhasePeakField({int size = 0, bool growable = true})
       : super(
             name: 'left_power_phase_peak',
             id: ID,
@@ -2696,14 +3029,13 @@ class RecordLeftPowerPhasePeakField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 70;
 }
+
 class RecordRightPowerPhaseField extends Field {
- RecordRightPowerPhaseField({int size = 0, bool growable = true})
+  RecordRightPowerPhaseField({int size = 0, bool growable = true})
       : super(
             name: 'right_power_phase',
             id: ID,
@@ -2714,14 +3046,13 @@ class RecordRightPowerPhaseField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 71;
 }
+
 class RecordRightPowerPhasePeakField extends Field {
- RecordRightPowerPhasePeakField({int size = 0, bool growable = true})
+  RecordRightPowerPhasePeakField({int size = 0, bool growable = true})
       : super(
             name: 'right_power_phase_peak',
             id: ID,
@@ -2732,14 +3063,13 @@ class RecordRightPowerPhasePeakField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 72;
 }
+
 class RecordEnhancedSpeedField extends Field {
- RecordEnhancedSpeedField({int size = 0, bool growable = true})
+  RecordEnhancedSpeedField({int size = 0, bool growable = true})
       : super(
             name: 'enhanced_speed',
             id: ID,
@@ -2750,14 +3080,13 @@ class RecordEnhancedSpeedField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 73;
 }
+
 class RecordEnhancedAltitudeField extends Field {
- RecordEnhancedAltitudeField({int size = 0, bool growable = true})
+  RecordEnhancedAltitudeField({int size = 0, bool growable = true})
       : super(
             name: 'enhanced_altitude',
             id: ID,
@@ -2768,14 +3097,13 @@ class RecordEnhancedAltitudeField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 78;
 }
+
 class RecordBatterySocField extends Field {
- RecordBatterySocField({int size = 0, bool growable = true})
+  RecordBatterySocField({int size = 0, bool growable = true})
       : super(
             name: 'battery_soc',
             id: ID,
@@ -2786,14 +3114,13 @@ class RecordBatterySocField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 81;
 }
+
 class RecordMotorPowerField extends Field {
- RecordMotorPowerField({int size = 0, bool growable = true})
+  RecordMotorPowerField({int size = 0, bool growable = true})
       : super(
             name: 'motor_power',
             id: ID,
@@ -2804,14 +3131,13 @@ class RecordMotorPowerField extends Field {
             units: 'watts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 82;
 }
+
 class RecordVerticalRatioField extends Field {
- RecordVerticalRatioField({int size = 0, bool growable = true})
+  RecordVerticalRatioField({int size = 0, bool growable = true})
       : super(
             name: 'vertical_ratio',
             id: ID,
@@ -2822,14 +3148,13 @@ class RecordVerticalRatioField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 83;
 }
+
 class RecordStanceTimeBalanceField extends Field {
- RecordStanceTimeBalanceField({int size = 0, bool growable = true})
+  RecordStanceTimeBalanceField({int size = 0, bool growable = true})
       : super(
             name: 'stance_time_balance',
             id: ID,
@@ -2840,14 +3165,13 @@ class RecordStanceTimeBalanceField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 84;
 }
+
 class RecordStepLengthField extends Field {
- RecordStepLengthField({int size = 0, bool growable = true})
+  RecordStepLengthField({int size = 0, bool growable = true})
       : super(
             name: 'step_length',
             id: ID,
@@ -2858,14 +3182,13 @@ class RecordStepLengthField extends Field {
             units: 'mm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 85;
 }
+
 class RecordAbsolutePressureField extends Field {
- RecordAbsolutePressureField({int size = 0, bool growable = true})
+  RecordAbsolutePressureField({int size = 0, bool growable = true})
       : super(
             name: 'absolute_pressure',
             id: ID,
@@ -2876,14 +3199,13 @@ class RecordAbsolutePressureField extends Field {
             units: 'Pa',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 91;
 }
+
 class RecordDepthField extends Field {
- RecordDepthField({int size = 0, bool growable = true})
+  RecordDepthField({int size = 0, bool growable = true})
       : super(
             name: 'depth',
             id: ID,
@@ -2894,14 +3216,13 @@ class RecordDepthField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 92;
 }
+
 class RecordNextStopDepthField extends Field {
- RecordNextStopDepthField({int size = 0, bool growable = true})
+  RecordNextStopDepthField({int size = 0, bool growable = true})
       : super(
             name: 'next_stop_depth',
             id: ID,
@@ -2912,14 +3233,13 @@ class RecordNextStopDepthField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 93;
 }
+
 class RecordNextStopTimeField extends Field {
- RecordNextStopTimeField({int size = 0, bool growable = true})
+  RecordNextStopTimeField({int size = 0, bool growable = true})
       : super(
             name: 'next_stop_time',
             id: ID,
@@ -2930,14 +3250,13 @@ class RecordNextStopTimeField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 94;
 }
+
 class RecordTimeToSurfaceField extends Field {
- RecordTimeToSurfaceField({int size = 0, bool growable = true})
+  RecordTimeToSurfaceField({int size = 0, bool growable = true})
       : super(
             name: 'time_to_surface',
             id: ID,
@@ -2948,14 +3267,13 @@ class RecordTimeToSurfaceField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 95;
 }
+
 class RecordNdlTimeField extends Field {
- RecordNdlTimeField({int size = 0, bool growable = true})
+  RecordNdlTimeField({int size = 0, bool growable = true})
       : super(
             name: 'ndl_time',
             id: ID,
@@ -2966,14 +3284,13 @@ class RecordNdlTimeField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 96;
 }
+
 class RecordCnsLoadField extends Field {
- RecordCnsLoadField({int size = 0, bool growable = true})
+  RecordCnsLoadField({int size = 0, bool growable = true})
       : super(
             name: 'cns_load',
             id: ID,
@@ -2984,14 +3301,13 @@ class RecordCnsLoadField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 97;
 }
+
 class RecordN2LoadField extends Field {
- RecordN2LoadField({int size = 0, bool growable = true})
+  RecordN2LoadField({int size = 0, bool growable = true})
       : super(
             name: 'n2_load',
             id: ID,
@@ -3002,14 +3318,13 @@ class RecordN2LoadField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 98;
 }
+
 class RecordGritField extends Field {
- RecordGritField({int size = 0, bool growable = true})
+  RecordGritField({int size = 0, bool growable = true})
       : super(
             name: 'grit',
             id: ID,
@@ -3018,14 +3333,13 @@ class RecordGritField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 114;
 }
+
 class RecordFlowField extends Field {
- RecordFlowField({int size = 0, bool growable = true})
+  RecordFlowField({int size = 0, bool growable = true})
       : super(
             name: 'flow',
             id: ID,
@@ -3034,14 +3348,13 @@ class RecordFlowField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 115;
 }
+
 class RecordEbikeTravelRangeField extends Field {
- RecordEbikeTravelRangeField({int size = 0, bool growable = true})
+  RecordEbikeTravelRangeField({int size = 0, bool growable = true})
       : super(
             name: 'ebike_travel_range',
             id: ID,
@@ -3052,14 +3365,13 @@ class RecordEbikeTravelRangeField extends Field {
             units: 'km',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 117;
 }
+
 class RecordEbikeBatteryLevelField extends Field {
- RecordEbikeBatteryLevelField({int size = 0, bool growable = true})
+  RecordEbikeBatteryLevelField({int size = 0, bool growable = true})
       : super(
             name: 'ebike_battery_level',
             id: ID,
@@ -3070,14 +3382,13 @@ class RecordEbikeBatteryLevelField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 118;
 }
+
 class RecordEbikeAssistModeField extends Field {
- RecordEbikeAssistModeField({int size = 0, bool growable = true})
+  RecordEbikeAssistModeField({int size = 0, bool growable = true})
       : super(
             name: 'ebike_assist_mode',
             id: ID,
@@ -3088,14 +3399,13 @@ class RecordEbikeAssistModeField extends Field {
             units: 'depends on sensor',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 119;
 }
+
 class RecordEbikeAssistLevelPercentField extends Field {
- RecordEbikeAssistLevelPercentField({int size = 0, bool growable = true})
+  RecordEbikeAssistLevelPercentField({int size = 0, bool growable = true})
       : super(
             name: 'ebike_assist_level_percent',
             id: ID,
@@ -3106,14 +3416,13 @@ class RecordEbikeAssistLevelPercentField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 120;
 }
+
 class RecordCoreTemperatureField extends Field {
- RecordCoreTemperatureField({int size = 0, bool growable = true})
+  RecordCoreTemperatureField({int size = 0, bool growable = true})
       : super(
             name: 'core_temperature',
             id: ID,
@@ -3124,9 +3433,7 @@ class RecordCoreTemperatureField extends Field {
             units: 'C',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 139;
 }

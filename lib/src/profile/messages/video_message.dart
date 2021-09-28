@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class VideoMessage extends DataMessage {
-
-   VideoMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  VideoMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: VideoMessage.NAME,
@@ -25,13 +27,22 @@ class VideoMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               VideoUrlField(
-                  size: definitionMessage?.getFieldDefinition(VideoUrlField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(VideoUrlField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               VideoHostingProviderField(
-                  size: definitionMessage?.getFieldDefinition(VideoHostingProviderField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(VideoHostingProviderField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               VideoDurationField(
-                  size: definitionMessage?.getFieldDefinition(VideoDurationField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(VideoDurationField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -47,9 +58,8 @@ class VideoMessage extends DataMessage {
     return message;
   }
 
-
   String? get url {
-     final field = getField(VideoUrlField.ID);
+    final field = getField(VideoUrlField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -57,7 +67,8 @@ class VideoMessage extends DataMessage {
       return null;
     }
   }
-   set url(String? value) {
+
+  set url(String? value) {
     final field = getField(VideoUrlField.ID);
 
     if (field != null) {
@@ -69,8 +80,9 @@ class VideoMessage extends DataMessage {
       }
     }
   }
+
   String? get hostingProvider {
-     final field = getField(VideoHostingProviderField.ID);
+    final field = getField(VideoHostingProviderField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -78,7 +90,8 @@ class VideoMessage extends DataMessage {
       return null;
     }
   }
-   set hostingProvider(String? value) {
+
+  set hostingProvider(String? value) {
     final field = getField(VideoHostingProviderField.ID);
 
     if (field != null) {
@@ -90,8 +103,9 @@ class VideoMessage extends DataMessage {
       }
     }
   }
+
   int? get duration {
-     final field = getField(VideoDurationField.ID);
+    final field = getField(VideoDurationField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -99,7 +113,8 @@ class VideoMessage extends DataMessage {
       return null;
     }
   }
-   set duration(int? value) {
+
+  set duration(int? value) {
     final field = getField(VideoDurationField.ID);
 
     if (field != null) {
@@ -111,15 +126,10 @@ class VideoMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class VideoUrlField extends Field {
- VideoUrlField({int size = 0, bool growable = true})
+  VideoUrlField({int size = 0, bool growable = true})
       : super(
             name: 'url',
             id: ID,
@@ -128,14 +138,13 @@ class VideoUrlField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class VideoHostingProviderField extends Field {
- VideoHostingProviderField({int size = 0, bool growable = true})
+  VideoHostingProviderField({int size = 0, bool growable = true})
       : super(
             name: 'hosting_provider',
             id: ID,
@@ -144,14 +153,13 @@ class VideoHostingProviderField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class VideoDurationField extends Field {
- VideoDurationField({int size = 0, bool growable = true})
+  VideoDurationField({int size = 0, bool growable = true})
       : super(
             name: 'duration',
             id: ID,
@@ -162,9 +170,7 @@ class VideoDurationField extends Field {
             units: 'ms',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }

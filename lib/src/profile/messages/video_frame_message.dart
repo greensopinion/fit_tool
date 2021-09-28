@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class VideoFrameMessage extends DataMessage {
-
-   VideoFrameMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  VideoFrameMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: VideoFrameMessage.NAME,
@@ -25,13 +27,22 @@ class VideoFrameMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               VideoFrameTimestampMsField(
-                  size: definitionMessage?.getFieldDefinition(VideoFrameTimestampMsField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(VideoFrameTimestampMsField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               VideoFrameFrameNumberField(
-                  size: definitionMessage?.getFieldDefinition(VideoFrameFrameNumberField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(VideoFrameFrameNumberField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -47,10 +58,9 @@ class VideoFrameMessage extends DataMessage {
     return message;
   }
 
-
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -58,8 +68,9 @@ class VideoFrameMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -71,8 +82,9 @@ class VideoFrameMessage extends DataMessage {
       }
     }
   }
+
   int? get timestampMs {
-     final field = getField(VideoFrameTimestampMsField.ID);
+    final field = getField(VideoFrameTimestampMsField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -80,7 +92,8 @@ class VideoFrameMessage extends DataMessage {
       return null;
     }
   }
-   set timestampMs(int? value) {
+
+  set timestampMs(int? value) {
     final field = getField(VideoFrameTimestampMsField.ID);
 
     if (field != null) {
@@ -92,8 +105,9 @@ class VideoFrameMessage extends DataMessage {
       }
     }
   }
+
   int? get frameNumber {
-     final field = getField(VideoFrameFrameNumberField.ID);
+    final field = getField(VideoFrameFrameNumberField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -101,7 +115,8 @@ class VideoFrameMessage extends DataMessage {
       return null;
     }
   }
-   set frameNumber(int? value) {
+
+  set frameNumber(int? value) {
     final field = getField(VideoFrameFrameNumberField.ID);
 
     if (field != null) {
@@ -113,15 +128,10 @@ class VideoFrameMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class VideoFrameTimestampMsField extends Field {
- VideoFrameTimestampMsField({int size = 0, bool growable = true})
+  VideoFrameTimestampMsField({int size = 0, bool growable = true})
       : super(
             name: 'timestamp_ms',
             id: ID,
@@ -132,14 +142,13 @@ class VideoFrameTimestampMsField extends Field {
             units: 'ms',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class VideoFrameFrameNumberField extends Field {
- VideoFrameFrameNumberField({int size = 0, bool growable = true})
+  VideoFrameFrameNumberField({int size = 0, bool growable = true})
       : super(
             name: 'frame_number',
             id: ID,
@@ -148,9 +157,7 @@ class VideoFrameFrameNumberField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }

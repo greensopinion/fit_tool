@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class ActivityMessage extends DataMessage {
-
-   ActivityMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  ActivityMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: ActivityMessage.NAME,
@@ -25,28 +27,52 @@ class ActivityMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ActivityTotalTimerTimeField(
-                  size: definitionMessage?.getFieldDefinition(ActivityTotalTimerTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(ActivityTotalTimerTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ActivityNumSessionsField(
-                  size: definitionMessage?.getFieldDefinition(ActivityNumSessionsField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(ActivityNumSessionsField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ActivityTypeField(
-                  size: definitionMessage?.getFieldDefinition(ActivityTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(ActivityTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ActivityEventField(
-                  size: definitionMessage?.getFieldDefinition(ActivityEventField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(ActivityEventField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ActivityEventTypeField(
-                  size: definitionMessage?.getFieldDefinition(ActivityEventTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(ActivityEventTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ActivityLocalTimestampField(
-                  size: definitionMessage?.getFieldDefinition(ActivityLocalTimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(ActivityLocalTimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ActivityEventGroupField(
-                  size: definitionMessage?.getFieldDefinition(ActivityEventGroupField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(ActivityEventGroupField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -62,10 +88,9 @@ class ActivityMessage extends DataMessage {
     return message;
   }
 
-
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -73,8 +98,9 @@ class ActivityMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -86,8 +112,9 @@ class ActivityMessage extends DataMessage {
       }
     }
   }
+
   double? get totalTimerTime {
-     final field = getField(ActivityTotalTimerTimeField.ID);
+    final field = getField(ActivityTotalTimerTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -95,7 +122,8 @@ class ActivityMessage extends DataMessage {
       return null;
     }
   }
-   set totalTimerTime(double? value) {
+
+  set totalTimerTime(double? value) {
     final field = getField(ActivityTotalTimerTimeField.ID);
 
     if (field != null) {
@@ -107,8 +135,9 @@ class ActivityMessage extends DataMessage {
       }
     }
   }
+
   int? get numSessions {
-     final field = getField(ActivityNumSessionsField.ID);
+    final field = getField(ActivityNumSessionsField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -116,7 +145,8 @@ class ActivityMessage extends DataMessage {
       return null;
     }
   }
-   set numSessions(int? value) {
+
+  set numSessions(int? value) {
     final field = getField(ActivityNumSessionsField.ID);
 
     if (field != null) {
@@ -128,9 +158,10 @@ class ActivityMessage extends DataMessage {
       }
     }
   }
+
   Activity? get type {
-     final field = getField(ActivityTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(ActivityTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -141,7 +172,8 @@ class ActivityMessage extends DataMessage {
       return null;
     }
   }
-   set type(Activity? value) {
+
+  set type(Activity? value) {
     final field = getField(ActivityTypeField.ID);
 
     if (field != null) {
@@ -153,9 +185,10 @@ class ActivityMessage extends DataMessage {
       }
     }
   }
+
   Event? get event {
-     final field = getField(ActivityEventField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(ActivityEventField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -166,7 +199,8 @@ class ActivityMessage extends DataMessage {
       return null;
     }
   }
-   set event(Event? value) {
+
+  set event(Event? value) {
     final field = getField(ActivityEventField.ID);
 
     if (field != null) {
@@ -178,9 +212,10 @@ class ActivityMessage extends DataMessage {
       }
     }
   }
+
   EventType? get eventType {
-     final field = getField(ActivityEventTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(ActivityEventTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -191,7 +226,8 @@ class ActivityMessage extends DataMessage {
       return null;
     }
   }
-   set eventType(EventType? value) {
+
+  set eventType(EventType? value) {
     final field = getField(ActivityEventTypeField.ID);
 
     if (field != null) {
@@ -203,8 +239,9 @@ class ActivityMessage extends DataMessage {
       }
     }
   }
+
   int? get localTimestamp {
-     final field = getField(ActivityLocalTimestampField.ID);
+    final field = getField(ActivityLocalTimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -212,7 +249,8 @@ class ActivityMessage extends DataMessage {
       return null;
     }
   }
-   set localTimestamp(int? value) {
+
+  set localTimestamp(int? value) {
     final field = getField(ActivityLocalTimestampField.ID);
 
     if (field != null) {
@@ -224,8 +262,9 @@ class ActivityMessage extends DataMessage {
       }
     }
   }
+
   int? get eventGroup {
-     final field = getField(ActivityEventGroupField.ID);
+    final field = getField(ActivityEventGroupField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -233,7 +272,8 @@ class ActivityMessage extends DataMessage {
       return null;
     }
   }
-   set eventGroup(int? value) {
+
+  set eventGroup(int? value) {
     final field = getField(ActivityEventGroupField.ID);
 
     if (field != null) {
@@ -245,15 +285,10 @@ class ActivityMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class ActivityTotalTimerTimeField extends Field {
- ActivityTotalTimerTimeField({int size = 0, bool growable = true})
+  ActivityTotalTimerTimeField({int size = 0, bool growable = true})
       : super(
             name: 'total_timer_time',
             id: ID,
@@ -264,14 +299,13 @@ class ActivityTotalTimerTimeField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class ActivityNumSessionsField extends Field {
- ActivityNumSessionsField({int size = 0, bool growable = true})
+  ActivityNumSessionsField({int size = 0, bool growable = true})
       : super(
             name: 'num_sessions',
             id: ID,
@@ -280,14 +314,13 @@ class ActivityNumSessionsField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class ActivityTypeField extends Field {
- ActivityTypeField({int size = 0, bool growable = true})
+  ActivityTypeField({int size = 0, bool growable = true})
       : super(
             name: 'type',
             id: ID,
@@ -296,14 +329,13 @@ class ActivityTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class ActivityEventField extends Field {
- ActivityEventField({int size = 0, bool growable = true})
+  ActivityEventField({int size = 0, bool growable = true})
       : super(
             name: 'event',
             id: ID,
@@ -312,14 +344,13 @@ class ActivityEventField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class ActivityEventTypeField extends Field {
- ActivityEventTypeField({int size = 0, bool growable = true})
+  ActivityEventTypeField({int size = 0, bool growable = true})
       : super(
             name: 'event_type',
             id: ID,
@@ -328,14 +359,13 @@ class ActivityEventTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class ActivityLocalTimestampField extends Field {
- ActivityLocalTimestampField({int size = 0, bool growable = true})
+  ActivityLocalTimestampField({int size = 0, bool growable = true})
       : super(
             name: 'local_timestamp',
             id: ID,
@@ -344,14 +374,13 @@ class ActivityLocalTimestampField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }
+
 class ActivityEventGroupField extends Field {
- ActivityEventGroupField({int size = 0, bool growable = true})
+  ActivityEventGroupField({int size = 0, bool growable = true})
       : super(
             name: 'event_group',
             id: ID,
@@ -360,9 +389,7 @@ class ActivityEventGroupField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 6;
 }

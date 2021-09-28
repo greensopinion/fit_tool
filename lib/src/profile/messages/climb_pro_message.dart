@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class ClimbProMessage extends DataMessage {
-
-   ClimbProMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  ClimbProMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: ClimbProMessage.NAME,
@@ -25,25 +27,46 @@ class ClimbProMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ClimbProPositionLatField(
-                  size: definitionMessage?.getFieldDefinition(ClimbProPositionLatField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(ClimbProPositionLatField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ClimbProPositionLongField(
-                  size: definitionMessage?.getFieldDefinition(ClimbProPositionLongField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(ClimbProPositionLongField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ClimbProClimbProEventField(
-                  size: definitionMessage?.getFieldDefinition(ClimbProClimbProEventField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(ClimbProClimbProEventField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ClimbProClimbNumberField(
-                  size: definitionMessage?.getFieldDefinition(ClimbProClimbNumberField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(ClimbProClimbNumberField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ClimbProClimbCategoryField(
-                  size: definitionMessage?.getFieldDefinition(ClimbProClimbCategoryField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(ClimbProClimbCategoryField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ClimbProCurrentDistField(
-                  size: definitionMessage?.getFieldDefinition(ClimbProCurrentDistField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(ClimbProCurrentDistField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -59,10 +82,9 @@ class ClimbProMessage extends DataMessage {
     return message;
   }
 
-
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -70,8 +92,9 @@ class ClimbProMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -83,8 +106,9 @@ class ClimbProMessage extends DataMessage {
       }
     }
   }
+
   double? get positionLat {
-     final field = getField(ClimbProPositionLatField.ID);
+    final field = getField(ClimbProPositionLatField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -92,7 +116,8 @@ class ClimbProMessage extends DataMessage {
       return null;
     }
   }
-   set positionLat(double? value) {
+
+  set positionLat(double? value) {
     final field = getField(ClimbProPositionLatField.ID);
 
     if (field != null) {
@@ -104,8 +129,9 @@ class ClimbProMessage extends DataMessage {
       }
     }
   }
+
   double? get positionLong {
-     final field = getField(ClimbProPositionLongField.ID);
+    final field = getField(ClimbProPositionLongField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -113,7 +139,8 @@ class ClimbProMessage extends DataMessage {
       return null;
     }
   }
-   set positionLong(double? value) {
+
+  set positionLong(double? value) {
     final field = getField(ClimbProPositionLongField.ID);
 
     if (field != null) {
@@ -125,9 +152,10 @@ class ClimbProMessage extends DataMessage {
       }
     }
   }
+
   ClimbProEvent? get climbProEvent {
-     final field = getField(ClimbProClimbProEventField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(ClimbProClimbProEventField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -138,7 +166,8 @@ class ClimbProMessage extends DataMessage {
       return null;
     }
   }
-   set climbProEvent(ClimbProEvent? value) {
+
+  set climbProEvent(ClimbProEvent? value) {
     final field = getField(ClimbProClimbProEventField.ID);
 
     if (field != null) {
@@ -150,8 +179,9 @@ class ClimbProMessage extends DataMessage {
       }
     }
   }
+
   int? get climbNumber {
-     final field = getField(ClimbProClimbNumberField.ID);
+    final field = getField(ClimbProClimbNumberField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -159,7 +189,8 @@ class ClimbProMessage extends DataMessage {
       return null;
     }
   }
-   set climbNumber(int? value) {
+
+  set climbNumber(int? value) {
     final field = getField(ClimbProClimbNumberField.ID);
 
     if (field != null) {
@@ -171,8 +202,9 @@ class ClimbProMessage extends DataMessage {
       }
     }
   }
+
   int? get climbCategory {
-     final field = getField(ClimbProClimbCategoryField.ID);
+    final field = getField(ClimbProClimbCategoryField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -180,7 +212,8 @@ class ClimbProMessage extends DataMessage {
       return null;
     }
   }
-   set climbCategory(int? value) {
+
+  set climbCategory(int? value) {
     final field = getField(ClimbProClimbCategoryField.ID);
 
     if (field != null) {
@@ -192,8 +225,9 @@ class ClimbProMessage extends DataMessage {
       }
     }
   }
+
   double? get currentDist {
-     final field = getField(ClimbProCurrentDistField.ID);
+    final field = getField(ClimbProCurrentDistField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -201,7 +235,8 @@ class ClimbProMessage extends DataMessage {
       return null;
     }
   }
-   set currentDist(double? value) {
+
+  set currentDist(double? value) {
     final field = getField(ClimbProCurrentDistField.ID);
 
     if (field != null) {
@@ -213,15 +248,10 @@ class ClimbProMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class ClimbProPositionLatField extends Field {
- ClimbProPositionLatField({int size = 0, bool growable = true})
+  ClimbProPositionLatField({int size = 0, bool growable = true})
       : super(
             name: 'position_lat',
             id: ID,
@@ -232,14 +262,13 @@ class ClimbProPositionLatField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class ClimbProPositionLongField extends Field {
- ClimbProPositionLongField({int size = 0, bool growable = true})
+  ClimbProPositionLongField({int size = 0, bool growable = true})
       : super(
             name: 'position_long',
             id: ID,
@@ -250,14 +279,13 @@ class ClimbProPositionLongField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class ClimbProClimbProEventField extends Field {
- ClimbProClimbProEventField({int size = 0, bool growable = true})
+  ClimbProClimbProEventField({int size = 0, bool growable = true})
       : super(
             name: 'climb_pro_event',
             id: ID,
@@ -266,14 +294,13 @@ class ClimbProClimbProEventField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class ClimbProClimbNumberField extends Field {
- ClimbProClimbNumberField({int size = 0, bool growable = true})
+  ClimbProClimbNumberField({int size = 0, bool growable = true})
       : super(
             name: 'climb_number',
             id: ID,
@@ -282,14 +309,13 @@ class ClimbProClimbNumberField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class ClimbProClimbCategoryField extends Field {
- ClimbProClimbCategoryField({int size = 0, bool growable = true})
+  ClimbProClimbCategoryField({int size = 0, bool growable = true})
       : super(
             name: 'climb_category',
             id: ID,
@@ -298,14 +324,13 @@ class ClimbProClimbCategoryField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class ClimbProCurrentDistField extends Field {
- ClimbProCurrentDistField({int size = 0, bool growable = true})
+  ClimbProCurrentDistField({int size = 0, bool growable = true})
       : super(
             name: 'current_dist',
             id: ID,
@@ -316,9 +341,7 @@ class ClimbProCurrentDistField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }

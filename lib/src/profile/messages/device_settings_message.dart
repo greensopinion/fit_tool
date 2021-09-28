@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class DeviceSettingsMessage extends DataMessage {
-
-   DeviceSettingsMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  DeviceSettingsMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: DeviceSettingsMessage.NAME,
@@ -25,76 +27,169 @@ class DeviceSettingsMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               DeviceSettingsActiveTimeZoneField(
-                  size: definitionMessage?.getFieldDefinition(DeviceSettingsActiveTimeZoneField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DeviceSettingsActiveTimeZoneField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceSettingsUtcOffsetField(
-                  size: definitionMessage?.getFieldDefinition(DeviceSettingsUtcOffsetField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DeviceSettingsUtcOffsetField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceSettingsTimeOffsetField(
-                  size: definitionMessage?.getFieldDefinition(DeviceSettingsTimeOffsetField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DeviceSettingsTimeOffsetField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceSettingsTimeModeField(
-                  size: definitionMessage?.getFieldDefinition(DeviceSettingsTimeModeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DeviceSettingsTimeModeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceSettingsTimeZoneOffsetField(
-                  size: definitionMessage?.getFieldDefinition(DeviceSettingsTimeZoneOffsetField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DeviceSettingsTimeZoneOffsetField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceSettingsBacklightModeField(
-                  size: definitionMessage?.getFieldDefinition(DeviceSettingsBacklightModeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DeviceSettingsBacklightModeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceSettingsActivityTrackerEnabledField(
-                  size: definitionMessage?.getFieldDefinition(DeviceSettingsActivityTrackerEnabledField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DeviceSettingsActivityTrackerEnabledField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceSettingsClockTimeField(
-                  size: definitionMessage?.getFieldDefinition(DeviceSettingsClockTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DeviceSettingsClockTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceSettingsPagesEnabledField(
-                  size: definitionMessage?.getFieldDefinition(DeviceSettingsPagesEnabledField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DeviceSettingsPagesEnabledField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceSettingsMoveAlertEnabledField(
-                  size: definitionMessage?.getFieldDefinition(DeviceSettingsMoveAlertEnabledField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DeviceSettingsMoveAlertEnabledField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceSettingsDateModeField(
-                  size: definitionMessage?.getFieldDefinition(DeviceSettingsDateModeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DeviceSettingsDateModeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceSettingsDisplayOrientationField(
-                  size: definitionMessage?.getFieldDefinition(DeviceSettingsDisplayOrientationField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DeviceSettingsDisplayOrientationField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceSettingsMountingSideField(
-                  size: definitionMessage?.getFieldDefinition(DeviceSettingsMountingSideField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DeviceSettingsMountingSideField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceSettingsDefaultPageField(
-                  size: definitionMessage?.getFieldDefinition(DeviceSettingsDefaultPageField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DeviceSettingsDefaultPageField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceSettingsAutosyncMinStepsField(
-                  size: definitionMessage?.getFieldDefinition(DeviceSettingsAutosyncMinStepsField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DeviceSettingsAutosyncMinStepsField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceSettingsAutosyncMinTimeField(
-                  size: definitionMessage?.getFieldDefinition(DeviceSettingsAutosyncMinTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DeviceSettingsAutosyncMinTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceSettingsLactateThresholdAutodetectEnabledField(
-                  size: definitionMessage?.getFieldDefinition(DeviceSettingsLactateThresholdAutodetectEnabledField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DeviceSettingsLactateThresholdAutodetectEnabledField
+                                  .ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceSettingsBleAutoUploadEnabledField(
-                  size: definitionMessage?.getFieldDefinition(DeviceSettingsBleAutoUploadEnabledField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DeviceSettingsBleAutoUploadEnabledField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceSettingsAutoSyncFrequencyField(
-                  size: definitionMessage?.getFieldDefinition(DeviceSettingsAutoSyncFrequencyField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DeviceSettingsAutoSyncFrequencyField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceSettingsAutoActivityDetectField(
-                  size: definitionMessage?.getFieldDefinition(DeviceSettingsAutoActivityDetectField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DeviceSettingsAutoActivityDetectField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceSettingsNumberOfScreensField(
-                  size: definitionMessage?.getFieldDefinition(DeviceSettingsNumberOfScreensField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DeviceSettingsNumberOfScreensField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceSettingsSmartNotificationDisplayOrientationField(
-                  size: definitionMessage?.getFieldDefinition(DeviceSettingsSmartNotificationDisplayOrientationField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DeviceSettingsSmartNotificationDisplayOrientationField
+                                  .ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceSettingsTapInterfaceField(
-                  size: definitionMessage?.getFieldDefinition(DeviceSettingsTapInterfaceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DeviceSettingsTapInterfaceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeviceSettingsTapSensitivityField(
-                  size: definitionMessage?.getFieldDefinition(DeviceSettingsTapSensitivityField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DeviceSettingsTapSensitivityField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -110,9 +205,8 @@ class DeviceSettingsMessage extends DataMessage {
     return message;
   }
 
-
   int? get activeTimeZone {
-     final field = getField(DeviceSettingsActiveTimeZoneField.ID);
+    final field = getField(DeviceSettingsActiveTimeZoneField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -120,7 +214,8 @@ class DeviceSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set activeTimeZone(int? value) {
+
+  set activeTimeZone(int? value) {
     final field = getField(DeviceSettingsActiveTimeZoneField.ID);
 
     if (field != null) {
@@ -132,8 +227,9 @@ class DeviceSettingsMessage extends DataMessage {
       }
     }
   }
+
   int? get utcOffset {
-     final field = getField(DeviceSettingsUtcOffsetField.ID);
+    final field = getField(DeviceSettingsUtcOffsetField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -141,7 +237,8 @@ class DeviceSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set utcOffset(int? value) {
+
+  set utcOffset(int? value) {
     final field = getField(DeviceSettingsUtcOffsetField.ID);
 
     if (field != null) {
@@ -153,8 +250,9 @@ class DeviceSettingsMessage extends DataMessage {
       }
     }
   }
+
   int? get timeOffset {
-     final field = getField(DeviceSettingsTimeOffsetField.ID);
+    final field = getField(DeviceSettingsTimeOffsetField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -162,7 +260,8 @@ class DeviceSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set timeOffset(int? value) {
+
+  set timeOffset(int? value) {
     final field = getField(DeviceSettingsTimeOffsetField.ID);
 
     if (field != null) {
@@ -174,9 +273,10 @@ class DeviceSettingsMessage extends DataMessage {
       }
     }
   }
+
   TimeMode? get timeMode {
-     final field = getField(DeviceSettingsTimeModeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(DeviceSettingsTimeModeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -187,7 +287,8 @@ class DeviceSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set timeMode(TimeMode? value) {
+
+  set timeMode(TimeMode? value) {
     final field = getField(DeviceSettingsTimeModeField.ID);
 
     if (field != null) {
@@ -199,8 +300,9 @@ class DeviceSettingsMessage extends DataMessage {
       }
     }
   }
+
   double? get timeZoneOffset {
-     final field = getField(DeviceSettingsTimeZoneOffsetField.ID);
+    final field = getField(DeviceSettingsTimeZoneOffsetField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -208,7 +310,8 @@ class DeviceSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set timeZoneOffset(double? value) {
+
+  set timeZoneOffset(double? value) {
     final field = getField(DeviceSettingsTimeZoneOffsetField.ID);
 
     if (field != null) {
@@ -220,9 +323,10 @@ class DeviceSettingsMessage extends DataMessage {
       }
     }
   }
+
   BacklightMode? get backlightMode {
-     final field = getField(DeviceSettingsBacklightModeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(DeviceSettingsBacklightModeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -233,7 +337,8 @@ class DeviceSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set backlightMode(BacklightMode? value) {
+
+  set backlightMode(BacklightMode? value) {
     final field = getField(DeviceSettingsBacklightModeField.ID);
 
     if (field != null) {
@@ -245,8 +350,9 @@ class DeviceSettingsMessage extends DataMessage {
       }
     }
   }
+
   bool? get activityTrackerEnabled {
-     final field = getField(DeviceSettingsActivityTrackerEnabledField.ID);
+    final field = getField(DeviceSettingsActivityTrackerEnabledField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -254,7 +360,8 @@ class DeviceSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set activityTrackerEnabled(bool? value) {
+
+  set activityTrackerEnabled(bool? value) {
     final field = getField(DeviceSettingsActivityTrackerEnabledField.ID);
 
     if (field != null) {
@@ -266,9 +373,10 @@ class DeviceSettingsMessage extends DataMessage {
       }
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get clockTime {
-     final field = getField(DeviceSettingsClockTimeField.ID);
+    final field = getField(DeviceSettingsClockTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -276,8 +384,9 @@ class DeviceSettingsMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set clockTime(int? value) {
+  set clockTime(int? value) {
     final field = getField(DeviceSettingsClockTimeField.ID);
 
     if (field != null) {
@@ -289,8 +398,9 @@ class DeviceSettingsMessage extends DataMessage {
       }
     }
   }
+
   int? get pagesEnabled {
-     final field = getField(DeviceSettingsPagesEnabledField.ID);
+    final field = getField(DeviceSettingsPagesEnabledField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -298,7 +408,8 @@ class DeviceSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set pagesEnabled(int? value) {
+
+  set pagesEnabled(int? value) {
     final field = getField(DeviceSettingsPagesEnabledField.ID);
 
     if (field != null) {
@@ -310,8 +421,9 @@ class DeviceSettingsMessage extends DataMessage {
       }
     }
   }
+
   bool? get moveAlertEnabled {
-     final field = getField(DeviceSettingsMoveAlertEnabledField.ID);
+    final field = getField(DeviceSettingsMoveAlertEnabledField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -319,7 +431,8 @@ class DeviceSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set moveAlertEnabled(bool? value) {
+
+  set moveAlertEnabled(bool? value) {
     final field = getField(DeviceSettingsMoveAlertEnabledField.ID);
 
     if (field != null) {
@@ -331,9 +444,10 @@ class DeviceSettingsMessage extends DataMessage {
       }
     }
   }
+
   DateMode? get dateMode {
-     final field = getField(DeviceSettingsDateModeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(DeviceSettingsDateModeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -344,7 +458,8 @@ class DeviceSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set dateMode(DateMode? value) {
+
+  set dateMode(DateMode? value) {
     final field = getField(DeviceSettingsDateModeField.ID);
 
     if (field != null) {
@@ -356,9 +471,10 @@ class DeviceSettingsMessage extends DataMessage {
       }
     }
   }
+
   DisplayOrientation? get displayOrientation {
-     final field = getField(DeviceSettingsDisplayOrientationField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(DeviceSettingsDisplayOrientationField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -369,7 +485,8 @@ class DeviceSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set displayOrientation(DisplayOrientation? value) {
+
+  set displayOrientation(DisplayOrientation? value) {
     final field = getField(DeviceSettingsDisplayOrientationField.ID);
 
     if (field != null) {
@@ -381,9 +498,10 @@ class DeviceSettingsMessage extends DataMessage {
       }
     }
   }
+
   Side? get mountingSide {
-     final field = getField(DeviceSettingsMountingSideField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(DeviceSettingsMountingSideField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -394,7 +512,8 @@ class DeviceSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set mountingSide(Side? value) {
+
+  set mountingSide(Side? value) {
     final field = getField(DeviceSettingsMountingSideField.ID);
 
     if (field != null) {
@@ -406,8 +525,9 @@ class DeviceSettingsMessage extends DataMessage {
       }
     }
   }
+
   int? get defaultPage {
-     final field = getField(DeviceSettingsDefaultPageField.ID);
+    final field = getField(DeviceSettingsDefaultPageField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -415,7 +535,8 @@ class DeviceSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set defaultPage(int? value) {
+
+  set defaultPage(int? value) {
     final field = getField(DeviceSettingsDefaultPageField.ID);
 
     if (field != null) {
@@ -427,8 +548,9 @@ class DeviceSettingsMessage extends DataMessage {
       }
     }
   }
+
   int? get autosyncMinSteps {
-     final field = getField(DeviceSettingsAutosyncMinStepsField.ID);
+    final field = getField(DeviceSettingsAutosyncMinStepsField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -436,7 +558,8 @@ class DeviceSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set autosyncMinSteps(int? value) {
+
+  set autosyncMinSteps(int? value) {
     final field = getField(DeviceSettingsAutosyncMinStepsField.ID);
 
     if (field != null) {
@@ -448,8 +571,9 @@ class DeviceSettingsMessage extends DataMessage {
       }
     }
   }
+
   int? get autosyncMinTime {
-     final field = getField(DeviceSettingsAutosyncMinTimeField.ID);
+    final field = getField(DeviceSettingsAutosyncMinTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -457,7 +581,8 @@ class DeviceSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set autosyncMinTime(int? value) {
+
+  set autosyncMinTime(int? value) {
     final field = getField(DeviceSettingsAutosyncMinTimeField.ID);
 
     if (field != null) {
@@ -469,8 +594,10 @@ class DeviceSettingsMessage extends DataMessage {
       }
     }
   }
+
   bool? get lactateThresholdAutodetectEnabled {
-     final field = getField(DeviceSettingsLactateThresholdAutodetectEnabledField.ID);
+    final field =
+        getField(DeviceSettingsLactateThresholdAutodetectEnabledField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -478,8 +605,10 @@ class DeviceSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set lactateThresholdAutodetectEnabled(bool? value) {
-    final field = getField(DeviceSettingsLactateThresholdAutodetectEnabledField.ID);
+
+  set lactateThresholdAutodetectEnabled(bool? value) {
+    final field =
+        getField(DeviceSettingsLactateThresholdAutodetectEnabledField.ID);
 
     if (field != null) {
       if (value == null) {
@@ -490,8 +619,9 @@ class DeviceSettingsMessage extends DataMessage {
       }
     }
   }
+
   bool? get bleAutoUploadEnabled {
-     final field = getField(DeviceSettingsBleAutoUploadEnabledField.ID);
+    final field = getField(DeviceSettingsBleAutoUploadEnabledField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -499,7 +629,8 @@ class DeviceSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set bleAutoUploadEnabled(bool? value) {
+
+  set bleAutoUploadEnabled(bool? value) {
     final field = getField(DeviceSettingsBleAutoUploadEnabledField.ID);
 
     if (field != null) {
@@ -511,9 +642,10 @@ class DeviceSettingsMessage extends DataMessage {
       }
     }
   }
+
   AutoSyncFrequency? get autoSyncFrequency {
-     final field = getField(DeviceSettingsAutoSyncFrequencyField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(DeviceSettingsAutoSyncFrequencyField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -524,7 +656,8 @@ class DeviceSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set autoSyncFrequency(AutoSyncFrequency? value) {
+
+  set autoSyncFrequency(AutoSyncFrequency? value) {
     final field = getField(DeviceSettingsAutoSyncFrequencyField.ID);
 
     if (field != null) {
@@ -536,8 +669,9 @@ class DeviceSettingsMessage extends DataMessage {
       }
     }
   }
+
   int? get autoActivityDetect {
-     final field = getField(DeviceSettingsAutoActivityDetectField.ID);
+    final field = getField(DeviceSettingsAutoActivityDetectField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -545,7 +679,8 @@ class DeviceSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set autoActivityDetect(int? value) {
+
+  set autoActivityDetect(int? value) {
     final field = getField(DeviceSettingsAutoActivityDetectField.ID);
 
     if (field != null) {
@@ -557,8 +692,9 @@ class DeviceSettingsMessage extends DataMessage {
       }
     }
   }
+
   int? get numberOfScreens {
-     final field = getField(DeviceSettingsNumberOfScreensField.ID);
+    final field = getField(DeviceSettingsNumberOfScreensField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -566,7 +702,8 @@ class DeviceSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set numberOfScreens(int? value) {
+
+  set numberOfScreens(int? value) {
     final field = getField(DeviceSettingsNumberOfScreensField.ID);
 
     if (field != null) {
@@ -578,9 +715,11 @@ class DeviceSettingsMessage extends DataMessage {
       }
     }
   }
+
   DisplayOrientation? get smartNotificationDisplayOrientation {
-     final field = getField(DeviceSettingsSmartNotificationDisplayOrientationField.ID);
- if (field != null && field.isValid()) {
+    final field =
+        getField(DeviceSettingsSmartNotificationDisplayOrientationField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -591,8 +730,10 @@ class DeviceSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set smartNotificationDisplayOrientation(DisplayOrientation? value) {
-    final field = getField(DeviceSettingsSmartNotificationDisplayOrientationField.ID);
+
+  set smartNotificationDisplayOrientation(DisplayOrientation? value) {
+    final field =
+        getField(DeviceSettingsSmartNotificationDisplayOrientationField.ID);
 
     if (field != null) {
       if (value == null) {
@@ -603,9 +744,10 @@ class DeviceSettingsMessage extends DataMessage {
       }
     }
   }
+
   SwitchType? get tapInterface {
-     final field = getField(DeviceSettingsTapInterfaceField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(DeviceSettingsTapInterfaceField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -616,7 +758,8 @@ class DeviceSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set tapInterface(SwitchType? value) {
+
+  set tapInterface(SwitchType? value) {
     final field = getField(DeviceSettingsTapInterfaceField.ID);
 
     if (field != null) {
@@ -628,9 +771,10 @@ class DeviceSettingsMessage extends DataMessage {
       }
     }
   }
+
   TapSensitivity? get tapSensitivity {
-     final field = getField(DeviceSettingsTapSensitivityField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(DeviceSettingsTapSensitivityField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -641,7 +785,8 @@ class DeviceSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set tapSensitivity(TapSensitivity? value) {
+
+  set tapSensitivity(TapSensitivity? value) {
     final field = getField(DeviceSettingsTapSensitivityField.ID);
 
     if (field != null) {
@@ -653,15 +798,10 @@ class DeviceSettingsMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class DeviceSettingsActiveTimeZoneField extends Field {
- DeviceSettingsActiveTimeZoneField({int size = 0, bool growable = true})
+  DeviceSettingsActiveTimeZoneField({int size = 0, bool growable = true})
       : super(
             name: 'active_time_zone',
             id: ID,
@@ -670,14 +810,13 @@ class DeviceSettingsActiveTimeZoneField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class DeviceSettingsUtcOffsetField extends Field {
- DeviceSettingsUtcOffsetField({int size = 0, bool growable = true})
+  DeviceSettingsUtcOffsetField({int size = 0, bool growable = true})
       : super(
             name: 'utc_offset',
             id: ID,
@@ -686,14 +825,13 @@ class DeviceSettingsUtcOffsetField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class DeviceSettingsTimeOffsetField extends Field {
- DeviceSettingsTimeOffsetField({int size = 0, bool growable = true})
+  DeviceSettingsTimeOffsetField({int size = 0, bool growable = true})
       : super(
             name: 'time_offset',
             id: ID,
@@ -704,14 +842,13 @@ class DeviceSettingsTimeOffsetField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class DeviceSettingsTimeModeField extends Field {
- DeviceSettingsTimeModeField({int size = 0, bool growable = true})
+  DeviceSettingsTimeModeField({int size = 0, bool growable = true})
       : super(
             name: 'time_mode',
             id: ID,
@@ -720,14 +857,13 @@ class DeviceSettingsTimeModeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class DeviceSettingsTimeZoneOffsetField extends Field {
- DeviceSettingsTimeZoneOffsetField({int size = 0, bool growable = true})
+  DeviceSettingsTimeZoneOffsetField({int size = 0, bool growable = true})
       : super(
             name: 'time_zone_offset',
             id: ID,
@@ -738,14 +874,13 @@ class DeviceSettingsTimeZoneOffsetField extends Field {
             units: 'hr',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }
+
 class DeviceSettingsBacklightModeField extends Field {
- DeviceSettingsBacklightModeField({int size = 0, bool growable = true})
+  DeviceSettingsBacklightModeField({int size = 0, bool growable = true})
       : super(
             name: 'backlight_mode',
             id: ID,
@@ -754,14 +889,14 @@ class DeviceSettingsBacklightModeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 12;
 }
+
 class DeviceSettingsActivityTrackerEnabledField extends Field {
- DeviceSettingsActivityTrackerEnabledField({int size = 0, bool growable = true})
+  DeviceSettingsActivityTrackerEnabledField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'activity_tracker_enabled',
             id: ID,
@@ -770,14 +905,13 @@ class DeviceSettingsActivityTrackerEnabledField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 36;
 }
+
 class DeviceSettingsClockTimeField extends Field {
- DeviceSettingsClockTimeField({int size = 0, bool growable = true})
+  DeviceSettingsClockTimeField({int size = 0, bool growable = true})
       : super(
             name: 'clock_time',
             id: ID,
@@ -788,14 +922,13 @@ class DeviceSettingsClockTimeField extends Field {
             units: 'ms',
             mainTypeName: 'date_time',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 39;
 }
+
 class DeviceSettingsPagesEnabledField extends Field {
- DeviceSettingsPagesEnabledField({int size = 0, bool growable = true})
+  DeviceSettingsPagesEnabledField({int size = 0, bool growable = true})
       : super(
             name: 'pages_enabled',
             id: ID,
@@ -804,14 +937,13 @@ class DeviceSettingsPagesEnabledField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 40;
 }
+
 class DeviceSettingsMoveAlertEnabledField extends Field {
- DeviceSettingsMoveAlertEnabledField({int size = 0, bool growable = true})
+  DeviceSettingsMoveAlertEnabledField({int size = 0, bool growable = true})
       : super(
             name: 'move_alert_enabled',
             id: ID,
@@ -820,14 +952,13 @@ class DeviceSettingsMoveAlertEnabledField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 46;
 }
+
 class DeviceSettingsDateModeField extends Field {
- DeviceSettingsDateModeField({int size = 0, bool growable = true})
+  DeviceSettingsDateModeField({int size = 0, bool growable = true})
       : super(
             name: 'date_mode',
             id: ID,
@@ -836,14 +967,13 @@ class DeviceSettingsDateModeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 47;
 }
+
 class DeviceSettingsDisplayOrientationField extends Field {
- DeviceSettingsDisplayOrientationField({int size = 0, bool growable = true})
+  DeviceSettingsDisplayOrientationField({int size = 0, bool growable = true})
       : super(
             name: 'display_orientation',
             id: ID,
@@ -852,14 +982,13 @@ class DeviceSettingsDisplayOrientationField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 55;
 }
+
 class DeviceSettingsMountingSideField extends Field {
- DeviceSettingsMountingSideField({int size = 0, bool growable = true})
+  DeviceSettingsMountingSideField({int size = 0, bool growable = true})
       : super(
             name: 'mounting_side',
             id: ID,
@@ -868,14 +997,13 @@ class DeviceSettingsMountingSideField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 56;
 }
+
 class DeviceSettingsDefaultPageField extends Field {
- DeviceSettingsDefaultPageField({int size = 0, bool growable = true})
+  DeviceSettingsDefaultPageField({int size = 0, bool growable = true})
       : super(
             name: 'default_page',
             id: ID,
@@ -884,14 +1012,13 @@ class DeviceSettingsDefaultPageField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 57;
 }
+
 class DeviceSettingsAutosyncMinStepsField extends Field {
- DeviceSettingsAutosyncMinStepsField({int size = 0, bool growable = true})
+  DeviceSettingsAutosyncMinStepsField({int size = 0, bool growable = true})
       : super(
             name: 'autosync_min_steps',
             id: ID,
@@ -902,14 +1029,13 @@ class DeviceSettingsAutosyncMinStepsField extends Field {
             units: 'steps',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 58;
 }
+
 class DeviceSettingsAutosyncMinTimeField extends Field {
- DeviceSettingsAutosyncMinTimeField({int size = 0, bool growable = true})
+  DeviceSettingsAutosyncMinTimeField({int size = 0, bool growable = true})
       : super(
             name: 'autosync_min_time',
             id: ID,
@@ -920,14 +1046,14 @@ class DeviceSettingsAutosyncMinTimeField extends Field {
             units: 'minutes',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 59;
 }
+
 class DeviceSettingsLactateThresholdAutodetectEnabledField extends Field {
- DeviceSettingsLactateThresholdAutodetectEnabledField({int size = 0, bool growable = true})
+  DeviceSettingsLactateThresholdAutodetectEnabledField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'lactate_threshold_autodetect_enabled',
             id: ID,
@@ -936,14 +1062,13 @@ class DeviceSettingsLactateThresholdAutodetectEnabledField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 80;
 }
+
 class DeviceSettingsBleAutoUploadEnabledField extends Field {
- DeviceSettingsBleAutoUploadEnabledField({int size = 0, bool growable = true})
+  DeviceSettingsBleAutoUploadEnabledField({int size = 0, bool growable = true})
       : super(
             name: 'ble_auto_upload_enabled',
             id: ID,
@@ -952,14 +1077,13 @@ class DeviceSettingsBleAutoUploadEnabledField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 86;
 }
+
 class DeviceSettingsAutoSyncFrequencyField extends Field {
- DeviceSettingsAutoSyncFrequencyField({int size = 0, bool growable = true})
+  DeviceSettingsAutoSyncFrequencyField({int size = 0, bool growable = true})
       : super(
             name: 'auto_sync_frequency',
             id: ID,
@@ -968,14 +1092,13 @@ class DeviceSettingsAutoSyncFrequencyField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 89;
 }
+
 class DeviceSettingsAutoActivityDetectField extends Field {
- DeviceSettingsAutoActivityDetectField({int size = 0, bool growable = true})
+  DeviceSettingsAutoActivityDetectField({int size = 0, bool growable = true})
       : super(
             name: 'auto_activity_detect',
             id: ID,
@@ -984,14 +1107,13 @@ class DeviceSettingsAutoActivityDetectField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 90;
 }
+
 class DeviceSettingsNumberOfScreensField extends Field {
- DeviceSettingsNumberOfScreensField({int size = 0, bool growable = true})
+  DeviceSettingsNumberOfScreensField({int size = 0, bool growable = true})
       : super(
             name: 'number_of_screens',
             id: ID,
@@ -1000,14 +1122,14 @@ class DeviceSettingsNumberOfScreensField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 94;
 }
+
 class DeviceSettingsSmartNotificationDisplayOrientationField extends Field {
- DeviceSettingsSmartNotificationDisplayOrientationField({int size = 0, bool growable = true})
+  DeviceSettingsSmartNotificationDisplayOrientationField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'smart_notification_display_orientation',
             id: ID,
@@ -1016,14 +1138,13 @@ class DeviceSettingsSmartNotificationDisplayOrientationField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 95;
 }
+
 class DeviceSettingsTapInterfaceField extends Field {
- DeviceSettingsTapInterfaceField({int size = 0, bool growable = true})
+  DeviceSettingsTapInterfaceField({int size = 0, bool growable = true})
       : super(
             name: 'tap_interface',
             id: ID,
@@ -1032,14 +1153,13 @@ class DeviceSettingsTapInterfaceField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 134;
 }
+
 class DeviceSettingsTapSensitivityField extends Field {
- DeviceSettingsTapSensitivityField({int size = 0, bool growable = true})
+  DeviceSettingsTapSensitivityField({int size = 0, bool growable = true})
       : super(
             name: 'tap_sensitivity',
             id: ID,
@@ -1048,9 +1168,7 @@ class DeviceSettingsTapSensitivityField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 174;
 }

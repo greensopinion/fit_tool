@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class ExdScreenConfigurationMessage extends DataMessage {
-
-   ExdScreenConfigurationMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  ExdScreenConfigurationMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: ExdScreenConfigurationMessage.NAME,
@@ -25,16 +27,32 @@ class ExdScreenConfigurationMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               ExdScreenConfigurationScreenIndexField(
-                  size: definitionMessage?.getFieldDefinition(ExdScreenConfigurationScreenIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ExdScreenConfigurationScreenIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ExdScreenConfigurationFieldCountField(
-                  size: definitionMessage?.getFieldDefinition(ExdScreenConfigurationFieldCountField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ExdScreenConfigurationFieldCountField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ExdScreenConfigurationLayoutField(
-                  size: definitionMessage?.getFieldDefinition(ExdScreenConfigurationLayoutField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ExdScreenConfigurationLayoutField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ExdScreenConfigurationScreenEnabledField(
-                  size: definitionMessage?.getFieldDefinition(ExdScreenConfigurationScreenEnabledField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ExdScreenConfigurationScreenEnabledField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -45,14 +63,14 @@ class ExdScreenConfigurationMessage extends DataMessage {
 
   static ExdScreenConfigurationMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
-    final message = ExdScreenConfigurationMessage(definitionMessage: definitionMessage);
+    final message =
+        ExdScreenConfigurationMessage(definitionMessage: definitionMessage);
     message.readFromBytes(bytes);
     return message;
   }
 
-
   int? get screenIndex {
-     final field = getField(ExdScreenConfigurationScreenIndexField.ID);
+    final field = getField(ExdScreenConfigurationScreenIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -60,7 +78,8 @@ class ExdScreenConfigurationMessage extends DataMessage {
       return null;
     }
   }
-   set screenIndex(int? value) {
+
+  set screenIndex(int? value) {
     final field = getField(ExdScreenConfigurationScreenIndexField.ID);
 
     if (field != null) {
@@ -72,8 +91,9 @@ class ExdScreenConfigurationMessage extends DataMessage {
       }
     }
   }
+
   int? get fieldCount {
-     final field = getField(ExdScreenConfigurationFieldCountField.ID);
+    final field = getField(ExdScreenConfigurationFieldCountField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -81,7 +101,8 @@ class ExdScreenConfigurationMessage extends DataMessage {
       return null;
     }
   }
-   set fieldCount(int? value) {
+
+  set fieldCount(int? value) {
     final field = getField(ExdScreenConfigurationFieldCountField.ID);
 
     if (field != null) {
@@ -93,9 +114,10 @@ class ExdScreenConfigurationMessage extends DataMessage {
       }
     }
   }
+
   ExdLayout? get layout {
-     final field = getField(ExdScreenConfigurationLayoutField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(ExdScreenConfigurationLayoutField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -106,7 +128,8 @@ class ExdScreenConfigurationMessage extends DataMessage {
       return null;
     }
   }
-   set layout(ExdLayout? value) {
+
+  set layout(ExdLayout? value) {
     final field = getField(ExdScreenConfigurationLayoutField.ID);
 
     if (field != null) {
@@ -118,8 +141,9 @@ class ExdScreenConfigurationMessage extends DataMessage {
       }
     }
   }
+
   bool? get screenEnabled {
-     final field = getField(ExdScreenConfigurationScreenEnabledField.ID);
+    final field = getField(ExdScreenConfigurationScreenEnabledField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -127,7 +151,8 @@ class ExdScreenConfigurationMessage extends DataMessage {
       return null;
     }
   }
-   set screenEnabled(bool? value) {
+
+  set screenEnabled(bool? value) {
     final field = getField(ExdScreenConfigurationScreenEnabledField.ID);
 
     if (field != null) {
@@ -139,15 +164,10 @@ class ExdScreenConfigurationMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class ExdScreenConfigurationScreenIndexField extends Field {
- ExdScreenConfigurationScreenIndexField({int size = 0, bool growable = true})
+  ExdScreenConfigurationScreenIndexField({int size = 0, bool growable = true})
       : super(
             name: 'screen_index',
             id: ID,
@@ -156,14 +176,13 @@ class ExdScreenConfigurationScreenIndexField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class ExdScreenConfigurationFieldCountField extends Field {
- ExdScreenConfigurationFieldCountField({int size = 0, bool growable = true})
+  ExdScreenConfigurationFieldCountField({int size = 0, bool growable = true})
       : super(
             name: 'field_count',
             id: ID,
@@ -172,14 +191,13 @@ class ExdScreenConfigurationFieldCountField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class ExdScreenConfigurationLayoutField extends Field {
- ExdScreenConfigurationLayoutField({int size = 0, bool growable = true})
+  ExdScreenConfigurationLayoutField({int size = 0, bool growable = true})
       : super(
             name: 'layout',
             id: ID,
@@ -188,14 +206,13 @@ class ExdScreenConfigurationLayoutField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class ExdScreenConfigurationScreenEnabledField extends Field {
- ExdScreenConfigurationScreenEnabledField({int size = 0, bool growable = true})
+  ExdScreenConfigurationScreenEnabledField({int size = 0, bool growable = true})
       : super(
             name: 'screen_enabled',
             id: ID,
@@ -204,9 +221,7 @@ class ExdScreenConfigurationScreenEnabledField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }

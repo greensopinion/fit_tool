@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class CapabilitiesMessage extends DataMessage {
-
-   CapabilitiesMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  CapabilitiesMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: CapabilitiesMessage.NAME,
@@ -25,16 +27,30 @@ class CapabilitiesMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               CapabilitiesLanguagesField(
-                  size: definitionMessage?.getFieldDefinition(CapabilitiesLanguagesField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(CapabilitiesLanguagesField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               CapabilitiesSportsField(
-                  size: definitionMessage?.getFieldDefinition(CapabilitiesSportsField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(CapabilitiesSportsField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               CapabilitiesWorkoutsSupportedField(
-                  size: definitionMessage?.getFieldDefinition(CapabilitiesWorkoutsSupportedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              CapabilitiesWorkoutsSupportedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               CapabilitiesConnectivitySupportedField(
-                  size: definitionMessage?.getFieldDefinition(CapabilitiesConnectivitySupportedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              CapabilitiesConnectivitySupportedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -50,9 +66,8 @@ class CapabilitiesMessage extends DataMessage {
     return message;
   }
 
-
   int? get languages {
-     final field = getField(CapabilitiesLanguagesField.ID);
+    final field = getField(CapabilitiesLanguagesField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -60,7 +75,8 @@ class CapabilitiesMessage extends DataMessage {
       return null;
     }
   }
-   set languages(int? value) {
+
+  set languages(int? value) {
     final field = getField(CapabilitiesLanguagesField.ID);
 
     if (field != null) {
@@ -72,8 +88,9 @@ class CapabilitiesMessage extends DataMessage {
       }
     }
   }
+
   int? get sports {
-     final field = getField(CapabilitiesSportsField.ID);
+    final field = getField(CapabilitiesSportsField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -81,7 +98,8 @@ class CapabilitiesMessage extends DataMessage {
       return null;
     }
   }
-   set sports(int? value) {
+
+  set sports(int? value) {
     final field = getField(CapabilitiesSportsField.ID);
 
     if (field != null) {
@@ -93,8 +111,9 @@ class CapabilitiesMessage extends DataMessage {
       }
     }
   }
+
   int? get workoutsSupported {
-     final field = getField(CapabilitiesWorkoutsSupportedField.ID);
+    final field = getField(CapabilitiesWorkoutsSupportedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -102,7 +121,8 @@ class CapabilitiesMessage extends DataMessage {
       return null;
     }
   }
-   set workoutsSupported(int? value) {
+
+  set workoutsSupported(int? value) {
     final field = getField(CapabilitiesWorkoutsSupportedField.ID);
 
     if (field != null) {
@@ -114,8 +134,9 @@ class CapabilitiesMessage extends DataMessage {
       }
     }
   }
+
   int? get connectivitySupported {
-     final field = getField(CapabilitiesConnectivitySupportedField.ID);
+    final field = getField(CapabilitiesConnectivitySupportedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -123,7 +144,8 @@ class CapabilitiesMessage extends DataMessage {
       return null;
     }
   }
-   set connectivitySupported(int? value) {
+
+  set connectivitySupported(int? value) {
     final field = getField(CapabilitiesConnectivitySupportedField.ID);
 
     if (field != null) {
@@ -135,15 +157,10 @@ class CapabilitiesMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class CapabilitiesLanguagesField extends Field {
- CapabilitiesLanguagesField({int size = 0, bool growable = true})
+  CapabilitiesLanguagesField({int size = 0, bool growable = true})
       : super(
             name: 'languages',
             id: ID,
@@ -152,14 +169,13 @@ class CapabilitiesLanguagesField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class CapabilitiesSportsField extends Field {
- CapabilitiesSportsField({int size = 0, bool growable = true})
+  CapabilitiesSportsField({int size = 0, bool growable = true})
       : super(
             name: 'sports',
             id: ID,
@@ -168,14 +184,13 @@ class CapabilitiesSportsField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class CapabilitiesWorkoutsSupportedField extends Field {
- CapabilitiesWorkoutsSupportedField({int size = 0, bool growable = true})
+  CapabilitiesWorkoutsSupportedField({int size = 0, bool growable = true})
       : super(
             name: 'workouts_supported',
             id: ID,
@@ -184,14 +199,13 @@ class CapabilitiesWorkoutsSupportedField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 21;
 }
+
 class CapabilitiesConnectivitySupportedField extends Field {
- CapabilitiesConnectivitySupportedField({int size = 0, bool growable = true})
+  CapabilitiesConnectivitySupportedField({int size = 0, bool growable = true})
       : super(
             name: 'connectivity_supported',
             id: ID,
@@ -200,9 +214,7 @@ class CapabilitiesConnectivitySupportedField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 23;
 }

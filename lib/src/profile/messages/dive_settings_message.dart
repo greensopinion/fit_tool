@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class DiveSettingsMessage extends DataMessage {
-
-   DiveSettingsMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  DiveSettingsMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: DiveSettingsMessage.NAME,
@@ -25,70 +27,146 @@ class DiveSettingsMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               MessageIndexField(
-                  size: definitionMessage?.getFieldDefinition(MessageIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveSettingsNameField(
-                  size: definitionMessage?.getFieldDefinition(DiveSettingsNameField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DiveSettingsNameField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveSettingsModelField(
-                  size: definitionMessage?.getFieldDefinition(DiveSettingsModelField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DiveSettingsModelField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveSettingsGfLowField(
-                  size: definitionMessage?.getFieldDefinition(DiveSettingsGfLowField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DiveSettingsGfLowField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveSettingsGfHighField(
-                  size: definitionMessage?.getFieldDefinition(DiveSettingsGfHighField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DiveSettingsGfHighField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveSettingsWaterTypeField(
-                  size: definitionMessage?.getFieldDefinition(DiveSettingsWaterTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DiveSettingsWaterTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveSettingsWaterDensityField(
-                  size: definitionMessage?.getFieldDefinition(DiveSettingsWaterDensityField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DiveSettingsWaterDensityField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveSettingsPo2WarnField(
-                  size: definitionMessage?.getFieldDefinition(DiveSettingsPo2WarnField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DiveSettingsPo2WarnField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveSettingsPo2CriticalField(
-                  size: definitionMessage?.getFieldDefinition(DiveSettingsPo2CriticalField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DiveSettingsPo2CriticalField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveSettingsPo2DecoField(
-                  size: definitionMessage?.getFieldDefinition(DiveSettingsPo2DecoField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DiveSettingsPo2DecoField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveSettingsSafetyStopEnabledField(
-                  size: definitionMessage?.getFieldDefinition(DiveSettingsSafetyStopEnabledField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DiveSettingsSafetyStopEnabledField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveSettingsBottomDepthField(
-                  size: definitionMessage?.getFieldDefinition(DiveSettingsBottomDepthField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DiveSettingsBottomDepthField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveSettingsBottomTimeField(
-                  size: definitionMessage?.getFieldDefinition(DiveSettingsBottomTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DiveSettingsBottomTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveSettingsApneaCountdownEnabledField(
-                  size: definitionMessage?.getFieldDefinition(DiveSettingsApneaCountdownEnabledField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DiveSettingsApneaCountdownEnabledField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveSettingsApneaCountdownTimeField(
-                  size: definitionMessage?.getFieldDefinition(DiveSettingsApneaCountdownTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DiveSettingsApneaCountdownTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveSettingsBacklightModeField(
-                  size: definitionMessage?.getFieldDefinition(DiveSettingsBacklightModeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DiveSettingsBacklightModeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveSettingsBacklightBrightnessField(
-                  size: definitionMessage?.getFieldDefinition(DiveSettingsBacklightBrightnessField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DiveSettingsBacklightBrightnessField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveSettingsBacklightTimeoutField(
-                  size: definitionMessage?.getFieldDefinition(DiveSettingsBacklightTimeoutField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DiveSettingsBacklightTimeoutField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveSettingsRepeatDiveIntervalField(
-                  size: definitionMessage?.getFieldDefinition(DiveSettingsRepeatDiveIntervalField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DiveSettingsRepeatDiveIntervalField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveSettingsSafetyStopTimeField(
-                  size: definitionMessage?.getFieldDefinition(DiveSettingsSafetyStopTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DiveSettingsSafetyStopTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveSettingsHeartRateSourceTypeField(
-                  size: definitionMessage?.getFieldDefinition(DiveSettingsHeartRateSourceTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DiveSettingsHeartRateSourceTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveSettingsHeartRateSourceField(
-                  size: definitionMessage?.getFieldDefinition(DiveSettingsHeartRateSourceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DiveSettingsHeartRateSourceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -104,9 +182,8 @@ class DiveSettingsMessage extends DataMessage {
     return message;
   }
 
-
   int? get messageIndex {
-     final field = getField(MessageIndexField.ID);
+    final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -114,7 +191,8 @@ class DiveSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set messageIndex(int? value) {
+
+  set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
     if (field != null) {
@@ -126,8 +204,9 @@ class DiveSettingsMessage extends DataMessage {
       }
     }
   }
+
   String? get diveSettingsName {
-     final field = getField(DiveSettingsNameField.ID);
+    final field = getField(DiveSettingsNameField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -135,7 +214,8 @@ class DiveSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set diveSettingsName(String? value) {
+
+  set diveSettingsName(String? value) {
     final field = getField(DiveSettingsNameField.ID);
 
     if (field != null) {
@@ -147,9 +227,10 @@ class DiveSettingsMessage extends DataMessage {
       }
     }
   }
+
   TissueModelType? get model {
-     final field = getField(DiveSettingsModelField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(DiveSettingsModelField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -160,7 +241,8 @@ class DiveSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set model(TissueModelType? value) {
+
+  set model(TissueModelType? value) {
     final field = getField(DiveSettingsModelField.ID);
 
     if (field != null) {
@@ -172,8 +254,9 @@ class DiveSettingsMessage extends DataMessage {
       }
     }
   }
+
   int? get gfLow {
-     final field = getField(DiveSettingsGfLowField.ID);
+    final field = getField(DiveSettingsGfLowField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -181,7 +264,8 @@ class DiveSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set gfLow(int? value) {
+
+  set gfLow(int? value) {
     final field = getField(DiveSettingsGfLowField.ID);
 
     if (field != null) {
@@ -193,8 +277,9 @@ class DiveSettingsMessage extends DataMessage {
       }
     }
   }
+
   int? get gfHigh {
-     final field = getField(DiveSettingsGfHighField.ID);
+    final field = getField(DiveSettingsGfHighField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -202,7 +287,8 @@ class DiveSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set gfHigh(int? value) {
+
+  set gfHigh(int? value) {
     final field = getField(DiveSettingsGfHighField.ID);
 
     if (field != null) {
@@ -214,9 +300,10 @@ class DiveSettingsMessage extends DataMessage {
       }
     }
   }
+
   WaterType? get waterType {
-     final field = getField(DiveSettingsWaterTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(DiveSettingsWaterTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -227,7 +314,8 @@ class DiveSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set waterType(WaterType? value) {
+
+  set waterType(WaterType? value) {
     final field = getField(DiveSettingsWaterTypeField.ID);
 
     if (field != null) {
@@ -239,8 +327,9 @@ class DiveSettingsMessage extends DataMessage {
       }
     }
   }
+
   double? get waterDensity {
-     final field = getField(DiveSettingsWaterDensityField.ID);
+    final field = getField(DiveSettingsWaterDensityField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -248,7 +337,8 @@ class DiveSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set waterDensity(double? value) {
+
+  set waterDensity(double? value) {
     final field = getField(DiveSettingsWaterDensityField.ID);
 
     if (field != null) {
@@ -260,8 +350,9 @@ class DiveSettingsMessage extends DataMessage {
       }
     }
   }
+
   double? get po2Warn {
-     final field = getField(DiveSettingsPo2WarnField.ID);
+    final field = getField(DiveSettingsPo2WarnField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -269,7 +360,8 @@ class DiveSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set po2Warn(double? value) {
+
+  set po2Warn(double? value) {
     final field = getField(DiveSettingsPo2WarnField.ID);
 
     if (field != null) {
@@ -281,8 +373,9 @@ class DiveSettingsMessage extends DataMessage {
       }
     }
   }
+
   double? get po2Critical {
-     final field = getField(DiveSettingsPo2CriticalField.ID);
+    final field = getField(DiveSettingsPo2CriticalField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -290,7 +383,8 @@ class DiveSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set po2Critical(double? value) {
+
+  set po2Critical(double? value) {
     final field = getField(DiveSettingsPo2CriticalField.ID);
 
     if (field != null) {
@@ -302,8 +396,9 @@ class DiveSettingsMessage extends DataMessage {
       }
     }
   }
+
   double? get po2Deco {
-     final field = getField(DiveSettingsPo2DecoField.ID);
+    final field = getField(DiveSettingsPo2DecoField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -311,7 +406,8 @@ class DiveSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set po2Deco(double? value) {
+
+  set po2Deco(double? value) {
     final field = getField(DiveSettingsPo2DecoField.ID);
 
     if (field != null) {
@@ -323,8 +419,9 @@ class DiveSettingsMessage extends DataMessage {
       }
     }
   }
+
   bool? get safetyStopEnabled {
-     final field = getField(DiveSettingsSafetyStopEnabledField.ID);
+    final field = getField(DiveSettingsSafetyStopEnabledField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -332,7 +429,8 @@ class DiveSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set safetyStopEnabled(bool? value) {
+
+  set safetyStopEnabled(bool? value) {
     final field = getField(DiveSettingsSafetyStopEnabledField.ID);
 
     if (field != null) {
@@ -344,8 +442,9 @@ class DiveSettingsMessage extends DataMessage {
       }
     }
   }
+
   double? get bottomDepth {
-     final field = getField(DiveSettingsBottomDepthField.ID);
+    final field = getField(DiveSettingsBottomDepthField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -353,7 +452,8 @@ class DiveSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set bottomDepth(double? value) {
+
+  set bottomDepth(double? value) {
     final field = getField(DiveSettingsBottomDepthField.ID);
 
     if (field != null) {
@@ -365,8 +465,9 @@ class DiveSettingsMessage extends DataMessage {
       }
     }
   }
+
   int? get bottomTime {
-     final field = getField(DiveSettingsBottomTimeField.ID);
+    final field = getField(DiveSettingsBottomTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -374,7 +475,8 @@ class DiveSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set bottomTime(int? value) {
+
+  set bottomTime(int? value) {
     final field = getField(DiveSettingsBottomTimeField.ID);
 
     if (field != null) {
@@ -386,8 +488,9 @@ class DiveSettingsMessage extends DataMessage {
       }
     }
   }
+
   bool? get apneaCountdownEnabled {
-     final field = getField(DiveSettingsApneaCountdownEnabledField.ID);
+    final field = getField(DiveSettingsApneaCountdownEnabledField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -395,7 +498,8 @@ class DiveSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set apneaCountdownEnabled(bool? value) {
+
+  set apneaCountdownEnabled(bool? value) {
     final field = getField(DiveSettingsApneaCountdownEnabledField.ID);
 
     if (field != null) {
@@ -407,8 +511,9 @@ class DiveSettingsMessage extends DataMessage {
       }
     }
   }
+
   int? get apneaCountdownTime {
-     final field = getField(DiveSettingsApneaCountdownTimeField.ID);
+    final field = getField(DiveSettingsApneaCountdownTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -416,7 +521,8 @@ class DiveSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set apneaCountdownTime(int? value) {
+
+  set apneaCountdownTime(int? value) {
     final field = getField(DiveSettingsApneaCountdownTimeField.ID);
 
     if (field != null) {
@@ -428,9 +534,10 @@ class DiveSettingsMessage extends DataMessage {
       }
     }
   }
+
   DiveBacklightMode? get backlightMode {
-     final field = getField(DiveSettingsBacklightModeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(DiveSettingsBacklightModeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -441,7 +548,8 @@ class DiveSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set backlightMode(DiveBacklightMode? value) {
+
+  set backlightMode(DiveBacklightMode? value) {
     final field = getField(DiveSettingsBacklightModeField.ID);
 
     if (field != null) {
@@ -453,8 +561,9 @@ class DiveSettingsMessage extends DataMessage {
       }
     }
   }
+
   int? get backlightBrightness {
-     final field = getField(DiveSettingsBacklightBrightnessField.ID);
+    final field = getField(DiveSettingsBacklightBrightnessField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -462,7 +571,8 @@ class DiveSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set backlightBrightness(int? value) {
+
+  set backlightBrightness(int? value) {
     final field = getField(DiveSettingsBacklightBrightnessField.ID);
 
     if (field != null) {
@@ -474,8 +584,9 @@ class DiveSettingsMessage extends DataMessage {
       }
     }
   }
+
   int? get backlightTimeout {
-     final field = getField(DiveSettingsBacklightTimeoutField.ID);
+    final field = getField(DiveSettingsBacklightTimeoutField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -483,7 +594,8 @@ class DiveSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set backlightTimeout(int? value) {
+
+  set backlightTimeout(int? value) {
     final field = getField(DiveSettingsBacklightTimeoutField.ID);
 
     if (field != null) {
@@ -495,8 +607,9 @@ class DiveSettingsMessage extends DataMessage {
       }
     }
   }
+
   int? get repeatDiveInterval {
-     final field = getField(DiveSettingsRepeatDiveIntervalField.ID);
+    final field = getField(DiveSettingsRepeatDiveIntervalField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -504,7 +617,8 @@ class DiveSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set repeatDiveInterval(int? value) {
+
+  set repeatDiveInterval(int? value) {
     final field = getField(DiveSettingsRepeatDiveIntervalField.ID);
 
     if (field != null) {
@@ -516,8 +630,9 @@ class DiveSettingsMessage extends DataMessage {
       }
     }
   }
+
   int? get safetyStopTime {
-     final field = getField(DiveSettingsSafetyStopTimeField.ID);
+    final field = getField(DiveSettingsSafetyStopTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -525,7 +640,8 @@ class DiveSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set safetyStopTime(int? value) {
+
+  set safetyStopTime(int? value) {
     final field = getField(DiveSettingsSafetyStopTimeField.ID);
 
     if (field != null) {
@@ -537,9 +653,10 @@ class DiveSettingsMessage extends DataMessage {
       }
     }
   }
+
   SourceType? get heartRateSourceType {
-     final field = getField(DiveSettingsHeartRateSourceTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(DiveSettingsHeartRateSourceTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -550,7 +667,8 @@ class DiveSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set heartRateSourceType(SourceType? value) {
+
+  set heartRateSourceType(SourceType? value) {
     final field = getField(DiveSettingsHeartRateSourceTypeField.ID);
 
     if (field != null) {
@@ -562,8 +680,9 @@ class DiveSettingsMessage extends DataMessage {
       }
     }
   }
+
   int? get heartRateSource {
-     final field = getField(DiveSettingsHeartRateSourceField.ID);
+    final field = getField(DiveSettingsHeartRateSourceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -571,7 +690,8 @@ class DiveSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set heartRateSource(int? value) {
+
+  set heartRateSource(int? value) {
     final field = getField(DiveSettingsHeartRateSourceField.ID);
 
     if (field != null) {
@@ -585,13 +705,14 @@ class DiveSettingsMessage extends DataMessage {
   }
 
   int? get heartRateAntplusDeviceType {
-     final field = getField(DiveSettingsHeartRateSourceField.ID);
-     final typeField = getField(DiveSettingsHeartRateSourceTypeField.ID);
+    final field = getField(DiveSettingsHeartRateSourceField.ID);
+    final typeField = getField(DiveSettingsHeartRateSourceTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [1].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [1].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -599,7 +720,7 @@ class DiveSettingsMessage extends DataMessage {
 
   set heartRateAntplusDeviceType(int? value) {
     final field = getField(DiveSettingsHeartRateSourceField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -610,13 +731,14 @@ class DiveSettingsMessage extends DataMessage {
   }
 
   int? get heartRateLocalDeviceType {
-     final field = getField(DiveSettingsHeartRateSourceField.ID);
-     final typeField = getField(DiveSettingsHeartRateSourceTypeField.ID);
+    final field = getField(DiveSettingsHeartRateSourceField.ID);
+    final typeField = getField(DiveSettingsHeartRateSourceTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [5].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [5].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -624,7 +746,7 @@ class DiveSettingsMessage extends DataMessage {
 
   set heartRateLocalDeviceType(int? value) {
     final field = getField(DiveSettingsHeartRateSourceField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -633,15 +755,10 @@ class DiveSettingsMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class DiveSettingsNameField extends Field {
- DiveSettingsNameField({int size = 0, bool growable = true})
+  DiveSettingsNameField({int size = 0, bool growable = true})
       : super(
             name: 'name',
             id: ID,
@@ -650,14 +767,13 @@ class DiveSettingsNameField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class DiveSettingsModelField extends Field {
- DiveSettingsModelField({int size = 0, bool growable = true})
+  DiveSettingsModelField({int size = 0, bool growable = true})
       : super(
             name: 'model',
             id: ID,
@@ -666,14 +782,13 @@ class DiveSettingsModelField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class DiveSettingsGfLowField extends Field {
- DiveSettingsGfLowField({int size = 0, bool growable = true})
+  DiveSettingsGfLowField({int size = 0, bool growable = true})
       : super(
             name: 'gf_low',
             id: ID,
@@ -684,14 +799,13 @@ class DiveSettingsGfLowField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class DiveSettingsGfHighField extends Field {
- DiveSettingsGfHighField({int size = 0, bool growable = true})
+  DiveSettingsGfHighField({int size = 0, bool growable = true})
       : super(
             name: 'gf_high',
             id: ID,
@@ -702,14 +816,13 @@ class DiveSettingsGfHighField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class DiveSettingsWaterTypeField extends Field {
- DiveSettingsWaterTypeField({int size = 0, bool growable = true})
+  DiveSettingsWaterTypeField({int size = 0, bool growable = true})
       : super(
             name: 'water_type',
             id: ID,
@@ -718,14 +831,13 @@ class DiveSettingsWaterTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class DiveSettingsWaterDensityField extends Field {
- DiveSettingsWaterDensityField({int size = 0, bool growable = true})
+  DiveSettingsWaterDensityField({int size = 0, bool growable = true})
       : super(
             name: 'water_density',
             id: ID,
@@ -736,14 +848,13 @@ class DiveSettingsWaterDensityField extends Field {
             units: 'kg/m^3',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }
+
 class DiveSettingsPo2WarnField extends Field {
- DiveSettingsPo2WarnField({int size = 0, bool growable = true})
+  DiveSettingsPo2WarnField({int size = 0, bool growable = true})
       : super(
             name: 'po2_warn',
             id: ID,
@@ -754,14 +865,13 @@ class DiveSettingsPo2WarnField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 6;
 }
+
 class DiveSettingsPo2CriticalField extends Field {
- DiveSettingsPo2CriticalField({int size = 0, bool growable = true})
+  DiveSettingsPo2CriticalField({int size = 0, bool growable = true})
       : super(
             name: 'po2_critical',
             id: ID,
@@ -772,14 +882,13 @@ class DiveSettingsPo2CriticalField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 7;
 }
+
 class DiveSettingsPo2DecoField extends Field {
- DiveSettingsPo2DecoField({int size = 0, bool growable = true})
+  DiveSettingsPo2DecoField({int size = 0, bool growable = true})
       : super(
             name: 'po2_deco',
             id: ID,
@@ -790,14 +899,13 @@ class DiveSettingsPo2DecoField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 8;
 }
+
 class DiveSettingsSafetyStopEnabledField extends Field {
- DiveSettingsSafetyStopEnabledField({int size = 0, bool growable = true})
+  DiveSettingsSafetyStopEnabledField({int size = 0, bool growable = true})
       : super(
             name: 'safety_stop_enabled',
             id: ID,
@@ -806,14 +914,13 @@ class DiveSettingsSafetyStopEnabledField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 9;
 }
+
 class DiveSettingsBottomDepthField extends Field {
- DiveSettingsBottomDepthField({int size = 0, bool growable = true})
+  DiveSettingsBottomDepthField({int size = 0, bool growable = true})
       : super(
             name: 'bottom_depth',
             id: ID,
@@ -822,14 +929,13 @@ class DiveSettingsBottomDepthField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 10;
 }
+
 class DiveSettingsBottomTimeField extends Field {
- DiveSettingsBottomTimeField({int size = 0, bool growable = true})
+  DiveSettingsBottomTimeField({int size = 0, bool growable = true})
       : super(
             name: 'bottom_time',
             id: ID,
@@ -838,14 +944,13 @@ class DiveSettingsBottomTimeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 11;
 }
+
 class DiveSettingsApneaCountdownEnabledField extends Field {
- DiveSettingsApneaCountdownEnabledField({int size = 0, bool growable = true})
+  DiveSettingsApneaCountdownEnabledField({int size = 0, bool growable = true})
       : super(
             name: 'apnea_countdown_enabled',
             id: ID,
@@ -854,14 +959,13 @@ class DiveSettingsApneaCountdownEnabledField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 12;
 }
+
 class DiveSettingsApneaCountdownTimeField extends Field {
- DiveSettingsApneaCountdownTimeField({int size = 0, bool growable = true})
+  DiveSettingsApneaCountdownTimeField({int size = 0, bool growable = true})
       : super(
             name: 'apnea_countdown_time',
             id: ID,
@@ -870,14 +974,13 @@ class DiveSettingsApneaCountdownTimeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 13;
 }
+
 class DiveSettingsBacklightModeField extends Field {
- DiveSettingsBacklightModeField({int size = 0, bool growable = true})
+  DiveSettingsBacklightModeField({int size = 0, bool growable = true})
       : super(
             name: 'backlight_mode',
             id: ID,
@@ -886,14 +989,13 @@ class DiveSettingsBacklightModeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 14;
 }
+
 class DiveSettingsBacklightBrightnessField extends Field {
- DiveSettingsBacklightBrightnessField({int size = 0, bool growable = true})
+  DiveSettingsBacklightBrightnessField({int size = 0, bool growable = true})
       : super(
             name: 'backlight_brightness',
             id: ID,
@@ -902,14 +1004,13 @@ class DiveSettingsBacklightBrightnessField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 15;
 }
+
 class DiveSettingsBacklightTimeoutField extends Field {
- DiveSettingsBacklightTimeoutField({int size = 0, bool growable = true})
+  DiveSettingsBacklightTimeoutField({int size = 0, bool growable = true})
       : super(
             name: 'backlight_timeout',
             id: ID,
@@ -918,14 +1019,13 @@ class DiveSettingsBacklightTimeoutField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 16;
 }
+
 class DiveSettingsRepeatDiveIntervalField extends Field {
- DiveSettingsRepeatDiveIntervalField({int size = 0, bool growable = true})
+  DiveSettingsRepeatDiveIntervalField({int size = 0, bool growable = true})
       : super(
             name: 'repeat_dive_interval',
             id: ID,
@@ -936,14 +1036,13 @@ class DiveSettingsRepeatDiveIntervalField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 17;
 }
+
 class DiveSettingsSafetyStopTimeField extends Field {
- DiveSettingsSafetyStopTimeField({int size = 0, bool growable = true})
+  DiveSettingsSafetyStopTimeField({int size = 0, bool growable = true})
       : super(
             name: 'safety_stop_time',
             id: ID,
@@ -954,14 +1053,13 @@ class DiveSettingsSafetyStopTimeField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 18;
 }
+
 class DiveSettingsHeartRateSourceTypeField extends Field {
- DiveSettingsHeartRateSourceTypeField({int size = 0, bool growable = true})
+  DiveSettingsHeartRateSourceTypeField({int size = 0, bool growable = true})
       : super(
             name: 'heart_rate_source_type',
             id: ID,
@@ -970,14 +1068,13 @@ class DiveSettingsHeartRateSourceTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 19;
 }
+
 class DiveSettingsHeartRateSourceField extends Field {
- DiveSettingsHeartRateSourceField({int size = 0, bool growable = true})
+  DiveSettingsHeartRateSourceField({int size = 0, bool growable = true})
       : super(
             name: 'heart_rate_source',
             id: ID,
@@ -987,24 +1084,23 @@ class DiveSettingsHeartRateSourceField extends Field {
             size: size,
             growable: growable,
             subFields: [
-       SubField(
+              SubField(
                   name: 'heart_rate_antplus_device_type',
                   type: BaseType.UINT8,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  DiveSettingsHeartRateSourceTypeField.ID: [1]
+                    DiveSettingsHeartRateSourceTypeField.ID: [1]
                   }),
-       SubField(
+              SubField(
                   name: 'heart_rate_local_device_type',
                   type: BaseType.UINT8,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  DiveSettingsHeartRateSourceTypeField.ID: [5]
+                    DiveSettingsHeartRateSourceTypeField.ID: [5]
                   })
-            ]
- );
+            ]);
 
   static const ID = 20;
 }

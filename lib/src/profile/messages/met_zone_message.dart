@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class MetZoneMessage extends DataMessage {
-
-   MetZoneMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  MetZoneMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: MetZoneMessage.NAME,
@@ -25,16 +27,28 @@ class MetZoneMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               MessageIndexField(
-                  size: definitionMessage?.getFieldDefinition(MessageIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MetZoneHighBpmField(
-                  size: definitionMessage?.getFieldDefinition(MetZoneHighBpmField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MetZoneHighBpmField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MetZoneCaloriesField(
-                  size: definitionMessage?.getFieldDefinition(MetZoneCaloriesField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MetZoneCaloriesField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MetZoneFatCaloriesField(
-                  size: definitionMessage?.getFieldDefinition(MetZoneFatCaloriesField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MetZoneFatCaloriesField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -50,9 +64,8 @@ class MetZoneMessage extends DataMessage {
     return message;
   }
 
-
   int? get messageIndex {
-     final field = getField(MessageIndexField.ID);
+    final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -60,7 +73,8 @@ class MetZoneMessage extends DataMessage {
       return null;
     }
   }
-   set messageIndex(int? value) {
+
+  set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
     if (field != null) {
@@ -72,8 +86,9 @@ class MetZoneMessage extends DataMessage {
       }
     }
   }
+
   int? get highBpm {
-     final field = getField(MetZoneHighBpmField.ID);
+    final field = getField(MetZoneHighBpmField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -81,7 +96,8 @@ class MetZoneMessage extends DataMessage {
       return null;
     }
   }
-   set highBpm(int? value) {
+
+  set highBpm(int? value) {
     final field = getField(MetZoneHighBpmField.ID);
 
     if (field != null) {
@@ -93,8 +109,9 @@ class MetZoneMessage extends DataMessage {
       }
     }
   }
+
   double? get calories {
-     final field = getField(MetZoneCaloriesField.ID);
+    final field = getField(MetZoneCaloriesField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -102,7 +119,8 @@ class MetZoneMessage extends DataMessage {
       return null;
     }
   }
-   set calories(double? value) {
+
+  set calories(double? value) {
     final field = getField(MetZoneCaloriesField.ID);
 
     if (field != null) {
@@ -114,8 +132,9 @@ class MetZoneMessage extends DataMessage {
       }
     }
   }
+
   double? get fatCalories {
-     final field = getField(MetZoneFatCaloriesField.ID);
+    final field = getField(MetZoneFatCaloriesField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -123,7 +142,8 @@ class MetZoneMessage extends DataMessage {
       return null;
     }
   }
-   set fatCalories(double? value) {
+
+  set fatCalories(double? value) {
     final field = getField(MetZoneFatCaloriesField.ID);
 
     if (field != null) {
@@ -135,15 +155,10 @@ class MetZoneMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class MetZoneHighBpmField extends Field {
- MetZoneHighBpmField({int size = 0, bool growable = true})
+  MetZoneHighBpmField({int size = 0, bool growable = true})
       : super(
             name: 'high_bpm',
             id: ID,
@@ -152,14 +167,13 @@ class MetZoneHighBpmField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class MetZoneCaloriesField extends Field {
- MetZoneCaloriesField({int size = 0, bool growable = true})
+  MetZoneCaloriesField({int size = 0, bool growable = true})
       : super(
             name: 'calories',
             id: ID,
@@ -170,14 +184,13 @@ class MetZoneCaloriesField extends Field {
             units: 'kcal / min',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class MetZoneFatCaloriesField extends Field {
- MetZoneFatCaloriesField({int size = 0, bool growable = true})
+  MetZoneFatCaloriesField({int size = 0, bool growable = true})
       : super(
             name: 'fat_calories',
             id: ID,
@@ -188,9 +201,7 @@ class MetZoneFatCaloriesField extends Field {
             units: 'kcal / min',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }

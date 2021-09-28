@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class SegmentFileMessage extends DataMessage {
-
-   SegmentFileMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  SegmentFileMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: SegmentFileMessage.NAME,
@@ -25,31 +27,63 @@ class SegmentFileMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               MessageIndexField(
-                  size: definitionMessage?.getFieldDefinition(MessageIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentFileFileUuidField(
-                  size: definitionMessage?.getFieldDefinition(SegmentFileFileUuidField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentFileFileUuidField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentFileEnabledField(
-                  size: definitionMessage?.getFieldDefinition(SegmentFileEnabledField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentFileEnabledField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentFileUserProfilePrimaryKeyField(
-                  size: definitionMessage?.getFieldDefinition(SegmentFileUserProfilePrimaryKeyField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentFileUserProfilePrimaryKeyField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentFileLeaderTypeField(
-                  size: definitionMessage?.getFieldDefinition(SegmentFileLeaderTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SegmentFileLeaderTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentFileLeaderGroupPrimaryKeyField(
-                  size: definitionMessage?.getFieldDefinition(SegmentFileLeaderGroupPrimaryKeyField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentFileLeaderGroupPrimaryKeyField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentFileLeaderActivityIdField(
-                  size: definitionMessage?.getFieldDefinition(SegmentFileLeaderActivityIdField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentFileLeaderActivityIdField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentFileLeaderActivityIdStringField(
-                  size: definitionMessage?.getFieldDefinition(SegmentFileLeaderActivityIdStringField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentFileLeaderActivityIdStringField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentFileDefaultRaceLeaderField(
-                  size: definitionMessage?.getFieldDefinition(SegmentFileDefaultRaceLeaderField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentFileDefaultRaceLeaderField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -65,9 +99,8 @@ class SegmentFileMessage extends DataMessage {
     return message;
   }
 
-
   int? get messageIndex {
-     final field = getField(MessageIndexField.ID);
+    final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -75,7 +108,8 @@ class SegmentFileMessage extends DataMessage {
       return null;
     }
   }
-   set messageIndex(int? value) {
+
+  set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
     if (field != null) {
@@ -87,8 +121,9 @@ class SegmentFileMessage extends DataMessage {
       }
     }
   }
+
   String? get fileUuid {
-     final field = getField(SegmentFileFileUuidField.ID);
+    final field = getField(SegmentFileFileUuidField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -96,7 +131,8 @@ class SegmentFileMessage extends DataMessage {
       return null;
     }
   }
-   set fileUuid(String? value) {
+
+  set fileUuid(String? value) {
     final field = getField(SegmentFileFileUuidField.ID);
 
     if (field != null) {
@@ -108,8 +144,9 @@ class SegmentFileMessage extends DataMessage {
       }
     }
   }
+
   bool? get enabled {
-     final field = getField(SegmentFileEnabledField.ID);
+    final field = getField(SegmentFileEnabledField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -117,7 +154,8 @@ class SegmentFileMessage extends DataMessage {
       return null;
     }
   }
-   set enabled(bool? value) {
+
+  set enabled(bool? value) {
     final field = getField(SegmentFileEnabledField.ID);
 
     if (field != null) {
@@ -129,8 +167,9 @@ class SegmentFileMessage extends DataMessage {
       }
     }
   }
+
   int? get userProfilePrimaryKey {
-     final field = getField(SegmentFileUserProfilePrimaryKeyField.ID);
+    final field = getField(SegmentFileUserProfilePrimaryKeyField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -138,7 +177,8 @@ class SegmentFileMessage extends DataMessage {
       return null;
     }
   }
-   set userProfilePrimaryKey(int? value) {
+
+  set userProfilePrimaryKey(int? value) {
     final field = getField(SegmentFileUserProfilePrimaryKeyField.ID);
 
     if (field != null) {
@@ -150,9 +190,10 @@ class SegmentFileMessage extends DataMessage {
       }
     }
   }
+
   SegmentLeaderboardType? get leaderType {
-     final field = getField(SegmentFileLeaderTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(SegmentFileLeaderTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -163,7 +204,8 @@ class SegmentFileMessage extends DataMessage {
       return null;
     }
   }
-   set leaderType(SegmentLeaderboardType? value) {
+
+  set leaderType(SegmentLeaderboardType? value) {
     final field = getField(SegmentFileLeaderTypeField.ID);
 
     if (field != null) {
@@ -175,8 +217,9 @@ class SegmentFileMessage extends DataMessage {
       }
     }
   }
+
   int? get leaderGroupPrimaryKey {
-     final field = getField(SegmentFileLeaderGroupPrimaryKeyField.ID);
+    final field = getField(SegmentFileLeaderGroupPrimaryKeyField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -184,7 +227,8 @@ class SegmentFileMessage extends DataMessage {
       return null;
     }
   }
-   set leaderGroupPrimaryKey(int? value) {
+
+  set leaderGroupPrimaryKey(int? value) {
     final field = getField(SegmentFileLeaderGroupPrimaryKeyField.ID);
 
     if (field != null) {
@@ -196,8 +240,9 @@ class SegmentFileMessage extends DataMessage {
       }
     }
   }
+
   int? get leaderActivityId {
-     final field = getField(SegmentFileLeaderActivityIdField.ID);
+    final field = getField(SegmentFileLeaderActivityIdField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -205,7 +250,8 @@ class SegmentFileMessage extends DataMessage {
       return null;
     }
   }
-   set leaderActivityId(int? value) {
+
+  set leaderActivityId(int? value) {
     final field = getField(SegmentFileLeaderActivityIdField.ID);
 
     if (field != null) {
@@ -217,8 +263,9 @@ class SegmentFileMessage extends DataMessage {
       }
     }
   }
+
   String? get leaderActivityIdString {
-     final field = getField(SegmentFileLeaderActivityIdStringField.ID);
+    final field = getField(SegmentFileLeaderActivityIdStringField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -226,7 +273,8 @@ class SegmentFileMessage extends DataMessage {
       return null;
     }
   }
-   set leaderActivityIdString(String? value) {
+
+  set leaderActivityIdString(String? value) {
     final field = getField(SegmentFileLeaderActivityIdStringField.ID);
 
     if (field != null) {
@@ -238,8 +286,9 @@ class SegmentFileMessage extends DataMessage {
       }
     }
   }
+
   int? get defaultRaceLeader {
-     final field = getField(SegmentFileDefaultRaceLeaderField.ID);
+    final field = getField(SegmentFileDefaultRaceLeaderField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -247,7 +296,8 @@ class SegmentFileMessage extends DataMessage {
       return null;
     }
   }
-   set defaultRaceLeader(int? value) {
+
+  set defaultRaceLeader(int? value) {
     final field = getField(SegmentFileDefaultRaceLeaderField.ID);
 
     if (field != null) {
@@ -259,15 +309,10 @@ class SegmentFileMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class SegmentFileFileUuidField extends Field {
- SegmentFileFileUuidField({int size = 0, bool growable = true})
+  SegmentFileFileUuidField({int size = 0, bool growable = true})
       : super(
             name: 'file_uuid',
             id: ID,
@@ -276,14 +321,13 @@ class SegmentFileFileUuidField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class SegmentFileEnabledField extends Field {
- SegmentFileEnabledField({int size = 0, bool growable = true})
+  SegmentFileEnabledField({int size = 0, bool growable = true})
       : super(
             name: 'enabled',
             id: ID,
@@ -292,14 +336,13 @@ class SegmentFileEnabledField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class SegmentFileUserProfilePrimaryKeyField extends Field {
- SegmentFileUserProfilePrimaryKeyField({int size = 0, bool growable = true})
+  SegmentFileUserProfilePrimaryKeyField({int size = 0, bool growable = true})
       : super(
             name: 'user_profile_primary_key',
             id: ID,
@@ -308,14 +351,13 @@ class SegmentFileUserProfilePrimaryKeyField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class SegmentFileLeaderTypeField extends Field {
- SegmentFileLeaderTypeField({int size = 0, bool growable = true})
+  SegmentFileLeaderTypeField({int size = 0, bool growable = true})
       : super(
             name: 'leader_type',
             id: ID,
@@ -324,14 +366,13 @@ class SegmentFileLeaderTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 7;
 }
+
 class SegmentFileLeaderGroupPrimaryKeyField extends Field {
- SegmentFileLeaderGroupPrimaryKeyField({int size = 0, bool growable = true})
+  SegmentFileLeaderGroupPrimaryKeyField({int size = 0, bool growable = true})
       : super(
             name: 'leader_group_primary_key',
             id: ID,
@@ -340,14 +381,13 @@ class SegmentFileLeaderGroupPrimaryKeyField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 8;
 }
+
 class SegmentFileLeaderActivityIdField extends Field {
- SegmentFileLeaderActivityIdField({int size = 0, bool growable = true})
+  SegmentFileLeaderActivityIdField({int size = 0, bool growable = true})
       : super(
             name: 'leader_activity_id',
             id: ID,
@@ -356,14 +396,13 @@ class SegmentFileLeaderActivityIdField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 9;
 }
+
 class SegmentFileLeaderActivityIdStringField extends Field {
- SegmentFileLeaderActivityIdStringField({int size = 0, bool growable = true})
+  SegmentFileLeaderActivityIdStringField({int size = 0, bool growable = true})
       : super(
             name: 'leader_activity_id_string',
             id: ID,
@@ -372,14 +411,13 @@ class SegmentFileLeaderActivityIdStringField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 10;
 }
+
 class SegmentFileDefaultRaceLeaderField extends Field {
- SegmentFileDefaultRaceLeaderField({int size = 0, bool growable = true})
+  SegmentFileDefaultRaceLeaderField({int size = 0, bool growable = true})
       : super(
             name: 'default_race_leader',
             id: ID,
@@ -388,9 +426,7 @@ class SegmentFileDefaultRaceLeaderField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 11;
 }

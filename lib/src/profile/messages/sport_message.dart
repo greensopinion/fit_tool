@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class SportMessage extends DataMessage {
-
-   SportMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  SportMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: SportMessage.NAME,
@@ -25,13 +27,22 @@ class SportMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               SportSportField(
-                  size: definitionMessage?.getFieldDefinition(SportSportField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SportSportField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SportSubSportField(
-                  size: definitionMessage?.getFieldDefinition(SportSubSportField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SportSubSportField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SportNameField(
-                  size: definitionMessage?.getFieldDefinition(SportNameField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SportNameField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -47,10 +58,9 @@ class SportMessage extends DataMessage {
     return message;
   }
 
-
   Sport? get sport {
-     final field = getField(SportSportField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(SportSportField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -61,7 +71,8 @@ class SportMessage extends DataMessage {
       return null;
     }
   }
-   set sport(Sport? value) {
+
+  set sport(Sport? value) {
     final field = getField(SportSportField.ID);
 
     if (field != null) {
@@ -73,9 +84,10 @@ class SportMessage extends DataMessage {
       }
     }
   }
+
   SubSport? get subSport {
-     final field = getField(SportSubSportField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(SportSubSportField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -86,7 +98,8 @@ class SportMessage extends DataMessage {
       return null;
     }
   }
-   set subSport(SubSport? value) {
+
+  set subSport(SubSport? value) {
     final field = getField(SportSubSportField.ID);
 
     if (field != null) {
@@ -98,8 +111,9 @@ class SportMessage extends DataMessage {
       }
     }
   }
+
   String? get sportName {
-     final field = getField(SportNameField.ID);
+    final field = getField(SportNameField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -107,7 +121,8 @@ class SportMessage extends DataMessage {
       return null;
     }
   }
-   set sportName(String? value) {
+
+  set sportName(String? value) {
     final field = getField(SportNameField.ID);
 
     if (field != null) {
@@ -119,15 +134,10 @@ class SportMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class SportSportField extends Field {
- SportSportField({int size = 0, bool growable = true})
+  SportSportField({int size = 0, bool growable = true})
       : super(
             name: 'sport',
             id: ID,
@@ -136,14 +146,13 @@ class SportSportField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class SportSubSportField extends Field {
- SportSubSportField({int size = 0, bool growable = true})
+  SportSubSportField({int size = 0, bool growable = true})
       : super(
             name: 'sub_sport',
             id: ID,
@@ -152,14 +161,13 @@ class SportSubSportField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class SportNameField extends Field {
- SportNameField({int size = 0, bool growable = true})
+  SportNameField({int size = 0, bool growable = true})
       : super(
             name: 'name',
             id: ID,
@@ -168,9 +176,7 @@ class SportNameField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }

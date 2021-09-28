@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class VideoClipMessage extends DataMessage {
-
-   VideoClipMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  VideoClipMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: VideoClipMessage.NAME,
@@ -25,25 +27,47 @@ class VideoClipMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               VideoClipClipNumberField(
-                  size: definitionMessage?.getFieldDefinition(VideoClipClipNumberField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(VideoClipClipNumberField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               VideoClipStartTimestampField(
-                  size: definitionMessage?.getFieldDefinition(VideoClipStartTimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(VideoClipStartTimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               VideoClipStartTimestampMsField(
-                  size: definitionMessage?.getFieldDefinition(VideoClipStartTimestampMsField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              VideoClipStartTimestampMsField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               VideoClipEndTimestampField(
-                  size: definitionMessage?.getFieldDefinition(VideoClipEndTimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(VideoClipEndTimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               VideoClipEndTimestampMsField(
-                  size: definitionMessage?.getFieldDefinition(VideoClipEndTimestampMsField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(VideoClipEndTimestampMsField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               VideoClipClipStartField(
-                  size: definitionMessage?.getFieldDefinition(VideoClipClipStartField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(VideoClipClipStartField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               VideoClipClipEndField(
-                  size: definitionMessage?.getFieldDefinition(VideoClipClipEndField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(VideoClipClipEndField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -59,9 +83,8 @@ class VideoClipMessage extends DataMessage {
     return message;
   }
 
-
   int? get clipNumber {
-     final field = getField(VideoClipClipNumberField.ID);
+    final field = getField(VideoClipClipNumberField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -69,7 +92,8 @@ class VideoClipMessage extends DataMessage {
       return null;
     }
   }
-   set clipNumber(int? value) {
+
+  set clipNumber(int? value) {
     final field = getField(VideoClipClipNumberField.ID);
 
     if (field != null) {
@@ -81,9 +105,10 @@ class VideoClipMessage extends DataMessage {
       }
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get startTimestamp {
-     final field = getField(VideoClipStartTimestampField.ID);
+    final field = getField(VideoClipStartTimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -91,8 +116,9 @@ class VideoClipMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set startTimestamp(int? value) {
+  set startTimestamp(int? value) {
     final field = getField(VideoClipStartTimestampField.ID);
 
     if (field != null) {
@@ -104,8 +130,9 @@ class VideoClipMessage extends DataMessage {
       }
     }
   }
+
   int? get startTimestampMs {
-     final field = getField(VideoClipStartTimestampMsField.ID);
+    final field = getField(VideoClipStartTimestampMsField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -113,7 +140,8 @@ class VideoClipMessage extends DataMessage {
       return null;
     }
   }
-   set startTimestampMs(int? value) {
+
+  set startTimestampMs(int? value) {
     final field = getField(VideoClipStartTimestampMsField.ID);
 
     if (field != null) {
@@ -125,9 +153,10 @@ class VideoClipMessage extends DataMessage {
       }
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get endTimestamp {
-     final field = getField(VideoClipEndTimestampField.ID);
+    final field = getField(VideoClipEndTimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -135,8 +164,9 @@ class VideoClipMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set endTimestamp(int? value) {
+  set endTimestamp(int? value) {
     final field = getField(VideoClipEndTimestampField.ID);
 
     if (field != null) {
@@ -148,8 +178,9 @@ class VideoClipMessage extends DataMessage {
       }
     }
   }
+
   int? get endTimestampMs {
-     final field = getField(VideoClipEndTimestampMsField.ID);
+    final field = getField(VideoClipEndTimestampMsField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -157,7 +188,8 @@ class VideoClipMessage extends DataMessage {
       return null;
     }
   }
-   set endTimestampMs(int? value) {
+
+  set endTimestampMs(int? value) {
     final field = getField(VideoClipEndTimestampMsField.ID);
 
     if (field != null) {
@@ -169,8 +201,9 @@ class VideoClipMessage extends DataMessage {
       }
     }
   }
+
   int? get clipStart {
-     final field = getField(VideoClipClipStartField.ID);
+    final field = getField(VideoClipClipStartField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -178,7 +211,8 @@ class VideoClipMessage extends DataMessage {
       return null;
     }
   }
-   set clipStart(int? value) {
+
+  set clipStart(int? value) {
     final field = getField(VideoClipClipStartField.ID);
 
     if (field != null) {
@@ -190,8 +224,9 @@ class VideoClipMessage extends DataMessage {
       }
     }
   }
+
   int? get clipEnd {
-     final field = getField(VideoClipClipEndField.ID);
+    final field = getField(VideoClipClipEndField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -199,7 +234,8 @@ class VideoClipMessage extends DataMessage {
       return null;
     }
   }
-   set clipEnd(int? value) {
+
+  set clipEnd(int? value) {
     final field = getField(VideoClipClipEndField.ID);
 
     if (field != null) {
@@ -211,15 +247,10 @@ class VideoClipMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class VideoClipClipNumberField extends Field {
- VideoClipClipNumberField({int size = 0, bool growable = true})
+  VideoClipClipNumberField({int size = 0, bool growable = true})
       : super(
             name: 'clip_number',
             id: ID,
@@ -228,14 +259,13 @@ class VideoClipClipNumberField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class VideoClipStartTimestampField extends Field {
- VideoClipStartTimestampField({int size = 0, bool growable = true})
+  VideoClipStartTimestampField({int size = 0, bool growable = true})
       : super(
             name: 'start_timestamp',
             id: ID,
@@ -246,14 +276,13 @@ class VideoClipStartTimestampField extends Field {
             units: 'ms',
             mainTypeName: 'date_time',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class VideoClipStartTimestampMsField extends Field {
- VideoClipStartTimestampMsField({int size = 0, bool growable = true})
+  VideoClipStartTimestampMsField({int size = 0, bool growable = true})
       : super(
             name: 'start_timestamp_ms',
             id: ID,
@@ -262,14 +291,13 @@ class VideoClipStartTimestampMsField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class VideoClipEndTimestampField extends Field {
- VideoClipEndTimestampField({int size = 0, bool growable = true})
+  VideoClipEndTimestampField({int size = 0, bool growable = true})
       : super(
             name: 'end_timestamp',
             id: ID,
@@ -280,14 +308,13 @@ class VideoClipEndTimestampField extends Field {
             units: 'ms',
             mainTypeName: 'date_time',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class VideoClipEndTimestampMsField extends Field {
- VideoClipEndTimestampMsField({int size = 0, bool growable = true})
+  VideoClipEndTimestampMsField({int size = 0, bool growable = true})
       : super(
             name: 'end_timestamp_ms',
             id: ID,
@@ -296,14 +323,13 @@ class VideoClipEndTimestampMsField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class VideoClipClipStartField extends Field {
- VideoClipClipStartField({int size = 0, bool growable = true})
+  VideoClipClipStartField({int size = 0, bool growable = true})
       : super(
             name: 'clip_start',
             id: ID,
@@ -314,14 +340,13 @@ class VideoClipClipStartField extends Field {
             units: 'ms',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 6;
 }
+
 class VideoClipClipEndField extends Field {
- VideoClipClipEndField({int size = 0, bool growable = true})
+  VideoClipClipEndField({int size = 0, bool growable = true})
       : super(
             name: 'clip_end',
             id: ID,
@@ -332,9 +357,7 @@ class VideoClipClipEndField extends Field {
             units: 'ms',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 7;
 }

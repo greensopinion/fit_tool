@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class HrZoneMessage extends DataMessage {
-
-   HrZoneMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  HrZoneMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: HrZoneMessage.NAME,
@@ -25,13 +27,22 @@ class HrZoneMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               MessageIndexField(
-                  size: definitionMessage?.getFieldDefinition(MessageIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               HrZoneHighBpmField(
-                  size: definitionMessage?.getFieldDefinition(HrZoneHighBpmField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(HrZoneHighBpmField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               HrZoneNameField(
-                  size: definitionMessage?.getFieldDefinition(HrZoneNameField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(HrZoneNameField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -47,9 +58,8 @@ class HrZoneMessage extends DataMessage {
     return message;
   }
 
-
   int? get messageIndex {
-     final field = getField(MessageIndexField.ID);
+    final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -57,7 +67,8 @@ class HrZoneMessage extends DataMessage {
       return null;
     }
   }
-   set messageIndex(int? value) {
+
+  set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
     if (field != null) {
@@ -69,8 +80,9 @@ class HrZoneMessage extends DataMessage {
       }
     }
   }
+
   int? get highBpm {
-     final field = getField(HrZoneHighBpmField.ID);
+    final field = getField(HrZoneHighBpmField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -78,7 +90,8 @@ class HrZoneMessage extends DataMessage {
       return null;
     }
   }
-   set highBpm(int? value) {
+
+  set highBpm(int? value) {
     final field = getField(HrZoneHighBpmField.ID);
 
     if (field != null) {
@@ -90,8 +103,9 @@ class HrZoneMessage extends DataMessage {
       }
     }
   }
+
   String? get hrZoneName {
-     final field = getField(HrZoneNameField.ID);
+    final field = getField(HrZoneNameField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -99,7 +113,8 @@ class HrZoneMessage extends DataMessage {
       return null;
     }
   }
-   set hrZoneName(String? value) {
+
+  set hrZoneName(String? value) {
     final field = getField(HrZoneNameField.ID);
 
     if (field != null) {
@@ -111,15 +126,10 @@ class HrZoneMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class HrZoneHighBpmField extends Field {
- HrZoneHighBpmField({int size = 0, bool growable = true})
+  HrZoneHighBpmField({int size = 0, bool growable = true})
       : super(
             name: 'high_bpm',
             id: ID,
@@ -130,14 +140,13 @@ class HrZoneHighBpmField extends Field {
             units: 'bpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class HrZoneNameField extends Field {
- HrZoneNameField({int size = 0, bool growable = true})
+  HrZoneNameField({int size = 0, bool growable = true})
       : super(
             name: 'name',
             id: ID,
@@ -146,9 +155,7 @@ class HrZoneNameField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }

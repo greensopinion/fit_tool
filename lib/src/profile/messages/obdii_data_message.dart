@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class ObdiiDataMessage extends DataMessage {
-
-   ObdiiDataMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  ObdiiDataMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: ObdiiDataMessage.NAME,
@@ -25,31 +27,59 @@ class ObdiiDataMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ObdiiDataTimestampMsField(
-                  size: definitionMessage?.getFieldDefinition(ObdiiDataTimestampMsField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(ObdiiDataTimestampMsField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ObdiiDataTimeOffsetField(
-                  size: definitionMessage?.getFieldDefinition(ObdiiDataTimeOffsetField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(ObdiiDataTimeOffsetField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ObdiiDataPidField(
-                  size: definitionMessage?.getFieldDefinition(ObdiiDataPidField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(ObdiiDataPidField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ObdiiDataRawDataField(
-                  size: definitionMessage?.getFieldDefinition(ObdiiDataRawDataField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(ObdiiDataRawDataField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ObdiiDataPidDataSizeField(
-                  size: definitionMessage?.getFieldDefinition(ObdiiDataPidDataSizeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(ObdiiDataPidDataSizeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ObdiiDataSystemTimeField(
-                  size: definitionMessage?.getFieldDefinition(ObdiiDataSystemTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(ObdiiDataSystemTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ObdiiDataStartTimestampField(
-                  size: definitionMessage?.getFieldDefinition(ObdiiDataStartTimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(ObdiiDataStartTimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ObdiiDataStartTimestampMsField(
-                  size: definitionMessage?.getFieldDefinition(ObdiiDataStartTimestampMsField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ObdiiDataStartTimestampMsField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -65,10 +95,9 @@ class ObdiiDataMessage extends DataMessage {
     return message;
   }
 
-
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -76,8 +105,9 @@ class ObdiiDataMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -89,8 +119,9 @@ class ObdiiDataMessage extends DataMessage {
       }
     }
   }
+
   int? get timestampMs {
-     final field = getField(ObdiiDataTimestampMsField.ID);
+    final field = getField(ObdiiDataTimestampMsField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -98,7 +129,8 @@ class ObdiiDataMessage extends DataMessage {
       return null;
     }
   }
-   set timestampMs(int? value) {
+
+  set timestampMs(int? value) {
     final field = getField(ObdiiDataTimestampMsField.ID);
 
     if (field != null) {
@@ -110,8 +142,9 @@ class ObdiiDataMessage extends DataMessage {
       }
     }
   }
+
   int? get timeOffset {
-     final field = getField(ObdiiDataTimeOffsetField.ID);
+    final field = getField(ObdiiDataTimeOffsetField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -119,7 +152,8 @@ class ObdiiDataMessage extends DataMessage {
       return null;
     }
   }
-   set timeOffset(int? value) {
+
+  set timeOffset(int? value) {
     final field = getField(ObdiiDataTimeOffsetField.ID);
 
     if (field != null) {
@@ -131,8 +165,9 @@ class ObdiiDataMessage extends DataMessage {
       }
     }
   }
+
   int? get pid {
-     final field = getField(ObdiiDataPidField.ID);
+    final field = getField(ObdiiDataPidField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -140,7 +175,8 @@ class ObdiiDataMessage extends DataMessage {
       return null;
     }
   }
-   set pid(int? value) {
+
+  set pid(int? value) {
     final field = getField(ObdiiDataPidField.ID);
 
     if (field != null) {
@@ -152,8 +188,9 @@ class ObdiiDataMessage extends DataMessage {
       }
     }
   }
+
   int? get rawData {
-     final field = getField(ObdiiDataRawDataField.ID);
+    final field = getField(ObdiiDataRawDataField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -161,7 +198,8 @@ class ObdiiDataMessage extends DataMessage {
       return null;
     }
   }
-   set rawData(int? value) {
+
+  set rawData(int? value) {
     final field = getField(ObdiiDataRawDataField.ID);
 
     if (field != null) {
@@ -173,8 +211,9 @@ class ObdiiDataMessage extends DataMessage {
       }
     }
   }
+
   int? get pidDataSize {
-     final field = getField(ObdiiDataPidDataSizeField.ID);
+    final field = getField(ObdiiDataPidDataSizeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -182,7 +221,8 @@ class ObdiiDataMessage extends DataMessage {
       return null;
     }
   }
-   set pidDataSize(int? value) {
+
+  set pidDataSize(int? value) {
     final field = getField(ObdiiDataPidDataSizeField.ID);
 
     if (field != null) {
@@ -194,8 +234,9 @@ class ObdiiDataMessage extends DataMessage {
       }
     }
   }
+
   int? get systemTime {
-     final field = getField(ObdiiDataSystemTimeField.ID);
+    final field = getField(ObdiiDataSystemTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -203,7 +244,8 @@ class ObdiiDataMessage extends DataMessage {
       return null;
     }
   }
-   set systemTime(int? value) {
+
+  set systemTime(int? value) {
     final field = getField(ObdiiDataSystemTimeField.ID);
 
     if (field != null) {
@@ -215,9 +257,10 @@ class ObdiiDataMessage extends DataMessage {
       }
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get startTimestamp {
-     final field = getField(ObdiiDataStartTimestampField.ID);
+    final field = getField(ObdiiDataStartTimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -225,8 +268,9 @@ class ObdiiDataMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set startTimestamp(int? value) {
+  set startTimestamp(int? value) {
     final field = getField(ObdiiDataStartTimestampField.ID);
 
     if (field != null) {
@@ -238,8 +282,9 @@ class ObdiiDataMessage extends DataMessage {
       }
     }
   }
+
   int? get startTimestampMs {
-     final field = getField(ObdiiDataStartTimestampMsField.ID);
+    final field = getField(ObdiiDataStartTimestampMsField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -247,7 +292,8 @@ class ObdiiDataMessage extends DataMessage {
       return null;
     }
   }
-   set startTimestampMs(int? value) {
+
+  set startTimestampMs(int? value) {
     final field = getField(ObdiiDataStartTimestampMsField.ID);
 
     if (field != null) {
@@ -259,15 +305,10 @@ class ObdiiDataMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class ObdiiDataTimestampMsField extends Field {
- ObdiiDataTimestampMsField({int size = 0, bool growable = true})
+  ObdiiDataTimestampMsField({int size = 0, bool growable = true})
       : super(
             name: 'timestamp_ms',
             id: ID,
@@ -278,14 +319,13 @@ class ObdiiDataTimestampMsField extends Field {
             units: 'ms',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class ObdiiDataTimeOffsetField extends Field {
- ObdiiDataTimeOffsetField({int size = 0, bool growable = true})
+  ObdiiDataTimeOffsetField({int size = 0, bool growable = true})
       : super(
             name: 'time_offset',
             id: ID,
@@ -296,14 +336,13 @@ class ObdiiDataTimeOffsetField extends Field {
             units: 'ms',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class ObdiiDataPidField extends Field {
- ObdiiDataPidField({int size = 0, bool growable = true})
+  ObdiiDataPidField({int size = 0, bool growable = true})
       : super(
             name: 'pid',
             id: ID,
@@ -312,14 +351,13 @@ class ObdiiDataPidField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class ObdiiDataRawDataField extends Field {
- ObdiiDataRawDataField({int size = 0, bool growable = true})
+  ObdiiDataRawDataField({int size = 0, bool growable = true})
       : super(
             name: 'raw_data',
             id: ID,
@@ -328,14 +366,13 @@ class ObdiiDataRawDataField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class ObdiiDataPidDataSizeField extends Field {
- ObdiiDataPidDataSizeField({int size = 0, bool growable = true})
+  ObdiiDataPidDataSizeField({int size = 0, bool growable = true})
       : super(
             name: 'pid_data_size',
             id: ID,
@@ -344,14 +381,13 @@ class ObdiiDataPidDataSizeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class ObdiiDataSystemTimeField extends Field {
- ObdiiDataSystemTimeField({int size = 0, bool growable = true})
+  ObdiiDataSystemTimeField({int size = 0, bool growable = true})
       : super(
             name: 'system_time',
             id: ID,
@@ -360,14 +396,13 @@ class ObdiiDataSystemTimeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }
+
 class ObdiiDataStartTimestampField extends Field {
- ObdiiDataStartTimestampField({int size = 0, bool growable = true})
+  ObdiiDataStartTimestampField({int size = 0, bool growable = true})
       : super(
             name: 'start_timestamp',
             id: ID,
@@ -378,14 +413,13 @@ class ObdiiDataStartTimestampField extends Field {
             units: 'ms',
             mainTypeName: 'date_time',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 6;
 }
+
 class ObdiiDataStartTimestampMsField extends Field {
- ObdiiDataStartTimestampMsField({int size = 0, bool growable = true})
+  ObdiiDataStartTimestampMsField({int size = 0, bool growable = true})
       : super(
             name: 'start_timestamp_ms',
             id: ID,
@@ -396,9 +430,7 @@ class ObdiiDataStartTimestampMsField extends Field {
             units: 'ms',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 7;
 }

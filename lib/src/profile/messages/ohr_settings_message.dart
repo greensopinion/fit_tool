@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class OhrSettingsMessage extends DataMessage {
-
-   OhrSettingsMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  OhrSettingsMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: OhrSettingsMessage.NAME,
@@ -25,10 +27,16 @@ class OhrSettingsMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               OhrSettingsEnabledField(
-                  size: definitionMessage?.getFieldDefinition(OhrSettingsEnabledField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(OhrSettingsEnabledField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -44,10 +52,9 @@ class OhrSettingsMessage extends DataMessage {
     return message;
   }
 
-
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -55,8 +62,9 @@ class OhrSettingsMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -68,9 +76,10 @@ class OhrSettingsMessage extends DataMessage {
       }
     }
   }
+
   SwitchType? get enabled {
-     final field = getField(OhrSettingsEnabledField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(OhrSettingsEnabledField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -81,7 +90,8 @@ class OhrSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set enabled(SwitchType? value) {
+
+  set enabled(SwitchType? value) {
     final field = getField(OhrSettingsEnabledField.ID);
 
     if (field != null) {
@@ -93,15 +103,10 @@ class OhrSettingsMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class OhrSettingsEnabledField extends Field {
- OhrSettingsEnabledField({int size = 0, bool growable = true})
+  OhrSettingsEnabledField({int size = 0, bool growable = true})
       : super(
             name: 'enabled',
             id: ID,
@@ -110,9 +115,7 @@ class OhrSettingsEnabledField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }

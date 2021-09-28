@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class DiveAlarmMessage extends DataMessage {
-
-   DiveAlarmMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  DiveAlarmMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: DiveAlarmMessage.NAME,
@@ -25,25 +27,46 @@ class DiveAlarmMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               MessageIndexField(
-                  size: definitionMessage?.getFieldDefinition(MessageIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveAlarmDepthField(
-                  size: definitionMessage?.getFieldDefinition(DiveAlarmDepthField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DiveAlarmDepthField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveAlarmTimeField(
-                  size: definitionMessage?.getFieldDefinition(DiveAlarmTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DiveAlarmTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveAlarmEnabledField(
-                  size: definitionMessage?.getFieldDefinition(DiveAlarmEnabledField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DiveAlarmEnabledField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveAlarmAlarmTypeField(
-                  size: definitionMessage?.getFieldDefinition(DiveAlarmAlarmTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DiveAlarmAlarmTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveAlarmSoundField(
-                  size: definitionMessage?.getFieldDefinition(DiveAlarmSoundField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DiveAlarmSoundField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DiveAlarmDiveTypesField(
-                  size: definitionMessage?.getFieldDefinition(DiveAlarmDiveTypesField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(DiveAlarmDiveTypesField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -59,9 +82,8 @@ class DiveAlarmMessage extends DataMessage {
     return message;
   }
 
-
   int? get messageIndex {
-     final field = getField(MessageIndexField.ID);
+    final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -69,7 +91,8 @@ class DiveAlarmMessage extends DataMessage {
       return null;
     }
   }
-   set messageIndex(int? value) {
+
+  set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
     if (field != null) {
@@ -81,8 +104,9 @@ class DiveAlarmMessage extends DataMessage {
       }
     }
   }
+
   double? get depth {
-     final field = getField(DiveAlarmDepthField.ID);
+    final field = getField(DiveAlarmDepthField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -90,7 +114,8 @@ class DiveAlarmMessage extends DataMessage {
       return null;
     }
   }
-   set depth(double? value) {
+
+  set depth(double? value) {
     final field = getField(DiveAlarmDepthField.ID);
 
     if (field != null) {
@@ -102,8 +127,9 @@ class DiveAlarmMessage extends DataMessage {
       }
     }
   }
+
   int? get time {
-     final field = getField(DiveAlarmTimeField.ID);
+    final field = getField(DiveAlarmTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -111,7 +137,8 @@ class DiveAlarmMessage extends DataMessage {
       return null;
     }
   }
-   set time(int? value) {
+
+  set time(int? value) {
     final field = getField(DiveAlarmTimeField.ID);
 
     if (field != null) {
@@ -123,8 +150,9 @@ class DiveAlarmMessage extends DataMessage {
       }
     }
   }
+
   bool? get enabled {
-     final field = getField(DiveAlarmEnabledField.ID);
+    final field = getField(DiveAlarmEnabledField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -132,7 +160,8 @@ class DiveAlarmMessage extends DataMessage {
       return null;
     }
   }
-   set enabled(bool? value) {
+
+  set enabled(bool? value) {
     final field = getField(DiveAlarmEnabledField.ID);
 
     if (field != null) {
@@ -144,9 +173,10 @@ class DiveAlarmMessage extends DataMessage {
       }
     }
   }
+
   DiveAlarmType? get alarmType {
-     final field = getField(DiveAlarmAlarmTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(DiveAlarmAlarmTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -157,7 +187,8 @@ class DiveAlarmMessage extends DataMessage {
       return null;
     }
   }
-   set alarmType(DiveAlarmType? value) {
+
+  set alarmType(DiveAlarmType? value) {
     final field = getField(DiveAlarmAlarmTypeField.ID);
 
     if (field != null) {
@@ -169,9 +200,10 @@ class DiveAlarmMessage extends DataMessage {
       }
     }
   }
+
   Tone? get sound {
-     final field = getField(DiveAlarmSoundField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(DiveAlarmSoundField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -182,7 +214,8 @@ class DiveAlarmMessage extends DataMessage {
       return null;
     }
   }
-   set sound(Tone? value) {
+
+  set sound(Tone? value) {
     final field = getField(DiveAlarmSoundField.ID);
 
     if (field != null) {
@@ -194,9 +227,10 @@ class DiveAlarmMessage extends DataMessage {
       }
     }
   }
+
   SubSport? get diveTypes {
-     final field = getField(DiveAlarmDiveTypesField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(DiveAlarmDiveTypesField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -207,7 +241,8 @@ class DiveAlarmMessage extends DataMessage {
       return null;
     }
   }
-   set diveTypes(SubSport? value) {
+
+  set diveTypes(SubSport? value) {
     final field = getField(DiveAlarmDiveTypesField.ID);
 
     if (field != null) {
@@ -219,15 +254,10 @@ class DiveAlarmMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class DiveAlarmDepthField extends Field {
- DiveAlarmDepthField({int size = 0, bool growable = true})
+  DiveAlarmDepthField({int size = 0, bool growable = true})
       : super(
             name: 'depth',
             id: ID,
@@ -238,14 +268,13 @@ class DiveAlarmDepthField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class DiveAlarmTimeField extends Field {
- DiveAlarmTimeField({int size = 0, bool growable = true})
+  DiveAlarmTimeField({int size = 0, bool growable = true})
       : super(
             name: 'time',
             id: ID,
@@ -256,14 +285,13 @@ class DiveAlarmTimeField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class DiveAlarmEnabledField extends Field {
- DiveAlarmEnabledField({int size = 0, bool growable = true})
+  DiveAlarmEnabledField({int size = 0, bool growable = true})
       : super(
             name: 'enabled',
             id: ID,
@@ -272,14 +300,13 @@ class DiveAlarmEnabledField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class DiveAlarmAlarmTypeField extends Field {
- DiveAlarmAlarmTypeField({int size = 0, bool growable = true})
+  DiveAlarmAlarmTypeField({int size = 0, bool growable = true})
       : super(
             name: 'alarm_type',
             id: ID,
@@ -288,14 +315,13 @@ class DiveAlarmAlarmTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class DiveAlarmSoundField extends Field {
- DiveAlarmSoundField({int size = 0, bool growable = true})
+  DiveAlarmSoundField({int size = 0, bool growable = true})
       : super(
             name: 'sound',
             id: ID,
@@ -304,14 +330,13 @@ class DiveAlarmSoundField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class DiveAlarmDiveTypesField extends Field {
- DiveAlarmDiveTypesField({int size = 0, bool growable = true})
+  DiveAlarmDiveTypesField({int size = 0, bool growable = true})
       : super(
             name: 'dive_types',
             id: ID,
@@ -320,9 +345,7 @@ class DiveAlarmDiveTypesField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }

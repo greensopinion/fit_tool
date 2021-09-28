@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class SessionMessage extends DataMessage {
-
-   SessionMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  SessionMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: SessionMessage.NAME,
@@ -25,394 +27,822 @@ class SessionMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               MessageIndexField(
-                  size: definitionMessage?.getFieldDefinition(MessageIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionEventField(
-                  size: definitionMessage?.getFieldDefinition(SessionEventField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionEventField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionEventTypeField(
-                  size: definitionMessage?.getFieldDefinition(SessionEventTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionEventTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionStartTimeField(
-                  size: definitionMessage?.getFieldDefinition(SessionStartTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionStartTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionStartPositionLatField(
-                  size: definitionMessage?.getFieldDefinition(SessionStartPositionLatField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionStartPositionLatField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionStartPositionLongField(
-                  size: definitionMessage?.getFieldDefinition(SessionStartPositionLongField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionStartPositionLongField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionSportField(
-                  size: definitionMessage?.getFieldDefinition(SessionSportField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionSportField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionSubSportField(
-                  size: definitionMessage?.getFieldDefinition(SessionSubSportField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionSubSportField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionTotalElapsedTimeField(
-                  size: definitionMessage?.getFieldDefinition(SessionTotalElapsedTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionTotalElapsedTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionTotalTimerTimeField(
-                  size: definitionMessage?.getFieldDefinition(SessionTotalTimerTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionTotalTimerTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionTotalDistanceField(
-                  size: definitionMessage?.getFieldDefinition(SessionTotalDistanceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionTotalDistanceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionTotalCyclesField(
-                  size: definitionMessage?.getFieldDefinition(SessionTotalCyclesField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionTotalCyclesField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionTotalCaloriesField(
-                  size: definitionMessage?.getFieldDefinition(SessionTotalCaloriesField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionTotalCaloriesField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionTotalFatCaloriesField(
-                  size: definitionMessage?.getFieldDefinition(SessionTotalFatCaloriesField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionTotalFatCaloriesField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgSpeedField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgSpeedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionAvgSpeedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionMaxSpeedField(
-                  size: definitionMessage?.getFieldDefinition(SessionMaxSpeedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionMaxSpeedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgHeartRateField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgHeartRateField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionAvgHeartRateField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionMaxHeartRateField(
-                  size: definitionMessage?.getFieldDefinition(SessionMaxHeartRateField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionMaxHeartRateField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgCadenceField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgCadenceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionAvgCadenceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionMaxCadenceField(
-                  size: definitionMessage?.getFieldDefinition(SessionMaxCadenceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionMaxCadenceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgPowerField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgPowerField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionAvgPowerField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionMaxPowerField(
-                  size: definitionMessage?.getFieldDefinition(SessionMaxPowerField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionMaxPowerField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionTotalAscentField(
-                  size: definitionMessage?.getFieldDefinition(SessionTotalAscentField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionTotalAscentField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionTotalDescentField(
-                  size: definitionMessage?.getFieldDefinition(SessionTotalDescentField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionTotalDescentField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionTotalTrainingEffectField(
-                  size: definitionMessage?.getFieldDefinition(SessionTotalTrainingEffectField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionTotalTrainingEffectField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionFirstLapIndexField(
-                  size: definitionMessage?.getFieldDefinition(SessionFirstLapIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionFirstLapIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionNumLapsField(
-                  size: definitionMessage?.getFieldDefinition(SessionNumLapsField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionNumLapsField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionEventGroupField(
-                  size: definitionMessage?.getFieldDefinition(SessionEventGroupField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionEventGroupField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionTriggerField(
-                  size: definitionMessage?.getFieldDefinition(SessionTriggerField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionTriggerField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionNecLatField(
-                  size: definitionMessage?.getFieldDefinition(SessionNecLatField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionNecLatField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionNecLongField(
-                  size: definitionMessage?.getFieldDefinition(SessionNecLongField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionNecLongField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionSwcLatField(
-                  size: definitionMessage?.getFieldDefinition(SessionSwcLatField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionSwcLatField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionSwcLongField(
-                  size: definitionMessage?.getFieldDefinition(SessionSwcLongField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionSwcLongField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionNumLengthsField(
-                  size: definitionMessage?.getFieldDefinition(SessionNumLengthsField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionNumLengthsField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionNormalizedPowerField(
-                  size: definitionMessage?.getFieldDefinition(SessionNormalizedPowerField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionNormalizedPowerField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionTrainingStressScoreField(
-                  size: definitionMessage?.getFieldDefinition(SessionTrainingStressScoreField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionTrainingStressScoreField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionIntensityFactorField(
-                  size: definitionMessage?.getFieldDefinition(SessionIntensityFactorField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionIntensityFactorField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionLeftRightBalanceField(
-                  size: definitionMessage?.getFieldDefinition(SessionLeftRightBalanceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionLeftRightBalanceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgStrokeCountField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgStrokeCountField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionAvgStrokeCountField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgStrokeDistanceField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgStrokeDistanceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionAvgStrokeDistanceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionSwimStrokeField(
-                  size: definitionMessage?.getFieldDefinition(SessionSwimStrokeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionSwimStrokeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionPoolLengthField(
-                  size: definitionMessage?.getFieldDefinition(SessionPoolLengthField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionPoolLengthField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionThresholdPowerField(
-                  size: definitionMessage?.getFieldDefinition(SessionThresholdPowerField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionThresholdPowerField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionPoolLengthUnitField(
-                  size: definitionMessage?.getFieldDefinition(SessionPoolLengthUnitField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionPoolLengthUnitField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionNumActiveLengthsField(
-                  size: definitionMessage?.getFieldDefinition(SessionNumActiveLengthsField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionNumActiveLengthsField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionTotalWorkField(
-                  size: definitionMessage?.getFieldDefinition(SessionTotalWorkField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionTotalWorkField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgAltitudeField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgAltitudeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionAvgAltitudeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionMaxAltitudeField(
-                  size: definitionMessage?.getFieldDefinition(SessionMaxAltitudeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionMaxAltitudeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionGpsAccuracyField(
-                  size: definitionMessage?.getFieldDefinition(SessionGpsAccuracyField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionGpsAccuracyField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgGradeField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgGradeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionAvgGradeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgPosGradeField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgPosGradeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionAvgPosGradeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgNegGradeField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgNegGradeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionAvgNegGradeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionMaxPosGradeField(
-                  size: definitionMessage?.getFieldDefinition(SessionMaxPosGradeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionMaxPosGradeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionMaxNegGradeField(
-                  size: definitionMessage?.getFieldDefinition(SessionMaxNegGradeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionMaxNegGradeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgTemperatureField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgTemperatureField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionAvgTemperatureField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionMaxTemperatureField(
-                  size: definitionMessage?.getFieldDefinition(SessionMaxTemperatureField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionMaxTemperatureField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionTotalMovingTimeField(
-                  size: definitionMessage?.getFieldDefinition(SessionTotalMovingTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionTotalMovingTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgPosVerticalSpeedField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgPosVerticalSpeedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionAvgPosVerticalSpeedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgNegVerticalSpeedField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgNegVerticalSpeedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionAvgNegVerticalSpeedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionMaxPosVerticalSpeedField(
-                  size: definitionMessage?.getFieldDefinition(SessionMaxPosVerticalSpeedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionMaxPosVerticalSpeedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionMaxNegVerticalSpeedField(
-                  size: definitionMessage?.getFieldDefinition(SessionMaxNegVerticalSpeedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionMaxNegVerticalSpeedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionMinHeartRateField(
-                  size: definitionMessage?.getFieldDefinition(SessionMinHeartRateField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionMinHeartRateField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionTimeInHrZoneField(
-                  size: definitionMessage?.getFieldDefinition(SessionTimeInHrZoneField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionTimeInHrZoneField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionTimeInSpeedZoneField(
-                  size: definitionMessage?.getFieldDefinition(SessionTimeInSpeedZoneField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionTimeInSpeedZoneField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionTimeInCadenceZoneField(
-                  size: definitionMessage?.getFieldDefinition(SessionTimeInCadenceZoneField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionTimeInCadenceZoneField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionTimeInPowerZoneField(
-                  size: definitionMessage?.getFieldDefinition(SessionTimeInPowerZoneField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionTimeInPowerZoneField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgLapTimeField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgLapTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionAvgLapTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionBestLapIndexField(
-                  size: definitionMessage?.getFieldDefinition(SessionBestLapIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionBestLapIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionMinAltitudeField(
-                  size: definitionMessage?.getFieldDefinition(SessionMinAltitudeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionMinAltitudeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionPlayerScoreField(
-                  size: definitionMessage?.getFieldDefinition(SessionPlayerScoreField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionPlayerScoreField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionOpponentScoreField(
-                  size: definitionMessage?.getFieldDefinition(SessionOpponentScoreField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionOpponentScoreField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionOpponentNameField(
-                  size: definitionMessage?.getFieldDefinition(SessionOpponentNameField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionOpponentNameField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionStrokeCountField(
-                  size: definitionMessage?.getFieldDefinition(SessionStrokeCountField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionStrokeCountField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionZoneCountField(
-                  size: definitionMessage?.getFieldDefinition(SessionZoneCountField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionZoneCountField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionMaxBallSpeedField(
-                  size: definitionMessage?.getFieldDefinition(SessionMaxBallSpeedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionMaxBallSpeedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgBallSpeedField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgBallSpeedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionAvgBallSpeedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgVerticalOscillationField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgVerticalOscillationField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionAvgVerticalOscillationField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgStanceTimePercentField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgStanceTimePercentField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionAvgStanceTimePercentField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgStanceTimeField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgStanceTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionAvgStanceTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgFractionalCadenceField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgFractionalCadenceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionAvgFractionalCadenceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionMaxFractionalCadenceField(
-                  size: definitionMessage?.getFieldDefinition(SessionMaxFractionalCadenceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionMaxFractionalCadenceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionTotalFractionalCyclesField(
-                  size: definitionMessage?.getFieldDefinition(SessionTotalFractionalCyclesField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionTotalFractionalCyclesField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgTotalHemoglobinConcField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgTotalHemoglobinConcField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionAvgTotalHemoglobinConcField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionMinTotalHemoglobinConcField(
-                  size: definitionMessage?.getFieldDefinition(SessionMinTotalHemoglobinConcField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionMinTotalHemoglobinConcField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionMaxTotalHemoglobinConcField(
-                  size: definitionMessage?.getFieldDefinition(SessionMaxTotalHemoglobinConcField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionMaxTotalHemoglobinConcField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgSaturatedHemoglobinPercentField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgSaturatedHemoglobinPercentField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionAvgSaturatedHemoglobinPercentField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionMinSaturatedHemoglobinPercentField(
-                  size: definitionMessage?.getFieldDefinition(SessionMinSaturatedHemoglobinPercentField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionMinSaturatedHemoglobinPercentField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionMaxSaturatedHemoglobinPercentField(
-                  size: definitionMessage?.getFieldDefinition(SessionMaxSaturatedHemoglobinPercentField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionMaxSaturatedHemoglobinPercentField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgLeftTorqueEffectivenessField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgLeftTorqueEffectivenessField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionAvgLeftTorqueEffectivenessField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgRightTorqueEffectivenessField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgRightTorqueEffectivenessField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionAvgRightTorqueEffectivenessField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgLeftPedalSmoothnessField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgLeftPedalSmoothnessField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionAvgLeftPedalSmoothnessField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgRightPedalSmoothnessField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgRightPedalSmoothnessField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionAvgRightPedalSmoothnessField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgCombinedPedalSmoothnessField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgCombinedPedalSmoothnessField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionAvgCombinedPedalSmoothnessField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionSportIndexField(
-                  size: definitionMessage?.getFieldDefinition(SessionSportIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionSportIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionTimeStandingField(
-                  size: definitionMessage?.getFieldDefinition(SessionTimeStandingField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionTimeStandingField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionStandCountField(
-                  size: definitionMessage?.getFieldDefinition(SessionStandCountField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionStandCountField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgLeftPcoField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgLeftPcoField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionAvgLeftPcoField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgRightPcoField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgRightPcoField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionAvgRightPcoField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgLeftPowerPhaseField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgLeftPowerPhaseField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionAvgLeftPowerPhaseField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgLeftPowerPhasePeakField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgLeftPowerPhasePeakField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionAvgLeftPowerPhasePeakField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgRightPowerPhaseField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgRightPowerPhaseField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionAvgRightPowerPhaseField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgRightPowerPhasePeakField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgRightPowerPhasePeakField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionAvgRightPowerPhasePeakField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgPowerPositionField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgPowerPositionField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionAvgPowerPositionField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionMaxPowerPositionField(
-                  size: definitionMessage?.getFieldDefinition(SessionMaxPowerPositionField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionMaxPowerPositionField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgCadencePositionField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgCadencePositionField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionAvgCadencePositionField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionMaxCadencePositionField(
-                  size: definitionMessage?.getFieldDefinition(SessionMaxCadencePositionField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionMaxCadencePositionField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionEnhancedAvgSpeedField(
-                  size: definitionMessage?.getFieldDefinition(SessionEnhancedAvgSpeedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionEnhancedAvgSpeedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionEnhancedMaxSpeedField(
-                  size: definitionMessage?.getFieldDefinition(SessionEnhancedMaxSpeedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionEnhancedMaxSpeedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionEnhancedAvgAltitudeField(
-                  size: definitionMessage?.getFieldDefinition(SessionEnhancedAvgAltitudeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionEnhancedAvgAltitudeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionEnhancedMinAltitudeField(
-                  size: definitionMessage?.getFieldDefinition(SessionEnhancedMinAltitudeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionEnhancedMinAltitudeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionEnhancedMaxAltitudeField(
-                  size: definitionMessage?.getFieldDefinition(SessionEnhancedMaxAltitudeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionEnhancedMaxAltitudeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgLevMotorPowerField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgLevMotorPowerField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionAvgLevMotorPowerField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionMaxLevMotorPowerField(
-                  size: definitionMessage?.getFieldDefinition(SessionMaxLevMotorPowerField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionMaxLevMotorPowerField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionLevBatteryConsumptionField(
-                  size: definitionMessage?.getFieldDefinition(SessionLevBatteryConsumptionField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionLevBatteryConsumptionField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgVerticalRatioField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgVerticalRatioField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionAvgVerticalRatioField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgStanceTimeBalanceField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgStanceTimeBalanceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionAvgStanceTimeBalanceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgStepLengthField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgStepLengthField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionAvgStepLengthField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionTotalAnaerobicTrainingEffectField(
-                  size: definitionMessage?.getFieldDefinition(SessionTotalAnaerobicTrainingEffectField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionTotalAnaerobicTrainingEffectField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgVamField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgVamField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionAvgVamField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionTotalGritField(
-                  size: definitionMessage?.getFieldDefinition(SessionTotalGritField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionTotalGritField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionTotalFlowField(
-                  size: definitionMessage?.getFieldDefinition(SessionTotalFlowField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionTotalFlowField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionJumpCountField(
-                  size: definitionMessage?.getFieldDefinition(SessionJumpCountField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionJumpCountField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgGritField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgGritField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionAvgGritField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgFlowField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgFlowField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SessionAvgFlowField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionTotalFractionalAscentField(
-                  size: definitionMessage?.getFieldDefinition(SessionTotalFractionalAscentField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionTotalFractionalAscentField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionTotalFractionalDescentField(
-                  size: definitionMessage?.getFieldDefinition(SessionTotalFractionalDescentField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionTotalFractionalDescentField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionAvgCoreTemperatureField(
-                  size: definitionMessage?.getFieldDefinition(SessionAvgCoreTemperatureField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionAvgCoreTemperatureField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionMinCoreTemperatureField(
-                  size: definitionMessage?.getFieldDefinition(SessionMinCoreTemperatureField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionMinCoreTemperatureField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SessionMaxCoreTemperatureField(
-                  size: definitionMessage?.getFieldDefinition(SessionMaxCoreTemperatureField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SessionMaxCoreTemperatureField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -428,9 +858,8 @@ class SessionMessage extends DataMessage {
     return message;
   }
 
-
   int? get messageIndex {
-     final field = getField(MessageIndexField.ID);
+    final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -438,7 +867,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set messageIndex(int? value) {
+
+  set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
     if (field != null) {
@@ -450,9 +880,10 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -460,8 +891,9 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -473,9 +905,10 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   Event? get event {
-     final field = getField(SessionEventField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(SessionEventField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -486,7 +919,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set event(Event? value) {
+
+  set event(Event? value) {
     final field = getField(SessionEventField.ID);
 
     if (field != null) {
@@ -498,9 +932,10 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   EventType? get eventType {
-     final field = getField(SessionEventTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(SessionEventTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -511,7 +946,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set eventType(EventType? value) {
+
+  set eventType(EventType? value) {
     final field = getField(SessionEventTypeField.ID);
 
     if (field != null) {
@@ -523,9 +959,10 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get startTime {
-     final field = getField(SessionStartTimeField.ID);
+    final field = getField(SessionStartTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -533,8 +970,9 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set startTime(int? value) {
+  set startTime(int? value) {
     final field = getField(SessionStartTimeField.ID);
 
     if (field != null) {
@@ -546,8 +984,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get startPositionLat {
-     final field = getField(SessionStartPositionLatField.ID);
+    final field = getField(SessionStartPositionLatField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -555,7 +994,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set startPositionLat(double? value) {
+
+  set startPositionLat(double? value) {
     final field = getField(SessionStartPositionLatField.ID);
 
     if (field != null) {
@@ -567,8 +1007,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get startPositionLong {
-     final field = getField(SessionStartPositionLongField.ID);
+    final field = getField(SessionStartPositionLongField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -576,7 +1017,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set startPositionLong(double? value) {
+
+  set startPositionLong(double? value) {
     final field = getField(SessionStartPositionLongField.ID);
 
     if (field != null) {
@@ -588,9 +1030,10 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   Sport? get sport {
-     final field = getField(SessionSportField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(SessionSportField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -601,7 +1044,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set sport(Sport? value) {
+
+  set sport(Sport? value) {
     final field = getField(SessionSportField.ID);
 
     if (field != null) {
@@ -613,9 +1057,10 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   SubSport? get subSport {
-     final field = getField(SessionSubSportField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(SessionSubSportField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -626,7 +1071,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set subSport(SubSport? value) {
+
+  set subSport(SubSport? value) {
     final field = getField(SessionSubSportField.ID);
 
     if (field != null) {
@@ -638,8 +1084,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get totalElapsedTime {
-     final field = getField(SessionTotalElapsedTimeField.ID);
+    final field = getField(SessionTotalElapsedTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -647,7 +1094,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set totalElapsedTime(double? value) {
+
+  set totalElapsedTime(double? value) {
     final field = getField(SessionTotalElapsedTimeField.ID);
 
     if (field != null) {
@@ -659,8 +1107,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get totalTimerTime {
-     final field = getField(SessionTotalTimerTimeField.ID);
+    final field = getField(SessionTotalTimerTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -668,7 +1117,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set totalTimerTime(double? value) {
+
+  set totalTimerTime(double? value) {
     final field = getField(SessionTotalTimerTimeField.ID);
 
     if (field != null) {
@@ -680,8 +1130,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get totalDistance {
-     final field = getField(SessionTotalDistanceField.ID);
+    final field = getField(SessionTotalDistanceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -689,7 +1140,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set totalDistance(double? value) {
+
+  set totalDistance(double? value) {
     final field = getField(SessionTotalDistanceField.ID);
 
     if (field != null) {
@@ -701,8 +1153,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get totalCycles {
-     final field = getField(SessionTotalCyclesField.ID);
+    final field = getField(SessionTotalCyclesField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -710,7 +1163,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set totalCycles(int? value) {
+
+  set totalCycles(int? value) {
     final field = getField(SessionTotalCyclesField.ID);
 
     if (field != null) {
@@ -724,13 +1178,14 @@ class SessionMessage extends DataMessage {
   }
 
   int? get totalStrides {
-     final field = getField(SessionTotalCyclesField.ID);
-     final typeField = getField(SessionSportField.ID);
+    final field = getField(SessionTotalCyclesField.ID);
+    final typeField = getField(SessionSportField.ID);
 
-     final isSubFieldValid = typeField != null && [1, 11].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [1, 11].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -738,7 +1193,7 @@ class SessionMessage extends DataMessage {
 
   set totalStrides(int? value) {
     final field = getField(SessionTotalCyclesField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -749,13 +1204,14 @@ class SessionMessage extends DataMessage {
   }
 
   int? get totalStrokes {
-     final field = getField(SessionTotalCyclesField.ID);
-     final typeField = getField(SessionSportField.ID);
+    final field = getField(SessionTotalCyclesField.ID);
+    final typeField = getField(SessionSportField.ID);
 
-     final isSubFieldValid = typeField != null && [2, 5, 15, 37].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [2, 5, 15, 37].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -763,7 +1219,7 @@ class SessionMessage extends DataMessage {
 
   set totalStrokes(int? value) {
     final field = getField(SessionTotalCyclesField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -772,8 +1228,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get totalCalories {
-     final field = getField(SessionTotalCaloriesField.ID);
+    final field = getField(SessionTotalCaloriesField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -781,7 +1238,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set totalCalories(int? value) {
+
+  set totalCalories(int? value) {
     final field = getField(SessionTotalCaloriesField.ID);
 
     if (field != null) {
@@ -793,8 +1251,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get totalFatCalories {
-     final field = getField(SessionTotalFatCaloriesField.ID);
+    final field = getField(SessionTotalFatCaloriesField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -802,7 +1261,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set totalFatCalories(int? value) {
+
+  set totalFatCalories(int? value) {
     final field = getField(SessionTotalFatCaloriesField.ID);
 
     if (field != null) {
@@ -814,8 +1274,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get avgSpeed {
-     final field = getField(SessionAvgSpeedField.ID);
+    final field = getField(SessionAvgSpeedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -823,7 +1284,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgSpeed(double? value) {
+
+  set avgSpeed(double? value) {
     final field = getField(SessionAvgSpeedField.ID);
 
     if (field != null) {
@@ -835,8 +1297,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get maxSpeed {
-     final field = getField(SessionMaxSpeedField.ID);
+    final field = getField(SessionMaxSpeedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -844,7 +1307,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set maxSpeed(double? value) {
+
+  set maxSpeed(double? value) {
     final field = getField(SessionMaxSpeedField.ID);
 
     if (field != null) {
@@ -856,8 +1320,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get avgHeartRate {
-     final field = getField(SessionAvgHeartRateField.ID);
+    final field = getField(SessionAvgHeartRateField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -865,7 +1330,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgHeartRate(int? value) {
+
+  set avgHeartRate(int? value) {
     final field = getField(SessionAvgHeartRateField.ID);
 
     if (field != null) {
@@ -877,8 +1343,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get maxHeartRate {
-     final field = getField(SessionMaxHeartRateField.ID);
+    final field = getField(SessionMaxHeartRateField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -886,7 +1353,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set maxHeartRate(int? value) {
+
+  set maxHeartRate(int? value) {
     final field = getField(SessionMaxHeartRateField.ID);
 
     if (field != null) {
@@ -898,8 +1366,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get avgCadence {
-     final field = getField(SessionAvgCadenceField.ID);
+    final field = getField(SessionAvgCadenceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -907,7 +1376,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgCadence(int? value) {
+
+  set avgCadence(int? value) {
     final field = getField(SessionAvgCadenceField.ID);
 
     if (field != null) {
@@ -921,13 +1391,14 @@ class SessionMessage extends DataMessage {
   }
 
   int? get avgRunningCadence {
-     final field = getField(SessionAvgCadenceField.ID);
-     final typeField = getField(SessionSportField.ID);
+    final field = getField(SessionAvgCadenceField.ID);
+    final typeField = getField(SessionSportField.ID);
 
-     final isSubFieldValid = typeField != null && [1].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [1].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -935,7 +1406,7 @@ class SessionMessage extends DataMessage {
 
   set avgRunningCadence(int? value) {
     final field = getField(SessionAvgCadenceField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -944,8 +1415,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get maxCadence {
-     final field = getField(SessionMaxCadenceField.ID);
+    final field = getField(SessionMaxCadenceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -953,7 +1425,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set maxCadence(int? value) {
+
+  set maxCadence(int? value) {
     final field = getField(SessionMaxCadenceField.ID);
 
     if (field != null) {
@@ -967,13 +1440,14 @@ class SessionMessage extends DataMessage {
   }
 
   int? get maxRunningCadence {
-     final field = getField(SessionMaxCadenceField.ID);
-     final typeField = getField(SessionSportField.ID);
+    final field = getField(SessionMaxCadenceField.ID);
+    final typeField = getField(SessionSportField.ID);
 
-     final isSubFieldValid = typeField != null && [1].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [1].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -981,7 +1455,7 @@ class SessionMessage extends DataMessage {
 
   set maxRunningCadence(int? value) {
     final field = getField(SessionMaxCadenceField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -990,8 +1464,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get avgPower {
-     final field = getField(SessionAvgPowerField.ID);
+    final field = getField(SessionAvgPowerField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -999,7 +1474,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgPower(int? value) {
+
+  set avgPower(int? value) {
     final field = getField(SessionAvgPowerField.ID);
 
     if (field != null) {
@@ -1011,8 +1487,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get maxPower {
-     final field = getField(SessionMaxPowerField.ID);
+    final field = getField(SessionMaxPowerField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1020,7 +1497,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set maxPower(int? value) {
+
+  set maxPower(int? value) {
     final field = getField(SessionMaxPowerField.ID);
 
     if (field != null) {
@@ -1032,8 +1510,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get totalAscent {
-     final field = getField(SessionTotalAscentField.ID);
+    final field = getField(SessionTotalAscentField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1041,7 +1520,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set totalAscent(int? value) {
+
+  set totalAscent(int? value) {
     final field = getField(SessionTotalAscentField.ID);
 
     if (field != null) {
@@ -1053,8 +1533,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get totalDescent {
-     final field = getField(SessionTotalDescentField.ID);
+    final field = getField(SessionTotalDescentField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1062,7 +1543,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set totalDescent(int? value) {
+
+  set totalDescent(int? value) {
     final field = getField(SessionTotalDescentField.ID);
 
     if (field != null) {
@@ -1074,8 +1556,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get totalTrainingEffect {
-     final field = getField(SessionTotalTrainingEffectField.ID);
+    final field = getField(SessionTotalTrainingEffectField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1083,7 +1566,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set totalTrainingEffect(double? value) {
+
+  set totalTrainingEffect(double? value) {
     final field = getField(SessionTotalTrainingEffectField.ID);
 
     if (field != null) {
@@ -1095,8 +1579,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get firstLapIndex {
-     final field = getField(SessionFirstLapIndexField.ID);
+    final field = getField(SessionFirstLapIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1104,7 +1589,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set firstLapIndex(int? value) {
+
+  set firstLapIndex(int? value) {
     final field = getField(SessionFirstLapIndexField.ID);
 
     if (field != null) {
@@ -1116,8 +1602,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get numLaps {
-     final field = getField(SessionNumLapsField.ID);
+    final field = getField(SessionNumLapsField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1125,7 +1612,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set numLaps(int? value) {
+
+  set numLaps(int? value) {
     final field = getField(SessionNumLapsField.ID);
 
     if (field != null) {
@@ -1137,8 +1625,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get eventGroup {
-     final field = getField(SessionEventGroupField.ID);
+    final field = getField(SessionEventGroupField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1146,7 +1635,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set eventGroup(int? value) {
+
+  set eventGroup(int? value) {
     final field = getField(SessionEventGroupField.ID);
 
     if (field != null) {
@@ -1158,9 +1648,10 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   SessionTrigger? get trigger {
-     final field = getField(SessionTriggerField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(SessionTriggerField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -1171,7 +1662,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set trigger(SessionTrigger? value) {
+
+  set trigger(SessionTrigger? value) {
     final field = getField(SessionTriggerField.ID);
 
     if (field != null) {
@@ -1183,8 +1675,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get necLat {
-     final field = getField(SessionNecLatField.ID);
+    final field = getField(SessionNecLatField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1192,7 +1685,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set necLat(double? value) {
+
+  set necLat(double? value) {
     final field = getField(SessionNecLatField.ID);
 
     if (field != null) {
@@ -1204,8 +1698,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get necLong {
-     final field = getField(SessionNecLongField.ID);
+    final field = getField(SessionNecLongField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1213,7 +1708,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set necLong(double? value) {
+
+  set necLong(double? value) {
     final field = getField(SessionNecLongField.ID);
 
     if (field != null) {
@@ -1225,8 +1721,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get swcLat {
-     final field = getField(SessionSwcLatField.ID);
+    final field = getField(SessionSwcLatField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1234,7 +1731,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set swcLat(double? value) {
+
+  set swcLat(double? value) {
     final field = getField(SessionSwcLatField.ID);
 
     if (field != null) {
@@ -1246,8 +1744,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get swcLong {
-     final field = getField(SessionSwcLongField.ID);
+    final field = getField(SessionSwcLongField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1255,7 +1754,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set swcLong(double? value) {
+
+  set swcLong(double? value) {
     final field = getField(SessionSwcLongField.ID);
 
     if (field != null) {
@@ -1267,8 +1767,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get numLengths {
-     final field = getField(SessionNumLengthsField.ID);
+    final field = getField(SessionNumLengthsField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1276,7 +1777,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set numLengths(int? value) {
+
+  set numLengths(int? value) {
     final field = getField(SessionNumLengthsField.ID);
 
     if (field != null) {
@@ -1288,8 +1790,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get normalizedPower {
-     final field = getField(SessionNormalizedPowerField.ID);
+    final field = getField(SessionNormalizedPowerField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1297,7 +1800,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set normalizedPower(int? value) {
+
+  set normalizedPower(int? value) {
     final field = getField(SessionNormalizedPowerField.ID);
 
     if (field != null) {
@@ -1309,8 +1813,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get trainingStressScore {
-     final field = getField(SessionTrainingStressScoreField.ID);
+    final field = getField(SessionTrainingStressScoreField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1318,7 +1823,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set trainingStressScore(double? value) {
+
+  set trainingStressScore(double? value) {
     final field = getField(SessionTrainingStressScoreField.ID);
 
     if (field != null) {
@@ -1330,8 +1836,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get intensityFactor {
-     final field = getField(SessionIntensityFactorField.ID);
+    final field = getField(SessionIntensityFactorField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1339,7 +1846,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set intensityFactor(double? value) {
+
+  set intensityFactor(double? value) {
     final field = getField(SessionIntensityFactorField.ID);
 
     if (field != null) {
@@ -1351,8 +1859,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get leftRightBalance {
-     final field = getField(SessionLeftRightBalanceField.ID);
+    final field = getField(SessionLeftRightBalanceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1360,7 +1869,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set leftRightBalance(int? value) {
+
+  set leftRightBalance(int? value) {
     final field = getField(SessionLeftRightBalanceField.ID);
 
     if (field != null) {
@@ -1372,8 +1882,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get avgStrokeCount {
-     final field = getField(SessionAvgStrokeCountField.ID);
+    final field = getField(SessionAvgStrokeCountField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1381,7 +1892,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgStrokeCount(double? value) {
+
+  set avgStrokeCount(double? value) {
     final field = getField(SessionAvgStrokeCountField.ID);
 
     if (field != null) {
@@ -1393,8 +1905,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get avgStrokeDistance {
-     final field = getField(SessionAvgStrokeDistanceField.ID);
+    final field = getField(SessionAvgStrokeDistanceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1402,7 +1915,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgStrokeDistance(double? value) {
+
+  set avgStrokeDistance(double? value) {
     final field = getField(SessionAvgStrokeDistanceField.ID);
 
     if (field != null) {
@@ -1414,9 +1928,10 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   SwimStroke? get swimStroke {
-     final field = getField(SessionSwimStrokeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(SessionSwimStrokeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -1427,7 +1942,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set swimStroke(SwimStroke? value) {
+
+  set swimStroke(SwimStroke? value) {
     final field = getField(SessionSwimStrokeField.ID);
 
     if (field != null) {
@@ -1439,8 +1955,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get poolLength {
-     final field = getField(SessionPoolLengthField.ID);
+    final field = getField(SessionPoolLengthField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1448,7 +1965,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set poolLength(double? value) {
+
+  set poolLength(double? value) {
     final field = getField(SessionPoolLengthField.ID);
 
     if (field != null) {
@@ -1460,8 +1978,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get thresholdPower {
-     final field = getField(SessionThresholdPowerField.ID);
+    final field = getField(SessionThresholdPowerField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1469,7 +1988,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set thresholdPower(int? value) {
+
+  set thresholdPower(int? value) {
     final field = getField(SessionThresholdPowerField.ID);
 
     if (field != null) {
@@ -1481,9 +2001,10 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   DisplayMeasure? get poolLengthUnit {
-     final field = getField(SessionPoolLengthUnitField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(SessionPoolLengthUnitField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -1494,7 +2015,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set poolLengthUnit(DisplayMeasure? value) {
+
+  set poolLengthUnit(DisplayMeasure? value) {
     final field = getField(SessionPoolLengthUnitField.ID);
 
     if (field != null) {
@@ -1506,8 +2028,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get numActiveLengths {
-     final field = getField(SessionNumActiveLengthsField.ID);
+    final field = getField(SessionNumActiveLengthsField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1515,7 +2038,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set numActiveLengths(int? value) {
+
+  set numActiveLengths(int? value) {
     final field = getField(SessionNumActiveLengthsField.ID);
 
     if (field != null) {
@@ -1527,8 +2051,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get totalWork {
-     final field = getField(SessionTotalWorkField.ID);
+    final field = getField(SessionTotalWorkField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1536,7 +2061,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set totalWork(int? value) {
+
+  set totalWork(int? value) {
     final field = getField(SessionTotalWorkField.ID);
 
     if (field != null) {
@@ -1548,8 +2074,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get avgAltitude {
-     final field = getField(SessionAvgAltitudeField.ID);
+    final field = getField(SessionAvgAltitudeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1557,7 +2084,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgAltitude(double? value) {
+
+  set avgAltitude(double? value) {
     final field = getField(SessionAvgAltitudeField.ID);
 
     if (field != null) {
@@ -1569,8 +2097,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get maxAltitude {
-     final field = getField(SessionMaxAltitudeField.ID);
+    final field = getField(SessionMaxAltitudeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1578,7 +2107,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set maxAltitude(double? value) {
+
+  set maxAltitude(double? value) {
     final field = getField(SessionMaxAltitudeField.ID);
 
     if (field != null) {
@@ -1590,8 +2120,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get gpsAccuracy {
-     final field = getField(SessionGpsAccuracyField.ID);
+    final field = getField(SessionGpsAccuracyField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1599,7 +2130,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set gpsAccuracy(int? value) {
+
+  set gpsAccuracy(int? value) {
     final field = getField(SessionGpsAccuracyField.ID);
 
     if (field != null) {
@@ -1611,8 +2143,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get avgGrade {
-     final field = getField(SessionAvgGradeField.ID);
+    final field = getField(SessionAvgGradeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1620,7 +2153,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgGrade(double? value) {
+
+  set avgGrade(double? value) {
     final field = getField(SessionAvgGradeField.ID);
 
     if (field != null) {
@@ -1632,8 +2166,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get avgPosGrade {
-     final field = getField(SessionAvgPosGradeField.ID);
+    final field = getField(SessionAvgPosGradeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1641,7 +2176,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgPosGrade(double? value) {
+
+  set avgPosGrade(double? value) {
     final field = getField(SessionAvgPosGradeField.ID);
 
     if (field != null) {
@@ -1653,8 +2189,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get avgNegGrade {
-     final field = getField(SessionAvgNegGradeField.ID);
+    final field = getField(SessionAvgNegGradeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1662,7 +2199,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgNegGrade(double? value) {
+
+  set avgNegGrade(double? value) {
     final field = getField(SessionAvgNegGradeField.ID);
 
     if (field != null) {
@@ -1674,8 +2212,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get maxPosGrade {
-     final field = getField(SessionMaxPosGradeField.ID);
+    final field = getField(SessionMaxPosGradeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1683,7 +2222,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set maxPosGrade(double? value) {
+
+  set maxPosGrade(double? value) {
     final field = getField(SessionMaxPosGradeField.ID);
 
     if (field != null) {
@@ -1695,8 +2235,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get maxNegGrade {
-     final field = getField(SessionMaxNegGradeField.ID);
+    final field = getField(SessionMaxNegGradeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1704,7 +2245,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set maxNegGrade(double? value) {
+
+  set maxNegGrade(double? value) {
     final field = getField(SessionMaxNegGradeField.ID);
 
     if (field != null) {
@@ -1716,8 +2258,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get avgTemperature {
-     final field = getField(SessionAvgTemperatureField.ID);
+    final field = getField(SessionAvgTemperatureField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1725,7 +2268,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgTemperature(int? value) {
+
+  set avgTemperature(int? value) {
     final field = getField(SessionAvgTemperatureField.ID);
 
     if (field != null) {
@@ -1737,8 +2281,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get maxTemperature {
-     final field = getField(SessionMaxTemperatureField.ID);
+    final field = getField(SessionMaxTemperatureField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1746,7 +2291,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set maxTemperature(int? value) {
+
+  set maxTemperature(int? value) {
     final field = getField(SessionMaxTemperatureField.ID);
 
     if (field != null) {
@@ -1758,8 +2304,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get totalMovingTime {
-     final field = getField(SessionTotalMovingTimeField.ID);
+    final field = getField(SessionTotalMovingTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1767,7 +2314,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set totalMovingTime(double? value) {
+
+  set totalMovingTime(double? value) {
     final field = getField(SessionTotalMovingTimeField.ID);
 
     if (field != null) {
@@ -1779,8 +2327,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get avgPosVerticalSpeed {
-     final field = getField(SessionAvgPosVerticalSpeedField.ID);
+    final field = getField(SessionAvgPosVerticalSpeedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1788,7 +2337,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgPosVerticalSpeed(double? value) {
+
+  set avgPosVerticalSpeed(double? value) {
     final field = getField(SessionAvgPosVerticalSpeedField.ID);
 
     if (field != null) {
@@ -1800,8 +2350,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get avgNegVerticalSpeed {
-     final field = getField(SessionAvgNegVerticalSpeedField.ID);
+    final field = getField(SessionAvgNegVerticalSpeedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1809,7 +2360,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgNegVerticalSpeed(double? value) {
+
+  set avgNegVerticalSpeed(double? value) {
     final field = getField(SessionAvgNegVerticalSpeedField.ID);
 
     if (field != null) {
@@ -1821,8 +2373,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get maxPosVerticalSpeed {
-     final field = getField(SessionMaxPosVerticalSpeedField.ID);
+    final field = getField(SessionMaxPosVerticalSpeedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1830,7 +2383,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set maxPosVerticalSpeed(double? value) {
+
+  set maxPosVerticalSpeed(double? value) {
     final field = getField(SessionMaxPosVerticalSpeedField.ID);
 
     if (field != null) {
@@ -1842,8 +2396,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get maxNegVerticalSpeed {
-     final field = getField(SessionMaxNegVerticalSpeedField.ID);
+    final field = getField(SessionMaxNegVerticalSpeedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1851,7 +2406,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set maxNegVerticalSpeed(double? value) {
+
+  set maxNegVerticalSpeed(double? value) {
     final field = getField(SessionMaxNegVerticalSpeedField.ID);
 
     if (field != null) {
@@ -1863,8 +2419,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get minHeartRate {
-     final field = getField(SessionMinHeartRateField.ID);
+    final field = getField(SessionMinHeartRateField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1872,7 +2429,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set minHeartRate(int? value) {
+
+  set minHeartRate(int? value) {
     final field = getField(SessionMinHeartRateField.ID);
 
     if (field != null) {
@@ -1884,8 +2442,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get timeInHrZone {
-     final field = getField(SessionTimeInHrZoneField.ID);
+    final field = getField(SessionTimeInHrZoneField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1893,7 +2452,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set timeInHrZone(double? value) {
+
+  set timeInHrZone(double? value) {
     final field = getField(SessionTimeInHrZoneField.ID);
 
     if (field != null) {
@@ -1905,8 +2465,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get timeInSpeedZone {
-     final field = getField(SessionTimeInSpeedZoneField.ID);
+    final field = getField(SessionTimeInSpeedZoneField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1914,7 +2475,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set timeInSpeedZone(double? value) {
+
+  set timeInSpeedZone(double? value) {
     final field = getField(SessionTimeInSpeedZoneField.ID);
 
     if (field != null) {
@@ -1926,8 +2488,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get timeInCadenceZone {
-     final field = getField(SessionTimeInCadenceZoneField.ID);
+    final field = getField(SessionTimeInCadenceZoneField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1935,7 +2498,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set timeInCadenceZone(double? value) {
+
+  set timeInCadenceZone(double? value) {
     final field = getField(SessionTimeInCadenceZoneField.ID);
 
     if (field != null) {
@@ -1947,8 +2511,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get timeInPowerZone {
-     final field = getField(SessionTimeInPowerZoneField.ID);
+    final field = getField(SessionTimeInPowerZoneField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1956,7 +2521,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set timeInPowerZone(double? value) {
+
+  set timeInPowerZone(double? value) {
     final field = getField(SessionTimeInPowerZoneField.ID);
 
     if (field != null) {
@@ -1968,8 +2534,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get avgLapTime {
-     final field = getField(SessionAvgLapTimeField.ID);
+    final field = getField(SessionAvgLapTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1977,7 +2544,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgLapTime(double? value) {
+
+  set avgLapTime(double? value) {
     final field = getField(SessionAvgLapTimeField.ID);
 
     if (field != null) {
@@ -1989,8 +2557,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get bestLapIndex {
-     final field = getField(SessionBestLapIndexField.ID);
+    final field = getField(SessionBestLapIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1998,7 +2567,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set bestLapIndex(int? value) {
+
+  set bestLapIndex(int? value) {
     final field = getField(SessionBestLapIndexField.ID);
 
     if (field != null) {
@@ -2010,8 +2580,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get minAltitude {
-     final field = getField(SessionMinAltitudeField.ID);
+    final field = getField(SessionMinAltitudeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2019,7 +2590,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set minAltitude(double? value) {
+
+  set minAltitude(double? value) {
     final field = getField(SessionMinAltitudeField.ID);
 
     if (field != null) {
@@ -2031,8 +2603,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get playerScore {
-     final field = getField(SessionPlayerScoreField.ID);
+    final field = getField(SessionPlayerScoreField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2040,7 +2613,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set playerScore(int? value) {
+
+  set playerScore(int? value) {
     final field = getField(SessionPlayerScoreField.ID);
 
     if (field != null) {
@@ -2052,8 +2626,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get opponentScore {
-     final field = getField(SessionOpponentScoreField.ID);
+    final field = getField(SessionOpponentScoreField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2061,7 +2636,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set opponentScore(int? value) {
+
+  set opponentScore(int? value) {
     final field = getField(SessionOpponentScoreField.ID);
 
     if (field != null) {
@@ -2073,8 +2649,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   String? get opponentName {
-     final field = getField(SessionOpponentNameField.ID);
+    final field = getField(SessionOpponentNameField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2082,7 +2659,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set opponentName(String? value) {
+
+  set opponentName(String? value) {
     final field = getField(SessionOpponentNameField.ID);
 
     if (field != null) {
@@ -2094,8 +2672,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get strokeCount {
-     final field = getField(SessionStrokeCountField.ID);
+    final field = getField(SessionStrokeCountField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2103,7 +2682,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set strokeCount(int? value) {
+
+  set strokeCount(int? value) {
     final field = getField(SessionStrokeCountField.ID);
 
     if (field != null) {
@@ -2115,8 +2695,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get zoneCount {
-     final field = getField(SessionZoneCountField.ID);
+    final field = getField(SessionZoneCountField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2124,7 +2705,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set zoneCount(int? value) {
+
+  set zoneCount(int? value) {
     final field = getField(SessionZoneCountField.ID);
 
     if (field != null) {
@@ -2136,8 +2718,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get maxBallSpeed {
-     final field = getField(SessionMaxBallSpeedField.ID);
+    final field = getField(SessionMaxBallSpeedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2145,7 +2728,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set maxBallSpeed(double? value) {
+
+  set maxBallSpeed(double? value) {
     final field = getField(SessionMaxBallSpeedField.ID);
 
     if (field != null) {
@@ -2157,8 +2741,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get avgBallSpeed {
-     final field = getField(SessionAvgBallSpeedField.ID);
+    final field = getField(SessionAvgBallSpeedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2166,7 +2751,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgBallSpeed(double? value) {
+
+  set avgBallSpeed(double? value) {
     final field = getField(SessionAvgBallSpeedField.ID);
 
     if (field != null) {
@@ -2178,8 +2764,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get avgVerticalOscillation {
-     final field = getField(SessionAvgVerticalOscillationField.ID);
+    final field = getField(SessionAvgVerticalOscillationField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2187,7 +2774,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgVerticalOscillation(double? value) {
+
+  set avgVerticalOscillation(double? value) {
     final field = getField(SessionAvgVerticalOscillationField.ID);
 
     if (field != null) {
@@ -2199,8 +2787,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get avgStanceTimePercent {
-     final field = getField(SessionAvgStanceTimePercentField.ID);
+    final field = getField(SessionAvgStanceTimePercentField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2208,7 +2797,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgStanceTimePercent(double? value) {
+
+  set avgStanceTimePercent(double? value) {
     final field = getField(SessionAvgStanceTimePercentField.ID);
 
     if (field != null) {
@@ -2220,8 +2810,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get avgStanceTime {
-     final field = getField(SessionAvgStanceTimeField.ID);
+    final field = getField(SessionAvgStanceTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2229,7 +2820,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgStanceTime(double? value) {
+
+  set avgStanceTime(double? value) {
     final field = getField(SessionAvgStanceTimeField.ID);
 
     if (field != null) {
@@ -2241,8 +2833,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get avgFractionalCadence {
-     final field = getField(SessionAvgFractionalCadenceField.ID);
+    final field = getField(SessionAvgFractionalCadenceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2250,7 +2843,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgFractionalCadence(double? value) {
+
+  set avgFractionalCadence(double? value) {
     final field = getField(SessionAvgFractionalCadenceField.ID);
 
     if (field != null) {
@@ -2262,8 +2856,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get maxFractionalCadence {
-     final field = getField(SessionMaxFractionalCadenceField.ID);
+    final field = getField(SessionMaxFractionalCadenceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2271,7 +2866,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set maxFractionalCadence(double? value) {
+
+  set maxFractionalCadence(double? value) {
     final field = getField(SessionMaxFractionalCadenceField.ID);
 
     if (field != null) {
@@ -2283,8 +2879,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get totalFractionalCycles {
-     final field = getField(SessionTotalFractionalCyclesField.ID);
+    final field = getField(SessionTotalFractionalCyclesField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2292,7 +2889,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set totalFractionalCycles(double? value) {
+
+  set totalFractionalCycles(double? value) {
     final field = getField(SessionTotalFractionalCyclesField.ID);
 
     if (field != null) {
@@ -2304,8 +2902,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get avgTotalHemoglobinConc {
-     final field = getField(SessionAvgTotalHemoglobinConcField.ID);
+    final field = getField(SessionAvgTotalHemoglobinConcField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2313,7 +2912,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgTotalHemoglobinConc(double? value) {
+
+  set avgTotalHemoglobinConc(double? value) {
     final field = getField(SessionAvgTotalHemoglobinConcField.ID);
 
     if (field != null) {
@@ -2325,8 +2925,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get minTotalHemoglobinConc {
-     final field = getField(SessionMinTotalHemoglobinConcField.ID);
+    final field = getField(SessionMinTotalHemoglobinConcField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2334,7 +2935,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set minTotalHemoglobinConc(double? value) {
+
+  set minTotalHemoglobinConc(double? value) {
     final field = getField(SessionMinTotalHemoglobinConcField.ID);
 
     if (field != null) {
@@ -2346,8 +2948,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get maxTotalHemoglobinConc {
-     final field = getField(SessionMaxTotalHemoglobinConcField.ID);
+    final field = getField(SessionMaxTotalHemoglobinConcField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2355,7 +2958,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set maxTotalHemoglobinConc(double? value) {
+
+  set maxTotalHemoglobinConc(double? value) {
     final field = getField(SessionMaxTotalHemoglobinConcField.ID);
 
     if (field != null) {
@@ -2367,8 +2971,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get avgSaturatedHemoglobinPercent {
-     final field = getField(SessionAvgSaturatedHemoglobinPercentField.ID);
+    final field = getField(SessionAvgSaturatedHemoglobinPercentField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2376,7 +2981,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgSaturatedHemoglobinPercent(double? value) {
+
+  set avgSaturatedHemoglobinPercent(double? value) {
     final field = getField(SessionAvgSaturatedHemoglobinPercentField.ID);
 
     if (field != null) {
@@ -2388,8 +2994,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get minSaturatedHemoglobinPercent {
-     final field = getField(SessionMinSaturatedHemoglobinPercentField.ID);
+    final field = getField(SessionMinSaturatedHemoglobinPercentField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2397,7 +3004,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set minSaturatedHemoglobinPercent(double? value) {
+
+  set minSaturatedHemoglobinPercent(double? value) {
     final field = getField(SessionMinSaturatedHemoglobinPercentField.ID);
 
     if (field != null) {
@@ -2409,8 +3017,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get maxSaturatedHemoglobinPercent {
-     final field = getField(SessionMaxSaturatedHemoglobinPercentField.ID);
+    final field = getField(SessionMaxSaturatedHemoglobinPercentField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2418,7 +3027,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set maxSaturatedHemoglobinPercent(double? value) {
+
+  set maxSaturatedHemoglobinPercent(double? value) {
     final field = getField(SessionMaxSaturatedHemoglobinPercentField.ID);
 
     if (field != null) {
@@ -2430,8 +3040,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get avgLeftTorqueEffectiveness {
-     final field = getField(SessionAvgLeftTorqueEffectivenessField.ID);
+    final field = getField(SessionAvgLeftTorqueEffectivenessField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2439,7 +3050,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgLeftTorqueEffectiveness(double? value) {
+
+  set avgLeftTorqueEffectiveness(double? value) {
     final field = getField(SessionAvgLeftTorqueEffectivenessField.ID);
 
     if (field != null) {
@@ -2451,8 +3063,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get avgRightTorqueEffectiveness {
-     final field = getField(SessionAvgRightTorqueEffectivenessField.ID);
+    final field = getField(SessionAvgRightTorqueEffectivenessField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2460,7 +3073,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgRightTorqueEffectiveness(double? value) {
+
+  set avgRightTorqueEffectiveness(double? value) {
     final field = getField(SessionAvgRightTorqueEffectivenessField.ID);
 
     if (field != null) {
@@ -2472,8 +3086,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get avgLeftPedalSmoothness {
-     final field = getField(SessionAvgLeftPedalSmoothnessField.ID);
+    final field = getField(SessionAvgLeftPedalSmoothnessField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2481,7 +3096,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgLeftPedalSmoothness(double? value) {
+
+  set avgLeftPedalSmoothness(double? value) {
     final field = getField(SessionAvgLeftPedalSmoothnessField.ID);
 
     if (field != null) {
@@ -2493,8 +3109,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get avgRightPedalSmoothness {
-     final field = getField(SessionAvgRightPedalSmoothnessField.ID);
+    final field = getField(SessionAvgRightPedalSmoothnessField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2502,7 +3119,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgRightPedalSmoothness(double? value) {
+
+  set avgRightPedalSmoothness(double? value) {
     final field = getField(SessionAvgRightPedalSmoothnessField.ID);
 
     if (field != null) {
@@ -2514,8 +3132,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get avgCombinedPedalSmoothness {
-     final field = getField(SessionAvgCombinedPedalSmoothnessField.ID);
+    final field = getField(SessionAvgCombinedPedalSmoothnessField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2523,7 +3142,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgCombinedPedalSmoothness(double? value) {
+
+  set avgCombinedPedalSmoothness(double? value) {
     final field = getField(SessionAvgCombinedPedalSmoothnessField.ID);
 
     if (field != null) {
@@ -2535,8 +3155,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get sportIndex {
-     final field = getField(SessionSportIndexField.ID);
+    final field = getField(SessionSportIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2544,7 +3165,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set sportIndex(int? value) {
+
+  set sportIndex(int? value) {
     final field = getField(SessionSportIndexField.ID);
 
     if (field != null) {
@@ -2556,8 +3178,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get timeStanding {
-     final field = getField(SessionTimeStandingField.ID);
+    final field = getField(SessionTimeStandingField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2565,7 +3188,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set timeStanding(double? value) {
+
+  set timeStanding(double? value) {
     final field = getField(SessionTimeStandingField.ID);
 
     if (field != null) {
@@ -2577,8 +3201,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get standCount {
-     final field = getField(SessionStandCountField.ID);
+    final field = getField(SessionStandCountField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2586,7 +3211,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set standCount(int? value) {
+
+  set standCount(int? value) {
     final field = getField(SessionStandCountField.ID);
 
     if (field != null) {
@@ -2598,8 +3224,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get avgLeftPco {
-     final field = getField(SessionAvgLeftPcoField.ID);
+    final field = getField(SessionAvgLeftPcoField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2607,7 +3234,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgLeftPco(int? value) {
+
+  set avgLeftPco(int? value) {
     final field = getField(SessionAvgLeftPcoField.ID);
 
     if (field != null) {
@@ -2619,8 +3247,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get avgRightPco {
-     final field = getField(SessionAvgRightPcoField.ID);
+    final field = getField(SessionAvgRightPcoField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2628,7 +3257,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgRightPco(int? value) {
+
+  set avgRightPco(int? value) {
     final field = getField(SessionAvgRightPcoField.ID);
 
     if (field != null) {
@@ -2640,8 +3270,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get avgLeftPowerPhase {
-     final field = getField(SessionAvgLeftPowerPhaseField.ID);
+    final field = getField(SessionAvgLeftPowerPhaseField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2649,7 +3280,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgLeftPowerPhase(double? value) {
+
+  set avgLeftPowerPhase(double? value) {
     final field = getField(SessionAvgLeftPowerPhaseField.ID);
 
     if (field != null) {
@@ -2661,8 +3293,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get avgLeftPowerPhasePeak {
-     final field = getField(SessionAvgLeftPowerPhasePeakField.ID);
+    final field = getField(SessionAvgLeftPowerPhasePeakField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2670,7 +3303,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgLeftPowerPhasePeak(double? value) {
+
+  set avgLeftPowerPhasePeak(double? value) {
     final field = getField(SessionAvgLeftPowerPhasePeakField.ID);
 
     if (field != null) {
@@ -2682,8 +3316,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get avgRightPowerPhase {
-     final field = getField(SessionAvgRightPowerPhaseField.ID);
+    final field = getField(SessionAvgRightPowerPhaseField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2691,7 +3326,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgRightPowerPhase(double? value) {
+
+  set avgRightPowerPhase(double? value) {
     final field = getField(SessionAvgRightPowerPhaseField.ID);
 
     if (field != null) {
@@ -2703,8 +3339,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get avgRightPowerPhasePeak {
-     final field = getField(SessionAvgRightPowerPhasePeakField.ID);
+    final field = getField(SessionAvgRightPowerPhasePeakField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2712,7 +3349,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgRightPowerPhasePeak(double? value) {
+
+  set avgRightPowerPhasePeak(double? value) {
     final field = getField(SessionAvgRightPowerPhasePeakField.ID);
 
     if (field != null) {
@@ -2724,8 +3362,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get avgPowerPosition {
-     final field = getField(SessionAvgPowerPositionField.ID);
+    final field = getField(SessionAvgPowerPositionField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2733,7 +3372,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgPowerPosition(int? value) {
+
+  set avgPowerPosition(int? value) {
     final field = getField(SessionAvgPowerPositionField.ID);
 
     if (field != null) {
@@ -2745,8 +3385,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get maxPowerPosition {
-     final field = getField(SessionMaxPowerPositionField.ID);
+    final field = getField(SessionMaxPowerPositionField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2754,7 +3395,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set maxPowerPosition(int? value) {
+
+  set maxPowerPosition(int? value) {
     final field = getField(SessionMaxPowerPositionField.ID);
 
     if (field != null) {
@@ -2766,8 +3408,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get avgCadencePosition {
-     final field = getField(SessionAvgCadencePositionField.ID);
+    final field = getField(SessionAvgCadencePositionField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2775,7 +3418,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgCadencePosition(int? value) {
+
+  set avgCadencePosition(int? value) {
     final field = getField(SessionAvgCadencePositionField.ID);
 
     if (field != null) {
@@ -2787,8 +3431,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get maxCadencePosition {
-     final field = getField(SessionMaxCadencePositionField.ID);
+    final field = getField(SessionMaxCadencePositionField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2796,7 +3441,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set maxCadencePosition(int? value) {
+
+  set maxCadencePosition(int? value) {
     final field = getField(SessionMaxCadencePositionField.ID);
 
     if (field != null) {
@@ -2808,8 +3454,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get enhancedAvgSpeed {
-     final field = getField(SessionEnhancedAvgSpeedField.ID);
+    final field = getField(SessionEnhancedAvgSpeedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2817,7 +3464,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set enhancedAvgSpeed(double? value) {
+
+  set enhancedAvgSpeed(double? value) {
     final field = getField(SessionEnhancedAvgSpeedField.ID);
 
     if (field != null) {
@@ -2829,8 +3477,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get enhancedMaxSpeed {
-     final field = getField(SessionEnhancedMaxSpeedField.ID);
+    final field = getField(SessionEnhancedMaxSpeedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2838,7 +3487,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set enhancedMaxSpeed(double? value) {
+
+  set enhancedMaxSpeed(double? value) {
     final field = getField(SessionEnhancedMaxSpeedField.ID);
 
     if (field != null) {
@@ -2850,8 +3500,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get enhancedAvgAltitude {
-     final field = getField(SessionEnhancedAvgAltitudeField.ID);
+    final field = getField(SessionEnhancedAvgAltitudeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2859,7 +3510,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set enhancedAvgAltitude(double? value) {
+
+  set enhancedAvgAltitude(double? value) {
     final field = getField(SessionEnhancedAvgAltitudeField.ID);
 
     if (field != null) {
@@ -2871,8 +3523,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get enhancedMinAltitude {
-     final field = getField(SessionEnhancedMinAltitudeField.ID);
+    final field = getField(SessionEnhancedMinAltitudeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2880,7 +3533,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set enhancedMinAltitude(double? value) {
+
+  set enhancedMinAltitude(double? value) {
     final field = getField(SessionEnhancedMinAltitudeField.ID);
 
     if (field != null) {
@@ -2892,8 +3546,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get enhancedMaxAltitude {
-     final field = getField(SessionEnhancedMaxAltitudeField.ID);
+    final field = getField(SessionEnhancedMaxAltitudeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2901,7 +3556,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set enhancedMaxAltitude(double? value) {
+
+  set enhancedMaxAltitude(double? value) {
     final field = getField(SessionEnhancedMaxAltitudeField.ID);
 
     if (field != null) {
@@ -2913,8 +3569,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get avgLevMotorPower {
-     final field = getField(SessionAvgLevMotorPowerField.ID);
+    final field = getField(SessionAvgLevMotorPowerField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2922,7 +3579,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgLevMotorPower(int? value) {
+
+  set avgLevMotorPower(int? value) {
     final field = getField(SessionAvgLevMotorPowerField.ID);
 
     if (field != null) {
@@ -2934,8 +3592,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get maxLevMotorPower {
-     final field = getField(SessionMaxLevMotorPowerField.ID);
+    final field = getField(SessionMaxLevMotorPowerField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2943,7 +3602,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set maxLevMotorPower(int? value) {
+
+  set maxLevMotorPower(int? value) {
     final field = getField(SessionMaxLevMotorPowerField.ID);
 
     if (field != null) {
@@ -2955,8 +3615,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get levBatteryConsumption {
-     final field = getField(SessionLevBatteryConsumptionField.ID);
+    final field = getField(SessionLevBatteryConsumptionField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2964,7 +3625,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set levBatteryConsumption(double? value) {
+
+  set levBatteryConsumption(double? value) {
     final field = getField(SessionLevBatteryConsumptionField.ID);
 
     if (field != null) {
@@ -2976,8 +3638,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get avgVerticalRatio {
-     final field = getField(SessionAvgVerticalRatioField.ID);
+    final field = getField(SessionAvgVerticalRatioField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -2985,7 +3648,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgVerticalRatio(double? value) {
+
+  set avgVerticalRatio(double? value) {
     final field = getField(SessionAvgVerticalRatioField.ID);
 
     if (field != null) {
@@ -2997,8 +3661,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get avgStanceTimeBalance {
-     final field = getField(SessionAvgStanceTimeBalanceField.ID);
+    final field = getField(SessionAvgStanceTimeBalanceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -3006,7 +3671,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgStanceTimeBalance(double? value) {
+
+  set avgStanceTimeBalance(double? value) {
     final field = getField(SessionAvgStanceTimeBalanceField.ID);
 
     if (field != null) {
@@ -3018,8 +3684,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get avgStepLength {
-     final field = getField(SessionAvgStepLengthField.ID);
+    final field = getField(SessionAvgStepLengthField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -3027,7 +3694,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgStepLength(double? value) {
+
+  set avgStepLength(double? value) {
     final field = getField(SessionAvgStepLengthField.ID);
 
     if (field != null) {
@@ -3039,8 +3707,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get totalAnaerobicTrainingEffect {
-     final field = getField(SessionTotalAnaerobicTrainingEffectField.ID);
+    final field = getField(SessionTotalAnaerobicTrainingEffectField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -3048,7 +3717,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set totalAnaerobicTrainingEffect(double? value) {
+
+  set totalAnaerobicTrainingEffect(double? value) {
     final field = getField(SessionTotalAnaerobicTrainingEffectField.ID);
 
     if (field != null) {
@@ -3060,8 +3730,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get avgVam {
-     final field = getField(SessionAvgVamField.ID);
+    final field = getField(SessionAvgVamField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -3069,7 +3740,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgVam(double? value) {
+
+  set avgVam(double? value) {
     final field = getField(SessionAvgVamField.ID);
 
     if (field != null) {
@@ -3081,8 +3753,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get totalGrit {
-     final field = getField(SessionTotalGritField.ID);
+    final field = getField(SessionTotalGritField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -3090,7 +3763,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set totalGrit(double? value) {
+
+  set totalGrit(double? value) {
     final field = getField(SessionTotalGritField.ID);
 
     if (field != null) {
@@ -3102,8 +3776,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get totalFlow {
-     final field = getField(SessionTotalFlowField.ID);
+    final field = getField(SessionTotalFlowField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -3111,7 +3786,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set totalFlow(double? value) {
+
+  set totalFlow(double? value) {
     final field = getField(SessionTotalFlowField.ID);
 
     if (field != null) {
@@ -3123,8 +3799,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   int? get jumpCount {
-     final field = getField(SessionJumpCountField.ID);
+    final field = getField(SessionJumpCountField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -3132,7 +3809,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set jumpCount(int? value) {
+
+  set jumpCount(int? value) {
     final field = getField(SessionJumpCountField.ID);
 
     if (field != null) {
@@ -3144,8 +3822,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get avgGrit {
-     final field = getField(SessionAvgGritField.ID);
+    final field = getField(SessionAvgGritField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -3153,7 +3832,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgGrit(double? value) {
+
+  set avgGrit(double? value) {
     final field = getField(SessionAvgGritField.ID);
 
     if (field != null) {
@@ -3165,8 +3845,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get avgFlow {
-     final field = getField(SessionAvgFlowField.ID);
+    final field = getField(SessionAvgFlowField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -3174,7 +3855,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgFlow(double? value) {
+
+  set avgFlow(double? value) {
     final field = getField(SessionAvgFlowField.ID);
 
     if (field != null) {
@@ -3186,8 +3868,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get totalFractionalAscent {
-     final field = getField(SessionTotalFractionalAscentField.ID);
+    final field = getField(SessionTotalFractionalAscentField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -3195,7 +3878,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set totalFractionalAscent(double? value) {
+
+  set totalFractionalAscent(double? value) {
     final field = getField(SessionTotalFractionalAscentField.ID);
 
     if (field != null) {
@@ -3207,8 +3891,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get totalFractionalDescent {
-     final field = getField(SessionTotalFractionalDescentField.ID);
+    final field = getField(SessionTotalFractionalDescentField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -3216,7 +3901,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set totalFractionalDescent(double? value) {
+
+  set totalFractionalDescent(double? value) {
     final field = getField(SessionTotalFractionalDescentField.ID);
 
     if (field != null) {
@@ -3228,8 +3914,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get avgCoreTemperature {
-     final field = getField(SessionAvgCoreTemperatureField.ID);
+    final field = getField(SessionAvgCoreTemperatureField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -3237,7 +3924,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set avgCoreTemperature(double? value) {
+
+  set avgCoreTemperature(double? value) {
     final field = getField(SessionAvgCoreTemperatureField.ID);
 
     if (field != null) {
@@ -3249,8 +3937,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get minCoreTemperature {
-     final field = getField(SessionMinCoreTemperatureField.ID);
+    final field = getField(SessionMinCoreTemperatureField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -3258,7 +3947,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set minCoreTemperature(double? value) {
+
+  set minCoreTemperature(double? value) {
     final field = getField(SessionMinCoreTemperatureField.ID);
 
     if (field != null) {
@@ -3270,8 +3960,9 @@ class SessionMessage extends DataMessage {
       }
     }
   }
+
   double? get maxCoreTemperature {
-     final field = getField(SessionMaxCoreTemperatureField.ID);
+    final field = getField(SessionMaxCoreTemperatureField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -3279,7 +3970,8 @@ class SessionMessage extends DataMessage {
       return null;
     }
   }
-   set maxCoreTemperature(double? value) {
+
+  set maxCoreTemperature(double? value) {
     final field = getField(SessionMaxCoreTemperatureField.ID);
 
     if (field != null) {
@@ -3291,15 +3983,10 @@ class SessionMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class SessionEventField extends Field {
- SessionEventField({int size = 0, bool growable = true})
+  SessionEventField({int size = 0, bool growable = true})
       : super(
             name: 'event',
             id: ID,
@@ -3308,14 +3995,13 @@ class SessionEventField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class SessionEventTypeField extends Field {
- SessionEventTypeField({int size = 0, bool growable = true})
+  SessionEventTypeField({int size = 0, bool growable = true})
       : super(
             name: 'event_type',
             id: ID,
@@ -3324,14 +4010,13 @@ class SessionEventTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class SessionStartTimeField extends Field {
- SessionStartTimeField({int size = 0, bool growable = true})
+  SessionStartTimeField({int size = 0, bool growable = true})
       : super(
             name: 'start_time',
             id: ID,
@@ -3342,14 +4027,13 @@ class SessionStartTimeField extends Field {
             units: 'ms',
             mainTypeName: 'date_time',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class SessionStartPositionLatField extends Field {
- SessionStartPositionLatField({int size = 0, bool growable = true})
+  SessionStartPositionLatField({int size = 0, bool growable = true})
       : super(
             name: 'start_position_lat',
             id: ID,
@@ -3360,14 +4044,13 @@ class SessionStartPositionLatField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class SessionStartPositionLongField extends Field {
- SessionStartPositionLongField({int size = 0, bool growable = true})
+  SessionStartPositionLongField({int size = 0, bool growable = true})
       : super(
             name: 'start_position_long',
             id: ID,
@@ -3378,14 +4061,13 @@ class SessionStartPositionLongField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class SessionSportField extends Field {
- SessionSportField({int size = 0, bool growable = true})
+  SessionSportField({int size = 0, bool growable = true})
       : super(
             name: 'sport',
             id: ID,
@@ -3394,14 +4076,13 @@ class SessionSportField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }
+
 class SessionSubSportField extends Field {
- SessionSubSportField({int size = 0, bool growable = true})
+  SessionSubSportField({int size = 0, bool growable = true})
       : super(
             name: 'sub_sport',
             id: ID,
@@ -3410,14 +4091,13 @@ class SessionSubSportField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 6;
 }
+
 class SessionTotalElapsedTimeField extends Field {
- SessionTotalElapsedTimeField({int size = 0, bool growable = true})
+  SessionTotalElapsedTimeField({int size = 0, bool growable = true})
       : super(
             name: 'total_elapsed_time',
             id: ID,
@@ -3428,14 +4108,13 @@ class SessionTotalElapsedTimeField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 7;
 }
+
 class SessionTotalTimerTimeField extends Field {
- SessionTotalTimerTimeField({int size = 0, bool growable = true})
+  SessionTotalTimerTimeField({int size = 0, bool growable = true})
       : super(
             name: 'total_timer_time',
             id: ID,
@@ -3446,14 +4125,13 @@ class SessionTotalTimerTimeField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 8;
 }
+
 class SessionTotalDistanceField extends Field {
- SessionTotalDistanceField({int size = 0, bool growable = true})
+  SessionTotalDistanceField({int size = 0, bool growable = true})
       : super(
             name: 'total_distance',
             id: ID,
@@ -3464,14 +4142,13 @@ class SessionTotalDistanceField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 9;
 }
+
 class SessionTotalCyclesField extends Field {
- SessionTotalCyclesField({int size = 0, bool growable = true})
+  SessionTotalCyclesField({int size = 0, bool growable = true})
       : super(
             name: 'total_cycles',
             id: ID,
@@ -3483,31 +4160,31 @@ class SessionTotalCyclesField extends Field {
             mainTypeName: '',
             growable: growable,
             subFields: [
-       SubField(
+              SubField(
                   name: 'total_strides',
                   type: BaseType.UINT32,
                   scale: 1,
                   offset: 0,
                   units: 'strides',
                   referenceMap: {
-                  SessionSportField.ID: [1, 11]
+                    SessionSportField.ID: [1, 11]
                   }),
-       SubField(
+              SubField(
                   name: 'total_strokes',
                   type: BaseType.UINT32,
                   scale: 1,
                   offset: 0,
                   units: 'strokes',
                   referenceMap: {
-                  SessionSportField.ID: [2, 5, 15, 37]
+                    SessionSportField.ID: [2, 5, 15, 37]
                   })
-            ]
- );
+            ]);
 
   static const ID = 10;
 }
+
 class SessionTotalCaloriesField extends Field {
- SessionTotalCaloriesField({int size = 0, bool growable = true})
+  SessionTotalCaloriesField({int size = 0, bool growable = true})
       : super(
             name: 'total_calories',
             id: ID,
@@ -3518,14 +4195,13 @@ class SessionTotalCaloriesField extends Field {
             units: 'kcal',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 11;
 }
+
 class SessionTotalFatCaloriesField extends Field {
- SessionTotalFatCaloriesField({int size = 0, bool growable = true})
+  SessionTotalFatCaloriesField({int size = 0, bool growable = true})
       : super(
             name: 'total_fat_calories',
             id: ID,
@@ -3536,14 +4212,13 @@ class SessionTotalFatCaloriesField extends Field {
             units: 'kcal',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 13;
 }
+
 class SessionAvgSpeedField extends Field {
- SessionAvgSpeedField({int size = 0, bool growable = true})
+  SessionAvgSpeedField({int size = 0, bool growable = true})
       : super(
             name: 'avg_speed',
             id: ID,
@@ -3554,14 +4229,13 @@ class SessionAvgSpeedField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 14;
 }
+
 class SessionMaxSpeedField extends Field {
- SessionMaxSpeedField({int size = 0, bool growable = true})
+  SessionMaxSpeedField({int size = 0, bool growable = true})
       : super(
             name: 'max_speed',
             id: ID,
@@ -3572,14 +4246,13 @@ class SessionMaxSpeedField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 15;
 }
+
 class SessionAvgHeartRateField extends Field {
- SessionAvgHeartRateField({int size = 0, bool growable = true})
+  SessionAvgHeartRateField({int size = 0, bool growable = true})
       : super(
             name: 'avg_heart_rate',
             id: ID,
@@ -3590,14 +4263,13 @@ class SessionAvgHeartRateField extends Field {
             units: 'bpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 16;
 }
+
 class SessionMaxHeartRateField extends Field {
- SessionMaxHeartRateField({int size = 0, bool growable = true})
+  SessionMaxHeartRateField({int size = 0, bool growable = true})
       : super(
             name: 'max_heart_rate',
             id: ID,
@@ -3608,14 +4280,13 @@ class SessionMaxHeartRateField extends Field {
             units: 'bpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 17;
 }
+
 class SessionAvgCadenceField extends Field {
- SessionAvgCadenceField({int size = 0, bool growable = true})
+  SessionAvgCadenceField({int size = 0, bool growable = true})
       : super(
             name: 'avg_cadence',
             id: ID,
@@ -3627,22 +4298,22 @@ class SessionAvgCadenceField extends Field {
             mainTypeName: '',
             growable: growable,
             subFields: [
-       SubField(
+              SubField(
                   name: 'avg_running_cadence',
                   type: BaseType.UINT8,
                   scale: 1,
                   offset: 0,
                   units: 'strides/min',
                   referenceMap: {
-                  SessionSportField.ID: [1]
+                    SessionSportField.ID: [1]
                   })
-            ]
- );
+            ]);
 
   static const ID = 18;
 }
+
 class SessionMaxCadenceField extends Field {
- SessionMaxCadenceField({int size = 0, bool growable = true})
+  SessionMaxCadenceField({int size = 0, bool growable = true})
       : super(
             name: 'max_cadence',
             id: ID,
@@ -3654,22 +4325,22 @@ class SessionMaxCadenceField extends Field {
             mainTypeName: '',
             growable: growable,
             subFields: [
-       SubField(
+              SubField(
                   name: 'max_running_cadence',
                   type: BaseType.UINT8,
                   scale: 1,
                   offset: 0,
                   units: 'strides/min',
                   referenceMap: {
-                  SessionSportField.ID: [1]
+                    SessionSportField.ID: [1]
                   })
-            ]
- );
+            ]);
 
   static const ID = 19;
 }
+
 class SessionAvgPowerField extends Field {
- SessionAvgPowerField({int size = 0, bool growable = true})
+  SessionAvgPowerField({int size = 0, bool growable = true})
       : super(
             name: 'avg_power',
             id: ID,
@@ -3680,14 +4351,13 @@ class SessionAvgPowerField extends Field {
             units: 'watts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 20;
 }
+
 class SessionMaxPowerField extends Field {
- SessionMaxPowerField({int size = 0, bool growable = true})
+  SessionMaxPowerField({int size = 0, bool growable = true})
       : super(
             name: 'max_power',
             id: ID,
@@ -3698,14 +4368,13 @@ class SessionMaxPowerField extends Field {
             units: 'watts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 21;
 }
+
 class SessionTotalAscentField extends Field {
- SessionTotalAscentField({int size = 0, bool growable = true})
+  SessionTotalAscentField({int size = 0, bool growable = true})
       : super(
             name: 'total_ascent',
             id: ID,
@@ -3716,14 +4385,13 @@ class SessionTotalAscentField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 22;
 }
+
 class SessionTotalDescentField extends Field {
- SessionTotalDescentField({int size = 0, bool growable = true})
+  SessionTotalDescentField({int size = 0, bool growable = true})
       : super(
             name: 'total_descent',
             id: ID,
@@ -3734,14 +4402,13 @@ class SessionTotalDescentField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 23;
 }
+
 class SessionTotalTrainingEffectField extends Field {
- SessionTotalTrainingEffectField({int size = 0, bool growable = true})
+  SessionTotalTrainingEffectField({int size = 0, bool growable = true})
       : super(
             name: 'total_training_effect',
             id: ID,
@@ -3750,14 +4417,13 @@ class SessionTotalTrainingEffectField extends Field {
             scale: 10,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 24;
 }
+
 class SessionFirstLapIndexField extends Field {
- SessionFirstLapIndexField({int size = 0, bool growable = true})
+  SessionFirstLapIndexField({int size = 0, bool growable = true})
       : super(
             name: 'first_lap_index',
             id: ID,
@@ -3766,14 +4432,13 @@ class SessionFirstLapIndexField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 25;
 }
+
 class SessionNumLapsField extends Field {
- SessionNumLapsField({int size = 0, bool growable = true})
+  SessionNumLapsField({int size = 0, bool growable = true})
       : super(
             name: 'num_laps',
             id: ID,
@@ -3782,14 +4447,13 @@ class SessionNumLapsField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 26;
 }
+
 class SessionEventGroupField extends Field {
- SessionEventGroupField({int size = 0, bool growable = true})
+  SessionEventGroupField({int size = 0, bool growable = true})
       : super(
             name: 'event_group',
             id: ID,
@@ -3798,14 +4462,13 @@ class SessionEventGroupField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 27;
 }
+
 class SessionTriggerField extends Field {
- SessionTriggerField({int size = 0, bool growable = true})
+  SessionTriggerField({int size = 0, bool growable = true})
       : super(
             name: 'trigger',
             id: ID,
@@ -3814,14 +4477,13 @@ class SessionTriggerField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 28;
 }
+
 class SessionNecLatField extends Field {
- SessionNecLatField({int size = 0, bool growable = true})
+  SessionNecLatField({int size = 0, bool growable = true})
       : super(
             name: 'nec_lat',
             id: ID,
@@ -3832,14 +4494,13 @@ class SessionNecLatField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 29;
 }
+
 class SessionNecLongField extends Field {
- SessionNecLongField({int size = 0, bool growable = true})
+  SessionNecLongField({int size = 0, bool growable = true})
       : super(
             name: 'nec_long',
             id: ID,
@@ -3850,14 +4511,13 @@ class SessionNecLongField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 30;
 }
+
 class SessionSwcLatField extends Field {
- SessionSwcLatField({int size = 0, bool growable = true})
+  SessionSwcLatField({int size = 0, bool growable = true})
       : super(
             name: 'swc_lat',
             id: ID,
@@ -3868,14 +4528,13 @@ class SessionSwcLatField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 31;
 }
+
 class SessionSwcLongField extends Field {
- SessionSwcLongField({int size = 0, bool growable = true})
+  SessionSwcLongField({int size = 0, bool growable = true})
       : super(
             name: 'swc_long',
             id: ID,
@@ -3886,14 +4545,13 @@ class SessionSwcLongField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 32;
 }
+
 class SessionNumLengthsField extends Field {
- SessionNumLengthsField({int size = 0, bool growable = true})
+  SessionNumLengthsField({int size = 0, bool growable = true})
       : super(
             name: 'num_lengths',
             id: ID,
@@ -3904,14 +4562,13 @@ class SessionNumLengthsField extends Field {
             units: 'lengths',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 33;
 }
+
 class SessionNormalizedPowerField extends Field {
- SessionNormalizedPowerField({int size = 0, bool growable = true})
+  SessionNormalizedPowerField({int size = 0, bool growable = true})
       : super(
             name: 'normalized_power',
             id: ID,
@@ -3922,14 +4579,13 @@ class SessionNormalizedPowerField extends Field {
             units: 'watts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 34;
 }
+
 class SessionTrainingStressScoreField extends Field {
- SessionTrainingStressScoreField({int size = 0, bool growable = true})
+  SessionTrainingStressScoreField({int size = 0, bool growable = true})
       : super(
             name: 'training_stress_score',
             id: ID,
@@ -3940,14 +4596,13 @@ class SessionTrainingStressScoreField extends Field {
             units: 'tss',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 35;
 }
+
 class SessionIntensityFactorField extends Field {
- SessionIntensityFactorField({int size = 0, bool growable = true})
+  SessionIntensityFactorField({int size = 0, bool growable = true})
       : super(
             name: 'intensity_factor',
             id: ID,
@@ -3958,14 +4613,13 @@ class SessionIntensityFactorField extends Field {
             units: 'if',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 36;
 }
+
 class SessionLeftRightBalanceField extends Field {
- SessionLeftRightBalanceField({int size = 0, bool growable = true})
+  SessionLeftRightBalanceField({int size = 0, bool growable = true})
       : super(
             name: 'left_right_balance',
             id: ID,
@@ -3974,14 +4628,13 @@ class SessionLeftRightBalanceField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 37;
 }
+
 class SessionAvgStrokeCountField extends Field {
- SessionAvgStrokeCountField({int size = 0, bool growable = true})
+  SessionAvgStrokeCountField({int size = 0, bool growable = true})
       : super(
             name: 'avg_stroke_count',
             id: ID,
@@ -3992,14 +4645,13 @@ class SessionAvgStrokeCountField extends Field {
             units: 'strokes/lap',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 41;
 }
+
 class SessionAvgStrokeDistanceField extends Field {
- SessionAvgStrokeDistanceField({int size = 0, bool growable = true})
+  SessionAvgStrokeDistanceField({int size = 0, bool growable = true})
       : super(
             name: 'avg_stroke_distance',
             id: ID,
@@ -4010,14 +4662,13 @@ class SessionAvgStrokeDistanceField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 42;
 }
+
 class SessionSwimStrokeField extends Field {
- SessionSwimStrokeField({int size = 0, bool growable = true})
+  SessionSwimStrokeField({int size = 0, bool growable = true})
       : super(
             name: 'swim_stroke',
             id: ID,
@@ -4028,14 +4679,13 @@ class SessionSwimStrokeField extends Field {
             units: 'swim_stroke',
             mainTypeName: 'swim_stroke',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 43;
 }
+
 class SessionPoolLengthField extends Field {
- SessionPoolLengthField({int size = 0, bool growable = true})
+  SessionPoolLengthField({int size = 0, bool growable = true})
       : super(
             name: 'pool_length',
             id: ID,
@@ -4046,14 +4696,13 @@ class SessionPoolLengthField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 44;
 }
+
 class SessionThresholdPowerField extends Field {
- SessionThresholdPowerField({int size = 0, bool growable = true})
+  SessionThresholdPowerField({int size = 0, bool growable = true})
       : super(
             name: 'threshold_power',
             id: ID,
@@ -4064,14 +4713,13 @@ class SessionThresholdPowerField extends Field {
             units: 'watts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 45;
 }
+
 class SessionPoolLengthUnitField extends Field {
- SessionPoolLengthUnitField({int size = 0, bool growable = true})
+  SessionPoolLengthUnitField({int size = 0, bool growable = true})
       : super(
             name: 'pool_length_unit',
             id: ID,
@@ -4080,14 +4728,13 @@ class SessionPoolLengthUnitField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 46;
 }
+
 class SessionNumActiveLengthsField extends Field {
- SessionNumActiveLengthsField({int size = 0, bool growable = true})
+  SessionNumActiveLengthsField({int size = 0, bool growable = true})
       : super(
             name: 'num_active_lengths',
             id: ID,
@@ -4098,14 +4745,13 @@ class SessionNumActiveLengthsField extends Field {
             units: 'lengths',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 47;
 }
+
 class SessionTotalWorkField extends Field {
- SessionTotalWorkField({int size = 0, bool growable = true})
+  SessionTotalWorkField({int size = 0, bool growable = true})
       : super(
             name: 'total_work',
             id: ID,
@@ -4116,14 +4762,13 @@ class SessionTotalWorkField extends Field {
             units: 'J',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 48;
 }
+
 class SessionAvgAltitudeField extends Field {
- SessionAvgAltitudeField({int size = 0, bool growable = true})
+  SessionAvgAltitudeField({int size = 0, bool growable = true})
       : super(
             name: 'avg_altitude',
             id: ID,
@@ -4134,14 +4779,13 @@ class SessionAvgAltitudeField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 49;
 }
+
 class SessionMaxAltitudeField extends Field {
- SessionMaxAltitudeField({int size = 0, bool growable = true})
+  SessionMaxAltitudeField({int size = 0, bool growable = true})
       : super(
             name: 'max_altitude',
             id: ID,
@@ -4152,14 +4796,13 @@ class SessionMaxAltitudeField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 50;
 }
+
 class SessionGpsAccuracyField extends Field {
- SessionGpsAccuracyField({int size = 0, bool growable = true})
+  SessionGpsAccuracyField({int size = 0, bool growable = true})
       : super(
             name: 'gps_accuracy',
             id: ID,
@@ -4170,14 +4813,13 @@ class SessionGpsAccuracyField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 51;
 }
+
 class SessionAvgGradeField extends Field {
- SessionAvgGradeField({int size = 0, bool growable = true})
+  SessionAvgGradeField({int size = 0, bool growable = true})
       : super(
             name: 'avg_grade',
             id: ID,
@@ -4188,14 +4830,13 @@ class SessionAvgGradeField extends Field {
             units: '%',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 52;
 }
+
 class SessionAvgPosGradeField extends Field {
- SessionAvgPosGradeField({int size = 0, bool growable = true})
+  SessionAvgPosGradeField({int size = 0, bool growable = true})
       : super(
             name: 'avg_pos_grade',
             id: ID,
@@ -4206,14 +4847,13 @@ class SessionAvgPosGradeField extends Field {
             units: '%',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 53;
 }
+
 class SessionAvgNegGradeField extends Field {
- SessionAvgNegGradeField({int size = 0, bool growable = true})
+  SessionAvgNegGradeField({int size = 0, bool growable = true})
       : super(
             name: 'avg_neg_grade',
             id: ID,
@@ -4224,14 +4864,13 @@ class SessionAvgNegGradeField extends Field {
             units: '%',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 54;
 }
+
 class SessionMaxPosGradeField extends Field {
- SessionMaxPosGradeField({int size = 0, bool growable = true})
+  SessionMaxPosGradeField({int size = 0, bool growable = true})
       : super(
             name: 'max_pos_grade',
             id: ID,
@@ -4242,14 +4881,13 @@ class SessionMaxPosGradeField extends Field {
             units: '%',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 55;
 }
+
 class SessionMaxNegGradeField extends Field {
- SessionMaxNegGradeField({int size = 0, bool growable = true})
+  SessionMaxNegGradeField({int size = 0, bool growable = true})
       : super(
             name: 'max_neg_grade',
             id: ID,
@@ -4260,14 +4898,13 @@ class SessionMaxNegGradeField extends Field {
             units: '%',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 56;
 }
+
 class SessionAvgTemperatureField extends Field {
- SessionAvgTemperatureField({int size = 0, bool growable = true})
+  SessionAvgTemperatureField({int size = 0, bool growable = true})
       : super(
             name: 'avg_temperature',
             id: ID,
@@ -4278,14 +4915,13 @@ class SessionAvgTemperatureField extends Field {
             units: 'C',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 57;
 }
+
 class SessionMaxTemperatureField extends Field {
- SessionMaxTemperatureField({int size = 0, bool growable = true})
+  SessionMaxTemperatureField({int size = 0, bool growable = true})
       : super(
             name: 'max_temperature',
             id: ID,
@@ -4296,14 +4932,13 @@ class SessionMaxTemperatureField extends Field {
             units: 'C',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 58;
 }
+
 class SessionTotalMovingTimeField extends Field {
- SessionTotalMovingTimeField({int size = 0, bool growable = true})
+  SessionTotalMovingTimeField({int size = 0, bool growable = true})
       : super(
             name: 'total_moving_time',
             id: ID,
@@ -4314,14 +4949,13 @@ class SessionTotalMovingTimeField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 59;
 }
+
 class SessionAvgPosVerticalSpeedField extends Field {
- SessionAvgPosVerticalSpeedField({int size = 0, bool growable = true})
+  SessionAvgPosVerticalSpeedField({int size = 0, bool growable = true})
       : super(
             name: 'avg_pos_vertical_speed',
             id: ID,
@@ -4332,14 +4966,13 @@ class SessionAvgPosVerticalSpeedField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 60;
 }
+
 class SessionAvgNegVerticalSpeedField extends Field {
- SessionAvgNegVerticalSpeedField({int size = 0, bool growable = true})
+  SessionAvgNegVerticalSpeedField({int size = 0, bool growable = true})
       : super(
             name: 'avg_neg_vertical_speed',
             id: ID,
@@ -4350,14 +4983,13 @@ class SessionAvgNegVerticalSpeedField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 61;
 }
+
 class SessionMaxPosVerticalSpeedField extends Field {
- SessionMaxPosVerticalSpeedField({int size = 0, bool growable = true})
+  SessionMaxPosVerticalSpeedField({int size = 0, bool growable = true})
       : super(
             name: 'max_pos_vertical_speed',
             id: ID,
@@ -4368,14 +5000,13 @@ class SessionMaxPosVerticalSpeedField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 62;
 }
+
 class SessionMaxNegVerticalSpeedField extends Field {
- SessionMaxNegVerticalSpeedField({int size = 0, bool growable = true})
+  SessionMaxNegVerticalSpeedField({int size = 0, bool growable = true})
       : super(
             name: 'max_neg_vertical_speed',
             id: ID,
@@ -4386,14 +5017,13 @@ class SessionMaxNegVerticalSpeedField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 63;
 }
+
 class SessionMinHeartRateField extends Field {
- SessionMinHeartRateField({int size = 0, bool growable = true})
+  SessionMinHeartRateField({int size = 0, bool growable = true})
       : super(
             name: 'min_heart_rate',
             id: ID,
@@ -4404,14 +5034,13 @@ class SessionMinHeartRateField extends Field {
             units: 'bpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 64;
 }
+
 class SessionTimeInHrZoneField extends Field {
- SessionTimeInHrZoneField({int size = 0, bool growable = true})
+  SessionTimeInHrZoneField({int size = 0, bool growable = true})
       : super(
             name: 'time_in_hr_zone',
             id: ID,
@@ -4422,14 +5051,13 @@ class SessionTimeInHrZoneField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 65;
 }
+
 class SessionTimeInSpeedZoneField extends Field {
- SessionTimeInSpeedZoneField({int size = 0, bool growable = true})
+  SessionTimeInSpeedZoneField({int size = 0, bool growable = true})
       : super(
             name: 'time_in_speed_zone',
             id: ID,
@@ -4440,14 +5068,13 @@ class SessionTimeInSpeedZoneField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 66;
 }
+
 class SessionTimeInCadenceZoneField extends Field {
- SessionTimeInCadenceZoneField({int size = 0, bool growable = true})
+  SessionTimeInCadenceZoneField({int size = 0, bool growable = true})
       : super(
             name: 'time_in_cadence_zone',
             id: ID,
@@ -4458,14 +5085,13 @@ class SessionTimeInCadenceZoneField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 67;
 }
+
 class SessionTimeInPowerZoneField extends Field {
- SessionTimeInPowerZoneField({int size = 0, bool growable = true})
+  SessionTimeInPowerZoneField({int size = 0, bool growable = true})
       : super(
             name: 'time_in_power_zone',
             id: ID,
@@ -4476,14 +5102,13 @@ class SessionTimeInPowerZoneField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 68;
 }
+
 class SessionAvgLapTimeField extends Field {
- SessionAvgLapTimeField({int size = 0, bool growable = true})
+  SessionAvgLapTimeField({int size = 0, bool growable = true})
       : super(
             name: 'avg_lap_time',
             id: ID,
@@ -4494,14 +5119,13 @@ class SessionAvgLapTimeField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 69;
 }
+
 class SessionBestLapIndexField extends Field {
- SessionBestLapIndexField({int size = 0, bool growable = true})
+  SessionBestLapIndexField({int size = 0, bool growable = true})
       : super(
             name: 'best_lap_index',
             id: ID,
@@ -4510,14 +5134,13 @@ class SessionBestLapIndexField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 70;
 }
+
 class SessionMinAltitudeField extends Field {
- SessionMinAltitudeField({int size = 0, bool growable = true})
+  SessionMinAltitudeField({int size = 0, bool growable = true})
       : super(
             name: 'min_altitude',
             id: ID,
@@ -4528,14 +5151,13 @@ class SessionMinAltitudeField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 71;
 }
+
 class SessionPlayerScoreField extends Field {
- SessionPlayerScoreField({int size = 0, bool growable = true})
+  SessionPlayerScoreField({int size = 0, bool growable = true})
       : super(
             name: 'player_score',
             id: ID,
@@ -4544,14 +5166,13 @@ class SessionPlayerScoreField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 82;
 }
+
 class SessionOpponentScoreField extends Field {
- SessionOpponentScoreField({int size = 0, bool growable = true})
+  SessionOpponentScoreField({int size = 0, bool growable = true})
       : super(
             name: 'opponent_score',
             id: ID,
@@ -4560,14 +5181,13 @@ class SessionOpponentScoreField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 83;
 }
+
 class SessionOpponentNameField extends Field {
- SessionOpponentNameField({int size = 0, bool growable = true})
+  SessionOpponentNameField({int size = 0, bool growable = true})
       : super(
             name: 'opponent_name',
             id: ID,
@@ -4576,14 +5196,13 @@ class SessionOpponentNameField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 84;
 }
+
 class SessionStrokeCountField extends Field {
- SessionStrokeCountField({int size = 0, bool growable = true})
+  SessionStrokeCountField({int size = 0, bool growable = true})
       : super(
             name: 'stroke_count',
             id: ID,
@@ -4594,14 +5213,13 @@ class SessionStrokeCountField extends Field {
             units: 'counts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 85;
 }
+
 class SessionZoneCountField extends Field {
- SessionZoneCountField({int size = 0, bool growable = true})
+  SessionZoneCountField({int size = 0, bool growable = true})
       : super(
             name: 'zone_count',
             id: ID,
@@ -4612,14 +5230,13 @@ class SessionZoneCountField extends Field {
             units: 'counts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 86;
 }
+
 class SessionMaxBallSpeedField extends Field {
- SessionMaxBallSpeedField({int size = 0, bool growable = true})
+  SessionMaxBallSpeedField({int size = 0, bool growable = true})
       : super(
             name: 'max_ball_speed',
             id: ID,
@@ -4630,14 +5247,13 @@ class SessionMaxBallSpeedField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 87;
 }
+
 class SessionAvgBallSpeedField extends Field {
- SessionAvgBallSpeedField({int size = 0, bool growable = true})
+  SessionAvgBallSpeedField({int size = 0, bool growable = true})
       : super(
             name: 'avg_ball_speed',
             id: ID,
@@ -4648,14 +5264,13 @@ class SessionAvgBallSpeedField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 88;
 }
+
 class SessionAvgVerticalOscillationField extends Field {
- SessionAvgVerticalOscillationField({int size = 0, bool growable = true})
+  SessionAvgVerticalOscillationField({int size = 0, bool growable = true})
       : super(
             name: 'avg_vertical_oscillation',
             id: ID,
@@ -4666,14 +5281,13 @@ class SessionAvgVerticalOscillationField extends Field {
             units: 'mm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 89;
 }
+
 class SessionAvgStanceTimePercentField extends Field {
- SessionAvgStanceTimePercentField({int size = 0, bool growable = true})
+  SessionAvgStanceTimePercentField({int size = 0, bool growable = true})
       : super(
             name: 'avg_stance_time_percent',
             id: ID,
@@ -4684,14 +5298,13 @@ class SessionAvgStanceTimePercentField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 90;
 }
+
 class SessionAvgStanceTimeField extends Field {
- SessionAvgStanceTimeField({int size = 0, bool growable = true})
+  SessionAvgStanceTimeField({int size = 0, bool growable = true})
       : super(
             name: 'avg_stance_time',
             id: ID,
@@ -4702,14 +5315,13 @@ class SessionAvgStanceTimeField extends Field {
             units: 'ms',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 91;
 }
+
 class SessionAvgFractionalCadenceField extends Field {
- SessionAvgFractionalCadenceField({int size = 0, bool growable = true})
+  SessionAvgFractionalCadenceField({int size = 0, bool growable = true})
       : super(
             name: 'avg_fractional_cadence',
             id: ID,
@@ -4720,14 +5332,13 @@ class SessionAvgFractionalCadenceField extends Field {
             units: 'rpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 92;
 }
+
 class SessionMaxFractionalCadenceField extends Field {
- SessionMaxFractionalCadenceField({int size = 0, bool growable = true})
+  SessionMaxFractionalCadenceField({int size = 0, bool growable = true})
       : super(
             name: 'max_fractional_cadence',
             id: ID,
@@ -4738,14 +5349,13 @@ class SessionMaxFractionalCadenceField extends Field {
             units: 'rpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 93;
 }
+
 class SessionTotalFractionalCyclesField extends Field {
- SessionTotalFractionalCyclesField({int size = 0, bool growable = true})
+  SessionTotalFractionalCyclesField({int size = 0, bool growable = true})
       : super(
             name: 'total_fractional_cycles',
             id: ID,
@@ -4756,14 +5366,13 @@ class SessionTotalFractionalCyclesField extends Field {
             units: 'cycles',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 94;
 }
+
 class SessionAvgTotalHemoglobinConcField extends Field {
- SessionAvgTotalHemoglobinConcField({int size = 0, bool growable = true})
+  SessionAvgTotalHemoglobinConcField({int size = 0, bool growable = true})
       : super(
             name: 'avg_total_hemoglobin_conc',
             id: ID,
@@ -4774,14 +5383,13 @@ class SessionAvgTotalHemoglobinConcField extends Field {
             units: 'g/dL',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 95;
 }
+
 class SessionMinTotalHemoglobinConcField extends Field {
- SessionMinTotalHemoglobinConcField({int size = 0, bool growable = true})
+  SessionMinTotalHemoglobinConcField({int size = 0, bool growable = true})
       : super(
             name: 'min_total_hemoglobin_conc',
             id: ID,
@@ -4792,14 +5400,13 @@ class SessionMinTotalHemoglobinConcField extends Field {
             units: 'g/dL',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 96;
 }
+
 class SessionMaxTotalHemoglobinConcField extends Field {
- SessionMaxTotalHemoglobinConcField({int size = 0, bool growable = true})
+  SessionMaxTotalHemoglobinConcField({int size = 0, bool growable = true})
       : super(
             name: 'max_total_hemoglobin_conc',
             id: ID,
@@ -4810,14 +5417,14 @@ class SessionMaxTotalHemoglobinConcField extends Field {
             units: 'g/dL',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 97;
 }
+
 class SessionAvgSaturatedHemoglobinPercentField extends Field {
- SessionAvgSaturatedHemoglobinPercentField({int size = 0, bool growable = true})
+  SessionAvgSaturatedHemoglobinPercentField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'avg_saturated_hemoglobin_percent',
             id: ID,
@@ -4828,14 +5435,14 @@ class SessionAvgSaturatedHemoglobinPercentField extends Field {
             units: '%',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 98;
 }
+
 class SessionMinSaturatedHemoglobinPercentField extends Field {
- SessionMinSaturatedHemoglobinPercentField({int size = 0, bool growable = true})
+  SessionMinSaturatedHemoglobinPercentField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'min_saturated_hemoglobin_percent',
             id: ID,
@@ -4846,14 +5453,14 @@ class SessionMinSaturatedHemoglobinPercentField extends Field {
             units: '%',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 99;
 }
+
 class SessionMaxSaturatedHemoglobinPercentField extends Field {
- SessionMaxSaturatedHemoglobinPercentField({int size = 0, bool growable = true})
+  SessionMaxSaturatedHemoglobinPercentField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'max_saturated_hemoglobin_percent',
             id: ID,
@@ -4864,14 +5471,13 @@ class SessionMaxSaturatedHemoglobinPercentField extends Field {
             units: '%',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 100;
 }
+
 class SessionAvgLeftTorqueEffectivenessField extends Field {
- SessionAvgLeftTorqueEffectivenessField({int size = 0, bool growable = true})
+  SessionAvgLeftTorqueEffectivenessField({int size = 0, bool growable = true})
       : super(
             name: 'avg_left_torque_effectiveness',
             id: ID,
@@ -4882,14 +5488,13 @@ class SessionAvgLeftTorqueEffectivenessField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 101;
 }
+
 class SessionAvgRightTorqueEffectivenessField extends Field {
- SessionAvgRightTorqueEffectivenessField({int size = 0, bool growable = true})
+  SessionAvgRightTorqueEffectivenessField({int size = 0, bool growable = true})
       : super(
             name: 'avg_right_torque_effectiveness',
             id: ID,
@@ -4900,14 +5505,13 @@ class SessionAvgRightTorqueEffectivenessField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 102;
 }
+
 class SessionAvgLeftPedalSmoothnessField extends Field {
- SessionAvgLeftPedalSmoothnessField({int size = 0, bool growable = true})
+  SessionAvgLeftPedalSmoothnessField({int size = 0, bool growable = true})
       : super(
             name: 'avg_left_pedal_smoothness',
             id: ID,
@@ -4918,14 +5522,13 @@ class SessionAvgLeftPedalSmoothnessField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 103;
 }
+
 class SessionAvgRightPedalSmoothnessField extends Field {
- SessionAvgRightPedalSmoothnessField({int size = 0, bool growable = true})
+  SessionAvgRightPedalSmoothnessField({int size = 0, bool growable = true})
       : super(
             name: 'avg_right_pedal_smoothness',
             id: ID,
@@ -4936,14 +5539,13 @@ class SessionAvgRightPedalSmoothnessField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 104;
 }
+
 class SessionAvgCombinedPedalSmoothnessField extends Field {
- SessionAvgCombinedPedalSmoothnessField({int size = 0, bool growable = true})
+  SessionAvgCombinedPedalSmoothnessField({int size = 0, bool growable = true})
       : super(
             name: 'avg_combined_pedal_smoothness',
             id: ID,
@@ -4954,14 +5556,13 @@ class SessionAvgCombinedPedalSmoothnessField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 105;
 }
+
 class SessionSportIndexField extends Field {
- SessionSportIndexField({int size = 0, bool growable = true})
+  SessionSportIndexField({int size = 0, bool growable = true})
       : super(
             name: 'sport_index',
             id: ID,
@@ -4970,14 +5571,13 @@ class SessionSportIndexField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 111;
 }
+
 class SessionTimeStandingField extends Field {
- SessionTimeStandingField({int size = 0, bool growable = true})
+  SessionTimeStandingField({int size = 0, bool growable = true})
       : super(
             name: 'time_standing',
             id: ID,
@@ -4988,14 +5588,13 @@ class SessionTimeStandingField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 112;
 }
+
 class SessionStandCountField extends Field {
- SessionStandCountField({int size = 0, bool growable = true})
+  SessionStandCountField({int size = 0, bool growable = true})
       : super(
             name: 'stand_count',
             id: ID,
@@ -5004,14 +5603,13 @@ class SessionStandCountField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 113;
 }
+
 class SessionAvgLeftPcoField extends Field {
- SessionAvgLeftPcoField({int size = 0, bool growable = true})
+  SessionAvgLeftPcoField({int size = 0, bool growable = true})
       : super(
             name: 'avg_left_pco',
             id: ID,
@@ -5022,14 +5620,13 @@ class SessionAvgLeftPcoField extends Field {
             units: 'mm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 114;
 }
+
 class SessionAvgRightPcoField extends Field {
- SessionAvgRightPcoField({int size = 0, bool growable = true})
+  SessionAvgRightPcoField({int size = 0, bool growable = true})
       : super(
             name: 'avg_right_pco',
             id: ID,
@@ -5040,14 +5637,13 @@ class SessionAvgRightPcoField extends Field {
             units: 'mm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 115;
 }
+
 class SessionAvgLeftPowerPhaseField extends Field {
- SessionAvgLeftPowerPhaseField({int size = 0, bool growable = true})
+  SessionAvgLeftPowerPhaseField({int size = 0, bool growable = true})
       : super(
             name: 'avg_left_power_phase',
             id: ID,
@@ -5058,14 +5654,13 @@ class SessionAvgLeftPowerPhaseField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 116;
 }
+
 class SessionAvgLeftPowerPhasePeakField extends Field {
- SessionAvgLeftPowerPhasePeakField({int size = 0, bool growable = true})
+  SessionAvgLeftPowerPhasePeakField({int size = 0, bool growable = true})
       : super(
             name: 'avg_left_power_phase_peak',
             id: ID,
@@ -5076,14 +5671,13 @@ class SessionAvgLeftPowerPhasePeakField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 117;
 }
+
 class SessionAvgRightPowerPhaseField extends Field {
- SessionAvgRightPowerPhaseField({int size = 0, bool growable = true})
+  SessionAvgRightPowerPhaseField({int size = 0, bool growable = true})
       : super(
             name: 'avg_right_power_phase',
             id: ID,
@@ -5094,14 +5688,13 @@ class SessionAvgRightPowerPhaseField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 118;
 }
+
 class SessionAvgRightPowerPhasePeakField extends Field {
- SessionAvgRightPowerPhasePeakField({int size = 0, bool growable = true})
+  SessionAvgRightPowerPhasePeakField({int size = 0, bool growable = true})
       : super(
             name: 'avg_right_power_phase_peak',
             id: ID,
@@ -5112,14 +5705,13 @@ class SessionAvgRightPowerPhasePeakField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 119;
 }
+
 class SessionAvgPowerPositionField extends Field {
- SessionAvgPowerPositionField({int size = 0, bool growable = true})
+  SessionAvgPowerPositionField({int size = 0, bool growable = true})
       : super(
             name: 'avg_power_position',
             id: ID,
@@ -5130,14 +5722,13 @@ class SessionAvgPowerPositionField extends Field {
             units: 'watts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 120;
 }
+
 class SessionMaxPowerPositionField extends Field {
- SessionMaxPowerPositionField({int size = 0, bool growable = true})
+  SessionMaxPowerPositionField({int size = 0, bool growable = true})
       : super(
             name: 'max_power_position',
             id: ID,
@@ -5148,14 +5739,13 @@ class SessionMaxPowerPositionField extends Field {
             units: 'watts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 121;
 }
+
 class SessionAvgCadencePositionField extends Field {
- SessionAvgCadencePositionField({int size = 0, bool growable = true})
+  SessionAvgCadencePositionField({int size = 0, bool growable = true})
       : super(
             name: 'avg_cadence_position',
             id: ID,
@@ -5166,14 +5756,13 @@ class SessionAvgCadencePositionField extends Field {
             units: 'rpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 122;
 }
+
 class SessionMaxCadencePositionField extends Field {
- SessionMaxCadencePositionField({int size = 0, bool growable = true})
+  SessionMaxCadencePositionField({int size = 0, bool growable = true})
       : super(
             name: 'max_cadence_position',
             id: ID,
@@ -5184,14 +5773,13 @@ class SessionMaxCadencePositionField extends Field {
             units: 'rpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 123;
 }
+
 class SessionEnhancedAvgSpeedField extends Field {
- SessionEnhancedAvgSpeedField({int size = 0, bool growable = true})
+  SessionEnhancedAvgSpeedField({int size = 0, bool growable = true})
       : super(
             name: 'enhanced_avg_speed',
             id: ID,
@@ -5202,14 +5790,13 @@ class SessionEnhancedAvgSpeedField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 124;
 }
+
 class SessionEnhancedMaxSpeedField extends Field {
- SessionEnhancedMaxSpeedField({int size = 0, bool growable = true})
+  SessionEnhancedMaxSpeedField({int size = 0, bool growable = true})
       : super(
             name: 'enhanced_max_speed',
             id: ID,
@@ -5220,14 +5807,13 @@ class SessionEnhancedMaxSpeedField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 125;
 }
+
 class SessionEnhancedAvgAltitudeField extends Field {
- SessionEnhancedAvgAltitudeField({int size = 0, bool growable = true})
+  SessionEnhancedAvgAltitudeField({int size = 0, bool growable = true})
       : super(
             name: 'enhanced_avg_altitude',
             id: ID,
@@ -5238,14 +5824,13 @@ class SessionEnhancedAvgAltitudeField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 126;
 }
+
 class SessionEnhancedMinAltitudeField extends Field {
- SessionEnhancedMinAltitudeField({int size = 0, bool growable = true})
+  SessionEnhancedMinAltitudeField({int size = 0, bool growable = true})
       : super(
             name: 'enhanced_min_altitude',
             id: ID,
@@ -5256,14 +5841,13 @@ class SessionEnhancedMinAltitudeField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 127;
 }
+
 class SessionEnhancedMaxAltitudeField extends Field {
- SessionEnhancedMaxAltitudeField({int size = 0, bool growable = true})
+  SessionEnhancedMaxAltitudeField({int size = 0, bool growable = true})
       : super(
             name: 'enhanced_max_altitude',
             id: ID,
@@ -5274,14 +5858,13 @@ class SessionEnhancedMaxAltitudeField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 128;
 }
+
 class SessionAvgLevMotorPowerField extends Field {
- SessionAvgLevMotorPowerField({int size = 0, bool growable = true})
+  SessionAvgLevMotorPowerField({int size = 0, bool growable = true})
       : super(
             name: 'avg_lev_motor_power',
             id: ID,
@@ -5292,14 +5875,13 @@ class SessionAvgLevMotorPowerField extends Field {
             units: 'watts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 129;
 }
+
 class SessionMaxLevMotorPowerField extends Field {
- SessionMaxLevMotorPowerField({int size = 0, bool growable = true})
+  SessionMaxLevMotorPowerField({int size = 0, bool growable = true})
       : super(
             name: 'max_lev_motor_power',
             id: ID,
@@ -5310,14 +5892,13 @@ class SessionMaxLevMotorPowerField extends Field {
             units: 'watts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 130;
 }
+
 class SessionLevBatteryConsumptionField extends Field {
- SessionLevBatteryConsumptionField({int size = 0, bool growable = true})
+  SessionLevBatteryConsumptionField({int size = 0, bool growable = true})
       : super(
             name: 'lev_battery_consumption',
             id: ID,
@@ -5328,14 +5909,13 @@ class SessionLevBatteryConsumptionField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 131;
 }
+
 class SessionAvgVerticalRatioField extends Field {
- SessionAvgVerticalRatioField({int size = 0, bool growable = true})
+  SessionAvgVerticalRatioField({int size = 0, bool growable = true})
       : super(
             name: 'avg_vertical_ratio',
             id: ID,
@@ -5346,14 +5926,13 @@ class SessionAvgVerticalRatioField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 132;
 }
+
 class SessionAvgStanceTimeBalanceField extends Field {
- SessionAvgStanceTimeBalanceField({int size = 0, bool growable = true})
+  SessionAvgStanceTimeBalanceField({int size = 0, bool growable = true})
       : super(
             name: 'avg_stance_time_balance',
             id: ID,
@@ -5364,14 +5943,13 @@ class SessionAvgStanceTimeBalanceField extends Field {
             units: 'percent',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 133;
 }
+
 class SessionAvgStepLengthField extends Field {
- SessionAvgStepLengthField({int size = 0, bool growable = true})
+  SessionAvgStepLengthField({int size = 0, bool growable = true})
       : super(
             name: 'avg_step_length',
             id: ID,
@@ -5382,14 +5960,13 @@ class SessionAvgStepLengthField extends Field {
             units: 'mm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 134;
 }
+
 class SessionTotalAnaerobicTrainingEffectField extends Field {
- SessionTotalAnaerobicTrainingEffectField({int size = 0, bool growable = true})
+  SessionTotalAnaerobicTrainingEffectField({int size = 0, bool growable = true})
       : super(
             name: 'total_anaerobic_training_effect',
             id: ID,
@@ -5398,14 +5975,13 @@ class SessionTotalAnaerobicTrainingEffectField extends Field {
             scale: 10,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 137;
 }
+
 class SessionAvgVamField extends Field {
- SessionAvgVamField({int size = 0, bool growable = true})
+  SessionAvgVamField({int size = 0, bool growable = true})
       : super(
             name: 'avg_vam',
             id: ID,
@@ -5416,14 +5992,13 @@ class SessionAvgVamField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 139;
 }
+
 class SessionTotalGritField extends Field {
- SessionTotalGritField({int size = 0, bool growable = true})
+  SessionTotalGritField({int size = 0, bool growable = true})
       : super(
             name: 'total_grit',
             id: ID,
@@ -5434,14 +6009,13 @@ class SessionTotalGritField extends Field {
             units: 'kGrit',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 181;
 }
+
 class SessionTotalFlowField extends Field {
- SessionTotalFlowField({int size = 0, bool growable = true})
+  SessionTotalFlowField({int size = 0, bool growable = true})
       : super(
             name: 'total_flow',
             id: ID,
@@ -5452,14 +6026,13 @@ class SessionTotalFlowField extends Field {
             units: 'Flow',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 182;
 }
+
 class SessionJumpCountField extends Field {
- SessionJumpCountField({int size = 0, bool growable = true})
+  SessionJumpCountField({int size = 0, bool growable = true})
       : super(
             name: 'jump_count',
             id: ID,
@@ -5468,14 +6041,13 @@ class SessionJumpCountField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 183;
 }
+
 class SessionAvgGritField extends Field {
- SessionAvgGritField({int size = 0, bool growable = true})
+  SessionAvgGritField({int size = 0, bool growable = true})
       : super(
             name: 'avg_grit',
             id: ID,
@@ -5486,14 +6058,13 @@ class SessionAvgGritField extends Field {
             units: 'kGrit',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 186;
 }
+
 class SessionAvgFlowField extends Field {
- SessionAvgFlowField({int size = 0, bool growable = true})
+  SessionAvgFlowField({int size = 0, bool growable = true})
       : super(
             name: 'avg_flow',
             id: ID,
@@ -5504,14 +6075,13 @@ class SessionAvgFlowField extends Field {
             units: 'Flow',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 187;
 }
+
 class SessionTotalFractionalAscentField extends Field {
- SessionTotalFractionalAscentField({int size = 0, bool growable = true})
+  SessionTotalFractionalAscentField({int size = 0, bool growable = true})
       : super(
             name: 'total_fractional_ascent',
             id: ID,
@@ -5522,14 +6092,13 @@ class SessionTotalFractionalAscentField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 199;
 }
+
 class SessionTotalFractionalDescentField extends Field {
- SessionTotalFractionalDescentField({int size = 0, bool growable = true})
+  SessionTotalFractionalDescentField({int size = 0, bool growable = true})
       : super(
             name: 'total_fractional_descent',
             id: ID,
@@ -5540,14 +6109,13 @@ class SessionTotalFractionalDescentField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 200;
 }
+
 class SessionAvgCoreTemperatureField extends Field {
- SessionAvgCoreTemperatureField({int size = 0, bool growable = true})
+  SessionAvgCoreTemperatureField({int size = 0, bool growable = true})
       : super(
             name: 'avg_core_temperature',
             id: ID,
@@ -5558,14 +6126,13 @@ class SessionAvgCoreTemperatureField extends Field {
             units: 'C',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 208;
 }
+
 class SessionMinCoreTemperatureField extends Field {
- SessionMinCoreTemperatureField({int size = 0, bool growable = true})
+  SessionMinCoreTemperatureField({int size = 0, bool growable = true})
       : super(
             name: 'min_core_temperature',
             id: ID,
@@ -5576,14 +6143,13 @@ class SessionMinCoreTemperatureField extends Field {
             units: 'C',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 209;
 }
+
 class SessionMaxCoreTemperatureField extends Field {
- SessionMaxCoreTemperatureField({int size = 0, bool growable = true})
+  SessionMaxCoreTemperatureField({int size = 0, bool growable = true})
       : super(
             name: 'max_core_temperature',
             id: ID,
@@ -5594,9 +6160,7 @@ class SessionMaxCoreTemperatureField extends Field {
             units: 'C',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 210;
 }

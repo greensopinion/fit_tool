@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class HrvMessage extends DataMessage {
-
-   HrvMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  HrvMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: HrvMessage.NAME,
@@ -25,7 +27,10 @@ class HrvMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               HrvTimeField(
-                  size: definitionMessage?.getFieldDefinition(HrvTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(HrvTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -41,9 +46,8 @@ class HrvMessage extends DataMessage {
     return message;
   }
 
-
   double? get time {
-     final field = getField(HrvTimeField.ID);
+    final field = getField(HrvTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -51,7 +55,8 @@ class HrvMessage extends DataMessage {
       return null;
     }
   }
-   set time(double? value) {
+
+  set time(double? value) {
     final field = getField(HrvTimeField.ID);
 
     if (field != null) {
@@ -63,15 +68,10 @@ class HrvMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class HrvTimeField extends Field {
- HrvTimeField({int size = 0, bool growable = true})
+  HrvTimeField({int size = 0, bool growable = true})
       : super(
             name: 'time',
             id: ID,
@@ -82,9 +82,7 @@ class HrvTimeField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }

@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class WatchfaceSettingsMessage extends DataMessage {
-
-   WatchfaceSettingsMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  WatchfaceSettingsMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: WatchfaceSettingsMessage.NAME,
@@ -25,13 +27,22 @@ class WatchfaceSettingsMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               MessageIndexField(
-                  size: definitionMessage?.getFieldDefinition(MessageIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WatchfaceSettingsModeField(
-                  size: definitionMessage?.getFieldDefinition(WatchfaceSettingsModeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(WatchfaceSettingsModeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WatchfaceSettingsLayoutField(
-                  size: definitionMessage?.getFieldDefinition(WatchfaceSettingsLayoutField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(WatchfaceSettingsLayoutField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -42,14 +53,14 @@ class WatchfaceSettingsMessage extends DataMessage {
 
   static WatchfaceSettingsMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
-    final message = WatchfaceSettingsMessage(definitionMessage: definitionMessage);
+    final message =
+        WatchfaceSettingsMessage(definitionMessage: definitionMessage);
     message.readFromBytes(bytes);
     return message;
   }
 
-
   int? get messageIndex {
-     final field = getField(MessageIndexField.ID);
+    final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -57,7 +68,8 @@ class WatchfaceSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set messageIndex(int? value) {
+
+  set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
     if (field != null) {
@@ -69,9 +81,10 @@ class WatchfaceSettingsMessage extends DataMessage {
       }
     }
   }
+
   WatchfaceMode? get mode {
-     final field = getField(WatchfaceSettingsModeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(WatchfaceSettingsModeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -82,7 +95,8 @@ class WatchfaceSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set mode(WatchfaceMode? value) {
+
+  set mode(WatchfaceMode? value) {
     final field = getField(WatchfaceSettingsModeField.ID);
 
     if (field != null) {
@@ -94,8 +108,9 @@ class WatchfaceSettingsMessage extends DataMessage {
       }
     }
   }
+
   int? get layout {
-     final field = getField(WatchfaceSettingsLayoutField.ID);
+    final field = getField(WatchfaceSettingsLayoutField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -103,7 +118,8 @@ class WatchfaceSettingsMessage extends DataMessage {
       return null;
     }
   }
-   set layout(int? value) {
+
+  set layout(int? value) {
     final field = getField(WatchfaceSettingsLayoutField.ID);
 
     if (field != null) {
@@ -117,13 +133,14 @@ class WatchfaceSettingsMessage extends DataMessage {
   }
 
   DigitalWatchfaceLayout? get digitalLayout {
-     final field = getField(WatchfaceSettingsLayoutField.ID);
-     final typeField = getField(WatchfaceSettingsModeField.ID);
+    final field = getField(WatchfaceSettingsLayoutField.ID);
+    final typeField = getField(WatchfaceSettingsModeField.ID);
 
-     final isSubFieldValid = typeField != null && [0].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [0].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -131,7 +148,7 @@ class WatchfaceSettingsMessage extends DataMessage {
 
   set digitalLayout(DigitalWatchfaceLayout? value) {
     final field = getField(WatchfaceSettingsLayoutField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -142,13 +159,14 @@ class WatchfaceSettingsMessage extends DataMessage {
   }
 
   AnalogWatchfaceLayout? get analogLayout {
-     final field = getField(WatchfaceSettingsLayoutField.ID);
-     final typeField = getField(WatchfaceSettingsModeField.ID);
+    final field = getField(WatchfaceSettingsLayoutField.ID);
+    final typeField = getField(WatchfaceSettingsModeField.ID);
 
-     final isSubFieldValid = typeField != null && [1].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [1].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -156,7 +174,7 @@ class WatchfaceSettingsMessage extends DataMessage {
 
   set analogLayout(AnalogWatchfaceLayout? value) {
     final field = getField(WatchfaceSettingsLayoutField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -165,15 +183,10 @@ class WatchfaceSettingsMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class WatchfaceSettingsModeField extends Field {
- WatchfaceSettingsModeField({int size = 0, bool growable = true})
+  WatchfaceSettingsModeField({int size = 0, bool growable = true})
       : super(
             name: 'mode',
             id: ID,
@@ -182,14 +195,13 @@ class WatchfaceSettingsModeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class WatchfaceSettingsLayoutField extends Field {
- WatchfaceSettingsLayoutField({int size = 0, bool growable = true})
+  WatchfaceSettingsLayoutField({int size = 0, bool growable = true})
       : super(
             name: 'layout',
             id: ID,
@@ -199,24 +211,23 @@ class WatchfaceSettingsLayoutField extends Field {
             size: size,
             growable: growable,
             subFields: [
-       SubField(
+              SubField(
                   name: 'digital_layout',
                   type: BaseType.ENUM,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  WatchfaceSettingsModeField.ID: [0]
+                    WatchfaceSettingsModeField.ID: [0]
                   }),
-       SubField(
+              SubField(
                   name: 'analog_layout',
                   type: BaseType.ENUM,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  WatchfaceSettingsModeField.ID: [1]
+                    WatchfaceSettingsModeField.ID: [1]
                   })
-            ]
- );
+            ]);
 
   static const ID = 1;
 }

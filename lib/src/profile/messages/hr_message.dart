@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class HrMessage extends DataMessage {
-
-   HrMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  HrMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: HrMessage.NAME,
@@ -25,22 +27,40 @@ class HrMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               HrFractionalTimestampField(
-                  size: definitionMessage?.getFieldDefinition(HrFractionalTimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(HrFractionalTimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               HrTime256Field(
-                  size: definitionMessage?.getFieldDefinition(HrTime256Field.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(HrTime256Field.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               HrFilteredBpmField(
-                  size: definitionMessage?.getFieldDefinition(HrFilteredBpmField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(HrFilteredBpmField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               HrEventTimestampField(
-                  size: definitionMessage?.getFieldDefinition(HrEventTimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(HrEventTimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               HrEventTimestamp12Field(
-                  size: definitionMessage?.getFieldDefinition(HrEventTimestamp12Field.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(HrEventTimestamp12Field.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -56,10 +76,9 @@ class HrMessage extends DataMessage {
     return message;
   }
 
-
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -67,8 +86,9 @@ class HrMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -80,8 +100,9 @@ class HrMessage extends DataMessage {
       }
     }
   }
+
   double? get fractionalTimestamp {
-     final field = getField(HrFractionalTimestampField.ID);
+    final field = getField(HrFractionalTimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -89,7 +110,8 @@ class HrMessage extends DataMessage {
       return null;
     }
   }
-   set fractionalTimestamp(double? value) {
+
+  set fractionalTimestamp(double? value) {
     final field = getField(HrFractionalTimestampField.ID);
 
     if (field != null) {
@@ -101,8 +123,9 @@ class HrMessage extends DataMessage {
       }
     }
   }
+
   double? get time256 {
-     final field = getField(HrTime256Field.ID);
+    final field = getField(HrTime256Field.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -110,7 +133,8 @@ class HrMessage extends DataMessage {
       return null;
     }
   }
-   set time256(double? value) {
+
+  set time256(double? value) {
     final field = getField(HrTime256Field.ID);
 
     if (field != null) {
@@ -122,8 +146,9 @@ class HrMessage extends DataMessage {
       }
     }
   }
+
   int? get filteredBpm {
-     final field = getField(HrFilteredBpmField.ID);
+    final field = getField(HrFilteredBpmField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -131,7 +156,8 @@ class HrMessage extends DataMessage {
       return null;
     }
   }
-   set filteredBpm(int? value) {
+
+  set filteredBpm(int? value) {
     final field = getField(HrFilteredBpmField.ID);
 
     if (field != null) {
@@ -143,8 +169,9 @@ class HrMessage extends DataMessage {
       }
     }
   }
+
   double? get eventTimestamp {
-     final field = getField(HrEventTimestampField.ID);
+    final field = getField(HrEventTimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -152,7 +179,8 @@ class HrMessage extends DataMessage {
       return null;
     }
   }
-   set eventTimestamp(double? value) {
+
+  set eventTimestamp(double? value) {
     final field = getField(HrEventTimestampField.ID);
 
     if (field != null) {
@@ -164,8 +192,9 @@ class HrMessage extends DataMessage {
       }
     }
   }
+
   int? get eventTimestamp12 {
-     final field = getField(HrEventTimestamp12Field.ID);
+    final field = getField(HrEventTimestamp12Field.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -173,7 +202,8 @@ class HrMessage extends DataMessage {
       return null;
     }
   }
-   set eventTimestamp12(int? value) {
+
+  set eventTimestamp12(int? value) {
     final field = getField(HrEventTimestamp12Field.ID);
 
     if (field != null) {
@@ -185,15 +215,10 @@ class HrMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class HrFractionalTimestampField extends Field {
- HrFractionalTimestampField({int size = 0, bool growable = true})
+  HrFractionalTimestampField({int size = 0, bool growable = true})
       : super(
             name: 'fractional_timestamp',
             id: ID,
@@ -204,14 +229,13 @@ class HrFractionalTimestampField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class HrTime256Field extends Field {
- HrTime256Field({int size = 0, bool growable = true})
+  HrTime256Field({int size = 0, bool growable = true})
       : super(
             name: 'time256',
             id: ID,
@@ -222,14 +246,13 @@ class HrTime256Field extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class HrFilteredBpmField extends Field {
- HrFilteredBpmField({int size = 0, bool growable = true})
+  HrFilteredBpmField({int size = 0, bool growable = true})
       : super(
             name: 'filtered_bpm',
             id: ID,
@@ -240,14 +263,13 @@ class HrFilteredBpmField extends Field {
             units: 'bpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 6;
 }
+
 class HrEventTimestampField extends Field {
- HrEventTimestampField({int size = 0, bool growable = true})
+  HrEventTimestampField({int size = 0, bool growable = true})
       : super(
             name: 'event_timestamp',
             id: ID,
@@ -258,14 +280,13 @@ class HrEventTimestampField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 9;
 }
+
 class HrEventTimestamp12Field extends Field {
- HrEventTimestamp12Field({int size = 0, bool growable = true})
+  HrEventTimestamp12Field({int size = 0, bool growable = true})
       : super(
             name: 'event_timestamp_12',
             id: ID,
@@ -276,9 +297,7 @@ class HrEventTimestamp12Field extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 10;
 }

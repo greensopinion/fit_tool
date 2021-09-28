@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class TotalsMessage extends DataMessage {
-
-   TotalsMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  TotalsMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: TotalsMessage.NAME,
@@ -25,34 +27,64 @@ class TotalsMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               MessageIndexField(
-                  size: definitionMessage?.getFieldDefinition(MessageIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               TotalsTimerTimeField(
-                  size: definitionMessage?.getFieldDefinition(TotalsTimerTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TotalsTimerTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               TotalsDistanceField(
-                  size: definitionMessage?.getFieldDefinition(TotalsDistanceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TotalsDistanceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               TotalsCaloriesField(
-                  size: definitionMessage?.getFieldDefinition(TotalsCaloriesField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TotalsCaloriesField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               TotalsSportField(
-                  size: definitionMessage?.getFieldDefinition(TotalsSportField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TotalsSportField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               TotalsElapsedTimeField(
-                  size: definitionMessage?.getFieldDefinition(TotalsElapsedTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TotalsElapsedTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               TotalsSessionsField(
-                  size: definitionMessage?.getFieldDefinition(TotalsSessionsField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TotalsSessionsField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               TotalsActiveTimeField(
-                  size: definitionMessage?.getFieldDefinition(TotalsActiveTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TotalsActiveTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               TotalsSportIndexField(
-                  size: definitionMessage?.getFieldDefinition(TotalsSportIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TotalsSportIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -68,9 +100,8 @@ class TotalsMessage extends DataMessage {
     return message;
   }
 
-
   int? get messageIndex {
-     final field = getField(MessageIndexField.ID);
+    final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -78,7 +109,8 @@ class TotalsMessage extends DataMessage {
       return null;
     }
   }
-   set messageIndex(int? value) {
+
+  set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
     if (field != null) {
@@ -90,9 +122,10 @@ class TotalsMessage extends DataMessage {
       }
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -100,8 +133,9 @@ class TotalsMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -113,8 +147,9 @@ class TotalsMessage extends DataMessage {
       }
     }
   }
+
   int? get timerTime {
-     final field = getField(TotalsTimerTimeField.ID);
+    final field = getField(TotalsTimerTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -122,7 +157,8 @@ class TotalsMessage extends DataMessage {
       return null;
     }
   }
-   set timerTime(int? value) {
+
+  set timerTime(int? value) {
     final field = getField(TotalsTimerTimeField.ID);
 
     if (field != null) {
@@ -134,8 +170,9 @@ class TotalsMessage extends DataMessage {
       }
     }
   }
+
   int? get distance {
-     final field = getField(TotalsDistanceField.ID);
+    final field = getField(TotalsDistanceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -143,7 +180,8 @@ class TotalsMessage extends DataMessage {
       return null;
     }
   }
-   set distance(int? value) {
+
+  set distance(int? value) {
     final field = getField(TotalsDistanceField.ID);
 
     if (field != null) {
@@ -155,8 +193,9 @@ class TotalsMessage extends DataMessage {
       }
     }
   }
+
   int? get calories {
-     final field = getField(TotalsCaloriesField.ID);
+    final field = getField(TotalsCaloriesField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -164,7 +203,8 @@ class TotalsMessage extends DataMessage {
       return null;
     }
   }
-   set calories(int? value) {
+
+  set calories(int? value) {
     final field = getField(TotalsCaloriesField.ID);
 
     if (field != null) {
@@ -176,9 +216,10 @@ class TotalsMessage extends DataMessage {
       }
     }
   }
+
   Sport? get sport {
-     final field = getField(TotalsSportField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(TotalsSportField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -189,7 +230,8 @@ class TotalsMessage extends DataMessage {
       return null;
     }
   }
-   set sport(Sport? value) {
+
+  set sport(Sport? value) {
     final field = getField(TotalsSportField.ID);
 
     if (field != null) {
@@ -201,8 +243,9 @@ class TotalsMessage extends DataMessage {
       }
     }
   }
+
   int? get elapsedTime {
-     final field = getField(TotalsElapsedTimeField.ID);
+    final field = getField(TotalsElapsedTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -210,7 +253,8 @@ class TotalsMessage extends DataMessage {
       return null;
     }
   }
-   set elapsedTime(int? value) {
+
+  set elapsedTime(int? value) {
     final field = getField(TotalsElapsedTimeField.ID);
 
     if (field != null) {
@@ -222,8 +266,9 @@ class TotalsMessage extends DataMessage {
       }
     }
   }
+
   int? get sessions {
-     final field = getField(TotalsSessionsField.ID);
+    final field = getField(TotalsSessionsField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -231,7 +276,8 @@ class TotalsMessage extends DataMessage {
       return null;
     }
   }
-   set sessions(int? value) {
+
+  set sessions(int? value) {
     final field = getField(TotalsSessionsField.ID);
 
     if (field != null) {
@@ -243,8 +289,9 @@ class TotalsMessage extends DataMessage {
       }
     }
   }
+
   int? get activeTime {
-     final field = getField(TotalsActiveTimeField.ID);
+    final field = getField(TotalsActiveTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -252,7 +299,8 @@ class TotalsMessage extends DataMessage {
       return null;
     }
   }
-   set activeTime(int? value) {
+
+  set activeTime(int? value) {
     final field = getField(TotalsActiveTimeField.ID);
 
     if (field != null) {
@@ -264,8 +312,9 @@ class TotalsMessage extends DataMessage {
       }
     }
   }
+
   int? get sportIndex {
-     final field = getField(TotalsSportIndexField.ID);
+    final field = getField(TotalsSportIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -273,7 +322,8 @@ class TotalsMessage extends DataMessage {
       return null;
     }
   }
-   set sportIndex(int? value) {
+
+  set sportIndex(int? value) {
     final field = getField(TotalsSportIndexField.ID);
 
     if (field != null) {
@@ -285,15 +335,10 @@ class TotalsMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class TotalsTimerTimeField extends Field {
- TotalsTimerTimeField({int size = 0, bool growable = true})
+  TotalsTimerTimeField({int size = 0, bool growable = true})
       : super(
             name: 'timer_time',
             id: ID,
@@ -304,14 +349,13 @@ class TotalsTimerTimeField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class TotalsDistanceField extends Field {
- TotalsDistanceField({int size = 0, bool growable = true})
+  TotalsDistanceField({int size = 0, bool growable = true})
       : super(
             name: 'distance',
             id: ID,
@@ -322,14 +366,13 @@ class TotalsDistanceField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class TotalsCaloriesField extends Field {
- TotalsCaloriesField({int size = 0, bool growable = true})
+  TotalsCaloriesField({int size = 0, bool growable = true})
       : super(
             name: 'calories',
             id: ID,
@@ -340,14 +383,13 @@ class TotalsCaloriesField extends Field {
             units: 'kcal',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class TotalsSportField extends Field {
- TotalsSportField({int size = 0, bool growable = true})
+  TotalsSportField({int size = 0, bool growable = true})
       : super(
             name: 'sport',
             id: ID,
@@ -356,14 +398,13 @@ class TotalsSportField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class TotalsElapsedTimeField extends Field {
- TotalsElapsedTimeField({int size = 0, bool growable = true})
+  TotalsElapsedTimeField({int size = 0, bool growable = true})
       : super(
             name: 'elapsed_time',
             id: ID,
@@ -374,14 +415,13 @@ class TotalsElapsedTimeField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class TotalsSessionsField extends Field {
- TotalsSessionsField({int size = 0, bool growable = true})
+  TotalsSessionsField({int size = 0, bool growable = true})
       : super(
             name: 'sessions',
             id: ID,
@@ -390,14 +430,13 @@ class TotalsSessionsField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }
+
 class TotalsActiveTimeField extends Field {
- TotalsActiveTimeField({int size = 0, bool growable = true})
+  TotalsActiveTimeField({int size = 0, bool growable = true})
       : super(
             name: 'active_time',
             id: ID,
@@ -408,14 +447,13 @@ class TotalsActiveTimeField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 6;
 }
+
 class TotalsSportIndexField extends Field {
- TotalsSportIndexField({int size = 0, bool growable = true})
+  TotalsSportIndexField({int size = 0, bool growable = true})
       : super(
             name: 'sport_index',
             id: ID,
@@ -424,9 +462,7 @@ class TotalsSportIndexField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 9;
 }

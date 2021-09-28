@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class PowerZoneMessage extends DataMessage {
-
-   PowerZoneMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  PowerZoneMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: PowerZoneMessage.NAME,
@@ -25,13 +27,22 @@ class PowerZoneMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               MessageIndexField(
-                  size: definitionMessage?.getFieldDefinition(MessageIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               PowerZoneHighValueField(
-                  size: definitionMessage?.getFieldDefinition(PowerZoneHighValueField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(PowerZoneHighValueField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               PowerZoneNameField(
-                  size: definitionMessage?.getFieldDefinition(PowerZoneNameField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(PowerZoneNameField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -47,9 +58,8 @@ class PowerZoneMessage extends DataMessage {
     return message;
   }
 
-
   int? get messageIndex {
-     final field = getField(MessageIndexField.ID);
+    final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -57,7 +67,8 @@ class PowerZoneMessage extends DataMessage {
       return null;
     }
   }
-   set messageIndex(int? value) {
+
+  set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
     if (field != null) {
@@ -69,8 +80,9 @@ class PowerZoneMessage extends DataMessage {
       }
     }
   }
+
   int? get highValue {
-     final field = getField(PowerZoneHighValueField.ID);
+    final field = getField(PowerZoneHighValueField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -78,7 +90,8 @@ class PowerZoneMessage extends DataMessage {
       return null;
     }
   }
-   set highValue(int? value) {
+
+  set highValue(int? value) {
     final field = getField(PowerZoneHighValueField.ID);
 
     if (field != null) {
@@ -90,8 +103,9 @@ class PowerZoneMessage extends DataMessage {
       }
     }
   }
+
   String? get powerZoneName {
-     final field = getField(PowerZoneNameField.ID);
+    final field = getField(PowerZoneNameField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -99,7 +113,8 @@ class PowerZoneMessage extends DataMessage {
       return null;
     }
   }
-   set powerZoneName(String? value) {
+
+  set powerZoneName(String? value) {
     final field = getField(PowerZoneNameField.ID);
 
     if (field != null) {
@@ -111,15 +126,10 @@ class PowerZoneMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class PowerZoneHighValueField extends Field {
- PowerZoneHighValueField({int size = 0, bool growable = true})
+  PowerZoneHighValueField({int size = 0, bool growable = true})
       : super(
             name: 'high_value',
             id: ID,
@@ -130,14 +140,13 @@ class PowerZoneHighValueField extends Field {
             units: 'watts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class PowerZoneNameField extends Field {
- PowerZoneNameField({int size = 0, bool growable = true})
+  PowerZoneNameField({int size = 0, bool growable = true})
       : super(
             name: 'name',
             id: ID,
@@ -146,9 +155,7 @@ class PowerZoneNameField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }

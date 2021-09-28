@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class SegmentLeaderboardEntryMessage extends DataMessage {
-
-   SegmentLeaderboardEntryMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  SegmentLeaderboardEntryMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: SegmentLeaderboardEntryMessage.NAME,
@@ -25,25 +27,52 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               MessageIndexField(
-                  size: definitionMessage?.getFieldDefinition(MessageIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLeaderboardEntryNameField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLeaderboardEntryNameField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLeaderboardEntryNameField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLeaderboardEntryTypeField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLeaderboardEntryTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLeaderboardEntryTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLeaderboardEntryGroupPrimaryKeyField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLeaderboardEntryGroupPrimaryKeyField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLeaderboardEntryGroupPrimaryKeyField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLeaderboardEntryActivityIdField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLeaderboardEntryActivityIdField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLeaderboardEntryActivityIdField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLeaderboardEntrySegmentTimeField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLeaderboardEntrySegmentTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLeaderboardEntrySegmentTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SegmentLeaderboardEntryActivityIdStringField(
-                  size: definitionMessage?.getFieldDefinition(SegmentLeaderboardEntryActivityIdStringField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SegmentLeaderboardEntryActivityIdStringField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -54,14 +83,14 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
 
   static SegmentLeaderboardEntryMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
-    final message = SegmentLeaderboardEntryMessage(definitionMessage: definitionMessage);
+    final message =
+        SegmentLeaderboardEntryMessage(definitionMessage: definitionMessage);
     message.readFromBytes(bytes);
     return message;
   }
 
-
   int? get messageIndex {
-     final field = getField(MessageIndexField.ID);
+    final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -69,7 +98,8 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
       return null;
     }
   }
-   set messageIndex(int? value) {
+
+  set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
     if (field != null) {
@@ -81,8 +111,9 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
       }
     }
   }
+
   String? get segmentLeaderboardEntryName {
-     final field = getField(SegmentLeaderboardEntryNameField.ID);
+    final field = getField(SegmentLeaderboardEntryNameField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -90,7 +121,8 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
       return null;
     }
   }
-   set segmentLeaderboardEntryName(String? value) {
+
+  set segmentLeaderboardEntryName(String? value) {
     final field = getField(SegmentLeaderboardEntryNameField.ID);
 
     if (field != null) {
@@ -102,9 +134,10 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
       }
     }
   }
+
   SegmentLeaderboardType? get type {
-     final field = getField(SegmentLeaderboardEntryTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(SegmentLeaderboardEntryTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -115,7 +148,8 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
       return null;
     }
   }
-   set type(SegmentLeaderboardType? value) {
+
+  set type(SegmentLeaderboardType? value) {
     final field = getField(SegmentLeaderboardEntryTypeField.ID);
 
     if (field != null) {
@@ -127,8 +161,9 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
       }
     }
   }
+
   int? get groupPrimaryKey {
-     final field = getField(SegmentLeaderboardEntryGroupPrimaryKeyField.ID);
+    final field = getField(SegmentLeaderboardEntryGroupPrimaryKeyField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -136,7 +171,8 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
       return null;
     }
   }
-   set groupPrimaryKey(int? value) {
+
+  set groupPrimaryKey(int? value) {
     final field = getField(SegmentLeaderboardEntryGroupPrimaryKeyField.ID);
 
     if (field != null) {
@@ -148,8 +184,9 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
       }
     }
   }
+
   int? get activityId {
-     final field = getField(SegmentLeaderboardEntryActivityIdField.ID);
+    final field = getField(SegmentLeaderboardEntryActivityIdField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -157,7 +194,8 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
       return null;
     }
   }
-   set activityId(int? value) {
+
+  set activityId(int? value) {
     final field = getField(SegmentLeaderboardEntryActivityIdField.ID);
 
     if (field != null) {
@@ -169,8 +207,9 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
       }
     }
   }
+
   double? get segmentTime {
-     final field = getField(SegmentLeaderboardEntrySegmentTimeField.ID);
+    final field = getField(SegmentLeaderboardEntrySegmentTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -178,7 +217,8 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
       return null;
     }
   }
-   set segmentTime(double? value) {
+
+  set segmentTime(double? value) {
     final field = getField(SegmentLeaderboardEntrySegmentTimeField.ID);
 
     if (field != null) {
@@ -190,8 +230,9 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
       }
     }
   }
+
   String? get activityIdString {
-     final field = getField(SegmentLeaderboardEntryActivityIdStringField.ID);
+    final field = getField(SegmentLeaderboardEntryActivityIdStringField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -199,7 +240,8 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
       return null;
     }
   }
-   set activityIdString(String? value) {
+
+  set activityIdString(String? value) {
     final field = getField(SegmentLeaderboardEntryActivityIdStringField.ID);
 
     if (field != null) {
@@ -211,15 +253,10 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class SegmentLeaderboardEntryNameField extends Field {
- SegmentLeaderboardEntryNameField({int size = 0, bool growable = true})
+  SegmentLeaderboardEntryNameField({int size = 0, bool growable = true})
       : super(
             name: 'name',
             id: ID,
@@ -228,14 +265,13 @@ class SegmentLeaderboardEntryNameField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class SegmentLeaderboardEntryTypeField extends Field {
- SegmentLeaderboardEntryTypeField({int size = 0, bool growable = true})
+  SegmentLeaderboardEntryTypeField({int size = 0, bool growable = true})
       : super(
             name: 'type',
             id: ID,
@@ -244,14 +280,14 @@ class SegmentLeaderboardEntryTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class SegmentLeaderboardEntryGroupPrimaryKeyField extends Field {
- SegmentLeaderboardEntryGroupPrimaryKeyField({int size = 0, bool growable = true})
+  SegmentLeaderboardEntryGroupPrimaryKeyField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'group_primary_key',
             id: ID,
@@ -260,14 +296,13 @@ class SegmentLeaderboardEntryGroupPrimaryKeyField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class SegmentLeaderboardEntryActivityIdField extends Field {
- SegmentLeaderboardEntryActivityIdField({int size = 0, bool growable = true})
+  SegmentLeaderboardEntryActivityIdField({int size = 0, bool growable = true})
       : super(
             name: 'activity_id',
             id: ID,
@@ -276,14 +311,13 @@ class SegmentLeaderboardEntryActivityIdField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class SegmentLeaderboardEntrySegmentTimeField extends Field {
- SegmentLeaderboardEntrySegmentTimeField({int size = 0, bool growable = true})
+  SegmentLeaderboardEntrySegmentTimeField({int size = 0, bool growable = true})
       : super(
             name: 'segment_time',
             id: ID,
@@ -294,14 +328,14 @@ class SegmentLeaderboardEntrySegmentTimeField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class SegmentLeaderboardEntryActivityIdStringField extends Field {
- SegmentLeaderboardEntryActivityIdStringField({int size = 0, bool growable = true})
+  SegmentLeaderboardEntryActivityIdStringField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'activity_id_string',
             id: ID,
@@ -310,9 +344,7 @@ class SegmentLeaderboardEntryActivityIdStringField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }

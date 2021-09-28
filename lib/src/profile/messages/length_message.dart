@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class LengthMessage extends DataMessage {
-
-   LengthMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  LengthMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: LengthMessage.NAME,
@@ -25,58 +27,112 @@ class LengthMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               MessageIndexField(
-                  size: definitionMessage?.getFieldDefinition(MessageIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LengthEventField(
-                  size: definitionMessage?.getFieldDefinition(LengthEventField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LengthEventField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LengthEventTypeField(
-                  size: definitionMessage?.getFieldDefinition(LengthEventTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LengthEventTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LengthStartTimeField(
-                  size: definitionMessage?.getFieldDefinition(LengthStartTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LengthStartTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LengthTotalElapsedTimeField(
-                  size: definitionMessage?.getFieldDefinition(LengthTotalElapsedTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LengthTotalElapsedTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LengthTotalTimerTimeField(
-                  size: definitionMessage?.getFieldDefinition(LengthTotalTimerTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LengthTotalTimerTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LengthTotalStrokesField(
-                  size: definitionMessage?.getFieldDefinition(LengthTotalStrokesField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LengthTotalStrokesField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LengthAvgSpeedField(
-                  size: definitionMessage?.getFieldDefinition(LengthAvgSpeedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LengthAvgSpeedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LengthSwimStrokeField(
-                  size: definitionMessage?.getFieldDefinition(LengthSwimStrokeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LengthSwimStrokeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LengthAvgSwimmingCadenceField(
-                  size: definitionMessage?.getFieldDefinition(LengthAvgSwimmingCadenceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LengthAvgSwimmingCadenceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LengthEventGroupField(
-                  size: definitionMessage?.getFieldDefinition(LengthEventGroupField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LengthEventGroupField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LengthTotalCaloriesField(
-                  size: definitionMessage?.getFieldDefinition(LengthTotalCaloriesField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LengthTotalCaloriesField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LengthLengthTypeField(
-                  size: definitionMessage?.getFieldDefinition(LengthLengthTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LengthLengthTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LengthPlayerScoreField(
-                  size: definitionMessage?.getFieldDefinition(LengthPlayerScoreField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LengthPlayerScoreField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LengthOpponentScoreField(
-                  size: definitionMessage?.getFieldDefinition(LengthOpponentScoreField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LengthOpponentScoreField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LengthStrokeCountField(
-                  size: definitionMessage?.getFieldDefinition(LengthStrokeCountField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LengthStrokeCountField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               LengthZoneCountField(
-                  size: definitionMessage?.getFieldDefinition(LengthZoneCountField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(LengthZoneCountField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -92,9 +148,8 @@ class LengthMessage extends DataMessage {
     return message;
   }
 
-
   int? get messageIndex {
-     final field = getField(MessageIndexField.ID);
+    final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -102,7 +157,8 @@ class LengthMessage extends DataMessage {
       return null;
     }
   }
-   set messageIndex(int? value) {
+
+  set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
     if (field != null) {
@@ -114,9 +170,10 @@ class LengthMessage extends DataMessage {
       }
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -124,8 +181,9 @@ class LengthMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -137,9 +195,10 @@ class LengthMessage extends DataMessage {
       }
     }
   }
+
   Event? get event {
-     final field = getField(LengthEventField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(LengthEventField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -150,7 +209,8 @@ class LengthMessage extends DataMessage {
       return null;
     }
   }
-   set event(Event? value) {
+
+  set event(Event? value) {
     final field = getField(LengthEventField.ID);
 
     if (field != null) {
@@ -162,9 +222,10 @@ class LengthMessage extends DataMessage {
       }
     }
   }
+
   EventType? get eventType {
-     final field = getField(LengthEventTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(LengthEventTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -175,7 +236,8 @@ class LengthMessage extends DataMessage {
       return null;
     }
   }
-   set eventType(EventType? value) {
+
+  set eventType(EventType? value) {
     final field = getField(LengthEventTypeField.ID);
 
     if (field != null) {
@@ -187,9 +249,10 @@ class LengthMessage extends DataMessage {
       }
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get startTime {
-     final field = getField(LengthStartTimeField.ID);
+    final field = getField(LengthStartTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -197,8 +260,9 @@ class LengthMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set startTime(int? value) {
+  set startTime(int? value) {
     final field = getField(LengthStartTimeField.ID);
 
     if (field != null) {
@@ -210,8 +274,9 @@ class LengthMessage extends DataMessage {
       }
     }
   }
+
   double? get totalElapsedTime {
-     final field = getField(LengthTotalElapsedTimeField.ID);
+    final field = getField(LengthTotalElapsedTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -219,7 +284,8 @@ class LengthMessage extends DataMessage {
       return null;
     }
   }
-   set totalElapsedTime(double? value) {
+
+  set totalElapsedTime(double? value) {
     final field = getField(LengthTotalElapsedTimeField.ID);
 
     if (field != null) {
@@ -231,8 +297,9 @@ class LengthMessage extends DataMessage {
       }
     }
   }
+
   double? get totalTimerTime {
-     final field = getField(LengthTotalTimerTimeField.ID);
+    final field = getField(LengthTotalTimerTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -240,7 +307,8 @@ class LengthMessage extends DataMessage {
       return null;
     }
   }
-   set totalTimerTime(double? value) {
+
+  set totalTimerTime(double? value) {
     final field = getField(LengthTotalTimerTimeField.ID);
 
     if (field != null) {
@@ -252,8 +320,9 @@ class LengthMessage extends DataMessage {
       }
     }
   }
+
   int? get totalStrokes {
-     final field = getField(LengthTotalStrokesField.ID);
+    final field = getField(LengthTotalStrokesField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -261,7 +330,8 @@ class LengthMessage extends DataMessage {
       return null;
     }
   }
-   set totalStrokes(int? value) {
+
+  set totalStrokes(int? value) {
     final field = getField(LengthTotalStrokesField.ID);
 
     if (field != null) {
@@ -273,8 +343,9 @@ class LengthMessage extends DataMessage {
       }
     }
   }
+
   double? get avgSpeed {
-     final field = getField(LengthAvgSpeedField.ID);
+    final field = getField(LengthAvgSpeedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -282,7 +353,8 @@ class LengthMessage extends DataMessage {
       return null;
     }
   }
-   set avgSpeed(double? value) {
+
+  set avgSpeed(double? value) {
     final field = getField(LengthAvgSpeedField.ID);
 
     if (field != null) {
@@ -294,9 +366,10 @@ class LengthMessage extends DataMessage {
       }
     }
   }
+
   SwimStroke? get swimStroke {
-     final field = getField(LengthSwimStrokeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(LengthSwimStrokeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -307,7 +380,8 @@ class LengthMessage extends DataMessage {
       return null;
     }
   }
-   set swimStroke(SwimStroke? value) {
+
+  set swimStroke(SwimStroke? value) {
     final field = getField(LengthSwimStrokeField.ID);
 
     if (field != null) {
@@ -319,8 +393,9 @@ class LengthMessage extends DataMessage {
       }
     }
   }
+
   int? get avgSwimmingCadence {
-     final field = getField(LengthAvgSwimmingCadenceField.ID);
+    final field = getField(LengthAvgSwimmingCadenceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -328,7 +403,8 @@ class LengthMessage extends DataMessage {
       return null;
     }
   }
-   set avgSwimmingCadence(int? value) {
+
+  set avgSwimmingCadence(int? value) {
     final field = getField(LengthAvgSwimmingCadenceField.ID);
 
     if (field != null) {
@@ -340,8 +416,9 @@ class LengthMessage extends DataMessage {
       }
     }
   }
+
   int? get eventGroup {
-     final field = getField(LengthEventGroupField.ID);
+    final field = getField(LengthEventGroupField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -349,7 +426,8 @@ class LengthMessage extends DataMessage {
       return null;
     }
   }
-   set eventGroup(int? value) {
+
+  set eventGroup(int? value) {
     final field = getField(LengthEventGroupField.ID);
 
     if (field != null) {
@@ -361,8 +439,9 @@ class LengthMessage extends DataMessage {
       }
     }
   }
+
   int? get totalCalories {
-     final field = getField(LengthTotalCaloriesField.ID);
+    final field = getField(LengthTotalCaloriesField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -370,7 +449,8 @@ class LengthMessage extends DataMessage {
       return null;
     }
   }
-   set totalCalories(int? value) {
+
+  set totalCalories(int? value) {
     final field = getField(LengthTotalCaloriesField.ID);
 
     if (field != null) {
@@ -382,9 +462,10 @@ class LengthMessage extends DataMessage {
       }
     }
   }
+
   LengthType? get lengthType {
-     final field = getField(LengthLengthTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(LengthLengthTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -395,7 +476,8 @@ class LengthMessage extends DataMessage {
       return null;
     }
   }
-   set lengthType(LengthType? value) {
+
+  set lengthType(LengthType? value) {
     final field = getField(LengthLengthTypeField.ID);
 
     if (field != null) {
@@ -407,8 +489,9 @@ class LengthMessage extends DataMessage {
       }
     }
   }
+
   int? get playerScore {
-     final field = getField(LengthPlayerScoreField.ID);
+    final field = getField(LengthPlayerScoreField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -416,7 +499,8 @@ class LengthMessage extends DataMessage {
       return null;
     }
   }
-   set playerScore(int? value) {
+
+  set playerScore(int? value) {
     final field = getField(LengthPlayerScoreField.ID);
 
     if (field != null) {
@@ -428,8 +512,9 @@ class LengthMessage extends DataMessage {
       }
     }
   }
+
   int? get opponentScore {
-     final field = getField(LengthOpponentScoreField.ID);
+    final field = getField(LengthOpponentScoreField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -437,7 +522,8 @@ class LengthMessage extends DataMessage {
       return null;
     }
   }
-   set opponentScore(int? value) {
+
+  set opponentScore(int? value) {
     final field = getField(LengthOpponentScoreField.ID);
 
     if (field != null) {
@@ -449,8 +535,9 @@ class LengthMessage extends DataMessage {
       }
     }
   }
+
   int? get strokeCount {
-     final field = getField(LengthStrokeCountField.ID);
+    final field = getField(LengthStrokeCountField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -458,7 +545,8 @@ class LengthMessage extends DataMessage {
       return null;
     }
   }
-   set strokeCount(int? value) {
+
+  set strokeCount(int? value) {
     final field = getField(LengthStrokeCountField.ID);
 
     if (field != null) {
@@ -470,8 +558,9 @@ class LengthMessage extends DataMessage {
       }
     }
   }
+
   int? get zoneCount {
-     final field = getField(LengthZoneCountField.ID);
+    final field = getField(LengthZoneCountField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -479,7 +568,8 @@ class LengthMessage extends DataMessage {
       return null;
     }
   }
-   set zoneCount(int? value) {
+
+  set zoneCount(int? value) {
     final field = getField(LengthZoneCountField.ID);
 
     if (field != null) {
@@ -491,15 +581,10 @@ class LengthMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class LengthEventField extends Field {
- LengthEventField({int size = 0, bool growable = true})
+  LengthEventField({int size = 0, bool growable = true})
       : super(
             name: 'event',
             id: ID,
@@ -508,14 +593,13 @@ class LengthEventField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class LengthEventTypeField extends Field {
- LengthEventTypeField({int size = 0, bool growable = true})
+  LengthEventTypeField({int size = 0, bool growable = true})
       : super(
             name: 'event_type',
             id: ID,
@@ -524,14 +608,13 @@ class LengthEventTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class LengthStartTimeField extends Field {
- LengthStartTimeField({int size = 0, bool growable = true})
+  LengthStartTimeField({int size = 0, bool growable = true})
       : super(
             name: 'start_time',
             id: ID,
@@ -542,14 +625,13 @@ class LengthStartTimeField extends Field {
             units: 'ms',
             mainTypeName: 'date_time',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class LengthTotalElapsedTimeField extends Field {
- LengthTotalElapsedTimeField({int size = 0, bool growable = true})
+  LengthTotalElapsedTimeField({int size = 0, bool growable = true})
       : super(
             name: 'total_elapsed_time',
             id: ID,
@@ -560,14 +642,13 @@ class LengthTotalElapsedTimeField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class LengthTotalTimerTimeField extends Field {
- LengthTotalTimerTimeField({int size = 0, bool growable = true})
+  LengthTotalTimerTimeField({int size = 0, bool growable = true})
       : super(
             name: 'total_timer_time',
             id: ID,
@@ -578,14 +659,13 @@ class LengthTotalTimerTimeField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class LengthTotalStrokesField extends Field {
- LengthTotalStrokesField({int size = 0, bool growable = true})
+  LengthTotalStrokesField({int size = 0, bool growable = true})
       : super(
             name: 'total_strokes',
             id: ID,
@@ -596,14 +676,13 @@ class LengthTotalStrokesField extends Field {
             units: 'strokes',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }
+
 class LengthAvgSpeedField extends Field {
- LengthAvgSpeedField({int size = 0, bool growable = true})
+  LengthAvgSpeedField({int size = 0, bool growable = true})
       : super(
             name: 'avg_speed',
             id: ID,
@@ -614,14 +693,13 @@ class LengthAvgSpeedField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 6;
 }
+
 class LengthSwimStrokeField extends Field {
- LengthSwimStrokeField({int size = 0, bool growable = true})
+  LengthSwimStrokeField({int size = 0, bool growable = true})
       : super(
             name: 'swim_stroke',
             id: ID,
@@ -632,14 +710,13 @@ class LengthSwimStrokeField extends Field {
             units: 'swim_stroke',
             mainTypeName: 'swim_stroke',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 7;
 }
+
 class LengthAvgSwimmingCadenceField extends Field {
- LengthAvgSwimmingCadenceField({int size = 0, bool growable = true})
+  LengthAvgSwimmingCadenceField({int size = 0, bool growable = true})
       : super(
             name: 'avg_swimming_cadence',
             id: ID,
@@ -650,14 +727,13 @@ class LengthAvgSwimmingCadenceField extends Field {
             units: 'strokes/min',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 9;
 }
+
 class LengthEventGroupField extends Field {
- LengthEventGroupField({int size = 0, bool growable = true})
+  LengthEventGroupField({int size = 0, bool growable = true})
       : super(
             name: 'event_group',
             id: ID,
@@ -666,14 +742,13 @@ class LengthEventGroupField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 10;
 }
+
 class LengthTotalCaloriesField extends Field {
- LengthTotalCaloriesField({int size = 0, bool growable = true})
+  LengthTotalCaloriesField({int size = 0, bool growable = true})
       : super(
             name: 'total_calories',
             id: ID,
@@ -684,14 +759,13 @@ class LengthTotalCaloriesField extends Field {
             units: 'kcal',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 11;
 }
+
 class LengthLengthTypeField extends Field {
- LengthLengthTypeField({int size = 0, bool growable = true})
+  LengthLengthTypeField({int size = 0, bool growable = true})
       : super(
             name: 'length_type',
             id: ID,
@@ -700,14 +774,13 @@ class LengthLengthTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 12;
 }
+
 class LengthPlayerScoreField extends Field {
- LengthPlayerScoreField({int size = 0, bool growable = true})
+  LengthPlayerScoreField({int size = 0, bool growable = true})
       : super(
             name: 'player_score',
             id: ID,
@@ -716,14 +789,13 @@ class LengthPlayerScoreField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 18;
 }
+
 class LengthOpponentScoreField extends Field {
- LengthOpponentScoreField({int size = 0, bool growable = true})
+  LengthOpponentScoreField({int size = 0, bool growable = true})
       : super(
             name: 'opponent_score',
             id: ID,
@@ -732,14 +804,13 @@ class LengthOpponentScoreField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 19;
 }
+
 class LengthStrokeCountField extends Field {
- LengthStrokeCountField({int size = 0, bool growable = true})
+  LengthStrokeCountField({int size = 0, bool growable = true})
       : super(
             name: 'stroke_count',
             id: ID,
@@ -750,14 +821,13 @@ class LengthStrokeCountField extends Field {
             units: 'counts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 20;
 }
+
 class LengthZoneCountField extends Field {
- LengthZoneCountField({int size = 0, bool growable = true})
+  LengthZoneCountField({int size = 0, bool growable = true})
       : super(
             name: 'zone_count',
             id: ID,
@@ -768,9 +838,7 @@ class LengthZoneCountField extends Field {
             units: 'counts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 21;
 }

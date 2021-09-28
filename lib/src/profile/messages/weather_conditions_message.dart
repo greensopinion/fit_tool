@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class WeatherConditionsMessage extends DataMessage {
-
-   WeatherConditionsMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  WeatherConditionsMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: WeatherConditionsMessage.NAME,
@@ -25,52 +27,115 @@ class WeatherConditionsMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WeatherConditionsWeatherReportField(
-                  size: definitionMessage?.getFieldDefinition(WeatherConditionsWeatherReportField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              WeatherConditionsWeatherReportField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WeatherConditionsTemperatureField(
-                  size: definitionMessage?.getFieldDefinition(WeatherConditionsTemperatureField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              WeatherConditionsTemperatureField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WeatherConditionsConditionField(
-                  size: definitionMessage?.getFieldDefinition(WeatherConditionsConditionField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              WeatherConditionsConditionField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WeatherConditionsWindDirectionField(
-                  size: definitionMessage?.getFieldDefinition(WeatherConditionsWindDirectionField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              WeatherConditionsWindDirectionField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WeatherConditionsWindSpeedField(
-                  size: definitionMessage?.getFieldDefinition(WeatherConditionsWindSpeedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              WeatherConditionsWindSpeedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WeatherConditionsPrecipitationProbabilityField(
-                  size: definitionMessage?.getFieldDefinition(WeatherConditionsPrecipitationProbabilityField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              WeatherConditionsPrecipitationProbabilityField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WeatherConditionsTemperatureFeelsLikeField(
-                  size: definitionMessage?.getFieldDefinition(WeatherConditionsTemperatureFeelsLikeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              WeatherConditionsTemperatureFeelsLikeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WeatherConditionsRelativeHumidityField(
-                  size: definitionMessage?.getFieldDefinition(WeatherConditionsRelativeHumidityField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              WeatherConditionsRelativeHumidityField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WeatherConditionsLocationField(
-                  size: definitionMessage?.getFieldDefinition(WeatherConditionsLocationField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              WeatherConditionsLocationField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WeatherConditionsObservedAtTimeField(
-                  size: definitionMessage?.getFieldDefinition(WeatherConditionsObservedAtTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              WeatherConditionsObservedAtTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WeatherConditionsObservedLocationLatField(
-                  size: definitionMessage?.getFieldDefinition(WeatherConditionsObservedLocationLatField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              WeatherConditionsObservedLocationLatField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WeatherConditionsObservedLocationLongField(
-                  size: definitionMessage?.getFieldDefinition(WeatherConditionsObservedLocationLongField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              WeatherConditionsObservedLocationLongField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WeatherConditionsDayOfWeekField(
-                  size: definitionMessage?.getFieldDefinition(WeatherConditionsDayOfWeekField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              WeatherConditionsDayOfWeekField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WeatherConditionsHighTemperatureField(
-                  size: definitionMessage?.getFieldDefinition(WeatherConditionsHighTemperatureField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              WeatherConditionsHighTemperatureField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WeatherConditionsLowTemperatureField(
-                  size: definitionMessage?.getFieldDefinition(WeatherConditionsLowTemperatureField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              WeatherConditionsLowTemperatureField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -81,15 +146,15 @@ class WeatherConditionsMessage extends DataMessage {
 
   static WeatherConditionsMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
-    final message = WeatherConditionsMessage(definitionMessage: definitionMessage);
+    final message =
+        WeatherConditionsMessage(definitionMessage: definitionMessage);
     message.readFromBytes(bytes);
     return message;
   }
 
-
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -97,8 +162,9 @@ class WeatherConditionsMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -110,9 +176,10 @@ class WeatherConditionsMessage extends DataMessage {
       }
     }
   }
+
   WeatherReport? get weatherReport {
-     final field = getField(WeatherConditionsWeatherReportField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(WeatherConditionsWeatherReportField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -123,7 +190,8 @@ class WeatherConditionsMessage extends DataMessage {
       return null;
     }
   }
-   set weatherReport(WeatherReport? value) {
+
+  set weatherReport(WeatherReport? value) {
     final field = getField(WeatherConditionsWeatherReportField.ID);
 
     if (field != null) {
@@ -135,8 +203,9 @@ class WeatherConditionsMessage extends DataMessage {
       }
     }
   }
+
   int? get temperature {
-     final field = getField(WeatherConditionsTemperatureField.ID);
+    final field = getField(WeatherConditionsTemperatureField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -144,7 +213,8 @@ class WeatherConditionsMessage extends DataMessage {
       return null;
     }
   }
-   set temperature(int? value) {
+
+  set temperature(int? value) {
     final field = getField(WeatherConditionsTemperatureField.ID);
 
     if (field != null) {
@@ -156,9 +226,10 @@ class WeatherConditionsMessage extends DataMessage {
       }
     }
   }
+
   WeatherStatus? get condition {
-     final field = getField(WeatherConditionsConditionField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(WeatherConditionsConditionField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -169,7 +240,8 @@ class WeatherConditionsMessage extends DataMessage {
       return null;
     }
   }
-   set condition(WeatherStatus? value) {
+
+  set condition(WeatherStatus? value) {
     final field = getField(WeatherConditionsConditionField.ID);
 
     if (field != null) {
@@ -181,8 +253,9 @@ class WeatherConditionsMessage extends DataMessage {
       }
     }
   }
+
   int? get windDirection {
-     final field = getField(WeatherConditionsWindDirectionField.ID);
+    final field = getField(WeatherConditionsWindDirectionField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -190,7 +263,8 @@ class WeatherConditionsMessage extends DataMessage {
       return null;
     }
   }
-   set windDirection(int? value) {
+
+  set windDirection(int? value) {
     final field = getField(WeatherConditionsWindDirectionField.ID);
 
     if (field != null) {
@@ -202,8 +276,9 @@ class WeatherConditionsMessage extends DataMessage {
       }
     }
   }
+
   double? get windSpeed {
-     final field = getField(WeatherConditionsWindSpeedField.ID);
+    final field = getField(WeatherConditionsWindSpeedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -211,7 +286,8 @@ class WeatherConditionsMessage extends DataMessage {
       return null;
     }
   }
-   set windSpeed(double? value) {
+
+  set windSpeed(double? value) {
     final field = getField(WeatherConditionsWindSpeedField.ID);
 
     if (field != null) {
@@ -223,8 +299,9 @@ class WeatherConditionsMessage extends DataMessage {
       }
     }
   }
+
   int? get precipitationProbability {
-     final field = getField(WeatherConditionsPrecipitationProbabilityField.ID);
+    final field = getField(WeatherConditionsPrecipitationProbabilityField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -232,7 +309,8 @@ class WeatherConditionsMessage extends DataMessage {
       return null;
     }
   }
-   set precipitationProbability(int? value) {
+
+  set precipitationProbability(int? value) {
     final field = getField(WeatherConditionsPrecipitationProbabilityField.ID);
 
     if (field != null) {
@@ -244,8 +322,9 @@ class WeatherConditionsMessage extends DataMessage {
       }
     }
   }
+
   int? get temperatureFeelsLike {
-     final field = getField(WeatherConditionsTemperatureFeelsLikeField.ID);
+    final field = getField(WeatherConditionsTemperatureFeelsLikeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -253,7 +332,8 @@ class WeatherConditionsMessage extends DataMessage {
       return null;
     }
   }
-   set temperatureFeelsLike(int? value) {
+
+  set temperatureFeelsLike(int? value) {
     final field = getField(WeatherConditionsTemperatureFeelsLikeField.ID);
 
     if (field != null) {
@@ -265,8 +345,9 @@ class WeatherConditionsMessage extends DataMessage {
       }
     }
   }
+
   int? get relativeHumidity {
-     final field = getField(WeatherConditionsRelativeHumidityField.ID);
+    final field = getField(WeatherConditionsRelativeHumidityField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -274,7 +355,8 @@ class WeatherConditionsMessage extends DataMessage {
       return null;
     }
   }
-   set relativeHumidity(int? value) {
+
+  set relativeHumidity(int? value) {
     final field = getField(WeatherConditionsRelativeHumidityField.ID);
 
     if (field != null) {
@@ -286,8 +368,9 @@ class WeatherConditionsMessage extends DataMessage {
       }
     }
   }
+
   String? get location {
-     final field = getField(WeatherConditionsLocationField.ID);
+    final field = getField(WeatherConditionsLocationField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -295,7 +378,8 @@ class WeatherConditionsMessage extends DataMessage {
       return null;
     }
   }
-   set location(String? value) {
+
+  set location(String? value) {
     final field = getField(WeatherConditionsLocationField.ID);
 
     if (field != null) {
@@ -307,9 +391,10 @@ class WeatherConditionsMessage extends DataMessage {
       }
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get observedAtTime {
-     final field = getField(WeatherConditionsObservedAtTimeField.ID);
+    final field = getField(WeatherConditionsObservedAtTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -317,8 +402,9 @@ class WeatherConditionsMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set observedAtTime(int? value) {
+  set observedAtTime(int? value) {
     final field = getField(WeatherConditionsObservedAtTimeField.ID);
 
     if (field != null) {
@@ -330,8 +416,9 @@ class WeatherConditionsMessage extends DataMessage {
       }
     }
   }
+
   double? get observedLocationLat {
-     final field = getField(WeatherConditionsObservedLocationLatField.ID);
+    final field = getField(WeatherConditionsObservedLocationLatField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -339,7 +426,8 @@ class WeatherConditionsMessage extends DataMessage {
       return null;
     }
   }
-   set observedLocationLat(double? value) {
+
+  set observedLocationLat(double? value) {
     final field = getField(WeatherConditionsObservedLocationLatField.ID);
 
     if (field != null) {
@@ -351,8 +439,9 @@ class WeatherConditionsMessage extends DataMessage {
       }
     }
   }
+
   double? get observedLocationLong {
-     final field = getField(WeatherConditionsObservedLocationLongField.ID);
+    final field = getField(WeatherConditionsObservedLocationLongField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -360,7 +449,8 @@ class WeatherConditionsMessage extends DataMessage {
       return null;
     }
   }
-   set observedLocationLong(double? value) {
+
+  set observedLocationLong(double? value) {
     final field = getField(WeatherConditionsObservedLocationLongField.ID);
 
     if (field != null) {
@@ -372,9 +462,10 @@ class WeatherConditionsMessage extends DataMessage {
       }
     }
   }
+
   DayOfWeek? get dayOfWeek {
-     final field = getField(WeatherConditionsDayOfWeekField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(WeatherConditionsDayOfWeekField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -385,7 +476,8 @@ class WeatherConditionsMessage extends DataMessage {
       return null;
     }
   }
-   set dayOfWeek(DayOfWeek? value) {
+
+  set dayOfWeek(DayOfWeek? value) {
     final field = getField(WeatherConditionsDayOfWeekField.ID);
 
     if (field != null) {
@@ -397,8 +489,9 @@ class WeatherConditionsMessage extends DataMessage {
       }
     }
   }
+
   int? get highTemperature {
-     final field = getField(WeatherConditionsHighTemperatureField.ID);
+    final field = getField(WeatherConditionsHighTemperatureField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -406,7 +499,8 @@ class WeatherConditionsMessage extends DataMessage {
       return null;
     }
   }
-   set highTemperature(int? value) {
+
+  set highTemperature(int? value) {
     final field = getField(WeatherConditionsHighTemperatureField.ID);
 
     if (field != null) {
@@ -418,8 +512,9 @@ class WeatherConditionsMessage extends DataMessage {
       }
     }
   }
+
   int? get lowTemperature {
-     final field = getField(WeatherConditionsLowTemperatureField.ID);
+    final field = getField(WeatherConditionsLowTemperatureField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -427,7 +522,8 @@ class WeatherConditionsMessage extends DataMessage {
       return null;
     }
   }
-   set lowTemperature(int? value) {
+
+  set lowTemperature(int? value) {
     final field = getField(WeatherConditionsLowTemperatureField.ID);
 
     if (field != null) {
@@ -439,15 +535,10 @@ class WeatherConditionsMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class WeatherConditionsWeatherReportField extends Field {
- WeatherConditionsWeatherReportField({int size = 0, bool growable = true})
+  WeatherConditionsWeatherReportField({int size = 0, bool growable = true})
       : super(
             name: 'weather_report',
             id: ID,
@@ -456,14 +547,13 @@ class WeatherConditionsWeatherReportField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class WeatherConditionsTemperatureField extends Field {
- WeatherConditionsTemperatureField({int size = 0, bool growable = true})
+  WeatherConditionsTemperatureField({int size = 0, bool growable = true})
       : super(
             name: 'temperature',
             id: ID,
@@ -474,14 +564,13 @@ class WeatherConditionsTemperatureField extends Field {
             units: 'C',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class WeatherConditionsConditionField extends Field {
- WeatherConditionsConditionField({int size = 0, bool growable = true})
+  WeatherConditionsConditionField({int size = 0, bool growable = true})
       : super(
             name: 'condition',
             id: ID,
@@ -490,14 +579,13 @@ class WeatherConditionsConditionField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class WeatherConditionsWindDirectionField extends Field {
- WeatherConditionsWindDirectionField({int size = 0, bool growable = true})
+  WeatherConditionsWindDirectionField({int size = 0, bool growable = true})
       : super(
             name: 'wind_direction',
             id: ID,
@@ -508,14 +596,13 @@ class WeatherConditionsWindDirectionField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class WeatherConditionsWindSpeedField extends Field {
- WeatherConditionsWindSpeedField({int size = 0, bool growable = true})
+  WeatherConditionsWindSpeedField({int size = 0, bool growable = true})
       : super(
             name: 'wind_speed',
             id: ID,
@@ -526,14 +613,14 @@ class WeatherConditionsWindSpeedField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class WeatherConditionsPrecipitationProbabilityField extends Field {
- WeatherConditionsPrecipitationProbabilityField({int size = 0, bool growable = true})
+  WeatherConditionsPrecipitationProbabilityField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'precipitation_probability',
             id: ID,
@@ -542,14 +629,14 @@ class WeatherConditionsPrecipitationProbabilityField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }
+
 class WeatherConditionsTemperatureFeelsLikeField extends Field {
- WeatherConditionsTemperatureFeelsLikeField({int size = 0, bool growable = true})
+  WeatherConditionsTemperatureFeelsLikeField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'temperature_feels_like',
             id: ID,
@@ -560,14 +647,13 @@ class WeatherConditionsTemperatureFeelsLikeField extends Field {
             units: 'C',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 6;
 }
+
 class WeatherConditionsRelativeHumidityField extends Field {
- WeatherConditionsRelativeHumidityField({int size = 0, bool growable = true})
+  WeatherConditionsRelativeHumidityField({int size = 0, bool growable = true})
       : super(
             name: 'relative_humidity',
             id: ID,
@@ -576,14 +662,13 @@ class WeatherConditionsRelativeHumidityField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 7;
 }
+
 class WeatherConditionsLocationField extends Field {
- WeatherConditionsLocationField({int size = 0, bool growable = true})
+  WeatherConditionsLocationField({int size = 0, bool growable = true})
       : super(
             name: 'location',
             id: ID,
@@ -592,14 +677,13 @@ class WeatherConditionsLocationField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 8;
 }
+
 class WeatherConditionsObservedAtTimeField extends Field {
- WeatherConditionsObservedAtTimeField({int size = 0, bool growable = true})
+  WeatherConditionsObservedAtTimeField({int size = 0, bool growable = true})
       : super(
             name: 'observed_at_time',
             id: ID,
@@ -610,14 +694,14 @@ class WeatherConditionsObservedAtTimeField extends Field {
             units: 'ms',
             mainTypeName: 'date_time',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 9;
 }
+
 class WeatherConditionsObservedLocationLatField extends Field {
- WeatherConditionsObservedLocationLatField({int size = 0, bool growable = true})
+  WeatherConditionsObservedLocationLatField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'observed_location_lat',
             id: ID,
@@ -628,14 +712,14 @@ class WeatherConditionsObservedLocationLatField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 10;
 }
+
 class WeatherConditionsObservedLocationLongField extends Field {
- WeatherConditionsObservedLocationLongField({int size = 0, bool growable = true})
+  WeatherConditionsObservedLocationLongField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'observed_location_long',
             id: ID,
@@ -646,14 +730,13 @@ class WeatherConditionsObservedLocationLongField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 11;
 }
+
 class WeatherConditionsDayOfWeekField extends Field {
- WeatherConditionsDayOfWeekField({int size = 0, bool growable = true})
+  WeatherConditionsDayOfWeekField({int size = 0, bool growable = true})
       : super(
             name: 'day_of_week',
             id: ID,
@@ -662,14 +745,13 @@ class WeatherConditionsDayOfWeekField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 12;
 }
+
 class WeatherConditionsHighTemperatureField extends Field {
- WeatherConditionsHighTemperatureField({int size = 0, bool growable = true})
+  WeatherConditionsHighTemperatureField({int size = 0, bool growable = true})
       : super(
             name: 'high_temperature',
             id: ID,
@@ -680,14 +762,13 @@ class WeatherConditionsHighTemperatureField extends Field {
             units: 'C',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 13;
 }
+
 class WeatherConditionsLowTemperatureField extends Field {
- WeatherConditionsLowTemperatureField({int size = 0, bool growable = true})
+  WeatherConditionsLowTemperatureField({int size = 0, bool growable = true})
       : super(
             name: 'low_temperature',
             id: ID,
@@ -698,9 +779,7 @@ class WeatherConditionsLowTemperatureField extends Field {
             units: 'C',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 14;
 }

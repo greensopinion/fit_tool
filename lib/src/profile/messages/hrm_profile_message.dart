@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class HrmProfileMessage extends DataMessage {
-
-   HrmProfileMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  HrmProfileMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: HrmProfileMessage.NAME,
@@ -25,19 +27,35 @@ class HrmProfileMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               MessageIndexField(
-                  size: definitionMessage?.getFieldDefinition(MessageIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               HrmProfileEnabledField(
-                  size: definitionMessage?.getFieldDefinition(HrmProfileEnabledField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(HrmProfileEnabledField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               HrmProfileHrmAntIdField(
-                  size: definitionMessage?.getFieldDefinition(HrmProfileHrmAntIdField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(HrmProfileHrmAntIdField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               HrmProfileLogHrvField(
-                  size: definitionMessage?.getFieldDefinition(HrmProfileLogHrvField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(HrmProfileLogHrvField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               HrmProfileHrmAntIdTransTypeField(
-                  size: definitionMessage?.getFieldDefinition(HrmProfileHrmAntIdTransTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              HrmProfileHrmAntIdTransTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -53,9 +71,8 @@ class HrmProfileMessage extends DataMessage {
     return message;
   }
 
-
   int? get messageIndex {
-     final field = getField(MessageIndexField.ID);
+    final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -63,7 +80,8 @@ class HrmProfileMessage extends DataMessage {
       return null;
     }
   }
-   set messageIndex(int? value) {
+
+  set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
     if (field != null) {
@@ -75,8 +93,9 @@ class HrmProfileMessage extends DataMessage {
       }
     }
   }
+
   bool? get enabled {
-     final field = getField(HrmProfileEnabledField.ID);
+    final field = getField(HrmProfileEnabledField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -84,7 +103,8 @@ class HrmProfileMessage extends DataMessage {
       return null;
     }
   }
-   set enabled(bool? value) {
+
+  set enabled(bool? value) {
     final field = getField(HrmProfileEnabledField.ID);
 
     if (field != null) {
@@ -96,8 +116,9 @@ class HrmProfileMessage extends DataMessage {
       }
     }
   }
+
   int? get hrmAntId {
-     final field = getField(HrmProfileHrmAntIdField.ID);
+    final field = getField(HrmProfileHrmAntIdField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -105,7 +126,8 @@ class HrmProfileMessage extends DataMessage {
       return null;
     }
   }
-   set hrmAntId(int? value) {
+
+  set hrmAntId(int? value) {
     final field = getField(HrmProfileHrmAntIdField.ID);
 
     if (field != null) {
@@ -117,8 +139,9 @@ class HrmProfileMessage extends DataMessage {
       }
     }
   }
+
   bool? get logHrv {
-     final field = getField(HrmProfileLogHrvField.ID);
+    final field = getField(HrmProfileLogHrvField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -126,7 +149,8 @@ class HrmProfileMessage extends DataMessage {
       return null;
     }
   }
-   set logHrv(bool? value) {
+
+  set logHrv(bool? value) {
     final field = getField(HrmProfileLogHrvField.ID);
 
     if (field != null) {
@@ -138,8 +162,9 @@ class HrmProfileMessage extends DataMessage {
       }
     }
   }
+
   int? get hrmAntIdTransType {
-     final field = getField(HrmProfileHrmAntIdTransTypeField.ID);
+    final field = getField(HrmProfileHrmAntIdTransTypeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -147,7 +172,8 @@ class HrmProfileMessage extends DataMessage {
       return null;
     }
   }
-   set hrmAntIdTransType(int? value) {
+
+  set hrmAntIdTransType(int? value) {
     final field = getField(HrmProfileHrmAntIdTransTypeField.ID);
 
     if (field != null) {
@@ -159,15 +185,10 @@ class HrmProfileMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class HrmProfileEnabledField extends Field {
- HrmProfileEnabledField({int size = 0, bool growable = true})
+  HrmProfileEnabledField({int size = 0, bool growable = true})
       : super(
             name: 'enabled',
             id: ID,
@@ -176,14 +197,13 @@ class HrmProfileEnabledField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class HrmProfileHrmAntIdField extends Field {
- HrmProfileHrmAntIdField({int size = 0, bool growable = true})
+  HrmProfileHrmAntIdField({int size = 0, bool growable = true})
       : super(
             name: 'hrm_ant_id',
             id: ID,
@@ -192,14 +212,13 @@ class HrmProfileHrmAntIdField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class HrmProfileLogHrvField extends Field {
- HrmProfileLogHrvField({int size = 0, bool growable = true})
+  HrmProfileLogHrvField({int size = 0, bool growable = true})
       : super(
             name: 'log_hrv',
             id: ID,
@@ -208,14 +227,13 @@ class HrmProfileLogHrvField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class HrmProfileHrmAntIdTransTypeField extends Field {
- HrmProfileHrmAntIdTransTypeField({int size = 0, bool growable = true})
+  HrmProfileHrmAntIdTransTypeField({int size = 0, bool growable = true})
       : super(
             name: 'hrm_ant_id_trans_type',
             id: ID,
@@ -224,9 +242,7 @@ class HrmProfileHrmAntIdTransTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }

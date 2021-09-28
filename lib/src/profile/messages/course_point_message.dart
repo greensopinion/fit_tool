@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class CoursePointMessage extends DataMessage {
-
-   CoursePointMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  CoursePointMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: CoursePointMessage.NAME,
@@ -25,28 +27,52 @@ class CoursePointMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               MessageIndexField(
-                  size: definitionMessage?.getFieldDefinition(MessageIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               CoursePointPositionLatField(
-                  size: definitionMessage?.getFieldDefinition(CoursePointPositionLatField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(CoursePointPositionLatField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               CoursePointPositionLongField(
-                  size: definitionMessage?.getFieldDefinition(CoursePointPositionLongField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(CoursePointPositionLongField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               CoursePointDistanceField(
-                  size: definitionMessage?.getFieldDefinition(CoursePointDistanceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(CoursePointDistanceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               CoursePointTypeField(
-                  size: definitionMessage?.getFieldDefinition(CoursePointTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(CoursePointTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               CoursePointNameField(
-                  size: definitionMessage?.getFieldDefinition(CoursePointNameField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(CoursePointNameField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               CoursePointFavoriteField(
-                  size: definitionMessage?.getFieldDefinition(CoursePointFavoriteField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(CoursePointFavoriteField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -62,9 +88,8 @@ class CoursePointMessage extends DataMessage {
     return message;
   }
 
-
   int? get messageIndex {
-     final field = getField(MessageIndexField.ID);
+    final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -72,7 +97,8 @@ class CoursePointMessage extends DataMessage {
       return null;
     }
   }
-   set messageIndex(int? value) {
+
+  set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
     if (field != null) {
@@ -84,9 +110,10 @@ class CoursePointMessage extends DataMessage {
       }
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -94,8 +121,9 @@ class CoursePointMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -107,8 +135,9 @@ class CoursePointMessage extends DataMessage {
       }
     }
   }
+
   double? get positionLat {
-     final field = getField(CoursePointPositionLatField.ID);
+    final field = getField(CoursePointPositionLatField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -116,7 +145,8 @@ class CoursePointMessage extends DataMessage {
       return null;
     }
   }
-   set positionLat(double? value) {
+
+  set positionLat(double? value) {
     final field = getField(CoursePointPositionLatField.ID);
 
     if (field != null) {
@@ -128,8 +158,9 @@ class CoursePointMessage extends DataMessage {
       }
     }
   }
+
   double? get positionLong {
-     final field = getField(CoursePointPositionLongField.ID);
+    final field = getField(CoursePointPositionLongField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -137,7 +168,8 @@ class CoursePointMessage extends DataMessage {
       return null;
     }
   }
-   set positionLong(double? value) {
+
+  set positionLong(double? value) {
     final field = getField(CoursePointPositionLongField.ID);
 
     if (field != null) {
@@ -149,8 +181,9 @@ class CoursePointMessage extends DataMessage {
       }
     }
   }
+
   double? get distance {
-     final field = getField(CoursePointDistanceField.ID);
+    final field = getField(CoursePointDistanceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -158,7 +191,8 @@ class CoursePointMessage extends DataMessage {
       return null;
     }
   }
-   set distance(double? value) {
+
+  set distance(double? value) {
     final field = getField(CoursePointDistanceField.ID);
 
     if (field != null) {
@@ -170,9 +204,10 @@ class CoursePointMessage extends DataMessage {
       }
     }
   }
+
   CoursePoint? get type {
-     final field = getField(CoursePointTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(CoursePointTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -183,7 +218,8 @@ class CoursePointMessage extends DataMessage {
       return null;
     }
   }
-   set type(CoursePoint? value) {
+
+  set type(CoursePoint? value) {
     final field = getField(CoursePointTypeField.ID);
 
     if (field != null) {
@@ -195,8 +231,9 @@ class CoursePointMessage extends DataMessage {
       }
     }
   }
+
   String? get coursePointName {
-     final field = getField(CoursePointNameField.ID);
+    final field = getField(CoursePointNameField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -204,7 +241,8 @@ class CoursePointMessage extends DataMessage {
       return null;
     }
   }
-   set coursePointName(String? value) {
+
+  set coursePointName(String? value) {
     final field = getField(CoursePointNameField.ID);
 
     if (field != null) {
@@ -216,8 +254,9 @@ class CoursePointMessage extends DataMessage {
       }
     }
   }
+
   bool? get favorite {
-     final field = getField(CoursePointFavoriteField.ID);
+    final field = getField(CoursePointFavoriteField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -225,7 +264,8 @@ class CoursePointMessage extends DataMessage {
       return null;
     }
   }
-   set favorite(bool? value) {
+
+  set favorite(bool? value) {
     final field = getField(CoursePointFavoriteField.ID);
 
     if (field != null) {
@@ -237,15 +277,10 @@ class CoursePointMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class CoursePointPositionLatField extends Field {
- CoursePointPositionLatField({int size = 0, bool growable = true})
+  CoursePointPositionLatField({int size = 0, bool growable = true})
       : super(
             name: 'position_lat',
             id: ID,
@@ -256,14 +291,13 @@ class CoursePointPositionLatField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class CoursePointPositionLongField extends Field {
- CoursePointPositionLongField({int size = 0, bool growable = true})
+  CoursePointPositionLongField({int size = 0, bool growable = true})
       : super(
             name: 'position_long',
             id: ID,
@@ -274,14 +308,13 @@ class CoursePointPositionLongField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class CoursePointDistanceField extends Field {
- CoursePointDistanceField({int size = 0, bool growable = true})
+  CoursePointDistanceField({int size = 0, bool growable = true})
       : super(
             name: 'distance',
             id: ID,
@@ -292,14 +325,13 @@ class CoursePointDistanceField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class CoursePointTypeField extends Field {
- CoursePointTypeField({int size = 0, bool growable = true})
+  CoursePointTypeField({int size = 0, bool growable = true})
       : super(
             name: 'type',
             id: ID,
@@ -308,14 +340,13 @@ class CoursePointTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }
+
 class CoursePointNameField extends Field {
- CoursePointNameField({int size = 0, bool growable = true})
+  CoursePointNameField({int size = 0, bool growable = true})
       : super(
             name: 'name',
             id: ID,
@@ -324,14 +355,13 @@ class CoursePointNameField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 6;
 }
+
 class CoursePointFavoriteField extends Field {
- CoursePointFavoriteField({int size = 0, bool growable = true})
+  CoursePointFavoriteField({int size = 0, bool growable = true})
       : super(
             name: 'favorite',
             id: ID,
@@ -340,9 +370,7 @@ class CoursePointFavoriteField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 8;
 }

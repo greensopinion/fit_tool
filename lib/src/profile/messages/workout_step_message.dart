@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class WorkoutStepMessage extends DataMessage {
-
-   WorkoutStepMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  WorkoutStepMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: WorkoutStepMessage.NAME,
@@ -25,49 +27,100 @@ class WorkoutStepMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               MessageIndexField(
-                  size: definitionMessage?.getFieldDefinition(MessageIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WorkoutStepWorkoutStepNameField(
-                  size: definitionMessage?.getFieldDefinition(WorkoutStepWorkoutStepNameField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              WorkoutStepWorkoutStepNameField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WorkoutStepDurationTypeField(
-                  size: definitionMessage?.getFieldDefinition(WorkoutStepDurationTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(WorkoutStepDurationTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WorkoutStepDurationValueField(
-                  size: definitionMessage?.getFieldDefinition(WorkoutStepDurationValueField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(WorkoutStepDurationValueField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WorkoutStepTargetTypeField(
-                  size: definitionMessage?.getFieldDefinition(WorkoutStepTargetTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(WorkoutStepTargetTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WorkoutStepTargetValueField(
-                  size: definitionMessage?.getFieldDefinition(WorkoutStepTargetValueField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(WorkoutStepTargetValueField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WorkoutStepCustomTargetValueLowField(
-                  size: definitionMessage?.getFieldDefinition(WorkoutStepCustomTargetValueLowField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              WorkoutStepCustomTargetValueLowField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WorkoutStepCustomTargetValueHighField(
-                  size: definitionMessage?.getFieldDefinition(WorkoutStepCustomTargetValueHighField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              WorkoutStepCustomTargetValueHighField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WorkoutStepIntensityField(
-                  size: definitionMessage?.getFieldDefinition(WorkoutStepIntensityField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(WorkoutStepIntensityField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WorkoutStepNotesField(
-                  size: definitionMessage?.getFieldDefinition(WorkoutStepNotesField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(WorkoutStepNotesField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WorkoutStepEquipmentField(
-                  size: definitionMessage?.getFieldDefinition(WorkoutStepEquipmentField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(WorkoutStepEquipmentField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WorkoutStepExerciseCategoryField(
-                  size: definitionMessage?.getFieldDefinition(WorkoutStepExerciseCategoryField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              WorkoutStepExerciseCategoryField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WorkoutStepExerciseNameField(
-                  size: definitionMessage?.getFieldDefinition(WorkoutStepExerciseNameField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(WorkoutStepExerciseNameField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WorkoutStepExerciseWeightField(
-                  size: definitionMessage?.getFieldDefinition(WorkoutStepExerciseWeightField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              WorkoutStepExerciseWeightField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               WorkoutStepWeightDisplayUnitField(
-                  size: definitionMessage?.getFieldDefinition(WorkoutStepWeightDisplayUnitField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              WorkoutStepWeightDisplayUnitField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -83,9 +136,8 @@ class WorkoutStepMessage extends DataMessage {
     return message;
   }
 
-
   int? get messageIndex {
-     final field = getField(MessageIndexField.ID);
+    final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -93,7 +145,8 @@ class WorkoutStepMessage extends DataMessage {
       return null;
     }
   }
-   set messageIndex(int? value) {
+
+  set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
     if (field != null) {
@@ -105,8 +158,9 @@ class WorkoutStepMessage extends DataMessage {
       }
     }
   }
+
   String? get workoutStepName {
-     final field = getField(WorkoutStepWorkoutStepNameField.ID);
+    final field = getField(WorkoutStepWorkoutStepNameField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -114,7 +168,8 @@ class WorkoutStepMessage extends DataMessage {
       return null;
     }
   }
-   set workoutStepName(String? value) {
+
+  set workoutStepName(String? value) {
     final field = getField(WorkoutStepWorkoutStepNameField.ID);
 
     if (field != null) {
@@ -126,9 +181,10 @@ class WorkoutStepMessage extends DataMessage {
       }
     }
   }
+
   WorkoutStepDuration? get durationType {
-     final field = getField(WorkoutStepDurationTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(WorkoutStepDurationTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -139,7 +195,8 @@ class WorkoutStepMessage extends DataMessage {
       return null;
     }
   }
-   set durationType(WorkoutStepDuration? value) {
+
+  set durationType(WorkoutStepDuration? value) {
     final field = getField(WorkoutStepDurationTypeField.ID);
 
     if (field != null) {
@@ -151,8 +208,9 @@ class WorkoutStepMessage extends DataMessage {
       }
     }
   }
+
   int? get durationValue {
-     final field = getField(WorkoutStepDurationValueField.ID);
+    final field = getField(WorkoutStepDurationValueField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -160,7 +218,8 @@ class WorkoutStepMessage extends DataMessage {
       return null;
     }
   }
-   set durationValue(int? value) {
+
+  set durationValue(int? value) {
     final field = getField(WorkoutStepDurationValueField.ID);
 
     if (field != null) {
@@ -174,13 +233,14 @@ class WorkoutStepMessage extends DataMessage {
   }
 
   double? get durationTime {
-     final field = getField(WorkoutStepDurationValueField.ID);
-     final typeField = getField(WorkoutStepDurationTypeField.ID);
+    final field = getField(WorkoutStepDurationValueField.ID);
+    final typeField = getField(WorkoutStepDurationTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [0, 28].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [0, 28].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -188,7 +248,7 @@ class WorkoutStepMessage extends DataMessage {
 
   set durationTime(double? value) {
     final field = getField(WorkoutStepDurationValueField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -199,13 +259,14 @@ class WorkoutStepMessage extends DataMessage {
   }
 
   double? get durationDistance {
-     final field = getField(WorkoutStepDurationValueField.ID);
-     final typeField = getField(WorkoutStepDurationTypeField.ID);
+    final field = getField(WorkoutStepDurationValueField.ID);
+    final typeField = getField(WorkoutStepDurationTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [1].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [1].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -213,7 +274,7 @@ class WorkoutStepMessage extends DataMessage {
 
   set durationDistance(double? value) {
     final field = getField(WorkoutStepDurationValueField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -224,13 +285,14 @@ class WorkoutStepMessage extends DataMessage {
   }
 
   int? get durationHr {
-     final field = getField(WorkoutStepDurationValueField.ID);
-     final typeField = getField(WorkoutStepDurationTypeField.ID);
+    final field = getField(WorkoutStepDurationValueField.ID);
+    final typeField = getField(WorkoutStepDurationTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [2, 3].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [2, 3].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -238,7 +300,7 @@ class WorkoutStepMessage extends DataMessage {
 
   set durationHr(int? value) {
     final field = getField(WorkoutStepDurationValueField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -249,13 +311,14 @@ class WorkoutStepMessage extends DataMessage {
   }
 
   int? get durationCalories {
-     final field = getField(WorkoutStepDurationValueField.ID);
-     final typeField = getField(WorkoutStepDurationTypeField.ID);
+    final field = getField(WorkoutStepDurationValueField.ID);
+    final typeField = getField(WorkoutStepDurationTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [4].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [4].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -263,7 +326,7 @@ class WorkoutStepMessage extends DataMessage {
 
   set durationCalories(int? value) {
     final field = getField(WorkoutStepDurationValueField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -274,13 +337,14 @@ class WorkoutStepMessage extends DataMessage {
   }
 
   int? get durationStep {
-     final field = getField(WorkoutStepDurationValueField.ID);
-     final typeField = getField(WorkoutStepDurationTypeField.ID);
+    final field = getField(WorkoutStepDurationValueField.ID);
+    final typeField = getField(WorkoutStepDurationTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [6, 7, 8, 9, 10, 11, 12, 13].contains(typeField.getValue());
+    final isSubFieldValid = typeField != null &&
+        [6, 7, 8, 9, 10, 11, 12, 13].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -288,7 +352,7 @@ class WorkoutStepMessage extends DataMessage {
 
   set durationStep(int? value) {
     final field = getField(WorkoutStepDurationValueField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -299,13 +363,14 @@ class WorkoutStepMessage extends DataMessage {
   }
 
   int? get durationPower {
-     final field = getField(WorkoutStepDurationValueField.ID);
-     final typeField = getField(WorkoutStepDurationTypeField.ID);
+    final field = getField(WorkoutStepDurationValueField.ID);
+    final typeField = getField(WorkoutStepDurationTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [14, 15].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [14, 15].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -313,7 +378,7 @@ class WorkoutStepMessage extends DataMessage {
 
   set durationPower(int? value) {
     final field = getField(WorkoutStepDurationValueField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -324,13 +389,14 @@ class WorkoutStepMessage extends DataMessage {
   }
 
   int? get durationReps {
-     final field = getField(WorkoutStepDurationValueField.ID);
-     final typeField = getField(WorkoutStepDurationTypeField.ID);
+    final field = getField(WorkoutStepDurationValueField.ID);
+    final typeField = getField(WorkoutStepDurationTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [29].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [29].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -338,7 +404,7 @@ class WorkoutStepMessage extends DataMessage {
 
   set durationReps(int? value) {
     final field = getField(WorkoutStepDurationValueField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -347,9 +413,10 @@ class WorkoutStepMessage extends DataMessage {
       }
     }
   }
+
   WorkoutStepTarget? get targetType {
-     final field = getField(WorkoutStepTargetTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(WorkoutStepTargetTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -360,7 +427,8 @@ class WorkoutStepMessage extends DataMessage {
       return null;
     }
   }
-   set targetType(WorkoutStepTarget? value) {
+
+  set targetType(WorkoutStepTarget? value) {
     final field = getField(WorkoutStepTargetTypeField.ID);
 
     if (field != null) {
@@ -372,8 +440,9 @@ class WorkoutStepMessage extends DataMessage {
       }
     }
   }
+
   int? get targetValue {
-     final field = getField(WorkoutStepTargetValueField.ID);
+    final field = getField(WorkoutStepTargetValueField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -381,7 +450,8 @@ class WorkoutStepMessage extends DataMessage {
       return null;
     }
   }
-   set targetValue(int? value) {
+
+  set targetValue(int? value) {
     final field = getField(WorkoutStepTargetValueField.ID);
 
     if (field != null) {
@@ -395,13 +465,14 @@ class WorkoutStepMessage extends DataMessage {
   }
 
   int? get targetSpeedZone {
-     final field = getField(WorkoutStepTargetValueField.ID);
-     final typeField = getField(WorkoutStepTargetTypeField.ID);
+    final field = getField(WorkoutStepTargetValueField.ID);
+    final typeField = getField(WorkoutStepTargetTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [0].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [0].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -409,7 +480,7 @@ class WorkoutStepMessage extends DataMessage {
 
   set targetSpeedZone(int? value) {
     final field = getField(WorkoutStepTargetValueField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -420,13 +491,14 @@ class WorkoutStepMessage extends DataMessage {
   }
 
   int? get targetHrZone {
-     final field = getField(WorkoutStepTargetValueField.ID);
-     final typeField = getField(WorkoutStepTargetTypeField.ID);
+    final field = getField(WorkoutStepTargetValueField.ID);
+    final typeField = getField(WorkoutStepTargetTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [1].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [1].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -434,7 +506,7 @@ class WorkoutStepMessage extends DataMessage {
 
   set targetHrZone(int? value) {
     final field = getField(WorkoutStepTargetValueField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -445,13 +517,14 @@ class WorkoutStepMessage extends DataMessage {
   }
 
   int? get targetCadenceZone {
-     final field = getField(WorkoutStepTargetValueField.ID);
-     final typeField = getField(WorkoutStepTargetTypeField.ID);
+    final field = getField(WorkoutStepTargetValueField.ID);
+    final typeField = getField(WorkoutStepTargetTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [3].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [3].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -459,7 +532,7 @@ class WorkoutStepMessage extends DataMessage {
 
   set targetCadenceZone(int? value) {
     final field = getField(WorkoutStepTargetValueField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -470,13 +543,14 @@ class WorkoutStepMessage extends DataMessage {
   }
 
   int? get targetPowerZone {
-     final field = getField(WorkoutStepTargetValueField.ID);
-     final typeField = getField(WorkoutStepTargetTypeField.ID);
+    final field = getField(WorkoutStepTargetValueField.ID);
+    final typeField = getField(WorkoutStepTargetTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [4].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [4].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -484,7 +558,7 @@ class WorkoutStepMessage extends DataMessage {
 
   set targetPowerZone(int? value) {
     final field = getField(WorkoutStepTargetValueField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -495,13 +569,14 @@ class WorkoutStepMessage extends DataMessage {
   }
 
   int? get targetRepeatSteps {
-     final field = getField(WorkoutStepTargetValueField.ID);
-     final typeField = getField(WorkoutStepDurationTypeField.ID);
+    final field = getField(WorkoutStepTargetValueField.ID);
+    final typeField = getField(WorkoutStepDurationTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [6].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [6].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -509,7 +584,7 @@ class WorkoutStepMessage extends DataMessage {
 
   set targetRepeatSteps(int? value) {
     final field = getField(WorkoutStepTargetValueField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -520,13 +595,14 @@ class WorkoutStepMessage extends DataMessage {
   }
 
   double? get targetRepeatTime {
-     final field = getField(WorkoutStepTargetValueField.ID);
-     final typeField = getField(WorkoutStepDurationTypeField.ID);
+    final field = getField(WorkoutStepTargetValueField.ID);
+    final typeField = getField(WorkoutStepDurationTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [7].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [7].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -534,7 +610,7 @@ class WorkoutStepMessage extends DataMessage {
 
   set targetRepeatTime(double? value) {
     final field = getField(WorkoutStepTargetValueField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -545,13 +621,14 @@ class WorkoutStepMessage extends DataMessage {
   }
 
   double? get targetRepeatDistance {
-     final field = getField(WorkoutStepTargetValueField.ID);
-     final typeField = getField(WorkoutStepDurationTypeField.ID);
+    final field = getField(WorkoutStepTargetValueField.ID);
+    final typeField = getField(WorkoutStepDurationTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [8].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [8].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -559,7 +636,7 @@ class WorkoutStepMessage extends DataMessage {
 
   set targetRepeatDistance(double? value) {
     final field = getField(WorkoutStepTargetValueField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -570,13 +647,14 @@ class WorkoutStepMessage extends DataMessage {
   }
 
   int? get targetRepeatCalories {
-     final field = getField(WorkoutStepTargetValueField.ID);
-     final typeField = getField(WorkoutStepDurationTypeField.ID);
+    final field = getField(WorkoutStepTargetValueField.ID);
+    final typeField = getField(WorkoutStepDurationTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [9].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [9].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -584,7 +662,7 @@ class WorkoutStepMessage extends DataMessage {
 
   set targetRepeatCalories(int? value) {
     final field = getField(WorkoutStepTargetValueField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -595,13 +673,14 @@ class WorkoutStepMessage extends DataMessage {
   }
 
   int? get targetRepeatHr {
-     final field = getField(WorkoutStepTargetValueField.ID);
-     final typeField = getField(WorkoutStepDurationTypeField.ID);
+    final field = getField(WorkoutStepTargetValueField.ID);
+    final typeField = getField(WorkoutStepDurationTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [10, 11].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [10, 11].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -609,7 +688,7 @@ class WorkoutStepMessage extends DataMessage {
 
   set targetRepeatHr(int? value) {
     final field = getField(WorkoutStepTargetValueField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -620,13 +699,14 @@ class WorkoutStepMessage extends DataMessage {
   }
 
   int? get targetRepeatPower {
-     final field = getField(WorkoutStepTargetValueField.ID);
-     final typeField = getField(WorkoutStepDurationTypeField.ID);
+    final field = getField(WorkoutStepTargetValueField.ID);
+    final typeField = getField(WorkoutStepDurationTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [12, 13].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [12, 13].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -634,7 +714,7 @@ class WorkoutStepMessage extends DataMessage {
 
   set targetRepeatPower(int? value) {
     final field = getField(WorkoutStepTargetValueField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -645,13 +725,14 @@ class WorkoutStepMessage extends DataMessage {
   }
 
   SwimStroke? get targetStrokeType {
-     final field = getField(WorkoutStepTargetValueField.ID);
-     final typeField = getField(WorkoutStepTargetTypeField.ID);
+    final field = getField(WorkoutStepTargetValueField.ID);
+    final typeField = getField(WorkoutStepTargetTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [11].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [11].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -659,7 +740,7 @@ class WorkoutStepMessage extends DataMessage {
 
   set targetStrokeType(SwimStroke? value) {
     final field = getField(WorkoutStepTargetValueField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -668,8 +749,9 @@ class WorkoutStepMessage extends DataMessage {
       }
     }
   }
+
   int? get customTargetValueLow {
-     final field = getField(WorkoutStepCustomTargetValueLowField.ID);
+    final field = getField(WorkoutStepCustomTargetValueLowField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -677,7 +759,8 @@ class WorkoutStepMessage extends DataMessage {
       return null;
     }
   }
-   set customTargetValueLow(int? value) {
+
+  set customTargetValueLow(int? value) {
     final field = getField(WorkoutStepCustomTargetValueLowField.ID);
 
     if (field != null) {
@@ -691,13 +774,14 @@ class WorkoutStepMessage extends DataMessage {
   }
 
   double? get customTargetSpeedLow {
-     final field = getField(WorkoutStepCustomTargetValueLowField.ID);
-     final typeField = getField(WorkoutStepTargetTypeField.ID);
+    final field = getField(WorkoutStepCustomTargetValueLowField.ID);
+    final typeField = getField(WorkoutStepTargetTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [0].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [0].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -705,7 +789,7 @@ class WorkoutStepMessage extends DataMessage {
 
   set customTargetSpeedLow(double? value) {
     final field = getField(WorkoutStepCustomTargetValueLowField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -716,13 +800,14 @@ class WorkoutStepMessage extends DataMessage {
   }
 
   int? get customTargetHeartRateLow {
-     final field = getField(WorkoutStepCustomTargetValueLowField.ID);
-     final typeField = getField(WorkoutStepTargetTypeField.ID);
+    final field = getField(WorkoutStepCustomTargetValueLowField.ID);
+    final typeField = getField(WorkoutStepTargetTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [1].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [1].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -730,7 +815,7 @@ class WorkoutStepMessage extends DataMessage {
 
   set customTargetHeartRateLow(int? value) {
     final field = getField(WorkoutStepCustomTargetValueLowField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -741,13 +826,14 @@ class WorkoutStepMessage extends DataMessage {
   }
 
   int? get customTargetCadenceLow {
-     final field = getField(WorkoutStepCustomTargetValueLowField.ID);
-     final typeField = getField(WorkoutStepTargetTypeField.ID);
+    final field = getField(WorkoutStepCustomTargetValueLowField.ID);
+    final typeField = getField(WorkoutStepTargetTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [3].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [3].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -755,7 +841,7 @@ class WorkoutStepMessage extends DataMessage {
 
   set customTargetCadenceLow(int? value) {
     final field = getField(WorkoutStepCustomTargetValueLowField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -766,13 +852,14 @@ class WorkoutStepMessage extends DataMessage {
   }
 
   int? get customTargetPowerLow {
-     final field = getField(WorkoutStepCustomTargetValueLowField.ID);
-     final typeField = getField(WorkoutStepTargetTypeField.ID);
+    final field = getField(WorkoutStepCustomTargetValueLowField.ID);
+    final typeField = getField(WorkoutStepTargetTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [4].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [4].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -780,7 +867,7 @@ class WorkoutStepMessage extends DataMessage {
 
   set customTargetPowerLow(int? value) {
     final field = getField(WorkoutStepCustomTargetValueLowField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -789,8 +876,9 @@ class WorkoutStepMessage extends DataMessage {
       }
     }
   }
+
   int? get customTargetValueHigh {
-     final field = getField(WorkoutStepCustomTargetValueHighField.ID);
+    final field = getField(WorkoutStepCustomTargetValueHighField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -798,7 +886,8 @@ class WorkoutStepMessage extends DataMessage {
       return null;
     }
   }
-   set customTargetValueHigh(int? value) {
+
+  set customTargetValueHigh(int? value) {
     final field = getField(WorkoutStepCustomTargetValueHighField.ID);
 
     if (field != null) {
@@ -812,13 +901,14 @@ class WorkoutStepMessage extends DataMessage {
   }
 
   double? get customTargetSpeedHigh {
-     final field = getField(WorkoutStepCustomTargetValueHighField.ID);
-     final typeField = getField(WorkoutStepTargetTypeField.ID);
+    final field = getField(WorkoutStepCustomTargetValueHighField.ID);
+    final typeField = getField(WorkoutStepTargetTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [0].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [0].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -826,7 +916,7 @@ class WorkoutStepMessage extends DataMessage {
 
   set customTargetSpeedHigh(double? value) {
     final field = getField(WorkoutStepCustomTargetValueHighField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -837,13 +927,14 @@ class WorkoutStepMessage extends DataMessage {
   }
 
   int? get customTargetHeartRateHigh {
-     final field = getField(WorkoutStepCustomTargetValueHighField.ID);
-     final typeField = getField(WorkoutStepTargetTypeField.ID);
+    final field = getField(WorkoutStepCustomTargetValueHighField.ID);
+    final typeField = getField(WorkoutStepTargetTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [1].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [1].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -851,7 +942,7 @@ class WorkoutStepMessage extends DataMessage {
 
   set customTargetHeartRateHigh(int? value) {
     final field = getField(WorkoutStepCustomTargetValueHighField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -862,13 +953,14 @@ class WorkoutStepMessage extends DataMessage {
   }
 
   int? get customTargetCadenceHigh {
-     final field = getField(WorkoutStepCustomTargetValueHighField.ID);
-     final typeField = getField(WorkoutStepTargetTypeField.ID);
+    final field = getField(WorkoutStepCustomTargetValueHighField.ID);
+    final typeField = getField(WorkoutStepTargetTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [3].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [3].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -876,7 +968,7 @@ class WorkoutStepMessage extends DataMessage {
 
   set customTargetCadenceHigh(int? value) {
     final field = getField(WorkoutStepCustomTargetValueHighField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -887,13 +979,14 @@ class WorkoutStepMessage extends DataMessage {
   }
 
   int? get customTargetPowerHigh {
-     final field = getField(WorkoutStepCustomTargetValueHighField.ID);
-     final typeField = getField(WorkoutStepTargetTypeField.ID);
+    final field = getField(WorkoutStepCustomTargetValueHighField.ID);
+    final typeField = getField(WorkoutStepTargetTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [4].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [4].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -901,7 +994,7 @@ class WorkoutStepMessage extends DataMessage {
 
   set customTargetPowerHigh(int? value) {
     final field = getField(WorkoutStepCustomTargetValueHighField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -910,9 +1003,10 @@ class WorkoutStepMessage extends DataMessage {
       }
     }
   }
+
   Intensity? get intensity {
-     final field = getField(WorkoutStepIntensityField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(WorkoutStepIntensityField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -923,7 +1017,8 @@ class WorkoutStepMessage extends DataMessage {
       return null;
     }
   }
-   set intensity(Intensity? value) {
+
+  set intensity(Intensity? value) {
     final field = getField(WorkoutStepIntensityField.ID);
 
     if (field != null) {
@@ -935,8 +1030,9 @@ class WorkoutStepMessage extends DataMessage {
       }
     }
   }
+
   String? get notes {
-     final field = getField(WorkoutStepNotesField.ID);
+    final field = getField(WorkoutStepNotesField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -944,7 +1040,8 @@ class WorkoutStepMessage extends DataMessage {
       return null;
     }
   }
-   set notes(String? value) {
+
+  set notes(String? value) {
     final field = getField(WorkoutStepNotesField.ID);
 
     if (field != null) {
@@ -956,9 +1053,10 @@ class WorkoutStepMessage extends DataMessage {
       }
     }
   }
+
   WorkoutEquipment? get equipment {
-     final field = getField(WorkoutStepEquipmentField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(WorkoutStepEquipmentField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -969,7 +1067,8 @@ class WorkoutStepMessage extends DataMessage {
       return null;
     }
   }
-   set equipment(WorkoutEquipment? value) {
+
+  set equipment(WorkoutEquipment? value) {
     final field = getField(WorkoutStepEquipmentField.ID);
 
     if (field != null) {
@@ -981,8 +1080,9 @@ class WorkoutStepMessage extends DataMessage {
       }
     }
   }
+
   int? get exerciseCategory {
-     final field = getField(WorkoutStepExerciseCategoryField.ID);
+    final field = getField(WorkoutStepExerciseCategoryField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -990,7 +1090,8 @@ class WorkoutStepMessage extends DataMessage {
       return null;
     }
   }
-   set exerciseCategory(int? value) {
+
+  set exerciseCategory(int? value) {
     final field = getField(WorkoutStepExerciseCategoryField.ID);
 
     if (field != null) {
@@ -1002,8 +1103,9 @@ class WorkoutStepMessage extends DataMessage {
       }
     }
   }
+
   int? get exerciseName {
-     final field = getField(WorkoutStepExerciseNameField.ID);
+    final field = getField(WorkoutStepExerciseNameField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1011,7 +1113,8 @@ class WorkoutStepMessage extends DataMessage {
       return null;
     }
   }
-   set exerciseName(int? value) {
+
+  set exerciseName(int? value) {
     final field = getField(WorkoutStepExerciseNameField.ID);
 
     if (field != null) {
@@ -1023,8 +1126,9 @@ class WorkoutStepMessage extends DataMessage {
       }
     }
   }
+
   double? get exerciseWeight {
-     final field = getField(WorkoutStepExerciseWeightField.ID);
+    final field = getField(WorkoutStepExerciseWeightField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1032,7 +1136,8 @@ class WorkoutStepMessage extends DataMessage {
       return null;
     }
   }
-   set exerciseWeight(double? value) {
+
+  set exerciseWeight(double? value) {
     final field = getField(WorkoutStepExerciseWeightField.ID);
 
     if (field != null) {
@@ -1044,8 +1149,9 @@ class WorkoutStepMessage extends DataMessage {
       }
     }
   }
+
   int? get weightDisplayUnit {
-     final field = getField(WorkoutStepWeightDisplayUnitField.ID);
+    final field = getField(WorkoutStepWeightDisplayUnitField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1053,7 +1159,8 @@ class WorkoutStepMessage extends DataMessage {
       return null;
     }
   }
-   set weightDisplayUnit(int? value) {
+
+  set weightDisplayUnit(int? value) {
     final field = getField(WorkoutStepWeightDisplayUnitField.ID);
 
     if (field != null) {
@@ -1065,15 +1172,10 @@ class WorkoutStepMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class WorkoutStepWorkoutStepNameField extends Field {
- WorkoutStepWorkoutStepNameField({int size = 0, bool growable = true})
+  WorkoutStepWorkoutStepNameField({int size = 0, bool growable = true})
       : super(
             name: 'wkt_step_name',
             id: ID,
@@ -1082,14 +1184,13 @@ class WorkoutStepWorkoutStepNameField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class WorkoutStepDurationTypeField extends Field {
- WorkoutStepDurationTypeField({int size = 0, bool growable = true})
+  WorkoutStepDurationTypeField({int size = 0, bool growable = true})
       : super(
             name: 'duration_type',
             id: ID,
@@ -1098,14 +1199,13 @@ class WorkoutStepDurationTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class WorkoutStepDurationValueField extends Field {
- WorkoutStepDurationValueField({int size = 0, bool growable = true})
+  WorkoutStepDurationValueField({int size = 0, bool growable = true})
       : super(
             name: 'duration_value',
             id: ID,
@@ -1115,74 +1215,83 @@ class WorkoutStepDurationValueField extends Field {
             size: size,
             growable: growable,
             subFields: [
-       SubField(
+              SubField(
                   name: 'duration_time',
                   type: BaseType.UINT32,
                   scale: 1000,
                   offset: 0,
                   units: 's',
                   referenceMap: {
-                  WorkoutStepDurationTypeField.ID: [0, 28]
+                    WorkoutStepDurationTypeField.ID: [0, 28]
                   }),
-       SubField(
+              SubField(
                   name: 'duration_distance',
                   type: BaseType.UINT32,
                   scale: 100,
                   offset: 0,
                   units: 'm',
                   referenceMap: {
-                  WorkoutStepDurationTypeField.ID: [1]
+                    WorkoutStepDurationTypeField.ID: [1]
                   }),
-       SubField(
+              SubField(
                   name: 'duration_hr',
                   type: BaseType.UINT32,
                   scale: 1,
                   offset: 0,
                   units: '% or bpm',
                   referenceMap: {
-                  WorkoutStepDurationTypeField.ID: [2, 3]
+                    WorkoutStepDurationTypeField.ID: [2, 3]
                   }),
-       SubField(
+              SubField(
                   name: 'duration_calories',
                   type: BaseType.UINT32,
                   scale: 1,
                   offset: 0,
                   units: 'calories',
                   referenceMap: {
-                  WorkoutStepDurationTypeField.ID: [4]
+                    WorkoutStepDurationTypeField.ID: [4]
                   }),
-       SubField(
+              SubField(
                   name: 'duration_step',
                   type: BaseType.UINT32,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  WorkoutStepDurationTypeField.ID: [6, 7, 8, 9, 10, 11, 12, 13]
+                    WorkoutStepDurationTypeField.ID: [
+                      6,
+                      7,
+                      8,
+                      9,
+                      10,
+                      11,
+                      12,
+                      13
+                    ]
                   }),
-       SubField(
+              SubField(
                   name: 'duration_power',
                   type: BaseType.UINT32,
                   scale: 1,
                   offset: 0,
                   units: '% or watts',
                   referenceMap: {
-                  WorkoutStepDurationTypeField.ID: [14, 15]
+                    WorkoutStepDurationTypeField.ID: [14, 15]
                   }),
-       SubField(
+              SubField(
                   name: 'duration_reps',
                   type: BaseType.UINT32,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  WorkoutStepDurationTypeField.ID: [29]
+                    WorkoutStepDurationTypeField.ID: [29]
                   })
-            ]
- );
+            ]);
 
   static const ID = 2;
 }
+
 class WorkoutStepTargetTypeField extends Field {
- WorkoutStepTargetTypeField({int size = 0, bool growable = true})
+  WorkoutStepTargetTypeField({int size = 0, bool growable = true})
       : super(
             name: 'target_type',
             id: ID,
@@ -1191,14 +1300,13 @@ class WorkoutStepTargetTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class WorkoutStepTargetValueField extends Field {
- WorkoutStepTargetValueField({int size = 0, bool growable = true})
+  WorkoutStepTargetValueField({int size = 0, bool growable = true})
       : super(
             name: 'target_value',
             id: ID,
@@ -1208,106 +1316,106 @@ class WorkoutStepTargetValueField extends Field {
             size: size,
             growable: growable,
             subFields: [
-       SubField(
+              SubField(
                   name: 'target_speed_zone',
                   type: BaseType.UINT32,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  WorkoutStepTargetTypeField.ID: [0]
+                    WorkoutStepTargetTypeField.ID: [0]
                   }),
-       SubField(
+              SubField(
                   name: 'target_hr_zone',
                   type: BaseType.UINT32,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  WorkoutStepTargetTypeField.ID: [1]
+                    WorkoutStepTargetTypeField.ID: [1]
                   }),
-       SubField(
+              SubField(
                   name: 'target_cadence_zone',
                   type: BaseType.UINT32,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  WorkoutStepTargetTypeField.ID: [3]
+                    WorkoutStepTargetTypeField.ID: [3]
                   }),
-       SubField(
+              SubField(
                   name: 'target_power_zone',
                   type: BaseType.UINT32,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  WorkoutStepTargetTypeField.ID: [4]
+                    WorkoutStepTargetTypeField.ID: [4]
                   }),
-       SubField(
+              SubField(
                   name: 'repeat_steps',
                   type: BaseType.UINT32,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  WorkoutStepDurationTypeField.ID: [6]
+                    WorkoutStepDurationTypeField.ID: [6]
                   }),
-       SubField(
+              SubField(
                   name: 'repeat_time',
                   type: BaseType.UINT32,
                   scale: 1000,
                   offset: 0,
                   units: 's',
                   referenceMap: {
-                  WorkoutStepDurationTypeField.ID: [7]
+                    WorkoutStepDurationTypeField.ID: [7]
                   }),
-       SubField(
+              SubField(
                   name: 'repeat_distance',
                   type: BaseType.UINT32,
                   scale: 100,
                   offset: 0,
                   units: 'm',
                   referenceMap: {
-                  WorkoutStepDurationTypeField.ID: [8]
+                    WorkoutStepDurationTypeField.ID: [8]
                   }),
-       SubField(
+              SubField(
                   name: 'repeat_calories',
                   type: BaseType.UINT32,
                   scale: 1,
                   offset: 0,
                   units: 'calories',
                   referenceMap: {
-                  WorkoutStepDurationTypeField.ID: [9]
+                    WorkoutStepDurationTypeField.ID: [9]
                   }),
-       SubField(
+              SubField(
                   name: 'repeat_hr',
                   type: BaseType.UINT32,
                   scale: 1,
                   offset: 0,
                   units: '% or bpm',
                   referenceMap: {
-                  WorkoutStepDurationTypeField.ID: [10, 11]
+                    WorkoutStepDurationTypeField.ID: [10, 11]
                   }),
-       SubField(
+              SubField(
                   name: 'repeat_power',
                   type: BaseType.UINT32,
                   scale: 1,
                   offset: 0,
                   units: '% or watts',
                   referenceMap: {
-                  WorkoutStepDurationTypeField.ID: [12, 13]
+                    WorkoutStepDurationTypeField.ID: [12, 13]
                   }),
-       SubField(
+              SubField(
                   name: 'target_stroke_type',
                   type: BaseType.ENUM,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  WorkoutStepTargetTypeField.ID: [11]
+                    WorkoutStepTargetTypeField.ID: [11]
                   })
-            ]
- );
+            ]);
 
   static const ID = 4;
 }
+
 class WorkoutStepCustomTargetValueLowField extends Field {
- WorkoutStepCustomTargetValueLowField({int size = 0, bool growable = true})
+  WorkoutStepCustomTargetValueLowField({int size = 0, bool growable = true})
       : super(
             name: 'custom_target_value_low',
             id: ID,
@@ -1317,49 +1425,49 @@ class WorkoutStepCustomTargetValueLowField extends Field {
             size: size,
             growable: growable,
             subFields: [
-       SubField(
+              SubField(
                   name: 'custom_target_speed_low',
                   type: BaseType.UINT32,
                   scale: 1000,
                   offset: 0,
                   units: 'm/s',
                   referenceMap: {
-                  WorkoutStepTargetTypeField.ID: [0]
+                    WorkoutStepTargetTypeField.ID: [0]
                   }),
-       SubField(
+              SubField(
                   name: 'custom_target_heart_rate_low',
                   type: BaseType.UINT32,
                   scale: 1,
                   offset: 0,
                   units: '% or bpm',
                   referenceMap: {
-                  WorkoutStepTargetTypeField.ID: [1]
+                    WorkoutStepTargetTypeField.ID: [1]
                   }),
-       SubField(
+              SubField(
                   name: 'custom_target_cadence_low',
                   type: BaseType.UINT32,
                   scale: 1,
                   offset: 0,
                   units: 'rpm',
                   referenceMap: {
-                  WorkoutStepTargetTypeField.ID: [3]
+                    WorkoutStepTargetTypeField.ID: [3]
                   }),
-       SubField(
+              SubField(
                   name: 'custom_target_power_low',
                   type: BaseType.UINT32,
                   scale: 1,
                   offset: 0,
                   units: '% or watts',
                   referenceMap: {
-                  WorkoutStepTargetTypeField.ID: [4]
+                    WorkoutStepTargetTypeField.ID: [4]
                   })
-            ]
- );
+            ]);
 
   static const ID = 5;
 }
+
 class WorkoutStepCustomTargetValueHighField extends Field {
- WorkoutStepCustomTargetValueHighField({int size = 0, bool growable = true})
+  WorkoutStepCustomTargetValueHighField({int size = 0, bool growable = true})
       : super(
             name: 'custom_target_value_high',
             id: ID,
@@ -1369,49 +1477,49 @@ class WorkoutStepCustomTargetValueHighField extends Field {
             size: size,
             growable: growable,
             subFields: [
-       SubField(
+              SubField(
                   name: 'custom_target_speed_high',
                   type: BaseType.UINT32,
                   scale: 1000,
                   offset: 0,
                   units: 'm/s',
                   referenceMap: {
-                  WorkoutStepTargetTypeField.ID: [0]
+                    WorkoutStepTargetTypeField.ID: [0]
                   }),
-       SubField(
+              SubField(
                   name: 'custom_target_heart_rate_high',
                   type: BaseType.UINT32,
                   scale: 1,
                   offset: 0,
                   units: '% or bpm',
                   referenceMap: {
-                  WorkoutStepTargetTypeField.ID: [1]
+                    WorkoutStepTargetTypeField.ID: [1]
                   }),
-       SubField(
+              SubField(
                   name: 'custom_target_cadence_high',
                   type: BaseType.UINT32,
                   scale: 1,
                   offset: 0,
                   units: 'rpm',
                   referenceMap: {
-                  WorkoutStepTargetTypeField.ID: [3]
+                    WorkoutStepTargetTypeField.ID: [3]
                   }),
-       SubField(
+              SubField(
                   name: 'custom_target_power_high',
                   type: BaseType.UINT32,
                   scale: 1,
                   offset: 0,
                   units: '% or watts',
                   referenceMap: {
-                  WorkoutStepTargetTypeField.ID: [4]
+                    WorkoutStepTargetTypeField.ID: [4]
                   })
-            ]
- );
+            ]);
 
   static const ID = 6;
 }
+
 class WorkoutStepIntensityField extends Field {
- WorkoutStepIntensityField({int size = 0, bool growable = true})
+  WorkoutStepIntensityField({int size = 0, bool growable = true})
       : super(
             name: 'intensity',
             id: ID,
@@ -1420,14 +1528,13 @@ class WorkoutStepIntensityField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 7;
 }
+
 class WorkoutStepNotesField extends Field {
- WorkoutStepNotesField({int size = 0, bool growable = true})
+  WorkoutStepNotesField({int size = 0, bool growable = true})
       : super(
             name: 'notes',
             id: ID,
@@ -1436,14 +1543,13 @@ class WorkoutStepNotesField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 8;
 }
+
 class WorkoutStepEquipmentField extends Field {
- WorkoutStepEquipmentField({int size = 0, bool growable = true})
+  WorkoutStepEquipmentField({int size = 0, bool growable = true})
       : super(
             name: 'equipment',
             id: ID,
@@ -1452,14 +1558,13 @@ class WorkoutStepEquipmentField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 9;
 }
+
 class WorkoutStepExerciseCategoryField extends Field {
- WorkoutStepExerciseCategoryField({int size = 0, bool growable = true})
+  WorkoutStepExerciseCategoryField({int size = 0, bool growable = true})
       : super(
             name: 'exercise_category',
             id: ID,
@@ -1468,14 +1573,13 @@ class WorkoutStepExerciseCategoryField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 10;
 }
+
 class WorkoutStepExerciseNameField extends Field {
- WorkoutStepExerciseNameField({int size = 0, bool growable = true})
+  WorkoutStepExerciseNameField({int size = 0, bool growable = true})
       : super(
             name: 'exercise_name',
             id: ID,
@@ -1484,14 +1588,13 @@ class WorkoutStepExerciseNameField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 11;
 }
+
 class WorkoutStepExerciseWeightField extends Field {
- WorkoutStepExerciseWeightField({int size = 0, bool growable = true})
+  WorkoutStepExerciseWeightField({int size = 0, bool growable = true})
       : super(
             name: 'exercise_weight',
             id: ID,
@@ -1502,14 +1605,13 @@ class WorkoutStepExerciseWeightField extends Field {
             units: 'kg',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 12;
 }
+
 class WorkoutStepWeightDisplayUnitField extends Field {
- WorkoutStepWeightDisplayUnitField({int size = 0, bool growable = true})
+  WorkoutStepWeightDisplayUnitField({int size = 0, bool growable = true})
       : super(
             name: 'weight_display_unit',
             id: ID,
@@ -1518,9 +1620,7 @@ class WorkoutStepWeightDisplayUnitField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 13;
 }

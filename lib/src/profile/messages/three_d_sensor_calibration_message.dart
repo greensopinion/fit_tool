@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class ThreeDSensorCalibrationMessage extends DataMessage {
-
-   ThreeDSensorCalibrationMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  ThreeDSensorCalibrationMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: ThreeDSensorCalibrationMessage.NAME,
@@ -25,25 +27,52 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ThreeDSensorCalibrationSensorTypeField(
-                  size: definitionMessage?.getFieldDefinition(ThreeDSensorCalibrationSensorTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ThreeDSensorCalibrationSensorTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ThreeDSensorCalibrationCalibrationFactorField(
-                  size: definitionMessage?.getFieldDefinition(ThreeDSensorCalibrationCalibrationFactorField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ThreeDSensorCalibrationCalibrationFactorField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ThreeDSensorCalibrationCalibrationDivisorField(
-                  size: definitionMessage?.getFieldDefinition(ThreeDSensorCalibrationCalibrationDivisorField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ThreeDSensorCalibrationCalibrationDivisorField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ThreeDSensorCalibrationLevelShiftField(
-                  size: definitionMessage?.getFieldDefinition(ThreeDSensorCalibrationLevelShiftField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ThreeDSensorCalibrationLevelShiftField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ThreeDSensorCalibrationOffsetCalField(
-                  size: definitionMessage?.getFieldDefinition(ThreeDSensorCalibrationOffsetCalField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ThreeDSensorCalibrationOffsetCalField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ThreeDSensorCalibrationOrientationMatrixField(
-                  size: definitionMessage?.getFieldDefinition(ThreeDSensorCalibrationOrientationMatrixField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ThreeDSensorCalibrationOrientationMatrixField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -54,15 +83,15 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
 
   static ThreeDSensorCalibrationMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
-    final message = ThreeDSensorCalibrationMessage(definitionMessage: definitionMessage);
+    final message =
+        ThreeDSensorCalibrationMessage(definitionMessage: definitionMessage);
     message.readFromBytes(bytes);
     return message;
   }
 
-
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -70,8 +99,9 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -83,9 +113,10 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
       }
     }
   }
+
   SensorType? get sensorType {
-     final field = getField(ThreeDSensorCalibrationSensorTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(ThreeDSensorCalibrationSensorTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -96,7 +127,8 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
       return null;
     }
   }
-   set sensorType(SensorType? value) {
+
+  set sensorType(SensorType? value) {
     final field = getField(ThreeDSensorCalibrationSensorTypeField.ID);
 
     if (field != null) {
@@ -108,8 +140,9 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
       }
     }
   }
+
   int? get calibrationFactor {
-     final field = getField(ThreeDSensorCalibrationCalibrationFactorField.ID);
+    final field = getField(ThreeDSensorCalibrationCalibrationFactorField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -117,7 +150,8 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
       return null;
     }
   }
-   set calibrationFactor(int? value) {
+
+  set calibrationFactor(int? value) {
     final field = getField(ThreeDSensorCalibrationCalibrationFactorField.ID);
 
     if (field != null) {
@@ -131,13 +165,14 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
   }
 
   int? get accelCalFactor {
-     final field = getField(ThreeDSensorCalibrationCalibrationFactorField.ID);
-     final typeField = getField(ThreeDSensorCalibrationSensorTypeField.ID);
+    final field = getField(ThreeDSensorCalibrationCalibrationFactorField.ID);
+    final typeField = getField(ThreeDSensorCalibrationSensorTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [0].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [0].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -145,7 +180,7 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
 
   set accelCalFactor(int? value) {
     final field = getField(ThreeDSensorCalibrationCalibrationFactorField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -156,13 +191,14 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
   }
 
   int? get gyroCalFactor {
-     final field = getField(ThreeDSensorCalibrationCalibrationFactorField.ID);
-     final typeField = getField(ThreeDSensorCalibrationSensorTypeField.ID);
+    final field = getField(ThreeDSensorCalibrationCalibrationFactorField.ID);
+    final typeField = getField(ThreeDSensorCalibrationSensorTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [1].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [1].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -170,7 +206,7 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
 
   set gyroCalFactor(int? value) {
     final field = getField(ThreeDSensorCalibrationCalibrationFactorField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -179,8 +215,9 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
       }
     }
   }
+
   int? get calibrationDivisor {
-     final field = getField(ThreeDSensorCalibrationCalibrationDivisorField.ID);
+    final field = getField(ThreeDSensorCalibrationCalibrationDivisorField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -188,7 +225,8 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
       return null;
     }
   }
-   set calibrationDivisor(int? value) {
+
+  set calibrationDivisor(int? value) {
     final field = getField(ThreeDSensorCalibrationCalibrationDivisorField.ID);
 
     if (field != null) {
@@ -200,8 +238,9 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
       }
     }
   }
+
   int? get levelShift {
-     final field = getField(ThreeDSensorCalibrationLevelShiftField.ID);
+    final field = getField(ThreeDSensorCalibrationLevelShiftField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -209,7 +248,8 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
       return null;
     }
   }
-   set levelShift(int? value) {
+
+  set levelShift(int? value) {
     final field = getField(ThreeDSensorCalibrationLevelShiftField.ID);
 
     if (field != null) {
@@ -221,8 +261,9 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
       }
     }
   }
+
   int? get offsetCal {
-     final field = getField(ThreeDSensorCalibrationOffsetCalField.ID);
+    final field = getField(ThreeDSensorCalibrationOffsetCalField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -230,7 +271,8 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
       return null;
     }
   }
-   set offsetCal(int? value) {
+
+  set offsetCal(int? value) {
     final field = getField(ThreeDSensorCalibrationOffsetCalField.ID);
 
     if (field != null) {
@@ -242,8 +284,9 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
       }
     }
   }
+
   double? get orientationMatrix {
-     final field = getField(ThreeDSensorCalibrationOrientationMatrixField.ID);
+    final field = getField(ThreeDSensorCalibrationOrientationMatrixField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -251,7 +294,8 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
       return null;
     }
   }
-   set orientationMatrix(double? value) {
+
+  set orientationMatrix(double? value) {
     final field = getField(ThreeDSensorCalibrationOrientationMatrixField.ID);
 
     if (field != null) {
@@ -263,15 +307,10 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class ThreeDSensorCalibrationSensorTypeField extends Field {
- ThreeDSensorCalibrationSensorTypeField({int size = 0, bool growable = true})
+  ThreeDSensorCalibrationSensorTypeField({int size = 0, bool growable = true})
       : super(
             name: 'sensor_type',
             id: ID,
@@ -280,14 +319,14 @@ class ThreeDSensorCalibrationSensorTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class ThreeDSensorCalibrationCalibrationFactorField extends Field {
- ThreeDSensorCalibrationCalibrationFactorField({int size = 0, bool growable = true})
+  ThreeDSensorCalibrationCalibrationFactorField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'calibration_factor',
             id: ID,
@@ -297,31 +336,32 @@ class ThreeDSensorCalibrationCalibrationFactorField extends Field {
             size: size,
             growable: growable,
             subFields: [
-       SubField(
+              SubField(
                   name: 'accel_cal_factor',
                   type: BaseType.UINT32,
                   scale: 1,
                   offset: 0,
                   units: 'g',
                   referenceMap: {
-                  ThreeDSensorCalibrationSensorTypeField.ID: [0]
+                    ThreeDSensorCalibrationSensorTypeField.ID: [0]
                   }),
-       SubField(
+              SubField(
                   name: 'gyro_cal_factor',
                   type: BaseType.UINT32,
                   scale: 1,
                   offset: 0,
                   units: 'deg/s',
                   referenceMap: {
-                  ThreeDSensorCalibrationSensorTypeField.ID: [1]
+                    ThreeDSensorCalibrationSensorTypeField.ID: [1]
                   })
-            ]
- );
+            ]);
 
   static const ID = 1;
 }
+
 class ThreeDSensorCalibrationCalibrationDivisorField extends Field {
- ThreeDSensorCalibrationCalibrationDivisorField({int size = 0, bool growable = true})
+  ThreeDSensorCalibrationCalibrationDivisorField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'calibration_divisor',
             id: ID,
@@ -332,14 +372,13 @@ class ThreeDSensorCalibrationCalibrationDivisorField extends Field {
             units: 'counts',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class ThreeDSensorCalibrationLevelShiftField extends Field {
- ThreeDSensorCalibrationLevelShiftField({int size = 0, bool growable = true})
+  ThreeDSensorCalibrationLevelShiftField({int size = 0, bool growable = true})
       : super(
             name: 'level_shift',
             id: ID,
@@ -348,14 +387,13 @@ class ThreeDSensorCalibrationLevelShiftField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class ThreeDSensorCalibrationOffsetCalField extends Field {
- ThreeDSensorCalibrationOffsetCalField({int size = 0, bool growable = true})
+  ThreeDSensorCalibrationOffsetCalField({int size = 0, bool growable = true})
       : super(
             name: 'offset_cal',
             id: ID,
@@ -364,14 +402,14 @@ class ThreeDSensorCalibrationOffsetCalField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class ThreeDSensorCalibrationOrientationMatrixField extends Field {
- ThreeDSensorCalibrationOrientationMatrixField({int size = 0, bool growable = true})
+  ThreeDSensorCalibrationOrientationMatrixField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'orientation_matrix',
             id: ID,
@@ -380,9 +418,7 @@ class ThreeDSensorCalibrationOrientationMatrixField extends Field {
             scale: 65535,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }

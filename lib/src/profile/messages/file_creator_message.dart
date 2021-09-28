@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class FileCreatorMessage extends DataMessage {
-
-   FileCreatorMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  FileCreatorMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: FileCreatorMessage.NAME,
@@ -25,10 +27,18 @@ class FileCreatorMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               FileCreatorSoftwareVersionField(
-                  size: definitionMessage?.getFieldDefinition(FileCreatorSoftwareVersionField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              FileCreatorSoftwareVersionField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               FileCreatorHardwareVersionField(
-                  size: definitionMessage?.getFieldDefinition(FileCreatorHardwareVersionField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              FileCreatorHardwareVersionField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -44,9 +54,8 @@ class FileCreatorMessage extends DataMessage {
     return message;
   }
 
-
   int? get softwareVersion {
-     final field = getField(FileCreatorSoftwareVersionField.ID);
+    final field = getField(FileCreatorSoftwareVersionField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -54,7 +63,8 @@ class FileCreatorMessage extends DataMessage {
       return null;
     }
   }
-   set softwareVersion(int? value) {
+
+  set softwareVersion(int? value) {
     final field = getField(FileCreatorSoftwareVersionField.ID);
 
     if (field != null) {
@@ -66,8 +76,9 @@ class FileCreatorMessage extends DataMessage {
       }
     }
   }
+
   int? get hardwareVersion {
-     final field = getField(FileCreatorHardwareVersionField.ID);
+    final field = getField(FileCreatorHardwareVersionField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -75,7 +86,8 @@ class FileCreatorMessage extends DataMessage {
       return null;
     }
   }
-   set hardwareVersion(int? value) {
+
+  set hardwareVersion(int? value) {
     final field = getField(FileCreatorHardwareVersionField.ID);
 
     if (field != null) {
@@ -87,15 +99,10 @@ class FileCreatorMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class FileCreatorSoftwareVersionField extends Field {
- FileCreatorSoftwareVersionField({int size = 0, bool growable = true})
+  FileCreatorSoftwareVersionField({int size = 0, bool growable = true})
       : super(
             name: 'software_version',
             id: ID,
@@ -104,14 +111,13 @@ class FileCreatorSoftwareVersionField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class FileCreatorHardwareVersionField extends Field {
- FileCreatorHardwareVersionField({int size = 0, bool growable = true})
+  FileCreatorHardwareVersionField({int size = 0, bool growable = true})
       : super(
             name: 'hardware_version',
             id: ID,
@@ -120,9 +126,7 @@ class FileCreatorHardwareVersionField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }

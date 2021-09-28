@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class FieldDescriptionMessage extends DataMessage {
-
-   FieldDescriptionMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  FieldDescriptionMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: FieldDescriptionMessage.NAME,
@@ -25,46 +27,97 @@ class FieldDescriptionMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               FieldDescriptionDeveloperDataIndexField(
-                  size: definitionMessage?.getFieldDefinition(FieldDescriptionDeveloperDataIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              FieldDescriptionDeveloperDataIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               FieldDescriptionFieldDefinitionNumberField(
-                  size: definitionMessage?.getFieldDefinition(FieldDescriptionFieldDefinitionNumberField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              FieldDescriptionFieldDefinitionNumberField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               FieldDescriptionFitBaseTypeIdField(
-                  size: definitionMessage?.getFieldDefinition(FieldDescriptionFitBaseTypeIdField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              FieldDescriptionFitBaseTypeIdField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               FieldDescriptionFieldNameField(
-                  size: definitionMessage?.getFieldDefinition(FieldDescriptionFieldNameField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              FieldDescriptionFieldNameField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               FieldDescriptionArrayField(
-                  size: definitionMessage?.getFieldDefinition(FieldDescriptionArrayField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(FieldDescriptionArrayField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               FieldDescriptionComponentsField(
-                  size: definitionMessage?.getFieldDefinition(FieldDescriptionComponentsField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              FieldDescriptionComponentsField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               FieldDescriptionScaleField(
-                  size: definitionMessage?.getFieldDefinition(FieldDescriptionScaleField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(FieldDescriptionScaleField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               FieldDescriptionOffsetField(
-                  size: definitionMessage?.getFieldDefinition(FieldDescriptionOffsetField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(FieldDescriptionOffsetField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               FieldDescriptionUnitsField(
-                  size: definitionMessage?.getFieldDefinition(FieldDescriptionUnitsField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(FieldDescriptionUnitsField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               FieldDescriptionBitsField(
-                  size: definitionMessage?.getFieldDefinition(FieldDescriptionBitsField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(FieldDescriptionBitsField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               FieldDescriptionAccumulateField(
-                  size: definitionMessage?.getFieldDefinition(FieldDescriptionAccumulateField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              FieldDescriptionAccumulateField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               FieldDescriptionFitBaseUnitIdField(
-                  size: definitionMessage?.getFieldDefinition(FieldDescriptionFitBaseUnitIdField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              FieldDescriptionFitBaseUnitIdField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               FieldDescriptionNativeMesgNumField(
-                  size: definitionMessage?.getFieldDefinition(FieldDescriptionNativeMesgNumField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              FieldDescriptionNativeMesgNumField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               FieldDescriptionNativeFieldNumField(
-                  size: definitionMessage?.getFieldDefinition(FieldDescriptionNativeFieldNumField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              FieldDescriptionNativeFieldNumField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -75,14 +128,14 @@ class FieldDescriptionMessage extends DataMessage {
 
   static FieldDescriptionMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
-    final message = FieldDescriptionMessage(definitionMessage: definitionMessage);
+    final message =
+        FieldDescriptionMessage(definitionMessage: definitionMessage);
     message.readFromBytes(bytes);
     return message;
   }
 
-
   int? get developerDataIndex {
-     final field = getField(FieldDescriptionDeveloperDataIndexField.ID);
+    final field = getField(FieldDescriptionDeveloperDataIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -90,7 +143,8 @@ class FieldDescriptionMessage extends DataMessage {
       return null;
     }
   }
-   set developerDataIndex(int? value) {
+
+  set developerDataIndex(int? value) {
     final field = getField(FieldDescriptionDeveloperDataIndexField.ID);
 
     if (field != null) {
@@ -102,8 +156,9 @@ class FieldDescriptionMessage extends DataMessage {
       }
     }
   }
+
   int? get fieldDefinitionNumber {
-     final field = getField(FieldDescriptionFieldDefinitionNumberField.ID);
+    final field = getField(FieldDescriptionFieldDefinitionNumberField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -111,7 +166,8 @@ class FieldDescriptionMessage extends DataMessage {
       return null;
     }
   }
-   set fieldDefinitionNumber(int? value) {
+
+  set fieldDefinitionNumber(int? value) {
     final field = getField(FieldDescriptionFieldDefinitionNumberField.ID);
 
     if (field != null) {
@@ -123,8 +179,9 @@ class FieldDescriptionMessage extends DataMessage {
       }
     }
   }
+
   int? get fitBaseTypeId {
-     final field = getField(FieldDescriptionFitBaseTypeIdField.ID);
+    final field = getField(FieldDescriptionFitBaseTypeIdField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -132,7 +189,8 @@ class FieldDescriptionMessage extends DataMessage {
       return null;
     }
   }
-   set fitBaseTypeId(int? value) {
+
+  set fitBaseTypeId(int? value) {
     final field = getField(FieldDescriptionFitBaseTypeIdField.ID);
 
     if (field != null) {
@@ -144,8 +202,9 @@ class FieldDescriptionMessage extends DataMessage {
       }
     }
   }
+
   String? get fieldName {
-     final field = getField(FieldDescriptionFieldNameField.ID);
+    final field = getField(FieldDescriptionFieldNameField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -153,7 +212,8 @@ class FieldDescriptionMessage extends DataMessage {
       return null;
     }
   }
-   set fieldName(String? value) {
+
+  set fieldName(String? value) {
     final field = getField(FieldDescriptionFieldNameField.ID);
 
     if (field != null) {
@@ -165,8 +225,9 @@ class FieldDescriptionMessage extends DataMessage {
       }
     }
   }
+
   int? get array {
-     final field = getField(FieldDescriptionArrayField.ID);
+    final field = getField(FieldDescriptionArrayField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -174,7 +235,8 @@ class FieldDescriptionMessage extends DataMessage {
       return null;
     }
   }
-   set array(int? value) {
+
+  set array(int? value) {
     final field = getField(FieldDescriptionArrayField.ID);
 
     if (field != null) {
@@ -186,8 +248,9 @@ class FieldDescriptionMessage extends DataMessage {
       }
     }
   }
+
   String? get components {
-     final field = getField(FieldDescriptionComponentsField.ID);
+    final field = getField(FieldDescriptionComponentsField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -195,7 +258,8 @@ class FieldDescriptionMessage extends DataMessage {
       return null;
     }
   }
-   set components(String? value) {
+
+  set components(String? value) {
     final field = getField(FieldDescriptionComponentsField.ID);
 
     if (field != null) {
@@ -207,8 +271,9 @@ class FieldDescriptionMessage extends DataMessage {
       }
     }
   }
+
   int? get scale {
-     final field = getField(FieldDescriptionScaleField.ID);
+    final field = getField(FieldDescriptionScaleField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -216,7 +281,8 @@ class FieldDescriptionMessage extends DataMessage {
       return null;
     }
   }
-   set scale(int? value) {
+
+  set scale(int? value) {
     final field = getField(FieldDescriptionScaleField.ID);
 
     if (field != null) {
@@ -228,8 +294,9 @@ class FieldDescriptionMessage extends DataMessage {
       }
     }
   }
+
   int? get offset {
-     final field = getField(FieldDescriptionOffsetField.ID);
+    final field = getField(FieldDescriptionOffsetField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -237,7 +304,8 @@ class FieldDescriptionMessage extends DataMessage {
       return null;
     }
   }
-   set offset(int? value) {
+
+  set offset(int? value) {
     final field = getField(FieldDescriptionOffsetField.ID);
 
     if (field != null) {
@@ -249,8 +317,9 @@ class FieldDescriptionMessage extends DataMessage {
       }
     }
   }
+
   String? get units {
-     final field = getField(FieldDescriptionUnitsField.ID);
+    final field = getField(FieldDescriptionUnitsField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -258,7 +327,8 @@ class FieldDescriptionMessage extends DataMessage {
       return null;
     }
   }
-   set units(String? value) {
+
+  set units(String? value) {
     final field = getField(FieldDescriptionUnitsField.ID);
 
     if (field != null) {
@@ -270,8 +340,9 @@ class FieldDescriptionMessage extends DataMessage {
       }
     }
   }
+
   String? get bits {
-     final field = getField(FieldDescriptionBitsField.ID);
+    final field = getField(FieldDescriptionBitsField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -279,7 +350,8 @@ class FieldDescriptionMessage extends DataMessage {
       return null;
     }
   }
-   set bits(String? value) {
+
+  set bits(String? value) {
     final field = getField(FieldDescriptionBitsField.ID);
 
     if (field != null) {
@@ -291,8 +363,9 @@ class FieldDescriptionMessage extends DataMessage {
       }
     }
   }
+
   String? get accumulate {
-     final field = getField(FieldDescriptionAccumulateField.ID);
+    final field = getField(FieldDescriptionAccumulateField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -300,7 +373,8 @@ class FieldDescriptionMessage extends DataMessage {
       return null;
     }
   }
-   set accumulate(String? value) {
+
+  set accumulate(String? value) {
     final field = getField(FieldDescriptionAccumulateField.ID);
 
     if (field != null) {
@@ -312,8 +386,9 @@ class FieldDescriptionMessage extends DataMessage {
       }
     }
   }
+
   int? get fitBaseUnitId {
-     final field = getField(FieldDescriptionFitBaseUnitIdField.ID);
+    final field = getField(FieldDescriptionFitBaseUnitIdField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -321,7 +396,8 @@ class FieldDescriptionMessage extends DataMessage {
       return null;
     }
   }
-   set fitBaseUnitId(int? value) {
+
+  set fitBaseUnitId(int? value) {
     final field = getField(FieldDescriptionFitBaseUnitIdField.ID);
 
     if (field != null) {
@@ -333,8 +409,9 @@ class FieldDescriptionMessage extends DataMessage {
       }
     }
   }
+
   int? get nativeMesgNum {
-     final field = getField(FieldDescriptionNativeMesgNumField.ID);
+    final field = getField(FieldDescriptionNativeMesgNumField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -342,7 +419,8 @@ class FieldDescriptionMessage extends DataMessage {
       return null;
     }
   }
-   set nativeMesgNum(int? value) {
+
+  set nativeMesgNum(int? value) {
     final field = getField(FieldDescriptionNativeMesgNumField.ID);
 
     if (field != null) {
@@ -354,8 +432,9 @@ class FieldDescriptionMessage extends DataMessage {
       }
     }
   }
+
   int? get nativeFieldNum {
-     final field = getField(FieldDescriptionNativeFieldNumField.ID);
+    final field = getField(FieldDescriptionNativeFieldNumField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -363,7 +442,8 @@ class FieldDescriptionMessage extends DataMessage {
       return null;
     }
   }
-   set nativeFieldNum(int? value) {
+
+  set nativeFieldNum(int? value) {
     final field = getField(FieldDescriptionNativeFieldNumField.ID);
 
     if (field != null) {
@@ -375,15 +455,10 @@ class FieldDescriptionMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class FieldDescriptionDeveloperDataIndexField extends Field {
- FieldDescriptionDeveloperDataIndexField({int size = 0, bool growable = true})
+  FieldDescriptionDeveloperDataIndexField({int size = 0, bool growable = true})
       : super(
             name: 'developer_data_index',
             id: ID,
@@ -392,14 +467,14 @@ class FieldDescriptionDeveloperDataIndexField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class FieldDescriptionFieldDefinitionNumberField extends Field {
- FieldDescriptionFieldDefinitionNumberField({int size = 0, bool growable = true})
+  FieldDescriptionFieldDefinitionNumberField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'field_definition_number',
             id: ID,
@@ -408,14 +483,13 @@ class FieldDescriptionFieldDefinitionNumberField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class FieldDescriptionFitBaseTypeIdField extends Field {
- FieldDescriptionFitBaseTypeIdField({int size = 0, bool growable = true})
+  FieldDescriptionFitBaseTypeIdField({int size = 0, bool growable = true})
       : super(
             name: 'fit_base_type_id',
             id: ID,
@@ -424,14 +498,13 @@ class FieldDescriptionFitBaseTypeIdField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class FieldDescriptionFieldNameField extends Field {
- FieldDescriptionFieldNameField({int size = 0, bool growable = true})
+  FieldDescriptionFieldNameField({int size = 0, bool growable = true})
       : super(
             name: 'field_name',
             id: ID,
@@ -440,14 +513,13 @@ class FieldDescriptionFieldNameField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class FieldDescriptionArrayField extends Field {
- FieldDescriptionArrayField({int size = 0, bool growable = true})
+  FieldDescriptionArrayField({int size = 0, bool growable = true})
       : super(
             name: 'array',
             id: ID,
@@ -456,14 +528,13 @@ class FieldDescriptionArrayField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class FieldDescriptionComponentsField extends Field {
- FieldDescriptionComponentsField({int size = 0, bool growable = true})
+  FieldDescriptionComponentsField({int size = 0, bool growable = true})
       : super(
             name: 'components',
             id: ID,
@@ -472,14 +543,13 @@ class FieldDescriptionComponentsField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }
+
 class FieldDescriptionScaleField extends Field {
- FieldDescriptionScaleField({int size = 0, bool growable = true})
+  FieldDescriptionScaleField({int size = 0, bool growable = true})
       : super(
             name: 'scale',
             id: ID,
@@ -488,14 +558,13 @@ class FieldDescriptionScaleField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 6;
 }
+
 class FieldDescriptionOffsetField extends Field {
- FieldDescriptionOffsetField({int size = 0, bool growable = true})
+  FieldDescriptionOffsetField({int size = 0, bool growable = true})
       : super(
             name: 'offset',
             id: ID,
@@ -504,14 +573,13 @@ class FieldDescriptionOffsetField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 7;
 }
+
 class FieldDescriptionUnitsField extends Field {
- FieldDescriptionUnitsField({int size = 0, bool growable = true})
+  FieldDescriptionUnitsField({int size = 0, bool growable = true})
       : super(
             name: 'units',
             id: ID,
@@ -520,14 +588,13 @@ class FieldDescriptionUnitsField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 8;
 }
+
 class FieldDescriptionBitsField extends Field {
- FieldDescriptionBitsField({int size = 0, bool growable = true})
+  FieldDescriptionBitsField({int size = 0, bool growable = true})
       : super(
             name: 'bits',
             id: ID,
@@ -536,14 +603,13 @@ class FieldDescriptionBitsField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 9;
 }
+
 class FieldDescriptionAccumulateField extends Field {
- FieldDescriptionAccumulateField({int size = 0, bool growable = true})
+  FieldDescriptionAccumulateField({int size = 0, bool growable = true})
       : super(
             name: 'accumulate',
             id: ID,
@@ -552,14 +618,13 @@ class FieldDescriptionAccumulateField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 10;
 }
+
 class FieldDescriptionFitBaseUnitIdField extends Field {
- FieldDescriptionFitBaseUnitIdField({int size = 0, bool growable = true})
+  FieldDescriptionFitBaseUnitIdField({int size = 0, bool growable = true})
       : super(
             name: 'fit_base_unit_id',
             id: ID,
@@ -568,14 +633,13 @@ class FieldDescriptionFitBaseUnitIdField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 13;
 }
+
 class FieldDescriptionNativeMesgNumField extends Field {
- FieldDescriptionNativeMesgNumField({int size = 0, bool growable = true})
+  FieldDescriptionNativeMesgNumField({int size = 0, bool growable = true})
       : super(
             name: 'native_mesg_num',
             id: ID,
@@ -584,14 +648,13 @@ class FieldDescriptionNativeMesgNumField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 14;
 }
+
 class FieldDescriptionNativeFieldNumField extends Field {
- FieldDescriptionNativeFieldNumField({int size = 0, bool growable = true})
+  FieldDescriptionNativeFieldNumField({int size = 0, bool growable = true})
       : super(
             name: 'native_field_num',
             id: ID,
@@ -600,9 +663,7 @@ class FieldDescriptionNativeFieldNumField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 15;
 }

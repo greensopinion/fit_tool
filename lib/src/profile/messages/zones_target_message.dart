@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class ZonesTargetMessage extends DataMessage {
-
-   ZonesTargetMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  ZonesTargetMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: ZonesTargetMessage.NAME,
@@ -25,19 +27,36 @@ class ZonesTargetMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               ZonesTargetMaxHeartRateField(
-                  size: definitionMessage?.getFieldDefinition(ZonesTargetMaxHeartRateField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(ZonesTargetMaxHeartRateField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ZonesTargetThresholdHeartRateField(
-                  size: definitionMessage?.getFieldDefinition(ZonesTargetThresholdHeartRateField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ZonesTargetThresholdHeartRateField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ZonesTargetFunctionalThresholdPowerField(
-                  size: definitionMessage?.getFieldDefinition(ZonesTargetFunctionalThresholdPowerField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ZonesTargetFunctionalThresholdPowerField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ZonesTargetHrCalcTypeField(
-                  size: definitionMessage?.getFieldDefinition(ZonesTargetHrCalcTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(ZonesTargetHrCalcTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ZonesTargetPwrCalcTypeField(
-                  size: definitionMessage?.getFieldDefinition(ZonesTargetPwrCalcTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(ZonesTargetPwrCalcTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -53,9 +72,8 @@ class ZonesTargetMessage extends DataMessage {
     return message;
   }
 
-
   int? get maxHeartRate {
-     final field = getField(ZonesTargetMaxHeartRateField.ID);
+    final field = getField(ZonesTargetMaxHeartRateField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -63,7 +81,8 @@ class ZonesTargetMessage extends DataMessage {
       return null;
     }
   }
-   set maxHeartRate(int? value) {
+
+  set maxHeartRate(int? value) {
     final field = getField(ZonesTargetMaxHeartRateField.ID);
 
     if (field != null) {
@@ -75,8 +94,9 @@ class ZonesTargetMessage extends DataMessage {
       }
     }
   }
+
   int? get thresholdHeartRate {
-     final field = getField(ZonesTargetThresholdHeartRateField.ID);
+    final field = getField(ZonesTargetThresholdHeartRateField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -84,7 +104,8 @@ class ZonesTargetMessage extends DataMessage {
       return null;
     }
   }
-   set thresholdHeartRate(int? value) {
+
+  set thresholdHeartRate(int? value) {
     final field = getField(ZonesTargetThresholdHeartRateField.ID);
 
     if (field != null) {
@@ -96,8 +117,9 @@ class ZonesTargetMessage extends DataMessage {
       }
     }
   }
+
   int? get functionalThresholdPower {
-     final field = getField(ZonesTargetFunctionalThresholdPowerField.ID);
+    final field = getField(ZonesTargetFunctionalThresholdPowerField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -105,7 +127,8 @@ class ZonesTargetMessage extends DataMessage {
       return null;
     }
   }
-   set functionalThresholdPower(int? value) {
+
+  set functionalThresholdPower(int? value) {
     final field = getField(ZonesTargetFunctionalThresholdPowerField.ID);
 
     if (field != null) {
@@ -117,9 +140,10 @@ class ZonesTargetMessage extends DataMessage {
       }
     }
   }
+
   HrZoneCalc? get hrCalcType {
-     final field = getField(ZonesTargetHrCalcTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(ZonesTargetHrCalcTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -130,7 +154,8 @@ class ZonesTargetMessage extends DataMessage {
       return null;
     }
   }
-   set hrCalcType(HrZoneCalc? value) {
+
+  set hrCalcType(HrZoneCalc? value) {
     final field = getField(ZonesTargetHrCalcTypeField.ID);
 
     if (field != null) {
@@ -142,9 +167,10 @@ class ZonesTargetMessage extends DataMessage {
       }
     }
   }
+
   PwrZoneCalc? get pwrCalcType {
-     final field = getField(ZonesTargetPwrCalcTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(ZonesTargetPwrCalcTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -155,7 +181,8 @@ class ZonesTargetMessage extends DataMessage {
       return null;
     }
   }
-   set pwrCalcType(PwrZoneCalc? value) {
+
+  set pwrCalcType(PwrZoneCalc? value) {
     final field = getField(ZonesTargetPwrCalcTypeField.ID);
 
     if (field != null) {
@@ -167,15 +194,10 @@ class ZonesTargetMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class ZonesTargetMaxHeartRateField extends Field {
- ZonesTargetMaxHeartRateField({int size = 0, bool growable = true})
+  ZonesTargetMaxHeartRateField({int size = 0, bool growable = true})
       : super(
             name: 'max_heart_rate',
             id: ID,
@@ -184,14 +206,13 @@ class ZonesTargetMaxHeartRateField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class ZonesTargetThresholdHeartRateField extends Field {
- ZonesTargetThresholdHeartRateField({int size = 0, bool growable = true})
+  ZonesTargetThresholdHeartRateField({int size = 0, bool growable = true})
       : super(
             name: 'threshold_heart_rate',
             id: ID,
@@ -200,14 +221,13 @@ class ZonesTargetThresholdHeartRateField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class ZonesTargetFunctionalThresholdPowerField extends Field {
- ZonesTargetFunctionalThresholdPowerField({int size = 0, bool growable = true})
+  ZonesTargetFunctionalThresholdPowerField({int size = 0, bool growable = true})
       : super(
             name: 'functional_threshold_power',
             id: ID,
@@ -216,14 +236,13 @@ class ZonesTargetFunctionalThresholdPowerField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class ZonesTargetHrCalcTypeField extends Field {
- ZonesTargetHrCalcTypeField({int size = 0, bool growable = true})
+  ZonesTargetHrCalcTypeField({int size = 0, bool growable = true})
       : super(
             name: 'hr_calc_type',
             id: ID,
@@ -232,14 +251,13 @@ class ZonesTargetHrCalcTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }
+
 class ZonesTargetPwrCalcTypeField extends Field {
- ZonesTargetPwrCalcTypeField({int size = 0, bool growable = true})
+  ZonesTargetPwrCalcTypeField({int size = 0, bool growable = true})
       : super(
             name: 'pwr_calc_type',
             id: ID,
@@ -248,9 +266,7 @@ class ZonesTargetPwrCalcTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 7;
 }

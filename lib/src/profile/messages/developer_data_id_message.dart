@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class DeveloperDataIdMessage extends DataMessage {
-
-   DeveloperDataIdMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  DeveloperDataIdMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: DeveloperDataIdMessage.NAME,
@@ -25,19 +27,39 @@ class DeveloperDataIdMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               DeveloperDataIdDeveloperIdField(
-                  size: definitionMessage?.getFieldDefinition(DeveloperDataIdDeveloperIdField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DeveloperDataIdDeveloperIdField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeveloperDataIdApplicationIdField(
-                  size: definitionMessage?.getFieldDefinition(DeveloperDataIdApplicationIdField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DeveloperDataIdApplicationIdField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeveloperDataIdManufacturerIdField(
-                  size: definitionMessage?.getFieldDefinition(DeveloperDataIdManufacturerIdField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DeveloperDataIdManufacturerIdField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeveloperDataIdDeveloperDataIndexField(
-                  size: definitionMessage?.getFieldDefinition(DeveloperDataIdDeveloperDataIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DeveloperDataIdDeveloperDataIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               DeveloperDataIdApplicationVersionField(
-                  size: definitionMessage?.getFieldDefinition(DeveloperDataIdApplicationVersionField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              DeveloperDataIdApplicationVersionField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -48,14 +70,14 @@ class DeveloperDataIdMessage extends DataMessage {
 
   static DeveloperDataIdMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
-    final message = DeveloperDataIdMessage(definitionMessage: definitionMessage);
+    final message =
+        DeveloperDataIdMessage(definitionMessage: definitionMessage);
     message.readFromBytes(bytes);
     return message;
   }
 
-
   int? get developerId {
-     final field = getField(DeveloperDataIdDeveloperIdField.ID);
+    final field = getField(DeveloperDataIdDeveloperIdField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -63,7 +85,8 @@ class DeveloperDataIdMessage extends DataMessage {
       return null;
     }
   }
-   set developerId(int? value) {
+
+  set developerId(int? value) {
     final field = getField(DeveloperDataIdDeveloperIdField.ID);
 
     if (field != null) {
@@ -75,8 +98,9 @@ class DeveloperDataIdMessage extends DataMessage {
       }
     }
   }
+
   int? get applicationId {
-     final field = getField(DeveloperDataIdApplicationIdField.ID);
+    final field = getField(DeveloperDataIdApplicationIdField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -84,7 +108,8 @@ class DeveloperDataIdMessage extends DataMessage {
       return null;
     }
   }
-   set applicationId(int? value) {
+
+  set applicationId(int? value) {
     final field = getField(DeveloperDataIdApplicationIdField.ID);
 
     if (field != null) {
@@ -96,8 +121,9 @@ class DeveloperDataIdMessage extends DataMessage {
       }
     }
   }
+
   int? get manufacturerId {
-     final field = getField(DeveloperDataIdManufacturerIdField.ID);
+    final field = getField(DeveloperDataIdManufacturerIdField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -105,7 +131,8 @@ class DeveloperDataIdMessage extends DataMessage {
       return null;
     }
   }
-   set manufacturerId(int? value) {
+
+  set manufacturerId(int? value) {
     final field = getField(DeveloperDataIdManufacturerIdField.ID);
 
     if (field != null) {
@@ -117,8 +144,9 @@ class DeveloperDataIdMessage extends DataMessage {
       }
     }
   }
+
   int? get developerDataIndex {
-     final field = getField(DeveloperDataIdDeveloperDataIndexField.ID);
+    final field = getField(DeveloperDataIdDeveloperDataIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -126,7 +154,8 @@ class DeveloperDataIdMessage extends DataMessage {
       return null;
     }
   }
-   set developerDataIndex(int? value) {
+
+  set developerDataIndex(int? value) {
     final field = getField(DeveloperDataIdDeveloperDataIndexField.ID);
 
     if (field != null) {
@@ -138,8 +167,9 @@ class DeveloperDataIdMessage extends DataMessage {
       }
     }
   }
+
   int? get applicationVersion {
-     final field = getField(DeveloperDataIdApplicationVersionField.ID);
+    final field = getField(DeveloperDataIdApplicationVersionField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -147,7 +177,8 @@ class DeveloperDataIdMessage extends DataMessage {
       return null;
     }
   }
-   set applicationVersion(int? value) {
+
+  set applicationVersion(int? value) {
     final field = getField(DeveloperDataIdApplicationVersionField.ID);
 
     if (field != null) {
@@ -159,15 +190,10 @@ class DeveloperDataIdMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class DeveloperDataIdDeveloperIdField extends Field {
- DeveloperDataIdDeveloperIdField({int size = 0, bool growable = true})
+  DeveloperDataIdDeveloperIdField({int size = 0, bool growable = true})
       : super(
             name: 'developer_id',
             id: ID,
@@ -176,14 +202,13 @@ class DeveloperDataIdDeveloperIdField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class DeveloperDataIdApplicationIdField extends Field {
- DeveloperDataIdApplicationIdField({int size = 0, bool growable = true})
+  DeveloperDataIdApplicationIdField({int size = 0, bool growable = true})
       : super(
             name: 'application_id',
             id: ID,
@@ -192,14 +217,13 @@ class DeveloperDataIdApplicationIdField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class DeveloperDataIdManufacturerIdField extends Field {
- DeveloperDataIdManufacturerIdField({int size = 0, bool growable = true})
+  DeveloperDataIdManufacturerIdField({int size = 0, bool growable = true})
       : super(
             name: 'manufacturer_id',
             id: ID,
@@ -208,14 +232,13 @@ class DeveloperDataIdManufacturerIdField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class DeveloperDataIdDeveloperDataIndexField extends Field {
- DeveloperDataIdDeveloperDataIndexField({int size = 0, bool growable = true})
+  DeveloperDataIdDeveloperDataIndexField({int size = 0, bool growable = true})
       : super(
             name: 'developer_data_index',
             id: ID,
@@ -224,14 +247,13 @@ class DeveloperDataIdDeveloperDataIndexField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class DeveloperDataIdApplicationVersionField extends Field {
- DeveloperDataIdApplicationVersionField({int size = 0, bool growable = true})
+  DeveloperDataIdApplicationVersionField({int size = 0, bool growable = true})
       : super(
             name: 'application_version',
             id: ID,
@@ -240,9 +262,7 @@ class DeveloperDataIdApplicationVersionField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }

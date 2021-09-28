@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class CadenceZoneMessage extends DataMessage {
-
-   CadenceZoneMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  CadenceZoneMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: CadenceZoneMessage.NAME,
@@ -25,13 +27,22 @@ class CadenceZoneMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               MessageIndexField(
-                  size: definitionMessage?.getFieldDefinition(MessageIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               CadenceZoneHighValueField(
-                  size: definitionMessage?.getFieldDefinition(CadenceZoneHighValueField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(CadenceZoneHighValueField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               CadenceZoneNameField(
-                  size: definitionMessage?.getFieldDefinition(CadenceZoneNameField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(CadenceZoneNameField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -47,9 +58,8 @@ class CadenceZoneMessage extends DataMessage {
     return message;
   }
 
-
   int? get messageIndex {
-     final field = getField(MessageIndexField.ID);
+    final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -57,7 +67,8 @@ class CadenceZoneMessage extends DataMessage {
       return null;
     }
   }
-   set messageIndex(int? value) {
+
+  set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
     if (field != null) {
@@ -69,8 +80,9 @@ class CadenceZoneMessage extends DataMessage {
       }
     }
   }
+
   int? get highValue {
-     final field = getField(CadenceZoneHighValueField.ID);
+    final field = getField(CadenceZoneHighValueField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -78,7 +90,8 @@ class CadenceZoneMessage extends DataMessage {
       return null;
     }
   }
-   set highValue(int? value) {
+
+  set highValue(int? value) {
     final field = getField(CadenceZoneHighValueField.ID);
 
     if (field != null) {
@@ -90,8 +103,9 @@ class CadenceZoneMessage extends DataMessage {
       }
     }
   }
+
   String? get cadenceZoneName {
-     final field = getField(CadenceZoneNameField.ID);
+    final field = getField(CadenceZoneNameField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -99,7 +113,8 @@ class CadenceZoneMessage extends DataMessage {
       return null;
     }
   }
-   set cadenceZoneName(String? value) {
+
+  set cadenceZoneName(String? value) {
     final field = getField(CadenceZoneNameField.ID);
 
     if (field != null) {
@@ -111,15 +126,10 @@ class CadenceZoneMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class CadenceZoneHighValueField extends Field {
- CadenceZoneHighValueField({int size = 0, bool growable = true})
+  CadenceZoneHighValueField({int size = 0, bool growable = true})
       : super(
             name: 'high_value',
             id: ID,
@@ -130,14 +140,13 @@ class CadenceZoneHighValueField extends Field {
             units: 'rpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class CadenceZoneNameField extends Field {
- CadenceZoneNameField({int size = 0, bool growable = true})
+  CadenceZoneNameField({int size = 0, bool growable = true})
       : super(
             name: 'name',
             id: ID,
@@ -146,9 +155,7 @@ class CadenceZoneNameField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }

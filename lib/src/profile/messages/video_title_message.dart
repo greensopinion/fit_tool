@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class VideoTitleMessage extends DataMessage {
-
-   VideoTitleMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  VideoTitleMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: VideoTitleMessage.NAME,
@@ -25,13 +27,22 @@ class VideoTitleMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               MessageIndexField(
-                  size: definitionMessage?.getFieldDefinition(MessageIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               VideoTitleMessageCountField(
-                  size: definitionMessage?.getFieldDefinition(VideoTitleMessageCountField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(VideoTitleMessageCountField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               VideoTitleTextField(
-                  size: definitionMessage?.getFieldDefinition(VideoTitleTextField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(VideoTitleTextField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -47,9 +58,8 @@ class VideoTitleMessage extends DataMessage {
     return message;
   }
 
-
   int? get messageIndex {
-     final field = getField(MessageIndexField.ID);
+    final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -57,7 +67,8 @@ class VideoTitleMessage extends DataMessage {
       return null;
     }
   }
-   set messageIndex(int? value) {
+
+  set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
     if (field != null) {
@@ -69,8 +80,9 @@ class VideoTitleMessage extends DataMessage {
       }
     }
   }
+
   int? get messageCount {
-     final field = getField(VideoTitleMessageCountField.ID);
+    final field = getField(VideoTitleMessageCountField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -78,7 +90,8 @@ class VideoTitleMessage extends DataMessage {
       return null;
     }
   }
-   set messageCount(int? value) {
+
+  set messageCount(int? value) {
     final field = getField(VideoTitleMessageCountField.ID);
 
     if (field != null) {
@@ -90,8 +103,9 @@ class VideoTitleMessage extends DataMessage {
       }
     }
   }
+
   String? get text {
-     final field = getField(VideoTitleTextField.ID);
+    final field = getField(VideoTitleTextField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -99,7 +113,8 @@ class VideoTitleMessage extends DataMessage {
       return null;
     }
   }
-   set text(String? value) {
+
+  set text(String? value) {
     final field = getField(VideoTitleTextField.ID);
 
     if (field != null) {
@@ -111,15 +126,10 @@ class VideoTitleMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class VideoTitleMessageCountField extends Field {
- VideoTitleMessageCountField({int size = 0, bool growable = true})
+  VideoTitleMessageCountField({int size = 0, bool growable = true})
       : super(
             name: 'message_count',
             id: ID,
@@ -128,14 +138,13 @@ class VideoTitleMessageCountField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class VideoTitleTextField extends Field {
- VideoTitleTextField({int size = 0, bool growable = true})
+  VideoTitleTextField({int size = 0, bool growable = true})
       : super(
             name: 'text',
             id: ID,
@@ -144,9 +153,7 @@ class VideoTitleTextField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }

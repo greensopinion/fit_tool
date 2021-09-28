@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class NmeaSentenceMessage extends DataMessage {
-
-   NmeaSentenceMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  NmeaSentenceMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: NmeaSentenceMessage.NAME,
@@ -25,13 +27,22 @@ class NmeaSentenceMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               NmeaSentenceTimestampMsField(
-                  size: definitionMessage?.getFieldDefinition(NmeaSentenceTimestampMsField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(NmeaSentenceTimestampMsField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               NmeaSentenceSentenceField(
-                  size: definitionMessage?.getFieldDefinition(NmeaSentenceSentenceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(NmeaSentenceSentenceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -47,10 +58,9 @@ class NmeaSentenceMessage extends DataMessage {
     return message;
   }
 
-
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -58,8 +68,9 @@ class NmeaSentenceMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -71,8 +82,9 @@ class NmeaSentenceMessage extends DataMessage {
       }
     }
   }
+
   int? get timestampMs {
-     final field = getField(NmeaSentenceTimestampMsField.ID);
+    final field = getField(NmeaSentenceTimestampMsField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -80,7 +92,8 @@ class NmeaSentenceMessage extends DataMessage {
       return null;
     }
   }
-   set timestampMs(int? value) {
+
+  set timestampMs(int? value) {
     final field = getField(NmeaSentenceTimestampMsField.ID);
 
     if (field != null) {
@@ -92,8 +105,9 @@ class NmeaSentenceMessage extends DataMessage {
       }
     }
   }
+
   String? get sentence {
-     final field = getField(NmeaSentenceSentenceField.ID);
+    final field = getField(NmeaSentenceSentenceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -101,7 +115,8 @@ class NmeaSentenceMessage extends DataMessage {
       return null;
     }
   }
-   set sentence(String? value) {
+
+  set sentence(String? value) {
     final field = getField(NmeaSentenceSentenceField.ID);
 
     if (field != null) {
@@ -113,15 +128,10 @@ class NmeaSentenceMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class NmeaSentenceTimestampMsField extends Field {
- NmeaSentenceTimestampMsField({int size = 0, bool growable = true})
+  NmeaSentenceTimestampMsField({int size = 0, bool growable = true})
       : super(
             name: 'timestamp_ms',
             id: ID,
@@ -132,14 +142,13 @@ class NmeaSentenceTimestampMsField extends Field {
             units: 'ms',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class NmeaSentenceSentenceField extends Field {
- NmeaSentenceSentenceField({int size = 0, bool growable = true})
+  NmeaSentenceSentenceField({int size = 0, bool growable = true})
       : super(
             name: 'sentence',
             id: ID,
@@ -148,9 +157,7 @@ class NmeaSentenceSentenceField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }

@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class EventMessage extends DataMessage {
-
-   EventMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  EventMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: EventMessage.NAME,
@@ -25,49 +27,94 @@ class EventMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               EventEventField(
-                  size: definitionMessage?.getFieldDefinition(EventEventField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(EventEventField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               EventEventTypeField(
-                  size: definitionMessage?.getFieldDefinition(EventEventTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(EventEventTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               EventData16Field(
-                  size: definitionMessage?.getFieldDefinition(EventData16Field.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(EventData16Field.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               EventDataField(
-                  size: definitionMessage?.getFieldDefinition(EventDataField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(EventDataField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               EventEventGroupField(
-                  size: definitionMessage?.getFieldDefinition(EventEventGroupField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(EventEventGroupField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               EventScoreField(
-                  size: definitionMessage?.getFieldDefinition(EventScoreField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(EventScoreField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               EventOpponentScoreField(
-                  size: definitionMessage?.getFieldDefinition(EventOpponentScoreField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(EventOpponentScoreField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               EventFrontGearNumField(
-                  size: definitionMessage?.getFieldDefinition(EventFrontGearNumField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(EventFrontGearNumField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               EventFrontGearField(
-                  size: definitionMessage?.getFieldDefinition(EventFrontGearField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(EventFrontGearField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               EventRearGearNumField(
-                  size: definitionMessage?.getFieldDefinition(EventRearGearNumField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(EventRearGearNumField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               EventRearGearField(
-                  size: definitionMessage?.getFieldDefinition(EventRearGearField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(EventRearGearField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               EventDeviceIndexField(
-                  size: definitionMessage?.getFieldDefinition(EventDeviceIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(EventDeviceIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               EventRadarThreatLevelMaxField(
-                  size: definitionMessage?.getFieldDefinition(EventRadarThreatLevelMaxField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(EventRadarThreatLevelMaxField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               EventRadarThreatCountField(
-                  size: definitionMessage?.getFieldDefinition(EventRadarThreatCountField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(EventRadarThreatCountField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -83,10 +130,9 @@ class EventMessage extends DataMessage {
     return message;
   }
 
-
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -94,8 +140,9 @@ class EventMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -107,9 +154,10 @@ class EventMessage extends DataMessage {
       }
     }
   }
+
   Event? get event {
-     final field = getField(EventEventField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(EventEventField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -120,7 +168,8 @@ class EventMessage extends DataMessage {
       return null;
     }
   }
-   set event(Event? value) {
+
+  set event(Event? value) {
     final field = getField(EventEventField.ID);
 
     if (field != null) {
@@ -132,9 +181,10 @@ class EventMessage extends DataMessage {
       }
     }
   }
+
   EventType? get eventType {
-     final field = getField(EventEventTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(EventEventTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -145,7 +195,8 @@ class EventMessage extends DataMessage {
       return null;
     }
   }
-   set eventType(EventType? value) {
+
+  set eventType(EventType? value) {
     final field = getField(EventEventTypeField.ID);
 
     if (field != null) {
@@ -157,8 +208,9 @@ class EventMessage extends DataMessage {
       }
     }
   }
+
   int? get data16 {
-     final field = getField(EventData16Field.ID);
+    final field = getField(EventData16Field.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -166,7 +218,8 @@ class EventMessage extends DataMessage {
       return null;
     }
   }
-   set data16(int? value) {
+
+  set data16(int? value) {
     final field = getField(EventData16Field.ID);
 
     if (field != null) {
@@ -178,8 +231,9 @@ class EventMessage extends DataMessage {
       }
     }
   }
+
   int? get data {
-     final field = getField(EventDataField.ID);
+    final field = getField(EventDataField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -187,7 +241,8 @@ class EventMessage extends DataMessage {
       return null;
     }
   }
-   set data(int? value) {
+
+  set data(int? value) {
     final field = getField(EventDataField.ID);
 
     if (field != null) {
@@ -201,13 +256,14 @@ class EventMessage extends DataMessage {
   }
 
   TimerTrigger? get timerTrigger {
-     final field = getField(EventDataField.ID);
-     final typeField = getField(EventEventField.ID);
+    final field = getField(EventDataField.ID);
+    final typeField = getField(EventEventField.ID);
 
-     final isSubFieldValid = typeField != null && [0].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [0].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -215,7 +271,7 @@ class EventMessage extends DataMessage {
 
   set timerTrigger(TimerTrigger? value) {
     final field = getField(EventDataField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -226,13 +282,14 @@ class EventMessage extends DataMessage {
   }
 
   int? get coursePointIndex {
-     final field = getField(EventDataField.ID);
-     final typeField = getField(EventEventField.ID);
+    final field = getField(EventDataField.ID);
+    final typeField = getField(EventEventField.ID);
 
-     final isSubFieldValid = typeField != null && [10].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [10].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -240,7 +297,7 @@ class EventMessage extends DataMessage {
 
   set coursePointIndex(int? value) {
     final field = getField(EventDataField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -251,13 +308,14 @@ class EventMessage extends DataMessage {
   }
 
   double? get batteryLevel {
-     final field = getField(EventDataField.ID);
-     final typeField = getField(EventEventField.ID);
+    final field = getField(EventDataField.ID);
+    final typeField = getField(EventEventField.ID);
 
-     final isSubFieldValid = typeField != null && [11].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [11].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -265,7 +323,7 @@ class EventMessage extends DataMessage {
 
   set batteryLevel(double? value) {
     final field = getField(EventDataField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -276,13 +334,14 @@ class EventMessage extends DataMessage {
   }
 
   double? get virtualPartnerSpeed {
-     final field = getField(EventDataField.ID);
-     final typeField = getField(EventEventField.ID);
+    final field = getField(EventDataField.ID);
+    final typeField = getField(EventEventField.ID);
 
-     final isSubFieldValid = typeField != null && [12].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [12].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -290,7 +349,7 @@ class EventMessage extends DataMessage {
 
   set virtualPartnerSpeed(double? value) {
     final field = getField(EventDataField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -301,13 +360,14 @@ class EventMessage extends DataMessage {
   }
 
   int? get hrHighAlert {
-     final field = getField(EventDataField.ID);
-     final typeField = getField(EventEventField.ID);
+    final field = getField(EventDataField.ID);
+    final typeField = getField(EventEventField.ID);
 
-     final isSubFieldValid = typeField != null && [13].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [13].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -315,7 +375,7 @@ class EventMessage extends DataMessage {
 
   set hrHighAlert(int? value) {
     final field = getField(EventDataField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -326,13 +386,14 @@ class EventMessage extends DataMessage {
   }
 
   int? get hrLowAlert {
-     final field = getField(EventDataField.ID);
-     final typeField = getField(EventEventField.ID);
+    final field = getField(EventDataField.ID);
+    final typeField = getField(EventEventField.ID);
 
-     final isSubFieldValid = typeField != null && [14].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [14].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -340,7 +401,7 @@ class EventMessage extends DataMessage {
 
   set hrLowAlert(int? value) {
     final field = getField(EventDataField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -351,13 +412,14 @@ class EventMessage extends DataMessage {
   }
 
   double? get speedHighAlert {
-     final field = getField(EventDataField.ID);
-     final typeField = getField(EventEventField.ID);
+    final field = getField(EventDataField.ID);
+    final typeField = getField(EventEventField.ID);
 
-     final isSubFieldValid = typeField != null && [15].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [15].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -365,7 +427,7 @@ class EventMessage extends DataMessage {
 
   set speedHighAlert(double? value) {
     final field = getField(EventDataField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -376,13 +438,14 @@ class EventMessage extends DataMessage {
   }
 
   double? get speedLowAlert {
-     final field = getField(EventDataField.ID);
-     final typeField = getField(EventEventField.ID);
+    final field = getField(EventDataField.ID);
+    final typeField = getField(EventEventField.ID);
 
-     final isSubFieldValid = typeField != null && [16].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [16].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -390,7 +453,7 @@ class EventMessage extends DataMessage {
 
   set speedLowAlert(double? value) {
     final field = getField(EventDataField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -401,13 +464,14 @@ class EventMessage extends DataMessage {
   }
 
   int? get cadHighAlert {
-     final field = getField(EventDataField.ID);
-     final typeField = getField(EventEventField.ID);
+    final field = getField(EventDataField.ID);
+    final typeField = getField(EventEventField.ID);
 
-     final isSubFieldValid = typeField != null && [17].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [17].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -415,7 +479,7 @@ class EventMessage extends DataMessage {
 
   set cadHighAlert(int? value) {
     final field = getField(EventDataField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -426,13 +490,14 @@ class EventMessage extends DataMessage {
   }
 
   int? get cadLowAlert {
-     final field = getField(EventDataField.ID);
-     final typeField = getField(EventEventField.ID);
+    final field = getField(EventDataField.ID);
+    final typeField = getField(EventEventField.ID);
 
-     final isSubFieldValid = typeField != null && [18].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [18].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -440,7 +505,7 @@ class EventMessage extends DataMessage {
 
   set cadLowAlert(int? value) {
     final field = getField(EventDataField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -451,13 +516,14 @@ class EventMessage extends DataMessage {
   }
 
   int? get powerHighAlert {
-     final field = getField(EventDataField.ID);
-     final typeField = getField(EventEventField.ID);
+    final field = getField(EventDataField.ID);
+    final typeField = getField(EventEventField.ID);
 
-     final isSubFieldValid = typeField != null && [19].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [19].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -465,7 +531,7 @@ class EventMessage extends DataMessage {
 
   set powerHighAlert(int? value) {
     final field = getField(EventDataField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -476,13 +542,14 @@ class EventMessage extends DataMessage {
   }
 
   int? get powerLowAlert {
-     final field = getField(EventDataField.ID);
-     final typeField = getField(EventEventField.ID);
+    final field = getField(EventDataField.ID);
+    final typeField = getField(EventEventField.ID);
 
-     final isSubFieldValid = typeField != null && [20].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [20].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -490,7 +557,7 @@ class EventMessage extends DataMessage {
 
   set powerLowAlert(int? value) {
     final field = getField(EventDataField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -501,13 +568,14 @@ class EventMessage extends DataMessage {
   }
 
   double? get timeDurationAlert {
-     final field = getField(EventDataField.ID);
-     final typeField = getField(EventEventField.ID);
+    final field = getField(EventDataField.ID);
+    final typeField = getField(EventEventField.ID);
 
-     final isSubFieldValid = typeField != null && [23].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [23].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -515,7 +583,7 @@ class EventMessage extends DataMessage {
 
   set timeDurationAlert(double? value) {
     final field = getField(EventDataField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -526,13 +594,14 @@ class EventMessage extends DataMessage {
   }
 
   double? get distanceDurationAlert {
-     final field = getField(EventDataField.ID);
-     final typeField = getField(EventEventField.ID);
+    final field = getField(EventDataField.ID);
+    final typeField = getField(EventEventField.ID);
 
-     final isSubFieldValid = typeField != null && [24].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [24].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -540,7 +609,7 @@ class EventMessage extends DataMessage {
 
   set distanceDurationAlert(double? value) {
     final field = getField(EventDataField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -551,13 +620,14 @@ class EventMessage extends DataMessage {
   }
 
   int? get calorieDurationAlert {
-     final field = getField(EventDataField.ID);
-     final typeField = getField(EventEventField.ID);
+    final field = getField(EventDataField.ID);
+    final typeField = getField(EventEventField.ID);
 
-     final isSubFieldValid = typeField != null && [25].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [25].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -565,7 +635,7 @@ class EventMessage extends DataMessage {
 
   set calorieDurationAlert(int? value) {
     final field = getField(EventDataField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -576,13 +646,14 @@ class EventMessage extends DataMessage {
   }
 
   FitnessEquipmentState? get fitnessEquipmentState {
-     final field = getField(EventDataField.ID);
-     final typeField = getField(EventEventField.ID);
+    final field = getField(EventDataField.ID);
+    final typeField = getField(EventEventField.ID);
 
-     final isSubFieldValid = typeField != null && [27].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [27].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -590,7 +661,7 @@ class EventMessage extends DataMessage {
 
   set fitnessEquipmentState(FitnessEquipmentState? value) {
     final field = getField(EventDataField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -601,13 +672,14 @@ class EventMessage extends DataMessage {
   }
 
   int? get sportPoint {
-     final field = getField(EventDataField.ID);
-     final typeField = getField(EventEventField.ID);
+    final field = getField(EventDataField.ID);
+    final typeField = getField(EventEventField.ID);
 
-     final isSubFieldValid = typeField != null && [33].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [33].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -615,7 +687,7 @@ class EventMessage extends DataMessage {
 
   set sportPoint(int? value) {
     final field = getField(EventDataField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -626,13 +698,14 @@ class EventMessage extends DataMessage {
   }
 
   int? get gearChangeData {
-     final field = getField(EventDataField.ID);
-     final typeField = getField(EventEventField.ID);
+    final field = getField(EventDataField.ID);
+    final typeField = getField(EventEventField.ID);
 
-     final isSubFieldValid = typeField != null && [42, 43].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [42, 43].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -640,7 +713,7 @@ class EventMessage extends DataMessage {
 
   set gearChangeData(int? value) {
     final field = getField(EventDataField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -651,13 +724,14 @@ class EventMessage extends DataMessage {
   }
 
   RiderPositionType? get riderPosition {
-     final field = getField(EventDataField.ID);
-     final typeField = getField(EventEventField.ID);
+    final field = getField(EventDataField.ID);
+    final typeField = getField(EventEventField.ID);
 
-     final isSubFieldValid = typeField != null && [44].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [44].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -665,7 +739,7 @@ class EventMessage extends DataMessage {
 
   set riderPosition(RiderPositionType? value) {
     final field = getField(EventDataField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -676,13 +750,14 @@ class EventMessage extends DataMessage {
   }
 
   int? get commTimeout {
-     final field = getField(EventDataField.ID);
-     final typeField = getField(EventEventField.ID);
+    final field = getField(EventDataField.ID);
+    final typeField = getField(EventEventField.ID);
 
-     final isSubFieldValid = typeField != null && [47].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [47].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -690,7 +765,7 @@ class EventMessage extends DataMessage {
 
   set commTimeout(int? value) {
     final field = getField(EventDataField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -701,13 +776,14 @@ class EventMessage extends DataMessage {
   }
 
   int? get radarThreatAlert {
-     final field = getField(EventDataField.ID);
-     final typeField = getField(EventEventField.ID);
+    final field = getField(EventDataField.ID);
+    final typeField = getField(EventEventField.ID);
 
-     final isSubFieldValid = typeField != null && [75].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [75].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -715,7 +791,7 @@ class EventMessage extends DataMessage {
 
   set radarThreatAlert(int? value) {
     final field = getField(EventDataField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -724,8 +800,9 @@ class EventMessage extends DataMessage {
       }
     }
   }
+
   int? get eventGroup {
-     final field = getField(EventEventGroupField.ID);
+    final field = getField(EventEventGroupField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -733,7 +810,8 @@ class EventMessage extends DataMessage {
       return null;
     }
   }
-   set eventGroup(int? value) {
+
+  set eventGroup(int? value) {
     final field = getField(EventEventGroupField.ID);
 
     if (field != null) {
@@ -745,8 +823,9 @@ class EventMessage extends DataMessage {
       }
     }
   }
+
   int? get score {
-     final field = getField(EventScoreField.ID);
+    final field = getField(EventScoreField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -754,7 +833,8 @@ class EventMessage extends DataMessage {
       return null;
     }
   }
-   set score(int? value) {
+
+  set score(int? value) {
     final field = getField(EventScoreField.ID);
 
     if (field != null) {
@@ -766,8 +846,9 @@ class EventMessage extends DataMessage {
       }
     }
   }
+
   int? get opponentScore {
-     final field = getField(EventOpponentScoreField.ID);
+    final field = getField(EventOpponentScoreField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -775,7 +856,8 @@ class EventMessage extends DataMessage {
       return null;
     }
   }
-   set opponentScore(int? value) {
+
+  set opponentScore(int? value) {
     final field = getField(EventOpponentScoreField.ID);
 
     if (field != null) {
@@ -787,8 +869,9 @@ class EventMessage extends DataMessage {
       }
     }
   }
+
   int? get frontGearNum {
-     final field = getField(EventFrontGearNumField.ID);
+    final field = getField(EventFrontGearNumField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -796,7 +879,8 @@ class EventMessage extends DataMessage {
       return null;
     }
   }
-   set frontGearNum(int? value) {
+
+  set frontGearNum(int? value) {
     final field = getField(EventFrontGearNumField.ID);
 
     if (field != null) {
@@ -808,8 +892,9 @@ class EventMessage extends DataMessage {
       }
     }
   }
+
   int? get frontGear {
-     final field = getField(EventFrontGearField.ID);
+    final field = getField(EventFrontGearField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -817,7 +902,8 @@ class EventMessage extends DataMessage {
       return null;
     }
   }
-   set frontGear(int? value) {
+
+  set frontGear(int? value) {
     final field = getField(EventFrontGearField.ID);
 
     if (field != null) {
@@ -829,8 +915,9 @@ class EventMessage extends DataMessage {
       }
     }
   }
+
   int? get rearGearNum {
-     final field = getField(EventRearGearNumField.ID);
+    final field = getField(EventRearGearNumField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -838,7 +925,8 @@ class EventMessage extends DataMessage {
       return null;
     }
   }
-   set rearGearNum(int? value) {
+
+  set rearGearNum(int? value) {
     final field = getField(EventRearGearNumField.ID);
 
     if (field != null) {
@@ -850,8 +938,9 @@ class EventMessage extends DataMessage {
       }
     }
   }
+
   int? get rearGear {
-     final field = getField(EventRearGearField.ID);
+    final field = getField(EventRearGearField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -859,7 +948,8 @@ class EventMessage extends DataMessage {
       return null;
     }
   }
-   set rearGear(int? value) {
+
+  set rearGear(int? value) {
     final field = getField(EventRearGearField.ID);
 
     if (field != null) {
@@ -871,8 +961,9 @@ class EventMessage extends DataMessage {
       }
     }
   }
+
   int? get deviceIndex {
-     final field = getField(EventDeviceIndexField.ID);
+    final field = getField(EventDeviceIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -880,7 +971,8 @@ class EventMessage extends DataMessage {
       return null;
     }
   }
-   set deviceIndex(int? value) {
+
+  set deviceIndex(int? value) {
     final field = getField(EventDeviceIndexField.ID);
 
     if (field != null) {
@@ -892,9 +984,10 @@ class EventMessage extends DataMessage {
       }
     }
   }
+
   RadarThreatLevelType? get radarThreatLevelMax {
-     final field = getField(EventRadarThreatLevelMaxField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(EventRadarThreatLevelMaxField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -905,7 +998,8 @@ class EventMessage extends DataMessage {
       return null;
     }
   }
-   set radarThreatLevelMax(RadarThreatLevelType? value) {
+
+  set radarThreatLevelMax(RadarThreatLevelType? value) {
     final field = getField(EventRadarThreatLevelMaxField.ID);
 
     if (field != null) {
@@ -917,8 +1011,9 @@ class EventMessage extends DataMessage {
       }
     }
   }
+
   int? get radarThreatCount {
-     final field = getField(EventRadarThreatCountField.ID);
+    final field = getField(EventRadarThreatCountField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -926,7 +1021,8 @@ class EventMessage extends DataMessage {
       return null;
     }
   }
-   set radarThreatCount(int? value) {
+
+  set radarThreatCount(int? value) {
     final field = getField(EventRadarThreatCountField.ID);
 
     if (field != null) {
@@ -938,15 +1034,10 @@ class EventMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class EventEventField extends Field {
- EventEventField({int size = 0, bool growable = true})
+  EventEventField({int size = 0, bool growable = true})
       : super(
             name: 'event',
             id: ID,
@@ -955,14 +1046,13 @@ class EventEventField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class EventEventTypeField extends Field {
- EventEventTypeField({int size = 0, bool growable = true})
+  EventEventTypeField({int size = 0, bool growable = true})
       : super(
             name: 'event_type',
             id: ID,
@@ -971,14 +1061,13 @@ class EventEventTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class EventData16Field extends Field {
- EventData16Field({int size = 0, bool growable = true})
+  EventData16Field({int size = 0, bool growable = true})
       : super(
             name: 'data16',
             id: ID,
@@ -987,14 +1076,13 @@ class EventData16Field extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class EventDataField extends Field {
- EventDataField({int size = 0, bool growable = true})
+  EventDataField({int size = 0, bool growable = true})
       : super(
             name: 'data',
             id: ID,
@@ -1004,194 +1092,194 @@ class EventDataField extends Field {
             size: size,
             growable: growable,
             subFields: [
-       SubField(
+              SubField(
                   name: 'timer_trigger',
                   type: BaseType.ENUM,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  EventEventField.ID: [0]
+                    EventEventField.ID: [0]
                   }),
-       SubField(
+              SubField(
                   name: 'course_point_index',
                   type: BaseType.UINT16,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  EventEventField.ID: [10]
+                    EventEventField.ID: [10]
                   }),
-       SubField(
+              SubField(
                   name: 'battery_level',
                   type: BaseType.UINT16,
                   scale: 1000,
                   offset: 0,
                   units: 'V',
                   referenceMap: {
-                  EventEventField.ID: [11]
+                    EventEventField.ID: [11]
                   }),
-       SubField(
+              SubField(
                   name: 'virtual_partner_speed',
                   type: BaseType.UINT16,
                   scale: 1000,
                   offset: 0,
                   units: 'm/s',
                   referenceMap: {
-                  EventEventField.ID: [12]
+                    EventEventField.ID: [12]
                   }),
-       SubField(
+              SubField(
                   name: 'hr_high_alert',
                   type: BaseType.UINT8,
                   scale: 1,
                   offset: 0,
                   units: 'bpm',
                   referenceMap: {
-                  EventEventField.ID: [13]
+                    EventEventField.ID: [13]
                   }),
-       SubField(
+              SubField(
                   name: 'hr_low_alert',
                   type: BaseType.UINT8,
                   scale: 1,
                   offset: 0,
                   units: 'bpm',
                   referenceMap: {
-                  EventEventField.ID: [14]
+                    EventEventField.ID: [14]
                   }),
-       SubField(
+              SubField(
                   name: 'speed_high_alert',
                   type: BaseType.UINT32,
                   scale: 1000,
                   offset: 0,
                   units: 'm/s',
                   referenceMap: {
-                  EventEventField.ID: [15]
+                    EventEventField.ID: [15]
                   }),
-       SubField(
+              SubField(
                   name: 'speed_low_alert',
                   type: BaseType.UINT32,
                   scale: 1000,
                   offset: 0,
                   units: 'm/s',
                   referenceMap: {
-                  EventEventField.ID: [16]
+                    EventEventField.ID: [16]
                   }),
-       SubField(
+              SubField(
                   name: 'cad_high_alert',
                   type: BaseType.UINT16,
                   scale: 1,
                   offset: 0,
                   units: 'rpm',
                   referenceMap: {
-                  EventEventField.ID: [17]
+                    EventEventField.ID: [17]
                   }),
-       SubField(
+              SubField(
                   name: 'cad_low_alert',
                   type: BaseType.UINT16,
                   scale: 1,
                   offset: 0,
                   units: 'rpm',
                   referenceMap: {
-                  EventEventField.ID: [18]
+                    EventEventField.ID: [18]
                   }),
-       SubField(
+              SubField(
                   name: 'power_high_alert',
                   type: BaseType.UINT16,
                   scale: 1,
                   offset: 0,
                   units: 'watts',
                   referenceMap: {
-                  EventEventField.ID: [19]
+                    EventEventField.ID: [19]
                   }),
-       SubField(
+              SubField(
                   name: 'power_low_alert',
                   type: BaseType.UINT16,
                   scale: 1,
                   offset: 0,
                   units: 'watts',
                   referenceMap: {
-                  EventEventField.ID: [20]
+                    EventEventField.ID: [20]
                   }),
-       SubField(
+              SubField(
                   name: 'time_duration_alert',
                   type: BaseType.UINT32,
                   scale: 1000,
                   offset: 0,
                   units: 's',
                   referenceMap: {
-                  EventEventField.ID: [23]
+                    EventEventField.ID: [23]
                   }),
-       SubField(
+              SubField(
                   name: 'distance_duration_alert',
                   type: BaseType.UINT32,
                   scale: 100,
                   offset: 0,
                   units: 'm',
                   referenceMap: {
-                  EventEventField.ID: [24]
+                    EventEventField.ID: [24]
                   }),
-       SubField(
+              SubField(
                   name: 'calorie_duration_alert',
                   type: BaseType.UINT32,
                   scale: 1,
                   offset: 0,
                   units: 'calories',
                   referenceMap: {
-                  EventEventField.ID: [25]
+                    EventEventField.ID: [25]
                   }),
-       SubField(
+              SubField(
                   name: 'fitness_equipment_state',
                   type: BaseType.ENUM,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  EventEventField.ID: [27]
+                    EventEventField.ID: [27]
                   }),
-       SubField(
+              SubField(
                   name: 'sport_point',
                   type: BaseType.UINT32,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  EventEventField.ID: [33]
+                    EventEventField.ID: [33]
                   }),
-       SubField(
+              SubField(
                   name: 'gear_change_data',
                   type: BaseType.UINT32,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  EventEventField.ID: [42, 43]
+                    EventEventField.ID: [42, 43]
                   }),
-       SubField(
+              SubField(
                   name: 'rider_position',
                   type: BaseType.ENUM,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  EventEventField.ID: [44]
+                    EventEventField.ID: [44]
                   }),
-       SubField(
+              SubField(
                   name: 'comm_timeout',
                   type: BaseType.UINT16,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  EventEventField.ID: [47]
+                    EventEventField.ID: [47]
                   }),
-       SubField(
+              SubField(
                   name: 'radar_threat_alert',
                   type: BaseType.UINT32,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  EventEventField.ID: [75]
+                    EventEventField.ID: [75]
                   })
-            ]
- );
+            ]);
 
   static const ID = 3;
 }
+
 class EventEventGroupField extends Field {
- EventEventGroupField({int size = 0, bool growable = true})
+  EventEventGroupField({int size = 0, bool growable = true})
       : super(
             name: 'event_group',
             id: ID,
@@ -1200,14 +1288,13 @@ class EventEventGroupField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class EventScoreField extends Field {
- EventScoreField({int size = 0, bool growable = true})
+  EventScoreField({int size = 0, bool growable = true})
       : super(
             name: 'score',
             id: ID,
@@ -1216,14 +1303,13 @@ class EventScoreField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 7;
 }
+
 class EventOpponentScoreField extends Field {
- EventOpponentScoreField({int size = 0, bool growable = true})
+  EventOpponentScoreField({int size = 0, bool growable = true})
       : super(
             name: 'opponent_score',
             id: ID,
@@ -1232,14 +1318,13 @@ class EventOpponentScoreField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 8;
 }
+
 class EventFrontGearNumField extends Field {
- EventFrontGearNumField({int size = 0, bool growable = true})
+  EventFrontGearNumField({int size = 0, bool growable = true})
       : super(
             name: 'front_gear_num',
             id: ID,
@@ -1248,14 +1333,13 @@ class EventFrontGearNumField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 9;
 }
+
 class EventFrontGearField extends Field {
- EventFrontGearField({int size = 0, bool growable = true})
+  EventFrontGearField({int size = 0, bool growable = true})
       : super(
             name: 'front_gear',
             id: ID,
@@ -1264,14 +1348,13 @@ class EventFrontGearField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 10;
 }
+
 class EventRearGearNumField extends Field {
- EventRearGearNumField({int size = 0, bool growable = true})
+  EventRearGearNumField({int size = 0, bool growable = true})
       : super(
             name: 'rear_gear_num',
             id: ID,
@@ -1280,14 +1363,13 @@ class EventRearGearNumField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 11;
 }
+
 class EventRearGearField extends Field {
- EventRearGearField({int size = 0, bool growable = true})
+  EventRearGearField({int size = 0, bool growable = true})
       : super(
             name: 'rear_gear',
             id: ID,
@@ -1296,14 +1378,13 @@ class EventRearGearField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 12;
 }
+
 class EventDeviceIndexField extends Field {
- EventDeviceIndexField({int size = 0, bool growable = true})
+  EventDeviceIndexField({int size = 0, bool growable = true})
       : super(
             name: 'device_index',
             id: ID,
@@ -1312,14 +1393,13 @@ class EventDeviceIndexField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 13;
 }
+
 class EventRadarThreatLevelMaxField extends Field {
- EventRadarThreatLevelMaxField({int size = 0, bool growable = true})
+  EventRadarThreatLevelMaxField({int size = 0, bool growable = true})
       : super(
             name: 'radar_threat_level_max',
             id: ID,
@@ -1328,14 +1408,13 @@ class EventRadarThreatLevelMaxField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 21;
 }
+
 class EventRadarThreatCountField extends Field {
- EventRadarThreatCountField({int size = 0, bool growable = true})
+  EventRadarThreatCountField({int size = 0, bool growable = true})
       : super(
             name: 'radar_threat_count',
             id: ID,
@@ -1344,9 +1423,7 @@ class EventRadarThreatCountField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 22;
 }

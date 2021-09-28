@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class MemoGlobMessage extends DataMessage {
-
-   MemoGlobMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  MemoGlobMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: MemoGlobMessage.NAME,
@@ -25,16 +27,28 @@ class MemoGlobMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               MemoGlobPartIndexField(
-                  size: definitionMessage?.getFieldDefinition(MemoGlobPartIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MemoGlobPartIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MemoGlobMemoField(
-                  size: definitionMessage?.getFieldDefinition(MemoGlobMemoField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MemoGlobMemoField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MemoGlobMessageNumberField(
-                  size: definitionMessage?.getFieldDefinition(MemoGlobMessageNumberField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MemoGlobMessageNumberField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MessageIndexField(
-                  size: definitionMessage?.getFieldDefinition(MessageIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -50,9 +64,8 @@ class MemoGlobMessage extends DataMessage {
     return message;
   }
 
-
   int? get partIndex {
-     final field = getField(MemoGlobPartIndexField.ID);
+    final field = getField(MemoGlobPartIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -60,7 +73,8 @@ class MemoGlobMessage extends DataMessage {
       return null;
     }
   }
-   set partIndex(int? value) {
+
+  set partIndex(int? value) {
     final field = getField(MemoGlobPartIndexField.ID);
 
     if (field != null) {
@@ -72,8 +86,9 @@ class MemoGlobMessage extends DataMessage {
       }
     }
   }
+
   int? get memo {
-     final field = getField(MemoGlobMemoField.ID);
+    final field = getField(MemoGlobMemoField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -81,7 +96,8 @@ class MemoGlobMessage extends DataMessage {
       return null;
     }
   }
-   set memo(int? value) {
+
+  set memo(int? value) {
     final field = getField(MemoGlobMemoField.ID);
 
     if (field != null) {
@@ -93,8 +109,9 @@ class MemoGlobMessage extends DataMessage {
       }
     }
   }
+
   int? get messageNumber {
-     final field = getField(MemoGlobMessageNumberField.ID);
+    final field = getField(MemoGlobMessageNumberField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -102,7 +119,8 @@ class MemoGlobMessage extends DataMessage {
       return null;
     }
   }
-   set messageNumber(int? value) {
+
+  set messageNumber(int? value) {
     final field = getField(MemoGlobMessageNumberField.ID);
 
     if (field != null) {
@@ -114,8 +132,9 @@ class MemoGlobMessage extends DataMessage {
       }
     }
   }
+
   int? get messageIndex {
-     final field = getField(MessageIndexField.ID);
+    final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -123,7 +142,8 @@ class MemoGlobMessage extends DataMessage {
       return null;
     }
   }
-   set messageIndex(int? value) {
+
+  set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
     if (field != null) {
@@ -135,15 +155,10 @@ class MemoGlobMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class MemoGlobPartIndexField extends Field {
- MemoGlobPartIndexField({int size = 0, bool growable = true})
+  MemoGlobPartIndexField({int size = 0, bool growable = true})
       : super(
             name: 'part_index',
             id: ID,
@@ -152,14 +167,13 @@ class MemoGlobPartIndexField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 250;
 }
+
 class MemoGlobMemoField extends Field {
- MemoGlobMemoField({int size = 0, bool growable = true})
+  MemoGlobMemoField({int size = 0, bool growable = true})
       : super(
             name: 'memo',
             id: ID,
@@ -168,14 +182,13 @@ class MemoGlobMemoField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class MemoGlobMessageNumberField extends Field {
- MemoGlobMessageNumberField({int size = 0, bool growable = true})
+  MemoGlobMessageNumberField({int size = 0, bool growable = true})
       : super(
             name: 'message_number',
             id: ID,
@@ -184,9 +197,7 @@ class MemoGlobMessageNumberField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }

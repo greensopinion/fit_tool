@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class SlaveDeviceMessage extends DataMessage {
-
-   SlaveDeviceMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  SlaveDeviceMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: SlaveDeviceMessage.NAME,
@@ -25,10 +27,16 @@ class SlaveDeviceMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               SlaveDeviceManufacturerField(
-                  size: definitionMessage?.getFieldDefinition(SlaveDeviceManufacturerField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SlaveDeviceManufacturerField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SlaveDeviceProductField(
-                  size: definitionMessage?.getFieldDefinition(SlaveDeviceProductField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SlaveDeviceProductField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -44,9 +52,8 @@ class SlaveDeviceMessage extends DataMessage {
     return message;
   }
 
-
   int? get manufacturer {
-     final field = getField(SlaveDeviceManufacturerField.ID);
+    final field = getField(SlaveDeviceManufacturerField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -54,7 +61,8 @@ class SlaveDeviceMessage extends DataMessage {
       return null;
     }
   }
-   set manufacturer(int? value) {
+
+  set manufacturer(int? value) {
     final field = getField(SlaveDeviceManufacturerField.ID);
 
     if (field != null) {
@@ -66,8 +74,9 @@ class SlaveDeviceMessage extends DataMessage {
       }
     }
   }
+
   int? get product {
-     final field = getField(SlaveDeviceProductField.ID);
+    final field = getField(SlaveDeviceProductField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -75,7 +84,8 @@ class SlaveDeviceMessage extends DataMessage {
       return null;
     }
   }
-   set product(int? value) {
+
+  set product(int? value) {
     final field = getField(SlaveDeviceProductField.ID);
 
     if (field != null) {
@@ -89,13 +99,14 @@ class SlaveDeviceMessage extends DataMessage {
   }
 
   int? get faveroProduct {
-     final field = getField(SlaveDeviceProductField.ID);
-     final typeField = getField(SlaveDeviceManufacturerField.ID);
+    final field = getField(SlaveDeviceProductField.ID);
+    final typeField = getField(SlaveDeviceManufacturerField.ID);
 
-     final isSubFieldValid = typeField != null && [263].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [263].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -103,7 +114,7 @@ class SlaveDeviceMessage extends DataMessage {
 
   set faveroProduct(int? value) {
     final field = getField(SlaveDeviceProductField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -114,13 +125,14 @@ class SlaveDeviceMessage extends DataMessage {
   }
 
   int? get garminProduct {
-     final field = getField(SlaveDeviceProductField.ID);
-     final typeField = getField(SlaveDeviceManufacturerField.ID);
+    final field = getField(SlaveDeviceProductField.ID);
+    final typeField = getField(SlaveDeviceManufacturerField.ID);
 
-     final isSubFieldValid = typeField != null && [1, 15, 13, 89].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [1, 15, 13, 89].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -128,7 +140,7 @@ class SlaveDeviceMessage extends DataMessage {
 
   set garminProduct(int? value) {
     final field = getField(SlaveDeviceProductField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -137,15 +149,10 @@ class SlaveDeviceMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class SlaveDeviceManufacturerField extends Field {
- SlaveDeviceManufacturerField({int size = 0, bool growable = true})
+  SlaveDeviceManufacturerField({int size = 0, bool growable = true})
       : super(
             name: 'manufacturer',
             id: ID,
@@ -154,14 +161,13 @@ class SlaveDeviceManufacturerField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class SlaveDeviceProductField extends Field {
- SlaveDeviceProductField({int size = 0, bool growable = true})
+  SlaveDeviceProductField({int size = 0, bool growable = true})
       : super(
             name: 'product',
             id: ID,
@@ -171,24 +177,23 @@ class SlaveDeviceProductField extends Field {
             size: size,
             growable: growable,
             subFields: [
-       SubField(
+              SubField(
                   name: 'favero_product',
                   type: BaseType.UINT16,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  SlaveDeviceManufacturerField.ID: [263]
+                    SlaveDeviceManufacturerField.ID: [263]
                   }),
-       SubField(
+              SubField(
                   name: 'garmin_product',
                   type: BaseType.UINT16,
                   scale: 1,
                   offset: 0,
                   referenceMap: {
-                  SlaveDeviceManufacturerField.ID: [1, 15, 13, 89]
+                    SlaveDeviceManufacturerField.ID: [1, 15, 13, 89]
                   })
-            ]
- );
+            ]);
 
   static const ID = 1;
 }

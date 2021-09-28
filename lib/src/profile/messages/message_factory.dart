@@ -95,187 +95,362 @@ import 'dive_summary_message.dart';
 import 'climb_pro_message.dart';
 
 class MessageFactory {
-
-  static DataMessage fromDefinition(DefinitionMessage definitionMessage, List<DeveloperField> developerFields) {
+  static DataMessage fromDefinition(DefinitionMessage definitionMessage,
+      List<DeveloperField> developerFields) {
     switch (definitionMessage.globalId) {
       case FileIdMessage.ID:
-        return FileIdMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return FileIdMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case FileCreatorMessage.ID:
-        return FileCreatorMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return FileCreatorMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case TimestampCorrelationMessage.ID:
-        return TimestampCorrelationMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return TimestampCorrelationMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case SoftwareMessage.ID:
-        return SoftwareMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return SoftwareMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case SlaveDeviceMessage.ID:
-        return SlaveDeviceMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return SlaveDeviceMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case CapabilitiesMessage.ID:
-        return CapabilitiesMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return CapabilitiesMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case FileCapabilitiesMessage.ID:
-        return FileCapabilitiesMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return FileCapabilitiesMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case MesgCapabilitiesMessage.ID:
-        return MesgCapabilitiesMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return MesgCapabilitiesMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case FieldCapabilitiesMessage.ID:
-        return FieldCapabilitiesMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return FieldCapabilitiesMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case DeviceSettingsMessage.ID:
-        return DeviceSettingsMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return DeviceSettingsMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case UserProfileMessage.ID:
-        return UserProfileMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return UserProfileMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case HrmProfileMessage.ID:
-        return HrmProfileMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return HrmProfileMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case SdmProfileMessage.ID:
-        return SdmProfileMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return SdmProfileMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case BikeProfileMessage.ID:
-        return BikeProfileMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return BikeProfileMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case ConnectivityMessage.ID:
-        return ConnectivityMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return ConnectivityMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case WatchfaceSettingsMessage.ID:
-        return WatchfaceSettingsMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return WatchfaceSettingsMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case OhrSettingsMessage.ID:
-        return OhrSettingsMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return OhrSettingsMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case ZonesTargetMessage.ID:
-        return ZonesTargetMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return ZonesTargetMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case SportMessage.ID:
-        return SportMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return SportMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case HrZoneMessage.ID:
-        return HrZoneMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return HrZoneMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case SpeedZoneMessage.ID:
-        return SpeedZoneMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return SpeedZoneMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case CadenceZoneMessage.ID:
-        return CadenceZoneMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return CadenceZoneMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case PowerZoneMessage.ID:
-        return PowerZoneMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return PowerZoneMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case MetZoneMessage.ID:
-        return MetZoneMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return MetZoneMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case DiveSettingsMessage.ID:
-        return DiveSettingsMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return DiveSettingsMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case DiveAlarmMessage.ID:
-        return DiveAlarmMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return DiveAlarmMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case DiveGasMessage.ID:
-        return DiveGasMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return DiveGasMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case GoalMessage.ID:
-        return GoalMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return GoalMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case ActivityMessage.ID:
-        return ActivityMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return ActivityMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case SessionMessage.ID:
-        return SessionMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return SessionMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case LapMessage.ID:
-        return LapMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return LapMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case LengthMessage.ID:
-        return LengthMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return LengthMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case RecordMessage.ID:
-        return RecordMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return RecordMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case EventMessage.ID:
-        return EventMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return EventMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case DeviceInfoMessage.ID:
-        return DeviceInfoMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return DeviceInfoMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case TrainingFileMessage.ID:
-        return TrainingFileMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return TrainingFileMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case HrvMessage.ID:
-        return HrvMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return HrvMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case WeatherConditionsMessage.ID:
-        return WeatherConditionsMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return WeatherConditionsMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case WeatherAlertMessage.ID:
-        return WeatherAlertMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return WeatherAlertMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case GpsMetadataMessage.ID:
-        return GpsMetadataMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return GpsMetadataMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case CameraEventMessage.ID:
-        return CameraEventMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return CameraEventMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case GyroscopeDataMessage.ID:
-        return GyroscopeDataMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return GyroscopeDataMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case AccelerometerDataMessage.ID:
-        return AccelerometerDataMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return AccelerometerDataMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case MagnetometerDataMessage.ID:
-        return MagnetometerDataMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return MagnetometerDataMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case BarometerDataMessage.ID:
-        return BarometerDataMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return BarometerDataMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case ThreeDSensorCalibrationMessage.ID:
-        return ThreeDSensorCalibrationMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return ThreeDSensorCalibrationMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case OneDSensorCalibrationMessage.ID:
-        return OneDSensorCalibrationMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return OneDSensorCalibrationMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case VideoFrameMessage.ID:
-        return VideoFrameMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return VideoFrameMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case ObdiiDataMessage.ID:
-        return ObdiiDataMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return ObdiiDataMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case NmeaSentenceMessage.ID:
-        return NmeaSentenceMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return NmeaSentenceMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case AviationAttitudeMessage.ID:
-        return AviationAttitudeMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return AviationAttitudeMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case VideoMessage.ID:
-        return VideoMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return VideoMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case VideoTitleMessage.ID:
-        return VideoTitleMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return VideoTitleMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case VideoDescriptionMessage.ID:
-        return VideoDescriptionMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return VideoDescriptionMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case VideoClipMessage.ID:
-        return VideoClipMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return VideoClipMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case SetMessage.ID:
-        return SetMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return SetMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case JumpMessage.ID:
-        return JumpMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return JumpMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case CourseMessage.ID:
-        return CourseMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return CourseMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case CoursePointMessage.ID:
-        return CoursePointMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return CoursePointMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case SegmentIdMessage.ID:
-        return SegmentIdMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return SegmentIdMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case SegmentLeaderboardEntryMessage.ID:
-        return SegmentLeaderboardEntryMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return SegmentLeaderboardEntryMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case SegmentPointMessage.ID:
-        return SegmentPointMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return SegmentPointMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case SegmentLapMessage.ID:
-        return SegmentLapMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return SegmentLapMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case SegmentFileMessage.ID:
-        return SegmentFileMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return SegmentFileMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case WorkoutMessage.ID:
-        return WorkoutMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return WorkoutMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case WorkoutSessionMessage.ID:
-        return WorkoutSessionMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return WorkoutSessionMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case WorkoutStepMessage.ID:
-        return WorkoutStepMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return WorkoutStepMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case ExerciseTitleMessage.ID:
-        return ExerciseTitleMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return ExerciseTitleMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case ScheduleMessage.ID:
-        return ScheduleMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return ScheduleMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case TotalsMessage.ID:
-        return TotalsMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return TotalsMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case WeightScaleMessage.ID:
-        return WeightScaleMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return WeightScaleMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case BloodPressureMessage.ID:
-        return BloodPressureMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return BloodPressureMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case MonitoringInfoMessage.ID:
-        return MonitoringInfoMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return MonitoringInfoMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case MonitoringMessage.ID:
-        return MonitoringMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return MonitoringMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case HrMessage.ID:
-        return HrMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return HrMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case StressLevelMessage.ID:
-        return StressLevelMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return StressLevelMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case MemoGlobMessage.ID:
-        return MemoGlobMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return MemoGlobMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case AntChannelIdMessage.ID:
-        return AntChannelIdMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return AntChannelIdMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case AntRxMessage.ID:
-        return AntRxMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return AntRxMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case AntTxMessage.ID:
-        return AntTxMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return AntTxMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case ExdScreenConfigurationMessage.ID:
-        return ExdScreenConfigurationMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return ExdScreenConfigurationMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case ExdDataFieldConfigurationMessage.ID:
-        return ExdDataFieldConfigurationMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return ExdDataFieldConfigurationMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case ExdDataConceptConfigurationMessage.ID:
-        return ExdDataConceptConfigurationMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return ExdDataConceptConfigurationMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case FieldDescriptionMessage.ID:
-        return FieldDescriptionMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return FieldDescriptionMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case DeveloperDataIdMessage.ID:
-        return DeveloperDataIdMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return DeveloperDataIdMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case DiveSummaryMessage.ID:
-        return DiveSummaryMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return DiveSummaryMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
       case ClimbProMessage.ID:
-        return ClimbProMessage(definitionMessage: definitionMessage, developerFields: developerFields);
+        return ClimbProMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
 
       default:
-        return GenericMessage(definitionMessage: definitionMessage, developerFields: developerFields);
-
+        return GenericMessage(
+            definitionMessage: definitionMessage,
+            developerFields: developerFields);
     }
   }
 }

@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class GoalMessage extends DataMessage {
-
-   GoalMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  GoalMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: GoalMessage.NAME,
@@ -25,43 +27,82 @@ class GoalMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               MessageIndexField(
-                  size: definitionMessage?.getFieldDefinition(MessageIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               GoalSportField(
-                  size: definitionMessage?.getFieldDefinition(GoalSportField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(GoalSportField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               GoalSubSportField(
-                  size: definitionMessage?.getFieldDefinition(GoalSubSportField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(GoalSubSportField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               GoalStartDateField(
-                  size: definitionMessage?.getFieldDefinition(GoalStartDateField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(GoalStartDateField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               GoalEndDateField(
-                  size: definitionMessage?.getFieldDefinition(GoalEndDateField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(GoalEndDateField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               GoalTypeField(
-                  size: definitionMessage?.getFieldDefinition(GoalTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(GoalTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               GoalValueField(
-                  size: definitionMessage?.getFieldDefinition(GoalValueField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(GoalValueField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               GoalRepeatField(
-                  size: definitionMessage?.getFieldDefinition(GoalRepeatField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(GoalRepeatField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               GoalTargetValueField(
-                  size: definitionMessage?.getFieldDefinition(GoalTargetValueField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(GoalTargetValueField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               GoalRecurrenceField(
-                  size: definitionMessage?.getFieldDefinition(GoalRecurrenceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(GoalRecurrenceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               GoalRecurrenceValueField(
-                  size: definitionMessage?.getFieldDefinition(GoalRecurrenceValueField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(GoalRecurrenceValueField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               GoalEnabledField(
-                  size: definitionMessage?.getFieldDefinition(GoalEnabledField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(GoalEnabledField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               GoalSourceField(
-                  size: definitionMessage?.getFieldDefinition(GoalSourceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(GoalSourceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -77,9 +118,8 @@ class GoalMessage extends DataMessage {
     return message;
   }
 
-
   int? get messageIndex {
-     final field = getField(MessageIndexField.ID);
+    final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -87,7 +127,8 @@ class GoalMessage extends DataMessage {
       return null;
     }
   }
-   set messageIndex(int? value) {
+
+  set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
     if (field != null) {
@@ -99,9 +140,10 @@ class GoalMessage extends DataMessage {
       }
     }
   }
+
   Sport? get sport {
-     final field = getField(GoalSportField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(GoalSportField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -112,7 +154,8 @@ class GoalMessage extends DataMessage {
       return null;
     }
   }
-   set sport(Sport? value) {
+
+  set sport(Sport? value) {
     final field = getField(GoalSportField.ID);
 
     if (field != null) {
@@ -124,9 +167,10 @@ class GoalMessage extends DataMessage {
       }
     }
   }
+
   SubSport? get subSport {
-     final field = getField(GoalSubSportField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(GoalSubSportField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -137,7 +181,8 @@ class GoalMessage extends DataMessage {
       return null;
     }
   }
-   set subSport(SubSport? value) {
+
+  set subSport(SubSport? value) {
     final field = getField(GoalSubSportField.ID);
 
     if (field != null) {
@@ -149,9 +194,10 @@ class GoalMessage extends DataMessage {
       }
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get startDate {
-     final field = getField(GoalStartDateField.ID);
+    final field = getField(GoalStartDateField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -159,8 +205,9 @@ class GoalMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set startDate(int? value) {
+  set startDate(int? value) {
     final field = getField(GoalStartDateField.ID);
 
     if (field != null) {
@@ -172,9 +219,10 @@ class GoalMessage extends DataMessage {
       }
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get endDate {
-     final field = getField(GoalEndDateField.ID);
+    final field = getField(GoalEndDateField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -182,8 +230,9 @@ class GoalMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set endDate(int? value) {
+  set endDate(int? value) {
     final field = getField(GoalEndDateField.ID);
 
     if (field != null) {
@@ -195,9 +244,10 @@ class GoalMessage extends DataMessage {
       }
     }
   }
+
   Goal? get type {
-     final field = getField(GoalTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(GoalTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -208,7 +258,8 @@ class GoalMessage extends DataMessage {
       return null;
     }
   }
-   set type(Goal? value) {
+
+  set type(Goal? value) {
     final field = getField(GoalTypeField.ID);
 
     if (field != null) {
@@ -220,8 +271,9 @@ class GoalMessage extends DataMessage {
       }
     }
   }
+
   int? get value {
-     final field = getField(GoalValueField.ID);
+    final field = getField(GoalValueField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -229,7 +281,8 @@ class GoalMessage extends DataMessage {
       return null;
     }
   }
-   set value(int? value) {
+
+  set value(int? value) {
     final field = getField(GoalValueField.ID);
 
     if (field != null) {
@@ -241,8 +294,9 @@ class GoalMessage extends DataMessage {
       }
     }
   }
+
   bool? get repeat {
-     final field = getField(GoalRepeatField.ID);
+    final field = getField(GoalRepeatField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -250,7 +304,8 @@ class GoalMessage extends DataMessage {
       return null;
     }
   }
-   set repeat(bool? value) {
+
+  set repeat(bool? value) {
     final field = getField(GoalRepeatField.ID);
 
     if (field != null) {
@@ -262,8 +317,9 @@ class GoalMessage extends DataMessage {
       }
     }
   }
+
   int? get targetValue {
-     final field = getField(GoalTargetValueField.ID);
+    final field = getField(GoalTargetValueField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -271,7 +327,8 @@ class GoalMessage extends DataMessage {
       return null;
     }
   }
-   set targetValue(int? value) {
+
+  set targetValue(int? value) {
     final field = getField(GoalTargetValueField.ID);
 
     if (field != null) {
@@ -283,9 +340,10 @@ class GoalMessage extends DataMessage {
       }
     }
   }
+
   GoalRecurrence? get recurrence {
-     final field = getField(GoalRecurrenceField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(GoalRecurrenceField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -296,7 +354,8 @@ class GoalMessage extends DataMessage {
       return null;
     }
   }
-   set recurrence(GoalRecurrence? value) {
+
+  set recurrence(GoalRecurrence? value) {
     final field = getField(GoalRecurrenceField.ID);
 
     if (field != null) {
@@ -308,8 +367,9 @@ class GoalMessage extends DataMessage {
       }
     }
   }
+
   int? get recurrenceValue {
-     final field = getField(GoalRecurrenceValueField.ID);
+    final field = getField(GoalRecurrenceValueField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -317,7 +377,8 @@ class GoalMessage extends DataMessage {
       return null;
     }
   }
-   set recurrenceValue(int? value) {
+
+  set recurrenceValue(int? value) {
     final field = getField(GoalRecurrenceValueField.ID);
 
     if (field != null) {
@@ -329,8 +390,9 @@ class GoalMessage extends DataMessage {
       }
     }
   }
+
   bool? get enabled {
-     final field = getField(GoalEnabledField.ID);
+    final field = getField(GoalEnabledField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -338,7 +400,8 @@ class GoalMessage extends DataMessage {
       return null;
     }
   }
-   set enabled(bool? value) {
+
+  set enabled(bool? value) {
     final field = getField(GoalEnabledField.ID);
 
     if (field != null) {
@@ -350,9 +413,10 @@ class GoalMessage extends DataMessage {
       }
     }
   }
+
   GoalSource? get source {
-     final field = getField(GoalSourceField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(GoalSourceField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -363,7 +427,8 @@ class GoalMessage extends DataMessage {
       return null;
     }
   }
-   set source(GoalSource? value) {
+
+  set source(GoalSource? value) {
     final field = getField(GoalSourceField.ID);
 
     if (field != null) {
@@ -375,15 +440,10 @@ class GoalMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class GoalSportField extends Field {
- GoalSportField({int size = 0, bool growable = true})
+  GoalSportField({int size = 0, bool growable = true})
       : super(
             name: 'sport',
             id: ID,
@@ -392,14 +452,13 @@ class GoalSportField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class GoalSubSportField extends Field {
- GoalSubSportField({int size = 0, bool growable = true})
+  GoalSubSportField({int size = 0, bool growable = true})
       : super(
             name: 'sub_sport',
             id: ID,
@@ -408,14 +467,13 @@ class GoalSubSportField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class GoalStartDateField extends Field {
- GoalStartDateField({int size = 0, bool growable = true})
+  GoalStartDateField({int size = 0, bool growable = true})
       : super(
             name: 'start_date',
             id: ID,
@@ -426,14 +484,13 @@ class GoalStartDateField extends Field {
             units: 'ms',
             mainTypeName: 'date_time',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class GoalEndDateField extends Field {
- GoalEndDateField({int size = 0, bool growable = true})
+  GoalEndDateField({int size = 0, bool growable = true})
       : super(
             name: 'end_date',
             id: ID,
@@ -444,14 +501,13 @@ class GoalEndDateField extends Field {
             units: 'ms',
             mainTypeName: 'date_time',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class GoalTypeField extends Field {
- GoalTypeField({int size = 0, bool growable = true})
+  GoalTypeField({int size = 0, bool growable = true})
       : super(
             name: 'type',
             id: ID,
@@ -460,14 +516,13 @@ class GoalTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class GoalValueField extends Field {
- GoalValueField({int size = 0, bool growable = true})
+  GoalValueField({int size = 0, bool growable = true})
       : super(
             name: 'value',
             id: ID,
@@ -476,14 +531,13 @@ class GoalValueField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }
+
 class GoalRepeatField extends Field {
- GoalRepeatField({int size = 0, bool growable = true})
+  GoalRepeatField({int size = 0, bool growable = true})
       : super(
             name: 'repeat',
             id: ID,
@@ -492,14 +546,13 @@ class GoalRepeatField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 6;
 }
+
 class GoalTargetValueField extends Field {
- GoalTargetValueField({int size = 0, bool growable = true})
+  GoalTargetValueField({int size = 0, bool growable = true})
       : super(
             name: 'target_value',
             id: ID,
@@ -508,14 +561,13 @@ class GoalTargetValueField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 7;
 }
+
 class GoalRecurrenceField extends Field {
- GoalRecurrenceField({int size = 0, bool growable = true})
+  GoalRecurrenceField({int size = 0, bool growable = true})
       : super(
             name: 'recurrence',
             id: ID,
@@ -524,14 +576,13 @@ class GoalRecurrenceField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 8;
 }
+
 class GoalRecurrenceValueField extends Field {
- GoalRecurrenceValueField({int size = 0, bool growable = true})
+  GoalRecurrenceValueField({int size = 0, bool growable = true})
       : super(
             name: 'recurrence_value',
             id: ID,
@@ -540,14 +591,13 @@ class GoalRecurrenceValueField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 9;
 }
+
 class GoalEnabledField extends Field {
- GoalEnabledField({int size = 0, bool growable = true})
+  GoalEnabledField({int size = 0, bool growable = true})
       : super(
             name: 'enabled',
             id: ID,
@@ -556,14 +606,13 @@ class GoalEnabledField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 10;
 }
+
 class GoalSourceField extends Field {
- GoalSourceField({int size = 0, bool growable = true})
+  GoalSourceField({int size = 0, bool growable = true})
       : super(
             name: 'source',
             id: ID,
@@ -572,9 +621,7 @@ class GoalSourceField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 11;
 }

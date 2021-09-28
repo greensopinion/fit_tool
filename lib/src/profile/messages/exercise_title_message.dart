@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class ExerciseTitleMessage extends DataMessage {
-
-   ExerciseTitleMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  ExerciseTitleMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: ExerciseTitleMessage.NAME,
@@ -25,16 +27,31 @@ class ExerciseTitleMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               MessageIndexField(
-                  size: definitionMessage?.getFieldDefinition(MessageIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ExerciseTitleExerciseCategoryField(
-                  size: definitionMessage?.getFieldDefinition(ExerciseTitleExerciseCategoryField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ExerciseTitleExerciseCategoryField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ExerciseTitleExerciseNameField(
-                  size: definitionMessage?.getFieldDefinition(ExerciseTitleExerciseNameField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ExerciseTitleExerciseNameField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               ExerciseTitleWorkoutStepNameField(
-                  size: definitionMessage?.getFieldDefinition(ExerciseTitleWorkoutStepNameField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              ExerciseTitleWorkoutStepNameField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -50,9 +67,8 @@ class ExerciseTitleMessage extends DataMessage {
     return message;
   }
 
-
   int? get messageIndex {
-     final field = getField(MessageIndexField.ID);
+    final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -60,7 +76,8 @@ class ExerciseTitleMessage extends DataMessage {
       return null;
     }
   }
-   set messageIndex(int? value) {
+
+  set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
     if (field != null) {
@@ -72,8 +89,9 @@ class ExerciseTitleMessage extends DataMessage {
       }
     }
   }
+
   int? get exerciseCategory {
-     final field = getField(ExerciseTitleExerciseCategoryField.ID);
+    final field = getField(ExerciseTitleExerciseCategoryField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -81,7 +99,8 @@ class ExerciseTitleMessage extends DataMessage {
       return null;
     }
   }
-   set exerciseCategory(int? value) {
+
+  set exerciseCategory(int? value) {
     final field = getField(ExerciseTitleExerciseCategoryField.ID);
 
     if (field != null) {
@@ -93,8 +112,9 @@ class ExerciseTitleMessage extends DataMessage {
       }
     }
   }
+
   int? get exerciseName {
-     final field = getField(ExerciseTitleExerciseNameField.ID);
+    final field = getField(ExerciseTitleExerciseNameField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -102,7 +122,8 @@ class ExerciseTitleMessage extends DataMessage {
       return null;
     }
   }
-   set exerciseName(int? value) {
+
+  set exerciseName(int? value) {
     final field = getField(ExerciseTitleExerciseNameField.ID);
 
     if (field != null) {
@@ -114,8 +135,9 @@ class ExerciseTitleMessage extends DataMessage {
       }
     }
   }
+
   String? get workoutStepName {
-     final field = getField(ExerciseTitleWorkoutStepNameField.ID);
+    final field = getField(ExerciseTitleWorkoutStepNameField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -123,7 +145,8 @@ class ExerciseTitleMessage extends DataMessage {
       return null;
     }
   }
-   set workoutStepName(String? value) {
+
+  set workoutStepName(String? value) {
     final field = getField(ExerciseTitleWorkoutStepNameField.ID);
 
     if (field != null) {
@@ -135,15 +158,10 @@ class ExerciseTitleMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class ExerciseTitleExerciseCategoryField extends Field {
- ExerciseTitleExerciseCategoryField({int size = 0, bool growable = true})
+  ExerciseTitleExerciseCategoryField({int size = 0, bool growable = true})
       : super(
             name: 'exercise_category',
             id: ID,
@@ -152,14 +170,13 @@ class ExerciseTitleExerciseCategoryField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class ExerciseTitleExerciseNameField extends Field {
- ExerciseTitleExerciseNameField({int size = 0, bool growable = true})
+  ExerciseTitleExerciseNameField({int size = 0, bool growable = true})
       : super(
             name: 'exercise_name',
             id: ID,
@@ -168,14 +185,13 @@ class ExerciseTitleExerciseNameField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class ExerciseTitleWorkoutStepNameField extends Field {
- ExerciseTitleWorkoutStepNameField({int size = 0, bool growable = true})
+  ExerciseTitleWorkoutStepNameField({int size = 0, bool growable = true})
       : super(
             name: 'wkt_step_name',
             id: ID,
@@ -184,9 +200,7 @@ class ExerciseTitleWorkoutStepNameField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }

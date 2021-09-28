@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class GpsMetadataMessage extends DataMessage {
-
-   GpsMetadataMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  GpsMetadataMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: GpsMetadataMessage.NAME,
@@ -25,31 +27,59 @@ class GpsMetadataMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               GpsMetadataTimestampMsField(
-                  size: definitionMessage?.getFieldDefinition(GpsMetadataTimestampMsField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(GpsMetadataTimestampMsField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               GpsMetadataPositionLatField(
-                  size: definitionMessage?.getFieldDefinition(GpsMetadataPositionLatField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(GpsMetadataPositionLatField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               GpsMetadataPositionLongField(
-                  size: definitionMessage?.getFieldDefinition(GpsMetadataPositionLongField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(GpsMetadataPositionLongField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               GpsMetadataEnhancedAltitudeField(
-                  size: definitionMessage?.getFieldDefinition(GpsMetadataEnhancedAltitudeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              GpsMetadataEnhancedAltitudeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               GpsMetadataEnhancedSpeedField(
-                  size: definitionMessage?.getFieldDefinition(GpsMetadataEnhancedSpeedField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(GpsMetadataEnhancedSpeedField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               GpsMetadataHeadingField(
-                  size: definitionMessage?.getFieldDefinition(GpsMetadataHeadingField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(GpsMetadataHeadingField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               GpsMetadataUtcTimestampField(
-                  size: definitionMessage?.getFieldDefinition(GpsMetadataUtcTimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(GpsMetadataUtcTimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               GpsMetadataVelocityField(
-                  size: definitionMessage?.getFieldDefinition(GpsMetadataVelocityField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(GpsMetadataVelocityField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -65,10 +95,9 @@ class GpsMetadataMessage extends DataMessage {
     return message;
   }
 
-
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -76,8 +105,9 @@ class GpsMetadataMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -89,8 +119,9 @@ class GpsMetadataMessage extends DataMessage {
       }
     }
   }
+
   int? get timestampMs {
-     final field = getField(GpsMetadataTimestampMsField.ID);
+    final field = getField(GpsMetadataTimestampMsField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -98,7 +129,8 @@ class GpsMetadataMessage extends DataMessage {
       return null;
     }
   }
-   set timestampMs(int? value) {
+
+  set timestampMs(int? value) {
     final field = getField(GpsMetadataTimestampMsField.ID);
 
     if (field != null) {
@@ -110,8 +142,9 @@ class GpsMetadataMessage extends DataMessage {
       }
     }
   }
+
   double? get positionLat {
-     final field = getField(GpsMetadataPositionLatField.ID);
+    final field = getField(GpsMetadataPositionLatField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -119,7 +152,8 @@ class GpsMetadataMessage extends DataMessage {
       return null;
     }
   }
-   set positionLat(double? value) {
+
+  set positionLat(double? value) {
     final field = getField(GpsMetadataPositionLatField.ID);
 
     if (field != null) {
@@ -131,8 +165,9 @@ class GpsMetadataMessage extends DataMessage {
       }
     }
   }
+
   double? get positionLong {
-     final field = getField(GpsMetadataPositionLongField.ID);
+    final field = getField(GpsMetadataPositionLongField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -140,7 +175,8 @@ class GpsMetadataMessage extends DataMessage {
       return null;
     }
   }
-   set positionLong(double? value) {
+
+  set positionLong(double? value) {
     final field = getField(GpsMetadataPositionLongField.ID);
 
     if (field != null) {
@@ -152,8 +188,9 @@ class GpsMetadataMessage extends DataMessage {
       }
     }
   }
+
   double? get enhancedAltitude {
-     final field = getField(GpsMetadataEnhancedAltitudeField.ID);
+    final field = getField(GpsMetadataEnhancedAltitudeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -161,7 +198,8 @@ class GpsMetadataMessage extends DataMessage {
       return null;
     }
   }
-   set enhancedAltitude(double? value) {
+
+  set enhancedAltitude(double? value) {
     final field = getField(GpsMetadataEnhancedAltitudeField.ID);
 
     if (field != null) {
@@ -173,8 +211,9 @@ class GpsMetadataMessage extends DataMessage {
       }
     }
   }
+
   double? get enhancedSpeed {
-     final field = getField(GpsMetadataEnhancedSpeedField.ID);
+    final field = getField(GpsMetadataEnhancedSpeedField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -182,7 +221,8 @@ class GpsMetadataMessage extends DataMessage {
       return null;
     }
   }
-   set enhancedSpeed(double? value) {
+
+  set enhancedSpeed(double? value) {
     final field = getField(GpsMetadataEnhancedSpeedField.ID);
 
     if (field != null) {
@@ -194,8 +234,9 @@ class GpsMetadataMessage extends DataMessage {
       }
     }
   }
+
   double? get heading {
-     final field = getField(GpsMetadataHeadingField.ID);
+    final field = getField(GpsMetadataHeadingField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -203,7 +244,8 @@ class GpsMetadataMessage extends DataMessage {
       return null;
     }
   }
-   set heading(double? value) {
+
+  set heading(double? value) {
     final field = getField(GpsMetadataHeadingField.ID);
 
     if (field != null) {
@@ -215,9 +257,10 @@ class GpsMetadataMessage extends DataMessage {
       }
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get utcTimestamp {
-     final field = getField(GpsMetadataUtcTimestampField.ID);
+    final field = getField(GpsMetadataUtcTimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -225,8 +268,9 @@ class GpsMetadataMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set utcTimestamp(int? value) {
+  set utcTimestamp(int? value) {
     final field = getField(GpsMetadataUtcTimestampField.ID);
 
     if (field != null) {
@@ -238,8 +282,9 @@ class GpsMetadataMessage extends DataMessage {
       }
     }
   }
+
   double? get velocity {
-     final field = getField(GpsMetadataVelocityField.ID);
+    final field = getField(GpsMetadataVelocityField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -247,7 +292,8 @@ class GpsMetadataMessage extends DataMessage {
       return null;
     }
   }
-   set velocity(double? value) {
+
+  set velocity(double? value) {
     final field = getField(GpsMetadataVelocityField.ID);
 
     if (field != null) {
@@ -259,15 +305,10 @@ class GpsMetadataMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class GpsMetadataTimestampMsField extends Field {
- GpsMetadataTimestampMsField({int size = 0, bool growable = true})
+  GpsMetadataTimestampMsField({int size = 0, bool growable = true})
       : super(
             name: 'timestamp_ms',
             id: ID,
@@ -278,14 +319,13 @@ class GpsMetadataTimestampMsField extends Field {
             units: 'ms',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class GpsMetadataPositionLatField extends Field {
- GpsMetadataPositionLatField({int size = 0, bool growable = true})
+  GpsMetadataPositionLatField({int size = 0, bool growable = true})
       : super(
             name: 'position_lat',
             id: ID,
@@ -296,14 +336,13 @@ class GpsMetadataPositionLatField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class GpsMetadataPositionLongField extends Field {
- GpsMetadataPositionLongField({int size = 0, bool growable = true})
+  GpsMetadataPositionLongField({int size = 0, bool growable = true})
       : super(
             name: 'position_long',
             id: ID,
@@ -314,14 +353,13 @@ class GpsMetadataPositionLongField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class GpsMetadataEnhancedAltitudeField extends Field {
- GpsMetadataEnhancedAltitudeField({int size = 0, bool growable = true})
+  GpsMetadataEnhancedAltitudeField({int size = 0, bool growable = true})
       : super(
             name: 'enhanced_altitude',
             id: ID,
@@ -332,14 +370,13 @@ class GpsMetadataEnhancedAltitudeField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class GpsMetadataEnhancedSpeedField extends Field {
- GpsMetadataEnhancedSpeedField({int size = 0, bool growable = true})
+  GpsMetadataEnhancedSpeedField({int size = 0, bool growable = true})
       : super(
             name: 'enhanced_speed',
             id: ID,
@@ -350,14 +387,13 @@ class GpsMetadataEnhancedSpeedField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class GpsMetadataHeadingField extends Field {
- GpsMetadataHeadingField({int size = 0, bool growable = true})
+  GpsMetadataHeadingField({int size = 0, bool growable = true})
       : super(
             name: 'heading',
             id: ID,
@@ -368,14 +404,13 @@ class GpsMetadataHeadingField extends Field {
             units: 'degrees',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }
+
 class GpsMetadataUtcTimestampField extends Field {
- GpsMetadataUtcTimestampField({int size = 0, bool growable = true})
+  GpsMetadataUtcTimestampField({int size = 0, bool growable = true})
       : super(
             name: 'utc_timestamp',
             id: ID,
@@ -386,14 +421,13 @@ class GpsMetadataUtcTimestampField extends Field {
             units: 'ms',
             mainTypeName: 'date_time',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 6;
 }
+
 class GpsMetadataVelocityField extends Field {
- GpsMetadataVelocityField({int size = 0, bool growable = true})
+  GpsMetadataVelocityField({int size = 0, bool growable = true})
       : super(
             name: 'velocity',
             id: ID,
@@ -404,9 +438,7 @@ class GpsMetadataVelocityField extends Field {
             units: 'm/s',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 7;
 }

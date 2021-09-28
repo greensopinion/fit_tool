@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class MonitoringInfoMessage extends DataMessage {
-
-   MonitoringInfoMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  MonitoringInfoMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: MonitoringInfoMessage.NAME,
@@ -25,22 +27,45 @@ class MonitoringInfoMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MonitoringInfoLocalTimestampField(
-                  size: definitionMessage?.getFieldDefinition(MonitoringInfoLocalTimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              MonitoringInfoLocalTimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MonitoringInfoActivityTypeField(
-                  size: definitionMessage?.getFieldDefinition(MonitoringInfoActivityTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              MonitoringInfoActivityTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MonitoringInfoCyclesToDistanceField(
-                  size: definitionMessage?.getFieldDefinition(MonitoringInfoCyclesToDistanceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              MonitoringInfoCyclesToDistanceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MonitoringInfoCyclesToCaloriesField(
-                  size: definitionMessage?.getFieldDefinition(MonitoringInfoCyclesToCaloriesField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              MonitoringInfoCyclesToCaloriesField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MonitoringInfoRestingMetabolicRateField(
-                  size: definitionMessage?.getFieldDefinition(MonitoringInfoRestingMetabolicRateField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              MonitoringInfoRestingMetabolicRateField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -56,10 +81,9 @@ class MonitoringInfoMessage extends DataMessage {
     return message;
   }
 
-
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -67,8 +91,9 @@ class MonitoringInfoMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -80,8 +105,9 @@ class MonitoringInfoMessage extends DataMessage {
       }
     }
   }
+
   int? get localTimestamp {
-     final field = getField(MonitoringInfoLocalTimestampField.ID);
+    final field = getField(MonitoringInfoLocalTimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -89,7 +115,8 @@ class MonitoringInfoMessage extends DataMessage {
       return null;
     }
   }
-   set localTimestamp(int? value) {
+
+  set localTimestamp(int? value) {
     final field = getField(MonitoringInfoLocalTimestampField.ID);
 
     if (field != null) {
@@ -101,9 +128,10 @@ class MonitoringInfoMessage extends DataMessage {
       }
     }
   }
+
   ActivityType? get activityType {
-     final field = getField(MonitoringInfoActivityTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(MonitoringInfoActivityTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -114,7 +142,8 @@ class MonitoringInfoMessage extends DataMessage {
       return null;
     }
   }
-   set activityType(ActivityType? value) {
+
+  set activityType(ActivityType? value) {
     final field = getField(MonitoringInfoActivityTypeField.ID);
 
     if (field != null) {
@@ -126,8 +155,9 @@ class MonitoringInfoMessage extends DataMessage {
       }
     }
   }
+
   double? get cyclesToDistance {
-     final field = getField(MonitoringInfoCyclesToDistanceField.ID);
+    final field = getField(MonitoringInfoCyclesToDistanceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -135,7 +165,8 @@ class MonitoringInfoMessage extends DataMessage {
       return null;
     }
   }
-   set cyclesToDistance(double? value) {
+
+  set cyclesToDistance(double? value) {
     final field = getField(MonitoringInfoCyclesToDistanceField.ID);
 
     if (field != null) {
@@ -147,8 +178,9 @@ class MonitoringInfoMessage extends DataMessage {
       }
     }
   }
+
   double? get cyclesToCalories {
-     final field = getField(MonitoringInfoCyclesToCaloriesField.ID);
+    final field = getField(MonitoringInfoCyclesToCaloriesField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -156,7 +188,8 @@ class MonitoringInfoMessage extends DataMessage {
       return null;
     }
   }
-   set cyclesToCalories(double? value) {
+
+  set cyclesToCalories(double? value) {
     final field = getField(MonitoringInfoCyclesToCaloriesField.ID);
 
     if (field != null) {
@@ -168,8 +201,9 @@ class MonitoringInfoMessage extends DataMessage {
       }
     }
   }
+
   int? get restingMetabolicRate {
-     final field = getField(MonitoringInfoRestingMetabolicRateField.ID);
+    final field = getField(MonitoringInfoRestingMetabolicRateField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -177,7 +211,8 @@ class MonitoringInfoMessage extends DataMessage {
       return null;
     }
   }
-   set restingMetabolicRate(int? value) {
+
+  set restingMetabolicRate(int? value) {
     final field = getField(MonitoringInfoRestingMetabolicRateField.ID);
 
     if (field != null) {
@@ -189,15 +224,10 @@ class MonitoringInfoMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class MonitoringInfoLocalTimestampField extends Field {
- MonitoringInfoLocalTimestampField({int size = 0, bool growable = true})
+  MonitoringInfoLocalTimestampField({int size = 0, bool growable = true})
       : super(
             name: 'local_timestamp',
             id: ID,
@@ -208,14 +238,13 @@ class MonitoringInfoLocalTimestampField extends Field {
             units: 's',
             mainTypeName: 'local_date_time',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class MonitoringInfoActivityTypeField extends Field {
- MonitoringInfoActivityTypeField({int size = 0, bool growable = true})
+  MonitoringInfoActivityTypeField({int size = 0, bool growable = true})
       : super(
             name: 'activity_type',
             id: ID,
@@ -224,14 +253,13 @@ class MonitoringInfoActivityTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class MonitoringInfoCyclesToDistanceField extends Field {
- MonitoringInfoCyclesToDistanceField({int size = 0, bool growable = true})
+  MonitoringInfoCyclesToDistanceField({int size = 0, bool growable = true})
       : super(
             name: 'cycles_to_distance',
             id: ID,
@@ -242,14 +270,13 @@ class MonitoringInfoCyclesToDistanceField extends Field {
             units: 'm/cycle',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class MonitoringInfoCyclesToCaloriesField extends Field {
- MonitoringInfoCyclesToCaloriesField({int size = 0, bool growable = true})
+  MonitoringInfoCyclesToCaloriesField({int size = 0, bool growable = true})
       : super(
             name: 'cycles_to_calories',
             id: ID,
@@ -260,14 +287,13 @@ class MonitoringInfoCyclesToCaloriesField extends Field {
             units: 'kcal/cycle',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class MonitoringInfoRestingMetabolicRateField extends Field {
- MonitoringInfoRestingMetabolicRateField({int size = 0, bool growable = true})
+  MonitoringInfoRestingMetabolicRateField({int size = 0, bool growable = true})
       : super(
             name: 'resting_metabolic_rate',
             id: ID,
@@ -278,9 +304,7 @@ class MonitoringInfoRestingMetabolicRateField extends Field {
             units: 'kcal / day',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }

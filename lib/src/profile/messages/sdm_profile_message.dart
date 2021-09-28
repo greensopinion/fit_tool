@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class SdmProfileMessage extends DataMessage {
-
-   SdmProfileMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  SdmProfileMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: SdmProfileMessage.NAME,
@@ -25,28 +27,54 @@ class SdmProfileMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               MessageIndexField(
-                  size: definitionMessage?.getFieldDefinition(MessageIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SdmProfileEnabledField(
-                  size: definitionMessage?.getFieldDefinition(SdmProfileEnabledField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SdmProfileEnabledField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SdmProfileSdmAntIdField(
-                  size: definitionMessage?.getFieldDefinition(SdmProfileSdmAntIdField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SdmProfileSdmAntIdField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SdmProfileSdmCalFactorField(
-                  size: definitionMessage?.getFieldDefinition(SdmProfileSdmCalFactorField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SdmProfileSdmCalFactorField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SdmProfileOdometerField(
-                  size: definitionMessage?.getFieldDefinition(SdmProfileOdometerField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SdmProfileOdometerField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SdmProfileSpeedSourceField(
-                  size: definitionMessage?.getFieldDefinition(SdmProfileSpeedSourceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(SdmProfileSpeedSourceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SdmProfileSdmAntIdTransTypeField(
-                  size: definitionMessage?.getFieldDefinition(SdmProfileSdmAntIdTransTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SdmProfileSdmAntIdTransTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               SdmProfileOdometerRolloverField(
-                  size: definitionMessage?.getFieldDefinition(SdmProfileOdometerRolloverField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              SdmProfileOdometerRolloverField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -62,9 +90,8 @@ class SdmProfileMessage extends DataMessage {
     return message;
   }
 
-
   int? get messageIndex {
-     final field = getField(MessageIndexField.ID);
+    final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -72,7 +99,8 @@ class SdmProfileMessage extends DataMessage {
       return null;
     }
   }
-   set messageIndex(int? value) {
+
+  set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
     if (field != null) {
@@ -84,8 +112,9 @@ class SdmProfileMessage extends DataMessage {
       }
     }
   }
+
   bool? get enabled {
-     final field = getField(SdmProfileEnabledField.ID);
+    final field = getField(SdmProfileEnabledField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -93,7 +122,8 @@ class SdmProfileMessage extends DataMessage {
       return null;
     }
   }
-   set enabled(bool? value) {
+
+  set enabled(bool? value) {
     final field = getField(SdmProfileEnabledField.ID);
 
     if (field != null) {
@@ -105,8 +135,9 @@ class SdmProfileMessage extends DataMessage {
       }
     }
   }
+
   int? get sdmAntId {
-     final field = getField(SdmProfileSdmAntIdField.ID);
+    final field = getField(SdmProfileSdmAntIdField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -114,7 +145,8 @@ class SdmProfileMessage extends DataMessage {
       return null;
     }
   }
-   set sdmAntId(int? value) {
+
+  set sdmAntId(int? value) {
     final field = getField(SdmProfileSdmAntIdField.ID);
 
     if (field != null) {
@@ -126,8 +158,9 @@ class SdmProfileMessage extends DataMessage {
       }
     }
   }
+
   double? get sdmCalFactor {
-     final field = getField(SdmProfileSdmCalFactorField.ID);
+    final field = getField(SdmProfileSdmCalFactorField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -135,7 +168,8 @@ class SdmProfileMessage extends DataMessage {
       return null;
     }
   }
-   set sdmCalFactor(double? value) {
+
+  set sdmCalFactor(double? value) {
     final field = getField(SdmProfileSdmCalFactorField.ID);
 
     if (field != null) {
@@ -147,8 +181,9 @@ class SdmProfileMessage extends DataMessage {
       }
     }
   }
+
   double? get odometer {
-     final field = getField(SdmProfileOdometerField.ID);
+    final field = getField(SdmProfileOdometerField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -156,7 +191,8 @@ class SdmProfileMessage extends DataMessage {
       return null;
     }
   }
-   set odometer(double? value) {
+
+  set odometer(double? value) {
     final field = getField(SdmProfileOdometerField.ID);
 
     if (field != null) {
@@ -168,8 +204,9 @@ class SdmProfileMessage extends DataMessage {
       }
     }
   }
+
   bool? get speedSource {
-     final field = getField(SdmProfileSpeedSourceField.ID);
+    final field = getField(SdmProfileSpeedSourceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -177,7 +214,8 @@ class SdmProfileMessage extends DataMessage {
       return null;
     }
   }
-   set speedSource(bool? value) {
+
+  set speedSource(bool? value) {
     final field = getField(SdmProfileSpeedSourceField.ID);
 
     if (field != null) {
@@ -189,8 +227,9 @@ class SdmProfileMessage extends DataMessage {
       }
     }
   }
+
   int? get sdmAntIdTransType {
-     final field = getField(SdmProfileSdmAntIdTransTypeField.ID);
+    final field = getField(SdmProfileSdmAntIdTransTypeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -198,7 +237,8 @@ class SdmProfileMessage extends DataMessage {
       return null;
     }
   }
-   set sdmAntIdTransType(int? value) {
+
+  set sdmAntIdTransType(int? value) {
     final field = getField(SdmProfileSdmAntIdTransTypeField.ID);
 
     if (field != null) {
@@ -210,8 +250,9 @@ class SdmProfileMessage extends DataMessage {
       }
     }
   }
+
   int? get odometerRollover {
-     final field = getField(SdmProfileOdometerRolloverField.ID);
+    final field = getField(SdmProfileOdometerRolloverField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -219,7 +260,8 @@ class SdmProfileMessage extends DataMessage {
       return null;
     }
   }
-   set odometerRollover(int? value) {
+
+  set odometerRollover(int? value) {
     final field = getField(SdmProfileOdometerRolloverField.ID);
 
     if (field != null) {
@@ -231,15 +273,10 @@ class SdmProfileMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class SdmProfileEnabledField extends Field {
- SdmProfileEnabledField({int size = 0, bool growable = true})
+  SdmProfileEnabledField({int size = 0, bool growable = true})
       : super(
             name: 'enabled',
             id: ID,
@@ -248,14 +285,13 @@ class SdmProfileEnabledField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class SdmProfileSdmAntIdField extends Field {
- SdmProfileSdmAntIdField({int size = 0, bool growable = true})
+  SdmProfileSdmAntIdField({int size = 0, bool growable = true})
       : super(
             name: 'sdm_ant_id',
             id: ID,
@@ -264,14 +300,13 @@ class SdmProfileSdmAntIdField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class SdmProfileSdmCalFactorField extends Field {
- SdmProfileSdmCalFactorField({int size = 0, bool growable = true})
+  SdmProfileSdmCalFactorField({int size = 0, bool growable = true})
       : super(
             name: 'sdm_cal_factor',
             id: ID,
@@ -282,14 +317,13 @@ class SdmProfileSdmCalFactorField extends Field {
             units: '%',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class SdmProfileOdometerField extends Field {
- SdmProfileOdometerField({int size = 0, bool growable = true})
+  SdmProfileOdometerField({int size = 0, bool growable = true})
       : super(
             name: 'odometer',
             id: ID,
@@ -300,14 +334,13 @@ class SdmProfileOdometerField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 3;
 }
+
 class SdmProfileSpeedSourceField extends Field {
- SdmProfileSpeedSourceField({int size = 0, bool growable = true})
+  SdmProfileSpeedSourceField({int size = 0, bool growable = true})
       : super(
             name: 'speed_source',
             id: ID,
@@ -316,14 +349,13 @@ class SdmProfileSpeedSourceField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class SdmProfileSdmAntIdTransTypeField extends Field {
- SdmProfileSdmAntIdTransTypeField({int size = 0, bool growable = true})
+  SdmProfileSdmAntIdTransTypeField({int size = 0, bool growable = true})
       : super(
             name: 'sdm_ant_id_trans_type',
             id: ID,
@@ -332,14 +364,13 @@ class SdmProfileSdmAntIdTransTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }
+
 class SdmProfileOdometerRolloverField extends Field {
- SdmProfileOdometerRolloverField({int size = 0, bool growable = true})
+  SdmProfileOdometerRolloverField({int size = 0, bool growable = true})
       : super(
             name: 'odometer_rollover',
             id: ID,
@@ -348,9 +379,7 @@ class SdmProfileOdometerRolloverField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 7;
 }

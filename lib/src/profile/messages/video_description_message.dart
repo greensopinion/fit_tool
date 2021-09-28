@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class VideoDescriptionMessage extends DataMessage {
-
-   VideoDescriptionMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  VideoDescriptionMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: VideoDescriptionMessage.NAME,
@@ -25,13 +27,23 @@ class VideoDescriptionMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               MessageIndexField(
-                  size: definitionMessage?.getFieldDefinition(MessageIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               VideoDescriptionMessageCountField(
-                  size: definitionMessage?.getFieldDefinition(VideoDescriptionMessageCountField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              VideoDescriptionMessageCountField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               VideoDescriptionTextField(
-                  size: definitionMessage?.getFieldDefinition(VideoDescriptionTextField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(VideoDescriptionTextField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -42,14 +54,14 @@ class VideoDescriptionMessage extends DataMessage {
 
   static VideoDescriptionMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
-    final message = VideoDescriptionMessage(definitionMessage: definitionMessage);
+    final message =
+        VideoDescriptionMessage(definitionMessage: definitionMessage);
     message.readFromBytes(bytes);
     return message;
   }
 
-
   int? get messageIndex {
-     final field = getField(MessageIndexField.ID);
+    final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -57,7 +69,8 @@ class VideoDescriptionMessage extends DataMessage {
       return null;
     }
   }
-   set messageIndex(int? value) {
+
+  set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
     if (field != null) {
@@ -69,8 +82,9 @@ class VideoDescriptionMessage extends DataMessage {
       }
     }
   }
+
   int? get messageCount {
-     final field = getField(VideoDescriptionMessageCountField.ID);
+    final field = getField(VideoDescriptionMessageCountField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -78,7 +92,8 @@ class VideoDescriptionMessage extends DataMessage {
       return null;
     }
   }
-   set messageCount(int? value) {
+
+  set messageCount(int? value) {
     final field = getField(VideoDescriptionMessageCountField.ID);
 
     if (field != null) {
@@ -90,8 +105,9 @@ class VideoDescriptionMessage extends DataMessage {
       }
     }
   }
+
   String? get text {
-     final field = getField(VideoDescriptionTextField.ID);
+    final field = getField(VideoDescriptionTextField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -99,7 +115,8 @@ class VideoDescriptionMessage extends DataMessage {
       return null;
     }
   }
-   set text(String? value) {
+
+  set text(String? value) {
     final field = getField(VideoDescriptionTextField.ID);
 
     if (field != null) {
@@ -111,15 +128,10 @@ class VideoDescriptionMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class VideoDescriptionMessageCountField extends Field {
- VideoDescriptionMessageCountField({int size = 0, bool growable = true})
+  VideoDescriptionMessageCountField({int size = 0, bool growable = true})
       : super(
             name: 'message_count',
             id: ID,
@@ -128,14 +140,13 @@ class VideoDescriptionMessageCountField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class VideoDescriptionTextField extends Field {
- VideoDescriptionTextField({int size = 0, bool growable = true})
+  VideoDescriptionTextField({int size = 0, bool growable = true})
       : super(
             name: 'text',
             id: ID,
@@ -144,9 +155,7 @@ class VideoDescriptionTextField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }

@@ -12,9 +12,11 @@ import '../profile_type.dart';
 import 'common_fields.dart';
 
 class MonitoringMessage extends DataMessage {
-
-   MonitoringMessage(
-      {definitionMessage, developerFields, int localId = 0, Endian endian = Endian.little})
+  MonitoringMessage(
+      {definitionMessage,
+      developerFields,
+      int localId = 0,
+      Endian endian = Endian.little})
       : growable = definitionMessage == null,
         super(
             name: MonitoringMessage.NAME,
@@ -25,91 +27,182 @@ class MonitoringMessage extends DataMessage {
             developerFields: developerFields,
             fields: [
               TimestampField(
-                  size: definitionMessage?.getFieldDefinition(TimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MonitoringDeviceIndexField(
-                  size: definitionMessage?.getFieldDefinition(MonitoringDeviceIndexField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MonitoringDeviceIndexField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MonitoringCaloriesField(
-                  size: definitionMessage?.getFieldDefinition(MonitoringCaloriesField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MonitoringCaloriesField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MonitoringDistanceField(
-                  size: definitionMessage?.getFieldDefinition(MonitoringDistanceField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MonitoringDistanceField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MonitoringCyclesField(
-                  size: definitionMessage?.getFieldDefinition(MonitoringCyclesField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MonitoringCyclesField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MonitoringActiveTimeField(
-                  size: definitionMessage?.getFieldDefinition(MonitoringActiveTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MonitoringActiveTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MonitoringActivityTypeField(
-                  size: definitionMessage?.getFieldDefinition(MonitoringActivityTypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MonitoringActivityTypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MonitoringActivitySubtypeField(
-                  size: definitionMessage?.getFieldDefinition(MonitoringActivitySubtypeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              MonitoringActivitySubtypeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MonitoringActivityLevelField(
-                  size: definitionMessage?.getFieldDefinition(MonitoringActivityLevelField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MonitoringActivityLevelField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MonitoringDistance16Field(
-                  size: definitionMessage?.getFieldDefinition(MonitoringDistance16Field.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MonitoringDistance16Field.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MonitoringCycles16Field(
-                  size: definitionMessage?.getFieldDefinition(MonitoringCycles16Field.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MonitoringCycles16Field.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MonitoringActiveTime16Field(
-                  size: definitionMessage?.getFieldDefinition(MonitoringActiveTime16Field.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MonitoringActiveTime16Field.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MonitoringLocalTimestampField(
-                  size: definitionMessage?.getFieldDefinition(MonitoringLocalTimestampField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MonitoringLocalTimestampField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MonitoringTemperatureField(
-                  size: definitionMessage?.getFieldDefinition(MonitoringTemperatureField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MonitoringTemperatureField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MonitoringTemperatureMinField(
-                  size: definitionMessage?.getFieldDefinition(MonitoringTemperatureMinField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MonitoringTemperatureMinField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MonitoringTemperatureMaxField(
-                  size: definitionMessage?.getFieldDefinition(MonitoringTemperatureMaxField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MonitoringTemperatureMaxField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MonitoringActivityTimeField(
-                  size: definitionMessage?.getFieldDefinition(MonitoringActivityTimeField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MonitoringActivityTimeField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MonitoringActiveCaloriesField(
-                  size: definitionMessage?.getFieldDefinition(MonitoringActiveCaloriesField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MonitoringActiveCaloriesField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MonitoringCurrentActivityTypeIntensityField(
-                  size: definitionMessage?.getFieldDefinition(MonitoringCurrentActivityTypeIntensityField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              MonitoringCurrentActivityTypeIntensityField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MonitoringTimestampMin8Field(
-                  size: definitionMessage?.getFieldDefinition(MonitoringTimestampMin8Field.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MonitoringTimestampMin8Field.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MonitoringTimestamp16Field(
-                  size: definitionMessage?.getFieldDefinition(MonitoringTimestamp16Field.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MonitoringTimestamp16Field.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MonitoringHeartRateField(
-                  size: definitionMessage?.getFieldDefinition(MonitoringHeartRateField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MonitoringHeartRateField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MonitoringIntensityField(
-                  size: definitionMessage?.getFieldDefinition(MonitoringIntensityField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MonitoringIntensityField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MonitoringDurationMinField(
-                  size: definitionMessage?.getFieldDefinition(MonitoringDurationMinField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MonitoringDurationMinField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MonitoringDurationField(
-                  size: definitionMessage?.getFieldDefinition(MonitoringDurationField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MonitoringDurationField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MonitoringAscentField(
-                  size: definitionMessage?.getFieldDefinition(MonitoringAscentField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MonitoringAscentField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MonitoringDescentField(
-                  size: definitionMessage?.getFieldDefinition(MonitoringDescentField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(MonitoringDescentField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MonitoringModerateActivityMinutesField(
-                  size: definitionMessage?.getFieldDefinition(MonitoringModerateActivityMinutesField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              MonitoringModerateActivityMinutesField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null),
               MonitoringVigorousActivityMinutesField(
-                  size: definitionMessage?.getFieldDefinition(MonitoringVigorousActivityMinutesField.ID)?.size ?? 0,
+                  size: definitionMessage
+                          ?.getFieldDefinition(
+                              MonitoringVigorousActivityMinutesField.ID)
+                          ?.size ??
+                      0,
                   growable: definitionMessage == null)
             ]);
 
@@ -125,10 +218,9 @@ class MonitoringMessage extends DataMessage {
     return message;
   }
 
-
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-     final field = getField(TimestampField.ID);
+    final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -136,8 +228,9 @@ class MonitoringMessage extends DataMessage {
       return null;
     }
   }
+
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
-   set timestamp(int? value) {
+  set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
     if (field != null) {
@@ -149,8 +242,9 @@ class MonitoringMessage extends DataMessage {
       }
     }
   }
+
   int? get deviceIndex {
-     final field = getField(MonitoringDeviceIndexField.ID);
+    final field = getField(MonitoringDeviceIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -158,7 +252,8 @@ class MonitoringMessage extends DataMessage {
       return null;
     }
   }
-   set deviceIndex(int? value) {
+
+  set deviceIndex(int? value) {
     final field = getField(MonitoringDeviceIndexField.ID);
 
     if (field != null) {
@@ -170,8 +265,9 @@ class MonitoringMessage extends DataMessage {
       }
     }
   }
+
   int? get calories {
-     final field = getField(MonitoringCaloriesField.ID);
+    final field = getField(MonitoringCaloriesField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -179,7 +275,8 @@ class MonitoringMessage extends DataMessage {
       return null;
     }
   }
-   set calories(int? value) {
+
+  set calories(int? value) {
     final field = getField(MonitoringCaloriesField.ID);
 
     if (field != null) {
@@ -191,8 +288,9 @@ class MonitoringMessage extends DataMessage {
       }
     }
   }
+
   double? get distance {
-     final field = getField(MonitoringDistanceField.ID);
+    final field = getField(MonitoringDistanceField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -200,7 +298,8 @@ class MonitoringMessage extends DataMessage {
       return null;
     }
   }
-   set distance(double? value) {
+
+  set distance(double? value) {
     final field = getField(MonitoringDistanceField.ID);
 
     if (field != null) {
@@ -212,8 +311,9 @@ class MonitoringMessage extends DataMessage {
       }
     }
   }
+
   double? get cycles {
-     final field = getField(MonitoringCyclesField.ID);
+    final field = getField(MonitoringCyclesField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -221,7 +321,8 @@ class MonitoringMessage extends DataMessage {
       return null;
     }
   }
-   set cycles(double? value) {
+
+  set cycles(double? value) {
     final field = getField(MonitoringCyclesField.ID);
 
     if (field != null) {
@@ -235,13 +336,14 @@ class MonitoringMessage extends DataMessage {
   }
 
   int? get steps {
-     final field = getField(MonitoringCyclesField.ID);
-     final typeField = getField(MonitoringActivityTypeField.ID);
+    final field = getField(MonitoringCyclesField.ID);
+    final typeField = getField(MonitoringActivityTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [6, 1].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [6, 1].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -249,7 +351,7 @@ class MonitoringMessage extends DataMessage {
 
   set steps(int? value) {
     final field = getField(MonitoringCyclesField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -260,13 +362,14 @@ class MonitoringMessage extends DataMessage {
   }
 
   double? get strokes {
-     final field = getField(MonitoringCyclesField.ID);
-     final typeField = getField(MonitoringActivityTypeField.ID);
+    final field = getField(MonitoringCyclesField.ID);
+    final typeField = getField(MonitoringActivityTypeField.ID);
 
-     final isSubFieldValid = typeField != null && [2, 5].contains(typeField.getValue());
+    final isSubFieldValid =
+        typeField != null && [2, 5].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
-      return field.getValue(subField:subField);
+      return field.getValue(subField: subField);
     } else {
       return null;
     }
@@ -274,7 +377,7 @@ class MonitoringMessage extends DataMessage {
 
   set strokes(double? value) {
     final field = getField(MonitoringCyclesField.ID);
-       if (field != null) {
+    if (field != null) {
       if (value == null) {
         field.clear();
       } else {
@@ -283,8 +386,9 @@ class MonitoringMessage extends DataMessage {
       }
     }
   }
+
   double? get activeTime {
-     final field = getField(MonitoringActiveTimeField.ID);
+    final field = getField(MonitoringActiveTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -292,7 +396,8 @@ class MonitoringMessage extends DataMessage {
       return null;
     }
   }
-   set activeTime(double? value) {
+
+  set activeTime(double? value) {
     final field = getField(MonitoringActiveTimeField.ID);
 
     if (field != null) {
@@ -304,9 +409,10 @@ class MonitoringMessage extends DataMessage {
       }
     }
   }
+
   ActivityType? get activityType {
-     final field = getField(MonitoringActivityTypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(MonitoringActivityTypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -317,7 +423,8 @@ class MonitoringMessage extends DataMessage {
       return null;
     }
   }
-   set activityType(ActivityType? value) {
+
+  set activityType(ActivityType? value) {
     final field = getField(MonitoringActivityTypeField.ID);
 
     if (field != null) {
@@ -329,9 +436,10 @@ class MonitoringMessage extends DataMessage {
       }
     }
   }
+
   ActivitySubtype? get activitySubtype {
-     final field = getField(MonitoringActivitySubtypeField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(MonitoringActivitySubtypeField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -342,7 +450,8 @@ class MonitoringMessage extends DataMessage {
       return null;
     }
   }
-   set activitySubtype(ActivitySubtype? value) {
+
+  set activitySubtype(ActivitySubtype? value) {
     final field = getField(MonitoringActivitySubtypeField.ID);
 
     if (field != null) {
@@ -354,9 +463,10 @@ class MonitoringMessage extends DataMessage {
       }
     }
   }
+
   ActivityLevel? get activityLevel {
-     final field = getField(MonitoringActivityLevelField.ID);
- if (field != null && field.isValid()) {
+    final field = getField(MonitoringActivityLevelField.ID);
+    if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField: subField);
       if (value == null) {
@@ -367,7 +477,8 @@ class MonitoringMessage extends DataMessage {
       return null;
     }
   }
-   set activityLevel(ActivityLevel? value) {
+
+  set activityLevel(ActivityLevel? value) {
     final field = getField(MonitoringActivityLevelField.ID);
 
     if (field != null) {
@@ -379,8 +490,9 @@ class MonitoringMessage extends DataMessage {
       }
     }
   }
+
   int? get distance16 {
-     final field = getField(MonitoringDistance16Field.ID);
+    final field = getField(MonitoringDistance16Field.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -388,7 +500,8 @@ class MonitoringMessage extends DataMessage {
       return null;
     }
   }
-   set distance16(int? value) {
+
+  set distance16(int? value) {
     final field = getField(MonitoringDistance16Field.ID);
 
     if (field != null) {
@@ -400,8 +513,9 @@ class MonitoringMessage extends DataMessage {
       }
     }
   }
+
   int? get cycles16 {
-     final field = getField(MonitoringCycles16Field.ID);
+    final field = getField(MonitoringCycles16Field.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -409,7 +523,8 @@ class MonitoringMessage extends DataMessage {
       return null;
     }
   }
-   set cycles16(int? value) {
+
+  set cycles16(int? value) {
     final field = getField(MonitoringCycles16Field.ID);
 
     if (field != null) {
@@ -421,8 +536,9 @@ class MonitoringMessage extends DataMessage {
       }
     }
   }
+
   int? get activeTime16 {
-     final field = getField(MonitoringActiveTime16Field.ID);
+    final field = getField(MonitoringActiveTime16Field.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -430,7 +546,8 @@ class MonitoringMessage extends DataMessage {
       return null;
     }
   }
-   set activeTime16(int? value) {
+
+  set activeTime16(int? value) {
     final field = getField(MonitoringActiveTime16Field.ID);
 
     if (field != null) {
@@ -442,8 +559,9 @@ class MonitoringMessage extends DataMessage {
       }
     }
   }
+
   int? get localTimestamp {
-     final field = getField(MonitoringLocalTimestampField.ID);
+    final field = getField(MonitoringLocalTimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -451,7 +569,8 @@ class MonitoringMessage extends DataMessage {
       return null;
     }
   }
-   set localTimestamp(int? value) {
+
+  set localTimestamp(int? value) {
     final field = getField(MonitoringLocalTimestampField.ID);
 
     if (field != null) {
@@ -463,8 +582,9 @@ class MonitoringMessage extends DataMessage {
       }
     }
   }
+
   double? get temperature {
-     final field = getField(MonitoringTemperatureField.ID);
+    final field = getField(MonitoringTemperatureField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -472,7 +592,8 @@ class MonitoringMessage extends DataMessage {
       return null;
     }
   }
-   set temperature(double? value) {
+
+  set temperature(double? value) {
     final field = getField(MonitoringTemperatureField.ID);
 
     if (field != null) {
@@ -484,8 +605,9 @@ class MonitoringMessage extends DataMessage {
       }
     }
   }
+
   double? get temperatureMin {
-     final field = getField(MonitoringTemperatureMinField.ID);
+    final field = getField(MonitoringTemperatureMinField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -493,7 +615,8 @@ class MonitoringMessage extends DataMessage {
       return null;
     }
   }
-   set temperatureMin(double? value) {
+
+  set temperatureMin(double? value) {
     final field = getField(MonitoringTemperatureMinField.ID);
 
     if (field != null) {
@@ -505,8 +628,9 @@ class MonitoringMessage extends DataMessage {
       }
     }
   }
+
   double? get temperatureMax {
-     final field = getField(MonitoringTemperatureMaxField.ID);
+    final field = getField(MonitoringTemperatureMaxField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -514,7 +638,8 @@ class MonitoringMessage extends DataMessage {
       return null;
     }
   }
-   set temperatureMax(double? value) {
+
+  set temperatureMax(double? value) {
     final field = getField(MonitoringTemperatureMaxField.ID);
 
     if (field != null) {
@@ -526,8 +651,9 @@ class MonitoringMessage extends DataMessage {
       }
     }
   }
+
   int? get activityTime {
-     final field = getField(MonitoringActivityTimeField.ID);
+    final field = getField(MonitoringActivityTimeField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -535,7 +661,8 @@ class MonitoringMessage extends DataMessage {
       return null;
     }
   }
-   set activityTime(int? value) {
+
+  set activityTime(int? value) {
     final field = getField(MonitoringActivityTimeField.ID);
 
     if (field != null) {
@@ -547,8 +674,9 @@ class MonitoringMessage extends DataMessage {
       }
     }
   }
+
   int? get activeCalories {
-     final field = getField(MonitoringActiveCaloriesField.ID);
+    final field = getField(MonitoringActiveCaloriesField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -556,7 +684,8 @@ class MonitoringMessage extends DataMessage {
       return null;
     }
   }
-   set activeCalories(int? value) {
+
+  set activeCalories(int? value) {
     final field = getField(MonitoringActiveCaloriesField.ID);
 
     if (field != null) {
@@ -568,8 +697,9 @@ class MonitoringMessage extends DataMessage {
       }
     }
   }
+
   int? get currentActivityTypeIntensity {
-     final field = getField(MonitoringCurrentActivityTypeIntensityField.ID);
+    final field = getField(MonitoringCurrentActivityTypeIntensityField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -577,7 +707,8 @@ class MonitoringMessage extends DataMessage {
       return null;
     }
   }
-   set currentActivityTypeIntensity(int? value) {
+
+  set currentActivityTypeIntensity(int? value) {
     final field = getField(MonitoringCurrentActivityTypeIntensityField.ID);
 
     if (field != null) {
@@ -589,8 +720,9 @@ class MonitoringMessage extends DataMessage {
       }
     }
   }
+
   int? get timestampMin8 {
-     final field = getField(MonitoringTimestampMin8Field.ID);
+    final field = getField(MonitoringTimestampMin8Field.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -598,7 +730,8 @@ class MonitoringMessage extends DataMessage {
       return null;
     }
   }
-   set timestampMin8(int? value) {
+
+  set timestampMin8(int? value) {
     final field = getField(MonitoringTimestampMin8Field.ID);
 
     if (field != null) {
@@ -610,8 +743,9 @@ class MonitoringMessage extends DataMessage {
       }
     }
   }
+
   int? get timestamp16 {
-     final field = getField(MonitoringTimestamp16Field.ID);
+    final field = getField(MonitoringTimestamp16Field.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -619,7 +753,8 @@ class MonitoringMessage extends DataMessage {
       return null;
     }
   }
-   set timestamp16(int? value) {
+
+  set timestamp16(int? value) {
     final field = getField(MonitoringTimestamp16Field.ID);
 
     if (field != null) {
@@ -631,8 +766,9 @@ class MonitoringMessage extends DataMessage {
       }
     }
   }
+
   int? get heartRate {
-     final field = getField(MonitoringHeartRateField.ID);
+    final field = getField(MonitoringHeartRateField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -640,7 +776,8 @@ class MonitoringMessage extends DataMessage {
       return null;
     }
   }
-   set heartRate(int? value) {
+
+  set heartRate(int? value) {
     final field = getField(MonitoringHeartRateField.ID);
 
     if (field != null) {
@@ -652,8 +789,9 @@ class MonitoringMessage extends DataMessage {
       }
     }
   }
+
   double? get intensity {
-     final field = getField(MonitoringIntensityField.ID);
+    final field = getField(MonitoringIntensityField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -661,7 +799,8 @@ class MonitoringMessage extends DataMessage {
       return null;
     }
   }
-   set intensity(double? value) {
+
+  set intensity(double? value) {
     final field = getField(MonitoringIntensityField.ID);
 
     if (field != null) {
@@ -673,8 +812,9 @@ class MonitoringMessage extends DataMessage {
       }
     }
   }
+
   int? get durationMin {
-     final field = getField(MonitoringDurationMinField.ID);
+    final field = getField(MonitoringDurationMinField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -682,7 +822,8 @@ class MonitoringMessage extends DataMessage {
       return null;
     }
   }
-   set durationMin(int? value) {
+
+  set durationMin(int? value) {
     final field = getField(MonitoringDurationMinField.ID);
 
     if (field != null) {
@@ -694,8 +835,9 @@ class MonitoringMessage extends DataMessage {
       }
     }
   }
+
   int? get duration {
-     final field = getField(MonitoringDurationField.ID);
+    final field = getField(MonitoringDurationField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -703,7 +845,8 @@ class MonitoringMessage extends DataMessage {
       return null;
     }
   }
-   set duration(int? value) {
+
+  set duration(int? value) {
     final field = getField(MonitoringDurationField.ID);
 
     if (field != null) {
@@ -715,8 +858,9 @@ class MonitoringMessage extends DataMessage {
       }
     }
   }
+
   double? get ascent {
-     final field = getField(MonitoringAscentField.ID);
+    final field = getField(MonitoringAscentField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -724,7 +868,8 @@ class MonitoringMessage extends DataMessage {
       return null;
     }
   }
-   set ascent(double? value) {
+
+  set ascent(double? value) {
     final field = getField(MonitoringAscentField.ID);
 
     if (field != null) {
@@ -736,8 +881,9 @@ class MonitoringMessage extends DataMessage {
       }
     }
   }
+
   double? get descent {
-     final field = getField(MonitoringDescentField.ID);
+    final field = getField(MonitoringDescentField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -745,7 +891,8 @@ class MonitoringMessage extends DataMessage {
       return null;
     }
   }
-   set descent(double? value) {
+
+  set descent(double? value) {
     final field = getField(MonitoringDescentField.ID);
 
     if (field != null) {
@@ -757,8 +904,9 @@ class MonitoringMessage extends DataMessage {
       }
     }
   }
+
   int? get moderateActivityMinutes {
-     final field = getField(MonitoringModerateActivityMinutesField.ID);
+    final field = getField(MonitoringModerateActivityMinutesField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -766,7 +914,8 @@ class MonitoringMessage extends DataMessage {
       return null;
     }
   }
-   set moderateActivityMinutes(int? value) {
+
+  set moderateActivityMinutes(int? value) {
     final field = getField(MonitoringModerateActivityMinutesField.ID);
 
     if (field != null) {
@@ -778,8 +927,9 @@ class MonitoringMessage extends DataMessage {
       }
     }
   }
+
   int? get vigorousActivityMinutes {
-     final field = getField(MonitoringVigorousActivityMinutesField.ID);
+    final field = getField(MonitoringVigorousActivityMinutesField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -787,7 +937,8 @@ class MonitoringMessage extends DataMessage {
       return null;
     }
   }
-   set vigorousActivityMinutes(int? value) {
+
+  set vigorousActivityMinutes(int? value) {
     final field = getField(MonitoringVigorousActivityMinutesField.ID);
 
     if (field != null) {
@@ -799,15 +950,10 @@ class MonitoringMessage extends DataMessage {
       }
     }
   }
-
-
-
 }
 
-
-
 class MonitoringDeviceIndexField extends Field {
- MonitoringDeviceIndexField({int size = 0, bool growable = true})
+  MonitoringDeviceIndexField({int size = 0, bool growable = true})
       : super(
             name: 'device_index',
             id: ID,
@@ -816,14 +962,13 @@ class MonitoringDeviceIndexField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 0;
 }
+
 class MonitoringCaloriesField extends Field {
- MonitoringCaloriesField({int size = 0, bool growable = true})
+  MonitoringCaloriesField({int size = 0, bool growable = true})
       : super(
             name: 'calories',
             id: ID,
@@ -834,14 +979,13 @@ class MonitoringCaloriesField extends Field {
             units: 'kcal',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 1;
 }
+
 class MonitoringDistanceField extends Field {
- MonitoringDistanceField({int size = 0, bool growable = true})
+  MonitoringDistanceField({int size = 0, bool growable = true})
       : super(
             name: 'distance',
             id: ID,
@@ -852,14 +996,13 @@ class MonitoringDistanceField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 2;
 }
+
 class MonitoringCyclesField extends Field {
- MonitoringCyclesField({int size = 0, bool growable = true})
+  MonitoringCyclesField({int size = 0, bool growable = true})
       : super(
             name: 'cycles',
             id: ID,
@@ -871,31 +1014,31 @@ class MonitoringCyclesField extends Field {
             mainTypeName: '',
             growable: growable,
             subFields: [
-       SubField(
+              SubField(
                   name: 'steps',
                   type: BaseType.UINT32,
                   scale: 1,
                   offset: 0,
                   units: 'steps',
                   referenceMap: {
-                  MonitoringActivityTypeField.ID: [6, 1]
+                    MonitoringActivityTypeField.ID: [6, 1]
                   }),
-       SubField(
+              SubField(
                   name: 'strokes',
                   type: BaseType.UINT32,
                   scale: 2,
                   offset: 0,
                   units: 'strokes',
                   referenceMap: {
-                  MonitoringActivityTypeField.ID: [2, 5]
+                    MonitoringActivityTypeField.ID: [2, 5]
                   })
-            ]
- );
+            ]);
 
   static const ID = 3;
 }
+
 class MonitoringActiveTimeField extends Field {
- MonitoringActiveTimeField({int size = 0, bool growable = true})
+  MonitoringActiveTimeField({int size = 0, bool growable = true})
       : super(
             name: 'active_time',
             id: ID,
@@ -906,14 +1049,13 @@ class MonitoringActiveTimeField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 4;
 }
+
 class MonitoringActivityTypeField extends Field {
- MonitoringActivityTypeField({int size = 0, bool growable = true})
+  MonitoringActivityTypeField({int size = 0, bool growable = true})
       : super(
             name: 'activity_type',
             id: ID,
@@ -922,14 +1064,13 @@ class MonitoringActivityTypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 5;
 }
+
 class MonitoringActivitySubtypeField extends Field {
- MonitoringActivitySubtypeField({int size = 0, bool growable = true})
+  MonitoringActivitySubtypeField({int size = 0, bool growable = true})
       : super(
             name: 'activity_subtype',
             id: ID,
@@ -938,14 +1079,13 @@ class MonitoringActivitySubtypeField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 6;
 }
+
 class MonitoringActivityLevelField extends Field {
- MonitoringActivityLevelField({int size = 0, bool growable = true})
+  MonitoringActivityLevelField({int size = 0, bool growable = true})
       : super(
             name: 'activity_level',
             id: ID,
@@ -954,14 +1094,13 @@ class MonitoringActivityLevelField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 7;
 }
+
 class MonitoringDistance16Field extends Field {
- MonitoringDistance16Field({int size = 0, bool growable = true})
+  MonitoringDistance16Field({int size = 0, bool growable = true})
       : super(
             name: 'distance_16',
             id: ID,
@@ -972,14 +1111,13 @@ class MonitoringDistance16Field extends Field {
             units: '100 * m',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 8;
 }
+
 class MonitoringCycles16Field extends Field {
- MonitoringCycles16Field({int size = 0, bool growable = true})
+  MonitoringCycles16Field({int size = 0, bool growable = true})
       : super(
             name: 'cycles_16',
             id: ID,
@@ -990,14 +1128,13 @@ class MonitoringCycles16Field extends Field {
             units: '2 * cycles (steps)',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 9;
 }
+
 class MonitoringActiveTime16Field extends Field {
- MonitoringActiveTime16Field({int size = 0, bool growable = true})
+  MonitoringActiveTime16Field({int size = 0, bool growable = true})
       : super(
             name: 'active_time_16',
             id: ID,
@@ -1008,14 +1145,13 @@ class MonitoringActiveTime16Field extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 10;
 }
+
 class MonitoringLocalTimestampField extends Field {
- MonitoringLocalTimestampField({int size = 0, bool growable = true})
+  MonitoringLocalTimestampField({int size = 0, bool growable = true})
       : super(
             name: 'local_timestamp',
             id: ID,
@@ -1024,14 +1160,13 @@ class MonitoringLocalTimestampField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 11;
 }
+
 class MonitoringTemperatureField extends Field {
- MonitoringTemperatureField({int size = 0, bool growable = true})
+  MonitoringTemperatureField({int size = 0, bool growable = true})
       : super(
             name: 'temperature',
             id: ID,
@@ -1042,14 +1177,13 @@ class MonitoringTemperatureField extends Field {
             units: 'C',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 12;
 }
+
 class MonitoringTemperatureMinField extends Field {
- MonitoringTemperatureMinField({int size = 0, bool growable = true})
+  MonitoringTemperatureMinField({int size = 0, bool growable = true})
       : super(
             name: 'temperature_min',
             id: ID,
@@ -1060,14 +1194,13 @@ class MonitoringTemperatureMinField extends Field {
             units: 'C',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 14;
 }
+
 class MonitoringTemperatureMaxField extends Field {
- MonitoringTemperatureMaxField({int size = 0, bool growable = true})
+  MonitoringTemperatureMaxField({int size = 0, bool growable = true})
       : super(
             name: 'temperature_max',
             id: ID,
@@ -1078,14 +1211,13 @@ class MonitoringTemperatureMaxField extends Field {
             units: 'C',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 15;
 }
+
 class MonitoringActivityTimeField extends Field {
- MonitoringActivityTimeField({int size = 0, bool growable = true})
+  MonitoringActivityTimeField({int size = 0, bool growable = true})
       : super(
             name: 'activity_time',
             id: ID,
@@ -1096,14 +1228,13 @@ class MonitoringActivityTimeField extends Field {
             units: 'minutes',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 16;
 }
+
 class MonitoringActiveCaloriesField extends Field {
- MonitoringActiveCaloriesField({int size = 0, bool growable = true})
+  MonitoringActiveCaloriesField({int size = 0, bool growable = true})
       : super(
             name: 'active_calories',
             id: ID,
@@ -1114,14 +1245,14 @@ class MonitoringActiveCaloriesField extends Field {
             units: 'kcal',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 19;
 }
+
 class MonitoringCurrentActivityTypeIntensityField extends Field {
- MonitoringCurrentActivityTypeIntensityField({int size = 0, bool growable = true})
+  MonitoringCurrentActivityTypeIntensityField(
+      {int size = 0, bool growable = true})
       : super(
             name: 'current_activity_type_intensity',
             id: ID,
@@ -1130,14 +1261,13 @@ class MonitoringCurrentActivityTypeIntensityField extends Field {
             scale: 1,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 24;
 }
+
 class MonitoringTimestampMin8Field extends Field {
- MonitoringTimestampMin8Field({int size = 0, bool growable = true})
+  MonitoringTimestampMin8Field({int size = 0, bool growable = true})
       : super(
             name: 'timestamp_min_8',
             id: ID,
@@ -1148,14 +1278,13 @@ class MonitoringTimestampMin8Field extends Field {
             units: 'min',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 25;
 }
+
 class MonitoringTimestamp16Field extends Field {
- MonitoringTimestamp16Field({int size = 0, bool growable = true})
+  MonitoringTimestamp16Field({int size = 0, bool growable = true})
       : super(
             name: 'timestamp_16',
             id: ID,
@@ -1166,14 +1295,13 @@ class MonitoringTimestamp16Field extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 26;
 }
+
 class MonitoringHeartRateField extends Field {
- MonitoringHeartRateField({int size = 0, bool growable = true})
+  MonitoringHeartRateField({int size = 0, bool growable = true})
       : super(
             name: 'heart_rate',
             id: ID,
@@ -1184,14 +1312,13 @@ class MonitoringHeartRateField extends Field {
             units: 'bpm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 27;
 }
+
 class MonitoringIntensityField extends Field {
- MonitoringIntensityField({int size = 0, bool growable = true})
+  MonitoringIntensityField({int size = 0, bool growable = true})
       : super(
             name: 'intensity',
             id: ID,
@@ -1200,14 +1327,13 @@ class MonitoringIntensityField extends Field {
             scale: 10,
             size: size,
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 28;
 }
+
 class MonitoringDurationMinField extends Field {
- MonitoringDurationMinField({int size = 0, bool growable = true})
+  MonitoringDurationMinField({int size = 0, bool growable = true})
       : super(
             name: 'duration_min',
             id: ID,
@@ -1218,14 +1344,13 @@ class MonitoringDurationMinField extends Field {
             units: 'min',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 29;
 }
+
 class MonitoringDurationField extends Field {
- MonitoringDurationField({int size = 0, bool growable = true})
+  MonitoringDurationField({int size = 0, bool growable = true})
       : super(
             name: 'duration',
             id: ID,
@@ -1236,14 +1361,13 @@ class MonitoringDurationField extends Field {
             units: 's',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 30;
 }
+
 class MonitoringAscentField extends Field {
- MonitoringAscentField({int size = 0, bool growable = true})
+  MonitoringAscentField({int size = 0, bool growable = true})
       : super(
             name: 'ascent',
             id: ID,
@@ -1254,14 +1378,13 @@ class MonitoringAscentField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 31;
 }
+
 class MonitoringDescentField extends Field {
- MonitoringDescentField({int size = 0, bool growable = true})
+  MonitoringDescentField({int size = 0, bool growable = true})
       : super(
             name: 'descent',
             id: ID,
@@ -1272,14 +1395,13 @@ class MonitoringDescentField extends Field {
             units: 'm',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 32;
 }
+
 class MonitoringModerateActivityMinutesField extends Field {
- MonitoringModerateActivityMinutesField({int size = 0, bool growable = true})
+  MonitoringModerateActivityMinutesField({int size = 0, bool growable = true})
       : super(
             name: 'moderate_activity_minutes',
             id: ID,
@@ -1290,14 +1412,13 @@ class MonitoringModerateActivityMinutesField extends Field {
             units: 'minutes',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 33;
 }
+
 class MonitoringVigorousActivityMinutesField extends Field {
- MonitoringVigorousActivityMinutesField({int size = 0, bool growable = true})
+  MonitoringVigorousActivityMinutesField({int size = 0, bool growable = true})
       : super(
             name: 'vigorous_activity_minutes',
             id: ID,
@@ -1308,9 +1429,7 @@ class MonitoringVigorousActivityMinutesField extends Field {
             units: 'minutes',
             mainTypeName: '',
             growable: growable,
-            subFields: [
-            ]
- );
+            subFields: []);
 
   static const ID = 34;
 }

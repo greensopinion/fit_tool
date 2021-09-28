@@ -13,18 +13,16 @@ import '../profile_type.dart';
 class TimestampField extends Field {
   TimestampField({int size = 0, bool growable = true})
       : super(
-      name: 'timestamp',
-      id: ID,
-      type: BaseType.UINT32,
-      offset: -631065600000,
-      scale: 0.001,
-      size: size,
-      units: 'ms',
-      mainTypeName: 'date_time',
-      growable: growable,
-      subFields: [
-      ]
-  );
+            name: 'timestamp',
+            id: ID,
+            type: BaseType.UINT32,
+            offset: -631065600000,
+            scale: 0.001,
+            size: size,
+            units: 'ms',
+            mainTypeName: 'date_time',
+            growable: growable,
+            subFields: []);
 
   static const ID = 253;
 }
@@ -32,14 +30,14 @@ class TimestampField extends Field {
 class MessageIndexField extends Field {
   MessageIndexField({int size = 0, bool growable = true})
       : super(
-      name: 'message_index',
-      id: ID,
-      type: BaseType.UINT16,
-      offset: 0,
-      scale: 1,
-      size: size,
-      growable: growable,
-      subFields: []);
+            name: 'message_index',
+            id: ID,
+            type: BaseType.UINT16,
+            offset: 0,
+            scale: 1,
+            size: size,
+            growable: growable,
+            subFields: []);
 
   static const ID = 254;
 }
