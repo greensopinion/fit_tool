@@ -83,7 +83,6 @@ class FitFileHeader {
   final ProfileVersion profileVersion;
   final int recordsSize;
 
-
   /// By including the CRC in the header you effectively reset the CRC for the
   /// file, (when you CRC-16 a value with itself the CRC returned is 0)
   final int? crc; //crc16 of header bytes 0-11
