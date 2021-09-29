@@ -1,4 +1,7 @@
 
+## 0.9.3
+- Fix documentation
+
 ## 0.9.2
 - Fix package renaming issues
 - Format
