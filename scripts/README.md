@@ -1,3 +1,3 @@
 
 
-mkvirtualenv -p python3 fitkit
+mkvirtualenv -p python3 fit_tool

@@ -7,7 +7,7 @@ A library for reading and writing Garmin FIT files.
 
 ## Usage
 
-Here are some examples on how to use Fitkit:
+Here are some examples on how to use fit_tool:
 
 * [Reading a FIT file](#reading-a-fit-file)
 * [Writing a FIT file](#writing-a-fit-file)
@@ -28,7 +28,7 @@ create a FIT file object. We then convert the FIT data to a human-readable CSV f
 import 'dart:io';
 
 import 'package:csv/csv.dart';
-import 'package:fitkit/src/fit_file.dart';
+import 'package:fit_tool/src/fit_file.dart';
 
 Future<void> main() async {
   final file = File('./test/data/sdk/Activity.fit');
@@ -50,8 +50,8 @@ this stream to a message stream using the provided `FitDecoder`.
 ```dart
 import 'dart:io';
 
-import 'package:fitkit/src/fit_decoder.dart';
-import 'package:fitkit/src/profile/messages/record_message.dart';
+import 'package:fit_tool/src/fit_decoder.dart';
+import 'package:fit_tool/src/profile/messages/record_message.dart';
 
 Future<void> main() async {
   final file = File('./test/data/palisade.fit');
@@ -80,12 +80,12 @@ The following code writes a workout as a FIT file.
 import 'dart:io';
 
 import 'package:csv/csv.dart';
-import 'package:fitkit/src/fit_file_builder.dart';
-import 'package:fitkit/src/profile/messages/file_id_message.dart';
-import 'package:fitkit/src/profile/messages/workout_message.dart';
-import 'package:fitkit/src/profile/messages/workout_step_message.dart';
-import 'package:fitkit/src/profile/profile_type.dart';
-import 'package:fitkit/src/utils/conversions.dart';
+import 'package:fit_tool/src/fit_file_builder.dart';
+import 'package:fit_tool/src/profile/messages/file_id_message.dart';
+import 'package:fit_tool/src/profile/messages/workout_message.dart';
+import 'package:fit_tool/src/profile/messages/workout_step_message.dart';
+import 'package:fit_tool/src/profile/profile_type.dart';
+import 'package:fit_tool/src/utils/conversions.dart';
 
 Future<void> main() async {
   final fileIdMessage = FileIdMessage()
