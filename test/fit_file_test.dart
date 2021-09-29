@@ -59,23 +59,21 @@ void main() {
     });
 
     test('Create a workout', () async {
-
       final fileIdMessage = FileIdMessage()
-      ..type = FileType.workout
-      ..manufacturer = Manufacturer.development.value
-      ..product = 0
-      ..timeCreated = DateTime.now().millisecondsSinceEpoch
-      ..serialNumber = 0x12345678;
+        ..type = FileType.workout
+        ..manufacturer = Manufacturer.development.value
+        ..product = 0
+        ..timeCreated = DateTime.now().millisecondsSinceEpoch
+        ..serialNumber = 0x12345678;
 
       final workoutSteps = [
         WorkoutStepMessage()
-        ..workoutStepName = 'Warm up 10min in Heart Rate Zone 1'
-        ..intensity = Intensity.warmup
-        ..durationType = WorkoutStepDuration.time
-        ..durationTime = 600.0
-        ..targetType = WorkoutStepTarget.heartRate
-        ..targetHrZone = 1,
-
+          ..workoutStepName = 'Warm up 10min in Heart Rate Zone 1'
+          ..intensity = Intensity.warmup
+          ..durationType = WorkoutStepDuration.time
+          ..durationTime = 600.0
+          ..targetType = WorkoutStepTarget.heartRate
+          ..targetHrZone = 1,
         WorkoutStepMessage()
           ..workoutStepName = 'Bike 40min Power Zone 3'
           ..intensity = Intensity.active
@@ -83,7 +81,6 @@ void main() {
           ..durationTime = 24000.0
           ..targetType = WorkoutStepTarget.power
           ..targetPowerZone = 3,
-
         WorkoutStepMessage()
           ..workoutStepName = 'Cool Down Until Lap Button Pressed'
           ..intensity = Intensity.cooldown
@@ -94,9 +91,9 @@ void main() {
       ];
 
       final workoutMessage = WorkoutMessage()
-      ..workoutName = 'Tempo Bike'
-      ..sport = Sport.cycling
-      ..numValidSteps = workoutSteps.length;
+        ..workoutName = 'Tempo Bike'
+        ..sport = Sport.cycling
+        ..numValidSteps = workoutSteps.length;
 
       final builder = FitFileBuilder(autoDefine: true, minStringSize: 50)
         ..add(fileIdMessage)
@@ -105,13 +102,13 @@ void main() {
 
       final fitFile = builder.build();
 
-      final outFile = await File('./test/out/tempo_bike_workout.fit').create(recursive: true);
+      final outFile = await File('./test/out/tempo_bike_workout.fit')
+          .create(recursive: true);
       await outFile.writeAsBytes(fitFile.toBytes());
 
       final csvOutFile = File('./test/out/tempo_bike_workout.csv');
       final csv = const ListToCsvConverter().convert(fitFile.toRows());
       await csvOutFile.writeAsString(csv);
-
     });
 
     test('Argument errors', () {

@@ -23,7 +23,7 @@ abstract class DataMessage extends Message {
   final String name;
   final List<Field> fields;
   final List<DeveloperField> developerFields;
-  late final DefinitionMessage? definitionMessage;
+  DefinitionMessage? definitionMessage;
 
   static DataMessage fromDefinition(DefinitionMessage definitionMessage,
       List<DeveloperField> developerFields) {
@@ -36,6 +36,28 @@ abstract class DataMessage extends Message {
         DataMessage.fromDefinition(definitionMessage, developerFields);
     message.readFromBytes(bytes);
     return message;
+  }
+
+  void setDefinitionMessage(DefinitionMessage definition) {
+    definitionMessage = definition;
+
+    for (var field in fields) {
+      var fieldDefinition = definition.getFieldDefinition(field.id);
+      if (fieldDefinition == null) {
+        field.size = 0;
+      } else {
+        field.size = fieldDefinition.size;
+      }
+    }
+
+    for (var field in developerFields) {
+      var fieldDefinition = definition.getDeveloperFieldDefinition(field.id);
+      if (fieldDefinition == null) {
+        field.size = 0;
+      } else {
+        field.size = fieldDefinition.size;
+      }
+    }
   }
 
   Field? getField(int id) {

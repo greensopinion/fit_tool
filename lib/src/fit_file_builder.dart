@@ -18,7 +18,7 @@ class FitFileBuilder {
 
   void add(Message message) {
     if (message is DataMessage) {
-      final storedDefinition = definitionMap[message.localId];
+      var storedDefinition = definitionMap[message.localId];
 
       if (storedDefinition == null) {
         if (autoDefine) {
@@ -43,9 +43,11 @@ class FitFileBuilder {
           }
         }
       }
-    }
 
-    if (message is DefinitionMessage) {
+      if (message.definitionMessage == null) {
+        message.setDefinitionMessage(definitionMap[message.localId]!);
+      }
+    } else if (message is DefinitionMessage) {
       definitionMap[message.localId] = message;
     }
 
