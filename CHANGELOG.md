@@ -1,4 +1,8 @@
 
+
+## 0.9.4
+- Fix Fit builder for min string size issue.
+
 ## 0.9.3
 - Fix documentation
 
