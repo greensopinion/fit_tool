@@ -149,7 +149,7 @@ class {{class_name}} extends DataMessage {
 }
 
 
-{% for field_name, field in message.fields_by_name.items() if field_name not in ['timestamp', 'message_index']%}
+{% for field_name, field in message.fields_by_name.items() if field.def_num not in [253, 254]%}
 class {{message.field_class_name_by_name[field_name]}} extends Field {
  {{message.field_class_name_by_name[field_name]}}({int size = 0, bool growable = true})
       : super(

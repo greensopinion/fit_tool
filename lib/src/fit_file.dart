@@ -110,9 +110,9 @@ class FitFile {
           developerDataIndex: message.developerDataIndex ?? 0,
           id: message.fieldDefinitionNumber ?? 0,
           type: BaseTypeExtension.fromValue(message.fitBaseTypeId ?? 0),
-          scale: message.scale,
-          offset: message.offset,
-          units: message.units,
+          scale: message.scale?.toDouble(),
+          offset: message.offset?.toDouble(),
+          units: message.units ?? '',
         );
         developerFieldsById[developerField.id] = developerField;
       }

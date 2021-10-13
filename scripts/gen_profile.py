@@ -60,11 +60,11 @@ def un_title(name: str) -> str:
     return name
 
 
-def field_name_to_class_name(message: Message, name: str) -> str:
+def field_name_to_class_name(message: Message, field: Field, name: str) -> str:
     name = name.replace('wkt_', 'workout_')
 
     # if not a common field then prefix the message name so we don't get class naming conflicts
-    if name not in ['timestamp', 'message_index']:
+    if field.def_num not in [253, 254]:
         name = message.name + '_' + name
 
     name = inflection.camelize(name, uppercase_first_letter=True)
@@ -171,7 +171,7 @@ def main():
     profile.type_class_name_by_name = {k: convert_type_name(k) for k in profile.types_by_name.keys()}
 
     for message in profile.messages_by_name.values():
-        message.field_class_name_by_name = {k: field_name_to_class_name(message, k) for k in message.fields_by_name.keys()}
+        message.field_class_name_by_name = {k: field_name_to_class_name(message, message.fields_by_name[k], k) for k in message.fields_by_name.keys()}
         message.field_property_name_by_name = {k: field_name_to_property_name(message, k) for k in
                                                message.fields_by_name.keys()}
         message.field_property_type_by_name = {k: get_field_property_type_name(profile, v) for k, v in

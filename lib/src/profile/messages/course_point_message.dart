@@ -32,9 +32,9 @@ class CoursePointMessage extends DataMessage {
                           ?.size ??
                       0,
                   growable: definitionMessage == null),
-              TimestampField(
+              CoursePointTimestampField(
                   size: definitionMessage
-                          ?.getFieldDefinition(TimestampField.ID)
+                          ?.getFieldDefinition(CoursePointTimestampField.ID)
                           ?.size ??
                       0,
                   growable: definitionMessage == null),
@@ -113,7 +113,7 @@ class CoursePointMessage extends DataMessage {
 
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
-    final field = getField(TimestampField.ID);
+    final field = getField(CoursePointTimestampField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -124,7 +124,7 @@ class CoursePointMessage extends DataMessage {
 
   // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
   set timestamp(int? value) {
-    final field = getField(TimestampField.ID);
+    final field = getField(CoursePointTimestampField.ID);
 
     if (field != null) {
       if (value == null) {
@@ -277,6 +277,23 @@ class CoursePointMessage extends DataMessage {
       }
     }
   }
+}
+
+class CoursePointTimestampField extends Field {
+  CoursePointTimestampField({int size = 0, bool growable = true})
+      : super(
+            name: 'timestamp',
+            id: ID,
+            type: BaseType.UINT32,
+            offset: -631065600000,
+            scale: 0.001,
+            size: size,
+            units: 'ms',
+            mainTypeName: 'date_time',
+            growable: growable,
+            subFields: []);
+
+  static const ID = 1;
 }
 
 class CoursePointPositionLatField extends Field {

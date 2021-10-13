@@ -778,7 +778,7 @@ class WorkoutStepMessage extends DataMessage {
     final typeField = getField(WorkoutStepTargetTypeField.ID);
 
     final isSubFieldValid =
-        typeField != null && [0].contains(typeField.getValue());
+        typeField != null && [0, 12].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -804,7 +804,7 @@ class WorkoutStepMessage extends DataMessage {
     final typeField = getField(WorkoutStepTargetTypeField.ID);
 
     final isSubFieldValid =
-        typeField != null && [1].contains(typeField.getValue());
+        typeField != null && [1, 13].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -856,7 +856,7 @@ class WorkoutStepMessage extends DataMessage {
     final typeField = getField(WorkoutStepTargetTypeField.ID);
 
     final isSubFieldValid =
-        typeField != null && [4].contains(typeField.getValue());
+        typeField != null && [4, 7, 8, 9, 10].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -905,7 +905,7 @@ class WorkoutStepMessage extends DataMessage {
     final typeField = getField(WorkoutStepTargetTypeField.ID);
 
     final isSubFieldValid =
-        typeField != null && [0].contains(typeField.getValue());
+        typeField != null && [0, 12].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -931,7 +931,7 @@ class WorkoutStepMessage extends DataMessage {
     final typeField = getField(WorkoutStepTargetTypeField.ID);
 
     final isSubFieldValid =
-        typeField != null && [1].contains(typeField.getValue());
+        typeField != null && [1, 13].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -983,7 +983,7 @@ class WorkoutStepMessage extends DataMessage {
     final typeField = getField(WorkoutStepTargetTypeField.ID);
 
     final isSubFieldValid =
-        typeField != null && [4].contains(typeField.getValue());
+        typeField != null && [4, 7, 8, 9, 10].contains(typeField.getValue());
     if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -1432,7 +1432,7 @@ class WorkoutStepCustomTargetValueLowField extends Field {
                   offset: 0,
                   units: 'm/s',
                   referenceMap: {
-                    WorkoutStepTargetTypeField.ID: [0]
+                    WorkoutStepTargetTypeField.ID: [0, 12]
                   }),
               SubField(
                   name: 'custom_target_heart_rate_low',
@@ -1441,7 +1441,7 @@ class WorkoutStepCustomTargetValueLowField extends Field {
                   offset: 0,
                   units: '% or bpm',
                   referenceMap: {
-                    WorkoutStepTargetTypeField.ID: [1]
+                    WorkoutStepTargetTypeField.ID: [1, 13]
                   }),
               SubField(
                   name: 'custom_target_cadence_low',
@@ -1459,7 +1459,7 @@ class WorkoutStepCustomTargetValueLowField extends Field {
                   offset: 0,
                   units: '% or watts',
                   referenceMap: {
-                    WorkoutStepTargetTypeField.ID: [4]
+                    WorkoutStepTargetTypeField.ID: [4, 7, 8, 9, 10]
                   })
             ]);
 
@@ -1484,7 +1484,7 @@ class WorkoutStepCustomTargetValueHighField extends Field {
                   offset: 0,
                   units: 'm/s',
                   referenceMap: {
-                    WorkoutStepTargetTypeField.ID: [0]
+                    WorkoutStepTargetTypeField.ID: [0, 12]
                   }),
               SubField(
                   name: 'custom_target_heart_rate_high',
@@ -1493,7 +1493,7 @@ class WorkoutStepCustomTargetValueHighField extends Field {
                   offset: 0,
                   units: '% or bpm',
                   referenceMap: {
-                    WorkoutStepTargetTypeField.ID: [1]
+                    WorkoutStepTargetTypeField.ID: [1, 13]
                   }),
               SubField(
                   name: 'custom_target_cadence_high',
@@ -1511,7 +1511,7 @@ class WorkoutStepCustomTargetValueHighField extends Field {
                   offset: 0,
                   units: '% or watts',
                   referenceMap: {
-                    WorkoutStepTargetTypeField.ID: [4]
+                    WorkoutStepTargetTypeField.ID: [4, 7, 8, 9, 10]
                   })
             ]);
 

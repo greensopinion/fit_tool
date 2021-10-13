@@ -80,9 +80,9 @@ class SetMessage extends DataMessage {
                           ?.size ??
                       0,
                   growable: definitionMessage == null),
-              MessageIndexField(
+              SetMessageIndexField(
                   size: definitionMessage
-                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.getFieldDefinition(SetMessageIndexField.ID)
                           ?.size ??
                       0,
                   growable: definitionMessage == null),
@@ -318,7 +318,7 @@ class SetMessage extends DataMessage {
   }
 
   int? get messageIndex {
-    final field = getField(MessageIndexField.ID);
+    final field = getField(SetMessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -328,7 +328,7 @@ class SetMessage extends DataMessage {
   }
 
   set messageIndex(int? value) {
-    final field = getField(MessageIndexField.ID);
+    final field = getField(SetMessageIndexField.ID);
 
     if (field != null) {
       if (value == null) {
@@ -488,6 +488,21 @@ class SetWeightDisplayUnitField extends Field {
             subFields: []);
 
   static const ID = 9;
+}
+
+class SetMessageIndexField extends Field {
+  SetMessageIndexField({int size = 0, bool growable = true})
+      : super(
+            name: 'message_index',
+            id: ID,
+            type: BaseType.UINT16,
+            offset: 0,
+            scale: 1,
+            size: size,
+            growable: growable,
+            subFields: []);
+
+  static const ID = 10;
 }
 
 class SetWorkoutStepIndexField extends Field {

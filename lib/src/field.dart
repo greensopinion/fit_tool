@@ -351,12 +351,11 @@ class Field {
         break;
 
       case BaseType.UINT64:
-        // TODO: Handle this case.
-        value = 0;
+        value = byteData.getUint64(0, endian);
         break;
+
       case BaseType.UINT64Z:
-        // TODO: Handle this case.
-        value = 0;
+        value = byteData.getUint64(0, endian);
         break;
     }
 
@@ -452,13 +451,11 @@ class Field {
         break;
 
       case BaseType.UINT64:
-        //TODO(mkt): handle bigint
-        byteData.setUint64(0, type.invalidRawValue);
+        byteData.setUint64(0, encodedValue, endian);
         break;
 
       case BaseType.UINT64Z:
-        //TODO(mkt): handle bigint
-        byteData.setUint64(0, type.invalidRawValue);
+        byteData.setUint64(0, encodedValue, endian);
         break;
     }
 

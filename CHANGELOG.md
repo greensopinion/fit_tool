@@ -1,4 +1,8 @@
-
+## 0.9.5
+- Fix developer field parsing issues. 
+- Fix workout step subfield issue for trainer road workouts. 
+- Fix timestamp field issues for course step messages. 
+- Fix encoding/decoding uint64 fields.
 
 ## 0.9.4
 - Fix Fit builder for min string size issue.

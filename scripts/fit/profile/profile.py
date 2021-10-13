@@ -212,6 +212,27 @@ class Profile:
                     ref_field_values = [value.strip()
                                         for value in raw_ref_field_values.split(',')]
 
+                if field_name == 'custom_target_power_high' or field_name == 'custom_target_power_low':
+                    ref_field_names.append('target_type')
+                    ref_field_values.append('power_3s')
+
+                    ref_field_names.append('target_type')
+                    ref_field_values.append('power_10s')
+
+                    ref_field_names.append('target_type')
+                    ref_field_values.append('power_30s')
+
+                    ref_field_names.append('target_type')
+                    ref_field_values.append('power_lap')
+
+                if field_name == 'custom_target_heart_rate_high' or field_name == 'custom_target_heart_rate_low':
+                    ref_field_names.append('target_type')
+                    ref_field_values.append('heart_rate_lap')
+
+                if field_name == 'custom_target_speed_high' or field_name == 'custom_target_speed_low':
+                    ref_field_names.append('target_type')
+                    ref_field_values.append('speed_lap')
+
                 # comment = row[13].value
                 if field_id is not None or field_name is not None:
                     # First check if it is a base type

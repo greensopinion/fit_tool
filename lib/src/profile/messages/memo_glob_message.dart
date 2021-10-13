@@ -44,9 +44,9 @@ class MemoGlobMessage extends DataMessage {
                           ?.size ??
                       0,
                   growable: definitionMessage == null),
-              MessageIndexField(
+              MemoGlobMessageIndexField(
                   size: definitionMessage
-                          ?.getFieldDefinition(MessageIndexField.ID)
+                          ?.getFieldDefinition(MemoGlobMessageIndexField.ID)
                           ?.size ??
                       0,
                   growable: definitionMessage == null)
@@ -134,7 +134,7 @@ class MemoGlobMessage extends DataMessage {
   }
 
   int? get messageIndex {
-    final field = getField(MessageIndexField.ID);
+    final field = getField(MemoGlobMessageIndexField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
       return field.getValue(subField: subField);
@@ -144,7 +144,7 @@ class MemoGlobMessage extends DataMessage {
   }
 
   set messageIndex(int? value) {
-    final field = getField(MessageIndexField.ID);
+    final field = getField(MemoGlobMessageIndexField.ID);
 
     if (field != null) {
       if (value == null) {
@@ -200,4 +200,19 @@ class MemoGlobMessageNumberField extends Field {
             subFields: []);
 
   static const ID = 1;
+}
+
+class MemoGlobMessageIndexField extends Field {
+  MemoGlobMessageIndexField({int size = 0, bool growable = true})
+      : super(
+            name: 'message_index',
+            id: ID,
+            type: BaseType.UINT16,
+            offset: 0,
+            scale: 1,
+            size: size,
+            growable: growable,
+            subFields: []);
+
+  static const ID = 2;
 }
