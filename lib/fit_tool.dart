@@ -18,6 +18,9 @@ export 'src/fit_file_header.dart';
 export 'src/generic_message.dart';
 export 'src/record.dart';
 export 'src/sub_field.dart';
+export 'src/utils/conversions.dart';
+export 'src/utils/crc.dart';
+export 'src/utils/type_sizes.dart';
 
 export 'src/profile/profile_type.dart';
 

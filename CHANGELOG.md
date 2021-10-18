@@ -1,3 +1,7 @@
+## 0.9.6
+- Fix exports.
+- Fix FIT header class with gen crc option.
+
 ## 0.9.5
 - Fix developer field parsing issues. 
 - Fix workout step subfield issue for trainer road workouts. 

@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'constants.dart';
 import 'utils/type_sizes.dart';
+import 'utils/crc.dart';
 
 class ProtocolVersion {
   ProtocolVersion(this.major, this.minor);
@@ -67,14 +68,22 @@ class ProfileVersion {
 
 class FitFileHeader {
   FitFileHeader(
-      {required this.recordsSize, protocolVersion, profileVersion, this.crc})
+      {required this.recordsSize,
+      ProtocolVersion? protocolVersion,
+      ProfileVersion? profileVersion,
+      int? crc,
+      bool genCrc = false})
       : protocolVersion = protocolVersion ?? Fit.protocolVersion,
-        profileVersion = profileVersion ?? Fit.profileVersion {
+        profileVersion = profileVersion ?? Fit.profileVersion,
+        crc = genCrc
+            ? generateCrc(protocolVersion ?? Fit.protocolVersion,
+                profileVersion ?? Fit.profileVersion, recordsSize)
+            : crc {
     if (recordsSize < 0 || recordsSize > maxUint32) {
       throw ArgumentError.value(
           recordsSize, 'recordsLength', 'not in range [0,$maxUint32]');
     }
-    if (crc != null && (crc! < 0 || crc! > maxUint16)) {
+    if (crc != null && (crc < 0 || crc > maxUint16)) {
       throw ArgumentError.value(crc, 'crc', 'not in range [0,$maxUint16]');
     }
   }
@@ -97,6 +106,7 @@ class FitFileHeader {
 
   Uint8List toBytes() {
     final builder = BytesBuilder();
+
     builder.addByte(size);
     builder.add(protocolVersion.toBytes());
     builder.add(profileVersion.toBytes());
@@ -114,6 +124,19 @@ class FitFileHeader {
     }
 
     return builder.toBytes();
+  }
+
+  static int generateCrc(ProtocolVersion protocolVersion,
+      ProfileVersion profileVersion, int recordsSize) {
+    final builder = BytesBuilder();
+    builder.addByte(14);
+    builder.add(protocolVersion.toBytes());
+    builder.add(profileVersion.toBytes());
+    final byteData1 = ByteData(4);
+    byteData1.setUint32(0, recordsSize, Endian.little);
+    builder.add(byteData1.buffer.asUint8List());
+    builder.add(utf8.encode('.FIT'));
+    return crc16(builder.toBytes());
   }
 
   static FitFileHeader fromBytes(Uint8List bytes) {
