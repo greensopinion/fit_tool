@@ -100,7 +100,16 @@ abstract class DataMessage extends Message {
 
     for (var fieldDefinition in definitionMessage!.fieldDefinitions) {
       final field = getField(fieldDefinition.id);
-      if (field != null && field.isValid()) {
+
+      if (field == null) {
+        // throw Exception('Field id: ${fieldDefinition.id} is not defined for message $name:$globalId');
+        print(
+            'WARNING: Field id: ${fieldDefinition.id} is not defined for message $name:$globalId. Skipping this field');
+        start += fieldDefinition.size;
+        continue;
+      }
+
+      if (field.isValid()) {
         final fieldBytes =
             Uint8List.sublistView(bytes, start, start + field.size);
 
@@ -108,15 +117,19 @@ abstract class DataMessage extends Message {
         field.readAllFromBytes(fieldBytes, subField: subField, endian: endian);
         start += field.size;
       } else {
-        //TODO(mkt): improve error handling
-        throw Exception('Invalid field');
+        throw Exception('Field ${field.name} is empty');
       }
     }
 
     for (var developerFieldDefinition
         in definitionMessage!.developerFieldDefinitions) {
       final field = getDeveloperField(developerFieldDefinition.id);
-      if (field != null && field.isValid()) {
+
+      if (field == null) {
+        throw Exception(
+            'Developer Field id: ${developerFieldDefinition.id} is not defined for message $name:$globalId');
+      }
+      if (field.isValid()) {
         final fieldBytes =
             Uint8List.sublistView(bytes, start, start + field.size);
 
@@ -124,8 +137,7 @@ abstract class DataMessage extends Message {
         field.readAllFromBytes(fieldBytes, subField: subField, endian: endian);
         start += field.size;
       } else {
-        //TODO(mkt): improve error handling
-        //throw Exception('Invalid developer field');
+        throw Exception('Developer Field ${field.name} is empty');
       }
     }
   }
@@ -219,7 +231,10 @@ abstract class DataMessage extends Message {
       for (var fieldDefinition in definitionMessage!.fieldDefinitions) {
         final field = getField(fieldDefinition.id);
         if (field == null) {
-          throw Exception('Field for id: ${fieldDefinition.id} not found.');
+          // throw Exception('Field for id: ${fieldDefinition.id} not found.');
+          print(
+              'WARNING: Field for id: ${fieldDefinition.id} not found. Skipping.');
+          continue;
         }
 
         if (field.isValid()) {

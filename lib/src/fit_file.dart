@@ -88,7 +88,7 @@ class FitFile {
 
     final records = <Record>[];
     final definitionMessageMap = <int, DefinitionMessage>{};
-    final developerFieldsById = <int, DeveloperField>{};
+    final developerFieldsById = <int, Map<int, DeveloperField>>{};
 
     var recordIndex = 0;
     var recordBytesRemainingCount = header.recordsSize;
@@ -114,7 +114,11 @@ class FitFile {
           offset: message.offset?.toDouble(),
           units: message.units ?? '',
         );
-        developerFieldsById[developerField.id] = developerField;
+        if (developerFieldsById[developerField.developerDataIndex] == null) {
+          developerFieldsById[developerField.developerDataIndex] = {};
+        }
+        developerFieldsById[developerField.developerDataIndex]![
+            developerField.id] = developerField;
       }
 
       records.add(record);

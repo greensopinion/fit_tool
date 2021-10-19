@@ -142,7 +142,7 @@ class Record {
 
   static Record fromBytes(
       Map<int, DefinitionMessage> definitionMessageMap, Uint8List bytes,
-      {Map<int, DeveloperField> developerFieldsById = const {}}) {
+      {Map<int, Map<int, DeveloperField>> developerFieldsById = const {}}) {
     final header = RecordHeader.fromBytes(bytes);
 
     final messageBytes = bytes.sublist(RecordHeader.headerSize);

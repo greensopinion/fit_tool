@@ -51,7 +51,7 @@ class MessageConversionSink extends ByteConversionSink {
   var partialBytes = Uint8List(0);
 
   final definitionMessageMap = <int, DefinitionMessage>{};
-  final developerFieldsById = <int, DeveloperField>{};
+  final developerFieldsById = <int, Map<int, DeveloperField>>{};
 
   int? fileCrc;
 
@@ -121,7 +121,12 @@ class MessageConversionSink extends ByteConversionSink {
               offset: message.offset,
               units: message.units,
             );
-            developerFieldsById[developerField.id] = developerField;
+            if (developerFieldsById[developerField.developerDataIndex] ==
+                null) {
+              developerFieldsById[developerField.developerDataIndex] = {};
+            }
+            developerFieldsById[developerField.developerDataIndex]![
+                developerField.id] = developerField;
           }
 
           final definitionMessage = definitionMessageMap[record.localId];

@@ -1,3 +1,7 @@
+## 0.9.7
+- Fix developer field parsing issues.
+- Fix parsing deprecated profile messages and fields.
+
 ## 0.9.6
 - Fix exports.
 - Fix FIT header class with gen crc option.

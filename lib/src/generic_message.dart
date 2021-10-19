@@ -17,7 +17,7 @@ class GenericMessage extends DataMessage {
             definitionMessage: definitionMessage,
             developerFields: developerFields,
             fields: definitionMessage.fieldDefinitions
-                .map((fieldDefinition) =>
+                .map<Field>((fieldDefinition) =>
                     Field.fromFieldDefinition(fieldDefinition))
                 .toList());
 

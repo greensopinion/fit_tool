@@ -13,8 +13,6 @@ void main() {
       final file = File('./test/data/stagesLink_28832.fit');
       final bytes = await file.readAsBytes();
       final fitFile = FitFile.fromBytes(bytes);
-
     });
-
   });
 }

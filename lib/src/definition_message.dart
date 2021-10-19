@@ -307,11 +307,12 @@ class DefinitionMessage extends Message {
   }
 
   List<DeveloperField> getDeveloperFields(
-      Map<int, DeveloperField> developerFieldsById) {
+      Map<int, Map<int, DeveloperField>> developerFieldsById) {
     final developerFields = <DeveloperField>[];
 
     for (var fieldDefinition in developerFieldDefinitions) {
-      final developerField = developerFieldsById[fieldDefinition.id];
+      final developerField = developerFieldsById[
+          fieldDefinition.developerDataIndex]![fieldDefinition.id];
 
       if (developerField != null) {
         final sizedDeveloperField =

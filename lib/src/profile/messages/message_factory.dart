@@ -2,6 +2,7 @@
 ///
 /// Profile: 21.60
 
+import '../../../fit_tool.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
 import '../../developer_field.dart';
