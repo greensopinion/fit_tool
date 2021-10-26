@@ -2,6 +2,7 @@ import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:collection/collection.dart';
+import 'package:fit_tool/src/utils/logger.dart';
 
 import 'base_type.dart';
 import 'definition_message.dart';
@@ -41,7 +42,7 @@ class FitFile {
       if (checkCrc) {
         throw Exception(message);
       } else {
-        print(message);
+        logger.w(message);
       }
     }
 
@@ -132,8 +133,8 @@ class FitFile {
           initial: crc);
 
       if (recordSize != definedSize) {
-        print(
-            'Warning: record $recordIndex, ${record.message}: size ($recordSize) != defined size ($definedSize). Some fields were not read correctly.');
+        logger.w(
+            'Record $recordIndex, ${record.message}: size ($recordSize) != defined size ($definedSize). Some fields were not read correctly.');
       }
 
       if (true) {
@@ -142,9 +143,8 @@ class FitFile {
         final recordBytes = record.toBytes();
 
         if (!listEqual(actualBytes, recordBytes)) {
-          print('- $recordIndex -');
-          print('actual: $actualBytes');
-          print('record: $recordBytes');
+          logger.i(
+              '- $recordIndex -\nactual: $actualBytes\nrecord: $recordBytes');
         }
       }
 
@@ -163,7 +163,7 @@ class FitFile {
       if (checkCrc) {
         throw Exception(message);
       } else {
-        print(message);
+        logger.w(message);
       }
     }
 

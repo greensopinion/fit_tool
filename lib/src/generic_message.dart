@@ -8,8 +8,7 @@ class GenericMessage extends DataMessage {
   GenericMessage({
     required definitionMessage,
     developerFields,
-  })  : growable = false,
-        super(
+  }) : super(
             name: GenericMessage.NAME,
             globalId: definitionMessage.globalId,
             localId: definitionMessage.localId,
@@ -22,8 +21,6 @@ class GenericMessage extends DataMessage {
                 .toList());
 
   static const NAME = 'generic';
-
-  final bool growable;
 
   static GenericMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {

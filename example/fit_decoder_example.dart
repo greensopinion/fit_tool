@@ -15,7 +15,7 @@ Future<void> main() async {
       .forEach((message) {
     message as RecordMessage;
     if (message.positionLat != null && message.positionLong != null) {
-      print('position: ${message.positionLat}, ${message.positionLong}');
+      // print('position: ${message.positionLat}, ${message.positionLong}');
     }
   });
 }

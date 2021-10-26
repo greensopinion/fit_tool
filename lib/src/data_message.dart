@@ -1,6 +1,8 @@
 import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:fit_tool/src/utils/logger.dart';
+
 import 'definition_message.dart';
 import 'developer_field.dart';
 import 'field.dart';
@@ -83,8 +85,9 @@ abstract class DataMessage extends Message {
     clearFieldById(id);
   }
 
-  DeveloperField? getDeveloperField(int id) {
-    return developerFields.firstWhereOrNull((field) => field.id == id);
+  DeveloperField? getDeveloperField(int developerDataIndex, int id) {
+    return developerFields.firstWhereOrNull((field) =>
+        field.developerDataIndex == developerDataIndex && field.id == id);
   }
 
   DeveloperField? getDeveloperFieldByName(String name) {
@@ -102,9 +105,8 @@ abstract class DataMessage extends Message {
       final field = getField(fieldDefinition.id);
 
       if (field == null) {
-        // throw Exception('Field id: ${fieldDefinition.id} is not defined for message $name:$globalId');
-        print(
-            'WARNING: Field id: ${fieldDefinition.id} is not defined for message $name:$globalId. Skipping this field');
+        logger.w(
+            'Field id: ${fieldDefinition.id} is not defined for message $name:$globalId.');
         start += fieldDefinition.size;
         continue;
       }
@@ -123,16 +125,17 @@ abstract class DataMessage extends Message {
 
     for (var developerFieldDefinition
         in definitionMessage!.developerFieldDefinitions) {
-      final field = getDeveloperField(developerFieldDefinition.id);
+      final field = getDeveloperField(
+          developerFieldDefinition.developerDataIndex,
+          developerFieldDefinition.id);
 
       if (field == null) {
         throw Exception(
-            'Developer Field id: ${developerFieldDefinition.id} is not defined for message $name:$globalId');
+            'Developer Field id: ${developerFieldDefinition.developerDataIndex}:${developerFieldDefinition.id} is not defined for message $name:$globalId');
       }
       if (field.isValid()) {
         final fieldBytes =
             Uint8List.sublistView(bytes, start, start + field.size);
-
         var subField = field.getValidSubField(fields);
         field.readAllFromBytes(fieldBytes, subField: subField, endian: endian);
         start += field.size;
@@ -180,7 +183,8 @@ abstract class DataMessage extends Message {
       for (var fieldDefinition in definitionMessage!.fieldDefinitions) {
         final field = getField(fieldDefinition.id);
         if (field == null) {
-          throw Exception('Field for id: ${fieldDefinition.id} not found.');
+          logger.w('Field for id: ${fieldDefinition.id} not found.');
+          continue;
         }
 
         if (field.isValid()) {
@@ -193,18 +197,19 @@ abstract class DataMessage extends Message {
 
       for (var fieldDefinition
           in definitionMessage!.developerFieldDefinitions) {
-        final field = getDeveloperField(fieldDefinition.id);
+        final field = getDeveloperField(
+            fieldDefinition.developerDataIndex, fieldDefinition.id);
 
         if (field == null) {
           throw Exception(
-              'Developer field for id: ${fieldDefinition.id} not found.');
+              'Developer field for id: ${fieldDefinition.developerDataIndex}:${fieldDefinition.id} not found.');
         }
         if (field.isValid()) {
           var subField = field.getValidSubField(fields);
           row.addAll(field.toRow(subField: subField));
         } else {
           throw Exception(
-              'Developer field for id: ${fieldDefinition.id} is not valid.');
+              'Developer field for id: ${fieldDefinition.developerDataIndex}:${fieldDefinition.id} is not valid.');
         }
       }
     }
@@ -231,9 +236,7 @@ abstract class DataMessage extends Message {
       for (var fieldDefinition in definitionMessage!.fieldDefinitions) {
         final field = getField(fieldDefinition.id);
         if (field == null) {
-          // throw Exception('Field for id: ${fieldDefinition.id} not found.');
-          print(
-              'WARNING: Field for id: ${fieldDefinition.id} not found. Skipping.');
+          logger.w('Field for id: ${fieldDefinition.id} not found.');
           continue;
         }
 
@@ -246,17 +249,18 @@ abstract class DataMessage extends Message {
 
       for (var fieldDefinition
           in definitionMessage!.developerFieldDefinitions) {
-        final field = getDeveloperField(fieldDefinition.id);
+        final field = getDeveloperField(
+            fieldDefinition.developerDataIndex, fieldDefinition.id);
 
         if (field == null) {
           throw Exception(
-              'Developer field for id: ${fieldDefinition.id} not found.');
+              'Developer field for id: ${fieldDefinition.developerDataIndex}:${fieldDefinition.id} not found.');
         }
         if (field.isValid()) {
           bb.add(field.toBytes(endian: endian));
         } else {
           throw Exception(
-              'Developer field for id: ${fieldDefinition.id} is not valid.');
+              'Developer field for id: ${fieldDefinition.developerDataIndex}:${fieldDefinition.id} is not valid.');
         }
       }
     }
