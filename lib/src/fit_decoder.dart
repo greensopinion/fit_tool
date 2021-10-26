@@ -7,6 +7,7 @@ import 'package:fit_tool/src/profile/messages/field_description_message.dart';
 import 'package:fit_tool/src/profile/messages/workout_step_message.dart';
 import 'package:fit_tool/src/record.dart';
 import 'package:fit_tool/src/utils/crc.dart';
+import 'package:fit_tool/src/utils/logger.dart';
 
 import 'base_type.dart';
 import 'definition_message.dart';
@@ -135,8 +136,8 @@ class MessageConversionSink extends ByteConversionSink {
           final recordSize1 = record.toBytes().length;
 
           if (recordSize != definedSize || recordSize != recordSize1) {
-            print(
-                'Warning: record $recordIndex, ${record.message}: size ($recordSize) != defined size ($definedSize). Some fields were not read correctly.');
+            logger.w(
+                'record $recordIndex, ${record.message}: size ($recordSize) != defined size ($definedSize). Some fields were not read correctly.');
           }
 
           final actualBytes = Uint8List.sublistView(bytes, 0, definedSize);
@@ -147,9 +148,9 @@ class MessageConversionSink extends ByteConversionSink {
             final recordBytes = record.toBytes();
 
             if (!listEqual(actualBytes, recordBytes)) {
-              print('- $recordIndex -');
-              print('actual: $actualBytes');
-              print('record: $recordBytes');
+              logger.i('- $recordIndex -');
+              logger.i('actual: $actualBytes');
+              logger.i('record: $recordBytes');
             }
           }
 
@@ -183,7 +184,7 @@ class MessageConversionSink extends ByteConversionSink {
           if (checkCrc) {
             throw Exception(message);
           } else {
-            print(message);
+            logger.w(message);
           }
         }
       } else {

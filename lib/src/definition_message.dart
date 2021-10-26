@@ -1,6 +1,8 @@
 import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:fit_tool/src/utils/logger.dart';
+
 import 'data_message.dart';
 import 'developer_field.dart';
 import 'developer_field_definition.dart';
@@ -102,8 +104,9 @@ class DefinitionMessage extends Message {
       final field = message.getField(fieldDefinition.id);
 
       if (field == null) {
-        throw Exception(
-            'Field id:${fieldDefinition.id} could not be found in ${message.name}');
+        logger.w(
+            'Field id:${fieldDefinition.id} could not be found in ${message.name}.');
+        continue;
       }
       values.add(field.name);
       values.add(fieldDefinition.size);
@@ -195,7 +198,7 @@ class DefinitionMessage extends Message {
             offset + DeveloperFieldDefinition.fieldDefinitionSize);
         final fieldDefinition = DeveloperFieldDefinition.fromBytes(fdBytes);
         developerFieldDefinitions.add(fieldDefinition);
-        offset += FieldDefinition.fieldDefinitionSize;
+        offset += DeveloperFieldDefinition.fieldDefinitionSize;
       }
     }
 
