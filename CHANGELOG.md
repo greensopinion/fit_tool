@@ -1,3 +1,7 @@
+## 0.9.9
+- Fix license
+- Fix size when removing field
+
 ## 0.9.8
 - Fix developer field parsing issues.
 - Fix parsing deprecated profile messages and fields.

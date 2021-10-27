@@ -1,8 +1,8 @@
 import argparse
+import inflection
 import jinja2
 import os
 from pathlib import Path
-import inflection
 
 from fit import SDK_VERSION
 from fit.base_type import BASE_TYPE_BY_NAME, BaseType
@@ -159,7 +159,7 @@ def main():
     #
     env = jinja2.Environment(loader=jinja2.FileSystemLoader('.'), )
 
-    template = env.get_template('templates/profile_type.dart')
+    template = env.get_template('templates/profile_type.jinja')
 
     profile = Profile.get_default_profile()
 
@@ -168,13 +168,17 @@ def main():
 
     profile_types = {un_title(convert_type_name(k)) for k in profile.types_by_name.keys()}
 
-    profile.type_class_name_by_name = {k: convert_type_name(k) for k in profile.types_by_name.keys()}
+    profile.type_class_name_by_name = {k: convert_type_name(k) for k in
+                                       profile.types_by_name.keys()}
 
     for message in profile.messages_by_name.values():
-        message.field_class_name_by_name = {k: field_name_to_class_name(message, message.fields_by_name[k], k) for k in message.fields_by_name.keys()}
+        message.field_class_name_by_name = {
+            k: field_name_to_class_name(message, message.fields_by_name[k], k) for k in
+            message.fields_by_name.keys()}
         message.field_property_name_by_name = {k: field_name_to_property_name(message, k) for k in
                                                message.fields_by_name.keys()}
-        message.field_property_type_by_name = {k: get_field_property_type_name(profile, v) for k, v in
+        message.field_property_type_by_name = {k: get_field_property_type_name(profile, v) for k, v
+                                               in
                                                message.fields_by_name.items()}
         for field in message.fields_by_name.values():
             field.subfield_property_name_by_name = {}
@@ -183,26 +187,32 @@ def main():
                 ref_field_key = list(subfield.ref_field_map.keys())[0]
                 subfield.ref_field = message.fields_by_name[ref_field_key]
                 subfield.ref_field_values = subfield.ref_field_map[ref_field_key]
-                field.subfield_property_name_by_name[subfield.name] = subfield_name_to_property_name(field,
-                                                                                                     subfield.name)
-                field.subfield_property_type_by_name[subfield.name] = get_field_property_type_name(profile, subfield)
+                field.subfield_property_name_by_name[
+                    subfield.name] = subfield_name_to_property_name(field,
+                                                                    subfield.name)
+                field.subfield_property_type_by_name[subfield.name] = get_field_property_type_name(
+                    profile, subfield)
 
     for k, v in profile.types_by_name.items():
         profile_type = profile.types_by_name[k]
-        profile_type.values_by_name = {convert_value_name(k): v for k, v in profile_type.values_by_name.items()}
+        profile_type.values_by_name = {convert_value_name(k): v for k, v in
+                                       profile_type.values_by_name.items()}
 
-    rendering = template.render(base_type=BASE_TYPE_BY_NAME, profile=profile, profile_types=profile_types,
+    rendering = template.render(base_type=BASE_TYPE_BY_NAME, profile=profile,
+                                profile_types=profile_types,
                                 sdk_version=SDK_VERSION)
     filename = os.path.join(profile_path, 'profile_type.dart')
     with (open(filename, 'w')) as file_out:
         file_out.write(rendering)
 
     for name, message in profile.messages_by_name.items():
-        template = env.get_template('templates/message.dart')
-        rendering = template.render(base_type=BASE_TYPE_BY_NAME, profile=profile, sdk_version=SDK_VERSION,
+        template = env.get_template('templates/message.jinja')
+        rendering = template.render(base_type=BASE_TYPE_BY_NAME, profile=profile,
+                                    sdk_version=SDK_VERSION,
                                     class_name=inflection.camelize(message.name + '_message'),
                                     message=message)
-        filename = os.path.join(messages_path, f"{inflection.underscore(message.name + '_message')}.dart")
+        filename = os.path.join(messages_path,
+                                f"{inflection.underscore(message.name + '_message')}.dart")
         with (open(filename, 'w')) as file_out:
             file_out.write(rendering)
 
@@ -210,7 +220,7 @@ def main():
                           profile.messages_by_name.keys()]
     message_class_names = [inflection.camelize(message_name + '_message') for message_name in
                            profile.messages_by_name.keys()]
-    template = env.get_template('templates/message_factory.dart')
+    template = env.get_template('templates/message_factory.jinja')
     rendering = template.render(profile=profile, sdk_version=SDK_VERSION,
                                 message_file_names=message_file_names,
                                 message_class_names=message_class_names)
@@ -218,7 +228,7 @@ def main():
     with (open(filename, 'w')) as file_out:
         file_out.write(rendering)
 
-    template = env.get_template('templates/common_fields.dart')
+    template = env.get_template('templates/common_fields.jinja')
     rendering = template.render(profile=profile, sdk_version=SDK_VERSION)
     filename = os.path.join(messages_path, f"common_fields.dart")
     with (open(filename, 'w')) as file_out:

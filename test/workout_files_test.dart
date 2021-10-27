@@ -8,11 +8,6 @@ void main() {
   group('workout file tests', () {
     setUp(() {});
 
-    test('Decode course file with developer fields', () async {
-      final file = File('./test/data/stagesLink_28832.fit');
-      final bytes = await file.readAsBytes();
-      final fitFile = FitFile.fromBytes(bytes);
-    });
 
     test('Decode workout repeat greater than step file', () async {
       final file = File('./test/data/trainerroad_744490.fit');

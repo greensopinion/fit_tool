@@ -60,7 +60,7 @@ class FitFile {
     for (var record in records) {
       final row = record.toRow();
       maxColumns = max(maxColumns, row.length);
-      result.add(record.toRow());
+      result.add(row);
     }
 
     // Add header

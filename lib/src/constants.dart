@@ -46,17 +46,4 @@ class Fit {
   static const int UTF8_BOM_BYTE_2 = 0xBB;
   static const int UTF8_BOM_BYTE_3 = 0xBF;
   static const int UTF8_NUM_BOM_BYTES = 3;
-
-// static const char UTF8_BOM = '\uFEFF';
-//
-// // This flag enables deprecated behaviour in the SDK.
-// //
-// // As of 16.10:
-// //
-// //    If a get method is used on a field containing invalid
-// //    values, null is returned. When disabled, an appropriate
-// //    invalid value is returned instead.
-//   static const bool ENABLE_LEGACY_BEHAVIOUR = true;
-//
-
 }

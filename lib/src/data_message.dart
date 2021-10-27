@@ -80,9 +80,23 @@ abstract class DataMessage extends Message {
     }
   }
 
+  void clearDeveloperFieldById(int developerDataIndex, int id) {
+    final field = getDeveloperField(developerDataIndex, id);
+    if (field != null) {
+      field.clear();
+      if (definitionMessage != null) {
+        definitionMessage!.removeDeveloperField(developerDataIndex, id);
+      }
+    }
+  }
+
   @override
   void removeField(int id) {
     clearFieldById(id);
+  }
+
+  void removeDeveloperField(int developerDataIndex, int id) {
+    clearDeveloperFieldById(developerDataIndex, id);
   }
 
   DeveloperField? getDeveloperField(int developerDataIndex, int id) {
