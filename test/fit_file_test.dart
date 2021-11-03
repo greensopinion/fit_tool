@@ -8,7 +8,6 @@ import 'package:fit_tool/src/profile/messages/file_id_message.dart';
 import 'package:fit_tool/src/profile/messages/workout_message.dart';
 import 'package:fit_tool/src/profile/messages/workout_step_message.dart';
 import 'package:fit_tool/src/profile/profile_type.dart';
-import 'package:fit_tool/src/utils/conversions.dart';
 import 'package:test/test.dart';
 
 void main() {

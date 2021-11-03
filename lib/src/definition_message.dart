@@ -30,7 +30,7 @@ abstract class Message {
 
   final Endian endian;
 
-  final int size;
+  int size;
 
   Uint8List toBytes();
 
@@ -39,6 +39,7 @@ abstract class Message {
   List<dynamic> toRow();
 
   void removeField(int id);
+  void removeDeveloperField(int developerDataIndex, int id);
 }
 
 class DefinitionMessage extends Message {
@@ -79,6 +80,14 @@ class DefinitionMessage extends Message {
   @override
   void removeField(int id) {
     fieldDefinitions.removeWhere((fieldDefinition) => fieldDefinition.id == id);
+    size = calculateSize(fieldDefinitions, developerFieldDefinitions);
+  }
+
+  void removeDeveloperField(int developerDataIndex, int id) {
+    developerFieldDefinitions.removeWhere((fieldDefinition) =>
+        fieldDefinition.developerDataIndex == developerDataIndex &&
+        fieldDefinition.id == id);
+    size = calculateSize(fieldDefinitions, developerFieldDefinitions);
   }
 
   void addFieldDefinition(FieldDefinition definition) {

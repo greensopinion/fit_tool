@@ -52,8 +52,12 @@ class RecordHeader {
         (byte & isTimeCompressedBitMask) == isTimeCompressedBitMask;
     if (isTimeCompressed) {
       final localId = (byte & timeCompressedLocalIdBitMask) >> 5;
+      final timeOffsetSeconds = byte & timeOffsetBitMask;
 
-      return RecordHeader(isTimeCompressed: true, localId: localId);
+      return RecordHeader(
+          isTimeCompressed: true,
+          localId: localId,
+          timeOffsetSeconds: timeOffsetSeconds);
     } else {
       final isDefinition = (byte & isDefinitionBitMask) == isDefinitionBitMask;
       final hasDeveloperFields =
