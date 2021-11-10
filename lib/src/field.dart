@@ -199,6 +199,11 @@ class Field {
     }
 
     final encodedValue = encodedValues[index];
+
+    if (encodedValue == type.invalidRawValue) {
+      return null;
+    }
+
     return decodeValue(encodedValue, subField);
   }
 

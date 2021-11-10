@@ -39,7 +39,7 @@ class FitFileBuilder {
             records.add(Record.fromMessage(newDefinition));
           } else {
             throw Exception(
-                'The definition does not support this message. record:{${records.length + 1} name:${message.name} localId:${message.localId}');
+                'The definition does not support this message. record:${records.length + 1} name:${message.name} localId:${message.localId}');
           }
         }
       }

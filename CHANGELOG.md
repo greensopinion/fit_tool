@@ -1,3 +1,6 @@
+## 0.9.10
+- Fix field invalid values issue
+
 ## 0.9.9
 - Fix license
 - Fix size when removing field
