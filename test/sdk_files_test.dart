@@ -1,3 +1,4 @@
+@TestOn('vm')
 import 'dart:io';
 
 import 'package:csv/csv.dart';
@@ -13,7 +14,6 @@ void main() {
     ///
     test('Decode developer data file', () async {
       final file = File('./test/data/sdk/DeveloperData.fit');
-
       final bytes = await file.readAsBytes();
 
       FitFile.fromBytes(bytes);

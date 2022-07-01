@@ -1,6 +1,6 @@
-import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:collection/collection.dart';
 import 'package:fit_tool/src/utils/logger.dart';
 
 import 'data_message.dart';
@@ -8,7 +8,6 @@ import 'developer_field.dart';
 import 'developer_field_definition.dart';
 import 'field_definition.dart';
 import 'profile/messages/message_factory.dart';
-import 'utils/iterable.dart';
 import 'utils/type_sizes.dart';
 
 abstract class Message {
@@ -83,6 +82,7 @@ class DefinitionMessage extends Message {
     size = calculateSize(fieldDefinitions, developerFieldDefinitions);
   }
 
+  @override
   void removeDeveloperField(int developerDataIndex, int id) {
     developerFieldDefinitions.removeWhere((fieldDefinition) =>
         fieldDefinition.developerDataIndex == developerDataIndex &&

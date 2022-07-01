@@ -1,6 +1,9 @@
+import 'dart:typed_data';
+
 import 'package:fit_tool/src/base_type.dart';
 import 'package:fit_tool/src/field.dart';
 import 'package:fit_tool/src/field_definition.dart';
+import 'package:fixnum/fixnum.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -66,11 +69,47 @@ void main() {
       expect(bytes2, bytes);
     });
 
+    test('Field 64 bit conversions', () {
+      var field = Field(type: BaseType.SINT64);
+      var bigIntValue = BigInt.from(-1);
+      var bytes = field.encodedValueToBytes(bigIntValue);
+      var valueFromBytes = field.getEncodedValueFromBytes(bytes);
+      var bytes2 = field.encodedValueToBytes(valueFromBytes);
+
+      expect(valueFromBytes, bigIntValue);
+      expect(bytes2, bytes);
+
+      field = Field(type: BaseType.UINT64);
+      bigIntValue = BigInt.from(-1).toUnsigned(64);
+      bytes = field.encodedValueToBytes(bigIntValue);
+      valueFromBytes = field.getEncodedValueFromBytes(bytes);
+      bytes2 = field.encodedValueToBytes(valueFromBytes);
+
+      expect(valueFromBytes, bigIntValue);
+      expect(bytes2, bytes);
+
+      field = Field(type: BaseType.UINT64);
+      bigIntValue = BigInt.from(-1).toUnsigned(64);
+      bytes = field.encodedValueToBytes(bigIntValue, endian: Endian.big);
+      valueFromBytes =
+          field.getEncodedValueFromBytes(bytes, endian: Endian.big);
+      bytes2 = field.encodedValueToBytes(valueFromBytes);
+
+      expect(valueFromBytes, bigIntValue);
+      expect(bytes2, bytes);
+    });
+
     test('Field string toRow', () {
       final field = Field(name: 'title', type: BaseType.STRING, growable: true);
       var value = 'test12345';
       field.setEncodedValue(0, value);
       field.toRow();
+    });
+
+    test('Bigint conversions', () {
+      final value = Int64.parseRadix('ffffffffffffffff', 16);
+      final bigValue = BigInt.parse(value.toString()).toUnsigned(64);
+      expect(BigInt.parse('18446744073709551615'), bigValue);
     });
   });
 }

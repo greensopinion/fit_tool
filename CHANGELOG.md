@@ -1,3 +1,7 @@
+## 0.9.11
+- Fix static analysis issues
+- Support web platform
+
 ## 0.9.10
 - Fix field invalid values issue
 

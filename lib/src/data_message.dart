@@ -1,13 +1,12 @@
-import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:collection/collection.dart';
 import 'package:fit_tool/src/utils/logger.dart';
 
 import 'definition_message.dart';
 import 'developer_field.dart';
 import 'field.dart';
 import 'profile/messages/message_factory.dart';
-import 'utils/iterable.dart';
 
 abstract class DataMessage extends Message {
   DataMessage({
@@ -95,6 +94,7 @@ abstract class DataMessage extends Message {
     clearFieldById(id);
   }
 
+  @override
   void removeDeveloperField(int developerDataIndex, int id) {
     clearDeveloperFieldById(developerDataIndex, id);
   }
