@@ -1,7 +1,8 @@
+import 'package:collection/collection.dart';
+
 import 'base_type.dart';
 import 'field.dart';
 import 'field_component.dart';
-import 'utils/iterable.dart';
 
 class SubField {
   SubField({

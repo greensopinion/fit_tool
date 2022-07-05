@@ -167,6 +167,7 @@ enum ProfileType {
   garminProduct,
   coursePoint
 }
+
 enum FileType {
   device,
   settings,

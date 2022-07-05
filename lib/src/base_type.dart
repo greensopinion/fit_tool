@@ -19,6 +19,11 @@ enum BaseType {
 }
 
 extension BaseTypeExtension on BaseType {
+  static BigInt uint64Max = BigInt.from(-1).toUnsigned(64);
+  static BigInt sint64Max = BigInt.parse('7fffffffffffffff', radix: 16);
+  static BigInt uint64Min = BigInt.zero;
+  static BigInt sint64Min = -BigInt.parse('8000000000000000', radix: 16);
+
   int get value {
     switch (this) {
       case BaseType.ENUM:
@@ -157,7 +162,7 @@ extension BaseTypeExtension on BaseType {
     }
   }
 
-  int get invalidRawValue {
+  dynamic get invalidRawValue {
     switch (this) {
       case BaseType.ENUM:
         return 0xff;
@@ -178,7 +183,7 @@ extension BaseTypeExtension on BaseType {
       case BaseType.FLOAT32:
         return 0xffffffff;
       case BaseType.FLOAT64:
-        return 0xffffffffffffffff;
+        return uint64Max;
       case BaseType.UINT8Z:
         return 0x00;
       case BaseType.UINT16Z:
@@ -188,16 +193,16 @@ extension BaseTypeExtension on BaseType {
       case BaseType.BYTE:
         return 0xff;
       case BaseType.SINT64:
-        return 0x7fffffffffffffff;
+        return sint64Max;
       case BaseType.UINT64:
-        return 0xffffffffffffffff;
+        return uint64Max;
       case BaseType.UINT64Z:
-        return 0x0000000000000000;
+        return BigInt.zero;
     }
   }
 
   // Max integer
-  int? get max {
+  dynamic get max {
     switch (this) {
       case BaseType.ENUM:
         return 0xff;
@@ -228,16 +233,16 @@ extension BaseTypeExtension on BaseType {
       case BaseType.BYTE:
         return 0xff;
       case BaseType.SINT64:
-        return 0x7fffffffffffffff;
+        return sint64Max;
       case BaseType.UINT64:
-        return 0xffffffffffffffff;
+        return uint64Max;
       case BaseType.UINT64Z:
-        return 0xffffffffffffffff;
+        return uint64Max;
     }
   }
 
 // Min integer
-  int? get min {
+  dynamic get min {
     switch (this) {
       case BaseType.ENUM:
         return 0x00;
@@ -268,11 +273,11 @@ extension BaseTypeExtension on BaseType {
       case BaseType.BYTE:
         return 0x00;
       case BaseType.SINT64:
-        return -0x8000000000000000;
+        return sint64Min;
       case BaseType.UINT64:
-        return 0x0000000000000000;
+        return BigInt.zero;
       case BaseType.UINT64Z:
-        return 0x0000000000000000;
+        return BigInt.zero;
     }
   }
 
