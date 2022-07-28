@@ -6,6 +6,7 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
 import '../../sub_field.dart';
 import '../profile_type.dart';
@@ -59,11 +60,13 @@ class MesgCapabilitiesMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 38;
   static const NAME = 'mesg_capabilities';
 
   final bool growable;
 
+  /// Returns an instance of MesgCapabilitiesMessage from a bytes list.
   static MesgCapabilitiesMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message =
@@ -72,6 +75,7 @@ class MesgCapabilitiesMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the messageIndex field. Returns null if the field is not defined in the message.
   int? get messageIndex {
     final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
@@ -82,6 +86,7 @@ class MesgCapabilitiesMessage extends DataMessage {
     }
   }
 
+  /// Sets the messageIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
@@ -92,9 +97,12 @@ class MesgCapabilitiesMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the file field. Returns null if the field is not defined in the message.
   FileType? get file {
     final field = getField(MesgCapabilitiesFileField.ID);
     if (field != null && field.isValid()) {
@@ -109,6 +117,7 @@ class MesgCapabilitiesMessage extends DataMessage {
     }
   }
 
+  /// Sets the file field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set file(FileType? value) {
     final field = getField(MesgCapabilitiesFileField.ID);
 
@@ -119,9 +128,12 @@ class MesgCapabilitiesMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the mesgNum field. Returns null if the field is not defined in the message.
   int? get mesgNum {
     final field = getField(MesgCapabilitiesMesgNumField.ID);
     if (field != null && field.isValid()) {
@@ -132,6 +144,7 @@ class MesgCapabilitiesMessage extends DataMessage {
     }
   }
 
+  /// Sets the mesgNum field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set mesgNum(int? value) {
     final field = getField(MesgCapabilitiesMesgNumField.ID);
 
@@ -142,9 +155,12 @@ class MesgCapabilitiesMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the countType field. Returns null if the field is not defined in the message.
   MesgCount? get countType {
     final field = getField(MesgCapabilitiesCountTypeField.ID);
     if (field != null && field.isValid()) {
@@ -159,6 +175,7 @@ class MesgCapabilitiesMessage extends DataMessage {
     }
   }
 
+  /// Sets the countType field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set countType(MesgCount? value) {
     final field = getField(MesgCapabilitiesCountTypeField.ID);
 
@@ -169,9 +186,12 @@ class MesgCapabilitiesMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the count field. Returns null if the field is not defined in the message.
   int? get count {
     final field = getField(MesgCapabilitiesCountField.ID);
     if (field != null && field.isValid()) {
@@ -182,6 +202,7 @@ class MesgCapabilitiesMessage extends DataMessage {
     }
   }
 
+  /// Sets the count field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set count(int? value) {
     final field = getField(MesgCapabilitiesCountField.ID);
 
@@ -192,9 +213,12 @@ class MesgCapabilitiesMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield numPerFile
   int? get numPerFile {
     final field = getField(MesgCapabilitiesCountField.ID);
     final typeField = getField(MesgCapabilitiesCountTypeField.ID);
@@ -209,6 +233,7 @@ class MesgCapabilitiesMessage extends DataMessage {
     }
   }
 
+  /// Sets the count subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set numPerFile(int? value) {
     final field = getField(MesgCapabilitiesCountField.ID);
     if (field != null) {
@@ -218,9 +243,12 @@ class MesgCapabilitiesMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield maxPerFile
   int? get maxPerFile {
     final field = getField(MesgCapabilitiesCountField.ID);
     final typeField = getField(MesgCapabilitiesCountTypeField.ID);
@@ -235,6 +263,7 @@ class MesgCapabilitiesMessage extends DataMessage {
     }
   }
 
+  /// Sets the count subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set maxPerFile(int? value) {
     final field = getField(MesgCapabilitiesCountField.ID);
     if (field != null) {
@@ -244,9 +273,12 @@ class MesgCapabilitiesMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield maxPerFileType
   int? get maxPerFileType {
     final field = getField(MesgCapabilitiesCountField.ID);
     final typeField = getField(MesgCapabilitiesCountTypeField.ID);
@@ -261,6 +293,7 @@ class MesgCapabilitiesMessage extends DataMessage {
     }
   }
 
+  /// Sets the count subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set maxPerFileType(int? value) {
     final field = getField(MesgCapabilitiesCountField.ID);
     if (field != null) {
@@ -270,6 +303,8 @@ class MesgCapabilitiesMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 }

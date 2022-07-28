@@ -6,9 +6,8 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
-import '../profile_type.dart';
 import 'common_fields.dart';
 
 class VideoDescriptionMessage extends DataMessage {
@@ -47,11 +46,13 @@ class VideoDescriptionMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 186;
   static const NAME = 'video_description';
 
   final bool growable;
 
+  /// Returns an instance of VideoDescriptionMessage from a bytes list.
   static VideoDescriptionMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message =
@@ -60,6 +61,7 @@ class VideoDescriptionMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the messageIndex field. Returns null if the field is not defined in the message.
   int? get messageIndex {
     final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
@@ -70,6 +72,7 @@ class VideoDescriptionMessage extends DataMessage {
     }
   }
 
+  /// Sets the messageIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
@@ -80,9 +83,12 @@ class VideoDescriptionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the messageCount field. Returns null if the field is not defined in the message.
   int? get messageCount {
     final field = getField(VideoDescriptionMessageCountField.ID);
     if (field != null && field.isValid()) {
@@ -93,6 +99,7 @@ class VideoDescriptionMessage extends DataMessage {
     }
   }
 
+  /// Sets the messageCount field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set messageCount(int? value) {
     final field = getField(VideoDescriptionMessageCountField.ID);
 
@@ -103,9 +110,12 @@ class VideoDescriptionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the text field. Returns null if the field is not defined in the message.
   String? get text {
     final field = getField(VideoDescriptionTextField.ID);
     if (field != null && field.isValid()) {
@@ -116,6 +126,7 @@ class VideoDescriptionMessage extends DataMessage {
     }
   }
 
+  /// Sets the text field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set text(String? value) {
     final field = getField(VideoDescriptionTextField.ID);
 
@@ -126,6 +137,8 @@ class VideoDescriptionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 }

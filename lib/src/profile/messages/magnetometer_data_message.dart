@@ -6,9 +6,8 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
-import '../profile_type.dart';
 import 'common_fields.dart';
 
 class MagnetometerDataMessage extends DataMessage {
@@ -87,11 +86,13 @@ class MagnetometerDataMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 208;
   static const NAME = 'magnetometer_data';
 
   final bool growable;
 
+  /// Returns an instance of MagnetometerDataMessage from a bytes list.
   static MagnetometerDataMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message =
@@ -100,7 +101,7 @@ class MagnetometerDataMessage extends DataMessage {
     return message;
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
     final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
@@ -111,7 +112,7 @@ class MagnetometerDataMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
@@ -122,9 +123,12 @@ class MagnetometerDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the timestampMs field. Returns null if the field is not defined in the message.
   int? get timestampMs {
     final field = getField(MagnetometerDataTimestampMsField.ID);
     if (field != null && field.isValid()) {
@@ -135,6 +139,7 @@ class MagnetometerDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the timestampMs field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestampMs(int? value) {
     final field = getField(MagnetometerDataTimestampMsField.ID);
 
@@ -145,9 +150,12 @@ class MagnetometerDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the sampleTimeOffset field. Returns null if the field is not defined in the message.
   int? get sampleTimeOffset {
     final field = getField(MagnetometerDataSampleTimeOffsetField.ID);
     if (field != null && field.isValid()) {
@@ -158,6 +166,7 @@ class MagnetometerDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the sampleTimeOffset field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set sampleTimeOffset(int? value) {
     final field = getField(MagnetometerDataSampleTimeOffsetField.ID);
 
@@ -168,9 +177,12 @@ class MagnetometerDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the magX field. Returns null if the field is not defined in the message.
   int? get magX {
     final field = getField(MagnetometerDataMagXField.ID);
     if (field != null && field.isValid()) {
@@ -181,6 +193,7 @@ class MagnetometerDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the magX field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set magX(int? value) {
     final field = getField(MagnetometerDataMagXField.ID);
 
@@ -191,9 +204,12 @@ class MagnetometerDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the magY field. Returns null if the field is not defined in the message.
   int? get magY {
     final field = getField(MagnetometerDataMagYField.ID);
     if (field != null && field.isValid()) {
@@ -204,6 +220,7 @@ class MagnetometerDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the magY field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set magY(int? value) {
     final field = getField(MagnetometerDataMagYField.ID);
 
@@ -214,9 +231,12 @@ class MagnetometerDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the magZ field. Returns null if the field is not defined in the message.
   int? get magZ {
     final field = getField(MagnetometerDataMagZField.ID);
     if (field != null && field.isValid()) {
@@ -227,6 +247,7 @@ class MagnetometerDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the magZ field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set magZ(int? value) {
     final field = getField(MagnetometerDataMagZField.ID);
 
@@ -237,9 +258,12 @@ class MagnetometerDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the calibratedMagX field. Returns null if the field is not defined in the message.
   double? get calibratedMagX {
     final field = getField(MagnetometerDataCalibratedMagXField.ID);
     if (field != null && field.isValid()) {
@@ -250,6 +274,7 @@ class MagnetometerDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the calibratedMagX field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set calibratedMagX(double? value) {
     final field = getField(MagnetometerDataCalibratedMagXField.ID);
 
@@ -260,9 +285,12 @@ class MagnetometerDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the calibratedMagY field. Returns null if the field is not defined in the message.
   double? get calibratedMagY {
     final field = getField(MagnetometerDataCalibratedMagYField.ID);
     if (field != null && field.isValid()) {
@@ -273,6 +301,7 @@ class MagnetometerDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the calibratedMagY field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set calibratedMagY(double? value) {
     final field = getField(MagnetometerDataCalibratedMagYField.ID);
 
@@ -283,9 +312,12 @@ class MagnetometerDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the calibratedMagZ field. Returns null if the field is not defined in the message.
   double? get calibratedMagZ {
     final field = getField(MagnetometerDataCalibratedMagZField.ID);
     if (field != null && field.isValid()) {
@@ -296,6 +328,7 @@ class MagnetometerDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the calibratedMagZ field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set calibratedMagZ(double? value) {
     final field = getField(MagnetometerDataCalibratedMagZField.ID);
 
@@ -306,6 +339,8 @@ class MagnetometerDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 }

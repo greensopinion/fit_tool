@@ -6,10 +6,9 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
 import '../../sub_field.dart';
-import '../profile_type.dart';
-import 'common_fields.dart';
 
 class SlaveDeviceMessage extends DataMessage {
   SlaveDeviceMessage(
@@ -40,11 +39,13 @@ class SlaveDeviceMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 106;
   static const NAME = 'slave_device';
 
   final bool growable;
 
+  /// Returns an instance of SlaveDeviceMessage from a bytes list.
   static SlaveDeviceMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = SlaveDeviceMessage(definitionMessage: definitionMessage);
@@ -52,6 +53,7 @@ class SlaveDeviceMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the manufacturer field. Returns null if the field is not defined in the message.
   int? get manufacturer {
     final field = getField(SlaveDeviceManufacturerField.ID);
     if (field != null && field.isValid()) {
@@ -62,6 +64,7 @@ class SlaveDeviceMessage extends DataMessage {
     }
   }
 
+  /// Sets the manufacturer field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set manufacturer(int? value) {
     final field = getField(SlaveDeviceManufacturerField.ID);
 
@@ -72,9 +75,12 @@ class SlaveDeviceMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the product field. Returns null if the field is not defined in the message.
   int? get product {
     final field = getField(SlaveDeviceProductField.ID);
     if (field != null && field.isValid()) {
@@ -85,6 +91,7 @@ class SlaveDeviceMessage extends DataMessage {
     }
   }
 
+  /// Sets the product field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set product(int? value) {
     final field = getField(SlaveDeviceProductField.ID);
 
@@ -95,9 +102,12 @@ class SlaveDeviceMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield faveroProduct
   int? get faveroProduct {
     final field = getField(SlaveDeviceProductField.ID);
     final typeField = getField(SlaveDeviceManufacturerField.ID);
@@ -112,6 +122,7 @@ class SlaveDeviceMessage extends DataMessage {
     }
   }
 
+  /// Sets the product subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set faveroProduct(int? value) {
     final field = getField(SlaveDeviceProductField.ID);
     if (field != null) {
@@ -121,9 +132,12 @@ class SlaveDeviceMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield garminProduct
   int? get garminProduct {
     final field = getField(SlaveDeviceProductField.ID);
     final typeField = getField(SlaveDeviceManufacturerField.ID);
@@ -138,6 +152,7 @@ class SlaveDeviceMessage extends DataMessage {
     }
   }
 
+  /// Sets the product subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set garminProduct(int? value) {
     final field = getField(SlaveDeviceProductField.ID);
     if (field != null) {
@@ -147,6 +162,8 @@ class SlaveDeviceMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 }

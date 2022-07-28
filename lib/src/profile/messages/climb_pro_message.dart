@@ -6,8 +6,8 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
 import '../profile_type.dart';
 import 'common_fields.dart';
 
@@ -70,11 +70,13 @@ class ClimbProMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 317;
   static const NAME = 'climb_pro';
 
   final bool growable;
 
+  /// Returns an instance of ClimbProMessage from a bytes list.
   static ClimbProMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = ClimbProMessage(definitionMessage: definitionMessage);
@@ -82,7 +84,7 @@ class ClimbProMessage extends DataMessage {
     return message;
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
     final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
@@ -93,7 +95,7 @@ class ClimbProMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
@@ -104,9 +106,12 @@ class ClimbProMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the positionLat field. Returns null if the field is not defined in the message.
   double? get positionLat {
     final field = getField(ClimbProPositionLatField.ID);
     if (field != null && field.isValid()) {
@@ -117,6 +122,7 @@ class ClimbProMessage extends DataMessage {
     }
   }
 
+  /// Sets the positionLat field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set positionLat(double? value) {
     final field = getField(ClimbProPositionLatField.ID);
 
@@ -127,9 +133,12 @@ class ClimbProMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the positionLong field. Returns null if the field is not defined in the message.
   double? get positionLong {
     final field = getField(ClimbProPositionLongField.ID);
     if (field != null && field.isValid()) {
@@ -140,6 +149,7 @@ class ClimbProMessage extends DataMessage {
     }
   }
 
+  /// Sets the positionLong field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set positionLong(double? value) {
     final field = getField(ClimbProPositionLongField.ID);
 
@@ -150,9 +160,12 @@ class ClimbProMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the climbProEvent field. Returns null if the field is not defined in the message.
   ClimbProEvent? get climbProEvent {
     final field = getField(ClimbProClimbProEventField.ID);
     if (field != null && field.isValid()) {
@@ -167,6 +180,7 @@ class ClimbProMessage extends DataMessage {
     }
   }
 
+  /// Sets the climbProEvent field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set climbProEvent(ClimbProEvent? value) {
     final field = getField(ClimbProClimbProEventField.ID);
 
@@ -177,9 +191,12 @@ class ClimbProMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the climbNumber field. Returns null if the field is not defined in the message.
   int? get climbNumber {
     final field = getField(ClimbProClimbNumberField.ID);
     if (field != null && field.isValid()) {
@@ -190,6 +207,7 @@ class ClimbProMessage extends DataMessage {
     }
   }
 
+  /// Sets the climbNumber field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set climbNumber(int? value) {
     final field = getField(ClimbProClimbNumberField.ID);
 
@@ -200,9 +218,12 @@ class ClimbProMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the climbCategory field. Returns null if the field is not defined in the message.
   int? get climbCategory {
     final field = getField(ClimbProClimbCategoryField.ID);
     if (field != null && field.isValid()) {
@@ -213,6 +234,7 @@ class ClimbProMessage extends DataMessage {
     }
   }
 
+  /// Sets the climbCategory field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set climbCategory(int? value) {
     final field = getField(ClimbProClimbCategoryField.ID);
 
@@ -223,9 +245,12 @@ class ClimbProMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the currentDist field. Returns null if the field is not defined in the message.
   double? get currentDist {
     final field = getField(ClimbProCurrentDistField.ID);
     if (field != null && field.isValid()) {
@@ -236,6 +261,7 @@ class ClimbProMessage extends DataMessage {
     }
   }
 
+  /// Sets the currentDist field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set currentDist(double? value) {
     final field = getField(ClimbProCurrentDistField.ID);
 
@@ -246,6 +272,8 @@ class ClimbProMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 }

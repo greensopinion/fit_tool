@@ -6,10 +6,8 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
-import '../profile_type.dart';
-import 'common_fields.dart';
 
 class VideoClipMessage extends DataMessage {
   VideoClipMessage(
@@ -71,11 +69,13 @@ class VideoClipMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 187;
   static const NAME = 'video_clip';
 
   final bool growable;
 
+  /// Returns an instance of VideoClipMessage from a bytes list.
   static VideoClipMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = VideoClipMessage(definitionMessage: definitionMessage);
@@ -83,6 +83,7 @@ class VideoClipMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the clipNumber field. Returns null if the field is not defined in the message.
   int? get clipNumber {
     final field = getField(VideoClipClipNumberField.ID);
     if (field != null && field.isValid()) {
@@ -93,6 +94,7 @@ class VideoClipMessage extends DataMessage {
     }
   }
 
+  /// Sets the clipNumber field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set clipNumber(int? value) {
     final field = getField(VideoClipClipNumberField.ID);
 
@@ -103,10 +105,12 @@ class VideoClipMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get startTimestamp {
     final field = getField(VideoClipStartTimestampField.ID);
     if (field != null && field.isValid()) {
@@ -117,7 +121,7 @@ class VideoClipMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set startTimestamp(int? value) {
     final field = getField(VideoClipStartTimestampField.ID);
 
@@ -128,9 +132,12 @@ class VideoClipMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the startTimestampMs field. Returns null if the field is not defined in the message.
   int? get startTimestampMs {
     final field = getField(VideoClipStartTimestampMsField.ID);
     if (field != null && field.isValid()) {
@@ -141,6 +148,7 @@ class VideoClipMessage extends DataMessage {
     }
   }
 
+  /// Sets the startTimestampMs field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set startTimestampMs(int? value) {
     final field = getField(VideoClipStartTimestampMsField.ID);
 
@@ -151,10 +159,12 @@ class VideoClipMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get endTimestamp {
     final field = getField(VideoClipEndTimestampField.ID);
     if (field != null && field.isValid()) {
@@ -165,7 +175,7 @@ class VideoClipMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set endTimestamp(int? value) {
     final field = getField(VideoClipEndTimestampField.ID);
 
@@ -176,9 +186,12 @@ class VideoClipMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the endTimestampMs field. Returns null if the field is not defined in the message.
   int? get endTimestampMs {
     final field = getField(VideoClipEndTimestampMsField.ID);
     if (field != null && field.isValid()) {
@@ -189,6 +202,7 @@ class VideoClipMessage extends DataMessage {
     }
   }
 
+  /// Sets the endTimestampMs field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set endTimestampMs(int? value) {
     final field = getField(VideoClipEndTimestampMsField.ID);
 
@@ -199,9 +213,12 @@ class VideoClipMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the clipStart field. Returns null if the field is not defined in the message.
   int? get clipStart {
     final field = getField(VideoClipClipStartField.ID);
     if (field != null && field.isValid()) {
@@ -212,6 +229,7 @@ class VideoClipMessage extends DataMessage {
     }
   }
 
+  /// Sets the clipStart field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set clipStart(int? value) {
     final field = getField(VideoClipClipStartField.ID);
 
@@ -222,9 +240,12 @@ class VideoClipMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the clipEnd field. Returns null if the field is not defined in the message.
   int? get clipEnd {
     final field = getField(VideoClipClipEndField.ID);
     if (field != null && field.isValid()) {
@@ -235,6 +256,7 @@ class VideoClipMessage extends DataMessage {
     }
   }
 
+  /// Sets the clipEnd field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set clipEnd(int? value) {
     final field = getField(VideoClipClipEndField.ID);
 
@@ -245,6 +267,8 @@ class VideoClipMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 }

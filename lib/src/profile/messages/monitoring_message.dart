@@ -6,6 +6,7 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
 import '../../sub_field.dart';
 import '../profile_type.dart';
@@ -206,11 +207,13 @@ class MonitoringMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 55;
   static const NAME = 'monitoring';
 
   final bool growable;
 
+  /// Returns an instance of MonitoringMessage from a bytes list.
   static MonitoringMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = MonitoringMessage(definitionMessage: definitionMessage);
@@ -218,7 +221,7 @@ class MonitoringMessage extends DataMessage {
     return message;
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
     final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
@@ -229,7 +232,7 @@ class MonitoringMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
@@ -240,9 +243,12 @@ class MonitoringMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the deviceIndex field. Returns null if the field is not defined in the message.
   int? get deviceIndex {
     final field = getField(MonitoringDeviceIndexField.ID);
     if (field != null && field.isValid()) {
@@ -253,6 +259,7 @@ class MonitoringMessage extends DataMessage {
     }
   }
 
+  /// Sets the deviceIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set deviceIndex(int? value) {
     final field = getField(MonitoringDeviceIndexField.ID);
 
@@ -263,9 +270,12 @@ class MonitoringMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the calories field. Returns null if the field is not defined in the message.
   int? get calories {
     final field = getField(MonitoringCaloriesField.ID);
     if (field != null && field.isValid()) {
@@ -276,6 +286,7 @@ class MonitoringMessage extends DataMessage {
     }
   }
 
+  /// Sets the calories field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set calories(int? value) {
     final field = getField(MonitoringCaloriesField.ID);
 
@@ -286,9 +297,12 @@ class MonitoringMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the distance field. Returns null if the field is not defined in the message.
   double? get distance {
     final field = getField(MonitoringDistanceField.ID);
     if (field != null && field.isValid()) {
@@ -299,6 +313,7 @@ class MonitoringMessage extends DataMessage {
     }
   }
 
+  /// Sets the distance field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set distance(double? value) {
     final field = getField(MonitoringDistanceField.ID);
 
@@ -309,9 +324,12 @@ class MonitoringMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the cycles field. Returns null if the field is not defined in the message.
   double? get cycles {
     final field = getField(MonitoringCyclesField.ID);
     if (field != null && field.isValid()) {
@@ -322,6 +340,7 @@ class MonitoringMessage extends DataMessage {
     }
   }
 
+  /// Sets the cycles field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set cycles(double? value) {
     final field = getField(MonitoringCyclesField.ID);
 
@@ -332,9 +351,12 @@ class MonitoringMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield steps
   int? get steps {
     final field = getField(MonitoringCyclesField.ID);
     final typeField = getField(MonitoringActivityTypeField.ID);
@@ -349,6 +371,7 @@ class MonitoringMessage extends DataMessage {
     }
   }
 
+  /// Sets the cycles subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set steps(int? value) {
     final field = getField(MonitoringCyclesField.ID);
     if (field != null) {
@@ -358,9 +381,12 @@ class MonitoringMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield strokes
   double? get strokes {
     final field = getField(MonitoringCyclesField.ID);
     final typeField = getField(MonitoringActivityTypeField.ID);
@@ -375,6 +401,7 @@ class MonitoringMessage extends DataMessage {
     }
   }
 
+  /// Sets the cycles subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set strokes(double? value) {
     final field = getField(MonitoringCyclesField.ID);
     if (field != null) {
@@ -384,9 +411,12 @@ class MonitoringMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the activeTime field. Returns null if the field is not defined in the message.
   double? get activeTime {
     final field = getField(MonitoringActiveTimeField.ID);
     if (field != null && field.isValid()) {
@@ -397,6 +427,7 @@ class MonitoringMessage extends DataMessage {
     }
   }
 
+  /// Sets the activeTime field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set activeTime(double? value) {
     final field = getField(MonitoringActiveTimeField.ID);
 
@@ -407,9 +438,12 @@ class MonitoringMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the activityType field. Returns null if the field is not defined in the message.
   ActivityType? get activityType {
     final field = getField(MonitoringActivityTypeField.ID);
     if (field != null && field.isValid()) {
@@ -424,6 +458,7 @@ class MonitoringMessage extends DataMessage {
     }
   }
 
+  /// Sets the activityType field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set activityType(ActivityType? value) {
     final field = getField(MonitoringActivityTypeField.ID);
 
@@ -434,9 +469,12 @@ class MonitoringMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the activitySubtype field. Returns null if the field is not defined in the message.
   ActivitySubtype? get activitySubtype {
     final field = getField(MonitoringActivitySubtypeField.ID);
     if (field != null && field.isValid()) {
@@ -451,6 +489,7 @@ class MonitoringMessage extends DataMessage {
     }
   }
 
+  /// Sets the activitySubtype field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set activitySubtype(ActivitySubtype? value) {
     final field = getField(MonitoringActivitySubtypeField.ID);
 
@@ -461,9 +500,12 @@ class MonitoringMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the activityLevel field. Returns null if the field is not defined in the message.
   ActivityLevel? get activityLevel {
     final field = getField(MonitoringActivityLevelField.ID);
     if (field != null && field.isValid()) {
@@ -478,6 +520,7 @@ class MonitoringMessage extends DataMessage {
     }
   }
 
+  /// Sets the activityLevel field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set activityLevel(ActivityLevel? value) {
     final field = getField(MonitoringActivityLevelField.ID);
 
@@ -488,9 +531,12 @@ class MonitoringMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the distance16 field. Returns null if the field is not defined in the message.
   int? get distance16 {
     final field = getField(MonitoringDistance16Field.ID);
     if (field != null && field.isValid()) {
@@ -501,6 +547,7 @@ class MonitoringMessage extends DataMessage {
     }
   }
 
+  /// Sets the distance16 field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set distance16(int? value) {
     final field = getField(MonitoringDistance16Field.ID);
 
@@ -511,9 +558,12 @@ class MonitoringMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the cycles16 field. Returns null if the field is not defined in the message.
   int? get cycles16 {
     final field = getField(MonitoringCycles16Field.ID);
     if (field != null && field.isValid()) {
@@ -524,6 +574,7 @@ class MonitoringMessage extends DataMessage {
     }
   }
 
+  /// Sets the cycles16 field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set cycles16(int? value) {
     final field = getField(MonitoringCycles16Field.ID);
 
@@ -534,9 +585,12 @@ class MonitoringMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the activeTime16 field. Returns null if the field is not defined in the message.
   int? get activeTime16 {
     final field = getField(MonitoringActiveTime16Field.ID);
     if (field != null && field.isValid()) {
@@ -547,6 +601,7 @@ class MonitoringMessage extends DataMessage {
     }
   }
 
+  /// Sets the activeTime16 field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set activeTime16(int? value) {
     final field = getField(MonitoringActiveTime16Field.ID);
 
@@ -557,9 +612,12 @@ class MonitoringMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the localTimestamp field. Returns null if the field is not defined in the message.
   int? get localTimestamp {
     final field = getField(MonitoringLocalTimestampField.ID);
     if (field != null && field.isValid()) {
@@ -570,6 +628,7 @@ class MonitoringMessage extends DataMessage {
     }
   }
 
+  /// Sets the localTimestamp field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set localTimestamp(int? value) {
     final field = getField(MonitoringLocalTimestampField.ID);
 
@@ -580,9 +639,12 @@ class MonitoringMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the temperature field. Returns null if the field is not defined in the message.
   double? get temperature {
     final field = getField(MonitoringTemperatureField.ID);
     if (field != null && field.isValid()) {
@@ -593,6 +655,7 @@ class MonitoringMessage extends DataMessage {
     }
   }
 
+  /// Sets the temperature field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set temperature(double? value) {
     final field = getField(MonitoringTemperatureField.ID);
 
@@ -603,9 +666,12 @@ class MonitoringMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the temperatureMin field. Returns null if the field is not defined in the message.
   double? get temperatureMin {
     final field = getField(MonitoringTemperatureMinField.ID);
     if (field != null && field.isValid()) {
@@ -616,6 +682,7 @@ class MonitoringMessage extends DataMessage {
     }
   }
 
+  /// Sets the temperatureMin field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set temperatureMin(double? value) {
     final field = getField(MonitoringTemperatureMinField.ID);
 
@@ -626,9 +693,12 @@ class MonitoringMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the temperatureMax field. Returns null if the field is not defined in the message.
   double? get temperatureMax {
     final field = getField(MonitoringTemperatureMaxField.ID);
     if (field != null && field.isValid()) {
@@ -639,6 +709,7 @@ class MonitoringMessage extends DataMessage {
     }
   }
 
+  /// Sets the temperatureMax field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set temperatureMax(double? value) {
     final field = getField(MonitoringTemperatureMaxField.ID);
 
@@ -649,9 +720,12 @@ class MonitoringMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the activityTime field. Returns null if the field is not defined in the message.
   int? get activityTime {
     final field = getField(MonitoringActivityTimeField.ID);
     if (field != null && field.isValid()) {
@@ -662,6 +736,7 @@ class MonitoringMessage extends DataMessage {
     }
   }
 
+  /// Sets the activityTime field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set activityTime(int? value) {
     final field = getField(MonitoringActivityTimeField.ID);
 
@@ -672,9 +747,12 @@ class MonitoringMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the activeCalories field. Returns null if the field is not defined in the message.
   int? get activeCalories {
     final field = getField(MonitoringActiveCaloriesField.ID);
     if (field != null && field.isValid()) {
@@ -685,6 +763,7 @@ class MonitoringMessage extends DataMessage {
     }
   }
 
+  /// Sets the activeCalories field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set activeCalories(int? value) {
     final field = getField(MonitoringActiveCaloriesField.ID);
 
@@ -695,9 +774,12 @@ class MonitoringMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the currentActivityTypeIntensity field. Returns null if the field is not defined in the message.
   int? get currentActivityTypeIntensity {
     final field = getField(MonitoringCurrentActivityTypeIntensityField.ID);
     if (field != null && field.isValid()) {
@@ -708,6 +790,7 @@ class MonitoringMessage extends DataMessage {
     }
   }
 
+  /// Sets the currentActivityTypeIntensity field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set currentActivityTypeIntensity(int? value) {
     final field = getField(MonitoringCurrentActivityTypeIntensityField.ID);
 
@@ -718,9 +801,12 @@ class MonitoringMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the timestampMin8 field. Returns null if the field is not defined in the message.
   int? get timestampMin8 {
     final field = getField(MonitoringTimestampMin8Field.ID);
     if (field != null && field.isValid()) {
@@ -731,6 +817,7 @@ class MonitoringMessage extends DataMessage {
     }
   }
 
+  /// Sets the timestampMin8 field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestampMin8(int? value) {
     final field = getField(MonitoringTimestampMin8Field.ID);
 
@@ -741,9 +828,12 @@ class MonitoringMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the timestamp16 field. Returns null if the field is not defined in the message.
   int? get timestamp16 {
     final field = getField(MonitoringTimestamp16Field.ID);
     if (field != null && field.isValid()) {
@@ -754,6 +844,7 @@ class MonitoringMessage extends DataMessage {
     }
   }
 
+  /// Sets the timestamp16 field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestamp16(int? value) {
     final field = getField(MonitoringTimestamp16Field.ID);
 
@@ -764,9 +855,12 @@ class MonitoringMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the heartRate field. Returns null if the field is not defined in the message.
   int? get heartRate {
     final field = getField(MonitoringHeartRateField.ID);
     if (field != null && field.isValid()) {
@@ -777,6 +871,7 @@ class MonitoringMessage extends DataMessage {
     }
   }
 
+  /// Sets the heartRate field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set heartRate(int? value) {
     final field = getField(MonitoringHeartRateField.ID);
 
@@ -787,9 +882,12 @@ class MonitoringMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the intensity field. Returns null if the field is not defined in the message.
   double? get intensity {
     final field = getField(MonitoringIntensityField.ID);
     if (field != null && field.isValid()) {
@@ -800,6 +898,7 @@ class MonitoringMessage extends DataMessage {
     }
   }
 
+  /// Sets the intensity field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set intensity(double? value) {
     final field = getField(MonitoringIntensityField.ID);
 
@@ -810,9 +909,12 @@ class MonitoringMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the durationMin field. Returns null if the field is not defined in the message.
   int? get durationMin {
     final field = getField(MonitoringDurationMinField.ID);
     if (field != null && field.isValid()) {
@@ -823,6 +925,7 @@ class MonitoringMessage extends DataMessage {
     }
   }
 
+  /// Sets the durationMin field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set durationMin(int? value) {
     final field = getField(MonitoringDurationMinField.ID);
 
@@ -833,9 +936,12 @@ class MonitoringMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the duration field. Returns null if the field is not defined in the message.
   int? get duration {
     final field = getField(MonitoringDurationField.ID);
     if (field != null && field.isValid()) {
@@ -846,6 +952,7 @@ class MonitoringMessage extends DataMessage {
     }
   }
 
+  /// Sets the duration field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set duration(int? value) {
     final field = getField(MonitoringDurationField.ID);
 
@@ -856,9 +963,12 @@ class MonitoringMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the ascent field. Returns null if the field is not defined in the message.
   double? get ascent {
     final field = getField(MonitoringAscentField.ID);
     if (field != null && field.isValid()) {
@@ -869,6 +979,7 @@ class MonitoringMessage extends DataMessage {
     }
   }
 
+  /// Sets the ascent field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set ascent(double? value) {
     final field = getField(MonitoringAscentField.ID);
 
@@ -879,9 +990,12 @@ class MonitoringMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the descent field. Returns null if the field is not defined in the message.
   double? get descent {
     final field = getField(MonitoringDescentField.ID);
     if (field != null && field.isValid()) {
@@ -892,6 +1006,7 @@ class MonitoringMessage extends DataMessage {
     }
   }
 
+  /// Sets the descent field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set descent(double? value) {
     final field = getField(MonitoringDescentField.ID);
 
@@ -902,9 +1017,12 @@ class MonitoringMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the moderateActivityMinutes field. Returns null if the field is not defined in the message.
   int? get moderateActivityMinutes {
     final field = getField(MonitoringModerateActivityMinutesField.ID);
     if (field != null && field.isValid()) {
@@ -915,6 +1033,7 @@ class MonitoringMessage extends DataMessage {
     }
   }
 
+  /// Sets the moderateActivityMinutes field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set moderateActivityMinutes(int? value) {
     final field = getField(MonitoringModerateActivityMinutesField.ID);
 
@@ -925,9 +1044,12 @@ class MonitoringMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the vigorousActivityMinutes field. Returns null if the field is not defined in the message.
   int? get vigorousActivityMinutes {
     final field = getField(MonitoringVigorousActivityMinutesField.ID);
     if (field != null && field.isValid()) {
@@ -938,6 +1060,7 @@ class MonitoringMessage extends DataMessage {
     }
   }
 
+  /// Sets the vigorousActivityMinutes field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set vigorousActivityMinutes(int? value) {
     final field = getField(MonitoringVigorousActivityMinutesField.ID);
 
@@ -948,6 +1071,8 @@ class MonitoringMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 }

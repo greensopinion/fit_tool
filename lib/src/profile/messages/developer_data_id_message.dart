@@ -6,10 +6,8 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
-import '../profile_type.dart';
-import 'common_fields.dart';
 
 class DeveloperDataIdMessage extends DataMessage {
   DeveloperDataIdMessage(
@@ -63,11 +61,13 @@ class DeveloperDataIdMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 207;
   static const NAME = 'developer_data_id';
 
   final bool growable;
 
+  /// Returns an instance of DeveloperDataIdMessage from a bytes list.
   static DeveloperDataIdMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message =
@@ -76,6 +76,7 @@ class DeveloperDataIdMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the developerId field. Returns null if the field is not defined in the message.
   int? get developerId {
     final field = getField(DeveloperDataIdDeveloperIdField.ID);
     if (field != null && field.isValid()) {
@@ -86,6 +87,7 @@ class DeveloperDataIdMessage extends DataMessage {
     }
   }
 
+  /// Sets the developerId field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set developerId(int? value) {
     final field = getField(DeveloperDataIdDeveloperIdField.ID);
 
@@ -96,9 +98,12 @@ class DeveloperDataIdMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the applicationId field. Returns null if the field is not defined in the message.
   int? get applicationId {
     final field = getField(DeveloperDataIdApplicationIdField.ID);
     if (field != null && field.isValid()) {
@@ -109,6 +114,7 @@ class DeveloperDataIdMessage extends DataMessage {
     }
   }
 
+  /// Sets the applicationId field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set applicationId(int? value) {
     final field = getField(DeveloperDataIdApplicationIdField.ID);
 
@@ -119,9 +125,12 @@ class DeveloperDataIdMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the manufacturerId field. Returns null if the field is not defined in the message.
   int? get manufacturerId {
     final field = getField(DeveloperDataIdManufacturerIdField.ID);
     if (field != null && field.isValid()) {
@@ -132,6 +141,7 @@ class DeveloperDataIdMessage extends DataMessage {
     }
   }
 
+  /// Sets the manufacturerId field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set manufacturerId(int? value) {
     final field = getField(DeveloperDataIdManufacturerIdField.ID);
 
@@ -142,9 +152,12 @@ class DeveloperDataIdMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the developerDataIndex field. Returns null if the field is not defined in the message.
   int? get developerDataIndex {
     final field = getField(DeveloperDataIdDeveloperDataIndexField.ID);
     if (field != null && field.isValid()) {
@@ -155,6 +168,7 @@ class DeveloperDataIdMessage extends DataMessage {
     }
   }
 
+  /// Sets the developerDataIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set developerDataIndex(int? value) {
     final field = getField(DeveloperDataIdDeveloperDataIndexField.ID);
 
@@ -165,9 +179,12 @@ class DeveloperDataIdMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the applicationVersion field. Returns null if the field is not defined in the message.
   int? get applicationVersion {
     final field = getField(DeveloperDataIdApplicationVersionField.ID);
     if (field != null && field.isValid()) {
@@ -178,6 +195,7 @@ class DeveloperDataIdMessage extends DataMessage {
     }
   }
 
+  /// Sets the applicationVersion field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set applicationVersion(int? value) {
     final field = getField(DeveloperDataIdApplicationVersionField.ID);
 
@@ -188,6 +206,8 @@ class DeveloperDataIdMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 }

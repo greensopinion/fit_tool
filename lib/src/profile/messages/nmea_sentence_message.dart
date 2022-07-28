@@ -6,9 +6,8 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
-import '../profile_type.dart';
 import 'common_fields.dart';
 
 class NmeaSentenceMessage extends DataMessage {
@@ -46,11 +45,13 @@ class NmeaSentenceMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 177;
   static const NAME = 'nmea_sentence';
 
   final bool growable;
 
+  /// Returns an instance of NmeaSentenceMessage from a bytes list.
   static NmeaSentenceMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = NmeaSentenceMessage(definitionMessage: definitionMessage);
@@ -58,7 +59,7 @@ class NmeaSentenceMessage extends DataMessage {
     return message;
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
     final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
@@ -69,7 +70,7 @@ class NmeaSentenceMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
@@ -80,9 +81,12 @@ class NmeaSentenceMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the timestampMs field. Returns null if the field is not defined in the message.
   int? get timestampMs {
     final field = getField(NmeaSentenceTimestampMsField.ID);
     if (field != null && field.isValid()) {
@@ -93,6 +97,7 @@ class NmeaSentenceMessage extends DataMessage {
     }
   }
 
+  /// Sets the timestampMs field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestampMs(int? value) {
     final field = getField(NmeaSentenceTimestampMsField.ID);
 
@@ -103,9 +108,12 @@ class NmeaSentenceMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the sentence field. Returns null if the field is not defined in the message.
   String? get sentence {
     final field = getField(NmeaSentenceSentenceField.ID);
     if (field != null && field.isValid()) {
@@ -116,6 +124,7 @@ class NmeaSentenceMessage extends DataMessage {
     }
   }
 
+  /// Sets the sentence field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set sentence(String? value) {
     final field = getField(NmeaSentenceSentenceField.ID);
 
@@ -126,6 +135,8 @@ class NmeaSentenceMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 }

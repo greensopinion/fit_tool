@@ -6,8 +6,8 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
 import '../profile_type.dart';
 import 'common_fields.dart';
 
@@ -105,11 +105,13 @@ class AviationAttitudeMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 178;
   static const NAME = 'aviation_attitude';
 
   final bool growable;
 
+  /// Returns an instance of AviationAttitudeMessage from a bytes list.
   static AviationAttitudeMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message =
@@ -118,7 +120,7 @@ class AviationAttitudeMessage extends DataMessage {
     return message;
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
     final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
@@ -129,7 +131,7 @@ class AviationAttitudeMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
@@ -140,9 +142,12 @@ class AviationAttitudeMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the timestampMs field. Returns null if the field is not defined in the message.
   int? get timestampMs {
     final field = getField(AviationAttitudeTimestampMsField.ID);
     if (field != null && field.isValid()) {
@@ -153,6 +158,7 @@ class AviationAttitudeMessage extends DataMessage {
     }
   }
 
+  /// Sets the timestampMs field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestampMs(int? value) {
     final field = getField(AviationAttitudeTimestampMsField.ID);
 
@@ -163,9 +169,12 @@ class AviationAttitudeMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the systemTime field. Returns null if the field is not defined in the message.
   int? get systemTime {
     final field = getField(AviationAttitudeSystemTimeField.ID);
     if (field != null && field.isValid()) {
@@ -176,6 +185,7 @@ class AviationAttitudeMessage extends DataMessage {
     }
   }
 
+  /// Sets the systemTime field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set systemTime(int? value) {
     final field = getField(AviationAttitudeSystemTimeField.ID);
 
@@ -186,9 +196,12 @@ class AviationAttitudeMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the pitch field. Returns null if the field is not defined in the message.
   double? get pitch {
     final field = getField(AviationAttitudePitchField.ID);
     if (field != null && field.isValid()) {
@@ -199,6 +212,7 @@ class AviationAttitudeMessage extends DataMessage {
     }
   }
 
+  /// Sets the pitch field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set pitch(double? value) {
     final field = getField(AviationAttitudePitchField.ID);
 
@@ -209,9 +223,12 @@ class AviationAttitudeMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the roll field. Returns null if the field is not defined in the message.
   double? get roll {
     final field = getField(AviationAttitudeRollField.ID);
     if (field != null && field.isValid()) {
@@ -222,6 +239,7 @@ class AviationAttitudeMessage extends DataMessage {
     }
   }
 
+  /// Sets the roll field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set roll(double? value) {
     final field = getField(AviationAttitudeRollField.ID);
 
@@ -232,9 +250,12 @@ class AviationAttitudeMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the accelLateral field. Returns null if the field is not defined in the message.
   double? get accelLateral {
     final field = getField(AviationAttitudeAccelLateralField.ID);
     if (field != null && field.isValid()) {
@@ -245,6 +266,7 @@ class AviationAttitudeMessage extends DataMessage {
     }
   }
 
+  /// Sets the accelLateral field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set accelLateral(double? value) {
     final field = getField(AviationAttitudeAccelLateralField.ID);
 
@@ -255,9 +277,12 @@ class AviationAttitudeMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the accelNormal field. Returns null if the field is not defined in the message.
   double? get accelNormal {
     final field = getField(AviationAttitudeAccelNormalField.ID);
     if (field != null && field.isValid()) {
@@ -268,6 +293,7 @@ class AviationAttitudeMessage extends DataMessage {
     }
   }
 
+  /// Sets the accelNormal field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set accelNormal(double? value) {
     final field = getField(AviationAttitudeAccelNormalField.ID);
 
@@ -278,9 +304,12 @@ class AviationAttitudeMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the turnRate field. Returns null if the field is not defined in the message.
   double? get turnRate {
     final field = getField(AviationAttitudeTurnRateField.ID);
     if (field != null && field.isValid()) {
@@ -291,6 +320,7 @@ class AviationAttitudeMessage extends DataMessage {
     }
   }
 
+  /// Sets the turnRate field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set turnRate(double? value) {
     final field = getField(AviationAttitudeTurnRateField.ID);
 
@@ -301,9 +331,12 @@ class AviationAttitudeMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the stage field. Returns null if the field is not defined in the message.
   AttitudeStage? get stage {
     final field = getField(AviationAttitudeStageField.ID);
     if (field != null && field.isValid()) {
@@ -318,6 +351,7 @@ class AviationAttitudeMessage extends DataMessage {
     }
   }
 
+  /// Sets the stage field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set stage(AttitudeStage? value) {
     final field = getField(AviationAttitudeStageField.ID);
 
@@ -328,9 +362,12 @@ class AviationAttitudeMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the attitudeStageComplete field. Returns null if the field is not defined in the message.
   int? get attitudeStageComplete {
     final field = getField(AviationAttitudeAttitudeStageCompleteField.ID);
     if (field != null && field.isValid()) {
@@ -341,6 +378,7 @@ class AviationAttitudeMessage extends DataMessage {
     }
   }
 
+  /// Sets the attitudeStageComplete field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set attitudeStageComplete(int? value) {
     final field = getField(AviationAttitudeAttitudeStageCompleteField.ID);
 
@@ -351,9 +389,12 @@ class AviationAttitudeMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the track field. Returns null if the field is not defined in the message.
   double? get track {
     final field = getField(AviationAttitudeTrackField.ID);
     if (field != null && field.isValid()) {
@@ -364,6 +405,7 @@ class AviationAttitudeMessage extends DataMessage {
     }
   }
 
+  /// Sets the track field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set track(double? value) {
     final field = getField(AviationAttitudeTrackField.ID);
 
@@ -374,9 +416,12 @@ class AviationAttitudeMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the validity field. Returns null if the field is not defined in the message.
   int? get validity {
     final field = getField(AviationAttitudeValidityField.ID);
     if (field != null && field.isValid()) {
@@ -387,6 +432,7 @@ class AviationAttitudeMessage extends DataMessage {
     }
   }
 
+  /// Sets the validity field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set validity(int? value) {
     final field = getField(AviationAttitudeValidityField.ID);
 
@@ -397,6 +443,8 @@ class AviationAttitudeMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 }

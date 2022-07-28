@@ -6,10 +6,9 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
 import '../profile_type.dart';
-import 'common_fields.dart';
 
 class SportMessage extends DataMessage {
   SportMessage(
@@ -46,11 +45,13 @@ class SportMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 12;
   static const NAME = 'sport';
 
   final bool growable;
 
+  /// Returns an instance of SportMessage from a bytes list.
   static SportMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = SportMessage(definitionMessage: definitionMessage);
@@ -58,6 +59,7 @@ class SportMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the sport field. Returns null if the field is not defined in the message.
   Sport? get sport {
     final field = getField(SportSportField.ID);
     if (field != null && field.isValid()) {
@@ -72,6 +74,7 @@ class SportMessage extends DataMessage {
     }
   }
 
+  /// Sets the sport field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set sport(Sport? value) {
     final field = getField(SportSportField.ID);
 
@@ -82,9 +85,12 @@ class SportMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the subSport field. Returns null if the field is not defined in the message.
   SubSport? get subSport {
     final field = getField(SportSubSportField.ID);
     if (field != null && field.isValid()) {
@@ -99,6 +105,7 @@ class SportMessage extends DataMessage {
     }
   }
 
+  /// Sets the subSport field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set subSport(SubSport? value) {
     final field = getField(SportSubSportField.ID);
 
@@ -109,9 +116,12 @@ class SportMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the sportName field. Returns null if the field is not defined in the message.
   String? get sportName {
     final field = getField(SportNameField.ID);
     if (field != null && field.isValid()) {
@@ -122,6 +132,7 @@ class SportMessage extends DataMessage {
     }
   }
 
+  /// Sets the sportName field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set sportName(String? value) {
     final field = getField(SportNameField.ID);
 
@@ -132,6 +143,8 @@ class SportMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 }

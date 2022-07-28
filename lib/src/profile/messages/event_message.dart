@@ -6,6 +6,7 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
 import '../../sub_field.dart';
 import '../profile_type.dart';
@@ -118,11 +119,13 @@ class EventMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 21;
   static const NAME = 'event';
 
   final bool growable;
 
+  /// Returns an instance of EventMessage from a bytes list.
   static EventMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = EventMessage(definitionMessage: definitionMessage);
@@ -130,7 +133,7 @@ class EventMessage extends DataMessage {
     return message;
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
     final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
@@ -141,7 +144,7 @@ class EventMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
@@ -152,9 +155,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the event field. Returns null if the field is not defined in the message.
   Event? get event {
     final field = getField(EventEventField.ID);
     if (field != null && field.isValid()) {
@@ -169,6 +175,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the event field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set event(Event? value) {
     final field = getField(EventEventField.ID);
 
@@ -179,9 +186,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the eventType field. Returns null if the field is not defined in the message.
   EventType? get eventType {
     final field = getField(EventEventTypeField.ID);
     if (field != null && field.isValid()) {
@@ -196,6 +206,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the eventType field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set eventType(EventType? value) {
     final field = getField(EventEventTypeField.ID);
 
@@ -206,9 +217,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the data16 field. Returns null if the field is not defined in the message.
   int? get data16 {
     final field = getField(EventData16Field.ID);
     if (field != null && field.isValid()) {
@@ -219,6 +233,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the data16 field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set data16(int? value) {
     final field = getField(EventData16Field.ID);
 
@@ -229,9 +244,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the data field. Returns null if the field is not defined in the message.
   int? get data {
     final field = getField(EventDataField.ID);
     if (field != null && field.isValid()) {
@@ -242,6 +260,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the data field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set data(int? value) {
     final field = getField(EventDataField.ID);
 
@@ -252,9 +271,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield timerTrigger
   TimerTrigger? get timerTrigger {
     final field = getField(EventDataField.ID);
     final typeField = getField(EventEventField.ID);
@@ -269,6 +291,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the data subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set timerTrigger(TimerTrigger? value) {
     final field = getField(EventDataField.ID);
     if (field != null) {
@@ -278,9 +301,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield coursePointIndex
   int? get coursePointIndex {
     final field = getField(EventDataField.ID);
     final typeField = getField(EventEventField.ID);
@@ -295,6 +321,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the data subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set coursePointIndex(int? value) {
     final field = getField(EventDataField.ID);
     if (field != null) {
@@ -304,9 +331,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield batteryLevel
   double? get batteryLevel {
     final field = getField(EventDataField.ID);
     final typeField = getField(EventEventField.ID);
@@ -321,6 +351,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the data subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set batteryLevel(double? value) {
     final field = getField(EventDataField.ID);
     if (field != null) {
@@ -330,9 +361,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield virtualPartnerSpeed
   double? get virtualPartnerSpeed {
     final field = getField(EventDataField.ID);
     final typeField = getField(EventEventField.ID);
@@ -347,6 +381,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the data subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set virtualPartnerSpeed(double? value) {
     final field = getField(EventDataField.ID);
     if (field != null) {
@@ -356,9 +391,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield hrHighAlert
   int? get hrHighAlert {
     final field = getField(EventDataField.ID);
     final typeField = getField(EventEventField.ID);
@@ -373,6 +411,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the data subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set hrHighAlert(int? value) {
     final field = getField(EventDataField.ID);
     if (field != null) {
@@ -382,9 +421,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield hrLowAlert
   int? get hrLowAlert {
     final field = getField(EventDataField.ID);
     final typeField = getField(EventEventField.ID);
@@ -399,6 +441,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the data subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set hrLowAlert(int? value) {
     final field = getField(EventDataField.ID);
     if (field != null) {
@@ -408,9 +451,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield speedHighAlert
   double? get speedHighAlert {
     final field = getField(EventDataField.ID);
     final typeField = getField(EventEventField.ID);
@@ -425,6 +471,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the data subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set speedHighAlert(double? value) {
     final field = getField(EventDataField.ID);
     if (field != null) {
@@ -434,9 +481,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield speedLowAlert
   double? get speedLowAlert {
     final field = getField(EventDataField.ID);
     final typeField = getField(EventEventField.ID);
@@ -451,6 +501,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the data subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set speedLowAlert(double? value) {
     final field = getField(EventDataField.ID);
     if (field != null) {
@@ -460,9 +511,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield cadHighAlert
   int? get cadHighAlert {
     final field = getField(EventDataField.ID);
     final typeField = getField(EventEventField.ID);
@@ -477,6 +531,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the data subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set cadHighAlert(int? value) {
     final field = getField(EventDataField.ID);
     if (field != null) {
@@ -486,9 +541,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield cadLowAlert
   int? get cadLowAlert {
     final field = getField(EventDataField.ID);
     final typeField = getField(EventEventField.ID);
@@ -503,6 +561,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the data subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set cadLowAlert(int? value) {
     final field = getField(EventDataField.ID);
     if (field != null) {
@@ -512,9 +571,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield powerHighAlert
   int? get powerHighAlert {
     final field = getField(EventDataField.ID);
     final typeField = getField(EventEventField.ID);
@@ -529,6 +591,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the data subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set powerHighAlert(int? value) {
     final field = getField(EventDataField.ID);
     if (field != null) {
@@ -538,9 +601,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield powerLowAlert
   int? get powerLowAlert {
     final field = getField(EventDataField.ID);
     final typeField = getField(EventEventField.ID);
@@ -555,6 +621,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the data subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set powerLowAlert(int? value) {
     final field = getField(EventDataField.ID);
     if (field != null) {
@@ -564,9 +631,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield timeDurationAlert
   double? get timeDurationAlert {
     final field = getField(EventDataField.ID);
     final typeField = getField(EventEventField.ID);
@@ -581,6 +651,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the data subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set timeDurationAlert(double? value) {
     final field = getField(EventDataField.ID);
     if (field != null) {
@@ -590,9 +661,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield distanceDurationAlert
   double? get distanceDurationAlert {
     final field = getField(EventDataField.ID);
     final typeField = getField(EventEventField.ID);
@@ -607,6 +681,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the data subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set distanceDurationAlert(double? value) {
     final field = getField(EventDataField.ID);
     if (field != null) {
@@ -616,9 +691,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield calorieDurationAlert
   int? get calorieDurationAlert {
     final field = getField(EventDataField.ID);
     final typeField = getField(EventEventField.ID);
@@ -633,6 +711,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the data subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set calorieDurationAlert(int? value) {
     final field = getField(EventDataField.ID);
     if (field != null) {
@@ -642,9 +721,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield fitnessEquipmentState
   FitnessEquipmentState? get fitnessEquipmentState {
     final field = getField(EventDataField.ID);
     final typeField = getField(EventEventField.ID);
@@ -659,6 +741,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the data subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set fitnessEquipmentState(FitnessEquipmentState? value) {
     final field = getField(EventDataField.ID);
     if (field != null) {
@@ -668,9 +751,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield sportPoint
   int? get sportPoint {
     final field = getField(EventDataField.ID);
     final typeField = getField(EventEventField.ID);
@@ -685,6 +771,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the data subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set sportPoint(int? value) {
     final field = getField(EventDataField.ID);
     if (field != null) {
@@ -694,9 +781,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield gearChangeData
   int? get gearChangeData {
     final field = getField(EventDataField.ID);
     final typeField = getField(EventEventField.ID);
@@ -711,6 +801,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the data subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set gearChangeData(int? value) {
     final field = getField(EventDataField.ID);
     if (field != null) {
@@ -720,9 +811,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield riderPosition
   RiderPositionType? get riderPosition {
     final field = getField(EventDataField.ID);
     final typeField = getField(EventEventField.ID);
@@ -737,6 +831,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the data subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set riderPosition(RiderPositionType? value) {
     final field = getField(EventDataField.ID);
     if (field != null) {
@@ -746,9 +841,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield commTimeout
   int? get commTimeout {
     final field = getField(EventDataField.ID);
     final typeField = getField(EventEventField.ID);
@@ -763,6 +861,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the data subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set commTimeout(int? value) {
     final field = getField(EventDataField.ID);
     if (field != null) {
@@ -772,9 +871,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield radarThreatAlert
   int? get radarThreatAlert {
     final field = getField(EventDataField.ID);
     final typeField = getField(EventEventField.ID);
@@ -789,6 +891,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the data subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set radarThreatAlert(int? value) {
     final field = getField(EventDataField.ID);
     if (field != null) {
@@ -798,9 +901,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the eventGroup field. Returns null if the field is not defined in the message.
   int? get eventGroup {
     final field = getField(EventEventGroupField.ID);
     if (field != null && field.isValid()) {
@@ -811,6 +917,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the eventGroup field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set eventGroup(int? value) {
     final field = getField(EventEventGroupField.ID);
 
@@ -821,9 +928,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the score field. Returns null if the field is not defined in the message.
   int? get score {
     final field = getField(EventScoreField.ID);
     if (field != null && field.isValid()) {
@@ -834,6 +944,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the score field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set score(int? value) {
     final field = getField(EventScoreField.ID);
 
@@ -844,9 +955,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the opponentScore field. Returns null if the field is not defined in the message.
   int? get opponentScore {
     final field = getField(EventOpponentScoreField.ID);
     if (field != null && field.isValid()) {
@@ -857,6 +971,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the opponentScore field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set opponentScore(int? value) {
     final field = getField(EventOpponentScoreField.ID);
 
@@ -867,9 +982,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the frontGearNum field. Returns null if the field is not defined in the message.
   int? get frontGearNum {
     final field = getField(EventFrontGearNumField.ID);
     if (field != null && field.isValid()) {
@@ -880,6 +998,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the frontGearNum field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set frontGearNum(int? value) {
     final field = getField(EventFrontGearNumField.ID);
 
@@ -890,9 +1009,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the frontGear field. Returns null if the field is not defined in the message.
   int? get frontGear {
     final field = getField(EventFrontGearField.ID);
     if (field != null && field.isValid()) {
@@ -903,6 +1025,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the frontGear field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set frontGear(int? value) {
     final field = getField(EventFrontGearField.ID);
 
@@ -913,9 +1036,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the rearGearNum field. Returns null if the field is not defined in the message.
   int? get rearGearNum {
     final field = getField(EventRearGearNumField.ID);
     if (field != null && field.isValid()) {
@@ -926,6 +1052,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the rearGearNum field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set rearGearNum(int? value) {
     final field = getField(EventRearGearNumField.ID);
 
@@ -936,9 +1063,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the rearGear field. Returns null if the field is not defined in the message.
   int? get rearGear {
     final field = getField(EventRearGearField.ID);
     if (field != null && field.isValid()) {
@@ -949,6 +1079,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the rearGear field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set rearGear(int? value) {
     final field = getField(EventRearGearField.ID);
 
@@ -959,9 +1090,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the deviceIndex field. Returns null if the field is not defined in the message.
   int? get deviceIndex {
     final field = getField(EventDeviceIndexField.ID);
     if (field != null && field.isValid()) {
@@ -972,6 +1106,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the deviceIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set deviceIndex(int? value) {
     final field = getField(EventDeviceIndexField.ID);
 
@@ -982,9 +1117,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the radarThreatLevelMax field. Returns null if the field is not defined in the message.
   RadarThreatLevelType? get radarThreatLevelMax {
     final field = getField(EventRadarThreatLevelMaxField.ID);
     if (field != null && field.isValid()) {
@@ -999,6 +1137,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the radarThreatLevelMax field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set radarThreatLevelMax(RadarThreatLevelType? value) {
     final field = getField(EventRadarThreatLevelMaxField.ID);
 
@@ -1009,9 +1148,12 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the radarThreatCount field. Returns null if the field is not defined in the message.
   int? get radarThreatCount {
     final field = getField(EventRadarThreatCountField.ID);
     if (field != null && field.isValid()) {
@@ -1022,6 +1164,7 @@ class EventMessage extends DataMessage {
     }
   }
 
+  /// Sets the radarThreatCount field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set radarThreatCount(int? value) {
     final field = getField(EventRadarThreatCountField.ID);
 
@@ -1032,6 +1175,8 @@ class EventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 }

@@ -6,9 +6,8 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
-import '../profile_type.dart';
 import 'common_fields.dart';
 
 class DiveSummaryMessage extends DataMessage {
@@ -108,11 +107,13 @@ class DiveSummaryMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 268;
   static const NAME = 'dive_summary';
 
   final bool growable;
 
+  /// Returns an instance of DiveSummaryMessage from a bytes list.
   static DiveSummaryMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = DiveSummaryMessage(definitionMessage: definitionMessage);
@@ -120,7 +121,7 @@ class DiveSummaryMessage extends DataMessage {
     return message;
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
     final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
@@ -131,7 +132,7 @@ class DiveSummaryMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
@@ -142,9 +143,12 @@ class DiveSummaryMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the referenceMesg field. Returns null if the field is not defined in the message.
   int? get referenceMesg {
     final field = getField(DiveSummaryReferenceMesgField.ID);
     if (field != null && field.isValid()) {
@@ -155,6 +159,7 @@ class DiveSummaryMessage extends DataMessage {
     }
   }
 
+  /// Sets the referenceMesg field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set referenceMesg(int? value) {
     final field = getField(DiveSummaryReferenceMesgField.ID);
 
@@ -165,9 +170,12 @@ class DiveSummaryMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the referenceIndex field. Returns null if the field is not defined in the message.
   int? get referenceIndex {
     final field = getField(DiveSummaryReferenceIndexField.ID);
     if (field != null && field.isValid()) {
@@ -178,6 +186,7 @@ class DiveSummaryMessage extends DataMessage {
     }
   }
 
+  /// Sets the referenceIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set referenceIndex(int? value) {
     final field = getField(DiveSummaryReferenceIndexField.ID);
 
@@ -188,9 +197,12 @@ class DiveSummaryMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the avgDepth field. Returns null if the field is not defined in the message.
   double? get avgDepth {
     final field = getField(DiveSummaryAvgDepthField.ID);
     if (field != null && field.isValid()) {
@@ -201,6 +213,7 @@ class DiveSummaryMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgDepth field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgDepth(double? value) {
     final field = getField(DiveSummaryAvgDepthField.ID);
 
@@ -211,9 +224,12 @@ class DiveSummaryMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the maxDepth field. Returns null if the field is not defined in the message.
   double? get maxDepth {
     final field = getField(DiveSummaryMaxDepthField.ID);
     if (field != null && field.isValid()) {
@@ -224,6 +240,7 @@ class DiveSummaryMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxDepth field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxDepth(double? value) {
     final field = getField(DiveSummaryMaxDepthField.ID);
 
@@ -234,9 +251,12 @@ class DiveSummaryMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the surfaceInterval field. Returns null if the field is not defined in the message.
   int? get surfaceInterval {
     final field = getField(DiveSummarySurfaceIntervalField.ID);
     if (field != null && field.isValid()) {
@@ -247,6 +267,7 @@ class DiveSummaryMessage extends DataMessage {
     }
   }
 
+  /// Sets the surfaceInterval field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set surfaceInterval(int? value) {
     final field = getField(DiveSummarySurfaceIntervalField.ID);
 
@@ -257,9 +278,12 @@ class DiveSummaryMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the startCns field. Returns null if the field is not defined in the message.
   int? get startCns {
     final field = getField(DiveSummaryStartCnsField.ID);
     if (field != null && field.isValid()) {
@@ -270,6 +294,7 @@ class DiveSummaryMessage extends DataMessage {
     }
   }
 
+  /// Sets the startCns field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set startCns(int? value) {
     final field = getField(DiveSummaryStartCnsField.ID);
 
@@ -280,9 +305,12 @@ class DiveSummaryMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the endCns field. Returns null if the field is not defined in the message.
   int? get endCns {
     final field = getField(DiveSummaryEndCnsField.ID);
     if (field != null && field.isValid()) {
@@ -293,6 +321,7 @@ class DiveSummaryMessage extends DataMessage {
     }
   }
 
+  /// Sets the endCns field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set endCns(int? value) {
     final field = getField(DiveSummaryEndCnsField.ID);
 
@@ -303,9 +332,12 @@ class DiveSummaryMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the startN2 field. Returns null if the field is not defined in the message.
   int? get startN2 {
     final field = getField(DiveSummaryStartN2Field.ID);
     if (field != null && field.isValid()) {
@@ -316,6 +348,7 @@ class DiveSummaryMessage extends DataMessage {
     }
   }
 
+  /// Sets the startN2 field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set startN2(int? value) {
     final field = getField(DiveSummaryStartN2Field.ID);
 
@@ -326,9 +359,12 @@ class DiveSummaryMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the endN2 field. Returns null if the field is not defined in the message.
   int? get endN2 {
     final field = getField(DiveSummaryEndN2Field.ID);
     if (field != null && field.isValid()) {
@@ -339,6 +375,7 @@ class DiveSummaryMessage extends DataMessage {
     }
   }
 
+  /// Sets the endN2 field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set endN2(int? value) {
     final field = getField(DiveSummaryEndN2Field.ID);
 
@@ -349,9 +386,12 @@ class DiveSummaryMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the o2Toxicity field. Returns null if the field is not defined in the message.
   int? get o2Toxicity {
     final field = getField(DiveSummaryO2ToxicityField.ID);
     if (field != null && field.isValid()) {
@@ -362,6 +402,7 @@ class DiveSummaryMessage extends DataMessage {
     }
   }
 
+  /// Sets the o2Toxicity field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set o2Toxicity(int? value) {
     final field = getField(DiveSummaryO2ToxicityField.ID);
 
@@ -372,9 +413,12 @@ class DiveSummaryMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the diveNumber field. Returns null if the field is not defined in the message.
   int? get diveNumber {
     final field = getField(DiveSummaryDiveNumberField.ID);
     if (field != null && field.isValid()) {
@@ -385,6 +429,7 @@ class DiveSummaryMessage extends DataMessage {
     }
   }
 
+  /// Sets the diveNumber field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set diveNumber(int? value) {
     final field = getField(DiveSummaryDiveNumberField.ID);
 
@@ -395,9 +440,12 @@ class DiveSummaryMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the bottomTime field. Returns null if the field is not defined in the message.
   double? get bottomTime {
     final field = getField(DiveSummaryBottomTimeField.ID);
     if (field != null && field.isValid()) {
@@ -408,6 +456,7 @@ class DiveSummaryMessage extends DataMessage {
     }
   }
 
+  /// Sets the bottomTime field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set bottomTime(double? value) {
     final field = getField(DiveSummaryBottomTimeField.ID);
 
@@ -418,6 +467,8 @@ class DiveSummaryMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 }

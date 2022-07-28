@@ -6,9 +6,8 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
-import '../profile_type.dart';
 import 'common_fields.dart';
 
 class SdmProfileMessage extends DataMessage {
@@ -78,11 +77,13 @@ class SdmProfileMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 5;
   static const NAME = 'sdm_profile';
 
   final bool growable;
 
+  /// Returns an instance of SdmProfileMessage from a bytes list.
   static SdmProfileMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = SdmProfileMessage(definitionMessage: definitionMessage);
@@ -90,6 +91,7 @@ class SdmProfileMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the messageIndex field. Returns null if the field is not defined in the message.
   int? get messageIndex {
     final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
@@ -100,6 +102,7 @@ class SdmProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the messageIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
@@ -110,9 +113,12 @@ class SdmProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the enabled field. Returns null if the field is not defined in the message.
   bool? get enabled {
     final field = getField(SdmProfileEnabledField.ID);
     if (field != null && field.isValid()) {
@@ -123,6 +129,7 @@ class SdmProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the enabled field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set enabled(bool? value) {
     final field = getField(SdmProfileEnabledField.ID);
 
@@ -133,9 +140,12 @@ class SdmProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the sdmAntId field. Returns null if the field is not defined in the message.
   int? get sdmAntId {
     final field = getField(SdmProfileSdmAntIdField.ID);
     if (field != null && field.isValid()) {
@@ -146,6 +156,7 @@ class SdmProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the sdmAntId field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set sdmAntId(int? value) {
     final field = getField(SdmProfileSdmAntIdField.ID);
 
@@ -156,9 +167,12 @@ class SdmProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the sdmCalFactor field. Returns null if the field is not defined in the message.
   double? get sdmCalFactor {
     final field = getField(SdmProfileSdmCalFactorField.ID);
     if (field != null && field.isValid()) {
@@ -169,6 +183,7 @@ class SdmProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the sdmCalFactor field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set sdmCalFactor(double? value) {
     final field = getField(SdmProfileSdmCalFactorField.ID);
 
@@ -179,9 +194,12 @@ class SdmProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the odometer field. Returns null if the field is not defined in the message.
   double? get odometer {
     final field = getField(SdmProfileOdometerField.ID);
     if (field != null && field.isValid()) {
@@ -192,6 +210,7 @@ class SdmProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the odometer field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set odometer(double? value) {
     final field = getField(SdmProfileOdometerField.ID);
 
@@ -202,9 +221,12 @@ class SdmProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the speedSource field. Returns null if the field is not defined in the message.
   bool? get speedSource {
     final field = getField(SdmProfileSpeedSourceField.ID);
     if (field != null && field.isValid()) {
@@ -215,6 +237,7 @@ class SdmProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the speedSource field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set speedSource(bool? value) {
     final field = getField(SdmProfileSpeedSourceField.ID);
 
@@ -225,9 +248,12 @@ class SdmProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the sdmAntIdTransType field. Returns null if the field is not defined in the message.
   int? get sdmAntIdTransType {
     final field = getField(SdmProfileSdmAntIdTransTypeField.ID);
     if (field != null && field.isValid()) {
@@ -238,6 +264,7 @@ class SdmProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the sdmAntIdTransType field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set sdmAntIdTransType(int? value) {
     final field = getField(SdmProfileSdmAntIdTransTypeField.ID);
 
@@ -248,9 +275,12 @@ class SdmProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the odometerRollover field. Returns null if the field is not defined in the message.
   int? get odometerRollover {
     final field = getField(SdmProfileOdometerRolloverField.ID);
     if (field != null && field.isValid()) {
@@ -261,6 +291,7 @@ class SdmProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the odometerRollover field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set odometerRollover(int? value) {
     final field = getField(SdmProfileOdometerRolloverField.ID);
 
@@ -271,6 +302,8 @@ class SdmProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 }

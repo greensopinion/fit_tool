@@ -6,10 +6,9 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
 import '../profile_type.dart';
-import 'common_fields.dart';
 
 class ExdScreenConfigurationMessage extends DataMessage {
   ExdScreenConfigurationMessage(
@@ -56,11 +55,13 @@ class ExdScreenConfigurationMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 200;
   static const NAME = 'exd_screen_configuration';
 
   final bool growable;
 
+  /// Returns an instance of ExdScreenConfigurationMessage from a bytes list.
   static ExdScreenConfigurationMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message =
@@ -69,6 +70,7 @@ class ExdScreenConfigurationMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the screenIndex field. Returns null if the field is not defined in the message.
   int? get screenIndex {
     final field = getField(ExdScreenConfigurationScreenIndexField.ID);
     if (field != null && field.isValid()) {
@@ -79,6 +81,7 @@ class ExdScreenConfigurationMessage extends DataMessage {
     }
   }
 
+  /// Sets the screenIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set screenIndex(int? value) {
     final field = getField(ExdScreenConfigurationScreenIndexField.ID);
 
@@ -89,9 +92,12 @@ class ExdScreenConfigurationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the fieldCount field. Returns null if the field is not defined in the message.
   int? get fieldCount {
     final field = getField(ExdScreenConfigurationFieldCountField.ID);
     if (field != null && field.isValid()) {
@@ -102,6 +108,7 @@ class ExdScreenConfigurationMessage extends DataMessage {
     }
   }
 
+  /// Sets the fieldCount field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set fieldCount(int? value) {
     final field = getField(ExdScreenConfigurationFieldCountField.ID);
 
@@ -112,9 +119,12 @@ class ExdScreenConfigurationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the layout field. Returns null if the field is not defined in the message.
   ExdLayout? get layout {
     final field = getField(ExdScreenConfigurationLayoutField.ID);
     if (field != null && field.isValid()) {
@@ -129,6 +139,7 @@ class ExdScreenConfigurationMessage extends DataMessage {
     }
   }
 
+  /// Sets the layout field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set layout(ExdLayout? value) {
     final field = getField(ExdScreenConfigurationLayoutField.ID);
 
@@ -139,9 +150,12 @@ class ExdScreenConfigurationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the screenEnabled field. Returns null if the field is not defined in the message.
   bool? get screenEnabled {
     final field = getField(ExdScreenConfigurationScreenEnabledField.ID);
     if (field != null && field.isValid()) {
@@ -152,6 +166,7 @@ class ExdScreenConfigurationMessage extends DataMessage {
     }
   }
 
+  /// Sets the screenEnabled field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set screenEnabled(bool? value) {
     final field = getField(ExdScreenConfigurationScreenEnabledField.ID);
 
@@ -162,6 +177,8 @@ class ExdScreenConfigurationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 }

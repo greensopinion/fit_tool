@@ -6,8 +6,8 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
 import '../profile_type.dart';
 import 'common_fields.dart';
 
@@ -136,11 +136,13 @@ class LengthMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 101;
   static const NAME = 'length';
 
   final bool growable;
 
+  /// Returns an instance of LengthMessage from a bytes list.
   static LengthMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = LengthMessage(definitionMessage: definitionMessage);
@@ -148,6 +150,7 @@ class LengthMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the messageIndex field. Returns null if the field is not defined in the message.
   int? get messageIndex {
     final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
@@ -158,6 +161,7 @@ class LengthMessage extends DataMessage {
     }
   }
 
+  /// Sets the messageIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
@@ -168,10 +172,12 @@ class LengthMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
     final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
@@ -182,7 +188,7 @@ class LengthMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
@@ -193,9 +199,12 @@ class LengthMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the event field. Returns null if the field is not defined in the message.
   Event? get event {
     final field = getField(LengthEventField.ID);
     if (field != null && field.isValid()) {
@@ -210,6 +219,7 @@ class LengthMessage extends DataMessage {
     }
   }
 
+  /// Sets the event field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set event(Event? value) {
     final field = getField(LengthEventField.ID);
 
@@ -220,9 +230,12 @@ class LengthMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the eventType field. Returns null if the field is not defined in the message.
   EventType? get eventType {
     final field = getField(LengthEventTypeField.ID);
     if (field != null && field.isValid()) {
@@ -237,6 +250,7 @@ class LengthMessage extends DataMessage {
     }
   }
 
+  /// Sets the eventType field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set eventType(EventType? value) {
     final field = getField(LengthEventTypeField.ID);
 
@@ -247,10 +261,12 @@ class LengthMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get startTime {
     final field = getField(LengthStartTimeField.ID);
     if (field != null && field.isValid()) {
@@ -261,7 +277,7 @@ class LengthMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set startTime(int? value) {
     final field = getField(LengthStartTimeField.ID);
 
@@ -272,9 +288,12 @@ class LengthMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the totalElapsedTime field. Returns null if the field is not defined in the message.
   double? get totalElapsedTime {
     final field = getField(LengthTotalElapsedTimeField.ID);
     if (field != null && field.isValid()) {
@@ -285,6 +304,7 @@ class LengthMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalElapsedTime field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalElapsedTime(double? value) {
     final field = getField(LengthTotalElapsedTimeField.ID);
 
@@ -295,9 +315,12 @@ class LengthMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the totalTimerTime field. Returns null if the field is not defined in the message.
   double? get totalTimerTime {
     final field = getField(LengthTotalTimerTimeField.ID);
     if (field != null && field.isValid()) {
@@ -308,6 +331,7 @@ class LengthMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalTimerTime field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalTimerTime(double? value) {
     final field = getField(LengthTotalTimerTimeField.ID);
 
@@ -318,9 +342,12 @@ class LengthMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the totalStrokes field. Returns null if the field is not defined in the message.
   int? get totalStrokes {
     final field = getField(LengthTotalStrokesField.ID);
     if (field != null && field.isValid()) {
@@ -331,6 +358,7 @@ class LengthMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalStrokes field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalStrokes(int? value) {
     final field = getField(LengthTotalStrokesField.ID);
 
@@ -341,9 +369,12 @@ class LengthMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the avgSpeed field. Returns null if the field is not defined in the message.
   double? get avgSpeed {
     final field = getField(LengthAvgSpeedField.ID);
     if (field != null && field.isValid()) {
@@ -354,6 +385,7 @@ class LengthMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgSpeed field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgSpeed(double? value) {
     final field = getField(LengthAvgSpeedField.ID);
 
@@ -364,9 +396,12 @@ class LengthMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the swimStroke field. Returns null if the field is not defined in the message.
   SwimStroke? get swimStroke {
     final field = getField(LengthSwimStrokeField.ID);
     if (field != null && field.isValid()) {
@@ -381,6 +416,7 @@ class LengthMessage extends DataMessage {
     }
   }
 
+  /// Sets the swimStroke field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set swimStroke(SwimStroke? value) {
     final field = getField(LengthSwimStrokeField.ID);
 
@@ -391,9 +427,12 @@ class LengthMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the avgSwimmingCadence field. Returns null if the field is not defined in the message.
   int? get avgSwimmingCadence {
     final field = getField(LengthAvgSwimmingCadenceField.ID);
     if (field != null && field.isValid()) {
@@ -404,6 +443,7 @@ class LengthMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgSwimmingCadence field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgSwimmingCadence(int? value) {
     final field = getField(LengthAvgSwimmingCadenceField.ID);
 
@@ -414,9 +454,12 @@ class LengthMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the eventGroup field. Returns null if the field is not defined in the message.
   int? get eventGroup {
     final field = getField(LengthEventGroupField.ID);
     if (field != null && field.isValid()) {
@@ -427,6 +470,7 @@ class LengthMessage extends DataMessage {
     }
   }
 
+  /// Sets the eventGroup field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set eventGroup(int? value) {
     final field = getField(LengthEventGroupField.ID);
 
@@ -437,9 +481,12 @@ class LengthMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the totalCalories field. Returns null if the field is not defined in the message.
   int? get totalCalories {
     final field = getField(LengthTotalCaloriesField.ID);
     if (field != null && field.isValid()) {
@@ -450,6 +497,7 @@ class LengthMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalCalories field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalCalories(int? value) {
     final field = getField(LengthTotalCaloriesField.ID);
 
@@ -460,9 +508,12 @@ class LengthMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the lengthType field. Returns null if the field is not defined in the message.
   LengthType? get lengthType {
     final field = getField(LengthLengthTypeField.ID);
     if (field != null && field.isValid()) {
@@ -477,6 +528,7 @@ class LengthMessage extends DataMessage {
     }
   }
 
+  /// Sets the lengthType field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set lengthType(LengthType? value) {
     final field = getField(LengthLengthTypeField.ID);
 
@@ -487,9 +539,12 @@ class LengthMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the playerScore field. Returns null if the field is not defined in the message.
   int? get playerScore {
     final field = getField(LengthPlayerScoreField.ID);
     if (field != null && field.isValid()) {
@@ -500,6 +555,7 @@ class LengthMessage extends DataMessage {
     }
   }
 
+  /// Sets the playerScore field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set playerScore(int? value) {
     final field = getField(LengthPlayerScoreField.ID);
 
@@ -510,9 +566,12 @@ class LengthMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the opponentScore field. Returns null if the field is not defined in the message.
   int? get opponentScore {
     final field = getField(LengthOpponentScoreField.ID);
     if (field != null && field.isValid()) {
@@ -523,6 +582,7 @@ class LengthMessage extends DataMessage {
     }
   }
 
+  /// Sets the opponentScore field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set opponentScore(int? value) {
     final field = getField(LengthOpponentScoreField.ID);
 
@@ -533,9 +593,12 @@ class LengthMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the strokeCount field. Returns null if the field is not defined in the message.
   int? get strokeCount {
     final field = getField(LengthStrokeCountField.ID);
     if (field != null && field.isValid()) {
@@ -546,6 +609,7 @@ class LengthMessage extends DataMessage {
     }
   }
 
+  /// Sets the strokeCount field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set strokeCount(int? value) {
     final field = getField(LengthStrokeCountField.ID);
 
@@ -556,9 +620,12 @@ class LengthMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the zoneCount field. Returns null if the field is not defined in the message.
   int? get zoneCount {
     final field = getField(LengthZoneCountField.ID);
     if (field != null && field.isValid()) {
@@ -569,6 +636,7 @@ class LengthMessage extends DataMessage {
     }
   }
 
+  /// Sets the zoneCount field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set zoneCount(int? value) {
     final field = getField(LengthZoneCountField.ID);
 
@@ -579,6 +647,8 @@ class LengthMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 }
