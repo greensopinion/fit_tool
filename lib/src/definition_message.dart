@@ -170,7 +170,7 @@ class DefinitionMessage extends Message {
     offset += 1;
 
     // architecture
-    final endian;
+    final Endian endian;
     if (bd.getUint8(offset) == 0) {
       endian = Endian.little;
     } else {
