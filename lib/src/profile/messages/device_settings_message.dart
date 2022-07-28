@@ -6,10 +6,9 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
 import '../profile_type.dart';
-import 'common_fields.dart';
 
 class DeviceSettingsMessage extends DataMessage {
   DeviceSettingsMessage(
@@ -193,11 +192,13 @@ class DeviceSettingsMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 2;
   static const NAME = 'device_settings';
 
   final bool growable;
 
+  /// Returns an instance of DeviceSettingsMessage from a bytes list.
   static DeviceSettingsMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = DeviceSettingsMessage(definitionMessage: definitionMessage);
@@ -205,6 +206,7 @@ class DeviceSettingsMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the activeTimeZone field. Returns null if the field is not defined in the message.
   int? get activeTimeZone {
     final field = getField(DeviceSettingsActiveTimeZoneField.ID);
     if (field != null && field.isValid()) {
@@ -215,6 +217,7 @@ class DeviceSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the activeTimeZone field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set activeTimeZone(int? value) {
     final field = getField(DeviceSettingsActiveTimeZoneField.ID);
 
@@ -225,9 +228,12 @@ class DeviceSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the utcOffset field. Returns null if the field is not defined in the message.
   int? get utcOffset {
     final field = getField(DeviceSettingsUtcOffsetField.ID);
     if (field != null && field.isValid()) {
@@ -238,6 +244,7 @@ class DeviceSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the utcOffset field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set utcOffset(int? value) {
     final field = getField(DeviceSettingsUtcOffsetField.ID);
 
@@ -248,9 +255,12 @@ class DeviceSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the timeOffset field. Returns null if the field is not defined in the message.
   int? get timeOffset {
     final field = getField(DeviceSettingsTimeOffsetField.ID);
     if (field != null && field.isValid()) {
@@ -261,6 +271,7 @@ class DeviceSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the timeOffset field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timeOffset(int? value) {
     final field = getField(DeviceSettingsTimeOffsetField.ID);
 
@@ -271,9 +282,12 @@ class DeviceSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the timeMode field. Returns null if the field is not defined in the message.
   TimeMode? get timeMode {
     final field = getField(DeviceSettingsTimeModeField.ID);
     if (field != null && field.isValid()) {
@@ -288,6 +302,7 @@ class DeviceSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the timeMode field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timeMode(TimeMode? value) {
     final field = getField(DeviceSettingsTimeModeField.ID);
 
@@ -298,9 +313,12 @@ class DeviceSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the timeZoneOffset field. Returns null if the field is not defined in the message.
   double? get timeZoneOffset {
     final field = getField(DeviceSettingsTimeZoneOffsetField.ID);
     if (field != null && field.isValid()) {
@@ -311,6 +329,7 @@ class DeviceSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the timeZoneOffset field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timeZoneOffset(double? value) {
     final field = getField(DeviceSettingsTimeZoneOffsetField.ID);
 
@@ -321,9 +340,12 @@ class DeviceSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the backlightMode field. Returns null if the field is not defined in the message.
   BacklightMode? get backlightMode {
     final field = getField(DeviceSettingsBacklightModeField.ID);
     if (field != null && field.isValid()) {
@@ -338,6 +360,7 @@ class DeviceSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the backlightMode field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set backlightMode(BacklightMode? value) {
     final field = getField(DeviceSettingsBacklightModeField.ID);
 
@@ -348,9 +371,12 @@ class DeviceSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the activityTrackerEnabled field. Returns null if the field is not defined in the message.
   bool? get activityTrackerEnabled {
     final field = getField(DeviceSettingsActivityTrackerEnabledField.ID);
     if (field != null && field.isValid()) {
@@ -361,6 +387,7 @@ class DeviceSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the activityTrackerEnabled field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set activityTrackerEnabled(bool? value) {
     final field = getField(DeviceSettingsActivityTrackerEnabledField.ID);
 
@@ -371,10 +398,12 @@ class DeviceSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get clockTime {
     final field = getField(DeviceSettingsClockTimeField.ID);
     if (field != null && field.isValid()) {
@@ -385,7 +414,7 @@ class DeviceSettingsMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set clockTime(int? value) {
     final field = getField(DeviceSettingsClockTimeField.ID);
 
@@ -396,9 +425,12 @@ class DeviceSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the pagesEnabled field. Returns null if the field is not defined in the message.
   int? get pagesEnabled {
     final field = getField(DeviceSettingsPagesEnabledField.ID);
     if (field != null && field.isValid()) {
@@ -409,6 +441,7 @@ class DeviceSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the pagesEnabled field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set pagesEnabled(int? value) {
     final field = getField(DeviceSettingsPagesEnabledField.ID);
 
@@ -419,9 +452,12 @@ class DeviceSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the moveAlertEnabled field. Returns null if the field is not defined in the message.
   bool? get moveAlertEnabled {
     final field = getField(DeviceSettingsMoveAlertEnabledField.ID);
     if (field != null && field.isValid()) {
@@ -432,6 +468,7 @@ class DeviceSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the moveAlertEnabled field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set moveAlertEnabled(bool? value) {
     final field = getField(DeviceSettingsMoveAlertEnabledField.ID);
 
@@ -442,9 +479,12 @@ class DeviceSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the dateMode field. Returns null if the field is not defined in the message.
   DateMode? get dateMode {
     final field = getField(DeviceSettingsDateModeField.ID);
     if (field != null && field.isValid()) {
@@ -459,6 +499,7 @@ class DeviceSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the dateMode field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set dateMode(DateMode? value) {
     final field = getField(DeviceSettingsDateModeField.ID);
 
@@ -469,9 +510,12 @@ class DeviceSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the displayOrientation field. Returns null if the field is not defined in the message.
   DisplayOrientation? get displayOrientation {
     final field = getField(DeviceSettingsDisplayOrientationField.ID);
     if (field != null && field.isValid()) {
@@ -486,6 +530,7 @@ class DeviceSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the displayOrientation field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set displayOrientation(DisplayOrientation? value) {
     final field = getField(DeviceSettingsDisplayOrientationField.ID);
 
@@ -496,9 +541,12 @@ class DeviceSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the mountingSide field. Returns null if the field is not defined in the message.
   Side? get mountingSide {
     final field = getField(DeviceSettingsMountingSideField.ID);
     if (field != null && field.isValid()) {
@@ -513,6 +561,7 @@ class DeviceSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the mountingSide field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set mountingSide(Side? value) {
     final field = getField(DeviceSettingsMountingSideField.ID);
 
@@ -523,9 +572,12 @@ class DeviceSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the defaultPage field. Returns null if the field is not defined in the message.
   int? get defaultPage {
     final field = getField(DeviceSettingsDefaultPageField.ID);
     if (field != null && field.isValid()) {
@@ -536,6 +588,7 @@ class DeviceSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the defaultPage field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set defaultPage(int? value) {
     final field = getField(DeviceSettingsDefaultPageField.ID);
 
@@ -546,9 +599,12 @@ class DeviceSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the autosyncMinSteps field. Returns null if the field is not defined in the message.
   int? get autosyncMinSteps {
     final field = getField(DeviceSettingsAutosyncMinStepsField.ID);
     if (field != null && field.isValid()) {
@@ -559,6 +615,7 @@ class DeviceSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the autosyncMinSteps field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set autosyncMinSteps(int? value) {
     final field = getField(DeviceSettingsAutosyncMinStepsField.ID);
 
@@ -569,9 +626,12 @@ class DeviceSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the autosyncMinTime field. Returns null if the field is not defined in the message.
   int? get autosyncMinTime {
     final field = getField(DeviceSettingsAutosyncMinTimeField.ID);
     if (field != null && field.isValid()) {
@@ -582,6 +642,7 @@ class DeviceSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the autosyncMinTime field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set autosyncMinTime(int? value) {
     final field = getField(DeviceSettingsAutosyncMinTimeField.ID);
 
@@ -592,9 +653,12 @@ class DeviceSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the lactateThresholdAutodetectEnabled field. Returns null if the field is not defined in the message.
   bool? get lactateThresholdAutodetectEnabled {
     final field =
         getField(DeviceSettingsLactateThresholdAutodetectEnabledField.ID);
@@ -606,6 +670,7 @@ class DeviceSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the lactateThresholdAutodetectEnabled field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set lactateThresholdAutodetectEnabled(bool? value) {
     final field =
         getField(DeviceSettingsLactateThresholdAutodetectEnabledField.ID);
@@ -617,9 +682,12 @@ class DeviceSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the bleAutoUploadEnabled field. Returns null if the field is not defined in the message.
   bool? get bleAutoUploadEnabled {
     final field = getField(DeviceSettingsBleAutoUploadEnabledField.ID);
     if (field != null && field.isValid()) {
@@ -630,6 +698,7 @@ class DeviceSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the bleAutoUploadEnabled field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set bleAutoUploadEnabled(bool? value) {
     final field = getField(DeviceSettingsBleAutoUploadEnabledField.ID);
 
@@ -640,9 +709,12 @@ class DeviceSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the autoSyncFrequency field. Returns null if the field is not defined in the message.
   AutoSyncFrequency? get autoSyncFrequency {
     final field = getField(DeviceSettingsAutoSyncFrequencyField.ID);
     if (field != null && field.isValid()) {
@@ -657,6 +729,7 @@ class DeviceSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the autoSyncFrequency field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set autoSyncFrequency(AutoSyncFrequency? value) {
     final field = getField(DeviceSettingsAutoSyncFrequencyField.ID);
 
@@ -667,9 +740,12 @@ class DeviceSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the autoActivityDetect field. Returns null if the field is not defined in the message.
   int? get autoActivityDetect {
     final field = getField(DeviceSettingsAutoActivityDetectField.ID);
     if (field != null && field.isValid()) {
@@ -680,6 +756,7 @@ class DeviceSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the autoActivityDetect field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set autoActivityDetect(int? value) {
     final field = getField(DeviceSettingsAutoActivityDetectField.ID);
 
@@ -690,9 +767,12 @@ class DeviceSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the numberOfScreens field. Returns null if the field is not defined in the message.
   int? get numberOfScreens {
     final field = getField(DeviceSettingsNumberOfScreensField.ID);
     if (field != null && field.isValid()) {
@@ -703,6 +783,7 @@ class DeviceSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the numberOfScreens field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set numberOfScreens(int? value) {
     final field = getField(DeviceSettingsNumberOfScreensField.ID);
 
@@ -713,9 +794,12 @@ class DeviceSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the smartNotificationDisplayOrientation field. Returns null if the field is not defined in the message.
   DisplayOrientation? get smartNotificationDisplayOrientation {
     final field =
         getField(DeviceSettingsSmartNotificationDisplayOrientationField.ID);
@@ -731,6 +815,7 @@ class DeviceSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the smartNotificationDisplayOrientation field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set smartNotificationDisplayOrientation(DisplayOrientation? value) {
     final field =
         getField(DeviceSettingsSmartNotificationDisplayOrientationField.ID);
@@ -742,9 +827,12 @@ class DeviceSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the tapInterface field. Returns null if the field is not defined in the message.
   SwitchType? get tapInterface {
     final field = getField(DeviceSettingsTapInterfaceField.ID);
     if (field != null && field.isValid()) {
@@ -759,6 +847,7 @@ class DeviceSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the tapInterface field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set tapInterface(SwitchType? value) {
     final field = getField(DeviceSettingsTapInterfaceField.ID);
 
@@ -769,9 +858,12 @@ class DeviceSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the tapSensitivity field. Returns null if the field is not defined in the message.
   TapSensitivity? get tapSensitivity {
     final field = getField(DeviceSettingsTapSensitivityField.ID);
     if (field != null && field.isValid()) {
@@ -786,6 +878,7 @@ class DeviceSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the tapSensitivity field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set tapSensitivity(TapSensitivity? value) {
     final field = getField(DeviceSettingsTapSensitivityField.ID);
 
@@ -796,6 +889,8 @@ class DeviceSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 }

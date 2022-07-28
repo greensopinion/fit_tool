@@ -6,9 +6,8 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
-import '../profile_type.dart';
 import 'common_fields.dart';
 
 class AntRxMessage extends DataMessage {
@@ -64,11 +63,13 @@ class AntRxMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 80;
   static const NAME = 'ant_rx';
 
   final bool growable;
 
+  /// Returns an instance of AntRxMessage from a bytes list.
   static AntRxMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = AntRxMessage(definitionMessage: definitionMessage);
@@ -76,7 +77,7 @@ class AntRxMessage extends DataMessage {
     return message;
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
     final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
@@ -87,7 +88,7 @@ class AntRxMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
@@ -98,9 +99,12 @@ class AntRxMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the fractionalTimestamp field. Returns null if the field is not defined in the message.
   double? get fractionalTimestamp {
     final field = getField(AntRxFractionalTimestampField.ID);
     if (field != null && field.isValid()) {
@@ -111,6 +115,7 @@ class AntRxMessage extends DataMessage {
     }
   }
 
+  /// Sets the fractionalTimestamp field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set fractionalTimestamp(double? value) {
     final field = getField(AntRxFractionalTimestampField.ID);
 
@@ -121,9 +126,12 @@ class AntRxMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the mesgId field. Returns null if the field is not defined in the message.
   int? get mesgId {
     final field = getField(AntRxMesgIdField.ID);
     if (field != null && field.isValid()) {
@@ -134,6 +142,7 @@ class AntRxMessage extends DataMessage {
     }
   }
 
+  /// Sets the mesgId field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set mesgId(int? value) {
     final field = getField(AntRxMesgIdField.ID);
 
@@ -144,9 +153,12 @@ class AntRxMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the mesgData field. Returns null if the field is not defined in the message.
   int? get mesgData {
     final field = getField(AntRxMesgDataField.ID);
     if (field != null && field.isValid()) {
@@ -157,6 +169,7 @@ class AntRxMessage extends DataMessage {
     }
   }
 
+  /// Sets the mesgData field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set mesgData(int? value) {
     final field = getField(AntRxMesgDataField.ID);
 
@@ -167,9 +180,12 @@ class AntRxMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the channelNumber field. Returns null if the field is not defined in the message.
   int? get channelNumber {
     final field = getField(AntRxChannelNumberField.ID);
     if (field != null && field.isValid()) {
@@ -180,6 +196,7 @@ class AntRxMessage extends DataMessage {
     }
   }
 
+  /// Sets the channelNumber field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set channelNumber(int? value) {
     final field = getField(AntRxChannelNumberField.ID);
 
@@ -190,9 +207,12 @@ class AntRxMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the data field. Returns null if the field is not defined in the message.
   int? get data {
     final field = getField(AntRxDataField.ID);
     if (field != null && field.isValid()) {
@@ -203,6 +223,7 @@ class AntRxMessage extends DataMessage {
     }
   }
 
+  /// Sets the data field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set data(int? value) {
     final field = getField(AntRxDataField.ID);
 
@@ -213,6 +234,8 @@ class AntRxMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 }

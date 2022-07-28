@@ -6,9 +6,8 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
-import '../profile_type.dart';
 import 'common_fields.dart';
 
 class HrMessage extends DataMessage {
@@ -64,11 +63,13 @@ class HrMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 132;
   static const NAME = 'hr';
 
   final bool growable;
 
+  /// Returns an instance of HrMessage from a bytes list.
   static HrMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = HrMessage(definitionMessage: definitionMessage);
@@ -76,7 +77,7 @@ class HrMessage extends DataMessage {
     return message;
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
     final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
@@ -87,7 +88,7 @@ class HrMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
@@ -98,9 +99,12 @@ class HrMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the fractionalTimestamp field. Returns null if the field is not defined in the message.
   double? get fractionalTimestamp {
     final field = getField(HrFractionalTimestampField.ID);
     if (field != null && field.isValid()) {
@@ -111,6 +115,7 @@ class HrMessage extends DataMessage {
     }
   }
 
+  /// Sets the fractionalTimestamp field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set fractionalTimestamp(double? value) {
     final field = getField(HrFractionalTimestampField.ID);
 
@@ -121,9 +126,12 @@ class HrMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the time256 field. Returns null if the field is not defined in the message.
   double? get time256 {
     final field = getField(HrTime256Field.ID);
     if (field != null && field.isValid()) {
@@ -134,6 +142,7 @@ class HrMessage extends DataMessage {
     }
   }
 
+  /// Sets the time256 field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set time256(double? value) {
     final field = getField(HrTime256Field.ID);
 
@@ -144,9 +153,12 @@ class HrMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the filteredBpm field. Returns null if the field is not defined in the message.
   int? get filteredBpm {
     final field = getField(HrFilteredBpmField.ID);
     if (field != null && field.isValid()) {
@@ -157,6 +169,7 @@ class HrMessage extends DataMessage {
     }
   }
 
+  /// Sets the filteredBpm field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set filteredBpm(int? value) {
     final field = getField(HrFilteredBpmField.ID);
 
@@ -167,9 +180,12 @@ class HrMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the eventTimestamp field. Returns null if the field is not defined in the message.
   double? get eventTimestamp {
     final field = getField(HrEventTimestampField.ID);
     if (field != null && field.isValid()) {
@@ -180,6 +196,7 @@ class HrMessage extends DataMessage {
     }
   }
 
+  /// Sets the eventTimestamp field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set eventTimestamp(double? value) {
     final field = getField(HrEventTimestampField.ID);
 
@@ -190,9 +207,12 @@ class HrMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the eventTimestamp12 field. Returns null if the field is not defined in the message.
   int? get eventTimestamp12 {
     final field = getField(HrEventTimestamp12Field.ID);
     if (field != null && field.isValid()) {
@@ -203,6 +223,7 @@ class HrMessage extends DataMessage {
     }
   }
 
+  /// Sets the eventTimestamp12 field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set eventTimestamp12(int? value) {
     final field = getField(HrEventTimestamp12Field.ID);
 
@@ -213,6 +234,8 @@ class HrMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 }

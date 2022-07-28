@@ -6,6 +6,7 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
 import '../../sub_field.dart';
 import '../profile_type.dart';
@@ -124,11 +125,13 @@ class WorkoutStepMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 27;
   static const NAME = 'workout_step';
 
   final bool growable;
 
+  /// Returns an instance of WorkoutStepMessage from a bytes list.
   static WorkoutStepMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = WorkoutStepMessage(definitionMessage: definitionMessage);
@@ -136,6 +139,7 @@ class WorkoutStepMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the messageIndex field. Returns null if the field is not defined in the message.
   int? get messageIndex {
     final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
@@ -146,6 +150,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the messageIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
@@ -156,9 +161,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the workoutStepName field. Returns null if the field is not defined in the message.
   String? get workoutStepName {
     final field = getField(WorkoutStepWorkoutStepNameField.ID);
     if (field != null && field.isValid()) {
@@ -169,6 +177,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the workoutStepName field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set workoutStepName(String? value) {
     final field = getField(WorkoutStepWorkoutStepNameField.ID);
 
@@ -179,9 +188,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the durationType field. Returns null if the field is not defined in the message.
   WorkoutStepDuration? get durationType {
     final field = getField(WorkoutStepDurationTypeField.ID);
     if (field != null && field.isValid()) {
@@ -196,6 +208,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the durationType field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set durationType(WorkoutStepDuration? value) {
     final field = getField(WorkoutStepDurationTypeField.ID);
 
@@ -206,9 +219,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the durationValue field. Returns null if the field is not defined in the message.
   int? get durationValue {
     final field = getField(WorkoutStepDurationValueField.ID);
     if (field != null && field.isValid()) {
@@ -219,6 +235,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the durationValue field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set durationValue(int? value) {
     final field = getField(WorkoutStepDurationValueField.ID);
 
@@ -229,9 +246,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield durationTime
   double? get durationTime {
     final field = getField(WorkoutStepDurationValueField.ID);
     final typeField = getField(WorkoutStepDurationTypeField.ID);
@@ -246,6 +266,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the durationValue subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set durationTime(double? value) {
     final field = getField(WorkoutStepDurationValueField.ID);
     if (field != null) {
@@ -255,9 +276,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield durationDistance
   double? get durationDistance {
     final field = getField(WorkoutStepDurationValueField.ID);
     final typeField = getField(WorkoutStepDurationTypeField.ID);
@@ -272,6 +296,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the durationValue subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set durationDistance(double? value) {
     final field = getField(WorkoutStepDurationValueField.ID);
     if (field != null) {
@@ -281,9 +306,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield durationHr
   int? get durationHr {
     final field = getField(WorkoutStepDurationValueField.ID);
     final typeField = getField(WorkoutStepDurationTypeField.ID);
@@ -298,6 +326,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the durationValue subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set durationHr(int? value) {
     final field = getField(WorkoutStepDurationValueField.ID);
     if (field != null) {
@@ -307,9 +336,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield durationCalories
   int? get durationCalories {
     final field = getField(WorkoutStepDurationValueField.ID);
     final typeField = getField(WorkoutStepDurationTypeField.ID);
@@ -324,6 +356,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the durationValue subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set durationCalories(int? value) {
     final field = getField(WorkoutStepDurationValueField.ID);
     if (field != null) {
@@ -333,9 +366,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield durationStep
   int? get durationStep {
     final field = getField(WorkoutStepDurationValueField.ID);
     final typeField = getField(WorkoutStepDurationTypeField.ID);
@@ -350,6 +386,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the durationValue subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set durationStep(int? value) {
     final field = getField(WorkoutStepDurationValueField.ID);
     if (field != null) {
@@ -359,9 +396,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield durationPower
   int? get durationPower {
     final field = getField(WorkoutStepDurationValueField.ID);
     final typeField = getField(WorkoutStepDurationTypeField.ID);
@@ -376,6 +416,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the durationValue subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set durationPower(int? value) {
     final field = getField(WorkoutStepDurationValueField.ID);
     if (field != null) {
@@ -385,9 +426,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield durationReps
   int? get durationReps {
     final field = getField(WorkoutStepDurationValueField.ID);
     final typeField = getField(WorkoutStepDurationTypeField.ID);
@@ -402,6 +446,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the durationValue subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set durationReps(int? value) {
     final field = getField(WorkoutStepDurationValueField.ID);
     if (field != null) {
@@ -411,9 +456,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the targetType field. Returns null if the field is not defined in the message.
   WorkoutStepTarget? get targetType {
     final field = getField(WorkoutStepTargetTypeField.ID);
     if (field != null && field.isValid()) {
@@ -428,6 +476,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the targetType field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set targetType(WorkoutStepTarget? value) {
     final field = getField(WorkoutStepTargetTypeField.ID);
 
@@ -438,9 +487,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the targetValue field. Returns null if the field is not defined in the message.
   int? get targetValue {
     final field = getField(WorkoutStepTargetValueField.ID);
     if (field != null && field.isValid()) {
@@ -451,6 +503,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the targetValue field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set targetValue(int? value) {
     final field = getField(WorkoutStepTargetValueField.ID);
 
@@ -461,9 +514,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield targetSpeedZone
   int? get targetSpeedZone {
     final field = getField(WorkoutStepTargetValueField.ID);
     final typeField = getField(WorkoutStepTargetTypeField.ID);
@@ -478,6 +534,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the targetValue subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set targetSpeedZone(int? value) {
     final field = getField(WorkoutStepTargetValueField.ID);
     if (field != null) {
@@ -487,9 +544,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield targetHrZone
   int? get targetHrZone {
     final field = getField(WorkoutStepTargetValueField.ID);
     final typeField = getField(WorkoutStepTargetTypeField.ID);
@@ -504,6 +564,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the targetValue subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set targetHrZone(int? value) {
     final field = getField(WorkoutStepTargetValueField.ID);
     if (field != null) {
@@ -513,9 +574,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield targetCadenceZone
   int? get targetCadenceZone {
     final field = getField(WorkoutStepTargetValueField.ID);
     final typeField = getField(WorkoutStepTargetTypeField.ID);
@@ -530,6 +594,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the targetValue subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set targetCadenceZone(int? value) {
     final field = getField(WorkoutStepTargetValueField.ID);
     if (field != null) {
@@ -539,9 +604,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield targetPowerZone
   int? get targetPowerZone {
     final field = getField(WorkoutStepTargetValueField.ID);
     final typeField = getField(WorkoutStepTargetTypeField.ID);
@@ -556,6 +624,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the targetValue subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set targetPowerZone(int? value) {
     final field = getField(WorkoutStepTargetValueField.ID);
     if (field != null) {
@@ -565,9 +634,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield targetRepeatSteps
   int? get targetRepeatSteps {
     final field = getField(WorkoutStepTargetValueField.ID);
     final typeField = getField(WorkoutStepDurationTypeField.ID);
@@ -582,6 +654,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the targetValue subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set targetRepeatSteps(int? value) {
     final field = getField(WorkoutStepTargetValueField.ID);
     if (field != null) {
@@ -591,9 +664,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield targetRepeatTime
   double? get targetRepeatTime {
     final field = getField(WorkoutStepTargetValueField.ID);
     final typeField = getField(WorkoutStepDurationTypeField.ID);
@@ -608,6 +684,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the targetValue subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set targetRepeatTime(double? value) {
     final field = getField(WorkoutStepTargetValueField.ID);
     if (field != null) {
@@ -617,9 +694,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield targetRepeatDistance
   double? get targetRepeatDistance {
     final field = getField(WorkoutStepTargetValueField.ID);
     final typeField = getField(WorkoutStepDurationTypeField.ID);
@@ -634,6 +714,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the targetValue subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set targetRepeatDistance(double? value) {
     final field = getField(WorkoutStepTargetValueField.ID);
     if (field != null) {
@@ -643,9 +724,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield targetRepeatCalories
   int? get targetRepeatCalories {
     final field = getField(WorkoutStepTargetValueField.ID);
     final typeField = getField(WorkoutStepDurationTypeField.ID);
@@ -660,6 +744,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the targetValue subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set targetRepeatCalories(int? value) {
     final field = getField(WorkoutStepTargetValueField.ID);
     if (field != null) {
@@ -669,9 +754,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield targetRepeatHr
   int? get targetRepeatHr {
     final field = getField(WorkoutStepTargetValueField.ID);
     final typeField = getField(WorkoutStepDurationTypeField.ID);
@@ -686,6 +774,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the targetValue subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set targetRepeatHr(int? value) {
     final field = getField(WorkoutStepTargetValueField.ID);
     if (field != null) {
@@ -695,9 +784,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield targetRepeatPower
   int? get targetRepeatPower {
     final field = getField(WorkoutStepTargetValueField.ID);
     final typeField = getField(WorkoutStepDurationTypeField.ID);
@@ -712,6 +804,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the targetValue subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set targetRepeatPower(int? value) {
     final field = getField(WorkoutStepTargetValueField.ID);
     if (field != null) {
@@ -721,9 +814,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield targetStrokeType
   SwimStroke? get targetStrokeType {
     final field = getField(WorkoutStepTargetValueField.ID);
     final typeField = getField(WorkoutStepTargetTypeField.ID);
@@ -738,6 +834,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the targetValue subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set targetStrokeType(SwimStroke? value) {
     final field = getField(WorkoutStepTargetValueField.ID);
     if (field != null) {
@@ -747,9 +844,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the customTargetValueLow field. Returns null if the field is not defined in the message.
   int? get customTargetValueLow {
     final field = getField(WorkoutStepCustomTargetValueLowField.ID);
     if (field != null && field.isValid()) {
@@ -760,6 +860,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the customTargetValueLow field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set customTargetValueLow(int? value) {
     final field = getField(WorkoutStepCustomTargetValueLowField.ID);
 
@@ -770,9 +871,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield customTargetSpeedLow
   double? get customTargetSpeedLow {
     final field = getField(WorkoutStepCustomTargetValueLowField.ID);
     final typeField = getField(WorkoutStepTargetTypeField.ID);
@@ -787,6 +891,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the customTargetValueLow subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set customTargetSpeedLow(double? value) {
     final field = getField(WorkoutStepCustomTargetValueLowField.ID);
     if (field != null) {
@@ -796,9 +901,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield customTargetHeartRateLow
   int? get customTargetHeartRateLow {
     final field = getField(WorkoutStepCustomTargetValueLowField.ID);
     final typeField = getField(WorkoutStepTargetTypeField.ID);
@@ -813,6 +921,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the customTargetValueLow subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set customTargetHeartRateLow(int? value) {
     final field = getField(WorkoutStepCustomTargetValueLowField.ID);
     if (field != null) {
@@ -822,9 +931,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield customTargetCadenceLow
   int? get customTargetCadenceLow {
     final field = getField(WorkoutStepCustomTargetValueLowField.ID);
     final typeField = getField(WorkoutStepTargetTypeField.ID);
@@ -839,6 +951,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the customTargetValueLow subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set customTargetCadenceLow(int? value) {
     final field = getField(WorkoutStepCustomTargetValueLowField.ID);
     if (field != null) {
@@ -848,9 +961,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield customTargetPowerLow
   int? get customTargetPowerLow {
     final field = getField(WorkoutStepCustomTargetValueLowField.ID);
     final typeField = getField(WorkoutStepTargetTypeField.ID);
@@ -865,6 +981,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the customTargetValueLow subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set customTargetPowerLow(int? value) {
     final field = getField(WorkoutStepCustomTargetValueLowField.ID);
     if (field != null) {
@@ -874,9 +991,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the customTargetValueHigh field. Returns null if the field is not defined in the message.
   int? get customTargetValueHigh {
     final field = getField(WorkoutStepCustomTargetValueHighField.ID);
     if (field != null && field.isValid()) {
@@ -887,6 +1007,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the customTargetValueHigh field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set customTargetValueHigh(int? value) {
     final field = getField(WorkoutStepCustomTargetValueHighField.ID);
 
@@ -897,9 +1018,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield customTargetSpeedHigh
   double? get customTargetSpeedHigh {
     final field = getField(WorkoutStepCustomTargetValueHighField.ID);
     final typeField = getField(WorkoutStepTargetTypeField.ID);
@@ -914,6 +1038,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the customTargetValueHigh subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set customTargetSpeedHigh(double? value) {
     final field = getField(WorkoutStepCustomTargetValueHighField.ID);
     if (field != null) {
@@ -923,9 +1048,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield customTargetHeartRateHigh
   int? get customTargetHeartRateHigh {
     final field = getField(WorkoutStepCustomTargetValueHighField.ID);
     final typeField = getField(WorkoutStepTargetTypeField.ID);
@@ -940,6 +1068,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the customTargetValueHigh subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set customTargetHeartRateHigh(int? value) {
     final field = getField(WorkoutStepCustomTargetValueHighField.ID);
     if (field != null) {
@@ -949,9 +1078,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield customTargetCadenceHigh
   int? get customTargetCadenceHigh {
     final field = getField(WorkoutStepCustomTargetValueHighField.ID);
     final typeField = getField(WorkoutStepTargetTypeField.ID);
@@ -966,6 +1098,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the customTargetValueHigh subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set customTargetCadenceHigh(int? value) {
     final field = getField(WorkoutStepCustomTargetValueHighField.ID);
     if (field != null) {
@@ -975,9 +1108,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield customTargetPowerHigh
   int? get customTargetPowerHigh {
     final field = getField(WorkoutStepCustomTargetValueHighField.ID);
     final typeField = getField(WorkoutStepTargetTypeField.ID);
@@ -992,6 +1128,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the customTargetValueHigh subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set customTargetPowerHigh(int? value) {
     final field = getField(WorkoutStepCustomTargetValueHighField.ID);
     if (field != null) {
@@ -1001,9 +1138,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the intensity field. Returns null if the field is not defined in the message.
   Intensity? get intensity {
     final field = getField(WorkoutStepIntensityField.ID);
     if (field != null && field.isValid()) {
@@ -1018,6 +1158,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the intensity field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set intensity(Intensity? value) {
     final field = getField(WorkoutStepIntensityField.ID);
 
@@ -1028,9 +1169,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the notes field. Returns null if the field is not defined in the message.
   String? get notes {
     final field = getField(WorkoutStepNotesField.ID);
     if (field != null && field.isValid()) {
@@ -1041,6 +1185,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the notes field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set notes(String? value) {
     final field = getField(WorkoutStepNotesField.ID);
 
@@ -1051,9 +1196,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the equipment field. Returns null if the field is not defined in the message.
   WorkoutEquipment? get equipment {
     final field = getField(WorkoutStepEquipmentField.ID);
     if (field != null && field.isValid()) {
@@ -1068,6 +1216,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the equipment field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set equipment(WorkoutEquipment? value) {
     final field = getField(WorkoutStepEquipmentField.ID);
 
@@ -1078,9 +1227,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the exerciseCategory field. Returns null if the field is not defined in the message.
   int? get exerciseCategory {
     final field = getField(WorkoutStepExerciseCategoryField.ID);
     if (field != null && field.isValid()) {
@@ -1091,6 +1243,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the exerciseCategory field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set exerciseCategory(int? value) {
     final field = getField(WorkoutStepExerciseCategoryField.ID);
 
@@ -1101,9 +1254,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the exerciseName field. Returns null if the field is not defined in the message.
   int? get exerciseName {
     final field = getField(WorkoutStepExerciseNameField.ID);
     if (field != null && field.isValid()) {
@@ -1114,6 +1270,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the exerciseName field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set exerciseName(int? value) {
     final field = getField(WorkoutStepExerciseNameField.ID);
 
@@ -1124,9 +1281,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the exerciseWeight field. Returns null if the field is not defined in the message.
   double? get exerciseWeight {
     final field = getField(WorkoutStepExerciseWeightField.ID);
     if (field != null && field.isValid()) {
@@ -1137,6 +1297,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the exerciseWeight field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set exerciseWeight(double? value) {
     final field = getField(WorkoutStepExerciseWeightField.ID);
 
@@ -1147,9 +1308,12 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the weightDisplayUnit field. Returns null if the field is not defined in the message.
   int? get weightDisplayUnit {
     final field = getField(WorkoutStepWeightDisplayUnitField.ID);
     if (field != null && field.isValid()) {
@@ -1160,6 +1324,7 @@ class WorkoutStepMessage extends DataMessage {
     }
   }
 
+  /// Sets the weightDisplayUnit field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set weightDisplayUnit(int? value) {
     final field = getField(WorkoutStepWeightDisplayUnitField.ID);
 
@@ -1170,6 +1335,8 @@ class WorkoutStepMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 }

@@ -6,10 +6,9 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
 import '../profile_type.dart';
-import 'common_fields.dart';
 
 class WorkoutMessage extends DataMessage {
   WorkoutMessage(
@@ -70,11 +69,13 @@ class WorkoutMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 26;
   static const NAME = 'workout';
 
   final bool growable;
 
+  /// Returns an instance of WorkoutMessage from a bytes list.
   static WorkoutMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = WorkoutMessage(definitionMessage: definitionMessage);
@@ -82,6 +83,7 @@ class WorkoutMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the sport field. Returns null if the field is not defined in the message.
   Sport? get sport {
     final field = getField(WorkoutSportField.ID);
     if (field != null && field.isValid()) {
@@ -96,6 +98,7 @@ class WorkoutMessage extends DataMessage {
     }
   }
 
+  /// Sets the sport field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set sport(Sport? value) {
     final field = getField(WorkoutSportField.ID);
 
@@ -106,9 +109,12 @@ class WorkoutMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the capabilities field. Returns null if the field is not defined in the message.
   int? get capabilities {
     final field = getField(WorkoutCapabilitiesField.ID);
     if (field != null && field.isValid()) {
@@ -119,6 +125,7 @@ class WorkoutMessage extends DataMessage {
     }
   }
 
+  /// Sets the capabilities field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set capabilities(int? value) {
     final field = getField(WorkoutCapabilitiesField.ID);
 
@@ -129,9 +136,12 @@ class WorkoutMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the numValidSteps field. Returns null if the field is not defined in the message.
   int? get numValidSteps {
     final field = getField(WorkoutNumValidStepsField.ID);
     if (field != null && field.isValid()) {
@@ -142,6 +152,7 @@ class WorkoutMessage extends DataMessage {
     }
   }
 
+  /// Sets the numValidSteps field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set numValidSteps(int? value) {
     final field = getField(WorkoutNumValidStepsField.ID);
 
@@ -152,9 +163,12 @@ class WorkoutMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the workoutName field. Returns null if the field is not defined in the message.
   String? get workoutName {
     final field = getField(WorkoutWorkoutNameField.ID);
     if (field != null && field.isValid()) {
@@ -165,6 +179,7 @@ class WorkoutMessage extends DataMessage {
     }
   }
 
+  /// Sets the workoutName field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set workoutName(String? value) {
     final field = getField(WorkoutWorkoutNameField.ID);
 
@@ -175,9 +190,12 @@ class WorkoutMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the subSport field. Returns null if the field is not defined in the message.
   SubSport? get subSport {
     final field = getField(WorkoutSubSportField.ID);
     if (field != null && field.isValid()) {
@@ -192,6 +210,7 @@ class WorkoutMessage extends DataMessage {
     }
   }
 
+  /// Sets the subSport field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set subSport(SubSport? value) {
     final field = getField(WorkoutSubSportField.ID);
 
@@ -202,9 +221,12 @@ class WorkoutMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the poolLength field. Returns null if the field is not defined in the message.
   double? get poolLength {
     final field = getField(WorkoutPoolLengthField.ID);
     if (field != null && field.isValid()) {
@@ -215,6 +237,7 @@ class WorkoutMessage extends DataMessage {
     }
   }
 
+  /// Sets the poolLength field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set poolLength(double? value) {
     final field = getField(WorkoutPoolLengthField.ID);
 
@@ -225,9 +248,12 @@ class WorkoutMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the poolLengthUnit field. Returns null if the field is not defined in the message.
   DisplayMeasure? get poolLengthUnit {
     final field = getField(WorkoutPoolLengthUnitField.ID);
     if (field != null && field.isValid()) {
@@ -242,6 +268,7 @@ class WorkoutMessage extends DataMessage {
     }
   }
 
+  /// Sets the poolLengthUnit field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set poolLengthUnit(DisplayMeasure? value) {
     final field = getField(WorkoutPoolLengthUnitField.ID);
 
@@ -252,6 +279,8 @@ class WorkoutMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 }

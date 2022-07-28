@@ -6,8 +6,8 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
 import '../profile_type.dart';
 import 'common_fields.dart';
 
@@ -76,11 +76,13 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 149;
   static const NAME = 'segment_leaderboard_entry';
 
   final bool growable;
 
+  /// Returns an instance of SegmentLeaderboardEntryMessage from a bytes list.
   static SegmentLeaderboardEntryMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message =
@@ -89,6 +91,7 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the messageIndex field. Returns null if the field is not defined in the message.
   int? get messageIndex {
     final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
@@ -99,6 +102,7 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
     }
   }
 
+  /// Sets the messageIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
@@ -109,9 +113,12 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the segmentLeaderboardEntryName field. Returns null if the field is not defined in the message.
   String? get segmentLeaderboardEntryName {
     final field = getField(SegmentLeaderboardEntryNameField.ID);
     if (field != null && field.isValid()) {
@@ -122,6 +129,7 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
     }
   }
 
+  /// Sets the segmentLeaderboardEntryName field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set segmentLeaderboardEntryName(String? value) {
     final field = getField(SegmentLeaderboardEntryNameField.ID);
 
@@ -132,9 +140,12 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the type field. Returns null if the field is not defined in the message.
   SegmentLeaderboardType? get type {
     final field = getField(SegmentLeaderboardEntryTypeField.ID);
     if (field != null && field.isValid()) {
@@ -149,6 +160,7 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
     }
   }
 
+  /// Sets the type field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set type(SegmentLeaderboardType? value) {
     final field = getField(SegmentLeaderboardEntryTypeField.ID);
 
@@ -159,9 +171,12 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the groupPrimaryKey field. Returns null if the field is not defined in the message.
   int? get groupPrimaryKey {
     final field = getField(SegmentLeaderboardEntryGroupPrimaryKeyField.ID);
     if (field != null && field.isValid()) {
@@ -172,6 +187,7 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
     }
   }
 
+  /// Sets the groupPrimaryKey field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set groupPrimaryKey(int? value) {
     final field = getField(SegmentLeaderboardEntryGroupPrimaryKeyField.ID);
 
@@ -182,9 +198,12 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the activityId field. Returns null if the field is not defined in the message.
   int? get activityId {
     final field = getField(SegmentLeaderboardEntryActivityIdField.ID);
     if (field != null && field.isValid()) {
@@ -195,6 +214,7 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
     }
   }
 
+  /// Sets the activityId field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set activityId(int? value) {
     final field = getField(SegmentLeaderboardEntryActivityIdField.ID);
 
@@ -205,9 +225,12 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the segmentTime field. Returns null if the field is not defined in the message.
   double? get segmentTime {
     final field = getField(SegmentLeaderboardEntrySegmentTimeField.ID);
     if (field != null && field.isValid()) {
@@ -218,6 +241,7 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
     }
   }
 
+  /// Sets the segmentTime field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set segmentTime(double? value) {
     final field = getField(SegmentLeaderboardEntrySegmentTimeField.ID);
 
@@ -228,9 +252,12 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the activityIdString field. Returns null if the field is not defined in the message.
   String? get activityIdString {
     final field = getField(SegmentLeaderboardEntryActivityIdStringField.ID);
     if (field != null && field.isValid()) {
@@ -241,6 +268,7 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
     }
   }
 
+  /// Sets the activityIdString field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set activityIdString(String? value) {
     final field = getField(SegmentLeaderboardEntryActivityIdStringField.ID);
 
@@ -251,6 +279,8 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 }

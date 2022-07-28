@@ -6,8 +6,8 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
 import '../profile_type.dart';
 import 'common_fields.dart';
 
@@ -52,11 +52,13 @@ class DiveGasMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 259;
   static const NAME = 'dive_gas';
 
   final bool growable;
 
+  /// Returns an instance of DiveGasMessage from a bytes list.
   static DiveGasMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = DiveGasMessage(definitionMessage: definitionMessage);
@@ -64,6 +66,7 @@ class DiveGasMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the messageIndex field. Returns null if the field is not defined in the message.
   int? get messageIndex {
     final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
@@ -74,6 +77,7 @@ class DiveGasMessage extends DataMessage {
     }
   }
 
+  /// Sets the messageIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
@@ -84,9 +88,12 @@ class DiveGasMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the heliumContent field. Returns null if the field is not defined in the message.
   int? get heliumContent {
     final field = getField(DiveGasHeliumContentField.ID);
     if (field != null && field.isValid()) {
@@ -97,6 +104,7 @@ class DiveGasMessage extends DataMessage {
     }
   }
 
+  /// Sets the heliumContent field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set heliumContent(int? value) {
     final field = getField(DiveGasHeliumContentField.ID);
 
@@ -107,9 +115,12 @@ class DiveGasMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the oxygenContent field. Returns null if the field is not defined in the message.
   int? get oxygenContent {
     final field = getField(DiveGasOxygenContentField.ID);
     if (field != null && field.isValid()) {
@@ -120,6 +131,7 @@ class DiveGasMessage extends DataMessage {
     }
   }
 
+  /// Sets the oxygenContent field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set oxygenContent(int? value) {
     final field = getField(DiveGasOxygenContentField.ID);
 
@@ -130,9 +142,12 @@ class DiveGasMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the status field. Returns null if the field is not defined in the message.
   DiveGasStatus? get status {
     final field = getField(DiveGasStatusField.ID);
     if (field != null && field.isValid()) {
@@ -147,6 +162,7 @@ class DiveGasMessage extends DataMessage {
     }
   }
 
+  /// Sets the status field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set status(DiveGasStatus? value) {
     final field = getField(DiveGasStatusField.ID);
 
@@ -157,6 +173,8 @@ class DiveGasMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 }

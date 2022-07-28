@@ -6,10 +6,8 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
-import '../profile_type.dart';
-import 'common_fields.dart';
 
 class VideoMessage extends DataMessage {
   VideoMessage(
@@ -46,11 +44,13 @@ class VideoMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 184;
   static const NAME = 'video';
 
   final bool growable;
 
+  /// Returns an instance of VideoMessage from a bytes list.
   static VideoMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = VideoMessage(definitionMessage: definitionMessage);
@@ -58,6 +58,7 @@ class VideoMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the url field. Returns null if the field is not defined in the message.
   String? get url {
     final field = getField(VideoUrlField.ID);
     if (field != null && field.isValid()) {
@@ -68,6 +69,7 @@ class VideoMessage extends DataMessage {
     }
   }
 
+  /// Sets the url field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set url(String? value) {
     final field = getField(VideoUrlField.ID);
 
@@ -78,9 +80,12 @@ class VideoMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the hostingProvider field. Returns null if the field is not defined in the message.
   String? get hostingProvider {
     final field = getField(VideoHostingProviderField.ID);
     if (field != null && field.isValid()) {
@@ -91,6 +96,7 @@ class VideoMessage extends DataMessage {
     }
   }
 
+  /// Sets the hostingProvider field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set hostingProvider(String? value) {
     final field = getField(VideoHostingProviderField.ID);
 
@@ -101,9 +107,12 @@ class VideoMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the duration field. Returns null if the field is not defined in the message.
   int? get duration {
     final field = getField(VideoDurationField.ID);
     if (field != null && field.isValid()) {
@@ -114,6 +123,7 @@ class VideoMessage extends DataMessage {
     }
   }
 
+  /// Sets the duration field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set duration(int? value) {
     final field = getField(VideoDurationField.ID);
 
@@ -124,6 +134,8 @@ class VideoMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 }

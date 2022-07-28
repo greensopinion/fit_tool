@@ -6,8 +6,8 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
 import '../profile_type.dart';
 import 'common_fields.dart';
 
@@ -65,11 +65,13 @@ class FileCapabilitiesMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 37;
   static const NAME = 'file_capabilities';
 
   final bool growable;
 
+  /// Returns an instance of FileCapabilitiesMessage from a bytes list.
   static FileCapabilitiesMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message =
@@ -78,6 +80,7 @@ class FileCapabilitiesMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the messageIndex field. Returns null if the field is not defined in the message.
   int? get messageIndex {
     final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
@@ -88,6 +91,7 @@ class FileCapabilitiesMessage extends DataMessage {
     }
   }
 
+  /// Sets the messageIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
@@ -98,9 +102,12 @@ class FileCapabilitiesMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the type field. Returns null if the field is not defined in the message.
   FileType? get type {
     final field = getField(FileCapabilitiesTypeField.ID);
     if (field != null && field.isValid()) {
@@ -115,6 +122,7 @@ class FileCapabilitiesMessage extends DataMessage {
     }
   }
 
+  /// Sets the type field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set type(FileType? value) {
     final field = getField(FileCapabilitiesTypeField.ID);
 
@@ -125,9 +133,12 @@ class FileCapabilitiesMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the flags field. Returns null if the field is not defined in the message.
   int? get flags {
     final field = getField(FileCapabilitiesFlagsField.ID);
     if (field != null && field.isValid()) {
@@ -138,6 +149,7 @@ class FileCapabilitiesMessage extends DataMessage {
     }
   }
 
+  /// Sets the flags field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set flags(int? value) {
     final field = getField(FileCapabilitiesFlagsField.ID);
 
@@ -148,9 +160,12 @@ class FileCapabilitiesMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the directory field. Returns null if the field is not defined in the message.
   String? get directory {
     final field = getField(FileCapabilitiesDirectoryField.ID);
     if (field != null && field.isValid()) {
@@ -161,6 +176,7 @@ class FileCapabilitiesMessage extends DataMessage {
     }
   }
 
+  /// Sets the directory field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set directory(String? value) {
     final field = getField(FileCapabilitiesDirectoryField.ID);
 
@@ -171,9 +187,12 @@ class FileCapabilitiesMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the maxCount field. Returns null if the field is not defined in the message.
   int? get maxCount {
     final field = getField(FileCapabilitiesMaxCountField.ID);
     if (field != null && field.isValid()) {
@@ -184,6 +203,7 @@ class FileCapabilitiesMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxCount field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxCount(int? value) {
     final field = getField(FileCapabilitiesMaxCountField.ID);
 
@@ -194,9 +214,12 @@ class FileCapabilitiesMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the maxSize field. Returns null if the field is not defined in the message.
   int? get maxSize {
     final field = getField(FileCapabilitiesMaxSizeField.ID);
     if (field != null && field.isValid()) {
@@ -207,6 +230,7 @@ class FileCapabilitiesMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxSize field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxSize(int? value) {
     final field = getField(FileCapabilitiesMaxSizeField.ID);
 
@@ -217,6 +241,8 @@ class FileCapabilitiesMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 }

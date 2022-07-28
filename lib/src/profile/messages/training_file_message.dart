@@ -6,6 +6,7 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
 import '../../sub_field.dart';
 import '../profile_type.dart';
@@ -64,11 +65,13 @@ class TrainingFileMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 72;
   static const NAME = 'training_file';
 
   final bool growable;
 
+  /// Returns an instance of TrainingFileMessage from a bytes list.
   static TrainingFileMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = TrainingFileMessage(definitionMessage: definitionMessage);
@@ -76,7 +79,7 @@ class TrainingFileMessage extends DataMessage {
     return message;
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
     final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
@@ -87,7 +90,7 @@ class TrainingFileMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
@@ -98,9 +101,12 @@ class TrainingFileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the type field. Returns null if the field is not defined in the message.
   FileType? get type {
     final field = getField(TrainingFileTypeField.ID);
     if (field != null && field.isValid()) {
@@ -115,6 +121,7 @@ class TrainingFileMessage extends DataMessage {
     }
   }
 
+  /// Sets the type field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set type(FileType? value) {
     final field = getField(TrainingFileTypeField.ID);
 
@@ -125,9 +132,12 @@ class TrainingFileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the manufacturer field. Returns null if the field is not defined in the message.
   int? get manufacturer {
     final field = getField(TrainingFileManufacturerField.ID);
     if (field != null && field.isValid()) {
@@ -138,6 +148,7 @@ class TrainingFileMessage extends DataMessage {
     }
   }
 
+  /// Sets the manufacturer field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set manufacturer(int? value) {
     final field = getField(TrainingFileManufacturerField.ID);
 
@@ -148,9 +159,12 @@ class TrainingFileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the product field. Returns null if the field is not defined in the message.
   int? get product {
     final field = getField(TrainingFileProductField.ID);
     if (field != null && field.isValid()) {
@@ -161,6 +175,7 @@ class TrainingFileMessage extends DataMessage {
     }
   }
 
+  /// Sets the product field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set product(int? value) {
     final field = getField(TrainingFileProductField.ID);
 
@@ -171,9 +186,12 @@ class TrainingFileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield faveroProduct
   int? get faveroProduct {
     final field = getField(TrainingFileProductField.ID);
     final typeField = getField(TrainingFileManufacturerField.ID);
@@ -188,6 +206,7 @@ class TrainingFileMessage extends DataMessage {
     }
   }
 
+  /// Sets the product subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set faveroProduct(int? value) {
     final field = getField(TrainingFileProductField.ID);
     if (field != null) {
@@ -197,9 +216,12 @@ class TrainingFileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield garminProduct
   int? get garminProduct {
     final field = getField(TrainingFileProductField.ID);
     final typeField = getField(TrainingFileManufacturerField.ID);
@@ -214,6 +236,7 @@ class TrainingFileMessage extends DataMessage {
     }
   }
 
+  /// Sets the product subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set garminProduct(int? value) {
     final field = getField(TrainingFileProductField.ID);
     if (field != null) {
@@ -223,9 +246,12 @@ class TrainingFileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the serialNumber field. Returns null if the field is not defined in the message.
   int? get serialNumber {
     final field = getField(TrainingFileSerialNumberField.ID);
     if (field != null && field.isValid()) {
@@ -236,6 +262,7 @@ class TrainingFileMessage extends DataMessage {
     }
   }
 
+  /// Sets the serialNumber field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set serialNumber(int? value) {
     final field = getField(TrainingFileSerialNumberField.ID);
 
@@ -246,10 +273,12 @@ class TrainingFileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get timeCreated {
     final field = getField(TrainingFileTimeCreatedField.ID);
     if (field != null && field.isValid()) {
@@ -260,7 +289,7 @@ class TrainingFileMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timeCreated(int? value) {
     final field = getField(TrainingFileTimeCreatedField.ID);
 
@@ -271,6 +300,8 @@ class TrainingFileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 }

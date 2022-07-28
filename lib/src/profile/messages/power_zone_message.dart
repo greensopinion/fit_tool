@@ -6,9 +6,8 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
-import '../profile_type.dart';
 import 'common_fields.dart';
 
 class PowerZoneMessage extends DataMessage {
@@ -46,11 +45,13 @@ class PowerZoneMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 9;
   static const NAME = 'power_zone';
 
   final bool growable;
 
+  /// Returns an instance of PowerZoneMessage from a bytes list.
   static PowerZoneMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = PowerZoneMessage(definitionMessage: definitionMessage);
@@ -58,6 +59,7 @@ class PowerZoneMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the messageIndex field. Returns null if the field is not defined in the message.
   int? get messageIndex {
     final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
@@ -68,6 +70,7 @@ class PowerZoneMessage extends DataMessage {
     }
   }
 
+  /// Sets the messageIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
@@ -78,9 +81,12 @@ class PowerZoneMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the highValue field. Returns null if the field is not defined in the message.
   int? get highValue {
     final field = getField(PowerZoneHighValueField.ID);
     if (field != null && field.isValid()) {
@@ -91,6 +97,7 @@ class PowerZoneMessage extends DataMessage {
     }
   }
 
+  /// Sets the highValue field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set highValue(int? value) {
     final field = getField(PowerZoneHighValueField.ID);
 
@@ -101,9 +108,12 @@ class PowerZoneMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the powerZoneName field. Returns null if the field is not defined in the message.
   String? get powerZoneName {
     final field = getField(PowerZoneNameField.ID);
     if (field != null && field.isValid()) {
@@ -114,6 +124,7 @@ class PowerZoneMessage extends DataMessage {
     }
   }
 
+  /// Sets the powerZoneName field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set powerZoneName(String? value) {
     final field = getField(PowerZoneNameField.ID);
 
@@ -124,6 +135,8 @@ class PowerZoneMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 }

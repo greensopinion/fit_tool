@@ -6,10 +6,8 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
-import '../profile_type.dart';
-import 'common_fields.dart';
 
 class ConnectivityMessage extends DataMessage {
   ConnectivityMessage(
@@ -117,11 +115,13 @@ class ConnectivityMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 127;
   static const NAME = 'connectivity';
 
   final bool growable;
 
+  /// Returns an instance of ConnectivityMessage from a bytes list.
   static ConnectivityMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = ConnectivityMessage(definitionMessage: definitionMessage);
@@ -129,6 +129,7 @@ class ConnectivityMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the bluetoothEnabled field. Returns null if the field is not defined in the message.
   bool? get bluetoothEnabled {
     final field = getField(ConnectivityBluetoothEnabledField.ID);
     if (field != null && field.isValid()) {
@@ -139,6 +140,7 @@ class ConnectivityMessage extends DataMessage {
     }
   }
 
+  /// Sets the bluetoothEnabled field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set bluetoothEnabled(bool? value) {
     final field = getField(ConnectivityBluetoothEnabledField.ID);
 
@@ -149,9 +151,12 @@ class ConnectivityMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the bluetoothLeEnabled field. Returns null if the field is not defined in the message.
   bool? get bluetoothLeEnabled {
     final field = getField(ConnectivityBluetoothLeEnabledField.ID);
     if (field != null && field.isValid()) {
@@ -162,6 +167,7 @@ class ConnectivityMessage extends DataMessage {
     }
   }
 
+  /// Sets the bluetoothLeEnabled field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set bluetoothLeEnabled(bool? value) {
     final field = getField(ConnectivityBluetoothLeEnabledField.ID);
 
@@ -172,9 +178,12 @@ class ConnectivityMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the antEnabled field. Returns null if the field is not defined in the message.
   bool? get antEnabled {
     final field = getField(ConnectivityAntEnabledField.ID);
     if (field != null && field.isValid()) {
@@ -185,6 +194,7 @@ class ConnectivityMessage extends DataMessage {
     }
   }
 
+  /// Sets the antEnabled field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set antEnabled(bool? value) {
     final field = getField(ConnectivityAntEnabledField.ID);
 
@@ -195,9 +205,12 @@ class ConnectivityMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the connectivityName field. Returns null if the field is not defined in the message.
   String? get connectivityName {
     final field = getField(ConnectivityNameField.ID);
     if (field != null && field.isValid()) {
@@ -208,6 +221,7 @@ class ConnectivityMessage extends DataMessage {
     }
   }
 
+  /// Sets the connectivityName field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set connectivityName(String? value) {
     final field = getField(ConnectivityNameField.ID);
 
@@ -218,9 +232,12 @@ class ConnectivityMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the liveTrackingEnabled field. Returns null if the field is not defined in the message.
   bool? get liveTrackingEnabled {
     final field = getField(ConnectivityLiveTrackingEnabledField.ID);
     if (field != null && field.isValid()) {
@@ -231,6 +248,7 @@ class ConnectivityMessage extends DataMessage {
     }
   }
 
+  /// Sets the liveTrackingEnabled field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set liveTrackingEnabled(bool? value) {
     final field = getField(ConnectivityLiveTrackingEnabledField.ID);
 
@@ -241,9 +259,12 @@ class ConnectivityMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the weatherConditionsEnabled field. Returns null if the field is not defined in the message.
   bool? get weatherConditionsEnabled {
     final field = getField(ConnectivityWeatherConditionsEnabledField.ID);
     if (field != null && field.isValid()) {
@@ -254,6 +275,7 @@ class ConnectivityMessage extends DataMessage {
     }
   }
 
+  /// Sets the weatherConditionsEnabled field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set weatherConditionsEnabled(bool? value) {
     final field = getField(ConnectivityWeatherConditionsEnabledField.ID);
 
@@ -264,9 +286,12 @@ class ConnectivityMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the weatherAlertsEnabled field. Returns null if the field is not defined in the message.
   bool? get weatherAlertsEnabled {
     final field = getField(ConnectivityWeatherAlertsEnabledField.ID);
     if (field != null && field.isValid()) {
@@ -277,6 +302,7 @@ class ConnectivityMessage extends DataMessage {
     }
   }
 
+  /// Sets the weatherAlertsEnabled field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set weatherAlertsEnabled(bool? value) {
     final field = getField(ConnectivityWeatherAlertsEnabledField.ID);
 
@@ -287,9 +313,12 @@ class ConnectivityMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the autoActivityUploadEnabled field. Returns null if the field is not defined in the message.
   bool? get autoActivityUploadEnabled {
     final field = getField(ConnectivityAutoActivityUploadEnabledField.ID);
     if (field != null && field.isValid()) {
@@ -300,6 +329,7 @@ class ConnectivityMessage extends DataMessage {
     }
   }
 
+  /// Sets the autoActivityUploadEnabled field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set autoActivityUploadEnabled(bool? value) {
     final field = getField(ConnectivityAutoActivityUploadEnabledField.ID);
 
@@ -310,9 +340,12 @@ class ConnectivityMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the courseDownloadEnabled field. Returns null if the field is not defined in the message.
   bool? get courseDownloadEnabled {
     final field = getField(ConnectivityCourseDownloadEnabledField.ID);
     if (field != null && field.isValid()) {
@@ -323,6 +356,7 @@ class ConnectivityMessage extends DataMessage {
     }
   }
 
+  /// Sets the courseDownloadEnabled field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set courseDownloadEnabled(bool? value) {
     final field = getField(ConnectivityCourseDownloadEnabledField.ID);
 
@@ -333,9 +367,12 @@ class ConnectivityMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the workoutDownloadEnabled field. Returns null if the field is not defined in the message.
   bool? get workoutDownloadEnabled {
     final field = getField(ConnectivityWorkoutDownloadEnabledField.ID);
     if (field != null && field.isValid()) {
@@ -346,6 +383,7 @@ class ConnectivityMessage extends DataMessage {
     }
   }
 
+  /// Sets the workoutDownloadEnabled field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set workoutDownloadEnabled(bool? value) {
     final field = getField(ConnectivityWorkoutDownloadEnabledField.ID);
 
@@ -356,9 +394,12 @@ class ConnectivityMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the gpsEphemerisDownloadEnabled field. Returns null if the field is not defined in the message.
   bool? get gpsEphemerisDownloadEnabled {
     final field = getField(ConnectivityGpsEphemerisDownloadEnabledField.ID);
     if (field != null && field.isValid()) {
@@ -369,6 +410,7 @@ class ConnectivityMessage extends DataMessage {
     }
   }
 
+  /// Sets the gpsEphemerisDownloadEnabled field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set gpsEphemerisDownloadEnabled(bool? value) {
     final field = getField(ConnectivityGpsEphemerisDownloadEnabledField.ID);
 
@@ -379,9 +421,12 @@ class ConnectivityMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the incidentDetectionEnabled field. Returns null if the field is not defined in the message.
   bool? get incidentDetectionEnabled {
     final field = getField(ConnectivityIncidentDetectionEnabledField.ID);
     if (field != null && field.isValid()) {
@@ -392,6 +437,7 @@ class ConnectivityMessage extends DataMessage {
     }
   }
 
+  /// Sets the incidentDetectionEnabled field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set incidentDetectionEnabled(bool? value) {
     final field = getField(ConnectivityIncidentDetectionEnabledField.ID);
 
@@ -402,9 +448,12 @@ class ConnectivityMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the grouptrackEnabled field. Returns null if the field is not defined in the message.
   bool? get grouptrackEnabled {
     final field = getField(ConnectivityGrouptrackEnabledField.ID);
     if (field != null && field.isValid()) {
@@ -415,6 +464,7 @@ class ConnectivityMessage extends DataMessage {
     }
   }
 
+  /// Sets the grouptrackEnabled field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set grouptrackEnabled(bool? value) {
     final field = getField(ConnectivityGrouptrackEnabledField.ID);
 
@@ -425,6 +475,8 @@ class ConnectivityMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 }

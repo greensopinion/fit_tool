@@ -6,10 +6,8 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
-import '../profile_type.dart';
-import 'common_fields.dart';
 
 class FileCreatorMessage extends DataMessage {
   FileCreatorMessage(
@@ -42,11 +40,13 @@ class FileCreatorMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 49;
   static const NAME = 'file_creator';
 
   final bool growable;
 
+  /// Returns an instance of FileCreatorMessage from a bytes list.
   static FileCreatorMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = FileCreatorMessage(definitionMessage: definitionMessage);
@@ -54,6 +54,7 @@ class FileCreatorMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the softwareVersion field. Returns null if the field is not defined in the message.
   int? get softwareVersion {
     final field = getField(FileCreatorSoftwareVersionField.ID);
     if (field != null && field.isValid()) {
@@ -64,6 +65,7 @@ class FileCreatorMessage extends DataMessage {
     }
   }
 
+  /// Sets the softwareVersion field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set softwareVersion(int? value) {
     final field = getField(FileCreatorSoftwareVersionField.ID);
 
@@ -74,9 +76,12 @@ class FileCreatorMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the hardwareVersion field. Returns null if the field is not defined in the message.
   int? get hardwareVersion {
     final field = getField(FileCreatorHardwareVersionField.ID);
     if (field != null && field.isValid()) {
@@ -87,6 +92,7 @@ class FileCreatorMessage extends DataMessage {
     }
   }
 
+  /// Sets the hardwareVersion field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set hardwareVersion(int? value) {
     final field = getField(FileCreatorHardwareVersionField.ID);
 
@@ -97,6 +103,8 @@ class FileCreatorMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 }

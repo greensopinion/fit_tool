@@ -6,6 +6,7 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
 import '../../sub_field.dart';
 import '../profile_type.dart';
@@ -170,11 +171,13 @@ class DiveSettingsMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 258;
   static const NAME = 'dive_settings';
 
   final bool growable;
 
+  /// Returns an instance of DiveSettingsMessage from a bytes list.
   static DiveSettingsMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = DiveSettingsMessage(definitionMessage: definitionMessage);
@@ -182,6 +185,7 @@ class DiveSettingsMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the messageIndex field. Returns null if the field is not defined in the message.
   int? get messageIndex {
     final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
@@ -192,6 +196,7 @@ class DiveSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the messageIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
@@ -202,9 +207,12 @@ class DiveSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the diveSettingsName field. Returns null if the field is not defined in the message.
   String? get diveSettingsName {
     final field = getField(DiveSettingsNameField.ID);
     if (field != null && field.isValid()) {
@@ -215,6 +223,7 @@ class DiveSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the diveSettingsName field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set diveSettingsName(String? value) {
     final field = getField(DiveSettingsNameField.ID);
 
@@ -225,9 +234,12 @@ class DiveSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the model field. Returns null if the field is not defined in the message.
   TissueModelType? get model {
     final field = getField(DiveSettingsModelField.ID);
     if (field != null && field.isValid()) {
@@ -242,6 +254,7 @@ class DiveSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the model field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set model(TissueModelType? value) {
     final field = getField(DiveSettingsModelField.ID);
 
@@ -252,9 +265,12 @@ class DiveSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the gfLow field. Returns null if the field is not defined in the message.
   int? get gfLow {
     final field = getField(DiveSettingsGfLowField.ID);
     if (field != null && field.isValid()) {
@@ -265,6 +281,7 @@ class DiveSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the gfLow field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set gfLow(int? value) {
     final field = getField(DiveSettingsGfLowField.ID);
 
@@ -275,9 +292,12 @@ class DiveSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the gfHigh field. Returns null if the field is not defined in the message.
   int? get gfHigh {
     final field = getField(DiveSettingsGfHighField.ID);
     if (field != null && field.isValid()) {
@@ -288,6 +308,7 @@ class DiveSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the gfHigh field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set gfHigh(int? value) {
     final field = getField(DiveSettingsGfHighField.ID);
 
@@ -298,9 +319,12 @@ class DiveSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the waterType field. Returns null if the field is not defined in the message.
   WaterType? get waterType {
     final field = getField(DiveSettingsWaterTypeField.ID);
     if (field != null && field.isValid()) {
@@ -315,6 +339,7 @@ class DiveSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the waterType field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set waterType(WaterType? value) {
     final field = getField(DiveSettingsWaterTypeField.ID);
 
@@ -325,9 +350,12 @@ class DiveSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the waterDensity field. Returns null if the field is not defined in the message.
   double? get waterDensity {
     final field = getField(DiveSettingsWaterDensityField.ID);
     if (field != null && field.isValid()) {
@@ -338,6 +366,7 @@ class DiveSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the waterDensity field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set waterDensity(double? value) {
     final field = getField(DiveSettingsWaterDensityField.ID);
 
@@ -348,9 +377,12 @@ class DiveSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the po2Warn field. Returns null if the field is not defined in the message.
   double? get po2Warn {
     final field = getField(DiveSettingsPo2WarnField.ID);
     if (field != null && field.isValid()) {
@@ -361,6 +393,7 @@ class DiveSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the po2Warn field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set po2Warn(double? value) {
     final field = getField(DiveSettingsPo2WarnField.ID);
 
@@ -371,9 +404,12 @@ class DiveSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the po2Critical field. Returns null if the field is not defined in the message.
   double? get po2Critical {
     final field = getField(DiveSettingsPo2CriticalField.ID);
     if (field != null && field.isValid()) {
@@ -384,6 +420,7 @@ class DiveSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the po2Critical field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set po2Critical(double? value) {
     final field = getField(DiveSettingsPo2CriticalField.ID);
 
@@ -394,9 +431,12 @@ class DiveSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the po2Deco field. Returns null if the field is not defined in the message.
   double? get po2Deco {
     final field = getField(DiveSettingsPo2DecoField.ID);
     if (field != null && field.isValid()) {
@@ -407,6 +447,7 @@ class DiveSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the po2Deco field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set po2Deco(double? value) {
     final field = getField(DiveSettingsPo2DecoField.ID);
 
@@ -417,9 +458,12 @@ class DiveSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the safetyStopEnabled field. Returns null if the field is not defined in the message.
   bool? get safetyStopEnabled {
     final field = getField(DiveSettingsSafetyStopEnabledField.ID);
     if (field != null && field.isValid()) {
@@ -430,6 +474,7 @@ class DiveSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the safetyStopEnabled field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set safetyStopEnabled(bool? value) {
     final field = getField(DiveSettingsSafetyStopEnabledField.ID);
 
@@ -440,9 +485,12 @@ class DiveSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the bottomDepth field. Returns null if the field is not defined in the message.
   double? get bottomDepth {
     final field = getField(DiveSettingsBottomDepthField.ID);
     if (field != null && field.isValid()) {
@@ -453,6 +501,7 @@ class DiveSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the bottomDepth field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set bottomDepth(double? value) {
     final field = getField(DiveSettingsBottomDepthField.ID);
 
@@ -463,9 +512,12 @@ class DiveSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the bottomTime field. Returns null if the field is not defined in the message.
   int? get bottomTime {
     final field = getField(DiveSettingsBottomTimeField.ID);
     if (field != null && field.isValid()) {
@@ -476,6 +528,7 @@ class DiveSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the bottomTime field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set bottomTime(int? value) {
     final field = getField(DiveSettingsBottomTimeField.ID);
 
@@ -486,9 +539,12 @@ class DiveSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the apneaCountdownEnabled field. Returns null if the field is not defined in the message.
   bool? get apneaCountdownEnabled {
     final field = getField(DiveSettingsApneaCountdownEnabledField.ID);
     if (field != null && field.isValid()) {
@@ -499,6 +555,7 @@ class DiveSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the apneaCountdownEnabled field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set apneaCountdownEnabled(bool? value) {
     final field = getField(DiveSettingsApneaCountdownEnabledField.ID);
 
@@ -509,9 +566,12 @@ class DiveSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the apneaCountdownTime field. Returns null if the field is not defined in the message.
   int? get apneaCountdownTime {
     final field = getField(DiveSettingsApneaCountdownTimeField.ID);
     if (field != null && field.isValid()) {
@@ -522,6 +582,7 @@ class DiveSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the apneaCountdownTime field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set apneaCountdownTime(int? value) {
     final field = getField(DiveSettingsApneaCountdownTimeField.ID);
 
@@ -532,9 +593,12 @@ class DiveSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the backlightMode field. Returns null if the field is not defined in the message.
   DiveBacklightMode? get backlightMode {
     final field = getField(DiveSettingsBacklightModeField.ID);
     if (field != null && field.isValid()) {
@@ -549,6 +613,7 @@ class DiveSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the backlightMode field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set backlightMode(DiveBacklightMode? value) {
     final field = getField(DiveSettingsBacklightModeField.ID);
 
@@ -559,9 +624,12 @@ class DiveSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the backlightBrightness field. Returns null if the field is not defined in the message.
   int? get backlightBrightness {
     final field = getField(DiveSettingsBacklightBrightnessField.ID);
     if (field != null && field.isValid()) {
@@ -572,6 +640,7 @@ class DiveSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the backlightBrightness field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set backlightBrightness(int? value) {
     final field = getField(DiveSettingsBacklightBrightnessField.ID);
 
@@ -582,9 +651,12 @@ class DiveSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the backlightTimeout field. Returns null if the field is not defined in the message.
   int? get backlightTimeout {
     final field = getField(DiveSettingsBacklightTimeoutField.ID);
     if (field != null && field.isValid()) {
@@ -595,6 +667,7 @@ class DiveSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the backlightTimeout field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set backlightTimeout(int? value) {
     final field = getField(DiveSettingsBacklightTimeoutField.ID);
 
@@ -605,9 +678,12 @@ class DiveSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the repeatDiveInterval field. Returns null if the field is not defined in the message.
   int? get repeatDiveInterval {
     final field = getField(DiveSettingsRepeatDiveIntervalField.ID);
     if (field != null && field.isValid()) {
@@ -618,6 +694,7 @@ class DiveSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the repeatDiveInterval field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set repeatDiveInterval(int? value) {
     final field = getField(DiveSettingsRepeatDiveIntervalField.ID);
 
@@ -628,9 +705,12 @@ class DiveSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the safetyStopTime field. Returns null if the field is not defined in the message.
   int? get safetyStopTime {
     final field = getField(DiveSettingsSafetyStopTimeField.ID);
     if (field != null && field.isValid()) {
@@ -641,6 +721,7 @@ class DiveSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the safetyStopTime field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set safetyStopTime(int? value) {
     final field = getField(DiveSettingsSafetyStopTimeField.ID);
 
@@ -651,9 +732,12 @@ class DiveSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the heartRateSourceType field. Returns null if the field is not defined in the message.
   SourceType? get heartRateSourceType {
     final field = getField(DiveSettingsHeartRateSourceTypeField.ID);
     if (field != null && field.isValid()) {
@@ -668,6 +752,7 @@ class DiveSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the heartRateSourceType field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set heartRateSourceType(SourceType? value) {
     final field = getField(DiveSettingsHeartRateSourceTypeField.ID);
 
@@ -678,9 +763,12 @@ class DiveSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the heartRateSource field. Returns null if the field is not defined in the message.
   int? get heartRateSource {
     final field = getField(DiveSettingsHeartRateSourceField.ID);
     if (field != null && field.isValid()) {
@@ -691,6 +779,7 @@ class DiveSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the heartRateSource field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set heartRateSource(int? value) {
     final field = getField(DiveSettingsHeartRateSourceField.ID);
 
@@ -701,9 +790,12 @@ class DiveSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield heartRateAntplusDeviceType
   int? get heartRateAntplusDeviceType {
     final field = getField(DiveSettingsHeartRateSourceField.ID);
     final typeField = getField(DiveSettingsHeartRateSourceTypeField.ID);
@@ -718,6 +810,7 @@ class DiveSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the heartRateSource subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set heartRateAntplusDeviceType(int? value) {
     final field = getField(DiveSettingsHeartRateSourceField.ID);
     if (field != null) {
@@ -727,9 +820,12 @@ class DiveSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Get the value of the subfield heartRateLocalDeviceType
   int? get heartRateLocalDeviceType {
     final field = getField(DiveSettingsHeartRateSourceField.ID);
     final typeField = getField(DiveSettingsHeartRateSourceTypeField.ID);
@@ -744,6 +840,7 @@ class DiveSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the heartRateSource subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set heartRateLocalDeviceType(int? value) {
     final field = getField(DiveSettingsHeartRateSourceField.ID);
     if (field != null) {
@@ -753,6 +850,8 @@ class DiveSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 }

@@ -6,8 +6,8 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
 import '../profile_type.dart';
 import 'common_fields.dart';
 
@@ -61,11 +61,13 @@ class CameraEventMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 161;
   static const NAME = 'camera_event';
 
   final bool growable;
 
+  /// Returns an instance of CameraEventMessage from a bytes list.
   static CameraEventMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = CameraEventMessage(definitionMessage: definitionMessage);
@@ -73,7 +75,7 @@ class CameraEventMessage extends DataMessage {
     return message;
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
     final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
@@ -84,7 +86,7 @@ class CameraEventMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
@@ -95,9 +97,12 @@ class CameraEventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the timestampMs field. Returns null if the field is not defined in the message.
   int? get timestampMs {
     final field = getField(CameraEventTimestampMsField.ID);
     if (field != null && field.isValid()) {
@@ -108,6 +113,7 @@ class CameraEventMessage extends DataMessage {
     }
   }
 
+  /// Sets the timestampMs field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestampMs(int? value) {
     final field = getField(CameraEventTimestampMsField.ID);
 
@@ -118,9 +124,12 @@ class CameraEventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the cameraEventType field. Returns null if the field is not defined in the message.
   CameraEventType? get cameraEventType {
     final field = getField(CameraEventCameraEventTypeField.ID);
     if (field != null && field.isValid()) {
@@ -135,6 +144,7 @@ class CameraEventMessage extends DataMessage {
     }
   }
 
+  /// Sets the cameraEventType field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set cameraEventType(CameraEventType? value) {
     final field = getField(CameraEventCameraEventTypeField.ID);
 
@@ -145,9 +155,12 @@ class CameraEventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the cameraFileUuid field. Returns null if the field is not defined in the message.
   String? get cameraFileUuid {
     final field = getField(CameraEventCameraFileUuidField.ID);
     if (field != null && field.isValid()) {
@@ -158,6 +171,7 @@ class CameraEventMessage extends DataMessage {
     }
   }
 
+  /// Sets the cameraFileUuid field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set cameraFileUuid(String? value) {
     final field = getField(CameraEventCameraFileUuidField.ID);
 
@@ -168,9 +182,12 @@ class CameraEventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the cameraOrientation field. Returns null if the field is not defined in the message.
   CameraOrientationType? get cameraOrientation {
     final field = getField(CameraEventCameraOrientationField.ID);
     if (field != null && field.isValid()) {
@@ -185,6 +202,7 @@ class CameraEventMessage extends DataMessage {
     }
   }
 
+  /// Sets the cameraOrientation field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set cameraOrientation(CameraOrientationType? value) {
     final field = getField(CameraEventCameraOrientationField.ID);
 
@@ -195,6 +213,8 @@ class CameraEventMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 }

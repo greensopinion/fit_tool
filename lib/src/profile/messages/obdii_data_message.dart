@@ -6,9 +6,8 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
-import '../profile_type.dart';
 import 'common_fields.dart';
 
 class ObdiiDataMessage extends DataMessage {
@@ -83,11 +82,13 @@ class ObdiiDataMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 174;
   static const NAME = 'obdii_data';
 
   final bool growable;
 
+  /// Returns an instance of ObdiiDataMessage from a bytes list.
   static ObdiiDataMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = ObdiiDataMessage(definitionMessage: definitionMessage);
@@ -95,7 +96,7 @@ class ObdiiDataMessage extends DataMessage {
     return message;
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
     final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
@@ -106,7 +107,7 @@ class ObdiiDataMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
@@ -117,9 +118,12 @@ class ObdiiDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the timestampMs field. Returns null if the field is not defined in the message.
   int? get timestampMs {
     final field = getField(ObdiiDataTimestampMsField.ID);
     if (field != null && field.isValid()) {
@@ -130,6 +134,7 @@ class ObdiiDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the timestampMs field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestampMs(int? value) {
     final field = getField(ObdiiDataTimestampMsField.ID);
 
@@ -140,9 +145,12 @@ class ObdiiDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the timeOffset field. Returns null if the field is not defined in the message.
   int? get timeOffset {
     final field = getField(ObdiiDataTimeOffsetField.ID);
     if (field != null && field.isValid()) {
@@ -153,6 +161,7 @@ class ObdiiDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the timeOffset field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timeOffset(int? value) {
     final field = getField(ObdiiDataTimeOffsetField.ID);
 
@@ -163,9 +172,12 @@ class ObdiiDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the pid field. Returns null if the field is not defined in the message.
   int? get pid {
     final field = getField(ObdiiDataPidField.ID);
     if (field != null && field.isValid()) {
@@ -176,6 +188,7 @@ class ObdiiDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the pid field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set pid(int? value) {
     final field = getField(ObdiiDataPidField.ID);
 
@@ -186,9 +199,12 @@ class ObdiiDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the rawData field. Returns null if the field is not defined in the message.
   int? get rawData {
     final field = getField(ObdiiDataRawDataField.ID);
     if (field != null && field.isValid()) {
@@ -199,6 +215,7 @@ class ObdiiDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the rawData field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set rawData(int? value) {
     final field = getField(ObdiiDataRawDataField.ID);
 
@@ -209,9 +226,12 @@ class ObdiiDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the pidDataSize field. Returns null if the field is not defined in the message.
   int? get pidDataSize {
     final field = getField(ObdiiDataPidDataSizeField.ID);
     if (field != null && field.isValid()) {
@@ -222,6 +242,7 @@ class ObdiiDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the pidDataSize field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set pidDataSize(int? value) {
     final field = getField(ObdiiDataPidDataSizeField.ID);
 
@@ -232,9 +253,12 @@ class ObdiiDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the systemTime field. Returns null if the field is not defined in the message.
   int? get systemTime {
     final field = getField(ObdiiDataSystemTimeField.ID);
     if (field != null && field.isValid()) {
@@ -245,6 +269,7 @@ class ObdiiDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the systemTime field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set systemTime(int? value) {
     final field = getField(ObdiiDataSystemTimeField.ID);
 
@@ -255,10 +280,12 @@ class ObdiiDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get startTimestamp {
     final field = getField(ObdiiDataStartTimestampField.ID);
     if (field != null && field.isValid()) {
@@ -269,7 +296,7 @@ class ObdiiDataMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set startTimestamp(int? value) {
     final field = getField(ObdiiDataStartTimestampField.ID);
 
@@ -280,9 +307,12 @@ class ObdiiDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 
+  /// Returns the value of the startTimestampMs field. Returns null if the field is not defined in the message.
   int? get startTimestampMs {
     final field = getField(ObdiiDataStartTimestampMsField.ID);
     if (field != null && field.isValid()) {
@@ -293,6 +323,7 @@ class ObdiiDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the startTimestampMs field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set startTimestampMs(int? value) {
     final field = getField(ObdiiDataStartTimestampMsField.ID);
 
@@ -303,6 +334,8 @@ class ObdiiDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError('${field!.name}');
     }
   }
 }
