@@ -88,7 +88,7 @@ class Field {
 
   String getName(
       {SubField? subField, String? subFieldName, int? subFieldIndex}) {
-    var sb;
+    SubField? sb;
 
     if (subField != null) {
       sb = subField;
@@ -107,7 +107,7 @@ class Field {
 
   String getUnits(
       {SubField? subField, String? subFieldName, int? subFieldIndex}) {
-    var sb;
+    SubField? sb;
 
     if (subField != null) {
       sb = subField;
@@ -126,7 +126,7 @@ class Field {
 
   BaseType getType(
       {SubField? subField, String? subFieldName, int? subFieldIndex}) {
-    var sb;
+    SubField? sb;
 
     if (subField != null) {
       sb = subField;
@@ -145,7 +145,7 @@ class Field {
 
   double? getOffset(
       {SubField? subField, String? subFieldName, int? subFieldIndex}) {
-    var sb;
+    SubField? sb;
 
     if (subField != null) {
       sb = subField;
@@ -164,7 +164,7 @@ class Field {
 
   double? getScale(
       {SubField? subField, String? subFieldName, int? subFieldIndex}) {
-    var sb;
+    SubField? sb;
 
     if (subField != null) {
       sb = subField;

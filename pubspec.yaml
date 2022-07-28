@@ -1,6 +1,6 @@
 name: fit_tool
 description: A library for reading and writing Garmin FIT files. The Flexible and Interoperable Data Transfer (FIT) protocol is a standard for storing fitness activities, courses, and workouts.
-version: 1.0.0
+version: 1.0.1
 repository: https://bitbucket.org/stagescycling/fit_tool
 
 environment:
