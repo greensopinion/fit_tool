@@ -9,6 +9,8 @@ import '../../definition_message.dart';
 import '../../errors.dart';
 import '../../field.dart';
 
+// ignore_for_file: constant_identifier_names
+
 class FileCreatorMessage extends DataMessage {
   FileCreatorMessage(
       {definitionMessage,
@@ -77,7 +79,7 @@ class FileCreatorMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -104,7 +106,7 @@ class FileCreatorMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

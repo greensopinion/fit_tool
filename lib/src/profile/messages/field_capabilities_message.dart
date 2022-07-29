@@ -11,6 +11,8 @@ import '../../field.dart';
 import '../profile_type.dart';
 import 'common_fields.dart';
 
+// ignore_for_file: constant_identifier_names
+
 class FieldCapabilitiesMessage extends DataMessage {
   FieldCapabilitiesMessage(
       {definitionMessage,
@@ -97,7 +99,7 @@ class FieldCapabilitiesMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -128,7 +130,7 @@ class FieldCapabilitiesMessage extends DataMessage {
         field.setValue(0, value.value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -155,7 +157,7 @@ class FieldCapabilitiesMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -182,7 +184,7 @@ class FieldCapabilitiesMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -209,7 +211,7 @@ class FieldCapabilitiesMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

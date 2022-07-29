@@ -10,6 +10,8 @@ import '../../errors.dart';
 import '../../field.dart';
 import 'common_fields.dart';
 
+// ignore_for_file: constant_identifier_names
+
 class WeightScaleMessage extends DataMessage {
   WeightScaleMessage(
       {definitionMessage,
@@ -147,7 +149,7 @@ class WeightScaleMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -174,7 +176,7 @@ class WeightScaleMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -201,7 +203,7 @@ class WeightScaleMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -228,7 +230,7 @@ class WeightScaleMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -255,7 +257,7 @@ class WeightScaleMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -282,7 +284,7 @@ class WeightScaleMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -309,7 +311,7 @@ class WeightScaleMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -336,7 +338,7 @@ class WeightScaleMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -363,7 +365,7 @@ class WeightScaleMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -390,7 +392,7 @@ class WeightScaleMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -417,7 +419,7 @@ class WeightScaleMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -444,7 +446,7 @@ class WeightScaleMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -471,7 +473,7 @@ class WeightScaleMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

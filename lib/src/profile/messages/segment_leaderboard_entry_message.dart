@@ -11,6 +11,8 @@ import '../../field.dart';
 import '../profile_type.dart';
 import 'common_fields.dart';
 
+// ignore_for_file: constant_identifier_names
+
 class SegmentLeaderboardEntryMessage extends DataMessage {
   SegmentLeaderboardEntryMessage(
       {definitionMessage,
@@ -114,7 +116,7 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -141,7 +143,7 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -172,7 +174,7 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
         field.setValue(0, value.value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -199,7 +201,7 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -226,7 +228,7 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -253,7 +255,7 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -280,7 +282,7 @@ class SegmentLeaderboardEntryMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

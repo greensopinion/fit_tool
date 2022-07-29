@@ -8,8 +8,8 @@ import 'utils/crc.dart';
 class FitFileBuilder {
   FitFileBuilder({this.autoDefine = true, this.minStringSize = 0});
 
-  final autoDefine;
-  final minStringSize;
+  final bool autoDefine;
+  final int minStringSize;
 
   final List<Record> records = [];
 

@@ -10,6 +10,8 @@ import '../../errors.dart';
 import '../../field.dart';
 import 'common_fields.dart';
 
+// ignore_for_file: constant_identifier_names
+
 class GyroscopeDataMessage extends DataMessage {
   GyroscopeDataMessage(
       {definitionMessage,
@@ -122,7 +124,7 @@ class GyroscopeDataMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -149,7 +151,7 @@ class GyroscopeDataMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -176,7 +178,7 @@ class GyroscopeDataMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -203,7 +205,7 @@ class GyroscopeDataMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -230,7 +232,7 @@ class GyroscopeDataMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -257,7 +259,7 @@ class GyroscopeDataMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -284,7 +286,7 @@ class GyroscopeDataMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -311,7 +313,7 @@ class GyroscopeDataMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -338,7 +340,7 @@ class GyroscopeDataMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

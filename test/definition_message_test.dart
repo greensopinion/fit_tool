@@ -61,7 +61,8 @@ void main() {
       dm1.durationType = WorkoutStepDuration.distance;
 
       final definition = DefinitionMessage.fromDataMessage(dm1);
-      final row = definition.toRow();
+      definition.toRow();
+      // final row = definition.toRow();
       // print(row);
     });
   });

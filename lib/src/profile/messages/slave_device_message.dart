@@ -10,6 +10,8 @@ import '../../errors.dart';
 import '../../field.dart';
 import '../../sub_field.dart';
 
+// ignore_for_file: constant_identifier_names
+
 class SlaveDeviceMessage extends DataMessage {
   SlaveDeviceMessage(
       {definitionMessage,
@@ -76,7 +78,7 @@ class SlaveDeviceMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -103,7 +105,7 @@ class SlaveDeviceMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -133,7 +135,7 @@ class SlaveDeviceMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -163,7 +165,7 @@ class SlaveDeviceMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

@@ -1,9 +1,9 @@
 @TestOn('js')
 import 'package:csv/csv.dart';
 import 'package:fit_tool/src/fit_file.dart';
-import 'package:test/test.dart';
 import 'package:http/http.dart' as http;
 import 'package:stream_channel/stream_channel.dart';
+import 'package:test/test.dart';
 
 void main() {
   late StreamChannel channel;
@@ -35,7 +35,7 @@ void main() {
       final response = await http.get(url);
       final fitFile = FitFile.fromBytes(response.bodyBytes);
 
-      final csv = const ListToCsvConverter().convert(fitFile.toRows());
+      const ListToCsvConverter().convert(fitFile.toRows());
     });
 
     // test('Decode link activity file', () async {
@@ -53,7 +53,7 @@ void main() {
       final response = await http.get(url);
       final fitFile = FitFile.fromBytes(response.bodyBytes);
 
-      final csv = const ListToCsvConverter().convert(fitFile.toRows());
+      const ListToCsvConverter().convert(fitFile.toRows());
     });
 
     test('Decode activity multisport file', () async {
@@ -61,7 +61,7 @@ void main() {
       final response = await http.get(url);
       final fitFile = FitFile.fromBytes(response.bodyBytes);
 
-      final csv = const ListToCsvConverter().convert(fitFile.toRows());
+      const ListToCsvConverter().convert(fitFile.toRows());
     });
 
     test('Decode activity pool swim with hr file', () async {
@@ -69,7 +69,7 @@ void main() {
           Uri.parse('http://localhost:$port/activity_poolswim_with_hr.fit');
       final response = await http.get(url);
       final fitFile = FitFile.fromBytes(response.bodyBytes);
-      final csv = const ListToCsvConverter().convert(fitFile.toRows());
+      const ListToCsvConverter().convert(fitFile.toRows());
     });
 
     test('Decode activity pool swim file', () async {

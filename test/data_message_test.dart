@@ -25,8 +25,7 @@ void main() {
       final dm1 = WorkoutStepMessage();
       dm1.workoutStepName = 'test';
       dm1.durationType = WorkoutStepDuration.distance;
-      final row = dm1.toRow();
-      // print(row);
+      dm1.toRow();
     });
   });
 }

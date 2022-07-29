@@ -305,7 +305,7 @@ class Field {
       {int offset = 0, Endian endian = Endian.little}) {
     final byteData = ByteData.sublistView(bytes, offset, type.size);
 
-    final value;
+    final dynamic value;
     switch (type) {
       case BaseType.ENUM:
         value = byteData.getUint8(0);
@@ -592,7 +592,7 @@ class Field {
     if (values.length == 1) {
       row.add(values[0]);
     } else {
-      final valuesArray = '[' + values.join(',') + ']';
+      final valuesArray = '[${values.join(',')}]';
       row.add(valuesArray);
     }
     row.add(subField?.units.toString() ?? units);

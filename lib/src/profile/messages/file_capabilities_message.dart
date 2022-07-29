@@ -11,6 +11,8 @@ import '../../field.dart';
 import '../profile_type.dart';
 import 'common_fields.dart';
 
+// ignore_for_file: constant_identifier_names
+
 class FileCapabilitiesMessage extends DataMessage {
   FileCapabilitiesMessage(
       {definitionMessage,
@@ -103,7 +105,7 @@ class FileCapabilitiesMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -134,7 +136,7 @@ class FileCapabilitiesMessage extends DataMessage {
         field.setValue(0, value.value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -161,7 +163,7 @@ class FileCapabilitiesMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -188,7 +190,7 @@ class FileCapabilitiesMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -215,7 +217,7 @@ class FileCapabilitiesMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -242,7 +244,7 @@ class FileCapabilitiesMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

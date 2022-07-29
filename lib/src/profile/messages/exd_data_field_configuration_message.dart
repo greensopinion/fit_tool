@@ -10,6 +10,8 @@ import '../../errors.dart';
 import '../../field.dart';
 import '../profile_type.dart';
 
+// ignore_for_file: constant_identifier_names
+
 class ExdDataFieldConfigurationMessage extends DataMessage {
   ExdDataFieldConfigurationMessage(
       {definitionMessage,
@@ -107,7 +109,7 @@ class ExdDataFieldConfigurationMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -134,7 +136,7 @@ class ExdDataFieldConfigurationMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -161,7 +163,7 @@ class ExdDataFieldConfigurationMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -188,7 +190,7 @@ class ExdDataFieldConfigurationMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -219,7 +221,7 @@ class ExdDataFieldConfigurationMessage extends DataMessage {
         field.setValue(0, value.value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
@@ -246,7 +248,7 @@ class ExdDataFieldConfigurationMessage extends DataMessage {
         field.setValue(0, value, subField);
       }
     } else {
-      throw FieldNotDefinedError('${field!.name}');
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

@@ -149,7 +149,7 @@ class Record {
     final header = RecordHeader.fromBytes(bytes);
 
     final messageBytes = bytes.sublist(RecordHeader.headerSize);
-    final message;
+    final Message message;
     if (header.isDefinition) {
       message = DefinitionMessage.fromBytes(messageBytes,
           hasDeveloperFields: header.hasDeveloperFields);

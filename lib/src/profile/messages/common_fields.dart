@@ -4,6 +4,8 @@
 import '../../base_type.dart';
 import '../../field.dart';
 
+// ignore_for_file: constant_identifier_names
+
 class TimestampField extends Field {
   TimestampField({int size = 0, bool growable = true})
       : super(
