@@ -1,6 +1,7 @@
 import 'dart:convert';
-import 'dart:io';
 import 'dart:typed_data';
+
+import 'package:fixnum/fixnum.dart';
 
 import 'base_type.dart';
 import 'field_component.dart';
@@ -87,7 +88,7 @@ class Field {
 
   String getName(
       {SubField? subField, String? subFieldName, int? subFieldIndex}) {
-    var sb;
+    SubField? sb;
 
     if (subField != null) {
       sb = subField;
@@ -106,7 +107,7 @@ class Field {
 
   String getUnits(
       {SubField? subField, String? subFieldName, int? subFieldIndex}) {
-    var sb;
+    SubField? sb;
 
     if (subField != null) {
       sb = subField;
@@ -125,7 +126,7 @@ class Field {
 
   BaseType getType(
       {SubField? subField, String? subFieldName, int? subFieldIndex}) {
-    var sb;
+    SubField? sb;
 
     if (subField != null) {
       sb = subField;
@@ -144,7 +145,7 @@ class Field {
 
   double? getOffset(
       {SubField? subField, String? subFieldName, int? subFieldIndex}) {
-    var sb;
+    SubField? sb;
 
     if (subField != null) {
       sb = subField;
@@ -163,7 +164,7 @@ class Field {
 
   double? getScale(
       {SubField? subField, String? subFieldName, int? subFieldIndex}) {
-    var sb;
+    SubField? sb;
 
     if (subField != null) {
       sb = subField;
@@ -311,7 +312,7 @@ class Field {
       {int offset = 0, Endian endian = Endian.little}) {
     final byteData = ByteData.sublistView(bytes, offset, type.size);
 
-    final value;
+    final dynamic value;
     switch (type) {
       case BaseType.ENUM:
         value = byteData.getUint8(0);
@@ -346,7 +347,16 @@ class Field {
         break;
 
       case BaseType.SINT64:
-        value = byteData.getInt64(0, endian);
+        Int64 int64;
+        if (endian == Endian.little) {
+          int64 = Int64.fromBytes(byteData.buffer
+              .asUint8List(byteData.offsetInBytes, byteData.lengthInBytes));
+        } else {
+          int64 = Int64.fromBytesBigEndian(byteData.buffer
+              .asUint8List(byteData.offsetInBytes, byteData.lengthInBytes));
+        }
+
+        value = BigInt.parse(int64.toString());
         break;
 
       case BaseType.FLOAT32:
@@ -363,11 +373,17 @@ class Field {
         break;
 
       case BaseType.UINT64:
-        value = byteData.getUint64(0, endian);
-        break;
-
       case BaseType.UINT64Z:
-        value = byteData.getUint64(0, endian);
+        Int64 int64;
+        if (endian == Endian.little) {
+          int64 = Int64.fromBytes(byteData.buffer
+              .asUint8List(byteData.offsetInBytes, byteData.lengthInBytes));
+        } else {
+          int64 = Int64.fromBytesBigEndian(byteData.buffer
+              .asUint8List(byteData.offsetInBytes, byteData.lengthInBytes));
+        }
+
+        value = BigInt.parse(int64.toString()).toUnsigned(64);
         break;
     }
 
@@ -439,10 +455,6 @@ class Field {
         byteData.setUint32(0, encodedValue, endian);
         break;
 
-      case BaseType.SINT64:
-        byteData.setInt64(0, encodedValue, endian);
-        break;
-
       case BaseType.FLOAT32:
         if (encodedValue == null) {
           byteData.setUint32(0, type.invalidRawValue, endian);
@@ -463,12 +475,16 @@ class Field {
         break;
 
       case BaseType.UINT64:
-        byteData.setUint64(0, encodedValue, endian);
-        break;
-
       case BaseType.UINT64Z:
-        byteData.setUint64(0, encodedValue, endian);
-        break;
+      case BaseType.SINT64:
+        encodedValue as BigInt;
+        final stringValue = encodedValue.toRadixString(16);
+        final int64 = Int64.parseRadix(stringValue, 16);
+        var bytes = int64.toBytes();
+        if (endian == Endian.big) {
+          bytes = bytes.reversed.toList();
+        }
+        return Uint8List.fromList(bytes);
     }
 
     return byteData.buffer.asUint8List();
@@ -583,7 +599,7 @@ class Field {
     if (values.length == 1) {
       row.add(values[0]);
     } else {
-      final valuesArray = '[' + values.join(',') + ']';
+      final valuesArray = '[${values.join(',')}]';
       row.add(valuesArray);
     }
     row.add(subField?.units.toString() ?? units);

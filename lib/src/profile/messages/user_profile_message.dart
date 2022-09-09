@@ -6,10 +6,12 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
 import '../profile_type.dart';
 import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class UserProfileMessage extends DataMessage {
   UserProfileMessage(
@@ -210,11 +212,13 @@ class UserProfileMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 3;
   static const NAME = 'user_profile';
 
   final bool growable;
 
+  /// Returns an instance of UserProfileMessage from a bytes list.
   static UserProfileMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = UserProfileMessage(definitionMessage: definitionMessage);
@@ -222,6 +226,7 @@ class UserProfileMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the messageIndex field. Returns null if the field is not defined in the message.
   int? get messageIndex {
     final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
@@ -232,6 +237,7 @@ class UserProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the messageIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
@@ -242,9 +248,12 @@ class UserProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the friendlyName field. Returns null if the field is not defined in the message.
   String? get friendlyName {
     final field = getField(UserProfileFriendlyNameField.ID);
     if (field != null && field.isValid()) {
@@ -255,6 +264,7 @@ class UserProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the friendlyName field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set friendlyName(String? value) {
     final field = getField(UserProfileFriendlyNameField.ID);
 
@@ -265,9 +275,12 @@ class UserProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the gender field. Returns null if the field is not defined in the message.
   Gender? get gender {
     final field = getField(UserProfileGenderField.ID);
     if (field != null && field.isValid()) {
@@ -282,6 +295,7 @@ class UserProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the gender field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set gender(Gender? value) {
     final field = getField(UserProfileGenderField.ID);
 
@@ -292,9 +306,12 @@ class UserProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the age field. Returns null if the field is not defined in the message.
   int? get age {
     final field = getField(UserProfileAgeField.ID);
     if (field != null && field.isValid()) {
@@ -305,6 +322,7 @@ class UserProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the age field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set age(int? value) {
     final field = getField(UserProfileAgeField.ID);
 
@@ -315,9 +333,12 @@ class UserProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the height field. Returns null if the field is not defined in the message.
   double? get height {
     final field = getField(UserProfileHeightField.ID);
     if (field != null && field.isValid()) {
@@ -328,6 +349,7 @@ class UserProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the height field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set height(double? value) {
     final field = getField(UserProfileHeightField.ID);
 
@@ -338,9 +360,12 @@ class UserProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the weight field. Returns null if the field is not defined in the message.
   double? get weight {
     final field = getField(UserProfileWeightField.ID);
     if (field != null && field.isValid()) {
@@ -351,6 +376,7 @@ class UserProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the weight field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set weight(double? value) {
     final field = getField(UserProfileWeightField.ID);
 
@@ -361,9 +387,12 @@ class UserProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the language field. Returns null if the field is not defined in the message.
   Language? get language {
     final field = getField(UserProfileLanguageField.ID);
     if (field != null && field.isValid()) {
@@ -378,6 +407,7 @@ class UserProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the language field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set language(Language? value) {
     final field = getField(UserProfileLanguageField.ID);
 
@@ -388,9 +418,12 @@ class UserProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the elevSetting field. Returns null if the field is not defined in the message.
   DisplayMeasure? get elevSetting {
     final field = getField(UserProfileElevSettingField.ID);
     if (field != null && field.isValid()) {
@@ -405,6 +438,7 @@ class UserProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the elevSetting field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set elevSetting(DisplayMeasure? value) {
     final field = getField(UserProfileElevSettingField.ID);
 
@@ -415,9 +449,12 @@ class UserProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the weightSetting field. Returns null if the field is not defined in the message.
   DisplayMeasure? get weightSetting {
     final field = getField(UserProfileWeightSettingField.ID);
     if (field != null && field.isValid()) {
@@ -432,6 +469,7 @@ class UserProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the weightSetting field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set weightSetting(DisplayMeasure? value) {
     final field = getField(UserProfileWeightSettingField.ID);
 
@@ -442,9 +480,12 @@ class UserProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the restingHeartRate field. Returns null if the field is not defined in the message.
   int? get restingHeartRate {
     final field = getField(UserProfileRestingHeartRateField.ID);
     if (field != null && field.isValid()) {
@@ -455,6 +496,7 @@ class UserProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the restingHeartRate field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set restingHeartRate(int? value) {
     final field = getField(UserProfileRestingHeartRateField.ID);
 
@@ -465,9 +507,12 @@ class UserProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the defaultMaxRunningHeartRate field. Returns null if the field is not defined in the message.
   int? get defaultMaxRunningHeartRate {
     final field = getField(UserProfileDefaultMaxRunningHeartRateField.ID);
     if (field != null && field.isValid()) {
@@ -478,6 +523,7 @@ class UserProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the defaultMaxRunningHeartRate field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set defaultMaxRunningHeartRate(int? value) {
     final field = getField(UserProfileDefaultMaxRunningHeartRateField.ID);
 
@@ -488,9 +534,12 @@ class UserProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the defaultMaxBikingHeartRate field. Returns null if the field is not defined in the message.
   int? get defaultMaxBikingHeartRate {
     final field = getField(UserProfileDefaultMaxBikingHeartRateField.ID);
     if (field != null && field.isValid()) {
@@ -501,6 +550,7 @@ class UserProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the defaultMaxBikingHeartRate field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set defaultMaxBikingHeartRate(int? value) {
     final field = getField(UserProfileDefaultMaxBikingHeartRateField.ID);
 
@@ -511,9 +561,12 @@ class UserProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the defaultMaxHeartRate field. Returns null if the field is not defined in the message.
   int? get defaultMaxHeartRate {
     final field = getField(UserProfileDefaultMaxHeartRateField.ID);
     if (field != null && field.isValid()) {
@@ -524,6 +577,7 @@ class UserProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the defaultMaxHeartRate field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set defaultMaxHeartRate(int? value) {
     final field = getField(UserProfileDefaultMaxHeartRateField.ID);
 
@@ -534,9 +588,12 @@ class UserProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the hrSetting field. Returns null if the field is not defined in the message.
   DisplayHeart? get hrSetting {
     final field = getField(UserProfileHrSettingField.ID);
     if (field != null && field.isValid()) {
@@ -551,6 +608,7 @@ class UserProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the hrSetting field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set hrSetting(DisplayHeart? value) {
     final field = getField(UserProfileHrSettingField.ID);
 
@@ -561,9 +619,12 @@ class UserProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the speedSetting field. Returns null if the field is not defined in the message.
   DisplayMeasure? get speedSetting {
     final field = getField(UserProfileSpeedSettingField.ID);
     if (field != null && field.isValid()) {
@@ -578,6 +639,7 @@ class UserProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the speedSetting field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set speedSetting(DisplayMeasure? value) {
     final field = getField(UserProfileSpeedSettingField.ID);
 
@@ -588,9 +650,12 @@ class UserProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the distSetting field. Returns null if the field is not defined in the message.
   DisplayMeasure? get distSetting {
     final field = getField(UserProfileDistSettingField.ID);
     if (field != null && field.isValid()) {
@@ -605,6 +670,7 @@ class UserProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the distSetting field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set distSetting(DisplayMeasure? value) {
     final field = getField(UserProfileDistSettingField.ID);
 
@@ -615,9 +681,12 @@ class UserProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the powerSetting field. Returns null if the field is not defined in the message.
   DisplayPower? get powerSetting {
     final field = getField(UserProfilePowerSettingField.ID);
     if (field != null && field.isValid()) {
@@ -632,6 +701,7 @@ class UserProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the powerSetting field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set powerSetting(DisplayPower? value) {
     final field = getField(UserProfilePowerSettingField.ID);
 
@@ -642,9 +712,12 @@ class UserProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the activityClass field. Returns null if the field is not defined in the message.
   ActivityClass? get activityClass {
     final field = getField(UserProfileActivityClassField.ID);
     if (field != null && field.isValid()) {
@@ -659,6 +732,7 @@ class UserProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the activityClass field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set activityClass(ActivityClass? value) {
     final field = getField(UserProfileActivityClassField.ID);
 
@@ -669,9 +743,12 @@ class UserProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the positionSetting field. Returns null if the field is not defined in the message.
   DisplayPosition? get positionSetting {
     final field = getField(UserProfilePositionSettingField.ID);
     if (field != null && field.isValid()) {
@@ -686,6 +763,7 @@ class UserProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the positionSetting field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set positionSetting(DisplayPosition? value) {
     final field = getField(UserProfilePositionSettingField.ID);
 
@@ -696,9 +774,12 @@ class UserProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the temperatureSetting field. Returns null if the field is not defined in the message.
   DisplayMeasure? get temperatureSetting {
     final field = getField(UserProfileTemperatureSettingField.ID);
     if (field != null && field.isValid()) {
@@ -713,6 +794,7 @@ class UserProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the temperatureSetting field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set temperatureSetting(DisplayMeasure? value) {
     final field = getField(UserProfileTemperatureSettingField.ID);
 
@@ -723,9 +805,12 @@ class UserProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the userProfileLocalId field. Returns null if the field is not defined in the message.
   int? get userProfileLocalId {
     final field = getField(UserProfileLocalIdField.ID);
     if (field != null && field.isValid()) {
@@ -736,6 +821,7 @@ class UserProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the userProfileLocalId field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set userProfileLocalId(int? value) {
     final field = getField(UserProfileLocalIdField.ID);
 
@@ -746,9 +832,12 @@ class UserProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the userProfileGlobalId field. Returns null if the field is not defined in the message.
   int? get userProfileGlobalId {
     final field = getField(UserProfileGlobalIdField.ID);
     if (field != null && field.isValid()) {
@@ -759,6 +848,7 @@ class UserProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the userProfileGlobalId field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set userProfileGlobalId(int? value) {
     final field = getField(UserProfileGlobalIdField.ID);
 
@@ -769,9 +859,12 @@ class UserProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the wakeTime field. Returns null if the field is not defined in the message.
   int? get wakeTime {
     final field = getField(UserProfileWakeTimeField.ID);
     if (field != null && field.isValid()) {
@@ -782,6 +875,7 @@ class UserProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the wakeTime field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set wakeTime(int? value) {
     final field = getField(UserProfileWakeTimeField.ID);
 
@@ -792,9 +886,12 @@ class UserProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the sleepTime field. Returns null if the field is not defined in the message.
   int? get sleepTime {
     final field = getField(UserProfileSleepTimeField.ID);
     if (field != null && field.isValid()) {
@@ -805,6 +902,7 @@ class UserProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the sleepTime field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set sleepTime(int? value) {
     final field = getField(UserProfileSleepTimeField.ID);
 
@@ -815,9 +913,12 @@ class UserProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the heightSetting field. Returns null if the field is not defined in the message.
   DisplayMeasure? get heightSetting {
     final field = getField(UserProfileHeightSettingField.ID);
     if (field != null && field.isValid()) {
@@ -832,6 +933,7 @@ class UserProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the heightSetting field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set heightSetting(DisplayMeasure? value) {
     final field = getField(UserProfileHeightSettingField.ID);
 
@@ -842,9 +944,12 @@ class UserProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the userRunningStepLength field. Returns null if the field is not defined in the message.
   double? get userRunningStepLength {
     final field = getField(UserProfileUserRunningStepLengthField.ID);
     if (field != null && field.isValid()) {
@@ -855,6 +960,7 @@ class UserProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the userRunningStepLength field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set userRunningStepLength(double? value) {
     final field = getField(UserProfileUserRunningStepLengthField.ID);
 
@@ -865,9 +971,12 @@ class UserProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the userWalkingStepLength field. Returns null if the field is not defined in the message.
   double? get userWalkingStepLength {
     final field = getField(UserProfileUserWalkingStepLengthField.ID);
     if (field != null && field.isValid()) {
@@ -878,6 +987,7 @@ class UserProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the userWalkingStepLength field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set userWalkingStepLength(double? value) {
     final field = getField(UserProfileUserWalkingStepLengthField.ID);
 
@@ -888,9 +998,12 @@ class UserProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the depthSetting field. Returns null if the field is not defined in the message.
   DisplayMeasure? get depthSetting {
     final field = getField(UserProfileDepthSettingField.ID);
     if (field != null && field.isValid()) {
@@ -905,6 +1018,7 @@ class UserProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the depthSetting field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set depthSetting(DisplayMeasure? value) {
     final field = getField(UserProfileDepthSettingField.ID);
 
@@ -915,9 +1029,12 @@ class UserProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the diveCount field. Returns null if the field is not defined in the message.
   int? get diveCount {
     final field = getField(UserProfileDiveCountField.ID);
     if (field != null && field.isValid()) {
@@ -928,6 +1045,7 @@ class UserProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the diveCount field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set diveCount(int? value) {
     final field = getField(UserProfileDiveCountField.ID);
 
@@ -938,6 +1056,8 @@ class UserProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

@@ -6,10 +6,11 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
-import '../profile_type.dart';
 import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class TimestampCorrelationMessage extends DataMessage {
   TimestampCorrelationMessage(
@@ -77,11 +78,13 @@ class TimestampCorrelationMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 162;
   static const NAME = 'timestamp_correlation';
 
   final bool growable;
 
+  /// Returns an instance of TimestampCorrelationMessage from a bytes list.
   static TimestampCorrelationMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message =
@@ -90,7 +93,7 @@ class TimestampCorrelationMessage extends DataMessage {
     return message;
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
     final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
@@ -101,7 +104,7 @@ class TimestampCorrelationMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
@@ -112,9 +115,12 @@ class TimestampCorrelationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the fractionalTimestamp field. Returns null if the field is not defined in the message.
   double? get fractionalTimestamp {
     final field = getField(TimestampCorrelationFractionalTimestampField.ID);
     if (field != null && field.isValid()) {
@@ -125,6 +131,7 @@ class TimestampCorrelationMessage extends DataMessage {
     }
   }
 
+  /// Sets the fractionalTimestamp field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set fractionalTimestamp(double? value) {
     final field = getField(TimestampCorrelationFractionalTimestampField.ID);
 
@@ -135,10 +142,12 @@ class TimestampCorrelationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get systemTimestamp {
     final field = getField(TimestampCorrelationSystemTimestampField.ID);
     if (field != null && field.isValid()) {
@@ -149,7 +158,7 @@ class TimestampCorrelationMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set systemTimestamp(int? value) {
     final field = getField(TimestampCorrelationSystemTimestampField.ID);
 
@@ -160,9 +169,12 @@ class TimestampCorrelationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the fractionalSystemTimestamp field. Returns null if the field is not defined in the message.
   double? get fractionalSystemTimestamp {
     final field =
         getField(TimestampCorrelationFractionalSystemTimestampField.ID);
@@ -174,6 +186,7 @@ class TimestampCorrelationMessage extends DataMessage {
     }
   }
 
+  /// Sets the fractionalSystemTimestamp field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set fractionalSystemTimestamp(double? value) {
     final field =
         getField(TimestampCorrelationFractionalSystemTimestampField.ID);
@@ -185,9 +198,12 @@ class TimestampCorrelationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the localTimestamp field. Returns null if the field is not defined in the message.
   int? get localTimestamp {
     final field = getField(TimestampCorrelationLocalTimestampField.ID);
     if (field != null && field.isValid()) {
@@ -198,6 +214,7 @@ class TimestampCorrelationMessage extends DataMessage {
     }
   }
 
+  /// Sets the localTimestamp field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set localTimestamp(int? value) {
     final field = getField(TimestampCorrelationLocalTimestampField.ID);
 
@@ -208,9 +225,12 @@ class TimestampCorrelationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the timestampMs field. Returns null if the field is not defined in the message.
   int? get timestampMs {
     final field = getField(TimestampCorrelationTimestampMsField.ID);
     if (field != null && field.isValid()) {
@@ -221,6 +241,7 @@ class TimestampCorrelationMessage extends DataMessage {
     }
   }
 
+  /// Sets the timestampMs field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestampMs(int? value) {
     final field = getField(TimestampCorrelationTimestampMsField.ID);
 
@@ -231,9 +252,12 @@ class TimestampCorrelationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the systemTimestampMs field. Returns null if the field is not defined in the message.
   int? get systemTimestampMs {
     final field = getField(TimestampCorrelationSystemTimestampMsField.ID);
     if (field != null && field.isValid()) {
@@ -244,6 +268,7 @@ class TimestampCorrelationMessage extends DataMessage {
     }
   }
 
+  /// Sets the systemTimestampMs field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set systemTimestampMs(int? value) {
     final field = getField(TimestampCorrelationSystemTimestampMsField.ID);
 
@@ -254,6 +279,8 @@ class TimestampCorrelationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

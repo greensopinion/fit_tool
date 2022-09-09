@@ -6,10 +6,12 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
 import '../../sub_field.dart';
 import '../profile_type.dart';
-import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class ScheduleMessage extends DataMessage {
   ScheduleMessage(
@@ -70,11 +72,13 @@ class ScheduleMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 28;
   static const NAME = 'schedule';
 
   final bool growable;
 
+  /// Returns an instance of ScheduleMessage from a bytes list.
   static ScheduleMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = ScheduleMessage(definitionMessage: definitionMessage);
@@ -82,6 +86,7 @@ class ScheduleMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the manufacturer field. Returns null if the field is not defined in the message.
   int? get manufacturer {
     final field = getField(ScheduleManufacturerField.ID);
     if (field != null && field.isValid()) {
@@ -92,6 +97,7 @@ class ScheduleMessage extends DataMessage {
     }
   }
 
+  /// Sets the manufacturer field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set manufacturer(int? value) {
     final field = getField(ScheduleManufacturerField.ID);
 
@@ -102,9 +108,12 @@ class ScheduleMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the product field. Returns null if the field is not defined in the message.
   int? get product {
     final field = getField(ScheduleProductField.ID);
     if (field != null && field.isValid()) {
@@ -115,6 +124,7 @@ class ScheduleMessage extends DataMessage {
     }
   }
 
+  /// Sets the product field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set product(int? value) {
     final field = getField(ScheduleProductField.ID);
 
@@ -125,9 +135,12 @@ class ScheduleMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Get the value of the subfield faveroProduct
   int? get faveroProduct {
     final field = getField(ScheduleProductField.ID);
     final typeField = getField(ScheduleManufacturerField.ID);
@@ -142,6 +155,7 @@ class ScheduleMessage extends DataMessage {
     }
   }
 
+  /// Sets the product subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set faveroProduct(int? value) {
     final field = getField(ScheduleProductField.ID);
     if (field != null) {
@@ -151,9 +165,12 @@ class ScheduleMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Get the value of the subfield garminProduct
   int? get garminProduct {
     final field = getField(ScheduleProductField.ID);
     final typeField = getField(ScheduleManufacturerField.ID);
@@ -168,6 +185,7 @@ class ScheduleMessage extends DataMessage {
     }
   }
 
+  /// Sets the product subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set garminProduct(int? value) {
     final field = getField(ScheduleProductField.ID);
     if (field != null) {
@@ -177,9 +195,12 @@ class ScheduleMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the serialNumber field. Returns null if the field is not defined in the message.
   int? get serialNumber {
     final field = getField(ScheduleSerialNumberField.ID);
     if (field != null && field.isValid()) {
@@ -190,6 +211,7 @@ class ScheduleMessage extends DataMessage {
     }
   }
 
+  /// Sets the serialNumber field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set serialNumber(int? value) {
     final field = getField(ScheduleSerialNumberField.ID);
 
@@ -200,10 +222,12 @@ class ScheduleMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get timeCreated {
     final field = getField(ScheduleTimeCreatedField.ID);
     if (field != null && field.isValid()) {
@@ -214,7 +238,7 @@ class ScheduleMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timeCreated(int? value) {
     final field = getField(ScheduleTimeCreatedField.ID);
 
@@ -225,9 +249,12 @@ class ScheduleMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the completed field. Returns null if the field is not defined in the message.
   bool? get completed {
     final field = getField(ScheduleCompletedField.ID);
     if (field != null && field.isValid()) {
@@ -238,6 +265,7 @@ class ScheduleMessage extends DataMessage {
     }
   }
 
+  /// Sets the completed field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set completed(bool? value) {
     final field = getField(ScheduleCompletedField.ID);
 
@@ -248,9 +276,12 @@ class ScheduleMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the type field. Returns null if the field is not defined in the message.
   Schedule? get type {
     final field = getField(ScheduleTypeField.ID);
     if (field != null && field.isValid()) {
@@ -265,6 +296,7 @@ class ScheduleMessage extends DataMessage {
     }
   }
 
+  /// Sets the type field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set type(Schedule? value) {
     final field = getField(ScheduleTypeField.ID);
 
@@ -275,9 +307,12 @@ class ScheduleMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the scheduledTime field. Returns null if the field is not defined in the message.
   int? get scheduledTime {
     final field = getField(ScheduleScheduledTimeField.ID);
     if (field != null && field.isValid()) {
@@ -288,6 +323,7 @@ class ScheduleMessage extends DataMessage {
     }
   }
 
+  /// Sets the scheduledTime field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set scheduledTime(int? value) {
     final field = getField(ScheduleScheduledTimeField.ID);
 
@@ -298,6 +334,8 @@ class ScheduleMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

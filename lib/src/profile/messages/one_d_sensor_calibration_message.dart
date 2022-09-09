@@ -6,10 +6,13 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
 import '../../sub_field.dart';
 import '../profile_type.dart';
 import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class OneDSensorCalibrationMessage extends DataMessage {
   OneDSensorCalibrationMessage(
@@ -69,11 +72,13 @@ class OneDSensorCalibrationMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 210;
   static const NAME = 'one_d_sensor_calibration';
 
   final bool growable;
 
+  /// Returns an instance of OneDSensorCalibrationMessage from a bytes list.
   static OneDSensorCalibrationMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message =
@@ -82,7 +87,7 @@ class OneDSensorCalibrationMessage extends DataMessage {
     return message;
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
     final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
@@ -93,7 +98,7 @@ class OneDSensorCalibrationMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
@@ -104,9 +109,12 @@ class OneDSensorCalibrationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the sensorType field. Returns null if the field is not defined in the message.
   SensorType? get sensorType {
     final field = getField(OneDSensorCalibrationSensorTypeField.ID);
     if (field != null && field.isValid()) {
@@ -121,6 +129,7 @@ class OneDSensorCalibrationMessage extends DataMessage {
     }
   }
 
+  /// Sets the sensorType field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set sensorType(SensorType? value) {
     final field = getField(OneDSensorCalibrationSensorTypeField.ID);
 
@@ -131,9 +140,12 @@ class OneDSensorCalibrationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the calibrationFactor field. Returns null if the field is not defined in the message.
   int? get calibrationFactor {
     final field = getField(OneDSensorCalibrationCalibrationFactorField.ID);
     if (field != null && field.isValid()) {
@@ -144,6 +156,7 @@ class OneDSensorCalibrationMessage extends DataMessage {
     }
   }
 
+  /// Sets the calibrationFactor field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set calibrationFactor(int? value) {
     final field = getField(OneDSensorCalibrationCalibrationFactorField.ID);
 
@@ -154,9 +167,12 @@ class OneDSensorCalibrationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Get the value of the subfield baroCalFactor
   int? get baroCalFactor {
     final field = getField(OneDSensorCalibrationCalibrationFactorField.ID);
     final typeField = getField(OneDSensorCalibrationSensorTypeField.ID);
@@ -171,6 +187,7 @@ class OneDSensorCalibrationMessage extends DataMessage {
     }
   }
 
+  /// Sets the calibrationFactor subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set baroCalFactor(int? value) {
     final field = getField(OneDSensorCalibrationCalibrationFactorField.ID);
     if (field != null) {
@@ -180,9 +197,12 @@ class OneDSensorCalibrationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the calibrationDivisor field. Returns null if the field is not defined in the message.
   int? get calibrationDivisor {
     final field = getField(OneDSensorCalibrationCalibrationDivisorField.ID);
     if (field != null && field.isValid()) {
@@ -193,6 +213,7 @@ class OneDSensorCalibrationMessage extends DataMessage {
     }
   }
 
+  /// Sets the calibrationDivisor field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set calibrationDivisor(int? value) {
     final field = getField(OneDSensorCalibrationCalibrationDivisorField.ID);
 
@@ -203,9 +224,12 @@ class OneDSensorCalibrationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the levelShift field. Returns null if the field is not defined in the message.
   int? get levelShift {
     final field = getField(OneDSensorCalibrationLevelShiftField.ID);
     if (field != null && field.isValid()) {
@@ -216,6 +240,7 @@ class OneDSensorCalibrationMessage extends DataMessage {
     }
   }
 
+  /// Sets the levelShift field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set levelShift(int? value) {
     final field = getField(OneDSensorCalibrationLevelShiftField.ID);
 
@@ -226,9 +251,12 @@ class OneDSensorCalibrationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the offsetCal field. Returns null if the field is not defined in the message.
   int? get offsetCal {
     final field = getField(OneDSensorCalibrationOffsetCalField.ID);
     if (field != null && field.isValid()) {
@@ -239,6 +267,7 @@ class OneDSensorCalibrationMessage extends DataMessage {
     }
   }
 
+  /// Sets the offsetCal field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set offsetCal(int? value) {
     final field = getField(OneDSensorCalibrationOffsetCalField.ID);
 
@@ -249,6 +278,8 @@ class OneDSensorCalibrationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

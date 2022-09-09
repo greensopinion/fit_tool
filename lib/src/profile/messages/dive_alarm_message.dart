@@ -6,10 +6,12 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
 import '../profile_type.dart';
 import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class DiveAlarmMessage extends DataMessage {
   DiveAlarmMessage(
@@ -70,11 +72,13 @@ class DiveAlarmMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 262;
   static const NAME = 'dive_alarm';
 
   final bool growable;
 
+  /// Returns an instance of DiveAlarmMessage from a bytes list.
   static DiveAlarmMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = DiveAlarmMessage(definitionMessage: definitionMessage);
@@ -82,6 +86,7 @@ class DiveAlarmMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the messageIndex field. Returns null if the field is not defined in the message.
   int? get messageIndex {
     final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
@@ -92,6 +97,7 @@ class DiveAlarmMessage extends DataMessage {
     }
   }
 
+  /// Sets the messageIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
@@ -102,9 +108,12 @@ class DiveAlarmMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the depth field. Returns null if the field is not defined in the message.
   double? get depth {
     final field = getField(DiveAlarmDepthField.ID);
     if (field != null && field.isValid()) {
@@ -115,6 +124,7 @@ class DiveAlarmMessage extends DataMessage {
     }
   }
 
+  /// Sets the depth field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set depth(double? value) {
     final field = getField(DiveAlarmDepthField.ID);
 
@@ -125,9 +135,12 @@ class DiveAlarmMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the time field. Returns null if the field is not defined in the message.
   int? get time {
     final field = getField(DiveAlarmTimeField.ID);
     if (field != null && field.isValid()) {
@@ -138,6 +151,7 @@ class DiveAlarmMessage extends DataMessage {
     }
   }
 
+  /// Sets the time field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set time(int? value) {
     final field = getField(DiveAlarmTimeField.ID);
 
@@ -148,9 +162,12 @@ class DiveAlarmMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the enabled field. Returns null if the field is not defined in the message.
   bool? get enabled {
     final field = getField(DiveAlarmEnabledField.ID);
     if (field != null && field.isValid()) {
@@ -161,6 +178,7 @@ class DiveAlarmMessage extends DataMessage {
     }
   }
 
+  /// Sets the enabled field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set enabled(bool? value) {
     final field = getField(DiveAlarmEnabledField.ID);
 
@@ -171,9 +189,12 @@ class DiveAlarmMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the alarmType field. Returns null if the field is not defined in the message.
   DiveAlarmType? get alarmType {
     final field = getField(DiveAlarmAlarmTypeField.ID);
     if (field != null && field.isValid()) {
@@ -188,6 +209,7 @@ class DiveAlarmMessage extends DataMessage {
     }
   }
 
+  /// Sets the alarmType field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set alarmType(DiveAlarmType? value) {
     final field = getField(DiveAlarmAlarmTypeField.ID);
 
@@ -198,9 +220,12 @@ class DiveAlarmMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the sound field. Returns null if the field is not defined in the message.
   Tone? get sound {
     final field = getField(DiveAlarmSoundField.ID);
     if (field != null && field.isValid()) {
@@ -215,6 +240,7 @@ class DiveAlarmMessage extends DataMessage {
     }
   }
 
+  /// Sets the sound field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set sound(Tone? value) {
     final field = getField(DiveAlarmSoundField.ID);
 
@@ -225,9 +251,12 @@ class DiveAlarmMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the diveTypes field. Returns null if the field is not defined in the message.
   SubSport? get diveTypes {
     final field = getField(DiveAlarmDiveTypesField.ID);
     if (field != null && field.isValid()) {
@@ -242,6 +271,7 @@ class DiveAlarmMessage extends DataMessage {
     }
   }
 
+  /// Sets the diveTypes field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set diveTypes(SubSport? value) {
     final field = getField(DiveAlarmDiveTypesField.ID);
 
@@ -252,6 +282,8 @@ class DiveAlarmMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

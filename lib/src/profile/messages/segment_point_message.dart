@@ -6,10 +6,11 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
-import '../profile_type.dart';
 import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class SegmentPointMessage extends DataMessage {
   SegmentPointMessage(
@@ -64,11 +65,13 @@ class SegmentPointMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 150;
   static const NAME = 'segment_point';
 
   final bool growable;
 
+  /// Returns an instance of SegmentPointMessage from a bytes list.
   static SegmentPointMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = SegmentPointMessage(definitionMessage: definitionMessage);
@@ -76,6 +79,7 @@ class SegmentPointMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the messageIndex field. Returns null if the field is not defined in the message.
   int? get messageIndex {
     final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
@@ -86,6 +90,7 @@ class SegmentPointMessage extends DataMessage {
     }
   }
 
+  /// Sets the messageIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
@@ -96,9 +101,12 @@ class SegmentPointMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the positionLat field. Returns null if the field is not defined in the message.
   double? get positionLat {
     final field = getField(SegmentPointPositionLatField.ID);
     if (field != null && field.isValid()) {
@@ -109,6 +117,7 @@ class SegmentPointMessage extends DataMessage {
     }
   }
 
+  /// Sets the positionLat field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set positionLat(double? value) {
     final field = getField(SegmentPointPositionLatField.ID);
 
@@ -119,9 +128,12 @@ class SegmentPointMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the positionLong field. Returns null if the field is not defined in the message.
   double? get positionLong {
     final field = getField(SegmentPointPositionLongField.ID);
     if (field != null && field.isValid()) {
@@ -132,6 +144,7 @@ class SegmentPointMessage extends DataMessage {
     }
   }
 
+  /// Sets the positionLong field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set positionLong(double? value) {
     final field = getField(SegmentPointPositionLongField.ID);
 
@@ -142,9 +155,12 @@ class SegmentPointMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the distance field. Returns null if the field is not defined in the message.
   double? get distance {
     final field = getField(SegmentPointDistanceField.ID);
     if (field != null && field.isValid()) {
@@ -155,6 +171,7 @@ class SegmentPointMessage extends DataMessage {
     }
   }
 
+  /// Sets the distance field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set distance(double? value) {
     final field = getField(SegmentPointDistanceField.ID);
 
@@ -165,9 +182,12 @@ class SegmentPointMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the altitude field. Returns null if the field is not defined in the message.
   double? get altitude {
     final field = getField(SegmentPointAltitudeField.ID);
     if (field != null && field.isValid()) {
@@ -178,6 +198,7 @@ class SegmentPointMessage extends DataMessage {
     }
   }
 
+  /// Sets the altitude field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set altitude(double? value) {
     final field = getField(SegmentPointAltitudeField.ID);
 
@@ -188,9 +209,12 @@ class SegmentPointMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the leaderTime field. Returns null if the field is not defined in the message.
   double? get leaderTime {
     final field = getField(SegmentPointLeaderTimeField.ID);
     if (field != null && field.isValid()) {
@@ -201,6 +225,7 @@ class SegmentPointMessage extends DataMessage {
     }
   }
 
+  /// Sets the leaderTime field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set leaderTime(double? value) {
     final field = getField(SegmentPointLeaderTimeField.ID);
 
@@ -211,6 +236,8 @@ class SegmentPointMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

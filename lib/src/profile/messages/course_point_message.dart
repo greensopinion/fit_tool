@@ -6,10 +6,12 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
 import '../profile_type.dart';
 import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class CoursePointMessage extends DataMessage {
   CoursePointMessage(
@@ -76,11 +78,13 @@ class CoursePointMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 32;
   static const NAME = 'course_point';
 
   final bool growable;
 
+  /// Returns an instance of CoursePointMessage from a bytes list.
   static CoursePointMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = CoursePointMessage(definitionMessage: definitionMessage);
@@ -88,6 +92,7 @@ class CoursePointMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the messageIndex field. Returns null if the field is not defined in the message.
   int? get messageIndex {
     final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
@@ -98,6 +103,7 @@ class CoursePointMessage extends DataMessage {
     }
   }
 
+  /// Sets the messageIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
@@ -108,10 +114,12 @@ class CoursePointMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
     final field = getField(CoursePointTimestampField.ID);
     if (field != null && field.isValid()) {
@@ -122,7 +130,7 @@ class CoursePointMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestamp(int? value) {
     final field = getField(CoursePointTimestampField.ID);
 
@@ -133,9 +141,12 @@ class CoursePointMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the positionLat field. Returns null if the field is not defined in the message.
   double? get positionLat {
     final field = getField(CoursePointPositionLatField.ID);
     if (field != null && field.isValid()) {
@@ -146,6 +157,7 @@ class CoursePointMessage extends DataMessage {
     }
   }
 
+  /// Sets the positionLat field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set positionLat(double? value) {
     final field = getField(CoursePointPositionLatField.ID);
 
@@ -156,9 +168,12 @@ class CoursePointMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the positionLong field. Returns null if the field is not defined in the message.
   double? get positionLong {
     final field = getField(CoursePointPositionLongField.ID);
     if (field != null && field.isValid()) {
@@ -169,6 +184,7 @@ class CoursePointMessage extends DataMessage {
     }
   }
 
+  /// Sets the positionLong field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set positionLong(double? value) {
     final field = getField(CoursePointPositionLongField.ID);
 
@@ -179,9 +195,12 @@ class CoursePointMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the distance field. Returns null if the field is not defined in the message.
   double? get distance {
     final field = getField(CoursePointDistanceField.ID);
     if (field != null && field.isValid()) {
@@ -192,6 +211,7 @@ class CoursePointMessage extends DataMessage {
     }
   }
 
+  /// Sets the distance field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set distance(double? value) {
     final field = getField(CoursePointDistanceField.ID);
 
@@ -202,9 +222,12 @@ class CoursePointMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the type field. Returns null if the field is not defined in the message.
   CoursePoint? get type {
     final field = getField(CoursePointTypeField.ID);
     if (field != null && field.isValid()) {
@@ -219,6 +242,7 @@ class CoursePointMessage extends DataMessage {
     }
   }
 
+  /// Sets the type field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set type(CoursePoint? value) {
     final field = getField(CoursePointTypeField.ID);
 
@@ -229,9 +253,12 @@ class CoursePointMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the coursePointName field. Returns null if the field is not defined in the message.
   String? get coursePointName {
     final field = getField(CoursePointNameField.ID);
     if (field != null && field.isValid()) {
@@ -242,6 +269,7 @@ class CoursePointMessage extends DataMessage {
     }
   }
 
+  /// Sets the coursePointName field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set coursePointName(String? value) {
     final field = getField(CoursePointNameField.ID);
 
@@ -252,9 +280,12 @@ class CoursePointMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the favorite field. Returns null if the field is not defined in the message.
   bool? get favorite {
     final field = getField(CoursePointFavoriteField.ID);
     if (field != null && field.isValid()) {
@@ -265,6 +296,7 @@ class CoursePointMessage extends DataMessage {
     }
   }
 
+  /// Sets the favorite field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set favorite(bool? value) {
     final field = getField(CoursePointFavoriteField.ID);
 
@@ -275,6 +307,8 @@ class CoursePointMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

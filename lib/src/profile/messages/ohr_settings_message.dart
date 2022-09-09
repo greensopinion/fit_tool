@@ -6,10 +6,12 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
 import '../profile_type.dart';
 import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class OhrSettingsMessage extends DataMessage {
   OhrSettingsMessage(
@@ -40,11 +42,13 @@ class OhrSettingsMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 188;
   static const NAME = 'ohr_settings';
 
   final bool growable;
 
+  /// Returns an instance of OhrSettingsMessage from a bytes list.
   static OhrSettingsMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = OhrSettingsMessage(definitionMessage: definitionMessage);
@@ -52,7 +56,7 @@ class OhrSettingsMessage extends DataMessage {
     return message;
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
     final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
@@ -63,7 +67,7 @@ class OhrSettingsMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
@@ -74,9 +78,12 @@ class OhrSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the enabled field. Returns null if the field is not defined in the message.
   SwitchType? get enabled {
     final field = getField(OhrSettingsEnabledField.ID);
     if (field != null && field.isValid()) {
@@ -91,6 +98,7 @@ class OhrSettingsMessage extends DataMessage {
     }
   }
 
+  /// Sets the enabled field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set enabled(SwitchType? value) {
     final field = getField(OhrSettingsEnabledField.ID);
 
@@ -101,6 +109,8 @@ class OhrSettingsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

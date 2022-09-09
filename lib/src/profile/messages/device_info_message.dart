@@ -6,10 +6,13 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
 import '../../sub_field.dart';
 import '../profile_type.dart';
 import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class DeviceInfoMessage extends DataMessage {
   DeviceInfoMessage(
@@ -141,11 +144,13 @@ class DeviceInfoMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 23;
   static const NAME = 'device_info';
 
   final bool growable;
 
+  /// Returns an instance of DeviceInfoMessage from a bytes list.
   static DeviceInfoMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = DeviceInfoMessage(definitionMessage: definitionMessage);
@@ -153,7 +158,7 @@ class DeviceInfoMessage extends DataMessage {
     return message;
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
     final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
@@ -164,7 +169,7 @@ class DeviceInfoMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
@@ -175,9 +180,12 @@ class DeviceInfoMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the deviceIndex field. Returns null if the field is not defined in the message.
   int? get deviceIndex {
     final field = getField(DeviceInfoDeviceIndexField.ID);
     if (field != null && field.isValid()) {
@@ -188,6 +196,7 @@ class DeviceInfoMessage extends DataMessage {
     }
   }
 
+  /// Sets the deviceIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set deviceIndex(int? value) {
     final field = getField(DeviceInfoDeviceIndexField.ID);
 
@@ -198,9 +207,12 @@ class DeviceInfoMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the deviceType field. Returns null if the field is not defined in the message.
   int? get deviceType {
     final field = getField(DeviceInfoDeviceTypeField.ID);
     if (field != null && field.isValid()) {
@@ -211,6 +223,7 @@ class DeviceInfoMessage extends DataMessage {
     }
   }
 
+  /// Sets the deviceType field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set deviceType(int? value) {
     final field = getField(DeviceInfoDeviceTypeField.ID);
 
@@ -221,9 +234,12 @@ class DeviceInfoMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Get the value of the subfield antplusDeviceType
   int? get antplusDeviceType {
     final field = getField(DeviceInfoDeviceTypeField.ID);
     final typeField = getField(DeviceInfoSourceTypeField.ID);
@@ -238,6 +254,7 @@ class DeviceInfoMessage extends DataMessage {
     }
   }
 
+  /// Sets the deviceType subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set antplusDeviceType(int? value) {
     final field = getField(DeviceInfoDeviceTypeField.ID);
     if (field != null) {
@@ -247,9 +264,12 @@ class DeviceInfoMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Get the value of the subfield antDeviceType
   int? get antDeviceType {
     final field = getField(DeviceInfoDeviceTypeField.ID);
     final typeField = getField(DeviceInfoSourceTypeField.ID);
@@ -264,6 +284,7 @@ class DeviceInfoMessage extends DataMessage {
     }
   }
 
+  /// Sets the deviceType subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set antDeviceType(int? value) {
     final field = getField(DeviceInfoDeviceTypeField.ID);
     if (field != null) {
@@ -273,9 +294,12 @@ class DeviceInfoMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the manufacturer field. Returns null if the field is not defined in the message.
   int? get manufacturer {
     final field = getField(DeviceInfoManufacturerField.ID);
     if (field != null && field.isValid()) {
@@ -286,6 +310,7 @@ class DeviceInfoMessage extends DataMessage {
     }
   }
 
+  /// Sets the manufacturer field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set manufacturer(int? value) {
     final field = getField(DeviceInfoManufacturerField.ID);
 
@@ -296,9 +321,12 @@ class DeviceInfoMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the serialNumber field. Returns null if the field is not defined in the message.
   int? get serialNumber {
     final field = getField(DeviceInfoSerialNumberField.ID);
     if (field != null && field.isValid()) {
@@ -309,6 +337,7 @@ class DeviceInfoMessage extends DataMessage {
     }
   }
 
+  /// Sets the serialNumber field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set serialNumber(int? value) {
     final field = getField(DeviceInfoSerialNumberField.ID);
 
@@ -319,9 +348,12 @@ class DeviceInfoMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the product field. Returns null if the field is not defined in the message.
   int? get product {
     final field = getField(DeviceInfoProductField.ID);
     if (field != null && field.isValid()) {
@@ -332,6 +364,7 @@ class DeviceInfoMessage extends DataMessage {
     }
   }
 
+  /// Sets the product field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set product(int? value) {
     final field = getField(DeviceInfoProductField.ID);
 
@@ -342,9 +375,12 @@ class DeviceInfoMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Get the value of the subfield faveroProduct
   int? get faveroProduct {
     final field = getField(DeviceInfoProductField.ID);
     final typeField = getField(DeviceInfoManufacturerField.ID);
@@ -359,6 +395,7 @@ class DeviceInfoMessage extends DataMessage {
     }
   }
 
+  /// Sets the product subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set faveroProduct(int? value) {
     final field = getField(DeviceInfoProductField.ID);
     if (field != null) {
@@ -368,9 +405,12 @@ class DeviceInfoMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Get the value of the subfield garminProduct
   int? get garminProduct {
     final field = getField(DeviceInfoProductField.ID);
     final typeField = getField(DeviceInfoManufacturerField.ID);
@@ -385,6 +425,7 @@ class DeviceInfoMessage extends DataMessage {
     }
   }
 
+  /// Sets the product subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set garminProduct(int? value) {
     final field = getField(DeviceInfoProductField.ID);
     if (field != null) {
@@ -394,9 +435,12 @@ class DeviceInfoMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the softwareVersion field. Returns null if the field is not defined in the message.
   double? get softwareVersion {
     final field = getField(DeviceInfoSoftwareVersionField.ID);
     if (field != null && field.isValid()) {
@@ -407,6 +451,7 @@ class DeviceInfoMessage extends DataMessage {
     }
   }
 
+  /// Sets the softwareVersion field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set softwareVersion(double? value) {
     final field = getField(DeviceInfoSoftwareVersionField.ID);
 
@@ -417,9 +462,12 @@ class DeviceInfoMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the hardwareVersion field. Returns null if the field is not defined in the message.
   int? get hardwareVersion {
     final field = getField(DeviceInfoHardwareVersionField.ID);
     if (field != null && field.isValid()) {
@@ -430,6 +478,7 @@ class DeviceInfoMessage extends DataMessage {
     }
   }
 
+  /// Sets the hardwareVersion field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set hardwareVersion(int? value) {
     final field = getField(DeviceInfoHardwareVersionField.ID);
 
@@ -440,9 +489,12 @@ class DeviceInfoMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the cumOperatingTime field. Returns null if the field is not defined in the message.
   int? get cumOperatingTime {
     final field = getField(DeviceInfoCumOperatingTimeField.ID);
     if (field != null && field.isValid()) {
@@ -453,6 +505,7 @@ class DeviceInfoMessage extends DataMessage {
     }
   }
 
+  /// Sets the cumOperatingTime field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set cumOperatingTime(int? value) {
     final field = getField(DeviceInfoCumOperatingTimeField.ID);
 
@@ -463,9 +516,12 @@ class DeviceInfoMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the batteryVoltage field. Returns null if the field is not defined in the message.
   double? get batteryVoltage {
     final field = getField(DeviceInfoBatteryVoltageField.ID);
     if (field != null && field.isValid()) {
@@ -476,6 +532,7 @@ class DeviceInfoMessage extends DataMessage {
     }
   }
 
+  /// Sets the batteryVoltage field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set batteryVoltage(double? value) {
     final field = getField(DeviceInfoBatteryVoltageField.ID);
 
@@ -486,9 +543,12 @@ class DeviceInfoMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the batteryStatus field. Returns null if the field is not defined in the message.
   int? get batteryStatus {
     final field = getField(DeviceInfoBatteryStatusField.ID);
     if (field != null && field.isValid()) {
@@ -499,6 +559,7 @@ class DeviceInfoMessage extends DataMessage {
     }
   }
 
+  /// Sets the batteryStatus field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set batteryStatus(int? value) {
     final field = getField(DeviceInfoBatteryStatusField.ID);
 
@@ -509,9 +570,12 @@ class DeviceInfoMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the sensorPosition field. Returns null if the field is not defined in the message.
   BodyLocation? get sensorPosition {
     final field = getField(DeviceInfoSensorPositionField.ID);
     if (field != null && field.isValid()) {
@@ -526,6 +590,7 @@ class DeviceInfoMessage extends DataMessage {
     }
   }
 
+  /// Sets the sensorPosition field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set sensorPosition(BodyLocation? value) {
     final field = getField(DeviceInfoSensorPositionField.ID);
 
@@ -536,9 +601,12 @@ class DeviceInfoMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the descriptor field. Returns null if the field is not defined in the message.
   String? get descriptor {
     final field = getField(DeviceInfoDescriptorField.ID);
     if (field != null && field.isValid()) {
@@ -549,6 +617,7 @@ class DeviceInfoMessage extends DataMessage {
     }
   }
 
+  /// Sets the descriptor field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set descriptor(String? value) {
     final field = getField(DeviceInfoDescriptorField.ID);
 
@@ -559,9 +628,12 @@ class DeviceInfoMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the antTransmissionType field. Returns null if the field is not defined in the message.
   int? get antTransmissionType {
     final field = getField(DeviceInfoAntTransmissionTypeField.ID);
     if (field != null && field.isValid()) {
@@ -572,6 +644,7 @@ class DeviceInfoMessage extends DataMessage {
     }
   }
 
+  /// Sets the antTransmissionType field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set antTransmissionType(int? value) {
     final field = getField(DeviceInfoAntTransmissionTypeField.ID);
 
@@ -582,9 +655,12 @@ class DeviceInfoMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the antDeviceNumber field. Returns null if the field is not defined in the message.
   int? get antDeviceNumber {
     final field = getField(DeviceInfoAntDeviceNumberField.ID);
     if (field != null && field.isValid()) {
@@ -595,6 +671,7 @@ class DeviceInfoMessage extends DataMessage {
     }
   }
 
+  /// Sets the antDeviceNumber field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set antDeviceNumber(int? value) {
     final field = getField(DeviceInfoAntDeviceNumberField.ID);
 
@@ -605,9 +682,12 @@ class DeviceInfoMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the antNetwork field. Returns null if the field is not defined in the message.
   AntNetwork? get antNetwork {
     final field = getField(DeviceInfoAntNetworkField.ID);
     if (field != null && field.isValid()) {
@@ -622,6 +702,7 @@ class DeviceInfoMessage extends DataMessage {
     }
   }
 
+  /// Sets the antNetwork field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set antNetwork(AntNetwork? value) {
     final field = getField(DeviceInfoAntNetworkField.ID);
 
@@ -632,9 +713,12 @@ class DeviceInfoMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the sourceType field. Returns null if the field is not defined in the message.
   SourceType? get sourceType {
     final field = getField(DeviceInfoSourceTypeField.ID);
     if (field != null && field.isValid()) {
@@ -649,6 +733,7 @@ class DeviceInfoMessage extends DataMessage {
     }
   }
 
+  /// Sets the sourceType field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set sourceType(SourceType? value) {
     final field = getField(DeviceInfoSourceTypeField.ID);
 
@@ -659,9 +744,12 @@ class DeviceInfoMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the productName field. Returns null if the field is not defined in the message.
   String? get productName {
     final field = getField(DeviceInfoProductNameField.ID);
     if (field != null && field.isValid()) {
@@ -672,6 +760,7 @@ class DeviceInfoMessage extends DataMessage {
     }
   }
 
+  /// Sets the productName field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set productName(String? value) {
     final field = getField(DeviceInfoProductNameField.ID);
 
@@ -682,6 +771,8 @@ class DeviceInfoMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

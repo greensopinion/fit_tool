@@ -1,3 +1,18 @@
+## 1.0.2
+- Fix static analysis issues
+
+## 1.0.1
+- Fix static analysis issues
+
+## 1.0.0
+- Fix static analysis issues
+- Add comments
+- Add error handling when attempting to access a field that is not defined
+
+## 0.9.11
+- Fix static analysis issues
+- Support web platform
+
 ## 0.9.10
 - Fix field invalid values issue
 

@@ -6,10 +6,10 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
-import '../profile_type.dart';
-import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class CapabilitiesMessage extends DataMessage {
   CapabilitiesMessage(
@@ -54,11 +54,13 @@ class CapabilitiesMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 1;
   static const NAME = 'capabilities';
 
   final bool growable;
 
+  /// Returns an instance of CapabilitiesMessage from a bytes list.
   static CapabilitiesMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = CapabilitiesMessage(definitionMessage: definitionMessage);
@@ -66,6 +68,7 @@ class CapabilitiesMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the languages field. Returns null if the field is not defined in the message.
   int? get languages {
     final field = getField(CapabilitiesLanguagesField.ID);
     if (field != null && field.isValid()) {
@@ -76,6 +79,7 @@ class CapabilitiesMessage extends DataMessage {
     }
   }
 
+  /// Sets the languages field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set languages(int? value) {
     final field = getField(CapabilitiesLanguagesField.ID);
 
@@ -86,9 +90,12 @@ class CapabilitiesMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the sports field. Returns null if the field is not defined in the message.
   int? get sports {
     final field = getField(CapabilitiesSportsField.ID);
     if (field != null && field.isValid()) {
@@ -99,6 +106,7 @@ class CapabilitiesMessage extends DataMessage {
     }
   }
 
+  /// Sets the sports field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set sports(int? value) {
     final field = getField(CapabilitiesSportsField.ID);
 
@@ -109,9 +117,12 @@ class CapabilitiesMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the workoutsSupported field. Returns null if the field is not defined in the message.
   int? get workoutsSupported {
     final field = getField(CapabilitiesWorkoutsSupportedField.ID);
     if (field != null && field.isValid()) {
@@ -122,6 +133,7 @@ class CapabilitiesMessage extends DataMessage {
     }
   }
 
+  /// Sets the workoutsSupported field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set workoutsSupported(int? value) {
     final field = getField(CapabilitiesWorkoutsSupportedField.ID);
 
@@ -132,9 +144,12 @@ class CapabilitiesMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the connectivitySupported field. Returns null if the field is not defined in the message.
   int? get connectivitySupported {
     final field = getField(CapabilitiesConnectivitySupportedField.ID);
     if (field != null && field.isValid()) {
@@ -145,6 +160,7 @@ class CapabilitiesMessage extends DataMessage {
     }
   }
 
+  /// Sets the connectivitySupported field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set connectivitySupported(int? value) {
     final field = getField(CapabilitiesConnectivitySupportedField.ID);
 
@@ -155,6 +171,8 @@ class CapabilitiesMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

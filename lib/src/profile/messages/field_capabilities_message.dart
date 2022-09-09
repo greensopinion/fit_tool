@@ -6,10 +6,12 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
 import '../profile_type.dart';
 import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class FieldCapabilitiesMessage extends DataMessage {
   FieldCapabilitiesMessage(
@@ -59,11 +61,13 @@ class FieldCapabilitiesMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 39;
   static const NAME = 'field_capabilities';
 
   final bool growable;
 
+  /// Returns an instance of FieldCapabilitiesMessage from a bytes list.
   static FieldCapabilitiesMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message =
@@ -72,6 +76,7 @@ class FieldCapabilitiesMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the messageIndex field. Returns null if the field is not defined in the message.
   int? get messageIndex {
     final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
@@ -82,6 +87,7 @@ class FieldCapabilitiesMessage extends DataMessage {
     }
   }
 
+  /// Sets the messageIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
@@ -92,9 +98,12 @@ class FieldCapabilitiesMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the file field. Returns null if the field is not defined in the message.
   FileType? get file {
     final field = getField(FieldCapabilitiesFileField.ID);
     if (field != null && field.isValid()) {
@@ -109,6 +118,7 @@ class FieldCapabilitiesMessage extends DataMessage {
     }
   }
 
+  /// Sets the file field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set file(FileType? value) {
     final field = getField(FieldCapabilitiesFileField.ID);
 
@@ -119,9 +129,12 @@ class FieldCapabilitiesMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the mesgNum field. Returns null if the field is not defined in the message.
   int? get mesgNum {
     final field = getField(FieldCapabilitiesMesgNumField.ID);
     if (field != null && field.isValid()) {
@@ -132,6 +145,7 @@ class FieldCapabilitiesMessage extends DataMessage {
     }
   }
 
+  /// Sets the mesgNum field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set mesgNum(int? value) {
     final field = getField(FieldCapabilitiesMesgNumField.ID);
 
@@ -142,9 +156,12 @@ class FieldCapabilitiesMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the fieldNum field. Returns null if the field is not defined in the message.
   int? get fieldNum {
     final field = getField(FieldCapabilitiesFieldNumField.ID);
     if (field != null && field.isValid()) {
@@ -155,6 +172,7 @@ class FieldCapabilitiesMessage extends DataMessage {
     }
   }
 
+  /// Sets the fieldNum field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set fieldNum(int? value) {
     final field = getField(FieldCapabilitiesFieldNumField.ID);
 
@@ -165,9 +183,12 @@ class FieldCapabilitiesMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the count field. Returns null if the field is not defined in the message.
   int? get count {
     final field = getField(FieldCapabilitiesCountField.ID);
     if (field != null && field.isValid()) {
@@ -178,6 +199,7 @@ class FieldCapabilitiesMessage extends DataMessage {
     }
   }
 
+  /// Sets the count field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set count(int? value) {
     final field = getField(FieldCapabilitiesCountField.ID);
 
@@ -188,6 +210,8 @@ class FieldCapabilitiesMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

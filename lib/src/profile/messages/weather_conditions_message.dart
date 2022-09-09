@@ -6,10 +6,12 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
 import '../profile_type.dart';
 import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class WeatherConditionsMessage extends DataMessage {
   WeatherConditionsMessage(
@@ -139,11 +141,13 @@ class WeatherConditionsMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 128;
   static const NAME = 'weather_conditions';
 
   final bool growable;
 
+  /// Returns an instance of WeatherConditionsMessage from a bytes list.
   static WeatherConditionsMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message =
@@ -152,7 +156,7 @@ class WeatherConditionsMessage extends DataMessage {
     return message;
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
     final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
@@ -163,7 +167,7 @@ class WeatherConditionsMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
@@ -174,9 +178,12 @@ class WeatherConditionsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the weatherReport field. Returns null if the field is not defined in the message.
   WeatherReport? get weatherReport {
     final field = getField(WeatherConditionsWeatherReportField.ID);
     if (field != null && field.isValid()) {
@@ -191,6 +198,7 @@ class WeatherConditionsMessage extends DataMessage {
     }
   }
 
+  /// Sets the weatherReport field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set weatherReport(WeatherReport? value) {
     final field = getField(WeatherConditionsWeatherReportField.ID);
 
@@ -201,9 +209,12 @@ class WeatherConditionsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the temperature field. Returns null if the field is not defined in the message.
   int? get temperature {
     final field = getField(WeatherConditionsTemperatureField.ID);
     if (field != null && field.isValid()) {
@@ -214,6 +225,7 @@ class WeatherConditionsMessage extends DataMessage {
     }
   }
 
+  /// Sets the temperature field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set temperature(int? value) {
     final field = getField(WeatherConditionsTemperatureField.ID);
 
@@ -224,9 +236,12 @@ class WeatherConditionsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the condition field. Returns null if the field is not defined in the message.
   WeatherStatus? get condition {
     final field = getField(WeatherConditionsConditionField.ID);
     if (field != null && field.isValid()) {
@@ -241,6 +256,7 @@ class WeatherConditionsMessage extends DataMessage {
     }
   }
 
+  /// Sets the condition field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set condition(WeatherStatus? value) {
     final field = getField(WeatherConditionsConditionField.ID);
 
@@ -251,9 +267,12 @@ class WeatherConditionsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the windDirection field. Returns null if the field is not defined in the message.
   int? get windDirection {
     final field = getField(WeatherConditionsWindDirectionField.ID);
     if (field != null && field.isValid()) {
@@ -264,6 +283,7 @@ class WeatherConditionsMessage extends DataMessage {
     }
   }
 
+  /// Sets the windDirection field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set windDirection(int? value) {
     final field = getField(WeatherConditionsWindDirectionField.ID);
 
@@ -274,9 +294,12 @@ class WeatherConditionsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the windSpeed field. Returns null if the field is not defined in the message.
   double? get windSpeed {
     final field = getField(WeatherConditionsWindSpeedField.ID);
     if (field != null && field.isValid()) {
@@ -287,6 +310,7 @@ class WeatherConditionsMessage extends DataMessage {
     }
   }
 
+  /// Sets the windSpeed field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set windSpeed(double? value) {
     final field = getField(WeatherConditionsWindSpeedField.ID);
 
@@ -297,9 +321,12 @@ class WeatherConditionsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the precipitationProbability field. Returns null if the field is not defined in the message.
   int? get precipitationProbability {
     final field = getField(WeatherConditionsPrecipitationProbabilityField.ID);
     if (field != null && field.isValid()) {
@@ -310,6 +337,7 @@ class WeatherConditionsMessage extends DataMessage {
     }
   }
 
+  /// Sets the precipitationProbability field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set precipitationProbability(int? value) {
     final field = getField(WeatherConditionsPrecipitationProbabilityField.ID);
 
@@ -320,9 +348,12 @@ class WeatherConditionsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the temperatureFeelsLike field. Returns null if the field is not defined in the message.
   int? get temperatureFeelsLike {
     final field = getField(WeatherConditionsTemperatureFeelsLikeField.ID);
     if (field != null && field.isValid()) {
@@ -333,6 +364,7 @@ class WeatherConditionsMessage extends DataMessage {
     }
   }
 
+  /// Sets the temperatureFeelsLike field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set temperatureFeelsLike(int? value) {
     final field = getField(WeatherConditionsTemperatureFeelsLikeField.ID);
 
@@ -343,9 +375,12 @@ class WeatherConditionsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the relativeHumidity field. Returns null if the field is not defined in the message.
   int? get relativeHumidity {
     final field = getField(WeatherConditionsRelativeHumidityField.ID);
     if (field != null && field.isValid()) {
@@ -356,6 +391,7 @@ class WeatherConditionsMessage extends DataMessage {
     }
   }
 
+  /// Sets the relativeHumidity field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set relativeHumidity(int? value) {
     final field = getField(WeatherConditionsRelativeHumidityField.ID);
 
@@ -366,9 +402,12 @@ class WeatherConditionsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the location field. Returns null if the field is not defined in the message.
   String? get location {
     final field = getField(WeatherConditionsLocationField.ID);
     if (field != null && field.isValid()) {
@@ -379,6 +418,7 @@ class WeatherConditionsMessage extends DataMessage {
     }
   }
 
+  /// Sets the location field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set location(String? value) {
     final field = getField(WeatherConditionsLocationField.ID);
 
@@ -389,10 +429,12 @@ class WeatherConditionsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get observedAtTime {
     final field = getField(WeatherConditionsObservedAtTimeField.ID);
     if (field != null && field.isValid()) {
@@ -403,7 +445,7 @@ class WeatherConditionsMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set observedAtTime(int? value) {
     final field = getField(WeatherConditionsObservedAtTimeField.ID);
 
@@ -414,9 +456,12 @@ class WeatherConditionsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the observedLocationLat field. Returns null if the field is not defined in the message.
   double? get observedLocationLat {
     final field = getField(WeatherConditionsObservedLocationLatField.ID);
     if (field != null && field.isValid()) {
@@ -427,6 +472,7 @@ class WeatherConditionsMessage extends DataMessage {
     }
   }
 
+  /// Sets the observedLocationLat field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set observedLocationLat(double? value) {
     final field = getField(WeatherConditionsObservedLocationLatField.ID);
 
@@ -437,9 +483,12 @@ class WeatherConditionsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the observedLocationLong field. Returns null if the field is not defined in the message.
   double? get observedLocationLong {
     final field = getField(WeatherConditionsObservedLocationLongField.ID);
     if (field != null && field.isValid()) {
@@ -450,6 +499,7 @@ class WeatherConditionsMessage extends DataMessage {
     }
   }
 
+  /// Sets the observedLocationLong field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set observedLocationLong(double? value) {
     final field = getField(WeatherConditionsObservedLocationLongField.ID);
 
@@ -460,9 +510,12 @@ class WeatherConditionsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the dayOfWeek field. Returns null if the field is not defined in the message.
   DayOfWeek? get dayOfWeek {
     final field = getField(WeatherConditionsDayOfWeekField.ID);
     if (field != null && field.isValid()) {
@@ -477,6 +530,7 @@ class WeatherConditionsMessage extends DataMessage {
     }
   }
 
+  /// Sets the dayOfWeek field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set dayOfWeek(DayOfWeek? value) {
     final field = getField(WeatherConditionsDayOfWeekField.ID);
 
@@ -487,9 +541,12 @@ class WeatherConditionsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the highTemperature field. Returns null if the field is not defined in the message.
   int? get highTemperature {
     final field = getField(WeatherConditionsHighTemperatureField.ID);
     if (field != null && field.isValid()) {
@@ -500,6 +557,7 @@ class WeatherConditionsMessage extends DataMessage {
     }
   }
 
+  /// Sets the highTemperature field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set highTemperature(int? value) {
     final field = getField(WeatherConditionsHighTemperatureField.ID);
 
@@ -510,9 +568,12 @@ class WeatherConditionsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the lowTemperature field. Returns null if the field is not defined in the message.
   int? get lowTemperature {
     final field = getField(WeatherConditionsLowTemperatureField.ID);
     if (field != null && field.isValid()) {
@@ -523,6 +584,7 @@ class WeatherConditionsMessage extends DataMessage {
     }
   }
 
+  /// Sets the lowTemperature field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set lowTemperature(int? value) {
     final field = getField(WeatherConditionsLowTemperatureField.ID);
 
@@ -533,6 +595,8 @@ class WeatherConditionsMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

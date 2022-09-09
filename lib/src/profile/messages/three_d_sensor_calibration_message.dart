@@ -6,10 +6,13 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
 import '../../sub_field.dart';
 import '../profile_type.dart';
 import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class ThreeDSensorCalibrationMessage extends DataMessage {
   ThreeDSensorCalibrationMessage(
@@ -76,11 +79,13 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 167;
   static const NAME = 'three_d_sensor_calibration';
 
   final bool growable;
 
+  /// Returns an instance of ThreeDSensorCalibrationMessage from a bytes list.
   static ThreeDSensorCalibrationMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message =
@@ -89,7 +94,7 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
     return message;
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
     final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
@@ -100,7 +105,7 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
@@ -111,9 +116,12 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the sensorType field. Returns null if the field is not defined in the message.
   SensorType? get sensorType {
     final field = getField(ThreeDSensorCalibrationSensorTypeField.ID);
     if (field != null && field.isValid()) {
@@ -128,6 +136,7 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
     }
   }
 
+  /// Sets the sensorType field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set sensorType(SensorType? value) {
     final field = getField(ThreeDSensorCalibrationSensorTypeField.ID);
 
@@ -138,9 +147,12 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the calibrationFactor field. Returns null if the field is not defined in the message.
   int? get calibrationFactor {
     final field = getField(ThreeDSensorCalibrationCalibrationFactorField.ID);
     if (field != null && field.isValid()) {
@@ -151,6 +163,7 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
     }
   }
 
+  /// Sets the calibrationFactor field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set calibrationFactor(int? value) {
     final field = getField(ThreeDSensorCalibrationCalibrationFactorField.ID);
 
@@ -161,9 +174,12 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Get the value of the subfield accelCalFactor
   int? get accelCalFactor {
     final field = getField(ThreeDSensorCalibrationCalibrationFactorField.ID);
     final typeField = getField(ThreeDSensorCalibrationSensorTypeField.ID);
@@ -178,6 +194,7 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
     }
   }
 
+  /// Sets the calibrationFactor subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set accelCalFactor(int? value) {
     final field = getField(ThreeDSensorCalibrationCalibrationFactorField.ID);
     if (field != null) {
@@ -187,9 +204,12 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Get the value of the subfield gyroCalFactor
   int? get gyroCalFactor {
     final field = getField(ThreeDSensorCalibrationCalibrationFactorField.ID);
     final typeField = getField(ThreeDSensorCalibrationSensorTypeField.ID);
@@ -204,6 +224,7 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
     }
   }
 
+  /// Sets the calibrationFactor subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set gyroCalFactor(int? value) {
     final field = getField(ThreeDSensorCalibrationCalibrationFactorField.ID);
     if (field != null) {
@@ -213,9 +234,12 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the calibrationDivisor field. Returns null if the field is not defined in the message.
   int? get calibrationDivisor {
     final field = getField(ThreeDSensorCalibrationCalibrationDivisorField.ID);
     if (field != null && field.isValid()) {
@@ -226,6 +250,7 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
     }
   }
 
+  /// Sets the calibrationDivisor field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set calibrationDivisor(int? value) {
     final field = getField(ThreeDSensorCalibrationCalibrationDivisorField.ID);
 
@@ -236,9 +261,12 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the levelShift field. Returns null if the field is not defined in the message.
   int? get levelShift {
     final field = getField(ThreeDSensorCalibrationLevelShiftField.ID);
     if (field != null && field.isValid()) {
@@ -249,6 +277,7 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
     }
   }
 
+  /// Sets the levelShift field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set levelShift(int? value) {
     final field = getField(ThreeDSensorCalibrationLevelShiftField.ID);
 
@@ -259,9 +288,12 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the offsetCal field. Returns null if the field is not defined in the message.
   int? get offsetCal {
     final field = getField(ThreeDSensorCalibrationOffsetCalField.ID);
     if (field != null && field.isValid()) {
@@ -272,6 +304,7 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
     }
   }
 
+  /// Sets the offsetCal field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set offsetCal(int? value) {
     final field = getField(ThreeDSensorCalibrationOffsetCalField.ID);
 
@@ -282,9 +315,12 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the orientationMatrix field. Returns null if the field is not defined in the message.
   double? get orientationMatrix {
     final field = getField(ThreeDSensorCalibrationOrientationMatrixField.ID);
     if (field != null && field.isValid()) {
@@ -295,6 +331,7 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
     }
   }
 
+  /// Sets the orientationMatrix field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set orientationMatrix(double? value) {
     final field = getField(ThreeDSensorCalibrationOrientationMatrixField.ID);
 
@@ -305,6 +342,8 @@ class ThreeDSensorCalibrationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

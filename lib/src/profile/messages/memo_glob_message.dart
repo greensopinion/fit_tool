@@ -6,10 +6,10 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
-import '../profile_type.dart';
-import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class MemoGlobMessage extends DataMessage {
   MemoGlobMessage(
@@ -52,11 +52,13 @@ class MemoGlobMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 145;
   static const NAME = 'memo_glob';
 
   final bool growable;
 
+  /// Returns an instance of MemoGlobMessage from a bytes list.
   static MemoGlobMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = MemoGlobMessage(definitionMessage: definitionMessage);
@@ -64,6 +66,7 @@ class MemoGlobMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the partIndex field. Returns null if the field is not defined in the message.
   int? get partIndex {
     final field = getField(MemoGlobPartIndexField.ID);
     if (field != null && field.isValid()) {
@@ -74,6 +77,7 @@ class MemoGlobMessage extends DataMessage {
     }
   }
 
+  /// Sets the partIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set partIndex(int? value) {
     final field = getField(MemoGlobPartIndexField.ID);
 
@@ -84,9 +88,12 @@ class MemoGlobMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the memo field. Returns null if the field is not defined in the message.
   int? get memo {
     final field = getField(MemoGlobMemoField.ID);
     if (field != null && field.isValid()) {
@@ -97,6 +104,7 @@ class MemoGlobMessage extends DataMessage {
     }
   }
 
+  /// Sets the memo field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set memo(int? value) {
     final field = getField(MemoGlobMemoField.ID);
 
@@ -107,9 +115,12 @@ class MemoGlobMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the messageNumber field. Returns null if the field is not defined in the message.
   int? get messageNumber {
     final field = getField(MemoGlobMessageNumberField.ID);
     if (field != null && field.isValid()) {
@@ -120,6 +131,7 @@ class MemoGlobMessage extends DataMessage {
     }
   }
 
+  /// Sets the messageNumber field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set messageNumber(int? value) {
     final field = getField(MemoGlobMessageNumberField.ID);
 
@@ -130,9 +142,12 @@ class MemoGlobMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the messageIndex field. Returns null if the field is not defined in the message.
   int? get messageIndex {
     final field = getField(MemoGlobMessageIndexField.ID);
     if (field != null && field.isValid()) {
@@ -143,6 +158,7 @@ class MemoGlobMessage extends DataMessage {
     }
   }
 
+  /// Sets the messageIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set messageIndex(int? value) {
     final field = getField(MemoGlobMessageIndexField.ID);
 
@@ -153,6 +169,8 @@ class MemoGlobMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

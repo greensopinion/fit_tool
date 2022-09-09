@@ -41,7 +41,6 @@ Future<void> main() async {
     ..eventType = EventType.start
     ..timestamp = startTimestamp);
 
-  var trackPointIndex = 0;
   var distance = 0.0;
   final coursePoints = <CoursePointMessage>[];
   final haversineDistance = HaversineDistance();
@@ -52,7 +51,7 @@ Future<void> main() async {
   for (var trackPoint in xmlGpx.trks[0].trksegs[0].trkpts) {
     // calculate distance from previous coordinate and accumulate distance
     currentCoordinate = Location(trackPoint.lat!, trackPoint.lon!);
-    final delta;
+    final double delta;
     if (prevCoordinate == null) {
       delta = 0.0;
     } else {
@@ -69,7 +68,6 @@ Future<void> main() async {
 
     timestamp += 10000;
     prevCoordinate = currentCoordinate;
-    trackPointIndex++;
   }
   builder.addAll(coursePoints);
 

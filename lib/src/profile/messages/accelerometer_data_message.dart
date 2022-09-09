@@ -6,10 +6,11 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
-import '../profile_type.dart';
 import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class AccelerometerDataMessage extends DataMessage {
   AccelerometerDataMessage(
@@ -111,11 +112,13 @@ class AccelerometerDataMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 165;
   static const NAME = 'accelerometer_data';
 
   final bool growable;
 
+  /// Returns an instance of AccelerometerDataMessage from a bytes list.
   static AccelerometerDataMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message =
@@ -124,7 +127,7 @@ class AccelerometerDataMessage extends DataMessage {
     return message;
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
     final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
@@ -135,7 +138,7 @@ class AccelerometerDataMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
@@ -146,9 +149,12 @@ class AccelerometerDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the timestampMs field. Returns null if the field is not defined in the message.
   int? get timestampMs {
     final field = getField(AccelerometerDataTimestampMsField.ID);
     if (field != null && field.isValid()) {
@@ -159,6 +165,7 @@ class AccelerometerDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the timestampMs field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestampMs(int? value) {
     final field = getField(AccelerometerDataTimestampMsField.ID);
 
@@ -169,9 +176,12 @@ class AccelerometerDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the sampleTimeOffset field. Returns null if the field is not defined in the message.
   int? get sampleTimeOffset {
     final field = getField(AccelerometerDataSampleTimeOffsetField.ID);
     if (field != null && field.isValid()) {
@@ -182,6 +192,7 @@ class AccelerometerDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the sampleTimeOffset field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set sampleTimeOffset(int? value) {
     final field = getField(AccelerometerDataSampleTimeOffsetField.ID);
 
@@ -192,9 +203,12 @@ class AccelerometerDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the accelX field. Returns null if the field is not defined in the message.
   int? get accelX {
     final field = getField(AccelerometerDataAccelXField.ID);
     if (field != null && field.isValid()) {
@@ -205,6 +219,7 @@ class AccelerometerDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the accelX field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set accelX(int? value) {
     final field = getField(AccelerometerDataAccelXField.ID);
 
@@ -215,9 +230,12 @@ class AccelerometerDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the accelY field. Returns null if the field is not defined in the message.
   int? get accelY {
     final field = getField(AccelerometerDataAccelYField.ID);
     if (field != null && field.isValid()) {
@@ -228,6 +246,7 @@ class AccelerometerDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the accelY field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set accelY(int? value) {
     final field = getField(AccelerometerDataAccelYField.ID);
 
@@ -238,9 +257,12 @@ class AccelerometerDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the accelZ field. Returns null if the field is not defined in the message.
   int? get accelZ {
     final field = getField(AccelerometerDataAccelZField.ID);
     if (field != null && field.isValid()) {
@@ -251,6 +273,7 @@ class AccelerometerDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the accelZ field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set accelZ(int? value) {
     final field = getField(AccelerometerDataAccelZField.ID);
 
@@ -261,9 +284,12 @@ class AccelerometerDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the calibratedAccelX field. Returns null if the field is not defined in the message.
   double? get calibratedAccelX {
     final field = getField(AccelerometerDataCalibratedAccelXField.ID);
     if (field != null && field.isValid()) {
@@ -274,6 +300,7 @@ class AccelerometerDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the calibratedAccelX field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set calibratedAccelX(double? value) {
     final field = getField(AccelerometerDataCalibratedAccelXField.ID);
 
@@ -284,9 +311,12 @@ class AccelerometerDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the calibratedAccelY field. Returns null if the field is not defined in the message.
   double? get calibratedAccelY {
     final field = getField(AccelerometerDataCalibratedAccelYField.ID);
     if (field != null && field.isValid()) {
@@ -297,6 +327,7 @@ class AccelerometerDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the calibratedAccelY field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set calibratedAccelY(double? value) {
     final field = getField(AccelerometerDataCalibratedAccelYField.ID);
 
@@ -307,9 +338,12 @@ class AccelerometerDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the calibratedAccelZ field. Returns null if the field is not defined in the message.
   double? get calibratedAccelZ {
     final field = getField(AccelerometerDataCalibratedAccelZField.ID);
     if (field != null && field.isValid()) {
@@ -320,6 +354,7 @@ class AccelerometerDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the calibratedAccelZ field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set calibratedAccelZ(double? value) {
     final field = getField(AccelerometerDataCalibratedAccelZField.ID);
 
@@ -330,9 +365,12 @@ class AccelerometerDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the compressedCalibratedAccelX field. Returns null if the field is not defined in the message.
   int? get compressedCalibratedAccelX {
     final field = getField(AccelerometerDataCompressedCalibratedAccelXField.ID);
     if (field != null && field.isValid()) {
@@ -343,6 +381,7 @@ class AccelerometerDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the compressedCalibratedAccelX field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set compressedCalibratedAccelX(int? value) {
     final field = getField(AccelerometerDataCompressedCalibratedAccelXField.ID);
 
@@ -353,9 +392,12 @@ class AccelerometerDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the compressedCalibratedAccelY field. Returns null if the field is not defined in the message.
   int? get compressedCalibratedAccelY {
     final field = getField(AccelerometerDataCompressedCalibratedAccelYField.ID);
     if (field != null && field.isValid()) {
@@ -366,6 +408,7 @@ class AccelerometerDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the compressedCalibratedAccelY field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set compressedCalibratedAccelY(int? value) {
     final field = getField(AccelerometerDataCompressedCalibratedAccelYField.ID);
 
@@ -376,9 +419,12 @@ class AccelerometerDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the compressedCalibratedAccelZ field. Returns null if the field is not defined in the message.
   int? get compressedCalibratedAccelZ {
     final field = getField(AccelerometerDataCompressedCalibratedAccelZField.ID);
     if (field != null && field.isValid()) {
@@ -389,6 +435,7 @@ class AccelerometerDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the compressedCalibratedAccelZ field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set compressedCalibratedAccelZ(int? value) {
     final field = getField(AccelerometerDataCompressedCalibratedAccelZField.ID);
 
@@ -399,6 +446,8 @@ class AccelerometerDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

@@ -6,10 +6,10 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
-import '../profile_type.dart';
-import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class AntChannelIdMessage extends DataMessage {
   AntChannelIdMessage(
@@ -60,11 +60,13 @@ class AntChannelIdMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 82;
   static const NAME = 'ant_channel_id';
 
   final bool growable;
 
+  /// Returns an instance of AntChannelIdMessage from a bytes list.
   static AntChannelIdMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = AntChannelIdMessage(definitionMessage: definitionMessage);
@@ -72,6 +74,7 @@ class AntChannelIdMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the channelNumber field. Returns null if the field is not defined in the message.
   int? get channelNumber {
     final field = getField(AntChannelIdChannelNumberField.ID);
     if (field != null && field.isValid()) {
@@ -82,6 +85,7 @@ class AntChannelIdMessage extends DataMessage {
     }
   }
 
+  /// Sets the channelNumber field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set channelNumber(int? value) {
     final field = getField(AntChannelIdChannelNumberField.ID);
 
@@ -92,9 +96,12 @@ class AntChannelIdMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the deviceType field. Returns null if the field is not defined in the message.
   int? get deviceType {
     final field = getField(AntChannelIdDeviceTypeField.ID);
     if (field != null && field.isValid()) {
@@ -105,6 +112,7 @@ class AntChannelIdMessage extends DataMessage {
     }
   }
 
+  /// Sets the deviceType field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set deviceType(int? value) {
     final field = getField(AntChannelIdDeviceTypeField.ID);
 
@@ -115,9 +123,12 @@ class AntChannelIdMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the deviceNumber field. Returns null if the field is not defined in the message.
   int? get deviceNumber {
     final field = getField(AntChannelIdDeviceNumberField.ID);
     if (field != null && field.isValid()) {
@@ -128,6 +139,7 @@ class AntChannelIdMessage extends DataMessage {
     }
   }
 
+  /// Sets the deviceNumber field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set deviceNumber(int? value) {
     final field = getField(AntChannelIdDeviceNumberField.ID);
 
@@ -138,9 +150,12 @@ class AntChannelIdMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the transmissionType field. Returns null if the field is not defined in the message.
   int? get transmissionType {
     final field = getField(AntChannelIdTransmissionTypeField.ID);
     if (field != null && field.isValid()) {
@@ -151,6 +166,7 @@ class AntChannelIdMessage extends DataMessage {
     }
   }
 
+  /// Sets the transmissionType field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set transmissionType(int? value) {
     final field = getField(AntChannelIdTransmissionTypeField.ID);
 
@@ -161,9 +177,12 @@ class AntChannelIdMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the deviceIndex field. Returns null if the field is not defined in the message.
   int? get deviceIndex {
     final field = getField(AntChannelIdDeviceIndexField.ID);
     if (field != null && field.isValid()) {
@@ -174,6 +193,7 @@ class AntChannelIdMessage extends DataMessage {
     }
   }
 
+  /// Sets the deviceIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set deviceIndex(int? value) {
     final field = getField(AntChannelIdDeviceIndexField.ID);
 
@@ -184,6 +204,8 @@ class AntChannelIdMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

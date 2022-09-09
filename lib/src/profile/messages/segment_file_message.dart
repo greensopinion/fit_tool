@@ -6,10 +6,12 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
 import '../profile_type.dart';
 import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class SegmentFileMessage extends DataMessage {
   SegmentFileMessage(
@@ -87,11 +89,13 @@ class SegmentFileMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 151;
   static const NAME = 'segment_file';
 
   final bool growable;
 
+  /// Returns an instance of SegmentFileMessage from a bytes list.
   static SegmentFileMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = SegmentFileMessage(definitionMessage: definitionMessage);
@@ -99,6 +103,7 @@ class SegmentFileMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the messageIndex field. Returns null if the field is not defined in the message.
   int? get messageIndex {
     final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
@@ -109,6 +114,7 @@ class SegmentFileMessage extends DataMessage {
     }
   }
 
+  /// Sets the messageIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
@@ -119,9 +125,12 @@ class SegmentFileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the fileUuid field. Returns null if the field is not defined in the message.
   String? get fileUuid {
     final field = getField(SegmentFileFileUuidField.ID);
     if (field != null && field.isValid()) {
@@ -132,6 +141,7 @@ class SegmentFileMessage extends DataMessage {
     }
   }
 
+  /// Sets the fileUuid field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set fileUuid(String? value) {
     final field = getField(SegmentFileFileUuidField.ID);
 
@@ -142,9 +152,12 @@ class SegmentFileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the enabled field. Returns null if the field is not defined in the message.
   bool? get enabled {
     final field = getField(SegmentFileEnabledField.ID);
     if (field != null && field.isValid()) {
@@ -155,6 +168,7 @@ class SegmentFileMessage extends DataMessage {
     }
   }
 
+  /// Sets the enabled field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set enabled(bool? value) {
     final field = getField(SegmentFileEnabledField.ID);
 
@@ -165,9 +179,12 @@ class SegmentFileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the userProfilePrimaryKey field. Returns null if the field is not defined in the message.
   int? get userProfilePrimaryKey {
     final field = getField(SegmentFileUserProfilePrimaryKeyField.ID);
     if (field != null && field.isValid()) {
@@ -178,6 +195,7 @@ class SegmentFileMessage extends DataMessage {
     }
   }
 
+  /// Sets the userProfilePrimaryKey field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set userProfilePrimaryKey(int? value) {
     final field = getField(SegmentFileUserProfilePrimaryKeyField.ID);
 
@@ -188,9 +206,12 @@ class SegmentFileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the leaderType field. Returns null if the field is not defined in the message.
   SegmentLeaderboardType? get leaderType {
     final field = getField(SegmentFileLeaderTypeField.ID);
     if (field != null && field.isValid()) {
@@ -205,6 +226,7 @@ class SegmentFileMessage extends DataMessage {
     }
   }
 
+  /// Sets the leaderType field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set leaderType(SegmentLeaderboardType? value) {
     final field = getField(SegmentFileLeaderTypeField.ID);
 
@@ -215,9 +237,12 @@ class SegmentFileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the leaderGroupPrimaryKey field. Returns null if the field is not defined in the message.
   int? get leaderGroupPrimaryKey {
     final field = getField(SegmentFileLeaderGroupPrimaryKeyField.ID);
     if (field != null && field.isValid()) {
@@ -228,6 +253,7 @@ class SegmentFileMessage extends DataMessage {
     }
   }
 
+  /// Sets the leaderGroupPrimaryKey field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set leaderGroupPrimaryKey(int? value) {
     final field = getField(SegmentFileLeaderGroupPrimaryKeyField.ID);
 
@@ -238,9 +264,12 @@ class SegmentFileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the leaderActivityId field. Returns null if the field is not defined in the message.
   int? get leaderActivityId {
     final field = getField(SegmentFileLeaderActivityIdField.ID);
     if (field != null && field.isValid()) {
@@ -251,6 +280,7 @@ class SegmentFileMessage extends DataMessage {
     }
   }
 
+  /// Sets the leaderActivityId field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set leaderActivityId(int? value) {
     final field = getField(SegmentFileLeaderActivityIdField.ID);
 
@@ -261,9 +291,12 @@ class SegmentFileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the leaderActivityIdString field. Returns null if the field is not defined in the message.
   String? get leaderActivityIdString {
     final field = getField(SegmentFileLeaderActivityIdStringField.ID);
     if (field != null && field.isValid()) {
@@ -274,6 +307,7 @@ class SegmentFileMessage extends DataMessage {
     }
   }
 
+  /// Sets the leaderActivityIdString field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set leaderActivityIdString(String? value) {
     final field = getField(SegmentFileLeaderActivityIdStringField.ID);
 
@@ -284,9 +318,12 @@ class SegmentFileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the defaultRaceLeader field. Returns null if the field is not defined in the message.
   int? get defaultRaceLeader {
     final field = getField(SegmentFileDefaultRaceLeaderField.ID);
     if (field != null && field.isValid()) {
@@ -297,6 +334,7 @@ class SegmentFileMessage extends DataMessage {
     }
   }
 
+  /// Sets the defaultRaceLeader field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set defaultRaceLeader(int? value) {
     final field = getField(SegmentFileDefaultRaceLeaderField.ID);
 
@@ -307,6 +345,8 @@ class SegmentFileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

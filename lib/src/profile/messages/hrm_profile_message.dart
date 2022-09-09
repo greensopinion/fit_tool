@@ -6,10 +6,11 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
-import '../profile_type.dart';
 import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class HrmProfileMessage extends DataMessage {
   HrmProfileMessage(
@@ -59,11 +60,13 @@ class HrmProfileMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 4;
   static const NAME = 'hrm_profile';
 
   final bool growable;
 
+  /// Returns an instance of HrmProfileMessage from a bytes list.
   static HrmProfileMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = HrmProfileMessage(definitionMessage: definitionMessage);
@@ -71,6 +74,7 @@ class HrmProfileMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the messageIndex field. Returns null if the field is not defined in the message.
   int? get messageIndex {
     final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
@@ -81,6 +85,7 @@ class HrmProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the messageIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
@@ -91,9 +96,12 @@ class HrmProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the enabled field. Returns null if the field is not defined in the message.
   bool? get enabled {
     final field = getField(HrmProfileEnabledField.ID);
     if (field != null && field.isValid()) {
@@ -104,6 +112,7 @@ class HrmProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the enabled field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set enabled(bool? value) {
     final field = getField(HrmProfileEnabledField.ID);
 
@@ -114,9 +123,12 @@ class HrmProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the hrmAntId field. Returns null if the field is not defined in the message.
   int? get hrmAntId {
     final field = getField(HrmProfileHrmAntIdField.ID);
     if (field != null && field.isValid()) {
@@ -127,6 +139,7 @@ class HrmProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the hrmAntId field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set hrmAntId(int? value) {
     final field = getField(HrmProfileHrmAntIdField.ID);
 
@@ -137,9 +150,12 @@ class HrmProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the logHrv field. Returns null if the field is not defined in the message.
   bool? get logHrv {
     final field = getField(HrmProfileLogHrvField.ID);
     if (field != null && field.isValid()) {
@@ -150,6 +166,7 @@ class HrmProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the logHrv field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set logHrv(bool? value) {
     final field = getField(HrmProfileLogHrvField.ID);
 
@@ -160,9 +177,12 @@ class HrmProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the hrmAntIdTransType field. Returns null if the field is not defined in the message.
   int? get hrmAntIdTransType {
     final field = getField(HrmProfileHrmAntIdTransTypeField.ID);
     if (field != null && field.isValid()) {
@@ -173,6 +193,7 @@ class HrmProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the hrmAntIdTransType field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set hrmAntIdTransType(int? value) {
     final field = getField(HrmProfileHrmAntIdTransTypeField.ID);
 
@@ -183,6 +204,8 @@ class HrmProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

@@ -6,10 +6,11 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
-import '../profile_type.dart';
 import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class CadenceZoneMessage extends DataMessage {
   CadenceZoneMessage(
@@ -46,11 +47,13 @@ class CadenceZoneMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 131;
   static const NAME = 'cadence_zone';
 
   final bool growable;
 
+  /// Returns an instance of CadenceZoneMessage from a bytes list.
   static CadenceZoneMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = CadenceZoneMessage(definitionMessage: definitionMessage);
@@ -58,6 +61,7 @@ class CadenceZoneMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the messageIndex field. Returns null if the field is not defined in the message.
   int? get messageIndex {
     final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
@@ -68,6 +72,7 @@ class CadenceZoneMessage extends DataMessage {
     }
   }
 
+  /// Sets the messageIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
@@ -78,9 +83,12 @@ class CadenceZoneMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the highValue field. Returns null if the field is not defined in the message.
   int? get highValue {
     final field = getField(CadenceZoneHighValueField.ID);
     if (field != null && field.isValid()) {
@@ -91,6 +99,7 @@ class CadenceZoneMessage extends DataMessage {
     }
   }
 
+  /// Sets the highValue field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set highValue(int? value) {
     final field = getField(CadenceZoneHighValueField.ID);
 
@@ -101,9 +110,12 @@ class CadenceZoneMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the cadenceZoneName field. Returns null if the field is not defined in the message.
   String? get cadenceZoneName {
     final field = getField(CadenceZoneNameField.ID);
     if (field != null && field.isValid()) {
@@ -114,6 +126,7 @@ class CadenceZoneMessage extends DataMessage {
     }
   }
 
+  /// Sets the cadenceZoneName field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set cadenceZoneName(String? value) {
     final field = getField(CadenceZoneNameField.ID);
 
@@ -124,6 +137,8 @@ class CadenceZoneMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

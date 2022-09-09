@@ -6,10 +6,10 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
-import '../profile_type.dart';
-import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class FieldDescriptionMessage extends DataMessage {
   FieldDescriptionMessage(
@@ -121,11 +121,13 @@ class FieldDescriptionMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 206;
   static const NAME = 'field_description';
 
   final bool growable;
 
+  /// Returns an instance of FieldDescriptionMessage from a bytes list.
   static FieldDescriptionMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message =
@@ -134,6 +136,7 @@ class FieldDescriptionMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the developerDataIndex field. Returns null if the field is not defined in the message.
   int? get developerDataIndex {
     final field = getField(FieldDescriptionDeveloperDataIndexField.ID);
     if (field != null && field.isValid()) {
@@ -144,6 +147,7 @@ class FieldDescriptionMessage extends DataMessage {
     }
   }
 
+  /// Sets the developerDataIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set developerDataIndex(int? value) {
     final field = getField(FieldDescriptionDeveloperDataIndexField.ID);
 
@@ -154,9 +158,12 @@ class FieldDescriptionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the fieldDefinitionNumber field. Returns null if the field is not defined in the message.
   int? get fieldDefinitionNumber {
     final field = getField(FieldDescriptionFieldDefinitionNumberField.ID);
     if (field != null && field.isValid()) {
@@ -167,6 +174,7 @@ class FieldDescriptionMessage extends DataMessage {
     }
   }
 
+  /// Sets the fieldDefinitionNumber field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set fieldDefinitionNumber(int? value) {
     final field = getField(FieldDescriptionFieldDefinitionNumberField.ID);
 
@@ -177,9 +185,12 @@ class FieldDescriptionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the fitBaseTypeId field. Returns null if the field is not defined in the message.
   int? get fitBaseTypeId {
     final field = getField(FieldDescriptionFitBaseTypeIdField.ID);
     if (field != null && field.isValid()) {
@@ -190,6 +201,7 @@ class FieldDescriptionMessage extends DataMessage {
     }
   }
 
+  /// Sets the fitBaseTypeId field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set fitBaseTypeId(int? value) {
     final field = getField(FieldDescriptionFitBaseTypeIdField.ID);
 
@@ -200,9 +212,12 @@ class FieldDescriptionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the fieldName field. Returns null if the field is not defined in the message.
   String? get fieldName {
     final field = getField(FieldDescriptionFieldNameField.ID);
     if (field != null && field.isValid()) {
@@ -213,6 +228,7 @@ class FieldDescriptionMessage extends DataMessage {
     }
   }
 
+  /// Sets the fieldName field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set fieldName(String? value) {
     final field = getField(FieldDescriptionFieldNameField.ID);
 
@@ -223,9 +239,12 @@ class FieldDescriptionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the array field. Returns null if the field is not defined in the message.
   int? get array {
     final field = getField(FieldDescriptionArrayField.ID);
     if (field != null && field.isValid()) {
@@ -236,6 +255,7 @@ class FieldDescriptionMessage extends DataMessage {
     }
   }
 
+  /// Sets the array field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set array(int? value) {
     final field = getField(FieldDescriptionArrayField.ID);
 
@@ -246,9 +266,12 @@ class FieldDescriptionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the components field. Returns null if the field is not defined in the message.
   String? get components {
     final field = getField(FieldDescriptionComponentsField.ID);
     if (field != null && field.isValid()) {
@@ -259,6 +282,7 @@ class FieldDescriptionMessage extends DataMessage {
     }
   }
 
+  /// Sets the components field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set components(String? value) {
     final field = getField(FieldDescriptionComponentsField.ID);
 
@@ -269,9 +293,12 @@ class FieldDescriptionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the scale field. Returns null if the field is not defined in the message.
   int? get scale {
     final field = getField(FieldDescriptionScaleField.ID);
     if (field != null && field.isValid()) {
@@ -282,6 +309,7 @@ class FieldDescriptionMessage extends DataMessage {
     }
   }
 
+  /// Sets the scale field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set scale(int? value) {
     final field = getField(FieldDescriptionScaleField.ID);
 
@@ -292,9 +320,12 @@ class FieldDescriptionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the offset field. Returns null if the field is not defined in the message.
   int? get offset {
     final field = getField(FieldDescriptionOffsetField.ID);
     if (field != null && field.isValid()) {
@@ -305,6 +336,7 @@ class FieldDescriptionMessage extends DataMessage {
     }
   }
 
+  /// Sets the offset field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set offset(int? value) {
     final field = getField(FieldDescriptionOffsetField.ID);
 
@@ -315,9 +347,12 @@ class FieldDescriptionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the units field. Returns null if the field is not defined in the message.
   String? get units {
     final field = getField(FieldDescriptionUnitsField.ID);
     if (field != null && field.isValid()) {
@@ -328,6 +363,7 @@ class FieldDescriptionMessage extends DataMessage {
     }
   }
 
+  /// Sets the units field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set units(String? value) {
     final field = getField(FieldDescriptionUnitsField.ID);
 
@@ -338,9 +374,12 @@ class FieldDescriptionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the bits field. Returns null if the field is not defined in the message.
   String? get bits {
     final field = getField(FieldDescriptionBitsField.ID);
     if (field != null && field.isValid()) {
@@ -351,6 +390,7 @@ class FieldDescriptionMessage extends DataMessage {
     }
   }
 
+  /// Sets the bits field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set bits(String? value) {
     final field = getField(FieldDescriptionBitsField.ID);
 
@@ -361,9 +401,12 @@ class FieldDescriptionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the accumulate field. Returns null if the field is not defined in the message.
   String? get accumulate {
     final field = getField(FieldDescriptionAccumulateField.ID);
     if (field != null && field.isValid()) {
@@ -374,6 +417,7 @@ class FieldDescriptionMessage extends DataMessage {
     }
   }
 
+  /// Sets the accumulate field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set accumulate(String? value) {
     final field = getField(FieldDescriptionAccumulateField.ID);
 
@@ -384,9 +428,12 @@ class FieldDescriptionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the fitBaseUnitId field. Returns null if the field is not defined in the message.
   int? get fitBaseUnitId {
     final field = getField(FieldDescriptionFitBaseUnitIdField.ID);
     if (field != null && field.isValid()) {
@@ -397,6 +444,7 @@ class FieldDescriptionMessage extends DataMessage {
     }
   }
 
+  /// Sets the fitBaseUnitId field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set fitBaseUnitId(int? value) {
     final field = getField(FieldDescriptionFitBaseUnitIdField.ID);
 
@@ -407,9 +455,12 @@ class FieldDescriptionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the nativeMesgNum field. Returns null if the field is not defined in the message.
   int? get nativeMesgNum {
     final field = getField(FieldDescriptionNativeMesgNumField.ID);
     if (field != null && field.isValid()) {
@@ -420,6 +471,7 @@ class FieldDescriptionMessage extends DataMessage {
     }
   }
 
+  /// Sets the nativeMesgNum field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set nativeMesgNum(int? value) {
     final field = getField(FieldDescriptionNativeMesgNumField.ID);
 
@@ -430,9 +482,12 @@ class FieldDescriptionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the nativeFieldNum field. Returns null if the field is not defined in the message.
   int? get nativeFieldNum {
     final field = getField(FieldDescriptionNativeFieldNumField.ID);
     if (field != null && field.isValid()) {
@@ -443,6 +498,7 @@ class FieldDescriptionMessage extends DataMessage {
     }
   }
 
+  /// Sets the nativeFieldNum field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set nativeFieldNum(int? value) {
     final field = getField(FieldDescriptionNativeFieldNumField.ID);
 
@@ -453,6 +509,8 @@ class FieldDescriptionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

@@ -14,7 +14,7 @@ class FieldDefinition {
   static const fieldDefinitionSize = 3;
 
   static FieldDefinition fromField(Field field, {int minStringSize = 0}) {
-    final size;
+    final int size;
     if (field.type == BaseType.STRING) {
       size = max(field.size, minStringSize);
     } else {

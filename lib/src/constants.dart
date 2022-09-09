@@ -1,3 +1,4 @@
+// ignore_for_file: constant_identifier_names
 import 'fit_file_header.dart';
 
 class Fit {

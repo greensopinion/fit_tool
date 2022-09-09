@@ -6,10 +6,12 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
 import '../profile_type.dart';
 import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class ActivityMessage extends DataMessage {
   ActivityMessage(
@@ -76,11 +78,13 @@ class ActivityMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 34;
   static const NAME = 'activity';
 
   final bool growable;
 
+  /// Returns an instance of ActivityMessage from a bytes list.
   static ActivityMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = ActivityMessage(definitionMessage: definitionMessage);
@@ -88,7 +92,7 @@ class ActivityMessage extends DataMessage {
     return message;
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
     final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
@@ -99,7 +103,7 @@ class ActivityMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
@@ -110,9 +114,12 @@ class ActivityMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the totalTimerTime field. Returns null if the field is not defined in the message.
   double? get totalTimerTime {
     final field = getField(ActivityTotalTimerTimeField.ID);
     if (field != null && field.isValid()) {
@@ -123,6 +130,7 @@ class ActivityMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalTimerTime field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalTimerTime(double? value) {
     final field = getField(ActivityTotalTimerTimeField.ID);
 
@@ -133,9 +141,12 @@ class ActivityMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the numSessions field. Returns null if the field is not defined in the message.
   int? get numSessions {
     final field = getField(ActivityNumSessionsField.ID);
     if (field != null && field.isValid()) {
@@ -146,6 +157,7 @@ class ActivityMessage extends DataMessage {
     }
   }
 
+  /// Sets the numSessions field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set numSessions(int? value) {
     final field = getField(ActivityNumSessionsField.ID);
 
@@ -156,9 +168,12 @@ class ActivityMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the type field. Returns null if the field is not defined in the message.
   Activity? get type {
     final field = getField(ActivityTypeField.ID);
     if (field != null && field.isValid()) {
@@ -173,6 +188,7 @@ class ActivityMessage extends DataMessage {
     }
   }
 
+  /// Sets the type field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set type(Activity? value) {
     final field = getField(ActivityTypeField.ID);
 
@@ -183,9 +199,12 @@ class ActivityMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the event field. Returns null if the field is not defined in the message.
   Event? get event {
     final field = getField(ActivityEventField.ID);
     if (field != null && field.isValid()) {
@@ -200,6 +219,7 @@ class ActivityMessage extends DataMessage {
     }
   }
 
+  /// Sets the event field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set event(Event? value) {
     final field = getField(ActivityEventField.ID);
 
@@ -210,9 +230,12 @@ class ActivityMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the eventType field. Returns null if the field is not defined in the message.
   EventType? get eventType {
     final field = getField(ActivityEventTypeField.ID);
     if (field != null && field.isValid()) {
@@ -227,6 +250,7 @@ class ActivityMessage extends DataMessage {
     }
   }
 
+  /// Sets the eventType field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set eventType(EventType? value) {
     final field = getField(ActivityEventTypeField.ID);
 
@@ -237,9 +261,12 @@ class ActivityMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the localTimestamp field. Returns null if the field is not defined in the message.
   int? get localTimestamp {
     final field = getField(ActivityLocalTimestampField.ID);
     if (field != null && field.isValid()) {
@@ -250,6 +277,7 @@ class ActivityMessage extends DataMessage {
     }
   }
 
+  /// Sets the localTimestamp field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set localTimestamp(int? value) {
     final field = getField(ActivityLocalTimestampField.ID);
 
@@ -260,9 +288,12 @@ class ActivityMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the eventGroup field. Returns null if the field is not defined in the message.
   int? get eventGroup {
     final field = getField(ActivityEventGroupField.ID);
     if (field != null && field.isValid()) {
@@ -273,6 +304,7 @@ class ActivityMessage extends DataMessage {
     }
   }
 
+  /// Sets the eventGroup field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set eventGroup(int? value) {
     final field = getField(ActivityEventGroupField.ID);
 
@@ -283,6 +315,8 @@ class ActivityMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

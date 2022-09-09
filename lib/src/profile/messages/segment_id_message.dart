@@ -6,10 +6,11 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
 import '../profile_type.dart';
-import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class SegmentIdMessage extends DataMessage {
   SegmentIdMessage(
@@ -84,11 +85,13 @@ class SegmentIdMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 148;
   static const NAME = 'segment_id';
 
   final bool growable;
 
+  /// Returns an instance of SegmentIdMessage from a bytes list.
   static SegmentIdMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = SegmentIdMessage(definitionMessage: definitionMessage);
@@ -96,6 +99,7 @@ class SegmentIdMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the segmentIdName field. Returns null if the field is not defined in the message.
   String? get segmentIdName {
     final field = getField(SegmentIdNameField.ID);
     if (field != null && field.isValid()) {
@@ -106,6 +110,7 @@ class SegmentIdMessage extends DataMessage {
     }
   }
 
+  /// Sets the segmentIdName field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set segmentIdName(String? value) {
     final field = getField(SegmentIdNameField.ID);
 
@@ -116,9 +121,12 @@ class SegmentIdMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the uuid field. Returns null if the field is not defined in the message.
   String? get uuid {
     final field = getField(SegmentIdUuidField.ID);
     if (field != null && field.isValid()) {
@@ -129,6 +137,7 @@ class SegmentIdMessage extends DataMessage {
     }
   }
 
+  /// Sets the uuid field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set uuid(String? value) {
     final field = getField(SegmentIdUuidField.ID);
 
@@ -139,9 +148,12 @@ class SegmentIdMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the sport field. Returns null if the field is not defined in the message.
   Sport? get sport {
     final field = getField(SegmentIdSportField.ID);
     if (field != null && field.isValid()) {
@@ -156,6 +168,7 @@ class SegmentIdMessage extends DataMessage {
     }
   }
 
+  /// Sets the sport field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set sport(Sport? value) {
     final field = getField(SegmentIdSportField.ID);
 
@@ -166,9 +179,12 @@ class SegmentIdMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the enabled field. Returns null if the field is not defined in the message.
   bool? get enabled {
     final field = getField(SegmentIdEnabledField.ID);
     if (field != null && field.isValid()) {
@@ -179,6 +195,7 @@ class SegmentIdMessage extends DataMessage {
     }
   }
 
+  /// Sets the enabled field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set enabled(bool? value) {
     final field = getField(SegmentIdEnabledField.ID);
 
@@ -189,9 +206,12 @@ class SegmentIdMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the userProfilePrimaryKey field. Returns null if the field is not defined in the message.
   int? get userProfilePrimaryKey {
     final field = getField(SegmentIdUserProfilePrimaryKeyField.ID);
     if (field != null && field.isValid()) {
@@ -202,6 +222,7 @@ class SegmentIdMessage extends DataMessage {
     }
   }
 
+  /// Sets the userProfilePrimaryKey field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set userProfilePrimaryKey(int? value) {
     final field = getField(SegmentIdUserProfilePrimaryKeyField.ID);
 
@@ -212,9 +233,12 @@ class SegmentIdMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the deviceId field. Returns null if the field is not defined in the message.
   int? get deviceId {
     final field = getField(SegmentIdDeviceIdField.ID);
     if (field != null && field.isValid()) {
@@ -225,6 +249,7 @@ class SegmentIdMessage extends DataMessage {
     }
   }
 
+  /// Sets the deviceId field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set deviceId(int? value) {
     final field = getField(SegmentIdDeviceIdField.ID);
 
@@ -235,9 +260,12 @@ class SegmentIdMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the defaultRaceLeader field. Returns null if the field is not defined in the message.
   int? get defaultRaceLeader {
     final field = getField(SegmentIdDefaultRaceLeaderField.ID);
     if (field != null && field.isValid()) {
@@ -248,6 +276,7 @@ class SegmentIdMessage extends DataMessage {
     }
   }
 
+  /// Sets the defaultRaceLeader field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set defaultRaceLeader(int? value) {
     final field = getField(SegmentIdDefaultRaceLeaderField.ID);
 
@@ -258,9 +287,12 @@ class SegmentIdMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the deleteStatus field. Returns null if the field is not defined in the message.
   SegmentDeleteStatus? get deleteStatus {
     final field = getField(SegmentIdDeleteStatusField.ID);
     if (field != null && field.isValid()) {
@@ -275,6 +307,7 @@ class SegmentIdMessage extends DataMessage {
     }
   }
 
+  /// Sets the deleteStatus field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set deleteStatus(SegmentDeleteStatus? value) {
     final field = getField(SegmentIdDeleteStatusField.ID);
 
@@ -285,9 +318,12 @@ class SegmentIdMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the selectionType field. Returns null if the field is not defined in the message.
   SegmentSelectionType? get selectionType {
     final field = getField(SegmentIdSelectionTypeField.ID);
     if (field != null && field.isValid()) {
@@ -302,6 +338,7 @@ class SegmentIdMessage extends DataMessage {
     }
   }
 
+  /// Sets the selectionType field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set selectionType(SegmentSelectionType? value) {
     final field = getField(SegmentIdSelectionTypeField.ID);
 
@@ -312,6 +349,8 @@ class SegmentIdMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

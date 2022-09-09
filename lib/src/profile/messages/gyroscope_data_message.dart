@@ -6,10 +6,11 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
-import '../profile_type.dart';
 import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class GyroscopeDataMessage extends DataMessage {
   GyroscopeDataMessage(
@@ -86,11 +87,13 @@ class GyroscopeDataMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 164;
   static const NAME = 'gyroscope_data';
 
   final bool growable;
 
+  /// Returns an instance of GyroscopeDataMessage from a bytes list.
   static GyroscopeDataMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = GyroscopeDataMessage(definitionMessage: definitionMessage);
@@ -98,7 +101,7 @@ class GyroscopeDataMessage extends DataMessage {
     return message;
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
     final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
@@ -109,7 +112,7 @@ class GyroscopeDataMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
@@ -120,9 +123,12 @@ class GyroscopeDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the timestampMs field. Returns null if the field is not defined in the message.
   int? get timestampMs {
     final field = getField(GyroscopeDataTimestampMsField.ID);
     if (field != null && field.isValid()) {
@@ -133,6 +139,7 @@ class GyroscopeDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the timestampMs field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestampMs(int? value) {
     final field = getField(GyroscopeDataTimestampMsField.ID);
 
@@ -143,9 +150,12 @@ class GyroscopeDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the sampleTimeOffset field. Returns null if the field is not defined in the message.
   int? get sampleTimeOffset {
     final field = getField(GyroscopeDataSampleTimeOffsetField.ID);
     if (field != null && field.isValid()) {
@@ -156,6 +166,7 @@ class GyroscopeDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the sampleTimeOffset field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set sampleTimeOffset(int? value) {
     final field = getField(GyroscopeDataSampleTimeOffsetField.ID);
 
@@ -166,9 +177,12 @@ class GyroscopeDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the gyroX field. Returns null if the field is not defined in the message.
   int? get gyroX {
     final field = getField(GyroscopeDataGyroXField.ID);
     if (field != null && field.isValid()) {
@@ -179,6 +193,7 @@ class GyroscopeDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the gyroX field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set gyroX(int? value) {
     final field = getField(GyroscopeDataGyroXField.ID);
 
@@ -189,9 +204,12 @@ class GyroscopeDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the gyroY field. Returns null if the field is not defined in the message.
   int? get gyroY {
     final field = getField(GyroscopeDataGyroYField.ID);
     if (field != null && field.isValid()) {
@@ -202,6 +220,7 @@ class GyroscopeDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the gyroY field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set gyroY(int? value) {
     final field = getField(GyroscopeDataGyroYField.ID);
 
@@ -212,9 +231,12 @@ class GyroscopeDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the gyroZ field. Returns null if the field is not defined in the message.
   int? get gyroZ {
     final field = getField(GyroscopeDataGyroZField.ID);
     if (field != null && field.isValid()) {
@@ -225,6 +247,7 @@ class GyroscopeDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the gyroZ field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set gyroZ(int? value) {
     final field = getField(GyroscopeDataGyroZField.ID);
 
@@ -235,9 +258,12 @@ class GyroscopeDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the calibratedGyroX field. Returns null if the field is not defined in the message.
   double? get calibratedGyroX {
     final field = getField(GyroscopeDataCalibratedGyroXField.ID);
     if (field != null && field.isValid()) {
@@ -248,6 +274,7 @@ class GyroscopeDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the calibratedGyroX field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set calibratedGyroX(double? value) {
     final field = getField(GyroscopeDataCalibratedGyroXField.ID);
 
@@ -258,9 +285,12 @@ class GyroscopeDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the calibratedGyroY field. Returns null if the field is not defined in the message.
   double? get calibratedGyroY {
     final field = getField(GyroscopeDataCalibratedGyroYField.ID);
     if (field != null && field.isValid()) {
@@ -271,6 +301,7 @@ class GyroscopeDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the calibratedGyroY field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set calibratedGyroY(double? value) {
     final field = getField(GyroscopeDataCalibratedGyroYField.ID);
 
@@ -281,9 +312,12 @@ class GyroscopeDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the calibratedGyroZ field. Returns null if the field is not defined in the message.
   double? get calibratedGyroZ {
     final field = getField(GyroscopeDataCalibratedGyroZField.ID);
     if (field != null && field.isValid()) {
@@ -294,6 +328,7 @@ class GyroscopeDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the calibratedGyroZ field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set calibratedGyroZ(double? value) {
     final field = getField(GyroscopeDataCalibratedGyroZField.ID);
 
@@ -304,6 +339,8 @@ class GyroscopeDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

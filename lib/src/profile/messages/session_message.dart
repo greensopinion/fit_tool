@@ -6,10 +6,13 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
 import '../../sub_field.dart';
 import '../profile_type.dart';
 import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class SessionMessage extends DataMessage {
   SessionMessage(
@@ -846,11 +849,13 @@ class SessionMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 18;
   static const NAME = 'session';
 
   final bool growable;
 
+  /// Returns an instance of SessionMessage from a bytes list.
   static SessionMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = SessionMessage(definitionMessage: definitionMessage);
@@ -858,6 +863,7 @@ class SessionMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the messageIndex field. Returns null if the field is not defined in the message.
   int? get messageIndex {
     final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
@@ -868,6 +874,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the messageIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
@@ -878,10 +885,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
     final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
@@ -892,7 +901,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
@@ -903,9 +912,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the event field. Returns null if the field is not defined in the message.
   Event? get event {
     final field = getField(SessionEventField.ID);
     if (field != null && field.isValid()) {
@@ -920,6 +932,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the event field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set event(Event? value) {
     final field = getField(SessionEventField.ID);
 
@@ -930,9 +943,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the eventType field. Returns null if the field is not defined in the message.
   EventType? get eventType {
     final field = getField(SessionEventTypeField.ID);
     if (field != null && field.isValid()) {
@@ -947,6 +963,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the eventType field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set eventType(EventType? value) {
     final field = getField(SessionEventTypeField.ID);
 
@@ -957,10 +974,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get startTime {
     final field = getField(SessionStartTimeField.ID);
     if (field != null && field.isValid()) {
@@ -971,7 +990,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set startTime(int? value) {
     final field = getField(SessionStartTimeField.ID);
 
@@ -982,9 +1001,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the startPositionLat field. Returns null if the field is not defined in the message.
   double? get startPositionLat {
     final field = getField(SessionStartPositionLatField.ID);
     if (field != null && field.isValid()) {
@@ -995,6 +1017,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the startPositionLat field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set startPositionLat(double? value) {
     final field = getField(SessionStartPositionLatField.ID);
 
@@ -1005,9 +1028,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the startPositionLong field. Returns null if the field is not defined in the message.
   double? get startPositionLong {
     final field = getField(SessionStartPositionLongField.ID);
     if (field != null && field.isValid()) {
@@ -1018,6 +1044,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the startPositionLong field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set startPositionLong(double? value) {
     final field = getField(SessionStartPositionLongField.ID);
 
@@ -1028,9 +1055,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the sport field. Returns null if the field is not defined in the message.
   Sport? get sport {
     final field = getField(SessionSportField.ID);
     if (field != null && field.isValid()) {
@@ -1045,6 +1075,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the sport field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set sport(Sport? value) {
     final field = getField(SessionSportField.ID);
 
@@ -1055,9 +1086,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the subSport field. Returns null if the field is not defined in the message.
   SubSport? get subSport {
     final field = getField(SessionSubSportField.ID);
     if (field != null && field.isValid()) {
@@ -1072,6 +1106,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the subSport field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set subSport(SubSport? value) {
     final field = getField(SessionSubSportField.ID);
 
@@ -1082,9 +1117,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the totalElapsedTime field. Returns null if the field is not defined in the message.
   double? get totalElapsedTime {
     final field = getField(SessionTotalElapsedTimeField.ID);
     if (field != null && field.isValid()) {
@@ -1095,6 +1133,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalElapsedTime field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalElapsedTime(double? value) {
     final field = getField(SessionTotalElapsedTimeField.ID);
 
@@ -1105,9 +1144,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the totalTimerTime field. Returns null if the field is not defined in the message.
   double? get totalTimerTime {
     final field = getField(SessionTotalTimerTimeField.ID);
     if (field != null && field.isValid()) {
@@ -1118,6 +1160,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalTimerTime field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalTimerTime(double? value) {
     final field = getField(SessionTotalTimerTimeField.ID);
 
@@ -1128,9 +1171,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the totalDistance field. Returns null if the field is not defined in the message.
   double? get totalDistance {
     final field = getField(SessionTotalDistanceField.ID);
     if (field != null && field.isValid()) {
@@ -1141,6 +1187,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalDistance field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalDistance(double? value) {
     final field = getField(SessionTotalDistanceField.ID);
 
@@ -1151,9 +1198,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the totalCycles field. Returns null if the field is not defined in the message.
   int? get totalCycles {
     final field = getField(SessionTotalCyclesField.ID);
     if (field != null && field.isValid()) {
@@ -1164,6 +1214,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalCycles field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalCycles(int? value) {
     final field = getField(SessionTotalCyclesField.ID);
 
@@ -1174,9 +1225,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Get the value of the subfield totalStrides
   int? get totalStrides {
     final field = getField(SessionTotalCyclesField.ID);
     final typeField = getField(SessionSportField.ID);
@@ -1191,6 +1245,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalCycles subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set totalStrides(int? value) {
     final field = getField(SessionTotalCyclesField.ID);
     if (field != null) {
@@ -1200,9 +1255,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Get the value of the subfield totalStrokes
   int? get totalStrokes {
     final field = getField(SessionTotalCyclesField.ID);
     final typeField = getField(SessionSportField.ID);
@@ -1217,6 +1275,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalCycles subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set totalStrokes(int? value) {
     final field = getField(SessionTotalCyclesField.ID);
     if (field != null) {
@@ -1226,9 +1285,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the totalCalories field. Returns null if the field is not defined in the message.
   int? get totalCalories {
     final field = getField(SessionTotalCaloriesField.ID);
     if (field != null && field.isValid()) {
@@ -1239,6 +1301,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalCalories field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalCalories(int? value) {
     final field = getField(SessionTotalCaloriesField.ID);
 
@@ -1249,9 +1312,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the totalFatCalories field. Returns null if the field is not defined in the message.
   int? get totalFatCalories {
     final field = getField(SessionTotalFatCaloriesField.ID);
     if (field != null && field.isValid()) {
@@ -1262,6 +1328,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalFatCalories field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalFatCalories(int? value) {
     final field = getField(SessionTotalFatCaloriesField.ID);
 
@@ -1272,9 +1339,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgSpeed field. Returns null if the field is not defined in the message.
   double? get avgSpeed {
     final field = getField(SessionAvgSpeedField.ID);
     if (field != null && field.isValid()) {
@@ -1285,6 +1355,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgSpeed field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgSpeed(double? value) {
     final field = getField(SessionAvgSpeedField.ID);
 
@@ -1295,9 +1366,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the maxSpeed field. Returns null if the field is not defined in the message.
   double? get maxSpeed {
     final field = getField(SessionMaxSpeedField.ID);
     if (field != null && field.isValid()) {
@@ -1308,6 +1382,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxSpeed field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxSpeed(double? value) {
     final field = getField(SessionMaxSpeedField.ID);
 
@@ -1318,9 +1393,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgHeartRate field. Returns null if the field is not defined in the message.
   int? get avgHeartRate {
     final field = getField(SessionAvgHeartRateField.ID);
     if (field != null && field.isValid()) {
@@ -1331,6 +1409,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgHeartRate field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgHeartRate(int? value) {
     final field = getField(SessionAvgHeartRateField.ID);
 
@@ -1341,9 +1420,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the maxHeartRate field. Returns null if the field is not defined in the message.
   int? get maxHeartRate {
     final field = getField(SessionMaxHeartRateField.ID);
     if (field != null && field.isValid()) {
@@ -1354,6 +1436,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxHeartRate field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxHeartRate(int? value) {
     final field = getField(SessionMaxHeartRateField.ID);
 
@@ -1364,9 +1447,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgCadence field. Returns null if the field is not defined in the message.
   int? get avgCadence {
     final field = getField(SessionAvgCadenceField.ID);
     if (field != null && field.isValid()) {
@@ -1377,6 +1463,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgCadence field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgCadence(int? value) {
     final field = getField(SessionAvgCadenceField.ID);
 
@@ -1387,9 +1474,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Get the value of the subfield avgRunningCadence
   int? get avgRunningCadence {
     final field = getField(SessionAvgCadenceField.ID);
     final typeField = getField(SessionSportField.ID);
@@ -1404,6 +1494,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgCadence subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set avgRunningCadence(int? value) {
     final field = getField(SessionAvgCadenceField.ID);
     if (field != null) {
@@ -1413,9 +1504,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the maxCadence field. Returns null if the field is not defined in the message.
   int? get maxCadence {
     final field = getField(SessionMaxCadenceField.ID);
     if (field != null && field.isValid()) {
@@ -1426,6 +1520,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxCadence field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxCadence(int? value) {
     final field = getField(SessionMaxCadenceField.ID);
 
@@ -1436,9 +1531,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Get the value of the subfield maxRunningCadence
   int? get maxRunningCadence {
     final field = getField(SessionMaxCadenceField.ID);
     final typeField = getField(SessionSportField.ID);
@@ -1453,6 +1551,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxCadence subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set maxRunningCadence(int? value) {
     final field = getField(SessionMaxCadenceField.ID);
     if (field != null) {
@@ -1462,9 +1561,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgPower field. Returns null if the field is not defined in the message.
   int? get avgPower {
     final field = getField(SessionAvgPowerField.ID);
     if (field != null && field.isValid()) {
@@ -1475,6 +1577,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgPower field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgPower(int? value) {
     final field = getField(SessionAvgPowerField.ID);
 
@@ -1485,9 +1588,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the maxPower field. Returns null if the field is not defined in the message.
   int? get maxPower {
     final field = getField(SessionMaxPowerField.ID);
     if (field != null && field.isValid()) {
@@ -1498,6 +1604,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxPower field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxPower(int? value) {
     final field = getField(SessionMaxPowerField.ID);
 
@@ -1508,9 +1615,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the totalAscent field. Returns null if the field is not defined in the message.
   int? get totalAscent {
     final field = getField(SessionTotalAscentField.ID);
     if (field != null && field.isValid()) {
@@ -1521,6 +1631,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalAscent field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalAscent(int? value) {
     final field = getField(SessionTotalAscentField.ID);
 
@@ -1531,9 +1642,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the totalDescent field. Returns null if the field is not defined in the message.
   int? get totalDescent {
     final field = getField(SessionTotalDescentField.ID);
     if (field != null && field.isValid()) {
@@ -1544,6 +1658,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalDescent field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalDescent(int? value) {
     final field = getField(SessionTotalDescentField.ID);
 
@@ -1554,9 +1669,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the totalTrainingEffect field. Returns null if the field is not defined in the message.
   double? get totalTrainingEffect {
     final field = getField(SessionTotalTrainingEffectField.ID);
     if (field != null && field.isValid()) {
@@ -1567,6 +1685,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalTrainingEffect field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalTrainingEffect(double? value) {
     final field = getField(SessionTotalTrainingEffectField.ID);
 
@@ -1577,9 +1696,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the firstLapIndex field. Returns null if the field is not defined in the message.
   int? get firstLapIndex {
     final field = getField(SessionFirstLapIndexField.ID);
     if (field != null && field.isValid()) {
@@ -1590,6 +1712,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the firstLapIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set firstLapIndex(int? value) {
     final field = getField(SessionFirstLapIndexField.ID);
 
@@ -1600,9 +1723,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the numLaps field. Returns null if the field is not defined in the message.
   int? get numLaps {
     final field = getField(SessionNumLapsField.ID);
     if (field != null && field.isValid()) {
@@ -1613,6 +1739,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the numLaps field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set numLaps(int? value) {
     final field = getField(SessionNumLapsField.ID);
 
@@ -1623,9 +1750,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the eventGroup field. Returns null if the field is not defined in the message.
   int? get eventGroup {
     final field = getField(SessionEventGroupField.ID);
     if (field != null && field.isValid()) {
@@ -1636,6 +1766,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the eventGroup field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set eventGroup(int? value) {
     final field = getField(SessionEventGroupField.ID);
 
@@ -1646,9 +1777,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the trigger field. Returns null if the field is not defined in the message.
   SessionTrigger? get trigger {
     final field = getField(SessionTriggerField.ID);
     if (field != null && field.isValid()) {
@@ -1663,6 +1797,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the trigger field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set trigger(SessionTrigger? value) {
     final field = getField(SessionTriggerField.ID);
 
@@ -1673,9 +1808,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the necLat field. Returns null if the field is not defined in the message.
   double? get necLat {
     final field = getField(SessionNecLatField.ID);
     if (field != null && field.isValid()) {
@@ -1686,6 +1824,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the necLat field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set necLat(double? value) {
     final field = getField(SessionNecLatField.ID);
 
@@ -1696,9 +1835,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the necLong field. Returns null if the field is not defined in the message.
   double? get necLong {
     final field = getField(SessionNecLongField.ID);
     if (field != null && field.isValid()) {
@@ -1709,6 +1851,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the necLong field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set necLong(double? value) {
     final field = getField(SessionNecLongField.ID);
 
@@ -1719,9 +1862,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the swcLat field. Returns null if the field is not defined in the message.
   double? get swcLat {
     final field = getField(SessionSwcLatField.ID);
     if (field != null && field.isValid()) {
@@ -1732,6 +1878,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the swcLat field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set swcLat(double? value) {
     final field = getField(SessionSwcLatField.ID);
 
@@ -1742,9 +1889,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the swcLong field. Returns null if the field is not defined in the message.
   double? get swcLong {
     final field = getField(SessionSwcLongField.ID);
     if (field != null && field.isValid()) {
@@ -1755,6 +1905,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the swcLong field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set swcLong(double? value) {
     final field = getField(SessionSwcLongField.ID);
 
@@ -1765,9 +1916,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the numLengths field. Returns null if the field is not defined in the message.
   int? get numLengths {
     final field = getField(SessionNumLengthsField.ID);
     if (field != null && field.isValid()) {
@@ -1778,6 +1932,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the numLengths field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set numLengths(int? value) {
     final field = getField(SessionNumLengthsField.ID);
 
@@ -1788,9 +1943,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the normalizedPower field. Returns null if the field is not defined in the message.
   int? get normalizedPower {
     final field = getField(SessionNormalizedPowerField.ID);
     if (field != null && field.isValid()) {
@@ -1801,6 +1959,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the normalizedPower field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set normalizedPower(int? value) {
     final field = getField(SessionNormalizedPowerField.ID);
 
@@ -1811,9 +1970,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the trainingStressScore field. Returns null if the field is not defined in the message.
   double? get trainingStressScore {
     final field = getField(SessionTrainingStressScoreField.ID);
     if (field != null && field.isValid()) {
@@ -1824,6 +1986,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the trainingStressScore field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set trainingStressScore(double? value) {
     final field = getField(SessionTrainingStressScoreField.ID);
 
@@ -1834,9 +1997,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the intensityFactor field. Returns null if the field is not defined in the message.
   double? get intensityFactor {
     final field = getField(SessionIntensityFactorField.ID);
     if (field != null && field.isValid()) {
@@ -1847,6 +2013,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the intensityFactor field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set intensityFactor(double? value) {
     final field = getField(SessionIntensityFactorField.ID);
 
@@ -1857,9 +2024,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the leftRightBalance field. Returns null if the field is not defined in the message.
   int? get leftRightBalance {
     final field = getField(SessionLeftRightBalanceField.ID);
     if (field != null && field.isValid()) {
@@ -1870,6 +2040,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the leftRightBalance field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set leftRightBalance(int? value) {
     final field = getField(SessionLeftRightBalanceField.ID);
 
@@ -1880,9 +2051,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgStrokeCount field. Returns null if the field is not defined in the message.
   double? get avgStrokeCount {
     final field = getField(SessionAvgStrokeCountField.ID);
     if (field != null && field.isValid()) {
@@ -1893,6 +2067,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgStrokeCount field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgStrokeCount(double? value) {
     final field = getField(SessionAvgStrokeCountField.ID);
 
@@ -1903,9 +2078,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgStrokeDistance field. Returns null if the field is not defined in the message.
   double? get avgStrokeDistance {
     final field = getField(SessionAvgStrokeDistanceField.ID);
     if (field != null && field.isValid()) {
@@ -1916,6 +2094,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgStrokeDistance field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgStrokeDistance(double? value) {
     final field = getField(SessionAvgStrokeDistanceField.ID);
 
@@ -1926,9 +2105,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the swimStroke field. Returns null if the field is not defined in the message.
   SwimStroke? get swimStroke {
     final field = getField(SessionSwimStrokeField.ID);
     if (field != null && field.isValid()) {
@@ -1943,6 +2125,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the swimStroke field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set swimStroke(SwimStroke? value) {
     final field = getField(SessionSwimStrokeField.ID);
 
@@ -1953,9 +2136,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the poolLength field. Returns null if the field is not defined in the message.
   double? get poolLength {
     final field = getField(SessionPoolLengthField.ID);
     if (field != null && field.isValid()) {
@@ -1966,6 +2152,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the poolLength field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set poolLength(double? value) {
     final field = getField(SessionPoolLengthField.ID);
 
@@ -1976,9 +2163,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the thresholdPower field. Returns null if the field is not defined in the message.
   int? get thresholdPower {
     final field = getField(SessionThresholdPowerField.ID);
     if (field != null && field.isValid()) {
@@ -1989,6 +2179,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the thresholdPower field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set thresholdPower(int? value) {
     final field = getField(SessionThresholdPowerField.ID);
 
@@ -1999,9 +2190,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the poolLengthUnit field. Returns null if the field is not defined in the message.
   DisplayMeasure? get poolLengthUnit {
     final field = getField(SessionPoolLengthUnitField.ID);
     if (field != null && field.isValid()) {
@@ -2016,6 +2210,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the poolLengthUnit field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set poolLengthUnit(DisplayMeasure? value) {
     final field = getField(SessionPoolLengthUnitField.ID);
 
@@ -2026,9 +2221,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the numActiveLengths field. Returns null if the field is not defined in the message.
   int? get numActiveLengths {
     final field = getField(SessionNumActiveLengthsField.ID);
     if (field != null && field.isValid()) {
@@ -2039,6 +2237,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the numActiveLengths field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set numActiveLengths(int? value) {
     final field = getField(SessionNumActiveLengthsField.ID);
 
@@ -2049,9 +2248,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the totalWork field. Returns null if the field is not defined in the message.
   int? get totalWork {
     final field = getField(SessionTotalWorkField.ID);
     if (field != null && field.isValid()) {
@@ -2062,6 +2264,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalWork field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalWork(int? value) {
     final field = getField(SessionTotalWorkField.ID);
 
@@ -2072,9 +2275,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgAltitude field. Returns null if the field is not defined in the message.
   double? get avgAltitude {
     final field = getField(SessionAvgAltitudeField.ID);
     if (field != null && field.isValid()) {
@@ -2085,6 +2291,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgAltitude field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgAltitude(double? value) {
     final field = getField(SessionAvgAltitudeField.ID);
 
@@ -2095,9 +2302,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the maxAltitude field. Returns null if the field is not defined in the message.
   double? get maxAltitude {
     final field = getField(SessionMaxAltitudeField.ID);
     if (field != null && field.isValid()) {
@@ -2108,6 +2318,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxAltitude field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxAltitude(double? value) {
     final field = getField(SessionMaxAltitudeField.ID);
 
@@ -2118,9 +2329,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the gpsAccuracy field. Returns null if the field is not defined in the message.
   int? get gpsAccuracy {
     final field = getField(SessionGpsAccuracyField.ID);
     if (field != null && field.isValid()) {
@@ -2131,6 +2345,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the gpsAccuracy field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set gpsAccuracy(int? value) {
     final field = getField(SessionGpsAccuracyField.ID);
 
@@ -2141,9 +2356,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgGrade field. Returns null if the field is not defined in the message.
   double? get avgGrade {
     final field = getField(SessionAvgGradeField.ID);
     if (field != null && field.isValid()) {
@@ -2154,6 +2372,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgGrade field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgGrade(double? value) {
     final field = getField(SessionAvgGradeField.ID);
 
@@ -2164,9 +2383,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgPosGrade field. Returns null if the field is not defined in the message.
   double? get avgPosGrade {
     final field = getField(SessionAvgPosGradeField.ID);
     if (field != null && field.isValid()) {
@@ -2177,6 +2399,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgPosGrade field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgPosGrade(double? value) {
     final field = getField(SessionAvgPosGradeField.ID);
 
@@ -2187,9 +2410,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgNegGrade field. Returns null if the field is not defined in the message.
   double? get avgNegGrade {
     final field = getField(SessionAvgNegGradeField.ID);
     if (field != null && field.isValid()) {
@@ -2200,6 +2426,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgNegGrade field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgNegGrade(double? value) {
     final field = getField(SessionAvgNegGradeField.ID);
 
@@ -2210,9 +2437,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the maxPosGrade field. Returns null if the field is not defined in the message.
   double? get maxPosGrade {
     final field = getField(SessionMaxPosGradeField.ID);
     if (field != null && field.isValid()) {
@@ -2223,6 +2453,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxPosGrade field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxPosGrade(double? value) {
     final field = getField(SessionMaxPosGradeField.ID);
 
@@ -2233,9 +2464,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the maxNegGrade field. Returns null if the field is not defined in the message.
   double? get maxNegGrade {
     final field = getField(SessionMaxNegGradeField.ID);
     if (field != null && field.isValid()) {
@@ -2246,6 +2480,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxNegGrade field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxNegGrade(double? value) {
     final field = getField(SessionMaxNegGradeField.ID);
 
@@ -2256,9 +2491,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgTemperature field. Returns null if the field is not defined in the message.
   int? get avgTemperature {
     final field = getField(SessionAvgTemperatureField.ID);
     if (field != null && field.isValid()) {
@@ -2269,6 +2507,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgTemperature field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgTemperature(int? value) {
     final field = getField(SessionAvgTemperatureField.ID);
 
@@ -2279,9 +2518,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the maxTemperature field. Returns null if the field is not defined in the message.
   int? get maxTemperature {
     final field = getField(SessionMaxTemperatureField.ID);
     if (field != null && field.isValid()) {
@@ -2292,6 +2534,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxTemperature field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxTemperature(int? value) {
     final field = getField(SessionMaxTemperatureField.ID);
 
@@ -2302,9 +2545,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the totalMovingTime field. Returns null if the field is not defined in the message.
   double? get totalMovingTime {
     final field = getField(SessionTotalMovingTimeField.ID);
     if (field != null && field.isValid()) {
@@ -2315,6 +2561,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalMovingTime field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalMovingTime(double? value) {
     final field = getField(SessionTotalMovingTimeField.ID);
 
@@ -2325,9 +2572,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgPosVerticalSpeed field. Returns null if the field is not defined in the message.
   double? get avgPosVerticalSpeed {
     final field = getField(SessionAvgPosVerticalSpeedField.ID);
     if (field != null && field.isValid()) {
@@ -2338,6 +2588,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgPosVerticalSpeed field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgPosVerticalSpeed(double? value) {
     final field = getField(SessionAvgPosVerticalSpeedField.ID);
 
@@ -2348,9 +2599,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgNegVerticalSpeed field. Returns null if the field is not defined in the message.
   double? get avgNegVerticalSpeed {
     final field = getField(SessionAvgNegVerticalSpeedField.ID);
     if (field != null && field.isValid()) {
@@ -2361,6 +2615,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgNegVerticalSpeed field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgNegVerticalSpeed(double? value) {
     final field = getField(SessionAvgNegVerticalSpeedField.ID);
 
@@ -2371,9 +2626,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the maxPosVerticalSpeed field. Returns null if the field is not defined in the message.
   double? get maxPosVerticalSpeed {
     final field = getField(SessionMaxPosVerticalSpeedField.ID);
     if (field != null && field.isValid()) {
@@ -2384,6 +2642,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxPosVerticalSpeed field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxPosVerticalSpeed(double? value) {
     final field = getField(SessionMaxPosVerticalSpeedField.ID);
 
@@ -2394,9 +2653,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the maxNegVerticalSpeed field. Returns null if the field is not defined in the message.
   double? get maxNegVerticalSpeed {
     final field = getField(SessionMaxNegVerticalSpeedField.ID);
     if (field != null && field.isValid()) {
@@ -2407,6 +2669,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxNegVerticalSpeed field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxNegVerticalSpeed(double? value) {
     final field = getField(SessionMaxNegVerticalSpeedField.ID);
 
@@ -2417,9 +2680,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the minHeartRate field. Returns null if the field is not defined in the message.
   int? get minHeartRate {
     final field = getField(SessionMinHeartRateField.ID);
     if (field != null && field.isValid()) {
@@ -2430,6 +2696,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the minHeartRate field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set minHeartRate(int? value) {
     final field = getField(SessionMinHeartRateField.ID);
 
@@ -2440,9 +2707,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the timeInHrZone field. Returns null if the field is not defined in the message.
   double? get timeInHrZone {
     final field = getField(SessionTimeInHrZoneField.ID);
     if (field != null && field.isValid()) {
@@ -2453,6 +2723,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the timeInHrZone field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timeInHrZone(double? value) {
     final field = getField(SessionTimeInHrZoneField.ID);
 
@@ -2463,9 +2734,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the timeInSpeedZone field. Returns null if the field is not defined in the message.
   double? get timeInSpeedZone {
     final field = getField(SessionTimeInSpeedZoneField.ID);
     if (field != null && field.isValid()) {
@@ -2476,6 +2750,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the timeInSpeedZone field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timeInSpeedZone(double? value) {
     final field = getField(SessionTimeInSpeedZoneField.ID);
 
@@ -2486,9 +2761,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the timeInCadenceZone field. Returns null if the field is not defined in the message.
   double? get timeInCadenceZone {
     final field = getField(SessionTimeInCadenceZoneField.ID);
     if (field != null && field.isValid()) {
@@ -2499,6 +2777,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the timeInCadenceZone field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timeInCadenceZone(double? value) {
     final field = getField(SessionTimeInCadenceZoneField.ID);
 
@@ -2509,9 +2788,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the timeInPowerZone field. Returns null if the field is not defined in the message.
   double? get timeInPowerZone {
     final field = getField(SessionTimeInPowerZoneField.ID);
     if (field != null && field.isValid()) {
@@ -2522,6 +2804,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the timeInPowerZone field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timeInPowerZone(double? value) {
     final field = getField(SessionTimeInPowerZoneField.ID);
 
@@ -2532,9 +2815,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgLapTime field. Returns null if the field is not defined in the message.
   double? get avgLapTime {
     final field = getField(SessionAvgLapTimeField.ID);
     if (field != null && field.isValid()) {
@@ -2545,6 +2831,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgLapTime field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgLapTime(double? value) {
     final field = getField(SessionAvgLapTimeField.ID);
 
@@ -2555,9 +2842,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the bestLapIndex field. Returns null if the field is not defined in the message.
   int? get bestLapIndex {
     final field = getField(SessionBestLapIndexField.ID);
     if (field != null && field.isValid()) {
@@ -2568,6 +2858,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the bestLapIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set bestLapIndex(int? value) {
     final field = getField(SessionBestLapIndexField.ID);
 
@@ -2578,9 +2869,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the minAltitude field. Returns null if the field is not defined in the message.
   double? get minAltitude {
     final field = getField(SessionMinAltitudeField.ID);
     if (field != null && field.isValid()) {
@@ -2591,6 +2885,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the minAltitude field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set minAltitude(double? value) {
     final field = getField(SessionMinAltitudeField.ID);
 
@@ -2601,9 +2896,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the playerScore field. Returns null if the field is not defined in the message.
   int? get playerScore {
     final field = getField(SessionPlayerScoreField.ID);
     if (field != null && field.isValid()) {
@@ -2614,6 +2912,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the playerScore field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set playerScore(int? value) {
     final field = getField(SessionPlayerScoreField.ID);
 
@@ -2624,9 +2923,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the opponentScore field. Returns null if the field is not defined in the message.
   int? get opponentScore {
     final field = getField(SessionOpponentScoreField.ID);
     if (field != null && field.isValid()) {
@@ -2637,6 +2939,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the opponentScore field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set opponentScore(int? value) {
     final field = getField(SessionOpponentScoreField.ID);
 
@@ -2647,9 +2950,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the opponentName field. Returns null if the field is not defined in the message.
   String? get opponentName {
     final field = getField(SessionOpponentNameField.ID);
     if (field != null && field.isValid()) {
@@ -2660,6 +2966,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the opponentName field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set opponentName(String? value) {
     final field = getField(SessionOpponentNameField.ID);
 
@@ -2670,9 +2977,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the strokeCount field. Returns null if the field is not defined in the message.
   int? get strokeCount {
     final field = getField(SessionStrokeCountField.ID);
     if (field != null && field.isValid()) {
@@ -2683,6 +2993,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the strokeCount field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set strokeCount(int? value) {
     final field = getField(SessionStrokeCountField.ID);
 
@@ -2693,9 +3004,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the zoneCount field. Returns null if the field is not defined in the message.
   int? get zoneCount {
     final field = getField(SessionZoneCountField.ID);
     if (field != null && field.isValid()) {
@@ -2706,6 +3020,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the zoneCount field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set zoneCount(int? value) {
     final field = getField(SessionZoneCountField.ID);
 
@@ -2716,9 +3031,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the maxBallSpeed field. Returns null if the field is not defined in the message.
   double? get maxBallSpeed {
     final field = getField(SessionMaxBallSpeedField.ID);
     if (field != null && field.isValid()) {
@@ -2729,6 +3047,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxBallSpeed field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxBallSpeed(double? value) {
     final field = getField(SessionMaxBallSpeedField.ID);
 
@@ -2739,9 +3058,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgBallSpeed field. Returns null if the field is not defined in the message.
   double? get avgBallSpeed {
     final field = getField(SessionAvgBallSpeedField.ID);
     if (field != null && field.isValid()) {
@@ -2752,6 +3074,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgBallSpeed field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgBallSpeed(double? value) {
     final field = getField(SessionAvgBallSpeedField.ID);
 
@@ -2762,9 +3085,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgVerticalOscillation field. Returns null if the field is not defined in the message.
   double? get avgVerticalOscillation {
     final field = getField(SessionAvgVerticalOscillationField.ID);
     if (field != null && field.isValid()) {
@@ -2775,6 +3101,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgVerticalOscillation field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgVerticalOscillation(double? value) {
     final field = getField(SessionAvgVerticalOscillationField.ID);
 
@@ -2785,9 +3112,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgStanceTimePercent field. Returns null if the field is not defined in the message.
   double? get avgStanceTimePercent {
     final field = getField(SessionAvgStanceTimePercentField.ID);
     if (field != null && field.isValid()) {
@@ -2798,6 +3128,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgStanceTimePercent field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgStanceTimePercent(double? value) {
     final field = getField(SessionAvgStanceTimePercentField.ID);
 
@@ -2808,9 +3139,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgStanceTime field. Returns null if the field is not defined in the message.
   double? get avgStanceTime {
     final field = getField(SessionAvgStanceTimeField.ID);
     if (field != null && field.isValid()) {
@@ -2821,6 +3155,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgStanceTime field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgStanceTime(double? value) {
     final field = getField(SessionAvgStanceTimeField.ID);
 
@@ -2831,9 +3166,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgFractionalCadence field. Returns null if the field is not defined in the message.
   double? get avgFractionalCadence {
     final field = getField(SessionAvgFractionalCadenceField.ID);
     if (field != null && field.isValid()) {
@@ -2844,6 +3182,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgFractionalCadence field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgFractionalCadence(double? value) {
     final field = getField(SessionAvgFractionalCadenceField.ID);
 
@@ -2854,9 +3193,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the maxFractionalCadence field. Returns null if the field is not defined in the message.
   double? get maxFractionalCadence {
     final field = getField(SessionMaxFractionalCadenceField.ID);
     if (field != null && field.isValid()) {
@@ -2867,6 +3209,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxFractionalCadence field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxFractionalCadence(double? value) {
     final field = getField(SessionMaxFractionalCadenceField.ID);
 
@@ -2877,9 +3220,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the totalFractionalCycles field. Returns null if the field is not defined in the message.
   double? get totalFractionalCycles {
     final field = getField(SessionTotalFractionalCyclesField.ID);
     if (field != null && field.isValid()) {
@@ -2890,6 +3236,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalFractionalCycles field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalFractionalCycles(double? value) {
     final field = getField(SessionTotalFractionalCyclesField.ID);
 
@@ -2900,9 +3247,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgTotalHemoglobinConc field. Returns null if the field is not defined in the message.
   double? get avgTotalHemoglobinConc {
     final field = getField(SessionAvgTotalHemoglobinConcField.ID);
     if (field != null && field.isValid()) {
@@ -2913,6 +3263,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgTotalHemoglobinConc field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgTotalHemoglobinConc(double? value) {
     final field = getField(SessionAvgTotalHemoglobinConcField.ID);
 
@@ -2923,9 +3274,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the minTotalHemoglobinConc field. Returns null if the field is not defined in the message.
   double? get minTotalHemoglobinConc {
     final field = getField(SessionMinTotalHemoglobinConcField.ID);
     if (field != null && field.isValid()) {
@@ -2936,6 +3290,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the minTotalHemoglobinConc field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set minTotalHemoglobinConc(double? value) {
     final field = getField(SessionMinTotalHemoglobinConcField.ID);
 
@@ -2946,9 +3301,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the maxTotalHemoglobinConc field. Returns null if the field is not defined in the message.
   double? get maxTotalHemoglobinConc {
     final field = getField(SessionMaxTotalHemoglobinConcField.ID);
     if (field != null && field.isValid()) {
@@ -2959,6 +3317,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxTotalHemoglobinConc field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxTotalHemoglobinConc(double? value) {
     final field = getField(SessionMaxTotalHemoglobinConcField.ID);
 
@@ -2969,9 +3328,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgSaturatedHemoglobinPercent field. Returns null if the field is not defined in the message.
   double? get avgSaturatedHemoglobinPercent {
     final field = getField(SessionAvgSaturatedHemoglobinPercentField.ID);
     if (field != null && field.isValid()) {
@@ -2982,6 +3344,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgSaturatedHemoglobinPercent field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgSaturatedHemoglobinPercent(double? value) {
     final field = getField(SessionAvgSaturatedHemoglobinPercentField.ID);
 
@@ -2992,9 +3355,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the minSaturatedHemoglobinPercent field. Returns null if the field is not defined in the message.
   double? get minSaturatedHemoglobinPercent {
     final field = getField(SessionMinSaturatedHemoglobinPercentField.ID);
     if (field != null && field.isValid()) {
@@ -3005,6 +3371,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the minSaturatedHemoglobinPercent field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set minSaturatedHemoglobinPercent(double? value) {
     final field = getField(SessionMinSaturatedHemoglobinPercentField.ID);
 
@@ -3015,9 +3382,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the maxSaturatedHemoglobinPercent field. Returns null if the field is not defined in the message.
   double? get maxSaturatedHemoglobinPercent {
     final field = getField(SessionMaxSaturatedHemoglobinPercentField.ID);
     if (field != null && field.isValid()) {
@@ -3028,6 +3398,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxSaturatedHemoglobinPercent field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxSaturatedHemoglobinPercent(double? value) {
     final field = getField(SessionMaxSaturatedHemoglobinPercentField.ID);
 
@@ -3038,9 +3409,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgLeftTorqueEffectiveness field. Returns null if the field is not defined in the message.
   double? get avgLeftTorqueEffectiveness {
     final field = getField(SessionAvgLeftTorqueEffectivenessField.ID);
     if (field != null && field.isValid()) {
@@ -3051,6 +3425,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgLeftTorqueEffectiveness field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgLeftTorqueEffectiveness(double? value) {
     final field = getField(SessionAvgLeftTorqueEffectivenessField.ID);
 
@@ -3061,9 +3436,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgRightTorqueEffectiveness field. Returns null if the field is not defined in the message.
   double? get avgRightTorqueEffectiveness {
     final field = getField(SessionAvgRightTorqueEffectivenessField.ID);
     if (field != null && field.isValid()) {
@@ -3074,6 +3452,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgRightTorqueEffectiveness field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgRightTorqueEffectiveness(double? value) {
     final field = getField(SessionAvgRightTorqueEffectivenessField.ID);
 
@@ -3084,9 +3463,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgLeftPedalSmoothness field. Returns null if the field is not defined in the message.
   double? get avgLeftPedalSmoothness {
     final field = getField(SessionAvgLeftPedalSmoothnessField.ID);
     if (field != null && field.isValid()) {
@@ -3097,6 +3479,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgLeftPedalSmoothness field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgLeftPedalSmoothness(double? value) {
     final field = getField(SessionAvgLeftPedalSmoothnessField.ID);
 
@@ -3107,9 +3490,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgRightPedalSmoothness field. Returns null if the field is not defined in the message.
   double? get avgRightPedalSmoothness {
     final field = getField(SessionAvgRightPedalSmoothnessField.ID);
     if (field != null && field.isValid()) {
@@ -3120,6 +3506,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgRightPedalSmoothness field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgRightPedalSmoothness(double? value) {
     final field = getField(SessionAvgRightPedalSmoothnessField.ID);
 
@@ -3130,9 +3517,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgCombinedPedalSmoothness field. Returns null if the field is not defined in the message.
   double? get avgCombinedPedalSmoothness {
     final field = getField(SessionAvgCombinedPedalSmoothnessField.ID);
     if (field != null && field.isValid()) {
@@ -3143,6 +3533,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgCombinedPedalSmoothness field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgCombinedPedalSmoothness(double? value) {
     final field = getField(SessionAvgCombinedPedalSmoothnessField.ID);
 
@@ -3153,9 +3544,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the sportIndex field. Returns null if the field is not defined in the message.
   int? get sportIndex {
     final field = getField(SessionSportIndexField.ID);
     if (field != null && field.isValid()) {
@@ -3166,6 +3560,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the sportIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set sportIndex(int? value) {
     final field = getField(SessionSportIndexField.ID);
 
@@ -3176,9 +3571,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the timeStanding field. Returns null if the field is not defined in the message.
   double? get timeStanding {
     final field = getField(SessionTimeStandingField.ID);
     if (field != null && field.isValid()) {
@@ -3189,6 +3587,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the timeStanding field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timeStanding(double? value) {
     final field = getField(SessionTimeStandingField.ID);
 
@@ -3199,9 +3598,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the standCount field. Returns null if the field is not defined in the message.
   int? get standCount {
     final field = getField(SessionStandCountField.ID);
     if (field != null && field.isValid()) {
@@ -3212,6 +3614,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the standCount field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set standCount(int? value) {
     final field = getField(SessionStandCountField.ID);
 
@@ -3222,9 +3625,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgLeftPco field. Returns null if the field is not defined in the message.
   int? get avgLeftPco {
     final field = getField(SessionAvgLeftPcoField.ID);
     if (field != null && field.isValid()) {
@@ -3235,6 +3641,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgLeftPco field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgLeftPco(int? value) {
     final field = getField(SessionAvgLeftPcoField.ID);
 
@@ -3245,9 +3652,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgRightPco field. Returns null if the field is not defined in the message.
   int? get avgRightPco {
     final field = getField(SessionAvgRightPcoField.ID);
     if (field != null && field.isValid()) {
@@ -3258,6 +3668,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgRightPco field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgRightPco(int? value) {
     final field = getField(SessionAvgRightPcoField.ID);
 
@@ -3268,9 +3679,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgLeftPowerPhase field. Returns null if the field is not defined in the message.
   double? get avgLeftPowerPhase {
     final field = getField(SessionAvgLeftPowerPhaseField.ID);
     if (field != null && field.isValid()) {
@@ -3281,6 +3695,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgLeftPowerPhase field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgLeftPowerPhase(double? value) {
     final field = getField(SessionAvgLeftPowerPhaseField.ID);
 
@@ -3291,9 +3706,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgLeftPowerPhasePeak field. Returns null if the field is not defined in the message.
   double? get avgLeftPowerPhasePeak {
     final field = getField(SessionAvgLeftPowerPhasePeakField.ID);
     if (field != null && field.isValid()) {
@@ -3304,6 +3722,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgLeftPowerPhasePeak field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgLeftPowerPhasePeak(double? value) {
     final field = getField(SessionAvgLeftPowerPhasePeakField.ID);
 
@@ -3314,9 +3733,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgRightPowerPhase field. Returns null if the field is not defined in the message.
   double? get avgRightPowerPhase {
     final field = getField(SessionAvgRightPowerPhaseField.ID);
     if (field != null && field.isValid()) {
@@ -3327,6 +3749,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgRightPowerPhase field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgRightPowerPhase(double? value) {
     final field = getField(SessionAvgRightPowerPhaseField.ID);
 
@@ -3337,9 +3760,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgRightPowerPhasePeak field. Returns null if the field is not defined in the message.
   double? get avgRightPowerPhasePeak {
     final field = getField(SessionAvgRightPowerPhasePeakField.ID);
     if (field != null && field.isValid()) {
@@ -3350,6 +3776,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgRightPowerPhasePeak field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgRightPowerPhasePeak(double? value) {
     final field = getField(SessionAvgRightPowerPhasePeakField.ID);
 
@@ -3360,9 +3787,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgPowerPosition field. Returns null if the field is not defined in the message.
   int? get avgPowerPosition {
     final field = getField(SessionAvgPowerPositionField.ID);
     if (field != null && field.isValid()) {
@@ -3373,6 +3803,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgPowerPosition field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgPowerPosition(int? value) {
     final field = getField(SessionAvgPowerPositionField.ID);
 
@@ -3383,9 +3814,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the maxPowerPosition field. Returns null if the field is not defined in the message.
   int? get maxPowerPosition {
     final field = getField(SessionMaxPowerPositionField.ID);
     if (field != null && field.isValid()) {
@@ -3396,6 +3830,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxPowerPosition field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxPowerPosition(int? value) {
     final field = getField(SessionMaxPowerPositionField.ID);
 
@@ -3406,9 +3841,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgCadencePosition field. Returns null if the field is not defined in the message.
   int? get avgCadencePosition {
     final field = getField(SessionAvgCadencePositionField.ID);
     if (field != null && field.isValid()) {
@@ -3419,6 +3857,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgCadencePosition field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgCadencePosition(int? value) {
     final field = getField(SessionAvgCadencePositionField.ID);
 
@@ -3429,9 +3868,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the maxCadencePosition field. Returns null if the field is not defined in the message.
   int? get maxCadencePosition {
     final field = getField(SessionMaxCadencePositionField.ID);
     if (field != null && field.isValid()) {
@@ -3442,6 +3884,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxCadencePosition field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxCadencePosition(int? value) {
     final field = getField(SessionMaxCadencePositionField.ID);
 
@@ -3452,9 +3895,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the enhancedAvgSpeed field. Returns null if the field is not defined in the message.
   double? get enhancedAvgSpeed {
     final field = getField(SessionEnhancedAvgSpeedField.ID);
     if (field != null && field.isValid()) {
@@ -3465,6 +3911,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the enhancedAvgSpeed field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set enhancedAvgSpeed(double? value) {
     final field = getField(SessionEnhancedAvgSpeedField.ID);
 
@@ -3475,9 +3922,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the enhancedMaxSpeed field. Returns null if the field is not defined in the message.
   double? get enhancedMaxSpeed {
     final field = getField(SessionEnhancedMaxSpeedField.ID);
     if (field != null && field.isValid()) {
@@ -3488,6 +3938,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the enhancedMaxSpeed field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set enhancedMaxSpeed(double? value) {
     final field = getField(SessionEnhancedMaxSpeedField.ID);
 
@@ -3498,9 +3949,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the enhancedAvgAltitude field. Returns null if the field is not defined in the message.
   double? get enhancedAvgAltitude {
     final field = getField(SessionEnhancedAvgAltitudeField.ID);
     if (field != null && field.isValid()) {
@@ -3511,6 +3965,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the enhancedAvgAltitude field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set enhancedAvgAltitude(double? value) {
     final field = getField(SessionEnhancedAvgAltitudeField.ID);
 
@@ -3521,9 +3976,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the enhancedMinAltitude field. Returns null if the field is not defined in the message.
   double? get enhancedMinAltitude {
     final field = getField(SessionEnhancedMinAltitudeField.ID);
     if (field != null && field.isValid()) {
@@ -3534,6 +3992,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the enhancedMinAltitude field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set enhancedMinAltitude(double? value) {
     final field = getField(SessionEnhancedMinAltitudeField.ID);
 
@@ -3544,9 +4003,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the enhancedMaxAltitude field. Returns null if the field is not defined in the message.
   double? get enhancedMaxAltitude {
     final field = getField(SessionEnhancedMaxAltitudeField.ID);
     if (field != null && field.isValid()) {
@@ -3557,6 +4019,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the enhancedMaxAltitude field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set enhancedMaxAltitude(double? value) {
     final field = getField(SessionEnhancedMaxAltitudeField.ID);
 
@@ -3567,9 +4030,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgLevMotorPower field. Returns null if the field is not defined in the message.
   int? get avgLevMotorPower {
     final field = getField(SessionAvgLevMotorPowerField.ID);
     if (field != null && field.isValid()) {
@@ -3580,6 +4046,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgLevMotorPower field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgLevMotorPower(int? value) {
     final field = getField(SessionAvgLevMotorPowerField.ID);
 
@@ -3590,9 +4057,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the maxLevMotorPower field. Returns null if the field is not defined in the message.
   int? get maxLevMotorPower {
     final field = getField(SessionMaxLevMotorPowerField.ID);
     if (field != null && field.isValid()) {
@@ -3603,6 +4073,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxLevMotorPower field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxLevMotorPower(int? value) {
     final field = getField(SessionMaxLevMotorPowerField.ID);
 
@@ -3613,9 +4084,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the levBatteryConsumption field. Returns null if the field is not defined in the message.
   double? get levBatteryConsumption {
     final field = getField(SessionLevBatteryConsumptionField.ID);
     if (field != null && field.isValid()) {
@@ -3626,6 +4100,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the levBatteryConsumption field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set levBatteryConsumption(double? value) {
     final field = getField(SessionLevBatteryConsumptionField.ID);
 
@@ -3636,9 +4111,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgVerticalRatio field. Returns null if the field is not defined in the message.
   double? get avgVerticalRatio {
     final field = getField(SessionAvgVerticalRatioField.ID);
     if (field != null && field.isValid()) {
@@ -3649,6 +4127,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgVerticalRatio field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgVerticalRatio(double? value) {
     final field = getField(SessionAvgVerticalRatioField.ID);
 
@@ -3659,9 +4138,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgStanceTimeBalance field. Returns null if the field is not defined in the message.
   double? get avgStanceTimeBalance {
     final field = getField(SessionAvgStanceTimeBalanceField.ID);
     if (field != null && field.isValid()) {
@@ -3672,6 +4154,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgStanceTimeBalance field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgStanceTimeBalance(double? value) {
     final field = getField(SessionAvgStanceTimeBalanceField.ID);
 
@@ -3682,9 +4165,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgStepLength field. Returns null if the field is not defined in the message.
   double? get avgStepLength {
     final field = getField(SessionAvgStepLengthField.ID);
     if (field != null && field.isValid()) {
@@ -3695,6 +4181,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgStepLength field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgStepLength(double? value) {
     final field = getField(SessionAvgStepLengthField.ID);
 
@@ -3705,9 +4192,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the totalAnaerobicTrainingEffect field. Returns null if the field is not defined in the message.
   double? get totalAnaerobicTrainingEffect {
     final field = getField(SessionTotalAnaerobicTrainingEffectField.ID);
     if (field != null && field.isValid()) {
@@ -3718,6 +4208,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalAnaerobicTrainingEffect field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalAnaerobicTrainingEffect(double? value) {
     final field = getField(SessionTotalAnaerobicTrainingEffectField.ID);
 
@@ -3728,9 +4219,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgVam field. Returns null if the field is not defined in the message.
   double? get avgVam {
     final field = getField(SessionAvgVamField.ID);
     if (field != null && field.isValid()) {
@@ -3741,6 +4235,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgVam field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgVam(double? value) {
     final field = getField(SessionAvgVamField.ID);
 
@@ -3751,9 +4246,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the totalGrit field. Returns null if the field is not defined in the message.
   double? get totalGrit {
     final field = getField(SessionTotalGritField.ID);
     if (field != null && field.isValid()) {
@@ -3764,6 +4262,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalGrit field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalGrit(double? value) {
     final field = getField(SessionTotalGritField.ID);
 
@@ -3774,9 +4273,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the totalFlow field. Returns null if the field is not defined in the message.
   double? get totalFlow {
     final field = getField(SessionTotalFlowField.ID);
     if (field != null && field.isValid()) {
@@ -3787,6 +4289,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalFlow field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalFlow(double? value) {
     final field = getField(SessionTotalFlowField.ID);
 
@@ -3797,9 +4300,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the jumpCount field. Returns null if the field is not defined in the message.
   int? get jumpCount {
     final field = getField(SessionJumpCountField.ID);
     if (field != null && field.isValid()) {
@@ -3810,6 +4316,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the jumpCount field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set jumpCount(int? value) {
     final field = getField(SessionJumpCountField.ID);
 
@@ -3820,9 +4327,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgGrit field. Returns null if the field is not defined in the message.
   double? get avgGrit {
     final field = getField(SessionAvgGritField.ID);
     if (field != null && field.isValid()) {
@@ -3833,6 +4343,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgGrit field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgGrit(double? value) {
     final field = getField(SessionAvgGritField.ID);
 
@@ -3843,9 +4354,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgFlow field. Returns null if the field is not defined in the message.
   double? get avgFlow {
     final field = getField(SessionAvgFlowField.ID);
     if (field != null && field.isValid()) {
@@ -3856,6 +4370,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgFlow field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgFlow(double? value) {
     final field = getField(SessionAvgFlowField.ID);
 
@@ -3866,9 +4381,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the totalFractionalAscent field. Returns null if the field is not defined in the message.
   double? get totalFractionalAscent {
     final field = getField(SessionTotalFractionalAscentField.ID);
     if (field != null && field.isValid()) {
@@ -3879,6 +4397,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalFractionalAscent field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalFractionalAscent(double? value) {
     final field = getField(SessionTotalFractionalAscentField.ID);
 
@@ -3889,9 +4408,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the totalFractionalDescent field. Returns null if the field is not defined in the message.
   double? get totalFractionalDescent {
     final field = getField(SessionTotalFractionalDescentField.ID);
     if (field != null && field.isValid()) {
@@ -3902,6 +4424,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalFractionalDescent field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalFractionalDescent(double? value) {
     final field = getField(SessionTotalFractionalDescentField.ID);
 
@@ -3912,9 +4435,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgCoreTemperature field. Returns null if the field is not defined in the message.
   double? get avgCoreTemperature {
     final field = getField(SessionAvgCoreTemperatureField.ID);
     if (field != null && field.isValid()) {
@@ -3925,6 +4451,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgCoreTemperature field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgCoreTemperature(double? value) {
     final field = getField(SessionAvgCoreTemperatureField.ID);
 
@@ -3935,9 +4462,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the minCoreTemperature field. Returns null if the field is not defined in the message.
   double? get minCoreTemperature {
     final field = getField(SessionMinCoreTemperatureField.ID);
     if (field != null && field.isValid()) {
@@ -3948,6 +4478,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the minCoreTemperature field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set minCoreTemperature(double? value) {
     final field = getField(SessionMinCoreTemperatureField.ID);
 
@@ -3958,9 +4489,12 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the maxCoreTemperature field. Returns null if the field is not defined in the message.
   double? get maxCoreTemperature {
     final field = getField(SessionMaxCoreTemperatureField.ID);
     if (field != null && field.isValid()) {
@@ -3971,6 +4505,7 @@ class SessionMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxCoreTemperature field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxCoreTemperature(double? value) {
     final field = getField(SessionMaxCoreTemperatureField.ID);
 
@@ -3981,6 +4516,8 @@ class SessionMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

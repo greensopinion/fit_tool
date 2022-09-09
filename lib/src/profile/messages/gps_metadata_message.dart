@@ -6,10 +6,11 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
-import '../profile_type.dart';
 import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class GpsMetadataMessage extends DataMessage {
   GpsMetadataMessage(
@@ -83,11 +84,13 @@ class GpsMetadataMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 160;
   static const NAME = 'gps_metadata';
 
   final bool growable;
 
+  /// Returns an instance of GpsMetadataMessage from a bytes list.
   static GpsMetadataMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = GpsMetadataMessage(definitionMessage: definitionMessage);
@@ -95,7 +98,7 @@ class GpsMetadataMessage extends DataMessage {
     return message;
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
     final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
@@ -106,7 +109,7 @@ class GpsMetadataMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
@@ -117,9 +120,12 @@ class GpsMetadataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the timestampMs field. Returns null if the field is not defined in the message.
   int? get timestampMs {
     final field = getField(GpsMetadataTimestampMsField.ID);
     if (field != null && field.isValid()) {
@@ -130,6 +136,7 @@ class GpsMetadataMessage extends DataMessage {
     }
   }
 
+  /// Sets the timestampMs field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestampMs(int? value) {
     final field = getField(GpsMetadataTimestampMsField.ID);
 
@@ -140,9 +147,12 @@ class GpsMetadataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the positionLat field. Returns null if the field is not defined in the message.
   double? get positionLat {
     final field = getField(GpsMetadataPositionLatField.ID);
     if (field != null && field.isValid()) {
@@ -153,6 +163,7 @@ class GpsMetadataMessage extends DataMessage {
     }
   }
 
+  /// Sets the positionLat field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set positionLat(double? value) {
     final field = getField(GpsMetadataPositionLatField.ID);
 
@@ -163,9 +174,12 @@ class GpsMetadataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the positionLong field. Returns null if the field is not defined in the message.
   double? get positionLong {
     final field = getField(GpsMetadataPositionLongField.ID);
     if (field != null && field.isValid()) {
@@ -176,6 +190,7 @@ class GpsMetadataMessage extends DataMessage {
     }
   }
 
+  /// Sets the positionLong field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set positionLong(double? value) {
     final field = getField(GpsMetadataPositionLongField.ID);
 
@@ -186,9 +201,12 @@ class GpsMetadataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the enhancedAltitude field. Returns null if the field is not defined in the message.
   double? get enhancedAltitude {
     final field = getField(GpsMetadataEnhancedAltitudeField.ID);
     if (field != null && field.isValid()) {
@@ -199,6 +217,7 @@ class GpsMetadataMessage extends DataMessage {
     }
   }
 
+  /// Sets the enhancedAltitude field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set enhancedAltitude(double? value) {
     final field = getField(GpsMetadataEnhancedAltitudeField.ID);
 
@@ -209,9 +228,12 @@ class GpsMetadataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the enhancedSpeed field. Returns null if the field is not defined in the message.
   double? get enhancedSpeed {
     final field = getField(GpsMetadataEnhancedSpeedField.ID);
     if (field != null && field.isValid()) {
@@ -222,6 +244,7 @@ class GpsMetadataMessage extends DataMessage {
     }
   }
 
+  /// Sets the enhancedSpeed field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set enhancedSpeed(double? value) {
     final field = getField(GpsMetadataEnhancedSpeedField.ID);
 
@@ -232,9 +255,12 @@ class GpsMetadataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the heading field. Returns null if the field is not defined in the message.
   double? get heading {
     final field = getField(GpsMetadataHeadingField.ID);
     if (field != null && field.isValid()) {
@@ -245,6 +271,7 @@ class GpsMetadataMessage extends DataMessage {
     }
   }
 
+  /// Sets the heading field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set heading(double? value) {
     final field = getField(GpsMetadataHeadingField.ID);
 
@@ -255,10 +282,12 @@ class GpsMetadataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get utcTimestamp {
     final field = getField(GpsMetadataUtcTimestampField.ID);
     if (field != null && field.isValid()) {
@@ -269,7 +298,7 @@ class GpsMetadataMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set utcTimestamp(int? value) {
     final field = getField(GpsMetadataUtcTimestampField.ID);
 
@@ -280,9 +309,12 @@ class GpsMetadataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the velocity field. Returns null if the field is not defined in the message.
   double? get velocity {
     final field = getField(GpsMetadataVelocityField.ID);
     if (field != null && field.isValid()) {
@@ -293,6 +325,7 @@ class GpsMetadataMessage extends DataMessage {
     }
   }
 
+  /// Sets the velocity field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set velocity(double? value) {
     final field = getField(GpsMetadataVelocityField.ID);
 
@@ -303,6 +336,8 @@ class GpsMetadataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

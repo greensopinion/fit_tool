@@ -6,10 +6,11 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
-import '../profile_type.dart';
 import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class HrZoneMessage extends DataMessage {
   HrZoneMessage(
@@ -46,11 +47,13 @@ class HrZoneMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 8;
   static const NAME = 'hr_zone';
 
   final bool growable;
 
+  /// Returns an instance of HrZoneMessage from a bytes list.
   static HrZoneMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = HrZoneMessage(definitionMessage: definitionMessage);
@@ -58,6 +61,7 @@ class HrZoneMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the messageIndex field. Returns null if the field is not defined in the message.
   int? get messageIndex {
     final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
@@ -68,6 +72,7 @@ class HrZoneMessage extends DataMessage {
     }
   }
 
+  /// Sets the messageIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
@@ -78,9 +83,12 @@ class HrZoneMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the highBpm field. Returns null if the field is not defined in the message.
   int? get highBpm {
     final field = getField(HrZoneHighBpmField.ID);
     if (field != null && field.isValid()) {
@@ -91,6 +99,7 @@ class HrZoneMessage extends DataMessage {
     }
   }
 
+  /// Sets the highBpm field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set highBpm(int? value) {
     final field = getField(HrZoneHighBpmField.ID);
 
@@ -101,9 +110,12 @@ class HrZoneMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the hrZoneName field. Returns null if the field is not defined in the message.
   String? get hrZoneName {
     final field = getField(HrZoneNameField.ID);
     if (field != null && field.isValid()) {
@@ -114,6 +126,7 @@ class HrZoneMessage extends DataMessage {
     }
   }
 
+  /// Sets the hrZoneName field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set hrZoneName(String? value) {
     final field = getField(HrZoneNameField.ID);
 
@@ -124,6 +137,8 @@ class HrZoneMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

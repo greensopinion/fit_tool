@@ -6,10 +6,11 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
-import '../profile_type.dart';
 import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class ExerciseTitleMessage extends DataMessage {
   ExerciseTitleMessage(
@@ -55,11 +56,13 @@ class ExerciseTitleMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 264;
   static const NAME = 'exercise_title';
 
   final bool growable;
 
+  /// Returns an instance of ExerciseTitleMessage from a bytes list.
   static ExerciseTitleMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = ExerciseTitleMessage(definitionMessage: definitionMessage);
@@ -67,6 +70,7 @@ class ExerciseTitleMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the messageIndex field. Returns null if the field is not defined in the message.
   int? get messageIndex {
     final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
@@ -77,6 +81,7 @@ class ExerciseTitleMessage extends DataMessage {
     }
   }
 
+  /// Sets the messageIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
@@ -87,9 +92,12 @@ class ExerciseTitleMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the exerciseCategory field. Returns null if the field is not defined in the message.
   int? get exerciseCategory {
     final field = getField(ExerciseTitleExerciseCategoryField.ID);
     if (field != null && field.isValid()) {
@@ -100,6 +108,7 @@ class ExerciseTitleMessage extends DataMessage {
     }
   }
 
+  /// Sets the exerciseCategory field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set exerciseCategory(int? value) {
     final field = getField(ExerciseTitleExerciseCategoryField.ID);
 
@@ -110,9 +119,12 @@ class ExerciseTitleMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the exerciseName field. Returns null if the field is not defined in the message.
   int? get exerciseName {
     final field = getField(ExerciseTitleExerciseNameField.ID);
     if (field != null && field.isValid()) {
@@ -123,6 +135,7 @@ class ExerciseTitleMessage extends DataMessage {
     }
   }
 
+  /// Sets the exerciseName field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set exerciseName(int? value) {
     final field = getField(ExerciseTitleExerciseNameField.ID);
 
@@ -133,9 +146,12 @@ class ExerciseTitleMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the workoutStepName field. Returns null if the field is not defined in the message.
   String? get workoutStepName {
     final field = getField(ExerciseTitleWorkoutStepNameField.ID);
     if (field != null && field.isValid()) {
@@ -146,6 +162,7 @@ class ExerciseTitleMessage extends DataMessage {
     }
   }
 
+  /// Sets the workoutStepName field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set workoutStepName(String? value) {
     final field = getField(ExerciseTitleWorkoutStepNameField.ID);
 
@@ -156,6 +173,8 @@ class ExerciseTitleMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

@@ -6,10 +6,13 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
 import '../../sub_field.dart';
 import '../profile_type.dart';
 import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class SegmentLapMessage extends DataMessage {
   SegmentLapMessage(
@@ -616,11 +619,13 @@ class SegmentLapMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 142;
   static const NAME = 'segment_lap';
 
   final bool growable;
 
+  /// Returns an instance of SegmentLapMessage from a bytes list.
   static SegmentLapMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = SegmentLapMessage(definitionMessage: definitionMessage);
@@ -628,6 +633,7 @@ class SegmentLapMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the messageIndex field. Returns null if the field is not defined in the message.
   int? get messageIndex {
     final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
@@ -638,6 +644,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the messageIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
@@ -648,10 +655,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
     final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
@@ -662,7 +671,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
@@ -673,9 +682,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the event field. Returns null if the field is not defined in the message.
   Event? get event {
     final field = getField(SegmentLapEventField.ID);
     if (field != null && field.isValid()) {
@@ -690,6 +702,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the event field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set event(Event? value) {
     final field = getField(SegmentLapEventField.ID);
 
@@ -700,9 +713,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the eventType field. Returns null if the field is not defined in the message.
   EventType? get eventType {
     final field = getField(SegmentLapEventTypeField.ID);
     if (field != null && field.isValid()) {
@@ -717,6 +733,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the eventType field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set eventType(EventType? value) {
     final field = getField(SegmentLapEventTypeField.ID);
 
@@ -727,10 +744,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get startTime {
     final field = getField(SegmentLapStartTimeField.ID);
     if (field != null && field.isValid()) {
@@ -741,7 +760,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set startTime(int? value) {
     final field = getField(SegmentLapStartTimeField.ID);
 
@@ -752,9 +771,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the startPositionLat field. Returns null if the field is not defined in the message.
   double? get startPositionLat {
     final field = getField(SegmentLapStartPositionLatField.ID);
     if (field != null && field.isValid()) {
@@ -765,6 +787,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the startPositionLat field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set startPositionLat(double? value) {
     final field = getField(SegmentLapStartPositionLatField.ID);
 
@@ -775,9 +798,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the startPositionLong field. Returns null if the field is not defined in the message.
   double? get startPositionLong {
     final field = getField(SegmentLapStartPositionLongField.ID);
     if (field != null && field.isValid()) {
@@ -788,6 +814,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the startPositionLong field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set startPositionLong(double? value) {
     final field = getField(SegmentLapStartPositionLongField.ID);
 
@@ -798,9 +825,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the endPositionLat field. Returns null if the field is not defined in the message.
   double? get endPositionLat {
     final field = getField(SegmentLapEndPositionLatField.ID);
     if (field != null && field.isValid()) {
@@ -811,6 +841,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the endPositionLat field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set endPositionLat(double? value) {
     final field = getField(SegmentLapEndPositionLatField.ID);
 
@@ -821,9 +852,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the endPositionLong field. Returns null if the field is not defined in the message.
   double? get endPositionLong {
     final field = getField(SegmentLapEndPositionLongField.ID);
     if (field != null && field.isValid()) {
@@ -834,6 +868,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the endPositionLong field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set endPositionLong(double? value) {
     final field = getField(SegmentLapEndPositionLongField.ID);
 
@@ -844,9 +879,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the totalElapsedTime field. Returns null if the field is not defined in the message.
   double? get totalElapsedTime {
     final field = getField(SegmentLapTotalElapsedTimeField.ID);
     if (field != null && field.isValid()) {
@@ -857,6 +895,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalElapsedTime field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalElapsedTime(double? value) {
     final field = getField(SegmentLapTotalElapsedTimeField.ID);
 
@@ -867,9 +906,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the totalTimerTime field. Returns null if the field is not defined in the message.
   double? get totalTimerTime {
     final field = getField(SegmentLapTotalTimerTimeField.ID);
     if (field != null && field.isValid()) {
@@ -880,6 +922,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalTimerTime field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalTimerTime(double? value) {
     final field = getField(SegmentLapTotalTimerTimeField.ID);
 
@@ -890,9 +933,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the totalDistance field. Returns null if the field is not defined in the message.
   double? get totalDistance {
     final field = getField(SegmentLapTotalDistanceField.ID);
     if (field != null && field.isValid()) {
@@ -903,6 +949,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalDistance field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalDistance(double? value) {
     final field = getField(SegmentLapTotalDistanceField.ID);
 
@@ -913,9 +960,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the totalCycles field. Returns null if the field is not defined in the message.
   int? get totalCycles {
     final field = getField(SegmentLapTotalCyclesField.ID);
     if (field != null && field.isValid()) {
@@ -926,6 +976,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalCycles field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalCycles(int? value) {
     final field = getField(SegmentLapTotalCyclesField.ID);
 
@@ -936,9 +987,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Get the value of the subfield totalStrokes
   int? get totalStrokes {
     final field = getField(SegmentLapTotalCyclesField.ID);
     final typeField = getField(SegmentLapSportField.ID);
@@ -953,6 +1007,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalCycles subfield with [value]. Throws [FieldNotDefinedError] if the subfield is not defined in the message.
   set totalStrokes(int? value) {
     final field = getField(SegmentLapTotalCyclesField.ID);
     if (field != null) {
@@ -962,9 +1017,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the totalCalories field. Returns null if the field is not defined in the message.
   int? get totalCalories {
     final field = getField(SegmentLapTotalCaloriesField.ID);
     if (field != null && field.isValid()) {
@@ -975,6 +1033,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalCalories field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalCalories(int? value) {
     final field = getField(SegmentLapTotalCaloriesField.ID);
 
@@ -985,9 +1044,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the totalFatCalories field. Returns null if the field is not defined in the message.
   int? get totalFatCalories {
     final field = getField(SegmentLapTotalFatCaloriesField.ID);
     if (field != null && field.isValid()) {
@@ -998,6 +1060,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalFatCalories field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalFatCalories(int? value) {
     final field = getField(SegmentLapTotalFatCaloriesField.ID);
 
@@ -1008,9 +1071,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgSpeed field. Returns null if the field is not defined in the message.
   double? get avgSpeed {
     final field = getField(SegmentLapAvgSpeedField.ID);
     if (field != null && field.isValid()) {
@@ -1021,6 +1087,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgSpeed field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgSpeed(double? value) {
     final field = getField(SegmentLapAvgSpeedField.ID);
 
@@ -1031,9 +1098,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the maxSpeed field. Returns null if the field is not defined in the message.
   double? get maxSpeed {
     final field = getField(SegmentLapMaxSpeedField.ID);
     if (field != null && field.isValid()) {
@@ -1044,6 +1114,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxSpeed field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxSpeed(double? value) {
     final field = getField(SegmentLapMaxSpeedField.ID);
 
@@ -1054,9 +1125,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgHeartRate field. Returns null if the field is not defined in the message.
   int? get avgHeartRate {
     final field = getField(SegmentLapAvgHeartRateField.ID);
     if (field != null && field.isValid()) {
@@ -1067,6 +1141,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgHeartRate field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgHeartRate(int? value) {
     final field = getField(SegmentLapAvgHeartRateField.ID);
 
@@ -1077,9 +1152,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the maxHeartRate field. Returns null if the field is not defined in the message.
   int? get maxHeartRate {
     final field = getField(SegmentLapMaxHeartRateField.ID);
     if (field != null && field.isValid()) {
@@ -1090,6 +1168,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxHeartRate field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxHeartRate(int? value) {
     final field = getField(SegmentLapMaxHeartRateField.ID);
 
@@ -1100,9 +1179,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgCadence field. Returns null if the field is not defined in the message.
   int? get avgCadence {
     final field = getField(SegmentLapAvgCadenceField.ID);
     if (field != null && field.isValid()) {
@@ -1113,6 +1195,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgCadence field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgCadence(int? value) {
     final field = getField(SegmentLapAvgCadenceField.ID);
 
@@ -1123,9 +1206,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the maxCadence field. Returns null if the field is not defined in the message.
   int? get maxCadence {
     final field = getField(SegmentLapMaxCadenceField.ID);
     if (field != null && field.isValid()) {
@@ -1136,6 +1222,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxCadence field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxCadence(int? value) {
     final field = getField(SegmentLapMaxCadenceField.ID);
 
@@ -1146,9 +1233,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgPower field. Returns null if the field is not defined in the message.
   int? get avgPower {
     final field = getField(SegmentLapAvgPowerField.ID);
     if (field != null && field.isValid()) {
@@ -1159,6 +1249,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgPower field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgPower(int? value) {
     final field = getField(SegmentLapAvgPowerField.ID);
 
@@ -1169,9 +1260,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the maxPower field. Returns null if the field is not defined in the message.
   int? get maxPower {
     final field = getField(SegmentLapMaxPowerField.ID);
     if (field != null && field.isValid()) {
@@ -1182,6 +1276,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxPower field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxPower(int? value) {
     final field = getField(SegmentLapMaxPowerField.ID);
 
@@ -1192,9 +1287,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the totalAscent field. Returns null if the field is not defined in the message.
   int? get totalAscent {
     final field = getField(SegmentLapTotalAscentField.ID);
     if (field != null && field.isValid()) {
@@ -1205,6 +1303,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalAscent field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalAscent(int? value) {
     final field = getField(SegmentLapTotalAscentField.ID);
 
@@ -1215,9 +1314,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the totalDescent field. Returns null if the field is not defined in the message.
   int? get totalDescent {
     final field = getField(SegmentLapTotalDescentField.ID);
     if (field != null && field.isValid()) {
@@ -1228,6 +1330,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalDescent field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalDescent(int? value) {
     final field = getField(SegmentLapTotalDescentField.ID);
 
@@ -1238,9 +1341,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the sport field. Returns null if the field is not defined in the message.
   Sport? get sport {
     final field = getField(SegmentLapSportField.ID);
     if (field != null && field.isValid()) {
@@ -1255,6 +1361,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the sport field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set sport(Sport? value) {
     final field = getField(SegmentLapSportField.ID);
 
@@ -1265,9 +1372,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the eventGroup field. Returns null if the field is not defined in the message.
   int? get eventGroup {
     final field = getField(SegmentLapEventGroupField.ID);
     if (field != null && field.isValid()) {
@@ -1278,6 +1388,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the eventGroup field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set eventGroup(int? value) {
     final field = getField(SegmentLapEventGroupField.ID);
 
@@ -1288,9 +1399,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the necLat field. Returns null if the field is not defined in the message.
   double? get necLat {
     final field = getField(SegmentLapNecLatField.ID);
     if (field != null && field.isValid()) {
@@ -1301,6 +1415,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the necLat field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set necLat(double? value) {
     final field = getField(SegmentLapNecLatField.ID);
 
@@ -1311,9 +1426,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the necLong field. Returns null if the field is not defined in the message.
   double? get necLong {
     final field = getField(SegmentLapNecLongField.ID);
     if (field != null && field.isValid()) {
@@ -1324,6 +1442,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the necLong field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set necLong(double? value) {
     final field = getField(SegmentLapNecLongField.ID);
 
@@ -1334,9 +1453,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the swcLat field. Returns null if the field is not defined in the message.
   double? get swcLat {
     final field = getField(SegmentLapSwcLatField.ID);
     if (field != null && field.isValid()) {
@@ -1347,6 +1469,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the swcLat field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set swcLat(double? value) {
     final field = getField(SegmentLapSwcLatField.ID);
 
@@ -1357,9 +1480,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the swcLong field. Returns null if the field is not defined in the message.
   double? get swcLong {
     final field = getField(SegmentLapSwcLongField.ID);
     if (field != null && field.isValid()) {
@@ -1370,6 +1496,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the swcLong field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set swcLong(double? value) {
     final field = getField(SegmentLapSwcLongField.ID);
 
@@ -1380,9 +1507,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the segmentLapName field. Returns null if the field is not defined in the message.
   String? get segmentLapName {
     final field = getField(SegmentLapNameField.ID);
     if (field != null && field.isValid()) {
@@ -1393,6 +1523,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the segmentLapName field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set segmentLapName(String? value) {
     final field = getField(SegmentLapNameField.ID);
 
@@ -1403,9 +1534,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the normalizedPower field. Returns null if the field is not defined in the message.
   int? get normalizedPower {
     final field = getField(SegmentLapNormalizedPowerField.ID);
     if (field != null && field.isValid()) {
@@ -1416,6 +1550,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the normalizedPower field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set normalizedPower(int? value) {
     final field = getField(SegmentLapNormalizedPowerField.ID);
 
@@ -1426,9 +1561,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the leftRightBalance field. Returns null if the field is not defined in the message.
   int? get leftRightBalance {
     final field = getField(SegmentLapLeftRightBalanceField.ID);
     if (field != null && field.isValid()) {
@@ -1439,6 +1577,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the leftRightBalance field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set leftRightBalance(int? value) {
     final field = getField(SegmentLapLeftRightBalanceField.ID);
 
@@ -1449,9 +1588,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the subSport field. Returns null if the field is not defined in the message.
   SubSport? get subSport {
     final field = getField(SegmentLapSubSportField.ID);
     if (field != null && field.isValid()) {
@@ -1466,6 +1608,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the subSport field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set subSport(SubSport? value) {
     final field = getField(SegmentLapSubSportField.ID);
 
@@ -1476,9 +1619,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the totalWork field. Returns null if the field is not defined in the message.
   int? get totalWork {
     final field = getField(SegmentLapTotalWorkField.ID);
     if (field != null && field.isValid()) {
@@ -1489,6 +1635,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalWork field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalWork(int? value) {
     final field = getField(SegmentLapTotalWorkField.ID);
 
@@ -1499,9 +1646,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgAltitude field. Returns null if the field is not defined in the message.
   double? get avgAltitude {
     final field = getField(SegmentLapAvgAltitudeField.ID);
     if (field != null && field.isValid()) {
@@ -1512,6 +1662,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgAltitude field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgAltitude(double? value) {
     final field = getField(SegmentLapAvgAltitudeField.ID);
 
@@ -1522,9 +1673,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the maxAltitude field. Returns null if the field is not defined in the message.
   double? get maxAltitude {
     final field = getField(SegmentLapMaxAltitudeField.ID);
     if (field != null && field.isValid()) {
@@ -1535,6 +1689,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxAltitude field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxAltitude(double? value) {
     final field = getField(SegmentLapMaxAltitudeField.ID);
 
@@ -1545,9 +1700,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the gpsAccuracy field. Returns null if the field is not defined in the message.
   int? get gpsAccuracy {
     final field = getField(SegmentLapGpsAccuracyField.ID);
     if (field != null && field.isValid()) {
@@ -1558,6 +1716,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the gpsAccuracy field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set gpsAccuracy(int? value) {
     final field = getField(SegmentLapGpsAccuracyField.ID);
 
@@ -1568,9 +1727,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgGrade field. Returns null if the field is not defined in the message.
   double? get avgGrade {
     final field = getField(SegmentLapAvgGradeField.ID);
     if (field != null && field.isValid()) {
@@ -1581,6 +1743,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgGrade field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgGrade(double? value) {
     final field = getField(SegmentLapAvgGradeField.ID);
 
@@ -1591,9 +1754,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgPosGrade field. Returns null if the field is not defined in the message.
   double? get avgPosGrade {
     final field = getField(SegmentLapAvgPosGradeField.ID);
     if (field != null && field.isValid()) {
@@ -1604,6 +1770,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgPosGrade field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgPosGrade(double? value) {
     final field = getField(SegmentLapAvgPosGradeField.ID);
 
@@ -1614,9 +1781,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgNegGrade field. Returns null if the field is not defined in the message.
   double? get avgNegGrade {
     final field = getField(SegmentLapAvgNegGradeField.ID);
     if (field != null && field.isValid()) {
@@ -1627,6 +1797,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgNegGrade field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgNegGrade(double? value) {
     final field = getField(SegmentLapAvgNegGradeField.ID);
 
@@ -1637,9 +1808,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the maxPosGrade field. Returns null if the field is not defined in the message.
   double? get maxPosGrade {
     final field = getField(SegmentLapMaxPosGradeField.ID);
     if (field != null && field.isValid()) {
@@ -1650,6 +1824,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxPosGrade field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxPosGrade(double? value) {
     final field = getField(SegmentLapMaxPosGradeField.ID);
 
@@ -1660,9 +1835,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the maxNegGrade field. Returns null if the field is not defined in the message.
   double? get maxNegGrade {
     final field = getField(SegmentLapMaxNegGradeField.ID);
     if (field != null && field.isValid()) {
@@ -1673,6 +1851,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxNegGrade field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxNegGrade(double? value) {
     final field = getField(SegmentLapMaxNegGradeField.ID);
 
@@ -1683,9 +1862,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgTemperature field. Returns null if the field is not defined in the message.
   int? get avgTemperature {
     final field = getField(SegmentLapAvgTemperatureField.ID);
     if (field != null && field.isValid()) {
@@ -1696,6 +1878,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgTemperature field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgTemperature(int? value) {
     final field = getField(SegmentLapAvgTemperatureField.ID);
 
@@ -1706,9 +1889,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the maxTemperature field. Returns null if the field is not defined in the message.
   int? get maxTemperature {
     final field = getField(SegmentLapMaxTemperatureField.ID);
     if (field != null && field.isValid()) {
@@ -1719,6 +1905,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxTemperature field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxTemperature(int? value) {
     final field = getField(SegmentLapMaxTemperatureField.ID);
 
@@ -1729,9 +1916,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the totalMovingTime field. Returns null if the field is not defined in the message.
   double? get totalMovingTime {
     final field = getField(SegmentLapTotalMovingTimeField.ID);
     if (field != null && field.isValid()) {
@@ -1742,6 +1932,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalMovingTime field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalMovingTime(double? value) {
     final field = getField(SegmentLapTotalMovingTimeField.ID);
 
@@ -1752,9 +1943,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgPosVerticalSpeed field. Returns null if the field is not defined in the message.
   double? get avgPosVerticalSpeed {
     final field = getField(SegmentLapAvgPosVerticalSpeedField.ID);
     if (field != null && field.isValid()) {
@@ -1765,6 +1959,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgPosVerticalSpeed field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgPosVerticalSpeed(double? value) {
     final field = getField(SegmentLapAvgPosVerticalSpeedField.ID);
 
@@ -1775,9 +1970,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgNegVerticalSpeed field. Returns null if the field is not defined in the message.
   double? get avgNegVerticalSpeed {
     final field = getField(SegmentLapAvgNegVerticalSpeedField.ID);
     if (field != null && field.isValid()) {
@@ -1788,6 +1986,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgNegVerticalSpeed field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgNegVerticalSpeed(double? value) {
     final field = getField(SegmentLapAvgNegVerticalSpeedField.ID);
 
@@ -1798,9 +1997,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the maxPosVerticalSpeed field. Returns null if the field is not defined in the message.
   double? get maxPosVerticalSpeed {
     final field = getField(SegmentLapMaxPosVerticalSpeedField.ID);
     if (field != null && field.isValid()) {
@@ -1811,6 +2013,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxPosVerticalSpeed field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxPosVerticalSpeed(double? value) {
     final field = getField(SegmentLapMaxPosVerticalSpeedField.ID);
 
@@ -1821,9 +2024,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the maxNegVerticalSpeed field. Returns null if the field is not defined in the message.
   double? get maxNegVerticalSpeed {
     final field = getField(SegmentLapMaxNegVerticalSpeedField.ID);
     if (field != null && field.isValid()) {
@@ -1834,6 +2040,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxNegVerticalSpeed field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxNegVerticalSpeed(double? value) {
     final field = getField(SegmentLapMaxNegVerticalSpeedField.ID);
 
@@ -1844,9 +2051,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the timeInHrZone field. Returns null if the field is not defined in the message.
   double? get timeInHrZone {
     final field = getField(SegmentLapTimeInHrZoneField.ID);
     if (field != null && field.isValid()) {
@@ -1857,6 +2067,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the timeInHrZone field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timeInHrZone(double? value) {
     final field = getField(SegmentLapTimeInHrZoneField.ID);
 
@@ -1867,9 +2078,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the timeInSpeedZone field. Returns null if the field is not defined in the message.
   double? get timeInSpeedZone {
     final field = getField(SegmentLapTimeInSpeedZoneField.ID);
     if (field != null && field.isValid()) {
@@ -1880,6 +2094,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the timeInSpeedZone field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timeInSpeedZone(double? value) {
     final field = getField(SegmentLapTimeInSpeedZoneField.ID);
 
@@ -1890,9 +2105,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the timeInCadenceZone field. Returns null if the field is not defined in the message.
   double? get timeInCadenceZone {
     final field = getField(SegmentLapTimeInCadenceZoneField.ID);
     if (field != null && field.isValid()) {
@@ -1903,6 +2121,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the timeInCadenceZone field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timeInCadenceZone(double? value) {
     final field = getField(SegmentLapTimeInCadenceZoneField.ID);
 
@@ -1913,9 +2132,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the timeInPowerZone field. Returns null if the field is not defined in the message.
   double? get timeInPowerZone {
     final field = getField(SegmentLapTimeInPowerZoneField.ID);
     if (field != null && field.isValid()) {
@@ -1926,6 +2148,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the timeInPowerZone field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timeInPowerZone(double? value) {
     final field = getField(SegmentLapTimeInPowerZoneField.ID);
 
@@ -1936,9 +2159,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the repetitionNum field. Returns null if the field is not defined in the message.
   int? get repetitionNum {
     final field = getField(SegmentLapRepetitionNumField.ID);
     if (field != null && field.isValid()) {
@@ -1949,6 +2175,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the repetitionNum field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set repetitionNum(int? value) {
     final field = getField(SegmentLapRepetitionNumField.ID);
 
@@ -1959,9 +2186,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the minAltitude field. Returns null if the field is not defined in the message.
   double? get minAltitude {
     final field = getField(SegmentLapMinAltitudeField.ID);
     if (field != null && field.isValid()) {
@@ -1972,6 +2202,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the minAltitude field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set minAltitude(double? value) {
     final field = getField(SegmentLapMinAltitudeField.ID);
 
@@ -1982,9 +2213,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the minHeartRate field. Returns null if the field is not defined in the message.
   int? get minHeartRate {
     final field = getField(SegmentLapMinHeartRateField.ID);
     if (field != null && field.isValid()) {
@@ -1995,6 +2229,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the minHeartRate field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set minHeartRate(int? value) {
     final field = getField(SegmentLapMinHeartRateField.ID);
 
@@ -2005,9 +2240,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the activeTime field. Returns null if the field is not defined in the message.
   double? get activeTime {
     final field = getField(SegmentLapActiveTimeField.ID);
     if (field != null && field.isValid()) {
@@ -2018,6 +2256,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the activeTime field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set activeTime(double? value) {
     final field = getField(SegmentLapActiveTimeField.ID);
 
@@ -2028,9 +2267,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the workoutStepIndex field. Returns null if the field is not defined in the message.
   int? get workoutStepIndex {
     final field = getField(SegmentLapWorkoutStepIndexField.ID);
     if (field != null && field.isValid()) {
@@ -2041,6 +2283,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the workoutStepIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set workoutStepIndex(int? value) {
     final field = getField(SegmentLapWorkoutStepIndexField.ID);
 
@@ -2051,9 +2294,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the sportEvent field. Returns null if the field is not defined in the message.
   SportEvent? get sportEvent {
     final field = getField(SegmentLapSportEventField.ID);
     if (field != null && field.isValid()) {
@@ -2068,6 +2314,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the sportEvent field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set sportEvent(SportEvent? value) {
     final field = getField(SegmentLapSportEventField.ID);
 
@@ -2078,9 +2325,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgLeftTorqueEffectiveness field. Returns null if the field is not defined in the message.
   double? get avgLeftTorqueEffectiveness {
     final field = getField(SegmentLapAvgLeftTorqueEffectivenessField.ID);
     if (field != null && field.isValid()) {
@@ -2091,6 +2341,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgLeftTorqueEffectiveness field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgLeftTorqueEffectiveness(double? value) {
     final field = getField(SegmentLapAvgLeftTorqueEffectivenessField.ID);
 
@@ -2101,9 +2352,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgRightTorqueEffectiveness field. Returns null if the field is not defined in the message.
   double? get avgRightTorqueEffectiveness {
     final field = getField(SegmentLapAvgRightTorqueEffectivenessField.ID);
     if (field != null && field.isValid()) {
@@ -2114,6 +2368,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgRightTorqueEffectiveness field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgRightTorqueEffectiveness(double? value) {
     final field = getField(SegmentLapAvgRightTorqueEffectivenessField.ID);
 
@@ -2124,9 +2379,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgLeftPedalSmoothness field. Returns null if the field is not defined in the message.
   double? get avgLeftPedalSmoothness {
     final field = getField(SegmentLapAvgLeftPedalSmoothnessField.ID);
     if (field != null && field.isValid()) {
@@ -2137,6 +2395,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgLeftPedalSmoothness field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgLeftPedalSmoothness(double? value) {
     final field = getField(SegmentLapAvgLeftPedalSmoothnessField.ID);
 
@@ -2147,9 +2406,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgRightPedalSmoothness field. Returns null if the field is not defined in the message.
   double? get avgRightPedalSmoothness {
     final field = getField(SegmentLapAvgRightPedalSmoothnessField.ID);
     if (field != null && field.isValid()) {
@@ -2160,6 +2422,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgRightPedalSmoothness field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgRightPedalSmoothness(double? value) {
     final field = getField(SegmentLapAvgRightPedalSmoothnessField.ID);
 
@@ -2170,9 +2433,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgCombinedPedalSmoothness field. Returns null if the field is not defined in the message.
   double? get avgCombinedPedalSmoothness {
     final field = getField(SegmentLapAvgCombinedPedalSmoothnessField.ID);
     if (field != null && field.isValid()) {
@@ -2183,6 +2449,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgCombinedPedalSmoothness field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgCombinedPedalSmoothness(double? value) {
     final field = getField(SegmentLapAvgCombinedPedalSmoothnessField.ID);
 
@@ -2193,9 +2460,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the status field. Returns null if the field is not defined in the message.
   SegmentLapStatus? get status {
     final field = getField(SegmentLapStatusField.ID);
     if (field != null && field.isValid()) {
@@ -2210,6 +2480,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the status field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set status(SegmentLapStatus? value) {
     final field = getField(SegmentLapStatusField.ID);
 
@@ -2220,9 +2491,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the uuid field. Returns null if the field is not defined in the message.
   String? get uuid {
     final field = getField(SegmentLapUuidField.ID);
     if (field != null && field.isValid()) {
@@ -2233,6 +2507,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the uuid field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set uuid(String? value) {
     final field = getField(SegmentLapUuidField.ID);
 
@@ -2243,9 +2518,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgFractionalCadence field. Returns null if the field is not defined in the message.
   double? get avgFractionalCadence {
     final field = getField(SegmentLapAvgFractionalCadenceField.ID);
     if (field != null && field.isValid()) {
@@ -2256,6 +2534,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgFractionalCadence field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgFractionalCadence(double? value) {
     final field = getField(SegmentLapAvgFractionalCadenceField.ID);
 
@@ -2266,9 +2545,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the maxFractionalCadence field. Returns null if the field is not defined in the message.
   double? get maxFractionalCadence {
     final field = getField(SegmentLapMaxFractionalCadenceField.ID);
     if (field != null && field.isValid()) {
@@ -2279,6 +2561,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxFractionalCadence field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxFractionalCadence(double? value) {
     final field = getField(SegmentLapMaxFractionalCadenceField.ID);
 
@@ -2289,9 +2572,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the totalFractionalCycles field. Returns null if the field is not defined in the message.
   double? get totalFractionalCycles {
     final field = getField(SegmentLapTotalFractionalCyclesField.ID);
     if (field != null && field.isValid()) {
@@ -2302,6 +2588,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalFractionalCycles field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalFractionalCycles(double? value) {
     final field = getField(SegmentLapTotalFractionalCyclesField.ID);
 
@@ -2312,9 +2599,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the frontGearShiftCount field. Returns null if the field is not defined in the message.
   int? get frontGearShiftCount {
     final field = getField(SegmentLapFrontGearShiftCountField.ID);
     if (field != null && field.isValid()) {
@@ -2325,6 +2615,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the frontGearShiftCount field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set frontGearShiftCount(int? value) {
     final field = getField(SegmentLapFrontGearShiftCountField.ID);
 
@@ -2335,9 +2626,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the rearGearShiftCount field. Returns null if the field is not defined in the message.
   int? get rearGearShiftCount {
     final field = getField(SegmentLapRearGearShiftCountField.ID);
     if (field != null && field.isValid()) {
@@ -2348,6 +2642,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the rearGearShiftCount field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set rearGearShiftCount(int? value) {
     final field = getField(SegmentLapRearGearShiftCountField.ID);
 
@@ -2358,9 +2653,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the timeStanding field. Returns null if the field is not defined in the message.
   double? get timeStanding {
     final field = getField(SegmentLapTimeStandingField.ID);
     if (field != null && field.isValid()) {
@@ -2371,6 +2669,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the timeStanding field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timeStanding(double? value) {
     final field = getField(SegmentLapTimeStandingField.ID);
 
@@ -2381,9 +2680,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the standCount field. Returns null if the field is not defined in the message.
   int? get standCount {
     final field = getField(SegmentLapStandCountField.ID);
     if (field != null && field.isValid()) {
@@ -2394,6 +2696,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the standCount field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set standCount(int? value) {
     final field = getField(SegmentLapStandCountField.ID);
 
@@ -2404,9 +2707,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgLeftPco field. Returns null if the field is not defined in the message.
   int? get avgLeftPco {
     final field = getField(SegmentLapAvgLeftPcoField.ID);
     if (field != null && field.isValid()) {
@@ -2417,6 +2723,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgLeftPco field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgLeftPco(int? value) {
     final field = getField(SegmentLapAvgLeftPcoField.ID);
 
@@ -2427,9 +2734,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgRightPco field. Returns null if the field is not defined in the message.
   int? get avgRightPco {
     final field = getField(SegmentLapAvgRightPcoField.ID);
     if (field != null && field.isValid()) {
@@ -2440,6 +2750,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgRightPco field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgRightPco(int? value) {
     final field = getField(SegmentLapAvgRightPcoField.ID);
 
@@ -2450,9 +2761,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgLeftPowerPhase field. Returns null if the field is not defined in the message.
   double? get avgLeftPowerPhase {
     final field = getField(SegmentLapAvgLeftPowerPhaseField.ID);
     if (field != null && field.isValid()) {
@@ -2463,6 +2777,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgLeftPowerPhase field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgLeftPowerPhase(double? value) {
     final field = getField(SegmentLapAvgLeftPowerPhaseField.ID);
 
@@ -2473,9 +2788,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgLeftPowerPhasePeak field. Returns null if the field is not defined in the message.
   double? get avgLeftPowerPhasePeak {
     final field = getField(SegmentLapAvgLeftPowerPhasePeakField.ID);
     if (field != null && field.isValid()) {
@@ -2486,6 +2804,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgLeftPowerPhasePeak field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgLeftPowerPhasePeak(double? value) {
     final field = getField(SegmentLapAvgLeftPowerPhasePeakField.ID);
 
@@ -2496,9 +2815,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgRightPowerPhase field. Returns null if the field is not defined in the message.
   double? get avgRightPowerPhase {
     final field = getField(SegmentLapAvgRightPowerPhaseField.ID);
     if (field != null && field.isValid()) {
@@ -2509,6 +2831,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgRightPowerPhase field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgRightPowerPhase(double? value) {
     final field = getField(SegmentLapAvgRightPowerPhaseField.ID);
 
@@ -2519,9 +2842,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgRightPowerPhasePeak field. Returns null if the field is not defined in the message.
   double? get avgRightPowerPhasePeak {
     final field = getField(SegmentLapAvgRightPowerPhasePeakField.ID);
     if (field != null && field.isValid()) {
@@ -2532,6 +2858,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgRightPowerPhasePeak field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgRightPowerPhasePeak(double? value) {
     final field = getField(SegmentLapAvgRightPowerPhasePeakField.ID);
 
@@ -2542,9 +2869,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgPowerPosition field. Returns null if the field is not defined in the message.
   int? get avgPowerPosition {
     final field = getField(SegmentLapAvgPowerPositionField.ID);
     if (field != null && field.isValid()) {
@@ -2555,6 +2885,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgPowerPosition field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgPowerPosition(int? value) {
     final field = getField(SegmentLapAvgPowerPositionField.ID);
 
@@ -2565,9 +2896,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the maxPowerPosition field. Returns null if the field is not defined in the message.
   int? get maxPowerPosition {
     final field = getField(SegmentLapMaxPowerPositionField.ID);
     if (field != null && field.isValid()) {
@@ -2578,6 +2912,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxPowerPosition field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxPowerPosition(int? value) {
     final field = getField(SegmentLapMaxPowerPositionField.ID);
 
@@ -2588,9 +2923,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgCadencePosition field. Returns null if the field is not defined in the message.
   int? get avgCadencePosition {
     final field = getField(SegmentLapAvgCadencePositionField.ID);
     if (field != null && field.isValid()) {
@@ -2601,6 +2939,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgCadencePosition field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgCadencePosition(int? value) {
     final field = getField(SegmentLapAvgCadencePositionField.ID);
 
@@ -2611,9 +2950,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the maxCadencePosition field. Returns null if the field is not defined in the message.
   int? get maxCadencePosition {
     final field = getField(SegmentLapMaxCadencePositionField.ID);
     if (field != null && field.isValid()) {
@@ -2624,6 +2966,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxCadencePosition field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxCadencePosition(int? value) {
     final field = getField(SegmentLapMaxCadencePositionField.ID);
 
@@ -2634,9 +2977,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the manufacturer field. Returns null if the field is not defined in the message.
   int? get manufacturer {
     final field = getField(SegmentLapManufacturerField.ID);
     if (field != null && field.isValid()) {
@@ -2647,6 +2993,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the manufacturer field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set manufacturer(int? value) {
     final field = getField(SegmentLapManufacturerField.ID);
 
@@ -2657,9 +3004,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the totalGrit field. Returns null if the field is not defined in the message.
   double? get totalGrit {
     final field = getField(SegmentLapTotalGritField.ID);
     if (field != null && field.isValid()) {
@@ -2670,6 +3020,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalGrit field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalGrit(double? value) {
     final field = getField(SegmentLapTotalGritField.ID);
 
@@ -2680,9 +3031,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the totalFlow field. Returns null if the field is not defined in the message.
   double? get totalFlow {
     final field = getField(SegmentLapTotalFlowField.ID);
     if (field != null && field.isValid()) {
@@ -2693,6 +3047,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalFlow field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalFlow(double? value) {
     final field = getField(SegmentLapTotalFlowField.ID);
 
@@ -2703,9 +3058,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgGrit field. Returns null if the field is not defined in the message.
   double? get avgGrit {
     final field = getField(SegmentLapAvgGritField.ID);
     if (field != null && field.isValid()) {
@@ -2716,6 +3074,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgGrit field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgGrit(double? value) {
     final field = getField(SegmentLapAvgGritField.ID);
 
@@ -2726,9 +3085,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the avgFlow field. Returns null if the field is not defined in the message.
   double? get avgFlow {
     final field = getField(SegmentLapAvgFlowField.ID);
     if (field != null && field.isValid()) {
@@ -2739,6 +3101,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the avgFlow field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set avgFlow(double? value) {
     final field = getField(SegmentLapAvgFlowField.ID);
 
@@ -2749,9 +3112,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the totalFractionalAscent field. Returns null if the field is not defined in the message.
   double? get totalFractionalAscent {
     final field = getField(SegmentLapTotalFractionalAscentField.ID);
     if (field != null && field.isValid()) {
@@ -2762,6 +3128,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalFractionalAscent field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalFractionalAscent(double? value) {
     final field = getField(SegmentLapTotalFractionalAscentField.ID);
 
@@ -2772,9 +3139,12 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the totalFractionalDescent field. Returns null if the field is not defined in the message.
   double? get totalFractionalDescent {
     final field = getField(SegmentLapTotalFractionalDescentField.ID);
     if (field != null && field.isValid()) {
@@ -2785,6 +3155,7 @@ class SegmentLapMessage extends DataMessage {
     }
   }
 
+  /// Sets the totalFractionalDescent field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set totalFractionalDescent(double? value) {
     final field = getField(SegmentLapTotalFractionalDescentField.ID);
 
@@ -2795,6 +3166,8 @@ class SegmentLapMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

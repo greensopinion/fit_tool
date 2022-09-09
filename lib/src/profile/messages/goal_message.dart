@@ -6,10 +6,12 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
 import '../profile_type.dart';
 import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class GoalMessage extends DataMessage {
   GoalMessage(
@@ -106,11 +108,13 @@ class GoalMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 15;
   static const NAME = 'goal';
 
   final bool growable;
 
+  /// Returns an instance of GoalMessage from a bytes list.
   static GoalMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = GoalMessage(definitionMessage: definitionMessage);
@@ -118,6 +122,7 @@ class GoalMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the messageIndex field. Returns null if the field is not defined in the message.
   int? get messageIndex {
     final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
@@ -128,6 +133,7 @@ class GoalMessage extends DataMessage {
     }
   }
 
+  /// Sets the messageIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
@@ -138,9 +144,12 @@ class GoalMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the sport field. Returns null if the field is not defined in the message.
   Sport? get sport {
     final field = getField(GoalSportField.ID);
     if (field != null && field.isValid()) {
@@ -155,6 +164,7 @@ class GoalMessage extends DataMessage {
     }
   }
 
+  /// Sets the sport field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set sport(Sport? value) {
     final field = getField(GoalSportField.ID);
 
@@ -165,9 +175,12 @@ class GoalMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the subSport field. Returns null if the field is not defined in the message.
   SubSport? get subSport {
     final field = getField(GoalSubSportField.ID);
     if (field != null && field.isValid()) {
@@ -182,6 +195,7 @@ class GoalMessage extends DataMessage {
     }
   }
 
+  /// Sets the subSport field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set subSport(SubSport? value) {
     final field = getField(GoalSubSportField.ID);
 
@@ -192,10 +206,12 @@ class GoalMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get startDate {
     final field = getField(GoalStartDateField.ID);
     if (field != null && field.isValid()) {
@@ -206,7 +222,7 @@ class GoalMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set startDate(int? value) {
     final field = getField(GoalStartDateField.ID);
 
@@ -217,10 +233,12 @@ class GoalMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get endDate {
     final field = getField(GoalEndDateField.ID);
     if (field != null && field.isValid()) {
@@ -231,7 +249,7 @@ class GoalMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set endDate(int? value) {
     final field = getField(GoalEndDateField.ID);
 
@@ -242,9 +260,12 @@ class GoalMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the type field. Returns null if the field is not defined in the message.
   Goal? get type {
     final field = getField(GoalTypeField.ID);
     if (field != null && field.isValid()) {
@@ -259,6 +280,7 @@ class GoalMessage extends DataMessage {
     }
   }
 
+  /// Sets the type field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set type(Goal? value) {
     final field = getField(GoalTypeField.ID);
 
@@ -269,9 +291,12 @@ class GoalMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the value field. Returns null if the field is not defined in the message.
   int? get value {
     final field = getField(GoalValueField.ID);
     if (field != null && field.isValid()) {
@@ -282,6 +307,7 @@ class GoalMessage extends DataMessage {
     }
   }
 
+  /// Sets the value field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set value(int? value) {
     final field = getField(GoalValueField.ID);
 
@@ -292,9 +318,12 @@ class GoalMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the repeat field. Returns null if the field is not defined in the message.
   bool? get repeat {
     final field = getField(GoalRepeatField.ID);
     if (field != null && field.isValid()) {
@@ -305,6 +334,7 @@ class GoalMessage extends DataMessage {
     }
   }
 
+  /// Sets the repeat field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set repeat(bool? value) {
     final field = getField(GoalRepeatField.ID);
 
@@ -315,9 +345,12 @@ class GoalMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the targetValue field. Returns null if the field is not defined in the message.
   int? get targetValue {
     final field = getField(GoalTargetValueField.ID);
     if (field != null && field.isValid()) {
@@ -328,6 +361,7 @@ class GoalMessage extends DataMessage {
     }
   }
 
+  /// Sets the targetValue field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set targetValue(int? value) {
     final field = getField(GoalTargetValueField.ID);
 
@@ -338,9 +372,12 @@ class GoalMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the recurrence field. Returns null if the field is not defined in the message.
   GoalRecurrence? get recurrence {
     final field = getField(GoalRecurrenceField.ID);
     if (field != null && field.isValid()) {
@@ -355,6 +392,7 @@ class GoalMessage extends DataMessage {
     }
   }
 
+  /// Sets the recurrence field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set recurrence(GoalRecurrence? value) {
     final field = getField(GoalRecurrenceField.ID);
 
@@ -365,9 +403,12 @@ class GoalMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the recurrenceValue field. Returns null if the field is not defined in the message.
   int? get recurrenceValue {
     final field = getField(GoalRecurrenceValueField.ID);
     if (field != null && field.isValid()) {
@@ -378,6 +419,7 @@ class GoalMessage extends DataMessage {
     }
   }
 
+  /// Sets the recurrenceValue field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set recurrenceValue(int? value) {
     final field = getField(GoalRecurrenceValueField.ID);
 
@@ -388,9 +430,12 @@ class GoalMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the enabled field. Returns null if the field is not defined in the message.
   bool? get enabled {
     final field = getField(GoalEnabledField.ID);
     if (field != null && field.isValid()) {
@@ -401,6 +446,7 @@ class GoalMessage extends DataMessage {
     }
   }
 
+  /// Sets the enabled field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set enabled(bool? value) {
     final field = getField(GoalEnabledField.ID);
 
@@ -411,9 +457,12 @@ class GoalMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the source field. Returns null if the field is not defined in the message.
   GoalSource? get source {
     final field = getField(GoalSourceField.ID);
     if (field != null && field.isValid()) {
@@ -428,6 +477,7 @@ class GoalMessage extends DataMessage {
     }
   }
 
+  /// Sets the source field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set source(GoalSource? value) {
     final field = getField(GoalSourceField.ID);
 
@@ -438,6 +488,8 @@ class GoalMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

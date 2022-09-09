@@ -6,10 +6,10 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
-import '../profile_type.dart';
-import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class StressLevelMessage extends DataMessage {
   StressLevelMessage(
@@ -42,11 +42,13 @@ class StressLevelMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 227;
   static const NAME = 'stress_level';
 
   final bool growable;
 
+  /// Returns an instance of StressLevelMessage from a bytes list.
   static StressLevelMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = StressLevelMessage(definitionMessage: definitionMessage);
@@ -54,6 +56,7 @@ class StressLevelMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the stressLevelValue field. Returns null if the field is not defined in the message.
   int? get stressLevelValue {
     final field = getField(StressLevelStressLevelValueField.ID);
     if (field != null && field.isValid()) {
@@ -64,6 +67,7 @@ class StressLevelMessage extends DataMessage {
     }
   }
 
+  /// Sets the stressLevelValue field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set stressLevelValue(int? value) {
     final field = getField(StressLevelStressLevelValueField.ID);
 
@@ -74,10 +78,12 @@ class StressLevelMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get stressLevelTime {
     final field = getField(StressLevelStressLevelTimeField.ID);
     if (field != null && field.isValid()) {
@@ -88,7 +94,7 @@ class StressLevelMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set stressLevelTime(int? value) {
     final field = getField(StressLevelStressLevelTimeField.ID);
 
@@ -99,6 +105,8 @@ class StressLevelMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

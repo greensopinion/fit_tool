@@ -6,10 +6,11 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
 import '../profile_type.dart';
-import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class ExdDataConceptConfigurationMessage extends DataMessage {
   ExdDataConceptConfigurationMessage(
@@ -105,11 +106,13 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 202;
   static const NAME = 'exd_data_concept_configuration';
 
   final bool growable;
 
+  /// Returns an instance of ExdDataConceptConfigurationMessage from a bytes list.
   static ExdDataConceptConfigurationMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = ExdDataConceptConfigurationMessage(
@@ -118,6 +121,7 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the screenIndex field. Returns null if the field is not defined in the message.
   int? get screenIndex {
     final field = getField(ExdDataConceptConfigurationScreenIndexField.ID);
     if (field != null && field.isValid()) {
@@ -128,6 +132,7 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
     }
   }
 
+  /// Sets the screenIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set screenIndex(int? value) {
     final field = getField(ExdDataConceptConfigurationScreenIndexField.ID);
 
@@ -138,9 +143,12 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the conceptField field. Returns null if the field is not defined in the message.
   int? get conceptField {
     final field = getField(ExdDataConceptConfigurationConceptField.ID);
     if (field != null && field.isValid()) {
@@ -151,6 +159,7 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
     }
   }
 
+  /// Sets the conceptField field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set conceptField(int? value) {
     final field = getField(ExdDataConceptConfigurationConceptField.ID);
 
@@ -161,9 +170,12 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the fieldId field. Returns null if the field is not defined in the message.
   int? get fieldId {
     final field = getField(ExdDataConceptConfigurationFieldIdField.ID);
     if (field != null && field.isValid()) {
@@ -174,6 +186,7 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
     }
   }
 
+  /// Sets the fieldId field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set fieldId(int? value) {
     final field = getField(ExdDataConceptConfigurationFieldIdField.ID);
 
@@ -184,9 +197,12 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the conceptIndex field. Returns null if the field is not defined in the message.
   int? get conceptIndex {
     final field = getField(ExdDataConceptConfigurationConceptIndexField.ID);
     if (field != null && field.isValid()) {
@@ -197,6 +213,7 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
     }
   }
 
+  /// Sets the conceptIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set conceptIndex(int? value) {
     final field = getField(ExdDataConceptConfigurationConceptIndexField.ID);
 
@@ -207,9 +224,12 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the dataPage field. Returns null if the field is not defined in the message.
   int? get dataPage {
     final field = getField(ExdDataConceptConfigurationDataPageField.ID);
     if (field != null && field.isValid()) {
@@ -220,6 +240,7 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
     }
   }
 
+  /// Sets the dataPage field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set dataPage(int? value) {
     final field = getField(ExdDataConceptConfigurationDataPageField.ID);
 
@@ -230,9 +251,12 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the conceptKey field. Returns null if the field is not defined in the message.
   int? get conceptKey {
     final field = getField(ExdDataConceptConfigurationConceptKeyField.ID);
     if (field != null && field.isValid()) {
@@ -243,6 +267,7 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
     }
   }
 
+  /// Sets the conceptKey field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set conceptKey(int? value) {
     final field = getField(ExdDataConceptConfigurationConceptKeyField.ID);
 
@@ -253,9 +278,12 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the scaling field. Returns null if the field is not defined in the message.
   int? get scaling {
     final field = getField(ExdDataConceptConfigurationScalingField.ID);
     if (field != null && field.isValid()) {
@@ -266,6 +294,7 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
     }
   }
 
+  /// Sets the scaling field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set scaling(int? value) {
     final field = getField(ExdDataConceptConfigurationScalingField.ID);
 
@@ -276,9 +305,12 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the dataUnits field. Returns null if the field is not defined in the message.
   ExdDataUnits? get dataUnits {
     final field = getField(ExdDataConceptConfigurationDataUnitsField.ID);
     if (field != null && field.isValid()) {
@@ -293,6 +325,7 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
     }
   }
 
+  /// Sets the dataUnits field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set dataUnits(ExdDataUnits? value) {
     final field = getField(ExdDataConceptConfigurationDataUnitsField.ID);
 
@@ -303,9 +336,12 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the qualifier field. Returns null if the field is not defined in the message.
   ExdQualifiers? get qualifier {
     final field = getField(ExdDataConceptConfigurationQualifierField.ID);
     if (field != null && field.isValid()) {
@@ -320,6 +356,7 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
     }
   }
 
+  /// Sets the qualifier field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set qualifier(ExdQualifiers? value) {
     final field = getField(ExdDataConceptConfigurationQualifierField.ID);
 
@@ -330,9 +367,12 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the descriptor field. Returns null if the field is not defined in the message.
   ExdDescriptors? get descriptor {
     final field = getField(ExdDataConceptConfigurationDescriptorField.ID);
     if (field != null && field.isValid()) {
@@ -347,6 +387,7 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
     }
   }
 
+  /// Sets the descriptor field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set descriptor(ExdDescriptors? value) {
     final field = getField(ExdDataConceptConfigurationDescriptorField.ID);
 
@@ -357,9 +398,12 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the isSigned field. Returns null if the field is not defined in the message.
   bool? get isSigned {
     final field = getField(ExdDataConceptConfigurationIsSignedField.ID);
     if (field != null && field.isValid()) {
@@ -370,6 +414,7 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
     }
   }
 
+  /// Sets the isSigned field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set isSigned(bool? value) {
     final field = getField(ExdDataConceptConfigurationIsSignedField.ID);
 
@@ -380,6 +425,8 @@ class ExdDataConceptConfigurationMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

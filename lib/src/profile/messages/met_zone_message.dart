@@ -6,10 +6,11 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
-import '../profile_type.dart';
 import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class MetZoneMessage extends DataMessage {
   MetZoneMessage(
@@ -52,11 +53,13 @@ class MetZoneMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 10;
   static const NAME = 'met_zone';
 
   final bool growable;
 
+  /// Returns an instance of MetZoneMessage from a bytes list.
   static MetZoneMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = MetZoneMessage(definitionMessage: definitionMessage);
@@ -64,6 +67,7 @@ class MetZoneMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the messageIndex field. Returns null if the field is not defined in the message.
   int? get messageIndex {
     final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
@@ -74,6 +78,7 @@ class MetZoneMessage extends DataMessage {
     }
   }
 
+  /// Sets the messageIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
@@ -84,9 +89,12 @@ class MetZoneMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the highBpm field. Returns null if the field is not defined in the message.
   int? get highBpm {
     final field = getField(MetZoneHighBpmField.ID);
     if (field != null && field.isValid()) {
@@ -97,6 +105,7 @@ class MetZoneMessage extends DataMessage {
     }
   }
 
+  /// Sets the highBpm field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set highBpm(int? value) {
     final field = getField(MetZoneHighBpmField.ID);
 
@@ -107,9 +116,12 @@ class MetZoneMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the calories field. Returns null if the field is not defined in the message.
   double? get calories {
     final field = getField(MetZoneCaloriesField.ID);
     if (field != null && field.isValid()) {
@@ -120,6 +132,7 @@ class MetZoneMessage extends DataMessage {
     }
   }
 
+  /// Sets the calories field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set calories(double? value) {
     final field = getField(MetZoneCaloriesField.ID);
 
@@ -130,9 +143,12 @@ class MetZoneMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the fatCalories field. Returns null if the field is not defined in the message.
   double? get fatCalories {
     final field = getField(MetZoneFatCaloriesField.ID);
     if (field != null && field.isValid()) {
@@ -143,6 +159,7 @@ class MetZoneMessage extends DataMessage {
     }
   }
 
+  /// Sets the fatCalories field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set fatCalories(double? value) {
     final field = getField(MetZoneFatCaloriesField.ID);
 
@@ -153,6 +170,8 @@ class MetZoneMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

@@ -6,10 +6,11 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
-import '../profile_type.dart';
 import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class BarometerDataMessage extends DataMessage {
   BarometerDataMessage(
@@ -53,11 +54,13 @@ class BarometerDataMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 209;
   static const NAME = 'barometer_data';
 
   final bool growable;
 
+  /// Returns an instance of BarometerDataMessage from a bytes list.
   static BarometerDataMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = BarometerDataMessage(definitionMessage: definitionMessage);
@@ -65,7 +68,7 @@ class BarometerDataMessage extends DataMessage {
     return message;
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
     final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
@@ -76,7 +79,7 @@ class BarometerDataMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
@@ -87,9 +90,12 @@ class BarometerDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the timestampMs field. Returns null if the field is not defined in the message.
   int? get timestampMs {
     final field = getField(BarometerDataTimestampMsField.ID);
     if (field != null && field.isValid()) {
@@ -100,6 +106,7 @@ class BarometerDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the timestampMs field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestampMs(int? value) {
     final field = getField(BarometerDataTimestampMsField.ID);
 
@@ -110,9 +117,12 @@ class BarometerDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the sampleTimeOffset field. Returns null if the field is not defined in the message.
   int? get sampleTimeOffset {
     final field = getField(BarometerDataSampleTimeOffsetField.ID);
     if (field != null && field.isValid()) {
@@ -123,6 +133,7 @@ class BarometerDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the sampleTimeOffset field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set sampleTimeOffset(int? value) {
     final field = getField(BarometerDataSampleTimeOffsetField.ID);
 
@@ -133,9 +144,12 @@ class BarometerDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the baroPres field. Returns null if the field is not defined in the message.
   int? get baroPres {
     final field = getField(BarometerDataBaroPresField.ID);
     if (field != null && field.isValid()) {
@@ -146,6 +160,7 @@ class BarometerDataMessage extends DataMessage {
     }
   }
 
+  /// Sets the baroPres field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set baroPres(int? value) {
     final field = getField(BarometerDataBaroPresField.ID);
 
@@ -156,6 +171,8 @@ class BarometerDataMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

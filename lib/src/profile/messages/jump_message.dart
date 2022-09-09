@@ -6,10 +6,11 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
-import '../profile_type.dart';
 import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class JumpMessage extends DataMessage {
   JumpMessage(
@@ -88,11 +89,13 @@ class JumpMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 285;
   static const NAME = 'jump';
 
   final bool growable;
 
+  /// Returns an instance of JumpMessage from a bytes list.
   static JumpMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = JumpMessage(definitionMessage: definitionMessage);
@@ -100,7 +103,7 @@ class JumpMessage extends DataMessage {
     return message;
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
     final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
@@ -111,7 +114,7 @@ class JumpMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
@@ -122,9 +125,12 @@ class JumpMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the distance field. Returns null if the field is not defined in the message.
   double? get distance {
     final field = getField(JumpDistanceField.ID);
     if (field != null && field.isValid()) {
@@ -135,6 +141,7 @@ class JumpMessage extends DataMessage {
     }
   }
 
+  /// Sets the distance field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set distance(double? value) {
     final field = getField(JumpDistanceField.ID);
 
@@ -145,9 +152,12 @@ class JumpMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the height field. Returns null if the field is not defined in the message.
   double? get height {
     final field = getField(JumpHeightField.ID);
     if (field != null && field.isValid()) {
@@ -158,6 +168,7 @@ class JumpMessage extends DataMessage {
     }
   }
 
+  /// Sets the height field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set height(double? value) {
     final field = getField(JumpHeightField.ID);
 
@@ -168,9 +179,12 @@ class JumpMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the rotations field. Returns null if the field is not defined in the message.
   int? get rotations {
     final field = getField(JumpRotationsField.ID);
     if (field != null && field.isValid()) {
@@ -181,6 +195,7 @@ class JumpMessage extends DataMessage {
     }
   }
 
+  /// Sets the rotations field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set rotations(int? value) {
     final field = getField(JumpRotationsField.ID);
 
@@ -191,9 +206,12 @@ class JumpMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the hangTime field. Returns null if the field is not defined in the message.
   double? get hangTime {
     final field = getField(JumpHangTimeField.ID);
     if (field != null && field.isValid()) {
@@ -204,6 +222,7 @@ class JumpMessage extends DataMessage {
     }
   }
 
+  /// Sets the hangTime field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set hangTime(double? value) {
     final field = getField(JumpHangTimeField.ID);
 
@@ -214,9 +233,12 @@ class JumpMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the score field. Returns null if the field is not defined in the message.
   double? get score {
     final field = getField(JumpScoreField.ID);
     if (field != null && field.isValid()) {
@@ -227,6 +249,7 @@ class JumpMessage extends DataMessage {
     }
   }
 
+  /// Sets the score field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set score(double? value) {
     final field = getField(JumpScoreField.ID);
 
@@ -237,9 +260,12 @@ class JumpMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the positionLat field. Returns null if the field is not defined in the message.
   double? get positionLat {
     final field = getField(JumpPositionLatField.ID);
     if (field != null && field.isValid()) {
@@ -250,6 +276,7 @@ class JumpMessage extends DataMessage {
     }
   }
 
+  /// Sets the positionLat field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set positionLat(double? value) {
     final field = getField(JumpPositionLatField.ID);
 
@@ -260,9 +287,12 @@ class JumpMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the positionLong field. Returns null if the field is not defined in the message.
   double? get positionLong {
     final field = getField(JumpPositionLongField.ID);
     if (field != null && field.isValid()) {
@@ -273,6 +303,7 @@ class JumpMessage extends DataMessage {
     }
   }
 
+  /// Sets the positionLong field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set positionLong(double? value) {
     final field = getField(JumpPositionLongField.ID);
 
@@ -283,9 +314,12 @@ class JumpMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the speed field. Returns null if the field is not defined in the message.
   double? get speed {
     final field = getField(JumpSpeedField.ID);
     if (field != null && field.isValid()) {
@@ -296,6 +330,7 @@ class JumpMessage extends DataMessage {
     }
   }
 
+  /// Sets the speed field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set speed(double? value) {
     final field = getField(JumpSpeedField.ID);
 
@@ -306,9 +341,12 @@ class JumpMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the enhancedSpeed field. Returns null if the field is not defined in the message.
   double? get enhancedSpeed {
     final field = getField(JumpEnhancedSpeedField.ID);
     if (field != null && field.isValid()) {
@@ -319,6 +357,7 @@ class JumpMessage extends DataMessage {
     }
   }
 
+  /// Sets the enhancedSpeed field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set enhancedSpeed(double? value) {
     final field = getField(JumpEnhancedSpeedField.ID);
 
@@ -329,6 +368,8 @@ class JumpMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

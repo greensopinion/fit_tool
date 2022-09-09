@@ -6,10 +6,10 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
-import '../profile_type.dart';
-import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class HrvMessage extends DataMessage {
   HrvMessage(
@@ -34,11 +34,13 @@ class HrvMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 78;
   static const NAME = 'hrv';
 
   final bool growable;
 
+  /// Returns an instance of HrvMessage from a bytes list.
   static HrvMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = HrvMessage(definitionMessage: definitionMessage);
@@ -46,6 +48,7 @@ class HrvMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the time field. Returns null if the field is not defined in the message.
   double? get time {
     final field = getField(HrvTimeField.ID);
     if (field != null && field.isValid()) {
@@ -56,6 +59,7 @@ class HrvMessage extends DataMessage {
     }
   }
 
+  /// Sets the time field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set time(double? value) {
     final field = getField(HrvTimeField.ID);
 
@@ -66,6 +70,8 @@ class HrvMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

@@ -6,10 +6,11 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
 import '../profile_type.dart';
-import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class ZonesTargetMessage extends DataMessage {
   ZonesTargetMessage(
@@ -60,11 +61,13 @@ class ZonesTargetMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 7;
   static const NAME = 'zones_target';
 
   final bool growable;
 
+  /// Returns an instance of ZonesTargetMessage from a bytes list.
   static ZonesTargetMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = ZonesTargetMessage(definitionMessage: definitionMessage);
@@ -72,6 +75,7 @@ class ZonesTargetMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the maxHeartRate field. Returns null if the field is not defined in the message.
   int? get maxHeartRate {
     final field = getField(ZonesTargetMaxHeartRateField.ID);
     if (field != null && field.isValid()) {
@@ -82,6 +86,7 @@ class ZonesTargetMessage extends DataMessage {
     }
   }
 
+  /// Sets the maxHeartRate field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set maxHeartRate(int? value) {
     final field = getField(ZonesTargetMaxHeartRateField.ID);
 
@@ -92,9 +97,12 @@ class ZonesTargetMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the thresholdHeartRate field. Returns null if the field is not defined in the message.
   int? get thresholdHeartRate {
     final field = getField(ZonesTargetThresholdHeartRateField.ID);
     if (field != null && field.isValid()) {
@@ -105,6 +113,7 @@ class ZonesTargetMessage extends DataMessage {
     }
   }
 
+  /// Sets the thresholdHeartRate field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set thresholdHeartRate(int? value) {
     final field = getField(ZonesTargetThresholdHeartRateField.ID);
 
@@ -115,9 +124,12 @@ class ZonesTargetMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the functionalThresholdPower field. Returns null if the field is not defined in the message.
   int? get functionalThresholdPower {
     final field = getField(ZonesTargetFunctionalThresholdPowerField.ID);
     if (field != null && field.isValid()) {
@@ -128,6 +140,7 @@ class ZonesTargetMessage extends DataMessage {
     }
   }
 
+  /// Sets the functionalThresholdPower field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set functionalThresholdPower(int? value) {
     final field = getField(ZonesTargetFunctionalThresholdPowerField.ID);
 
@@ -138,9 +151,12 @@ class ZonesTargetMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the hrCalcType field. Returns null if the field is not defined in the message.
   HrZoneCalc? get hrCalcType {
     final field = getField(ZonesTargetHrCalcTypeField.ID);
     if (field != null && field.isValid()) {
@@ -155,6 +171,7 @@ class ZonesTargetMessage extends DataMessage {
     }
   }
 
+  /// Sets the hrCalcType field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set hrCalcType(HrZoneCalc? value) {
     final field = getField(ZonesTargetHrCalcTypeField.ID);
 
@@ -165,9 +182,12 @@ class ZonesTargetMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the pwrCalcType field. Returns null if the field is not defined in the message.
   PwrZoneCalc? get pwrCalcType {
     final field = getField(ZonesTargetPwrCalcTypeField.ID);
     if (field != null && field.isValid()) {
@@ -182,6 +202,7 @@ class ZonesTargetMessage extends DataMessage {
     }
   }
 
+  /// Sets the pwrCalcType field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set pwrCalcType(PwrZoneCalc? value) {
     final field = getField(ZonesTargetPwrCalcTypeField.ID);
 
@@ -192,6 +213,8 @@ class ZonesTargetMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

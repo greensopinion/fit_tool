@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:test/test.dart';
 
 // class RotSink extends ChunkedConversionSink<List<int>> {
@@ -84,9 +82,9 @@ void main() {
     });
 
     test('example', () async {
-      final file = File('./test/data/Activity.fit');
-      final outFile = File('./test/data/out.fit');
-      final key = 30;
+      // final file = File('./test/data/Activity.fit');
+      // final outFile = File('./test/data/out.fit');
+      // final key = 30;
       //
       // await file
       //     .openRead()

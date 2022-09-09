@@ -6,10 +6,11 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
-import '../profile_type.dart';
 import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class WeightScaleMessage extends DataMessage {
   WeightScaleMessage(
@@ -111,11 +112,13 @@ class WeightScaleMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 30;
   static const NAME = 'weight_scale';
 
   final bool growable;
 
+  /// Returns an instance of WeightScaleMessage from a bytes list.
   static WeightScaleMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = WeightScaleMessage(definitionMessage: definitionMessage);
@@ -123,7 +126,7 @@ class WeightScaleMessage extends DataMessage {
     return message;
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   int? get timestamp {
     final field = getField(TimestampField.ID);
     if (field != null && field.isValid()) {
@@ -134,7 +137,7 @@ class WeightScaleMessage extends DataMessage {
     }
   }
 
-  // timestamp : milliseconds from January 1st, 1970 at 00:00:00 UTC
+  /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set timestamp(int? value) {
     final field = getField(TimestampField.ID);
 
@@ -145,9 +148,12 @@ class WeightScaleMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the weight field. Returns null if the field is not defined in the message.
   double? get weight {
     final field = getField(WeightScaleWeightField.ID);
     if (field != null && field.isValid()) {
@@ -158,6 +164,7 @@ class WeightScaleMessage extends DataMessage {
     }
   }
 
+  /// Sets the weight field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set weight(double? value) {
     final field = getField(WeightScaleWeightField.ID);
 
@@ -168,9 +175,12 @@ class WeightScaleMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the percentFat field. Returns null if the field is not defined in the message.
   double? get percentFat {
     final field = getField(WeightScalePercentFatField.ID);
     if (field != null && field.isValid()) {
@@ -181,6 +191,7 @@ class WeightScaleMessage extends DataMessage {
     }
   }
 
+  /// Sets the percentFat field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set percentFat(double? value) {
     final field = getField(WeightScalePercentFatField.ID);
 
@@ -191,9 +202,12 @@ class WeightScaleMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the percentHydration field. Returns null if the field is not defined in the message.
   double? get percentHydration {
     final field = getField(WeightScalePercentHydrationField.ID);
     if (field != null && field.isValid()) {
@@ -204,6 +218,7 @@ class WeightScaleMessage extends DataMessage {
     }
   }
 
+  /// Sets the percentHydration field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set percentHydration(double? value) {
     final field = getField(WeightScalePercentHydrationField.ID);
 
@@ -214,9 +229,12 @@ class WeightScaleMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the visceralFatMass field. Returns null if the field is not defined in the message.
   double? get visceralFatMass {
     final field = getField(WeightScaleVisceralFatMassField.ID);
     if (field != null && field.isValid()) {
@@ -227,6 +245,7 @@ class WeightScaleMessage extends DataMessage {
     }
   }
 
+  /// Sets the visceralFatMass field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set visceralFatMass(double? value) {
     final field = getField(WeightScaleVisceralFatMassField.ID);
 
@@ -237,9 +256,12 @@ class WeightScaleMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the boneMass field. Returns null if the field is not defined in the message.
   double? get boneMass {
     final field = getField(WeightScaleBoneMassField.ID);
     if (field != null && field.isValid()) {
@@ -250,6 +272,7 @@ class WeightScaleMessage extends DataMessage {
     }
   }
 
+  /// Sets the boneMass field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set boneMass(double? value) {
     final field = getField(WeightScaleBoneMassField.ID);
 
@@ -260,9 +283,12 @@ class WeightScaleMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the muscleMass field. Returns null if the field is not defined in the message.
   double? get muscleMass {
     final field = getField(WeightScaleMuscleMassField.ID);
     if (field != null && field.isValid()) {
@@ -273,6 +299,7 @@ class WeightScaleMessage extends DataMessage {
     }
   }
 
+  /// Sets the muscleMass field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set muscleMass(double? value) {
     final field = getField(WeightScaleMuscleMassField.ID);
 
@@ -283,9 +310,12 @@ class WeightScaleMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the basalMet field. Returns null if the field is not defined in the message.
   double? get basalMet {
     final field = getField(WeightScaleBasalMetField.ID);
     if (field != null && field.isValid()) {
@@ -296,6 +326,7 @@ class WeightScaleMessage extends DataMessage {
     }
   }
 
+  /// Sets the basalMet field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set basalMet(double? value) {
     final field = getField(WeightScaleBasalMetField.ID);
 
@@ -306,9 +337,12 @@ class WeightScaleMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the physiqueRating field. Returns null if the field is not defined in the message.
   int? get physiqueRating {
     final field = getField(WeightScalePhysiqueRatingField.ID);
     if (field != null && field.isValid()) {
@@ -319,6 +353,7 @@ class WeightScaleMessage extends DataMessage {
     }
   }
 
+  /// Sets the physiqueRating field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set physiqueRating(int? value) {
     final field = getField(WeightScalePhysiqueRatingField.ID);
 
@@ -329,9 +364,12 @@ class WeightScaleMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the activeMet field. Returns null if the field is not defined in the message.
   double? get activeMet {
     final field = getField(WeightScaleActiveMetField.ID);
     if (field != null && field.isValid()) {
@@ -342,6 +380,7 @@ class WeightScaleMessage extends DataMessage {
     }
   }
 
+  /// Sets the activeMet field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set activeMet(double? value) {
     final field = getField(WeightScaleActiveMetField.ID);
 
@@ -352,9 +391,12 @@ class WeightScaleMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the metabolicAge field. Returns null if the field is not defined in the message.
   int? get metabolicAge {
     final field = getField(WeightScaleMetabolicAgeField.ID);
     if (field != null && field.isValid()) {
@@ -365,6 +407,7 @@ class WeightScaleMessage extends DataMessage {
     }
   }
 
+  /// Sets the metabolicAge field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set metabolicAge(int? value) {
     final field = getField(WeightScaleMetabolicAgeField.ID);
 
@@ -375,9 +418,12 @@ class WeightScaleMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the visceralFatRating field. Returns null if the field is not defined in the message.
   int? get visceralFatRating {
     final field = getField(WeightScaleVisceralFatRatingField.ID);
     if (field != null && field.isValid()) {
@@ -388,6 +434,7 @@ class WeightScaleMessage extends DataMessage {
     }
   }
 
+  /// Sets the visceralFatRating field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set visceralFatRating(int? value) {
     final field = getField(WeightScaleVisceralFatRatingField.ID);
 
@@ -398,9 +445,12 @@ class WeightScaleMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the userProfileIndex field. Returns null if the field is not defined in the message.
   int? get userProfileIndex {
     final field = getField(WeightScaleUserProfileIndexField.ID);
     if (field != null && field.isValid()) {
@@ -411,6 +461,7 @@ class WeightScaleMessage extends DataMessage {
     }
   }
 
+  /// Sets the userProfileIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set userProfileIndex(int? value) {
     final field = getField(WeightScaleUserProfileIndexField.ID);
 
@@ -421,6 +472,8 @@ class WeightScaleMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

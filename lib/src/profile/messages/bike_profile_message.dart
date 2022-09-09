@@ -6,10 +6,12 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
 import '../profile_type.dart';
 import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class BikeProfileMessage extends DataMessage {
   BikeProfileMessage(
@@ -230,11 +232,13 @@ class BikeProfileMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 6;
   static const NAME = 'bike_profile';
 
   final bool growable;
 
+  /// Returns an instance of BikeProfileMessage from a bytes list.
   static BikeProfileMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = BikeProfileMessage(definitionMessage: definitionMessage);
@@ -242,6 +246,7 @@ class BikeProfileMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the messageIndex field. Returns null if the field is not defined in the message.
   int? get messageIndex {
     final field = getField(MessageIndexField.ID);
     if (field != null && field.isValid()) {
@@ -252,6 +257,7 @@ class BikeProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the messageIndex field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set messageIndex(int? value) {
     final field = getField(MessageIndexField.ID);
 
@@ -262,9 +268,12 @@ class BikeProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the bikeProfileName field. Returns null if the field is not defined in the message.
   String? get bikeProfileName {
     final field = getField(BikeProfileNameField.ID);
     if (field != null && field.isValid()) {
@@ -275,6 +284,7 @@ class BikeProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the bikeProfileName field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set bikeProfileName(String? value) {
     final field = getField(BikeProfileNameField.ID);
 
@@ -285,9 +295,12 @@ class BikeProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the sport field. Returns null if the field is not defined in the message.
   Sport? get sport {
     final field = getField(BikeProfileSportField.ID);
     if (field != null && field.isValid()) {
@@ -302,6 +315,7 @@ class BikeProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the sport field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set sport(Sport? value) {
     final field = getField(BikeProfileSportField.ID);
 
@@ -312,9 +326,12 @@ class BikeProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the subSport field. Returns null if the field is not defined in the message.
   SubSport? get subSport {
     final field = getField(BikeProfileSubSportField.ID);
     if (field != null && field.isValid()) {
@@ -329,6 +346,7 @@ class BikeProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the subSport field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set subSport(SubSport? value) {
     final field = getField(BikeProfileSubSportField.ID);
 
@@ -339,9 +357,12 @@ class BikeProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the odometer field. Returns null if the field is not defined in the message.
   double? get odometer {
     final field = getField(BikeProfileOdometerField.ID);
     if (field != null && field.isValid()) {
@@ -352,6 +373,7 @@ class BikeProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the odometer field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set odometer(double? value) {
     final field = getField(BikeProfileOdometerField.ID);
 
@@ -362,9 +384,12 @@ class BikeProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the bikeSpdAntId field. Returns null if the field is not defined in the message.
   int? get bikeSpdAntId {
     final field = getField(BikeProfileBikeSpdAntIdField.ID);
     if (field != null && field.isValid()) {
@@ -375,6 +400,7 @@ class BikeProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the bikeSpdAntId field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set bikeSpdAntId(int? value) {
     final field = getField(BikeProfileBikeSpdAntIdField.ID);
 
@@ -385,9 +411,12 @@ class BikeProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the bikeCadAntId field. Returns null if the field is not defined in the message.
   int? get bikeCadAntId {
     final field = getField(BikeProfileBikeCadAntIdField.ID);
     if (field != null && field.isValid()) {
@@ -398,6 +427,7 @@ class BikeProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the bikeCadAntId field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set bikeCadAntId(int? value) {
     final field = getField(BikeProfileBikeCadAntIdField.ID);
 
@@ -408,9 +438,12 @@ class BikeProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the bikeSpdcadAntId field. Returns null if the field is not defined in the message.
   int? get bikeSpdcadAntId {
     final field = getField(BikeProfileBikeSpdcadAntIdField.ID);
     if (field != null && field.isValid()) {
@@ -421,6 +454,7 @@ class BikeProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the bikeSpdcadAntId field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set bikeSpdcadAntId(int? value) {
     final field = getField(BikeProfileBikeSpdcadAntIdField.ID);
 
@@ -431,9 +465,12 @@ class BikeProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the bikePowerAntId field. Returns null if the field is not defined in the message.
   int? get bikePowerAntId {
     final field = getField(BikeProfileBikePowerAntIdField.ID);
     if (field != null && field.isValid()) {
@@ -444,6 +481,7 @@ class BikeProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the bikePowerAntId field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set bikePowerAntId(int? value) {
     final field = getField(BikeProfileBikePowerAntIdField.ID);
 
@@ -454,9 +492,12 @@ class BikeProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the customWheelsize field. Returns null if the field is not defined in the message.
   double? get customWheelsize {
     final field = getField(BikeProfileCustomWheelsizeField.ID);
     if (field != null && field.isValid()) {
@@ -467,6 +508,7 @@ class BikeProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the customWheelsize field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set customWheelsize(double? value) {
     final field = getField(BikeProfileCustomWheelsizeField.ID);
 
@@ -477,9 +519,12 @@ class BikeProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the autoWheelsize field. Returns null if the field is not defined in the message.
   double? get autoWheelsize {
     final field = getField(BikeProfileAutoWheelsizeField.ID);
     if (field != null && field.isValid()) {
@@ -490,6 +535,7 @@ class BikeProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the autoWheelsize field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set autoWheelsize(double? value) {
     final field = getField(BikeProfileAutoWheelsizeField.ID);
 
@@ -500,9 +546,12 @@ class BikeProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the bikeWeight field. Returns null if the field is not defined in the message.
   double? get bikeWeight {
     final field = getField(BikeProfileBikeWeightField.ID);
     if (field != null && field.isValid()) {
@@ -513,6 +562,7 @@ class BikeProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the bikeWeight field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set bikeWeight(double? value) {
     final field = getField(BikeProfileBikeWeightField.ID);
 
@@ -523,9 +573,12 @@ class BikeProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the powerCalFactor field. Returns null if the field is not defined in the message.
   double? get powerCalFactor {
     final field = getField(BikeProfilePowerCalFactorField.ID);
     if (field != null && field.isValid()) {
@@ -536,6 +589,7 @@ class BikeProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the powerCalFactor field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set powerCalFactor(double? value) {
     final field = getField(BikeProfilePowerCalFactorField.ID);
 
@@ -546,9 +600,12 @@ class BikeProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the autoWheelCal field. Returns null if the field is not defined in the message.
   bool? get autoWheelCal {
     final field = getField(BikeProfileAutoWheelCalField.ID);
     if (field != null && field.isValid()) {
@@ -559,6 +616,7 @@ class BikeProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the autoWheelCal field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set autoWheelCal(bool? value) {
     final field = getField(BikeProfileAutoWheelCalField.ID);
 
@@ -569,9 +627,12 @@ class BikeProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the autoPowerZero field. Returns null if the field is not defined in the message.
   bool? get autoPowerZero {
     final field = getField(BikeProfileAutoPowerZeroField.ID);
     if (field != null && field.isValid()) {
@@ -582,6 +643,7 @@ class BikeProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the autoPowerZero field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set autoPowerZero(bool? value) {
     final field = getField(BikeProfileAutoPowerZeroField.ID);
 
@@ -592,9 +654,12 @@ class BikeProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the id field. Returns null if the field is not defined in the message.
   int? get id {
     final field = getField(BikeProfileIdField.ID);
     if (field != null && field.isValid()) {
@@ -605,6 +670,7 @@ class BikeProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the id field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set id(int? value) {
     final field = getField(BikeProfileIdField.ID);
 
@@ -615,9 +681,12 @@ class BikeProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the spdEnabled field. Returns null if the field is not defined in the message.
   bool? get spdEnabled {
     final field = getField(BikeProfileSpdEnabledField.ID);
     if (field != null && field.isValid()) {
@@ -628,6 +697,7 @@ class BikeProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the spdEnabled field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set spdEnabled(bool? value) {
     final field = getField(BikeProfileSpdEnabledField.ID);
 
@@ -638,9 +708,12 @@ class BikeProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the cadEnabled field. Returns null if the field is not defined in the message.
   bool? get cadEnabled {
     final field = getField(BikeProfileCadEnabledField.ID);
     if (field != null && field.isValid()) {
@@ -651,6 +724,7 @@ class BikeProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the cadEnabled field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set cadEnabled(bool? value) {
     final field = getField(BikeProfileCadEnabledField.ID);
 
@@ -661,9 +735,12 @@ class BikeProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the spdcadEnabled field. Returns null if the field is not defined in the message.
   bool? get spdcadEnabled {
     final field = getField(BikeProfileSpdcadEnabledField.ID);
     if (field != null && field.isValid()) {
@@ -674,6 +751,7 @@ class BikeProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the spdcadEnabled field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set spdcadEnabled(bool? value) {
     final field = getField(BikeProfileSpdcadEnabledField.ID);
 
@@ -684,9 +762,12 @@ class BikeProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the powerEnabled field. Returns null if the field is not defined in the message.
   bool? get powerEnabled {
     final field = getField(BikeProfilePowerEnabledField.ID);
     if (field != null && field.isValid()) {
@@ -697,6 +778,7 @@ class BikeProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the powerEnabled field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set powerEnabled(bool? value) {
     final field = getField(BikeProfilePowerEnabledField.ID);
 
@@ -707,9 +789,12 @@ class BikeProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the crankLength field. Returns null if the field is not defined in the message.
   double? get crankLength {
     final field = getField(BikeProfileCrankLengthField.ID);
     if (field != null && field.isValid()) {
@@ -720,6 +805,7 @@ class BikeProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the crankLength field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set crankLength(double? value) {
     final field = getField(BikeProfileCrankLengthField.ID);
 
@@ -730,9 +816,12 @@ class BikeProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the enabled field. Returns null if the field is not defined in the message.
   bool? get enabled {
     final field = getField(BikeProfileEnabledField.ID);
     if (field != null && field.isValid()) {
@@ -743,6 +832,7 @@ class BikeProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the enabled field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set enabled(bool? value) {
     final field = getField(BikeProfileEnabledField.ID);
 
@@ -753,9 +843,12 @@ class BikeProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the bikeSpdAntIdTransType field. Returns null if the field is not defined in the message.
   int? get bikeSpdAntIdTransType {
     final field = getField(BikeProfileBikeSpdAntIdTransTypeField.ID);
     if (field != null && field.isValid()) {
@@ -766,6 +859,7 @@ class BikeProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the bikeSpdAntIdTransType field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set bikeSpdAntIdTransType(int? value) {
     final field = getField(BikeProfileBikeSpdAntIdTransTypeField.ID);
 
@@ -776,9 +870,12 @@ class BikeProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the bikeCadAntIdTransType field. Returns null if the field is not defined in the message.
   int? get bikeCadAntIdTransType {
     final field = getField(BikeProfileBikeCadAntIdTransTypeField.ID);
     if (field != null && field.isValid()) {
@@ -789,6 +886,7 @@ class BikeProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the bikeCadAntIdTransType field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set bikeCadAntIdTransType(int? value) {
     final field = getField(BikeProfileBikeCadAntIdTransTypeField.ID);
 
@@ -799,9 +897,12 @@ class BikeProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the bikeSpdcadAntIdTransType field. Returns null if the field is not defined in the message.
   int? get bikeSpdcadAntIdTransType {
     final field = getField(BikeProfileBikeSpdcadAntIdTransTypeField.ID);
     if (field != null && field.isValid()) {
@@ -812,6 +913,7 @@ class BikeProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the bikeSpdcadAntIdTransType field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set bikeSpdcadAntIdTransType(int? value) {
     final field = getField(BikeProfileBikeSpdcadAntIdTransTypeField.ID);
 
@@ -822,9 +924,12 @@ class BikeProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the bikePowerAntIdTransType field. Returns null if the field is not defined in the message.
   int? get bikePowerAntIdTransType {
     final field = getField(BikeProfileBikePowerAntIdTransTypeField.ID);
     if (field != null && field.isValid()) {
@@ -835,6 +940,7 @@ class BikeProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the bikePowerAntIdTransType field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set bikePowerAntIdTransType(int? value) {
     final field = getField(BikeProfileBikePowerAntIdTransTypeField.ID);
 
@@ -845,9 +951,12 @@ class BikeProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the odometerRollover field. Returns null if the field is not defined in the message.
   int? get odometerRollover {
     final field = getField(BikeProfileOdometerRolloverField.ID);
     if (field != null && field.isValid()) {
@@ -858,6 +967,7 @@ class BikeProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the odometerRollover field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set odometerRollover(int? value) {
     final field = getField(BikeProfileOdometerRolloverField.ID);
 
@@ -868,9 +978,12 @@ class BikeProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the frontGearNum field. Returns null if the field is not defined in the message.
   int? get frontGearNum {
     final field = getField(BikeProfileFrontGearNumField.ID);
     if (field != null && field.isValid()) {
@@ -881,6 +994,7 @@ class BikeProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the frontGearNum field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set frontGearNum(int? value) {
     final field = getField(BikeProfileFrontGearNumField.ID);
 
@@ -891,9 +1005,12 @@ class BikeProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the frontGear field. Returns null if the field is not defined in the message.
   int? get frontGear {
     final field = getField(BikeProfileFrontGearField.ID);
     if (field != null && field.isValid()) {
@@ -904,6 +1021,7 @@ class BikeProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the frontGear field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set frontGear(int? value) {
     final field = getField(BikeProfileFrontGearField.ID);
 
@@ -914,9 +1032,12 @@ class BikeProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the rearGearNum field. Returns null if the field is not defined in the message.
   int? get rearGearNum {
     final field = getField(BikeProfileRearGearNumField.ID);
     if (field != null && field.isValid()) {
@@ -927,6 +1048,7 @@ class BikeProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the rearGearNum field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set rearGearNum(int? value) {
     final field = getField(BikeProfileRearGearNumField.ID);
 
@@ -937,9 +1059,12 @@ class BikeProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the rearGear field. Returns null if the field is not defined in the message.
   int? get rearGear {
     final field = getField(BikeProfileRearGearField.ID);
     if (field != null && field.isValid()) {
@@ -950,6 +1075,7 @@ class BikeProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the rearGear field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set rearGear(int? value) {
     final field = getField(BikeProfileRearGearField.ID);
 
@@ -960,9 +1086,12 @@ class BikeProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the shimanoDi2Enabled field. Returns null if the field is not defined in the message.
   bool? get shimanoDi2Enabled {
     final field = getField(BikeProfileShimanoDi2EnabledField.ID);
     if (field != null && field.isValid()) {
@@ -973,6 +1102,7 @@ class BikeProfileMessage extends DataMessage {
     }
   }
 
+  /// Sets the shimanoDi2Enabled field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set shimanoDi2Enabled(bool? value) {
     final field = getField(BikeProfileShimanoDi2EnabledField.ID);
 
@@ -983,6 +1113,8 @@ class BikeProfileMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }

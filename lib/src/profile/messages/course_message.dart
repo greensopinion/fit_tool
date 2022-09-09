@@ -6,10 +6,11 @@ import 'dart:typed_data';
 import '../../base_type.dart';
 import '../../data_message.dart';
 import '../../definition_message.dart';
+import '../../errors.dart';
 import '../../field.dart';
-import '../../sub_field.dart';
 import '../profile_type.dart';
-import 'common_fields.dart';
+
+// ignore_for_file: constant_identifier_names
 
 class CourseMessage extends DataMessage {
   CourseMessage(
@@ -52,11 +53,13 @@ class CourseMessage extends DataMessage {
                   growable: definitionMessage == null)
             ]);
 
+  /// The Global ID of the message. In the FIT documentation this is referred to as the "Global Message Number".
   static const ID = 31;
   static const NAME = 'course';
 
   final bool growable;
 
+  /// Returns an instance of CourseMessage from a bytes list.
   static CourseMessage fromBytes(
       DefinitionMessage definitionMessage, Uint8List bytes) {
     final message = CourseMessage(definitionMessage: definitionMessage);
@@ -64,6 +67,7 @@ class CourseMessage extends DataMessage {
     return message;
   }
 
+  /// Returns the value of the sport field. Returns null if the field is not defined in the message.
   Sport? get sport {
     final field = getField(CourseSportField.ID);
     if (field != null && field.isValid()) {
@@ -78,6 +82,7 @@ class CourseMessage extends DataMessage {
     }
   }
 
+  /// Sets the sport field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set sport(Sport? value) {
     final field = getField(CourseSportField.ID);
 
@@ -88,9 +93,12 @@ class CourseMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the courseName field. Returns null if the field is not defined in the message.
   String? get courseName {
     final field = getField(CourseNameField.ID);
     if (field != null && field.isValid()) {
@@ -101,6 +109,7 @@ class CourseMessage extends DataMessage {
     }
   }
 
+  /// Sets the courseName field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set courseName(String? value) {
     final field = getField(CourseNameField.ID);
 
@@ -111,9 +120,12 @@ class CourseMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the capabilities field. Returns null if the field is not defined in the message.
   int? get capabilities {
     final field = getField(CourseCapabilitiesField.ID);
     if (field != null && field.isValid()) {
@@ -124,6 +136,7 @@ class CourseMessage extends DataMessage {
     }
   }
 
+  /// Sets the capabilities field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set capabilities(int? value) {
     final field = getField(CourseCapabilitiesField.ID);
 
@@ -134,9 +147,12 @@ class CourseMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 
+  /// Returns the value of the subSport field. Returns null if the field is not defined in the message.
   SubSport? get subSport {
     final field = getField(CourseSubSportField.ID);
     if (field != null && field.isValid()) {
@@ -151,6 +167,7 @@ class CourseMessage extends DataMessage {
     }
   }
 
+  /// Sets the subSport field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
   set subSport(SubSport? value) {
     final field = getField(CourseSubSportField.ID);
 
@@ -161,6 +178,8 @@ class CourseMessage extends DataMessage {
         var subField = field.getValidSubField(fields);
         field.setValue(0, value.value, subField);
       }
+    } else {
+      throw FieldNotDefinedError(field!.name);
     }
   }
 }
