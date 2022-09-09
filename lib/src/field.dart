@@ -276,6 +276,13 @@ class Field {
     } else {
       final scale = getScale(subField: subField);
       final offset = getOffset(subField: subField);
+      final type = getType(subField: subField);
+
+      // if it's a float type, don't do any int conversion but apply scaling and offset
+      if (type == BaseType.FLOAT32 || type == BaseType.FLOAT64) {
+        return (value + offset) * scale;
+      }
+
       if ((scale == null || scale == 1.0) &&
           (offset == null || offset == 0.0)) {
         // no scaling

@@ -11,6 +11,7 @@ class DeveloperField extends Field {
     scale,
     units = '',
     isAccumulated = false,
+    growable = true,
     size = 0,
   }) : super(
             name: name,
@@ -20,6 +21,7 @@ class DeveloperField extends Field {
             scale: scale,
             units: units,
             isAccumulated: isAccumulated,
+            growable: growable,
             size: size);
 
   final int developerDataIndex;
@@ -33,6 +35,7 @@ class DeveloperField extends Field {
         offset: other.offset,
         scale: other.scale,
         units: other.units,
+        growable: other.growable,
         size: size ?? other.size);
   }
 }
