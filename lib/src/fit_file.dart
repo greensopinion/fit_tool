@@ -136,11 +136,11 @@ class FitFile {
           initial: crc);
 
       if (recordSize != definedSize) {
-        logger.w(
-            'Record $recordIndex, ${record.message}: size ($recordSize) != defined size ($definedSize). Some fields were not read correctly.');
+        logger.w(LogMessage(() =>
+            'Record $recordIndex, ${record.message}: size ($recordSize) != defined size ($definedSize). Some fields were not read correctly.'));
       }
 
-      if (checkRecords) {
+      if (checkRecords && Logger.level.index >= Level.warning.index) {
         final actualBytes =
             Uint8List.sublistView(remainingBytes, 0, definedSize);
         final recordBytes = record.toBytes();
@@ -148,6 +148,8 @@ class FitFile {
         if (!listEqual(actualBytes, recordBytes)) {
           logger.w(
               '- $recordIndex -\nactual: $actualBytes\nrecord: $recordBytes');
+          logger.w(LogMessage(() =>
+              '- $recordIndex -\nactual: $actualBytes\nrecord: $recordBytes'));
         }
       }
 
