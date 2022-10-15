@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'package:collection/collection.dart';
 import 'package:fit_tool/src/utils/logger.dart';
+import 'package:logger/logger.dart';
 
 import 'base_type.dart';
 import 'definition_message.dart';
@@ -133,18 +134,18 @@ class FitFile {
           initial: crc);
 
       if (recordSize != definedSize) {
-        logger.w(
-            'Record $recordIndex, ${record.message}: size ($recordSize) != defined size ($definedSize). Some fields were not read correctly.');
+        logger.w(LogMessage(() =>
+            'Record $recordIndex, ${record.message}: size ($recordSize) != defined size ($definedSize). Some fields were not read correctly.'));
       }
 
-      if (true) {
+      if (Logger.level.index >= Level.warning.index) {
         final actualBytes =
             Uint8List.sublistView(remainingBytes, 0, definedSize);
         final recordBytes = record.toBytes();
 
         if (!listEqual(actualBytes, recordBytes)) {
-          logger.i(
-              '- $recordIndex -\nactual: $actualBytes\nrecord: $recordBytes');
+          logger.w(LogMessage(() =>
+              '- $recordIndex -\nactual: $actualBytes\nrecord: $recordBytes'));
         }
       }
 
