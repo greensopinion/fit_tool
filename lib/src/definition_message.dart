@@ -122,6 +122,19 @@ class DefinitionMessage extends Message {
       values.add('bytes');
     }
 
+    for (var fieldDefinition in developerFieldDefinitions) {
+      final field = getDeveloperFieldDefinition(fieldDefinition.id);
+
+      if (field == null) {
+        logger.w(
+            'Field id:${fieldDefinition.id} could not be found in ${message.name}.');
+        continue;
+      }
+      values.add('[${field.developerDataIndex},${field.id}]');
+      values.add(fieldDefinition.size);
+      values.add('bytes');
+    }
+
     return values;
   }
 

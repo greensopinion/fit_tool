@@ -2,6 +2,13 @@ import 'base_type.dart';
 import 'field.dart';
 
 class DeveloperField extends Field {
+  /// Defines a developer field that can be added to a standard data message.
+  ///
+  /// [developerDataIndex] and [id] uniquely define the developer field that
+  /// must be defined in a previous [FieldDescriptionMessage] message in the
+  /// FIT file. In the FIT documentation [id] is referred to as the
+  /// "Field Definition Number". A FIT file can contain up to 255 unique fields
+  /// per developer. [size] describes how big the field is in bytes.
   DeveloperField({
     required this.developerDataIndex,
     name = '',

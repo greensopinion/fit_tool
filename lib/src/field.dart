@@ -80,8 +80,8 @@ class Field {
   final List<FieldComponent> components;
   final List<SubField> subFields;
 
-  int size; //number of total bytes for field
-  final bool growable; //if true allow the field to grow in size.
+  int size; // number of total bytes for field
+  final bool growable; // if true allow the field to grow in size.
 
   // encoded field values.
   List<dynamic> encodedValues;
@@ -208,6 +208,11 @@ class Field {
     return decodeValue(encodedValue, subField);
   }
 
+  // Return values as a list
+  dynamic getValues() {
+    return encodedValues.map((e) => decodeValue(e, null)).toList();
+  }
+
   dynamic decodeValue(dynamic encodedValue, SubField? subField) {
     if (encodedValue is String || encodedValue == null) {
       return encodedValue;
@@ -236,6 +241,14 @@ class Field {
   void setValue(int index, dynamic value, SubField? subField) {
     final encodedValue = encodeValue(value, subField);
     setEncodedValue(index, encodedValue);
+  }
+
+  void setValues(List<dynamic> values) {
+    int index = 0;
+    for (var value in values) {
+      setEncodedValue(index, value);
+      index++;
+    }
   }
 
   void setEncodedValue(int index, dynamic encodedValue) {
@@ -279,18 +292,21 @@ class Field {
       final offset = getOffset(subField: subField);
       final type = getType(subField: subField);
 
-      // if it's a float type, don't do any int conversion but apply scaling and offset
-      if (type == BaseType.FLOAT32 || type == BaseType.FLOAT64) {
-        return (value + offset) * scale;
-      }
-
-      if ((scale == null || scale == 1.0) &&
-          (offset == null || offset == 0.0)) {
+      if ((scale == null || scale == 1.0) && (offset == null || offset == 0.0)) {
         // no scaling
-        encodedValue = value.toInt();
+        return value;
+
       } else {
-        encodedValue =
-            scaleOffsetValue(value.toDouble(), scale ?? 1.0, offset ?? 0.0);
+        final scale_ = scale ?? 1.0;
+        final offset_ = offset ?? 0.0;
+
+        if (type.isFloat() ) {
+          // if it's a float type, don't do any int conversion but apply scaling and offset
+          encodedValue = (value + offset_) * scale;
+        } else {
+          encodedValue =
+              scaleOffsetValue(value.toDouble(), scale_, offset_);
+        }
       }
     }
     return encodedValue;

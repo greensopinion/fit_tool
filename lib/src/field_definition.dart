@@ -5,6 +5,15 @@ import 'base_type.dart';
 import 'field.dart';
 
 class FieldDefinition {
+  /// Defines a field definition used in a definition message.
+  ///
+  /// In the definition message each field is defined in 3 bytes, with the
+  /// following data: [id] (referred to as "Field Definition Number"), [size],
+  /// and [type] (referred to as "Base Type").  [id] is the field definition
+  /// number, [size] is how big the field is in bytes, and [type] is the Base
+  /// Type of the field. Note that the [size] may be a multiple of the
+  /// underlying Base Type size indicating the field contains multiple elements
+  /// represented as an array.
   FieldDefinition({this.id = 0, this.size = 0, this.type = BaseType.ENUM});
 
   final int id;

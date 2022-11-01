@@ -51,7 +51,7 @@ class {{class_name}} extends DataMessage {
 
 {% for field_name, field in message.fields_by_name.items() %}
 
-  {%- if field.type_.name == 'date_time' %}
+  {%- if field.type_name == 'date_time' %}
   /// Returns the value of the timestamp field in  milliseconds since January 1st, 1970 at 00:00:00 UTC
   {%- else %}
   /// Returns the value of the {{message.field_property_name_by_name[field_name]}} field. Returns null if the field is not defined in the message.
@@ -59,28 +59,38 @@ class {{class_name}} extends DataMessage {
   {{ message.field_property_type_by_name[field_name] }}? get {{message.field_property_name_by_name[field_name]}} {
      final field = getField({{message.field_class_name_by_name[field_name]}}.ID);
 
-{%- if field.type_ and field.type_.base_type.name == 'enum'%}
+{%- if field.type_ and field.base_type == BaseType.ENUM %}
  if (field != null && field.isValid()) {
-      var subField = field.getValidSubField(fields);
-      final value = field.getValue(subField: subField);
-      if (value == null) {
-        return null;
-      }
-      return {{message.field_property_type_by_name[field_name]}}Ext.fromValue(value);
+        {%- if field.array_type %}
+            final values = field.getValues();
+            return values.map((item)=> {{message.field_property_type_by_name[field_name].replace('List<','').replace('>','')}}Ext.fromValue(item)).toList();
+        {%- else %}
+            var subField = field.getValidSubField(fields);
+            final value = field.getValue(subField: subField);
+            if (value == null) {
+                return null;
+            }
+            return {{message.field_property_type_by_name[field_name]}}Ext.fromValue(value);
+        {%- endif %}
+
     } else {
       return null;
     }
 {%- else %}
     if (field != null && field.isValid()) {
-      var subField = field.getValidSubField(fields);
-      return field.getValue(subField: subField);
+        {%- if field.base_type != BaseType.STRING and field.array_type %}
+        return field.getValues();
+        {%- else %}
+        var subField = field.getValidSubField(fields);
+        return field.getValue(subField: subField);
+        {%- endif %}
     } else {
       return null;
     }
 {%- endif %}
   }
 
-{%- if field.type_.name == 'date_time' %}
+{%- if field.type_name == 'date_time' %}
    /// Sets the timestamp field. [value] is milliseconds since January 1st, 1970 at 00:00:00 UTC. Throws [FieldNotDefinedError] if the field is not defined in the message.
 {%- else %}
     /// Sets the {{message.field_property_name_by_name[field_name]}} field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
@@ -92,12 +102,28 @@ class {{class_name}} extends DataMessage {
       if (value == null) {
         field.clear();
       } else {
-        var subField = field.getValidSubField(fields);
-        {%- if field.type_ and field.type_.base_type.name == 'enum'%}
-        field.setValue(0, value.value, subField);
-        {%- else %}
-        field.setValue(0, value, subField);
-        {%- endif %}
+
+         {%- if field.base_type != BaseType.STRING and field.array_type %}
+
+            {%- if field.type_ and field.type_.base_type == BaseType.ENUM %}
+                final values = value.map((item)=> item.value).toList();
+            {%- else %}
+                final values = value;
+            {%- endif %}
+            field.setValues(values);
+
+         {%- else %}
+            var subField = field.getValidSubField(fields);
+             {%- if field.type_ and field.type_.base_type == BaseType.ENUM%}
+             field.setValue(0, value.value, subField);
+            {%- else %}
+             field.setValue(0, value, subField);
+            {%- endif %}
+
+         {%- endif %}
+
+
+
       }
     } else {
        throw FieldNotDefinedError(field!.name);
@@ -105,7 +131,7 @@ class {{class_name}} extends DataMessage {
   }
 
 
-{%- for subfield in field.subfields %}
+{%- for subfield in field.sub_fields %}
 
    /// Get the value of the subfield {{field.subfield_property_name_by_name[subfield.name]}}
   {{ field.subfield_property_type_by_name[subfield.name] }}? get {{field.subfield_property_name_by_name[subfield.name]}} {
@@ -114,7 +140,7 @@ class {{class_name}} extends DataMessage {
 
      final isSubFieldValid = typeField != null && {{subfield.ref_field_values}}.contains(typeField.getValue());
 
-{%- if field.type_ and field.type_.base_type.name == 'enum'%}
+{%- if field.type_ and field.type_.base_type == BaseType.ENUM%}
  if (field != null && field.isValid() && isSubFieldValid) {
       var subField = field.getValidSubField(fields);
       final value = field.getValue(subField:subField);
@@ -143,7 +169,7 @@ class {{class_name}} extends DataMessage {
         field.clear();
       } else {
         var subField = field.getValidSubField(fields);
-        {%- if field.type_ and field.type_.base_type.name == 'enum'%}
+        {%- if field.type_ and field.type_.base_type == BaseType.ENUM%}
         field.setValue(0, value.value, subField);
         {%- else %}
         field.setValue(0, value, subField);
@@ -165,7 +191,7 @@ class {{class_name}} extends DataMessage {
 }
 
 
-{% for field_name, field in message.fields_by_name.items() if field.def_num not in [253, 254]%}
+{% for field_name, field in message.fields_by_name.items() if field.field_id not in [253, 254]%}
 class {{message.field_class_name_by_name[field_name]}} extends Field {
  {{message.field_class_name_by_name[field_name]}}({int size = 0, bool growable = true})
       : super(
@@ -179,11 +205,11 @@ class {{message.field_class_name_by_name[field_name]}} extends Field {
             units: '{{field.units}}',
 {%- endif %}
 {%- if field.units %}
-            mainTypeName: '{{field.type_.name}}',
+            mainTypeName: '{{field.type_name}}',
 {%- endif %}
             growable: growable,
             subFields: [
-{%- for subfield in field.subfields %}
+{%- for subfield in field.sub_fields %}
        SubField(
                   name: '{{subfield.name}}',
                   type: BaseType.{{subfield.base_type.name|upper}},
@@ -201,6 +227,6 @@ class {{message.field_class_name_by_name[field_name]}} extends Field {
             ]
  );
 
-  static const ID = {{field.def_num}};
+  static const ID = {{field.field_id}};
 }
 {%- endfor %}
