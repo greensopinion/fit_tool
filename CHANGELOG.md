@@ -1,3 +1,6 @@
+## 1.0.4
+- Make checking records an explicit option for performance.
+  
 ## 1.0.3
 - Fix float developer fields
 - Fix for array fields
