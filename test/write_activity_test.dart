@@ -4,15 +4,13 @@ import 'dart:typed_data';
 
 import 'package:csv/csv.dart';
 import 'package:fit_tool/fit_tool.dart';
-import 'package:fit_tool/src/fit_file.dart';
-import 'package:fit_tool/src/utils/logger.dart';
 import 'package:logger/logger.dart';
 import 'package:test/test.dart';
 
 void main() {
   group('activity tests', () {
     setUp(() {
-      Logger.level = Level.nothing;
+      Logger.level = Level.debug;
     });
 
     test('Write activity with developer data fields', () async {
@@ -30,11 +28,11 @@ void main() {
 
       final developerDataIndex = 0;
       var message = DeveloperDataIdMessage();
-      message.applicationId = Uint8List.fromList([1,2,3,4,5,6]);
+      message.applicationId = Uint8List.fromList([1, 2, 3, 4, 5, 6]);
       message.developerDataIndex = developerDataIndex;
       builder.add(message);
 
-     // Define the developer field
+      // Define the developer field
       final doughnutsEarnedFieldName = 'doughnuts_earned';
       final doughnutsEarnedFieldUnits = 'doughnuts';
       final fieldDescriptionMessage = FieldDescriptionMessage();
@@ -57,13 +55,22 @@ void main() {
       builder.add(fieldDescriptionMessage2);
 
       // Add a record message with an addition doughnuts earned developer field
-      final devField1 = DeveloperField(developerDataIndex:developerDataIndex, id:0, size:BaseType.SINT8.size, type:BaseType.SINT8);
+      final devField1 = DeveloperField(
+          developerDataIndex: developerDataIndex,
+          id: 0,
+          size: BaseType.SINT8.size,
+          type: BaseType.SINT8);
       devField1.setValue(0, 5, null);
 
-      final devField2 = DeveloperField(developerDataIndex:developerDataIndex, id:1, size:BaseType.FLOAT32.size, type:BaseType.FLOAT32);
+      final devField2 = DeveloperField(
+          developerDataIndex: developerDataIndex,
+          id: 1,
+          size: BaseType.FLOAT32.size,
+          type: BaseType.FLOAT32);
       devField2.setValue(0, .67, null);
 
-      final recordMessage = RecordMessage(developerFields:[devField1, devField2]);
+      final recordMessage =
+          RecordMessage(developerFields: [devField1, devField2]);
       recordMessage.distance = 0;
       recordMessage.power = 100;
       builder.add(recordMessage);
@@ -72,7 +79,8 @@ void main() {
       final fitFile = builder.build();
 
       final outFile =
-      await File('./test/out/activity_with_developer_fields.fit').create(recursive: true);
+          await File('./test/out/activity_with_developer_fields.fit')
+              .create(recursive: true);
       await outFile.writeAsBytes(fitFile.toBytes());
 
       final bytes = await outFile.readAsBytes();
