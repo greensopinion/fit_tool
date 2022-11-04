@@ -110,6 +110,7 @@ class FitFile {
         final developerField = DeveloperField(
           developerDataIndex: message.developerDataIndex ?? 0,
           id: message.fieldDefinitionNumber ?? 0,
+          name: message.name,
           type: BaseTypeExtension.fromValue(message.fitBaseTypeId ?? 0),
           scale: message.scale?.toDouble(),
           offset: message.offset?.toDouble(),

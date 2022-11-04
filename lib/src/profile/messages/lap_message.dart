@@ -2336,26 +2336,25 @@ class LapMessage extends DataMessage {
   }
 
   /// Returns the value of the timeInHrZone field. Returns null if the field is not defined in the message.
-  double? get timeInHrZone {
+  List<double>? get timeInHrZone {
     final field = getField(LapTimeInHrZoneField.ID);
     if (field != null && field.isValid()) {
-      var subField = field.getValidSubField(fields);
-      return field.getValue(subField: subField);
+      return field.getValues();
     } else {
       return null;
     }
   }
 
   /// Sets the timeInHrZone field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
-  set timeInHrZone(double? value) {
+  set timeInHrZone(List<double>? value) {
     final field = getField(LapTimeInHrZoneField.ID);
 
     if (field != null) {
       if (value == null) {
         field.clear();
       } else {
-        var subField = field.getValidSubField(fields);
-        field.setValue(0, value, subField);
+        final values = value;
+        field.setValues(values);
       }
     } else {
       throw FieldNotDefinedError(field!.name);
@@ -2363,26 +2362,25 @@ class LapMessage extends DataMessage {
   }
 
   /// Returns the value of the timeInSpeedZone field. Returns null if the field is not defined in the message.
-  double? get timeInSpeedZone {
+  List<double>? get timeInSpeedZone {
     final field = getField(LapTimeInSpeedZoneField.ID);
     if (field != null && field.isValid()) {
-      var subField = field.getValidSubField(fields);
-      return field.getValue(subField: subField);
+      return field.getValues();
     } else {
       return null;
     }
   }
 
   /// Sets the timeInSpeedZone field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
-  set timeInSpeedZone(double? value) {
+  set timeInSpeedZone(List<double>? value) {
     final field = getField(LapTimeInSpeedZoneField.ID);
 
     if (field != null) {
       if (value == null) {
         field.clear();
       } else {
-        var subField = field.getValidSubField(fields);
-        field.setValue(0, value, subField);
+        final values = value;
+        field.setValues(values);
       }
     } else {
       throw FieldNotDefinedError(field!.name);
@@ -2390,26 +2388,25 @@ class LapMessage extends DataMessage {
   }
 
   /// Returns the value of the timeInCadenceZone field. Returns null if the field is not defined in the message.
-  double? get timeInCadenceZone {
+  List<double>? get timeInCadenceZone {
     final field = getField(LapTimeInCadenceZoneField.ID);
     if (field != null && field.isValid()) {
-      var subField = field.getValidSubField(fields);
-      return field.getValue(subField: subField);
+      return field.getValues();
     } else {
       return null;
     }
   }
 
   /// Sets the timeInCadenceZone field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
-  set timeInCadenceZone(double? value) {
+  set timeInCadenceZone(List<double>? value) {
     final field = getField(LapTimeInCadenceZoneField.ID);
 
     if (field != null) {
       if (value == null) {
         field.clear();
       } else {
-        var subField = field.getValidSubField(fields);
-        field.setValue(0, value, subField);
+        final values = value;
+        field.setValues(values);
       }
     } else {
       throw FieldNotDefinedError(field!.name);
@@ -2417,26 +2414,25 @@ class LapMessage extends DataMessage {
   }
 
   /// Returns the value of the timeInPowerZone field. Returns null if the field is not defined in the message.
-  double? get timeInPowerZone {
+  List<double>? get timeInPowerZone {
     final field = getField(LapTimeInPowerZoneField.ID);
     if (field != null && field.isValid()) {
-      var subField = field.getValidSubField(fields);
-      return field.getValue(subField: subField);
+      return field.getValues();
     } else {
       return null;
     }
   }
 
   /// Sets the timeInPowerZone field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
-  set timeInPowerZone(double? value) {
+  set timeInPowerZone(List<double>? value) {
     final field = getField(LapTimeInPowerZoneField.ID);
 
     if (field != null) {
       if (value == null) {
         field.clear();
       } else {
-        var subField = field.getValidSubField(fields);
-        field.setValue(0, value, subField);
+        final values = value;
+        field.setValues(values);
       }
     } else {
       throw FieldNotDefinedError(field!.name);
@@ -2579,26 +2575,25 @@ class LapMessage extends DataMessage {
   }
 
   /// Returns the value of the strokeCount field. Returns null if the field is not defined in the message.
-  int? get strokeCount {
+  List<int>? get strokeCount {
     final field = getField(LapStrokeCountField.ID);
     if (field != null && field.isValid()) {
-      var subField = field.getValidSubField(fields);
-      return field.getValue(subField: subField);
+      return field.getValues();
     } else {
       return null;
     }
   }
 
   /// Sets the strokeCount field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
-  set strokeCount(int? value) {
+  set strokeCount(List<int>? value) {
     final field = getField(LapStrokeCountField.ID);
 
     if (field != null) {
       if (value == null) {
         field.clear();
       } else {
-        var subField = field.getValidSubField(fields);
-        field.setValue(0, value, subField);
+        final values = value;
+        field.setValues(values);
       }
     } else {
       throw FieldNotDefinedError(field!.name);
@@ -2606,26 +2601,25 @@ class LapMessage extends DataMessage {
   }
 
   /// Returns the value of the zoneCount field. Returns null if the field is not defined in the message.
-  int? get zoneCount {
+  List<int>? get zoneCount {
     final field = getField(LapZoneCountField.ID);
     if (field != null && field.isValid()) {
-      var subField = field.getValidSubField(fields);
-      return field.getValue(subField: subField);
+      return field.getValues();
     } else {
       return null;
     }
   }
 
   /// Sets the zoneCount field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
-  set zoneCount(int? value) {
+  set zoneCount(List<int>? value) {
     final field = getField(LapZoneCountField.ID);
 
     if (field != null) {
       if (value == null) {
         field.clear();
       } else {
-        var subField = field.getValidSubField(fields);
-        field.setValue(0, value, subField);
+        final values = value;
+        field.setValues(values);
       }
     } else {
       throw FieldNotDefinedError(field!.name);
@@ -2822,26 +2816,25 @@ class LapMessage extends DataMessage {
   }
 
   /// Returns the value of the avgTotalHemoglobinConc field. Returns null if the field is not defined in the message.
-  double? get avgTotalHemoglobinConc {
+  List<double>? get avgTotalHemoglobinConc {
     final field = getField(LapAvgTotalHemoglobinConcField.ID);
     if (field != null && field.isValid()) {
-      var subField = field.getValidSubField(fields);
-      return field.getValue(subField: subField);
+      return field.getValues();
     } else {
       return null;
     }
   }
 
   /// Sets the avgTotalHemoglobinConc field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
-  set avgTotalHemoglobinConc(double? value) {
+  set avgTotalHemoglobinConc(List<double>? value) {
     final field = getField(LapAvgTotalHemoglobinConcField.ID);
 
     if (field != null) {
       if (value == null) {
         field.clear();
       } else {
-        var subField = field.getValidSubField(fields);
-        field.setValue(0, value, subField);
+        final values = value;
+        field.setValues(values);
       }
     } else {
       throw FieldNotDefinedError(field!.name);
@@ -2849,26 +2842,25 @@ class LapMessage extends DataMessage {
   }
 
   /// Returns the value of the minTotalHemoglobinConc field. Returns null if the field is not defined in the message.
-  double? get minTotalHemoglobinConc {
+  List<double>? get minTotalHemoglobinConc {
     final field = getField(LapMinTotalHemoglobinConcField.ID);
     if (field != null && field.isValid()) {
-      var subField = field.getValidSubField(fields);
-      return field.getValue(subField: subField);
+      return field.getValues();
     } else {
       return null;
     }
   }
 
   /// Sets the minTotalHemoglobinConc field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
-  set minTotalHemoglobinConc(double? value) {
+  set minTotalHemoglobinConc(List<double>? value) {
     final field = getField(LapMinTotalHemoglobinConcField.ID);
 
     if (field != null) {
       if (value == null) {
         field.clear();
       } else {
-        var subField = field.getValidSubField(fields);
-        field.setValue(0, value, subField);
+        final values = value;
+        field.setValues(values);
       }
     } else {
       throw FieldNotDefinedError(field!.name);
@@ -2876,26 +2868,25 @@ class LapMessage extends DataMessage {
   }
 
   /// Returns the value of the maxTotalHemoglobinConc field. Returns null if the field is not defined in the message.
-  double? get maxTotalHemoglobinConc {
+  List<double>? get maxTotalHemoglobinConc {
     final field = getField(LapMaxTotalHemoglobinConcField.ID);
     if (field != null && field.isValid()) {
-      var subField = field.getValidSubField(fields);
-      return field.getValue(subField: subField);
+      return field.getValues();
     } else {
       return null;
     }
   }
 
   /// Sets the maxTotalHemoglobinConc field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
-  set maxTotalHemoglobinConc(double? value) {
+  set maxTotalHemoglobinConc(List<double>? value) {
     final field = getField(LapMaxTotalHemoglobinConcField.ID);
 
     if (field != null) {
       if (value == null) {
         field.clear();
       } else {
-        var subField = field.getValidSubField(fields);
-        field.setValue(0, value, subField);
+        final values = value;
+        field.setValues(values);
       }
     } else {
       throw FieldNotDefinedError(field!.name);
@@ -2903,26 +2894,25 @@ class LapMessage extends DataMessage {
   }
 
   /// Returns the value of the avgSaturatedHemoglobinPercent field. Returns null if the field is not defined in the message.
-  double? get avgSaturatedHemoglobinPercent {
+  List<double>? get avgSaturatedHemoglobinPercent {
     final field = getField(LapAvgSaturatedHemoglobinPercentField.ID);
     if (field != null && field.isValid()) {
-      var subField = field.getValidSubField(fields);
-      return field.getValue(subField: subField);
+      return field.getValues();
     } else {
       return null;
     }
   }
 
   /// Sets the avgSaturatedHemoglobinPercent field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
-  set avgSaturatedHemoglobinPercent(double? value) {
+  set avgSaturatedHemoglobinPercent(List<double>? value) {
     final field = getField(LapAvgSaturatedHemoglobinPercentField.ID);
 
     if (field != null) {
       if (value == null) {
         field.clear();
       } else {
-        var subField = field.getValidSubField(fields);
-        field.setValue(0, value, subField);
+        final values = value;
+        field.setValues(values);
       }
     } else {
       throw FieldNotDefinedError(field!.name);
@@ -2930,26 +2920,25 @@ class LapMessage extends DataMessage {
   }
 
   /// Returns the value of the minSaturatedHemoglobinPercent field. Returns null if the field is not defined in the message.
-  double? get minSaturatedHemoglobinPercent {
+  List<double>? get minSaturatedHemoglobinPercent {
     final field = getField(LapMinSaturatedHemoglobinPercentField.ID);
     if (field != null && field.isValid()) {
-      var subField = field.getValidSubField(fields);
-      return field.getValue(subField: subField);
+      return field.getValues();
     } else {
       return null;
     }
   }
 
   /// Sets the minSaturatedHemoglobinPercent field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
-  set minSaturatedHemoglobinPercent(double? value) {
+  set minSaturatedHemoglobinPercent(List<double>? value) {
     final field = getField(LapMinSaturatedHemoglobinPercentField.ID);
 
     if (field != null) {
       if (value == null) {
         field.clear();
       } else {
-        var subField = field.getValidSubField(fields);
-        field.setValue(0, value, subField);
+        final values = value;
+        field.setValues(values);
       }
     } else {
       throw FieldNotDefinedError(field!.name);
@@ -2957,26 +2946,25 @@ class LapMessage extends DataMessage {
   }
 
   /// Returns the value of the maxSaturatedHemoglobinPercent field. Returns null if the field is not defined in the message.
-  double? get maxSaturatedHemoglobinPercent {
+  List<double>? get maxSaturatedHemoglobinPercent {
     final field = getField(LapMaxSaturatedHemoglobinPercentField.ID);
     if (field != null && field.isValid()) {
-      var subField = field.getValidSubField(fields);
-      return field.getValue(subField: subField);
+      return field.getValues();
     } else {
       return null;
     }
   }
 
   /// Sets the maxSaturatedHemoglobinPercent field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
-  set maxSaturatedHemoglobinPercent(double? value) {
+  set maxSaturatedHemoglobinPercent(List<double>? value) {
     final field = getField(LapMaxSaturatedHemoglobinPercentField.ID);
 
     if (field != null) {
       if (value == null) {
         field.clear();
       } else {
-        var subField = field.getValidSubField(fields);
-        field.setValue(0, value, subField);
+        final values = value;
+        field.setValues(values);
       }
     } else {
       throw FieldNotDefinedError(field!.name);
@@ -3227,26 +3215,25 @@ class LapMessage extends DataMessage {
   }
 
   /// Returns the value of the avgLeftPowerPhase field. Returns null if the field is not defined in the message.
-  double? get avgLeftPowerPhase {
+  List<double>? get avgLeftPowerPhase {
     final field = getField(LapAvgLeftPowerPhaseField.ID);
     if (field != null && field.isValid()) {
-      var subField = field.getValidSubField(fields);
-      return field.getValue(subField: subField);
+      return field.getValues();
     } else {
       return null;
     }
   }
 
   /// Sets the avgLeftPowerPhase field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
-  set avgLeftPowerPhase(double? value) {
+  set avgLeftPowerPhase(List<double>? value) {
     final field = getField(LapAvgLeftPowerPhaseField.ID);
 
     if (field != null) {
       if (value == null) {
         field.clear();
       } else {
-        var subField = field.getValidSubField(fields);
-        field.setValue(0, value, subField);
+        final values = value;
+        field.setValues(values);
       }
     } else {
       throw FieldNotDefinedError(field!.name);
@@ -3254,26 +3241,25 @@ class LapMessage extends DataMessage {
   }
 
   /// Returns the value of the avgLeftPowerPhasePeak field. Returns null if the field is not defined in the message.
-  double? get avgLeftPowerPhasePeak {
+  List<double>? get avgLeftPowerPhasePeak {
     final field = getField(LapAvgLeftPowerPhasePeakField.ID);
     if (field != null && field.isValid()) {
-      var subField = field.getValidSubField(fields);
-      return field.getValue(subField: subField);
+      return field.getValues();
     } else {
       return null;
     }
   }
 
   /// Sets the avgLeftPowerPhasePeak field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
-  set avgLeftPowerPhasePeak(double? value) {
+  set avgLeftPowerPhasePeak(List<double>? value) {
     final field = getField(LapAvgLeftPowerPhasePeakField.ID);
 
     if (field != null) {
       if (value == null) {
         field.clear();
       } else {
-        var subField = field.getValidSubField(fields);
-        field.setValue(0, value, subField);
+        final values = value;
+        field.setValues(values);
       }
     } else {
       throw FieldNotDefinedError(field!.name);
@@ -3281,26 +3267,25 @@ class LapMessage extends DataMessage {
   }
 
   /// Returns the value of the avgRightPowerPhase field. Returns null if the field is not defined in the message.
-  double? get avgRightPowerPhase {
+  List<double>? get avgRightPowerPhase {
     final field = getField(LapAvgRightPowerPhaseField.ID);
     if (field != null && field.isValid()) {
-      var subField = field.getValidSubField(fields);
-      return field.getValue(subField: subField);
+      return field.getValues();
     } else {
       return null;
     }
   }
 
   /// Sets the avgRightPowerPhase field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
-  set avgRightPowerPhase(double? value) {
+  set avgRightPowerPhase(List<double>? value) {
     final field = getField(LapAvgRightPowerPhaseField.ID);
 
     if (field != null) {
       if (value == null) {
         field.clear();
       } else {
-        var subField = field.getValidSubField(fields);
-        field.setValue(0, value, subField);
+        final values = value;
+        field.setValues(values);
       }
     } else {
       throw FieldNotDefinedError(field!.name);
@@ -3308,26 +3293,25 @@ class LapMessage extends DataMessage {
   }
 
   /// Returns the value of the avgRightPowerPhasePeak field. Returns null if the field is not defined in the message.
-  double? get avgRightPowerPhasePeak {
+  List<double>? get avgRightPowerPhasePeak {
     final field = getField(LapAvgRightPowerPhasePeakField.ID);
     if (field != null && field.isValid()) {
-      var subField = field.getValidSubField(fields);
-      return field.getValue(subField: subField);
+      return field.getValues();
     } else {
       return null;
     }
   }
 
   /// Sets the avgRightPowerPhasePeak field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
-  set avgRightPowerPhasePeak(double? value) {
+  set avgRightPowerPhasePeak(List<double>? value) {
     final field = getField(LapAvgRightPowerPhasePeakField.ID);
 
     if (field != null) {
       if (value == null) {
         field.clear();
       } else {
-        var subField = field.getValidSubField(fields);
-        field.setValue(0, value, subField);
+        final values = value;
+        field.setValues(values);
       }
     } else {
       throw FieldNotDefinedError(field!.name);
@@ -3335,26 +3319,25 @@ class LapMessage extends DataMessage {
   }
 
   /// Returns the value of the avgPowerPosition field. Returns null if the field is not defined in the message.
-  int? get avgPowerPosition {
+  List<int>? get avgPowerPosition {
     final field = getField(LapAvgPowerPositionField.ID);
     if (field != null && field.isValid()) {
-      var subField = field.getValidSubField(fields);
-      return field.getValue(subField: subField);
+      return field.getValues();
     } else {
       return null;
     }
   }
 
   /// Sets the avgPowerPosition field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
-  set avgPowerPosition(int? value) {
+  set avgPowerPosition(List<int>? value) {
     final field = getField(LapAvgPowerPositionField.ID);
 
     if (field != null) {
       if (value == null) {
         field.clear();
       } else {
-        var subField = field.getValidSubField(fields);
-        field.setValue(0, value, subField);
+        final values = value;
+        field.setValues(values);
       }
     } else {
       throw FieldNotDefinedError(field!.name);
@@ -3362,26 +3345,25 @@ class LapMessage extends DataMessage {
   }
 
   /// Returns the value of the maxPowerPosition field. Returns null if the field is not defined in the message.
-  int? get maxPowerPosition {
+  List<int>? get maxPowerPosition {
     final field = getField(LapMaxPowerPositionField.ID);
     if (field != null && field.isValid()) {
-      var subField = field.getValidSubField(fields);
-      return field.getValue(subField: subField);
+      return field.getValues();
     } else {
       return null;
     }
   }
 
   /// Sets the maxPowerPosition field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
-  set maxPowerPosition(int? value) {
+  set maxPowerPosition(List<int>? value) {
     final field = getField(LapMaxPowerPositionField.ID);
 
     if (field != null) {
       if (value == null) {
         field.clear();
       } else {
-        var subField = field.getValidSubField(fields);
-        field.setValue(0, value, subField);
+        final values = value;
+        field.setValues(values);
       }
     } else {
       throw FieldNotDefinedError(field!.name);
@@ -3389,26 +3371,25 @@ class LapMessage extends DataMessage {
   }
 
   /// Returns the value of the avgCadencePosition field. Returns null if the field is not defined in the message.
-  int? get avgCadencePosition {
+  List<int>? get avgCadencePosition {
     final field = getField(LapAvgCadencePositionField.ID);
     if (field != null && field.isValid()) {
-      var subField = field.getValidSubField(fields);
-      return field.getValue(subField: subField);
+      return field.getValues();
     } else {
       return null;
     }
   }
 
   /// Sets the avgCadencePosition field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
-  set avgCadencePosition(int? value) {
+  set avgCadencePosition(List<int>? value) {
     final field = getField(LapAvgCadencePositionField.ID);
 
     if (field != null) {
       if (value == null) {
         field.clear();
       } else {
-        var subField = field.getValidSubField(fields);
-        field.setValue(0, value, subField);
+        final values = value;
+        field.setValues(values);
       }
     } else {
       throw FieldNotDefinedError(field!.name);
@@ -3416,26 +3397,25 @@ class LapMessage extends DataMessage {
   }
 
   /// Returns the value of the maxCadencePosition field. Returns null if the field is not defined in the message.
-  int? get maxCadencePosition {
+  List<int>? get maxCadencePosition {
     final field = getField(LapMaxCadencePositionField.ID);
     if (field != null && field.isValid()) {
-      var subField = field.getValidSubField(fields);
-      return field.getValue(subField: subField);
+      return field.getValues();
     } else {
       return null;
     }
   }
 
   /// Sets the maxCadencePosition field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
-  set maxCadencePosition(int? value) {
+  set maxCadencePosition(List<int>? value) {
     final field = getField(LapMaxCadencePositionField.ID);
 
     if (field != null) {
       if (value == null) {
         field.clear();
       } else {
-        var subField = field.getValidSubField(fields);
-        field.setValue(0, value, subField);
+        final values = value;
+        field.setValues(values);
       }
     } else {
       throw FieldNotDefinedError(field!.name);
@@ -3767,7 +3747,7 @@ class LapMessage extends DataMessage {
   }
 
   /// Returns the value of the totalGrit field. Returns null if the field is not defined in the message.
-  double? get totalGrit {
+  int? get totalGrit {
     final field = getField(LapTotalGritField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
@@ -3778,7 +3758,7 @@ class LapMessage extends DataMessage {
   }
 
   /// Sets the totalGrit field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
-  set totalGrit(double? value) {
+  set totalGrit(int? value) {
     final field = getField(LapTotalGritField.ID);
 
     if (field != null) {
@@ -3794,7 +3774,7 @@ class LapMessage extends DataMessage {
   }
 
   /// Returns the value of the totalFlow field. Returns null if the field is not defined in the message.
-  double? get totalFlow {
+  int? get totalFlow {
     final field = getField(LapTotalFlowField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
@@ -3805,7 +3785,7 @@ class LapMessage extends DataMessage {
   }
 
   /// Sets the totalFlow field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
-  set totalFlow(double? value) {
+  set totalFlow(int? value) {
     final field = getField(LapTotalFlowField.ID);
 
     if (field != null) {
@@ -3848,7 +3828,7 @@ class LapMessage extends DataMessage {
   }
 
   /// Returns the value of the avgGrit field. Returns null if the field is not defined in the message.
-  double? get avgGrit {
+  int? get avgGrit {
     final field = getField(LapAvgGritField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
@@ -3859,7 +3839,7 @@ class LapMessage extends DataMessage {
   }
 
   /// Sets the avgGrit field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
-  set avgGrit(double? value) {
+  set avgGrit(int? value) {
     final field = getField(LapAvgGritField.ID);
 
     if (field != null) {
@@ -3875,7 +3855,7 @@ class LapMessage extends DataMessage {
   }
 
   /// Returns the value of the avgFlow field. Returns null if the field is not defined in the message.
-  double? get avgFlow {
+  int? get avgFlow {
     final field = getField(LapAvgFlowField.ID);
     if (field != null && field.isValid()) {
       var subField = field.getValidSubField(fields);
@@ -3886,7 +3866,7 @@ class LapMessage extends DataMessage {
   }
 
   /// Sets the avgFlow field with [value]. Throws [FieldNotDefinedError] if the field is not defined in the message.
-  set avgFlow(double? value) {
+  set avgFlow(int? value) {
     final field = getField(LapAvgFlowField.ID);
 
     if (field != null) {
@@ -4094,7 +4074,7 @@ class LapStartPositionLatField extends Field {
             scale: 11930464.711111112,
             size: size,
             units: 'degrees',
-            mainTypeName: '',
+            mainTypeName: 'sint32',
             growable: growable,
             subFields: []);
 
@@ -4111,7 +4091,7 @@ class LapStartPositionLongField extends Field {
             scale: 11930464.711111112,
             size: size,
             units: 'degrees',
-            mainTypeName: '',
+            mainTypeName: 'sint32',
             growable: growable,
             subFields: []);
 
@@ -4128,7 +4108,7 @@ class LapEndPositionLatField extends Field {
             scale: 11930464.711111112,
             size: size,
             units: 'degrees',
-            mainTypeName: '',
+            mainTypeName: 'sint32',
             growable: growable,
             subFields: []);
 
@@ -4145,7 +4125,7 @@ class LapEndPositionLongField extends Field {
             scale: 11930464.711111112,
             size: size,
             units: 'degrees',
-            mainTypeName: '',
+            mainTypeName: 'sint32',
             growable: growable,
             subFields: []);
 
@@ -4162,7 +4142,7 @@ class LapTotalElapsedTimeField extends Field {
             scale: 1000,
             size: size,
             units: 's',
-            mainTypeName: '',
+            mainTypeName: 'uint32',
             growable: growable,
             subFields: []);
 
@@ -4179,7 +4159,7 @@ class LapTotalTimerTimeField extends Field {
             scale: 1000,
             size: size,
             units: 's',
-            mainTypeName: '',
+            mainTypeName: 'uint32',
             growable: growable,
             subFields: []);
 
@@ -4196,7 +4176,7 @@ class LapTotalDistanceField extends Field {
             scale: 100,
             size: size,
             units: 'm',
-            mainTypeName: '',
+            mainTypeName: 'uint32',
             growable: growable,
             subFields: []);
 
@@ -4213,7 +4193,7 @@ class LapTotalCyclesField extends Field {
             scale: 1,
             size: size,
             units: 'cycles',
-            mainTypeName: '',
+            mainTypeName: 'uint32',
             growable: growable,
             subFields: [
               SubField(
@@ -4249,7 +4229,7 @@ class LapTotalCaloriesField extends Field {
             scale: 1,
             size: size,
             units: 'kcal',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -4266,7 +4246,7 @@ class LapTotalFatCaloriesField extends Field {
             scale: 1,
             size: size,
             units: 'kcal',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -4283,7 +4263,7 @@ class LapAvgSpeedField extends Field {
             scale: 1000,
             size: size,
             units: 'm/s',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -4300,7 +4280,7 @@ class LapMaxSpeedField extends Field {
             scale: 1000,
             size: size,
             units: 'm/s',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -4317,7 +4297,7 @@ class LapAvgHeartRateField extends Field {
             scale: 1,
             size: size,
             units: 'bpm',
-            mainTypeName: '',
+            mainTypeName: 'uint8',
             growable: growable,
             subFields: []);
 
@@ -4334,7 +4314,7 @@ class LapMaxHeartRateField extends Field {
             scale: 1,
             size: size,
             units: 'bpm',
-            mainTypeName: '',
+            mainTypeName: 'uint8',
             growable: growable,
             subFields: []);
 
@@ -4351,7 +4331,7 @@ class LapAvgCadenceField extends Field {
             scale: 1,
             size: size,
             units: 'rpm',
-            mainTypeName: '',
+            mainTypeName: 'uint8',
             growable: growable,
             subFields: [
               SubField(
@@ -4378,7 +4358,7 @@ class LapMaxCadenceField extends Field {
             scale: 1,
             size: size,
             units: 'rpm',
-            mainTypeName: '',
+            mainTypeName: 'uint8',
             growable: growable,
             subFields: [
               SubField(
@@ -4405,7 +4385,7 @@ class LapAvgPowerField extends Field {
             scale: 1,
             size: size,
             units: 'watts',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -4422,7 +4402,7 @@ class LapMaxPowerField extends Field {
             scale: 1,
             size: size,
             units: 'watts',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -4439,7 +4419,7 @@ class LapTotalAscentField extends Field {
             scale: 1,
             size: size,
             units: 'm',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -4456,7 +4436,7 @@ class LapTotalDescentField extends Field {
             scale: 1,
             size: size,
             units: 'm',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -4533,7 +4513,7 @@ class LapNumLengthsField extends Field {
             scale: 1,
             size: size,
             units: 'lengths',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -4550,7 +4530,7 @@ class LapNormalizedPowerField extends Field {
             scale: 1,
             size: size,
             units: 'watts',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -4597,7 +4577,7 @@ class LapAvgStrokeDistanceField extends Field {
             scale: 100,
             size: size,
             units: 'm',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -4644,7 +4624,7 @@ class LapNumActiveLengthsField extends Field {
             scale: 1,
             size: size,
             units: 'lengths',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -4661,7 +4641,7 @@ class LapTotalWorkField extends Field {
             scale: 1,
             size: size,
             units: 'J',
-            mainTypeName: '',
+            mainTypeName: 'uint32',
             growable: growable,
             subFields: []);
 
@@ -4678,7 +4658,7 @@ class LapAvgAltitudeField extends Field {
             scale: 5,
             size: size,
             units: 'm',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -4695,7 +4675,7 @@ class LapMaxAltitudeField extends Field {
             scale: 5,
             size: size,
             units: 'm',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -4712,7 +4692,7 @@ class LapGpsAccuracyField extends Field {
             scale: 1,
             size: size,
             units: 'm',
-            mainTypeName: '',
+            mainTypeName: 'uint8',
             growable: growable,
             subFields: []);
 
@@ -4729,7 +4709,7 @@ class LapAvgGradeField extends Field {
             scale: 100,
             size: size,
             units: '%',
-            mainTypeName: '',
+            mainTypeName: 'sint16',
             growable: growable,
             subFields: []);
 
@@ -4746,7 +4726,7 @@ class LapAvgPosGradeField extends Field {
             scale: 100,
             size: size,
             units: '%',
-            mainTypeName: '',
+            mainTypeName: 'sint16',
             growable: growable,
             subFields: []);
 
@@ -4763,7 +4743,7 @@ class LapAvgNegGradeField extends Field {
             scale: 100,
             size: size,
             units: '%',
-            mainTypeName: '',
+            mainTypeName: 'sint16',
             growable: growable,
             subFields: []);
 
@@ -4780,7 +4760,7 @@ class LapMaxPosGradeField extends Field {
             scale: 100,
             size: size,
             units: '%',
-            mainTypeName: '',
+            mainTypeName: 'sint16',
             growable: growable,
             subFields: []);
 
@@ -4797,7 +4777,7 @@ class LapMaxNegGradeField extends Field {
             scale: 100,
             size: size,
             units: '%',
-            mainTypeName: '',
+            mainTypeName: 'sint16',
             growable: growable,
             subFields: []);
 
@@ -4814,7 +4794,7 @@ class LapAvgTemperatureField extends Field {
             scale: 1,
             size: size,
             units: 'C',
-            mainTypeName: '',
+            mainTypeName: 'sint8',
             growable: growable,
             subFields: []);
 
@@ -4831,7 +4811,7 @@ class LapMaxTemperatureField extends Field {
             scale: 1,
             size: size,
             units: 'C',
-            mainTypeName: '',
+            mainTypeName: 'sint8',
             growable: growable,
             subFields: []);
 
@@ -4848,7 +4828,7 @@ class LapTotalMovingTimeField extends Field {
             scale: 1000,
             size: size,
             units: 's',
-            mainTypeName: '',
+            mainTypeName: 'uint32',
             growable: growable,
             subFields: []);
 
@@ -4865,7 +4845,7 @@ class LapAvgPosVerticalSpeedField extends Field {
             scale: 1000,
             size: size,
             units: 'm/s',
-            mainTypeName: '',
+            mainTypeName: 'sint16',
             growable: growable,
             subFields: []);
 
@@ -4882,7 +4862,7 @@ class LapAvgNegVerticalSpeedField extends Field {
             scale: 1000,
             size: size,
             units: 'm/s',
-            mainTypeName: '',
+            mainTypeName: 'sint16',
             growable: growable,
             subFields: []);
 
@@ -4899,7 +4879,7 @@ class LapMaxPosVerticalSpeedField extends Field {
             scale: 1000,
             size: size,
             units: 'm/s',
-            mainTypeName: '',
+            mainTypeName: 'sint16',
             growable: growable,
             subFields: []);
 
@@ -4916,7 +4896,7 @@ class LapMaxNegVerticalSpeedField extends Field {
             scale: 1000,
             size: size,
             units: 'm/s',
-            mainTypeName: '',
+            mainTypeName: 'sint16',
             growable: growable,
             subFields: []);
 
@@ -4933,7 +4913,7 @@ class LapTimeInHrZoneField extends Field {
             scale: 1000,
             size: size,
             units: 's',
-            mainTypeName: '',
+            mainTypeName: 'uint32',
             growable: growable,
             subFields: []);
 
@@ -4950,7 +4930,7 @@ class LapTimeInSpeedZoneField extends Field {
             scale: 1000,
             size: size,
             units: 's',
-            mainTypeName: '',
+            mainTypeName: 'uint32',
             growable: growable,
             subFields: []);
 
@@ -4967,7 +4947,7 @@ class LapTimeInCadenceZoneField extends Field {
             scale: 1000,
             size: size,
             units: 's',
-            mainTypeName: '',
+            mainTypeName: 'uint32',
             growable: growable,
             subFields: []);
 
@@ -4984,7 +4964,7 @@ class LapTimeInPowerZoneField extends Field {
             scale: 1000,
             size: size,
             units: 's',
-            mainTypeName: '',
+            mainTypeName: 'uint32',
             growable: growable,
             subFields: []);
 
@@ -5016,7 +4996,7 @@ class LapMinAltitudeField extends Field {
             scale: 5,
             size: size,
             units: 'm',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -5033,7 +5013,7 @@ class LapMinHeartRateField extends Field {
             scale: 1,
             size: size,
             units: 'bpm',
-            mainTypeName: '',
+            mainTypeName: 'uint8',
             growable: growable,
             subFields: []);
 
@@ -5080,7 +5060,7 @@ class LapStrokeCountField extends Field {
             scale: 1,
             size: size,
             units: 'counts',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -5097,7 +5077,7 @@ class LapZoneCountField extends Field {
             scale: 1,
             size: size,
             units: 'counts',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -5114,7 +5094,7 @@ class LapAvgVerticalOscillationField extends Field {
             scale: 10,
             size: size,
             units: 'mm',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -5131,7 +5111,7 @@ class LapAvgStanceTimePercentField extends Field {
             scale: 100,
             size: size,
             units: 'percent',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -5148,7 +5128,7 @@ class LapAvgStanceTimeField extends Field {
             scale: 10,
             size: size,
             units: 'ms',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -5165,7 +5145,7 @@ class LapAvgFractionalCadenceField extends Field {
             scale: 128,
             size: size,
             units: 'rpm',
-            mainTypeName: '',
+            mainTypeName: 'uint8',
             growable: growable,
             subFields: []);
 
@@ -5182,7 +5162,7 @@ class LapMaxFractionalCadenceField extends Field {
             scale: 128,
             size: size,
             units: 'rpm',
-            mainTypeName: '',
+            mainTypeName: 'uint8',
             growable: growable,
             subFields: []);
 
@@ -5199,7 +5179,7 @@ class LapTotalFractionalCyclesField extends Field {
             scale: 128,
             size: size,
             units: 'cycles',
-            mainTypeName: '',
+            mainTypeName: 'uint8',
             growable: growable,
             subFields: []);
 
@@ -5231,7 +5211,7 @@ class LapAvgTotalHemoglobinConcField extends Field {
             scale: 100,
             size: size,
             units: 'g/dL',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -5248,7 +5228,7 @@ class LapMinTotalHemoglobinConcField extends Field {
             scale: 100,
             size: size,
             units: 'g/dL',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -5265,7 +5245,7 @@ class LapMaxTotalHemoglobinConcField extends Field {
             scale: 100,
             size: size,
             units: 'g/dL',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -5282,7 +5262,7 @@ class LapAvgSaturatedHemoglobinPercentField extends Field {
             scale: 10,
             size: size,
             units: '%',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -5299,7 +5279,7 @@ class LapMinSaturatedHemoglobinPercentField extends Field {
             scale: 10,
             size: size,
             units: '%',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -5316,7 +5296,7 @@ class LapMaxSaturatedHemoglobinPercentField extends Field {
             scale: 10,
             size: size,
             units: '%',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -5333,7 +5313,7 @@ class LapAvgLeftTorqueEffectivenessField extends Field {
             scale: 2,
             size: size,
             units: 'percent',
-            mainTypeName: '',
+            mainTypeName: 'uint8',
             growable: growable,
             subFields: []);
 
@@ -5350,7 +5330,7 @@ class LapAvgRightTorqueEffectivenessField extends Field {
             scale: 2,
             size: size,
             units: 'percent',
-            mainTypeName: '',
+            mainTypeName: 'uint8',
             growable: growable,
             subFields: []);
 
@@ -5367,7 +5347,7 @@ class LapAvgLeftPedalSmoothnessField extends Field {
             scale: 2,
             size: size,
             units: 'percent',
-            mainTypeName: '',
+            mainTypeName: 'uint8',
             growable: growable,
             subFields: []);
 
@@ -5384,7 +5364,7 @@ class LapAvgRightPedalSmoothnessField extends Field {
             scale: 2,
             size: size,
             units: 'percent',
-            mainTypeName: '',
+            mainTypeName: 'uint8',
             growable: growable,
             subFields: []);
 
@@ -5401,7 +5381,7 @@ class LapAvgCombinedPedalSmoothnessField extends Field {
             scale: 2,
             size: size,
             units: 'percent',
-            mainTypeName: '',
+            mainTypeName: 'uint8',
             growable: growable,
             subFields: []);
 
@@ -5418,7 +5398,7 @@ class LapTimeStandingField extends Field {
             scale: 1000,
             size: size,
             units: 's',
-            mainTypeName: '',
+            mainTypeName: 'uint32',
             growable: growable,
             subFields: []);
 
@@ -5450,7 +5430,7 @@ class LapAvgLeftPcoField extends Field {
             scale: 1,
             size: size,
             units: 'mm',
-            mainTypeName: '',
+            mainTypeName: 'sint8',
             growable: growable,
             subFields: []);
 
@@ -5467,7 +5447,7 @@ class LapAvgRightPcoField extends Field {
             scale: 1,
             size: size,
             units: 'mm',
-            mainTypeName: '',
+            mainTypeName: 'sint8',
             growable: growable,
             subFields: []);
 
@@ -5484,7 +5464,7 @@ class LapAvgLeftPowerPhaseField extends Field {
             scale: 0.7111111,
             size: size,
             units: 'degrees',
-            mainTypeName: '',
+            mainTypeName: 'uint8',
             growable: growable,
             subFields: []);
 
@@ -5501,7 +5481,7 @@ class LapAvgLeftPowerPhasePeakField extends Field {
             scale: 0.7111111,
             size: size,
             units: 'degrees',
-            mainTypeName: '',
+            mainTypeName: 'uint8',
             growable: growable,
             subFields: []);
 
@@ -5518,7 +5498,7 @@ class LapAvgRightPowerPhaseField extends Field {
             scale: 0.7111111,
             size: size,
             units: 'degrees',
-            mainTypeName: '',
+            mainTypeName: 'uint8',
             growable: growable,
             subFields: []);
 
@@ -5535,7 +5515,7 @@ class LapAvgRightPowerPhasePeakField extends Field {
             scale: 0.7111111,
             size: size,
             units: 'degrees',
-            mainTypeName: '',
+            mainTypeName: 'uint8',
             growable: growable,
             subFields: []);
 
@@ -5552,7 +5532,7 @@ class LapAvgPowerPositionField extends Field {
             scale: 1,
             size: size,
             units: 'watts',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -5569,7 +5549,7 @@ class LapMaxPowerPositionField extends Field {
             scale: 1,
             size: size,
             units: 'watts',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -5586,7 +5566,7 @@ class LapAvgCadencePositionField extends Field {
             scale: 1,
             size: size,
             units: 'rpm',
-            mainTypeName: '',
+            mainTypeName: 'uint8',
             growable: growable,
             subFields: []);
 
@@ -5603,7 +5583,7 @@ class LapMaxCadencePositionField extends Field {
             scale: 1,
             size: size,
             units: 'rpm',
-            mainTypeName: '',
+            mainTypeName: 'uint8',
             growable: growable,
             subFields: []);
 
@@ -5620,7 +5600,7 @@ class LapEnhancedAvgSpeedField extends Field {
             scale: 1000,
             size: size,
             units: 'm/s',
-            mainTypeName: '',
+            mainTypeName: 'uint32',
             growable: growable,
             subFields: []);
 
@@ -5637,7 +5617,7 @@ class LapEnhancedMaxSpeedField extends Field {
             scale: 1000,
             size: size,
             units: 'm/s',
-            mainTypeName: '',
+            mainTypeName: 'uint32',
             growable: growable,
             subFields: []);
 
@@ -5654,7 +5634,7 @@ class LapEnhancedAvgAltitudeField extends Field {
             scale: 5,
             size: size,
             units: 'm',
-            mainTypeName: '',
+            mainTypeName: 'uint32',
             growable: growable,
             subFields: []);
 
@@ -5671,7 +5651,7 @@ class LapEnhancedMinAltitudeField extends Field {
             scale: 5,
             size: size,
             units: 'm',
-            mainTypeName: '',
+            mainTypeName: 'uint32',
             growable: growable,
             subFields: []);
 
@@ -5688,7 +5668,7 @@ class LapEnhancedMaxAltitudeField extends Field {
             scale: 5,
             size: size,
             units: 'm',
-            mainTypeName: '',
+            mainTypeName: 'uint32',
             growable: growable,
             subFields: []);
 
@@ -5705,7 +5685,7 @@ class LapAvgLevMotorPowerField extends Field {
             scale: 1,
             size: size,
             units: 'watts',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -5722,7 +5702,7 @@ class LapMaxLevMotorPowerField extends Field {
             scale: 1,
             size: size,
             units: 'watts',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -5739,7 +5719,7 @@ class LapLevBatteryConsumptionField extends Field {
             scale: 2,
             size: size,
             units: 'percent',
-            mainTypeName: '',
+            mainTypeName: 'uint8',
             growable: growable,
             subFields: []);
 
@@ -5756,7 +5736,7 @@ class LapAvgVerticalRatioField extends Field {
             scale: 100,
             size: size,
             units: 'percent',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -5773,7 +5753,7 @@ class LapAvgStanceTimeBalanceField extends Field {
             scale: 100,
             size: size,
             units: 'percent',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -5790,7 +5770,7 @@ class LapAvgStepLengthField extends Field {
             scale: 10,
             size: size,
             units: 'mm',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -5807,7 +5787,7 @@ class LapAvgVamField extends Field {
             scale: 1000,
             size: size,
             units: 'm/s',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -5824,7 +5804,7 @@ class LapTotalGritField extends Field {
             scale: 1,
             size: size,
             units: 'kGrit',
-            mainTypeName: '',
+            mainTypeName: 'float32',
             growable: growable,
             subFields: []);
 
@@ -5841,7 +5821,7 @@ class LapTotalFlowField extends Field {
             scale: 1,
             size: size,
             units: 'Flow',
-            mainTypeName: '',
+            mainTypeName: 'float32',
             growable: growable,
             subFields: []);
 
@@ -5873,7 +5853,7 @@ class LapAvgGritField extends Field {
             scale: 1,
             size: size,
             units: 'kGrit',
-            mainTypeName: '',
+            mainTypeName: 'float32',
             growable: growable,
             subFields: []);
 
@@ -5890,7 +5870,7 @@ class LapAvgFlowField extends Field {
             scale: 1,
             size: size,
             units: 'Flow',
-            mainTypeName: '',
+            mainTypeName: 'float32',
             growable: growable,
             subFields: []);
 
@@ -5907,7 +5887,7 @@ class LapTotalFractionalAscentField extends Field {
             scale: 100,
             size: size,
             units: 'm',
-            mainTypeName: '',
+            mainTypeName: 'uint8',
             growable: growable,
             subFields: []);
 
@@ -5924,7 +5904,7 @@ class LapTotalFractionalDescentField extends Field {
             scale: 100,
             size: size,
             units: 'm',
-            mainTypeName: '',
+            mainTypeName: 'uint8',
             growable: growable,
             subFields: []);
 
@@ -5941,7 +5921,7 @@ class LapAvgCoreTemperatureField extends Field {
             scale: 100,
             size: size,
             units: 'C',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -5958,7 +5938,7 @@ class LapMinCoreTemperatureField extends Field {
             scale: 100,
             size: size,
             units: 'C',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
@@ -5975,7 +5955,7 @@ class LapMaxCoreTemperatureField extends Field {
             scale: 100,
             size: size,
             units: 'C',
-            mainTypeName: '',
+            mainTypeName: 'uint16',
             growable: growable,
             subFields: []);
 
