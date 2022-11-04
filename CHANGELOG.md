@@ -1,3 +1,7 @@
+## 1.0.3
+- Fix float developer fields
+- Fix for array fields
+
 ## 1.0.2
 - Fix static analysis issues
 
