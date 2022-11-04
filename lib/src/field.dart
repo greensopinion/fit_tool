@@ -292,20 +292,19 @@ class Field {
       final offset = getOffset(subField: subField);
       final type = getType(subField: subField);
 
-      if ((scale == null || scale == 1.0) && (offset == null || offset == 0.0)) {
+      if ((scale == null || scale == 1.0) &&
+          (offset == null || offset == 0.0)) {
         // no scaling
         return value;
-
       } else {
         final scale_ = scale ?? 1.0;
         final offset_ = offset ?? 0.0;
 
-        if (type.isFloat() ) {
+        if (type.isFloat()) {
           // if it's a float type, don't do any int conversion but apply scaling and offset
           encodedValue = (value + offset_) * scale;
         } else {
-          encodedValue =
-              scaleOffsetValue(value.toDouble(), scale_, offset_);
+          encodedValue = scaleOffsetValue(value.toDouble(), scale_, offset_);
         }
       }
     }
