@@ -111,5 +111,18 @@ void main() {
       final bigValue = BigInt.parse(value.toString()).toUnsigned(64);
       expect(BigInt.parse('18446744073709551615'), bigValue);
     });
+
+    test('Array field encoding', () {
+      final field = Field(
+          name: 'title',
+          type: BaseType.UINT32,
+          offset: 0.0,
+          scale: 1000.0,
+          units: 's',
+          growable: true);
+      field.setValues([1.0, 2.0, 3.0]);
+
+      expect(field.encodedValues, [1000, 2000, 3000]);
+    });
   });
 }

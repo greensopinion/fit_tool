@@ -246,7 +246,8 @@ class Field {
   void setValues(List<dynamic> values) {
     int index = 0;
     for (var value in values) {
-      setEncodedValue(index, value);
+      final encodedValue = encodeValue(value, null);
+      setEncodedValue(index, encodedValue);
       index++;
     }
   }

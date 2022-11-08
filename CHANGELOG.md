@@ -1,3 +1,6 @@
+## 1.0.5
+- Fix field array encoding
+
 ## 1.0.4
 - Make checking records an explicit option for performance.
   
