@@ -11,7 +11,7 @@ void main() {
     });
 
     test('does not evaluate a lazy message that is not logged', () {
-      logger = Logger(level: Level.nothing, output: _NoOpLogOutput());
+      logger = Logger(level: Level.off, output: _NoOpLogOutput());
       bool wasEvaluated = false;
       logger.i(LogMessage(() {
         wasEvaluated = true;
